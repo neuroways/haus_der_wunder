@@ -1,0 +1,14 @@
+{
+  "version": "0.5.1",
+  "hinweis": "Ziele im Teezimmer. annaehern = freier Gehpunkt (Kollisionsraster), sitz = Sitzpose (Augenhöhe 1,15 m, darf in der Möbelhülle liegen), blick = Blickrichtung am Ziel. yaw: 0 = Norden, +π/2 = Westen, π = Süden, −π/2 = Osten. Aktion musik öffnet ausschließlich den Musikplayer der PWA (kein automatischer Start).",
+  "ziele": {
+    "kartentisch": {"label": "Am Kartentisch Platz nehmen", "kurz": "Kartentisch", "objekte": ["T01", "T03", "CARDS", "O24"],
+      "annaehern": [12.1, 4.1], "sitz": {"x": 12.1, "y": 3.43, "yaw": 3.1416, "pitch": -0.36, "stand": [12.1, 4.1]}},
+    "spieluhr": {"label": "Zur Spieluhr", "kurz": "Spieluhr", "objekte": ["P08", "T06"], "aktion": "musik",
+      "annaehern": [13.95, 3.35], "blick": {"yaw": -1.5708, "pitch": -0.52}},
+    "sitzbank": {"label": "Auf der Bank Platz nehmen", "kurz": "Sitzbank", "objekte": ["T02", "O04"],
+      "annaehern": [12.65, 1.6], "sitz": {"x": 12.65, "y": 0.86, "yaw": 0.0, "pitch": -0.22, "stand": [12.65, 1.6]}},
+    "lesesessel": {"label": "Im Lesesessel Platz nehmen", "kurz": "Lesesessel", "objekte": ["T07"],
+      "annaehern": [14.1, 2.3], "sitz": {"x": 14.92, "y": 2.3, "yaw": 1.5708, "pitch": -0.12, "stand": [14.1, 2.3]}}
+  }
+}

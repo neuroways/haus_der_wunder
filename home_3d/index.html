@@ -1,0 +1,78 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Das Haus der kleinen Wunder · 3D v0.5.2</title>
+<link rel="icon" href="data:,">
+<style>
+:root{color-scheme:dark;--ink:#f4e9d6;--panel:#102b3ae0;--line:#9a927b88;--gold:#e8c980}
+*{box-sizing:border-box}body{margin:0;overflow:hidden;background:#112534;color:var(--ink);font:15px system-ui,sans-serif}canvas{display:block}
+#ui{position:fixed;inset:0;pointer-events:none}
+#top{pointer-events:auto;position:absolute;top:calc(env(safe-area-inset-top,0px) + 10px);left:10px;right:10px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+#top>*{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 11px;color:#fff;font:inherit;min-height:40px}
+button,select{cursor:pointer}button:focus-visible,select:focus-visible,h2:focus-visible{outline:3px solid var(--gold)}
+button.active{background:#74613d}
+#options{display:none}
+#minimap{pointer-events:auto;position:absolute;right:10px;top:calc(env(safe-area-inset-top,0px) + 62px);width:180px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px}
+#minimap h2{font-size:12px;margin:0;color:#f3dcad;font-weight:600;cursor:pointer;user-select:none}
+#minimap h2::after{content:'  ▾'}#minimap.collapsed h2::after{content:'  ▸'}
+#mapcanvas{display:block;width:100%;margin-top:6px;border-radius:6px;cursor:pointer}#minimap.collapsed #mapcanvas{display:none}
+#crosshair{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:24px;color:#ffd8979c}
+#orient{position:absolute;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);transform:translateX(-50%);background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:7px 13px;font-size:12px;white-space:nowrap}
+#status{position:absolute;right:10px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);background:#102b3acc;padding:7px 9px;border-radius:8px;font-size:11px}
+#route-indicator{position:absolute;left:50%;top:56%;transform:translateX(-50%);font-size:12px;background:#102b3ac9;border-radius:8px;padding:6px 9px;display:none}#route-indicator.show{display:block}
+#object-info{position:absolute;left:50%;top:calc(env(safe-area-inset-top,0px) + 64px);transform:translateX(-50%);background:#122d3deb;border:1px solid #bda27c;border-radius:12px;padding:10px 15px;color:#fff3dd;font-size:13px;text-align:center;max-width:80vw}#object-info[hidden]{display:none}
+#loading{position:absolute;inset:0;background:#112534;display:grid;place-items:center;align-content:center;gap:10px;padding:25px;text-align:center;pointer-events:auto}
+#loading.hidden{display:none}#loading.error{background:#1c2430}#loading .err-title{font-weight:600;color:#f3c58a;font-size:17px}#loading small{opacity:.7;max-width:36em;word-break:break-word}
+#loading button{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 16px;color:#fff;font:inherit}
+@media(max-width:650px),(max-height:500px){#top{font-size:13px;gap:4px}#top>*{padding:7px 9px}#options{display:inline-block}
+ #top:not(.advanced) .adv{display:none}#minimap{width:150px;top:calc(env(safe-area-inset-top,0px) + 60px)}#status{display:none}#orient{font-size:11px}}
+#stair{pointer-events:auto;position:absolute;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 104px);transform:translateX(-50%);background:#74613df0;border:1px solid var(--gold);border-radius:12px;padding:10px 16px;color:#fff;font:inherit;min-height:44px}#stair[hidden]{display:none}
+#actions{pointer-events:auto;position:absolute;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 52px);display:flex;gap:8px;flex-wrap:wrap-reverse;justify-content:center;width:max-content;max-width:94vw}#actions[hidden]{display:none}
+#actions button{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:10px 16px;color:#fff;font:inherit;min-height:44px;white-space:nowrap}#actions button.primary{background:#74613df0;border-color:var(--gold)}
+.sheet{pointer-events:auto;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(88vw,400px);background:#132f3ef5;border:1px solid #c7a772;border-radius:14px;padding:16px 18px;font-size:14px;line-height:1.45}.sheet[hidden]{display:none}.sheet button{margin-top:6px;background:#d3b47f;color:#122631;border:0;border-radius:14px;padding:10px 16px;min-height:44px;font:inherit}
+#mode-toggle{display:flex;padding:0!important;overflow:hidden}#mode-toggle button{background:transparent;border:0;color:#d9d2c3;font:inherit;padding:8px 12px;min-height:40px}#mode-toggle button[aria-pressed=true]{background:#74613d;color:#fff}
+#stick{pointer-events:auto;position:absolute;left:calc(env(safe-area-inset-left,0px) + 22px);bottom:calc(env(safe-area-inset-bottom,0px) + 112px);width:120px;height:120px;border-radius:50%;background:#10283766;border:1px solid #d6c5a588;touch-action:none}#stick[hidden]{display:none}#stick .knob{position:absolute;left:50%;top:50%;width:52px;height:52px;border-radius:50%;background:#d9b778cc;transform:translate(-50%,-50%)}#stick.active{background:#10283799}
+.sheet .choice{display:block;width:100%;text-align:left;margin:8px 0;background:#1b4750;color:#fff0d4;border:1px solid #b69a61}.sheet .choice small{color:#cfd9d6}
+body[data-mode=pro] #crosshair{color:#ffe2aa;font-size:30px}
+#level-view{pointer-events:auto;position:absolute;right:calc(env(safe-area-inset-right,0px) + 12px);top:50%;transform:translateY(-50%);background:var(--panel);border:1px solid var(--gold);border-radius:20px;padding:9px 13px;color:#fff;font:inherit;font-size:13px;min-height:44px}#level-view[hidden]{display:none}
+#room-toast{position:absolute;left:50%;top:32%;transform:translateX(-50%);font-size:20px;letter-spacing:.04em;color:#fff3dd;text-shadow:0 1px 8px #000a;opacity:0;transition:opacity .5s;pointer-events:none}#room-toast.show{opacity:1}
+#fade{position:absolute;inset:0;background:#0d1b26;opacity:0;transition:opacity .25s;pointer-events:none}#fade.on{opacity:1}
+@media(max-width:400px){#room{max-width:36vw}#mode-toggle button{padding:7px 9px}#top>*{padding:7px 8px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+<script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/examples/jsm/"}}</script>
+</head><body>
+<div id="ui">
+ <div id="top">
+  <select id="room" aria-label="Raum wählen"></select>
+  <div id="mode-toggle" role="group" aria-label="Steuerung"><button data-mode="basic" aria-pressed="true">Basic</button><button data-mode="pro" aria-pressed="false">Pro</button></div>
+  <button id="options" aria-expanded="false">Optionen</button>
+  <button id="reset" class="adv">Kamera zurücksetzen</button>
+  <button id="walls" class="adv active" aria-pressed="true">Ausstattung: an</button>
+  <button id="matcheck" class="adv active" aria-pressed="true">Materialien: an</button>
+  <button id="decals" class="adv active" aria-pressed="true" title="Bodenmarkierung für Möbel ohne fertiges Modell">Stellflächen: an</button>
+  <button id="hulls" class="adv" aria-pressed="false" title="Unsichtbare Platzhalter des Registers zur Planung einblenden">Planungshüllen: aus</button>
+  <button id="bob" class="adv" aria-pressed="true">Schrittbewegung: an</button>
+ </div>
+ <div id="crosshair" aria-hidden="true">·</div>
+ <div id="minimap" class="collapsed"><h2 role="button" tabindex="0">Raumkarte anzeigen</h2><canvas id="mapcanvas" aria-label="Maßstäbliche Raumkarte Erdgeschoss"></canvas></div>
+ <div id="object-info" hidden></div>
+ <div id="route-indicator" role="status"></div>
+ <div id="orient"></div>
+ <div id="stick" hidden aria-label="Bewegungsstick"><div class="knob"></div></div>
+ <div id="mode-choice" class="sheet" role="dialog" aria-label="Steuerung wählen" hidden>
+  <p><strong>Wie möchtest du dich bewegen?</strong></p>
+  <button data-mode="basic" class="choice"><b>Basic</b><br><small>Tippen oder klicken, um hinzugehen. Wischen, um dich umzusehen. Zum Entdecken.</small></button>
+  <button data-mode="pro" class="choice"><b>Pro</b><br><small>WASD und Pfeiltasten, Maus zum Umsehen – auf Touchgeräten ein Daumen-Stick.</small></button>
+  <p><small>Jederzeit oben umschaltbar.</small></p>
+ </div>
+ <div id="actions" hidden></div>
+ <button id="level-view" hidden aria-label="Blick waagerecht ausrichten">⟷ Blick gerade</button>
+ <div id="room-toast" aria-live="polite"></div>
+ <button id="stair" hidden>Treppe</button>
+ <div id="music-hint" class="sheet" role="dialog" aria-label="Musik" hidden><p><strong>♪ Spieluhr</strong></p><p>Die Musik spielt über den Musikplayer der App „Ein Moment für dich“. Öffne das Haus der kleinen Wunder aus der App heraus, dann öffnet die Spieluhr dort den Player.</p><button id="music-hint-close">Verstanden</button></div>
+ <div id="fade" aria-hidden="true"></div>
+ <div id="status">v0.5.2</div>
+ <div id="loading" data-state="loading"><p id="loading-text">Starte 3D-Ansicht …</p><noscript>Für die 3D-Ansicht wird JavaScript benötigt.</noscript></div>
+</div>
+<script type="module" src="./src/boot.js"></script>
+</body></html>

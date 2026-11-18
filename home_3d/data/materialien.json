@@ -1,0 +1,9 @@
+{
+  "version": "0.5.0",
+  "hinweis": "Arbeitsstand. Texturen stammen aus P2 v0.4.3; keine neue Materialfreigabe. tile_m = reale Kantenlänge einer Texturkachel in Metern.",
+  "materialien": {
+    "MAT-PUTZ": {"datei": "assets/materials/MAT-putz-P2.png", "tile_m": 1.0, "farbe": "#efe6d8", "rauheit": 0.95, "status": "P2-Entwurf", "flaechen": {"material": "wall"}},
+    "MAT-01-WALNUSS": {"datei": "assets/materials/MAT-01-walnuss-P2.png", "tile_m": 1.9, "farbe": "#ffffff", "rauheit": 0.9, "status": "P2-Entwurf (P08-Test)", "flaechen": {"namen": ["Teezimmer EG"]}},
+    "TW-04": {"datei": "assets/materials/TW-04.png", "tile_m": 1.45, "status": "Akzentpaneel Teezimmer Ostwand, keine Vollwandfreigabe", "flaechen": {"objekt": "Teezimmer-Studien Paneel"}}
+  }
+}

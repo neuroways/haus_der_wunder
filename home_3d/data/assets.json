@@ -1,0 +1,7 @@
+{
+  "version": "0.5.0",
+  "hinweis": "Wiederverwendbare Objekt-Assets. ersetzt = IDs der Formstudien-Teile, die beim Laden des Assets aus der Szene entfernt werden (keine parallele Darstellung).",
+  "assets": [
+    {"id": "T01", "datei": "assets/objects/T01-kartentisch.glb", "meta": "assets/objects/T01-kartentisch.asset.json", "ersetzt": ["T01"], "status": "Erkennungsmodell v0.5.0"}
+  ]
+}

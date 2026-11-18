@@ -1,0 +1,217 @@
+{
+  "swinging": [
+    {
+      "id": "D01 Eingang",
+      "width_m": 1.2,
+      "hinge": [
+        5.4,
+        0.4,
+        0
+      ],
+      "swing_deg": [
+        0,
+        90
+      ],
+      "collisions_sampled": [],
+      "status": "PASS_SAMPLE"
+    },
+    {
+      "id": "D02 Halle Tee",
+      "width_m": 1,
+      "hinge": [
+        9.6,
+        1.8,
+        0
+      ],
+      "swing_deg": [
+        90,
+        0
+      ],
+      "collisions_sampled": [],
+      "status": "PASS_SAMPLE"
+    },
+    {
+      "id": "D03 Halle Kueche",
+      "width_m": 1,
+      "hinge": [
+        1.5,
+        4.8,
+        0
+      ],
+      "swing_deg": [
+        0,
+        90
+      ],
+      "collisions_sampled": [],
+      "status": "PASS_SAMPLE"
+    },
+    {
+      "id": "D04 Halle Hof NEU",
+      "width_m": 1,
+      "hinge": [
+        8.2,
+        4.8,
+        0
+      ],
+      "swing_deg": [
+        0,
+        90
+      ],
+      "collisions_sampled": [],
+      "status": "PASS_SAMPLE"
+    },
+    {
+      "id": "D05 Kueche Hof NEU",
+      "width_m": 1,
+      "hinge": [
+        5.2,
+        7.7,
+        0
+      ],
+      "swing_deg": [
+        90,
+        180
+      ],
+      "collisions_sampled": [],
+      "status": "PASS_SAMPLE"
+    },
+    {
+      "id": "D06 Musik Hof",
+      "width_m": 1,
+      "hinge": [
+        6.5,
+        9,
+        0
+      ],
+      "swing_deg": [
+        0,
+        90
+      ],
+      "collisions_sampled": [],
+      "status": "PASS_SAMPLE"
+    },
+    {
+      "id": "D07 Atelier Hof",
+      "width_m": 1,
+      "hinge": [
+        9.7,
+        9,
+        0
+      ],
+      "swing_deg": [
+        0,
+        90
+      ],
+      "collisions_sampled": [],
+      "status": "PASS_SAMPLE"
+    },
+    {
+      "id": "D08 Galerie Bibliothek",
+      "width_m": 1,
+      "hinge": [
+        1.5,
+        9,
+        3.2
+      ],
+      "swing_deg": [
+        0,
+        90
+      ],
+      "collisions_sampled": [],
+      "status": "PASS_SAMPLE"
+    },
+    {
+      "id": "D09 Balkon Bibliothek NEU",
+      "width_m": 1,
+      "hinge": [
+        3.95,
+        9,
+        3.2
+      ],
+      "swing_deg": [
+        0,
+        90
+      ],
+      "collisions_sampled": [],
+      "status": "PASS_SAMPLE"
+    },
+    {
+      "id": "D10 Bibliothek Fenster",
+      "width_m": 1,
+      "hinge": [
+        3.4,
+        12.6,
+        3.2
+      ],
+      "swing_deg": [
+        0,
+        90
+      ],
+      "collisions_sampled": [],
+      "status": "PASS_SAMPLE"
+    },
+    {
+      "id": "D12 Schlaf Bad",
+      "width_m": 1,
+      "hinge": [
+        9.7,
+        12.6,
+        3.2
+      ],
+      "swing_deg": [
+        0,
+        90
+      ],
+      "collisions_sampled": [],
+      "status": "PASS_SAMPLE"
+    }
+  ],
+  "sliding": [
+    {
+      "id": "D11",
+      "x": 8.1,
+      "y": 9.6,
+      "clear_width_m": 1,
+      "axis": "V"
+    },
+    {
+      "id": "D13",
+      "x": 3.45,
+      "y": 2,
+      "clear_width_m": 1.1,
+      "axis": "V"
+    },
+    {
+      "id": "D14",
+      "x": 3.7,
+      "y": 5.2,
+      "clear_width_m": 1,
+      "axis": "V"
+    },
+    {
+      "id": "D15",
+      "x": 2.2,
+      "y": 3.45,
+      "clear_width_m": 1,
+      "axis": "H"
+    },
+    {
+      "id": "D16",
+      "x": 11.5,
+      "y": 7,
+      "clear_width_m": 1,
+      "axis": "V"
+    }
+  ],
+  "open_passage": {
+    "id": "O01",
+    "room_a": "Teezimmer",
+    "room_b": "Wintergarten",
+    "x": [
+      12.2,
+      15
+    ],
+    "y": 4.7,
+    "width_m": 2.8
+  }
+}

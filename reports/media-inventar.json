@@ -1,0 +1,1815 @@
+{
+ "tool": "emfd-media-check/1.0",
+ "generatedAt": "2026-11-18T16:32:33+00:00",
+ "mediaRoot": "media",
+ "files": [
+  {
+   "path": "MEDIEN-KONVENTION.md",
+   "folder": ".",
+   "bytes": 4914,
+   "sha256": "ad4a5e63507753c1059656cc95386019350332176fd69aca4e4d7d378c0464e6",
+   "kind": "support"
+  },
+  {
+   "path": "cards/fronts/O01-front-r2-21eca783.png",
+   "folder": "cards/fronts",
+   "bytes": 2185143,
+   "sha256": "21eca783770b95cd4502098743469febf83018983a2179fa293dd66fefecb40a",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O01",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "21eca783"
+  },
+  {
+   "path": "cards/fronts/O02-front-r2-512eeca7.png",
+   "folder": "cards/fronts",
+   "bytes": 2173452,
+   "sha256": "512eeca7c006201a1d1ac654cb2a4869aba5be824b4743335e25bcae5487b442",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O02",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "512eeca7"
+  },
+  {
+   "path": "cards/fronts/O03-front-r2-855957b9.png",
+   "folder": "cards/fronts",
+   "bytes": 2038717,
+   "sha256": "855957b93caed85accd21eda55a36a57a2372096fc5630e16db7fcdd29ec288e",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O03",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "855957b9"
+  },
+  {
+   "path": "cards/fronts/O04-front-r2-4c1f37fb.png",
+   "folder": "cards/fronts",
+   "bytes": 2144432,
+   "sha256": "4c1f37fb408b42deea55f08d708dc4bf9754e87058fd5daf770299865ea2b488",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O04",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "4c1f37fb"
+  },
+  {
+   "path": "cards/fronts/O05-front-r2-8ad22072.png",
+   "folder": "cards/fronts",
+   "bytes": 2381883,
+   "sha256": "8ad220724d29ee327f8e5b5703e477bda5447dc0c249382275a04c0d991c09eb",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O05",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "8ad22072"
+  },
+  {
+   "path": "cards/fronts/O06-front-r2-ba9ec012.png",
+   "folder": "cards/fronts",
+   "bytes": 2250476,
+   "sha256": "ba9ec012e32e99e2149155f6f8412deac94cac3e24d8d49275158a7585756043",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O06",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "ba9ec012"
+  },
+  {
+   "path": "cards/fronts/O07-front-r2-1b0edb88.png",
+   "folder": "cards/fronts",
+   "bytes": 1500622,
+   "sha256": "1b0edb8898d5234063270c3b6bea9ffe6ec169f73ae60d2db5c398b4aca9aa13",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O07",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "1b0edb88"
+  },
+  {
+   "path": "cards/fronts/O08-front-r2-1bd052f1.png",
+   "folder": "cards/fronts",
+   "bytes": 1974049,
+   "sha256": "1bd052f1fdc7ff04901f3a1f283ff564fe303b9118bc3157c90c0530f7da4780",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O08",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "1bd052f1"
+  },
+  {
+   "path": "cards/fronts/O09-front-r2-a8c90829.png",
+   "folder": "cards/fronts",
+   "bytes": 2291045,
+   "sha256": "a8c90829733e27417115f04122247fbdae22a964d3001e248c280052ba9a6f0b",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O09",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "a8c90829"
+  },
+  {
+   "path": "cards/fronts/O10-front-r2-b8fd07b7.png",
+   "folder": "cards/fronts",
+   "bytes": 2210938,
+   "sha256": "b8fd07b7c6c91ed044d78f817b88fbfc747d2935970ba069e4380436fd876ace",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O10",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "b8fd07b7"
+  },
+  {
+   "path": "cards/fronts/O11-front-r2-81deeae0.png",
+   "folder": "cards/fronts",
+   "bytes": 2069312,
+   "sha256": "81deeae0adc775b6c253a9f961c2b220ee8c71be47ca66f9b525a7a27b8b8384",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O11",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "81deeae0"
+  },
+  {
+   "path": "cards/fronts/O12-front-r2-44b7e744.png",
+   "folder": "cards/fronts",
+   "bytes": 2024114,
+   "sha256": "44b7e744897a8035111e60d402b3d3d0e276a61b5629e54faaeddea7bd9e6b11",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O12",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "44b7e744"
+  },
+  {
+   "path": "cards/fronts/O13-front-r2-84b39927.png",
+   "folder": "cards/fronts",
+   "bytes": 2193231,
+   "sha256": "84b399278659c41e9d1601e6480835fe2eb6fa28549bc5d43678c215d4719e28",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O13",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "84b39927"
+  },
+  {
+   "path": "cards/fronts/O14-front-r2-dfc3bc61.png",
+   "folder": "cards/fronts",
+   "bytes": 2153324,
+   "sha256": "dfc3bc61cee7fb95bf06b5c6d40b80bf27a77f3b5d9e973a351ee47f5c5d704d",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O14",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "dfc3bc61"
+  },
+  {
+   "path": "cards/fronts/O15-front-r2-7da93928.png",
+   "folder": "cards/fronts",
+   "bytes": 2528704,
+   "sha256": "7da93928fed231ed09deb9809e4017c5b805d5ad70308cd6bc34348daf65a514",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O15",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "7da93928"
+  },
+  {
+   "path": "cards/fronts/O16-front-r2-89bb780f.png",
+   "folder": "cards/fronts",
+   "bytes": 2372457,
+   "sha256": "89bb780f955638bc7629c1438dc538432b5e8491ccbb3aade5081cf5d12427ec",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O16",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "89bb780f"
+  },
+  {
+   "path": "cards/fronts/O17-front-r2-4636421b.png",
+   "folder": "cards/fronts",
+   "bytes": 2337001,
+   "sha256": "4636421b7ff05b5ab999922b65052ecd0715f9c8ce4cf006a1d887507f7bfec2",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O17",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "4636421b"
+  },
+  {
+   "path": "cards/fronts/O18-front-r2-c2a2f9d8.png",
+   "folder": "cards/fronts",
+   "bytes": 1859837,
+   "sha256": "c2a2f9d8428009951c534b37dc1fa9a5eb2960e9cb1475987344c3c5aace4c28",
+   "width": 896,
+   "height": 1536,
+   "kind": "front",
+   "id": "O18",
+   "rev": 2,
+   "variant": null,
+   "nameHash": "c2a2f9d8"
+  },
+  {
+   "path": "covers/O04-cover-r1-d7ace5fa.png",
+   "folder": "covers",
+   "bytes": 2428755,
+   "sha256": "d7ace5facce9f984fbc680c6a3d32521c088e61943ddfddecfb0e709a8f99f5a",
+   "width": 1254,
+   "height": 1254,
+   "kind": "cover",
+   "id": "O04",
+   "rev": 1,
+   "variant": null,
+   "nameHash": "d7ace5fa"
+  },
+  {
+   "path": "covers/O06-cover-r1-8e23a947.png",
+   "folder": "covers",
+   "bytes": 2147271,
+   "sha256": "8e23a9470099c409a29ec6a33864ba0ebc332de72bfe6e509b15f420a04f47c9",
+   "width": 1254,
+   "height": 1254,
+   "kind": "cover",
+   "id": "O06",
+   "rev": 1,
+   "variant": null,
+   "nameHash": "8e23a947"
+  },
+  {
+   "path": "covers/O24-cover-r1-054b4da2.png",
+   "folder": "covers",
+   "bytes": 2606872,
+   "sha256": "054b4da28f09a6852c252d80e9566c26d823c391e000dd3425c7c3d70af1d528",
+   "width": 1254,
+   "height": 1254,
+   "kind": "cover",
+   "id": "O24",
+   "rev": 1,
+   "variant": null,
+   "nameHash": "054b4da2"
+  },
+  {
+   "path": "katalog/index.html",
+   "folder": "katalog",
+   "bytes": 15888,
+   "sha256": "661a44edf28bf65b8a2f00ed7d1b68eaa0a0a38f02482dfd079cdf345ed4b0ae",
+   "kind": "support"
+  },
+  {
+   "path": "manifest.schema.json",
+   "folder": ".",
+   "bytes": 6113,
+   "sha256": "79cc113b5ce8986e04140181cb1793341af2c4b64ca992493be97d0e9926f16a",
+   "kind": "support"
+  },
+  {
+   "path": "media-loader.js",
+   "folder": ".",
+   "bytes": 19035,
+   "sha256": "6268441e30dce2cfc0b7e8b13bc5beb1679f044d2d3472d03a5f882f5bfe1732",
+   "kind": "support"
+  },
+  {
+   "path": "media-loader.mjs",
+   "folder": ".",
+   "bytes": 670,
+   "sha256": "c8660aa25c1b660187456b6cb2ed1a96ede1eb0057361325ff1a3e3b7baf0c78",
+   "kind": "support"
+  },
+  {
+   "path": "optimized/cards/O01-210x360-r2-cf504e3af4.webp",
+   "folder": "optimized/cards",
+   "bytes": 21744,
+   "sha256": "cf504e3af46e20db06b150701ba6e9804d2e163f8b3fd86ad1d8b86a8c76e264",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O01",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "cf504e3af4"
+  },
+  {
+   "path": "optimized/cards/O01-630x1080-r2-40012d6477.webp",
+   "folder": "optimized/cards",
+   "bytes": 145784,
+   "sha256": "40012d6477fdff8d1eb6ab4740392ed2cfa6a02f50d9ca8b57d7658881f8bc04",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O01",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "40012d6477"
+  },
+  {
+   "path": "optimized/cards/O01-896x1536-r2-3802406a5d.webp",
+   "folder": "optimized/cards",
+   "bytes": 248840,
+   "sha256": "3802406a5d48c6b58663f448aff9532c02ace9857ae02436529e8ff5bcbb5ff7",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O01",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "3802406a5d"
+  },
+  {
+   "path": "optimized/cards/O02-210x360-r2-6203e53312.webp",
+   "folder": "optimized/cards",
+   "bytes": 22176,
+   "sha256": "6203e53312fefffc2804d540343fe445f7228b5809a86058af7d4c7f36007abb",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O02",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "6203e53312"
+  },
+  {
+   "path": "optimized/cards/O02-630x1080-r2-b1f9dea9fe.webp",
+   "folder": "optimized/cards",
+   "bytes": 149496,
+   "sha256": "b1f9dea9fe68f542cb76239fba9e7809b7a931b428aa7f89372a4b2a462ba1e7",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O02",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "b1f9dea9fe"
+  },
+  {
+   "path": "optimized/cards/O02-896x1536-r2-7166c6f234.webp",
+   "folder": "optimized/cards",
+   "bytes": 257890,
+   "sha256": "7166c6f2342121d275abff96248f13048465f74b9c05b21f1d9a494f071b52ed",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O02",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "7166c6f234"
+  },
+  {
+   "path": "optimized/cards/O03-210x360-r2-cebbdadcf6.webp",
+   "folder": "optimized/cards",
+   "bytes": 20934,
+   "sha256": "cebbdadcf670e82f7335177bbedf0fe5dc669c11af5b25aaee622ba4133eac73",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O03",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "cebbdadcf6"
+  },
+  {
+   "path": "optimized/cards/O03-630x1080-r2-c64db9e0aa.webp",
+   "folder": "optimized/cards",
+   "bytes": 127602,
+   "sha256": "c64db9e0aa52ffd4b91975026cbbaa7960793834915d8ef5cc6ed0956227ecb0",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O03",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "c64db9e0aa"
+  },
+  {
+   "path": "optimized/cards/O03-896x1536-r2-7d75f35827.webp",
+   "folder": "optimized/cards",
+   "bytes": 208848,
+   "sha256": "7d75f358278c6deae90287b446b7aa79da5112cb9bd9186df9ff5c27b90fd645",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O03",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "7d75f35827"
+  },
+  {
+   "path": "optimized/cards/O04-210x360-r2-6e0c04602b.webp",
+   "folder": "optimized/cards",
+   "bytes": 22976,
+   "sha256": "6e0c04602b155d6fdff5c256c5f590e2de1b005f50fb1898c06cc11162a7553f",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O04",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "6e0c04602b"
+  },
+  {
+   "path": "optimized/cards/O04-630x1080-r2-591713b4ff.webp",
+   "folder": "optimized/cards",
+   "bytes": 140290,
+   "sha256": "591713b4ff800e2a1e7654fe7766ee475032062ea5d0d66cee7ff0978d950c75",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O04",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "591713b4ff"
+  },
+  {
+   "path": "optimized/cards/O04-896x1536-r2-6c5dc04d67.webp",
+   "folder": "optimized/cards",
+   "bytes": 242618,
+   "sha256": "6c5dc04d67d9d3881ae5b55d6d640601eed0bf0efd03a99f351532a0237a869c",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O04",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "6c5dc04d67"
+  },
+  {
+   "path": "optimized/cards/O05-210x360-r2-d65b9ecfcc.webp",
+   "folder": "optimized/cards",
+   "bytes": 31798,
+   "sha256": "d65b9ecfcc22fd2ad0a853a2b386ba4534f65c0b0e4998387690180a9802783b",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O05",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "d65b9ecfcc"
+  },
+  {
+   "path": "optimized/cards/O05-630x1080-r2-1577b496a1.webp",
+   "folder": "optimized/cards",
+   "bytes": 197008,
+   "sha256": "1577b496a13f6b690930ac01211c80e671461118dad4360229d91c8b4bfe4683",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O05",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "1577b496a1"
+  },
+  {
+   "path": "optimized/cards/O05-896x1536-r2-9452de2d68.webp",
+   "folder": "optimized/cards",
+   "bytes": 317504,
+   "sha256": "9452de2d688a8ef322b8e72a19ec9a0588f7d8866056f46ee5e3e2c16eb783c6",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O05",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "9452de2d68"
+  },
+  {
+   "path": "optimized/cards/O06-210x360-r2-d509b6ee27.webp",
+   "folder": "optimized/cards",
+   "bytes": 24666,
+   "sha256": "d509b6ee27927fdcf97cd71fcc9239b55549e1031f1c49c55204f68c9a33f858",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O06",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "d509b6ee27"
+  },
+  {
+   "path": "optimized/cards/O06-630x1080-r2-32e5dcf848.webp",
+   "folder": "optimized/cards",
+   "bytes": 155650,
+   "sha256": "32e5dcf848e9507f20acd939957671e39a130112a778d8278dfe1ecd24ace281",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O06",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "32e5dcf848"
+  },
+  {
+   "path": "optimized/cards/O06-896x1536-r2-ba53e220fa.webp",
+   "folder": "optimized/cards",
+   "bytes": 265366,
+   "sha256": "ba53e220fa4f8d127f52e99466fa1606c8affd23215afc3c56cbab2804ba7cda",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O06",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "ba53e220fa"
+  },
+  {
+   "path": "optimized/cards/O07-210x360-r2-52ab11a097.webp",
+   "folder": "optimized/cards",
+   "bytes": 12128,
+   "sha256": "52ab11a097cf3e0df30a750485d01efa7e5fc6126658926f73ecdda913ff3acb",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O07",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "52ab11a097"
+  },
+  {
+   "path": "optimized/cards/O07-630x1080-r2-b7332e4570.webp",
+   "folder": "optimized/cards",
+   "bytes": 60898,
+   "sha256": "b7332e4570e2d48512f34f91748c005654010cd673b147bc1887391ceec348c8",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O07",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "b7332e4570"
+  },
+  {
+   "path": "optimized/cards/O07-896x1536-r2-81a57e7166.webp",
+   "folder": "optimized/cards",
+   "bytes": 106800,
+   "sha256": "81a57e7166a01d3f45f7687e2feb4411c85b6452ba3f4d67daeb66a2603fe1f1",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O07",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "81a57e7166"
+  },
+  {
+   "path": "optimized/cards/O08-210x360-r2-a6709e22ab.webp",
+   "folder": "optimized/cards",
+   "bytes": 19772,
+   "sha256": "a6709e22abef2653bb95faca1f2f20d7575f06a9d3b73b2745b9cb6040709800",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O08",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "a6709e22ab"
+  },
+  {
+   "path": "optimized/cards/O08-630x1080-r2-e337ee566c.webp",
+   "folder": "optimized/cards",
+   "bytes": 116558,
+   "sha256": "e337ee566cedecaaabe5c87930bd200041a8f78ff7f2a07f3f2bf3241e39acc5",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O08",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "e337ee566c"
+  },
+  {
+   "path": "optimized/cards/O08-896x1536-r2-e4c832a4cc.webp",
+   "folder": "optimized/cards",
+   "bytes": 196218,
+   "sha256": "e4c832a4cc839d86a2644fe5e8eff172e67bddf2205e42c957dc06436f9896a2",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O08",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "e4c832a4cc"
+  },
+  {
+   "path": "optimized/cards/O09-210x360-r2-8d42b9fcbe.webp",
+   "folder": "optimized/cards",
+   "bytes": 29646,
+   "sha256": "8d42b9fcbe911b139730c7cd8b3154a2c9e2829432543f5a262bdb63314fdfa8",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O09",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "8d42b9fcbe"
+  },
+  {
+   "path": "optimized/cards/O09-630x1080-r2-971b2e5ec5.webp",
+   "folder": "optimized/cards",
+   "bytes": 195600,
+   "sha256": "971b2e5ec5cb47b800cbc0da08e8ed0af92297ff58641c9c11ea19968c500871",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O09",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "971b2e5ec5"
+  },
+  {
+   "path": "optimized/cards/O09-896x1536-r2-f169ed24da.webp",
+   "folder": "optimized/cards",
+   "bytes": 325528,
+   "sha256": "f169ed24dad009db7d11ce62caa6dbb635b60867e77890b9586ec534998cdae2",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O09",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "f169ed24da"
+  },
+  {
+   "path": "optimized/cards/O10-210x360-r2-ecc2ba2186.webp",
+   "folder": "optimized/cards",
+   "bytes": 18912,
+   "sha256": "ecc2ba2186cb83887038b24befd8241f606740cd8f5f7c8c418b568a425eb02e",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O10",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "ecc2ba2186"
+  },
+  {
+   "path": "optimized/cards/O10-630x1080-r2-3d8faa63fb.webp",
+   "folder": "optimized/cards",
+   "bytes": 133916,
+   "sha256": "3d8faa63fb76d2f004aae69fb5a18a8b454908405ec4526aadc6de414961baea",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O10",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "3d8faa63fb"
+  },
+  {
+   "path": "optimized/cards/O10-896x1536-r2-e3965b5922.webp",
+   "folder": "optimized/cards",
+   "bytes": 243362,
+   "sha256": "e3965b59228524091f8d2ab942bdd1dc63d4419c045c587ec5b974dbb77cd131",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O10",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "e3965b5922"
+  },
+  {
+   "path": "optimized/cards/O11-210x360-r2-a6bfb4f0b4.webp",
+   "folder": "optimized/cards",
+   "bytes": 21592,
+   "sha256": "a6bfb4f0b42584357f0530c16a8212335bca386ba9415ec7db03e8324b448cd8",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O11",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "a6bfb4f0b4"
+  },
+  {
+   "path": "optimized/cards/O11-630x1080-r2-c0ca88a800.webp",
+   "folder": "optimized/cards",
+   "bytes": 136816,
+   "sha256": "c0ca88a800a0aad432cb745626febc43838c30287fef67be413a990e6ac08ed9",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O11",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "c0ca88a800"
+  },
+  {
+   "path": "optimized/cards/O11-896x1536-r2-d4d0987140.webp",
+   "folder": "optimized/cards",
+   "bytes": 231918,
+   "sha256": "d4d098714068418564db1441b23a3b2661f50d300f61446fe98bfa279c9e46c0",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O11",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "d4d0987140"
+  },
+  {
+   "path": "optimized/cards/O12-210x360-r2-4d0586e98b.webp",
+   "folder": "optimized/cards",
+   "bytes": 17520,
+   "sha256": "4d0586e98bcee95a952073e309996e46e88c7b80203e5fb8877e50b7482bc9b3",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O12",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "4d0586e98b"
+  },
+  {
+   "path": "optimized/cards/O12-630x1080-r2-36153a690a.webp",
+   "folder": "optimized/cards",
+   "bytes": 109168,
+   "sha256": "36153a690a2f61660f1b3eb51a3e11dbeb344ba59f0ef69c9524693aecf1d060",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O12",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "36153a690a"
+  },
+  {
+   "path": "optimized/cards/O12-896x1536-r2-f2d1191746.webp",
+   "folder": "optimized/cards",
+   "bytes": 203002,
+   "sha256": "f2d1191746d5bf17305685929f6668ad7979ec153e39330442fa4b833b0e1cc1",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O12",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "f2d1191746"
+  },
+  {
+   "path": "optimized/cards/O13-210x360-r2-722d41cab9.webp",
+   "folder": "optimized/cards",
+   "bytes": 22418,
+   "sha256": "722d41cab9b91cfb917cfcd6f88f4ec72b0c7b68405c94b86bd7c382ccaabecb",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O13",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "722d41cab9"
+  },
+  {
+   "path": "optimized/cards/O13-630x1080-r2-daa9fe8ae3.webp",
+   "folder": "optimized/cards",
+   "bytes": 142612,
+   "sha256": "daa9fe8ae3b1bfde9fe09eb489d3f13c4edf5373a740d23c5879e6ee78e2788a",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O13",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "daa9fe8ae3"
+  },
+  {
+   "path": "optimized/cards/O13-896x1536-r2-98ecb282ab.webp",
+   "folder": "optimized/cards",
+   "bytes": 240570,
+   "sha256": "98ecb282abcd2c2aa801a6e6f7082982ce8505098b397f8326d0cb7afc64e848",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O13",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "98ecb282ab"
+  },
+  {
+   "path": "optimized/cards/O14-210x360-r2-3e3297e394.webp",
+   "folder": "optimized/cards",
+   "bytes": 21874,
+   "sha256": "3e3297e394813a994561a40d691a36d416ce388e314a26dbd9833b616de64650",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O14",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "3e3297e394"
+  },
+  {
+   "path": "optimized/cards/O14-630x1080-r2-6febf30cb9.webp",
+   "folder": "optimized/cards",
+   "bytes": 138782,
+   "sha256": "6febf30cb901b1e5ab7b4102205c1052225425cc8c4b15a05c7d43b2c2df7e95",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O14",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "6febf30cb9"
+  },
+  {
+   "path": "optimized/cards/O14-896x1536-r2-95147f7e99.webp",
+   "folder": "optimized/cards",
+   "bytes": 242982,
+   "sha256": "95147f7e996021d302d390c4e91ca6e67c06d7d48fa77c88edc636746e74654d",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O14",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "95147f7e99"
+  },
+  {
+   "path": "optimized/cards/O15-210x360-r2-94612bdcef.webp",
+   "folder": "optimized/cards",
+   "bytes": 31546,
+   "sha256": "94612bdcef7f4af4666b52998235626bf6a3944049d5c96c531ffefa93a54eed",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O15",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "94612bdcef"
+  },
+  {
+   "path": "optimized/cards/O15-630x1080-r2-79099121eb.webp",
+   "folder": "optimized/cards",
+   "bytes": 211542,
+   "sha256": "79099121ebaa34e258f9b94f522d6d740cd934e3a31f9fe1fc2960daec28e356",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O15",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "79099121eb"
+  },
+  {
+   "path": "optimized/cards/O15-896x1536-r2-375ad25ee2.webp",
+   "folder": "optimized/cards",
+   "bytes": 360318,
+   "sha256": "375ad25ee23e7d3a27d947d96edac215fd2f05c2690b85e378f34ab483dfa328",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O15",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "375ad25ee2"
+  },
+  {
+   "path": "optimized/cards/O16-210x360-r2-e83fd0ea3d.webp",
+   "folder": "optimized/cards",
+   "bytes": 23198,
+   "sha256": "e83fd0ea3d1296133268fb19db603960dede405e35355764e01757d15ac60c09",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O16",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "e83fd0ea3d"
+  },
+  {
+   "path": "optimized/cards/O16-630x1080-r2-54d0fc0cf1.webp",
+   "folder": "optimized/cards",
+   "bytes": 172246,
+   "sha256": "54d0fc0cf14a86813cf640551227286bed97e74136b5471854abfbd0628d3f85",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O16",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "54d0fc0cf1"
+  },
+  {
+   "path": "optimized/cards/O16-896x1536-r2-b6fd4b63f4.webp",
+   "folder": "optimized/cards",
+   "bytes": 285156,
+   "sha256": "b6fd4b63f4b5f73179c23dee52cc067515a95954d0eff5684c0ec40b91471bb3",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O16",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "b6fd4b63f4"
+  },
+  {
+   "path": "optimized/cards/O17-210x360-r2-bc72fd0b61.webp",
+   "folder": "optimized/cards",
+   "bytes": 24240,
+   "sha256": "bc72fd0b6153e6d76ef79f399ad8611b82b8a94ebe33d17f8d8c223a724010c1",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O17",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "bc72fd0b61"
+  },
+  {
+   "path": "optimized/cards/O17-630x1080-r2-9ea3d8e5b0.webp",
+   "folder": "optimized/cards",
+   "bytes": 170342,
+   "sha256": "9ea3d8e5b04a981006ce04b8ec38145a328760c5e5057eaeef872e36233383a4",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O17",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "9ea3d8e5b0"
+  },
+  {
+   "path": "optimized/cards/O17-896x1536-r2-92e812b450.webp",
+   "folder": "optimized/cards",
+   "bytes": 301166,
+   "sha256": "92e812b450cac1def073a23630cb5a562840e62935ee71db4754edf4647955f9",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O17",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "92e812b450"
+  },
+  {
+   "path": "optimized/cards/O18-210x360-r2-ee55331393.webp",
+   "folder": "optimized/cards",
+   "bytes": 14926,
+   "sha256": "ee553313932e27a2836d041a6ea0083a85ae1905f33e6cd1b98939eae38d603f",
+   "width": 210,
+   "height": 360,
+   "kind": "front-variant",
+   "id": "O18",
+   "rev": 2,
+   "variant": "210x360",
+   "nameHash": "ee55331393"
+  },
+  {
+   "path": "optimized/cards/O18-630x1080-r2-c8ce29b09b.webp",
+   "folder": "optimized/cards",
+   "bytes": 89910,
+   "sha256": "c8ce29b09b01416506e405339633cd192f1f105abce6b4cd1a0647f402cd9878",
+   "width": 630,
+   "height": 1080,
+   "kind": "front-variant",
+   "id": "O18",
+   "rev": 2,
+   "variant": "630x1080",
+   "nameHash": "c8ce29b09b"
+  },
+  {
+   "path": "optimized/cards/O18-896x1536-r2-1d85cbd388.webp",
+   "folder": "optimized/cards",
+   "bytes": 159344,
+   "sha256": "1d85cbd3882fbe79eea4074209f4f1df0456768ffc955ecc80263474045e6df9",
+   "width": 896,
+   "height": 1536,
+   "kind": "front-variant",
+   "id": "O18",
+   "rev": 2,
+   "variant": "896x1536",
+   "nameHash": "1d85cbd388"
+  },
+  {
+   "path": "optimized/covers/O04-cover-1024-r1-652111cb2f.webp",
+   "folder": "optimized/covers",
+   "bytes": 202640,
+   "sha256": "652111cb2f6d14e3cc44513b4e3679d0afe989ecbe781672b454580fe3d7e8bf",
+   "width": 1024,
+   "height": 1024,
+   "kind": "cover-variant",
+   "id": "O04",
+   "rev": 1,
+   "variant": "1024",
+   "nameHash": "652111cb2f"
+  },
+  {
+   "path": "optimized/covers/O04-cover-160-r1-42284f8fef.webp",
+   "folder": "optimized/covers",
+   "bytes": 10700,
+   "sha256": "42284f8fef4182e0fd37a09437a51ab9bdc06bf1315fa8545f23dbb1d1ae31c6",
+   "width": 160,
+   "height": 160,
+   "kind": "cover-variant",
+   "id": "O04",
+   "rev": 1,
+   "variant": "160",
+   "nameHash": "42284f8fef"
+  },
+  {
+   "path": "optimized/covers/O04-cover-480-r1-b913075283.webp",
+   "folder": "optimized/covers",
+   "bytes": 63414,
+   "sha256": "b91307528347a9cb1637d8d601af2964de6e8750d675e209abfe540ae6e527b7",
+   "width": 480,
+   "height": 480,
+   "kind": "cover-variant",
+   "id": "O04",
+   "rev": 1,
+   "variant": "480",
+   "nameHash": "b913075283"
+  },
+  {
+   "path": "optimized/covers/O06-cover-1024-r1-591a79e61b.webp",
+   "folder": "optimized/covers",
+   "bytes": 154012,
+   "sha256": "591a79e61b465578b748f4de1b5599cf2e6413c5b3754d81c01b67000c9acb8e",
+   "width": 1024,
+   "height": 1024,
+   "kind": "cover-variant",
+   "id": "O06",
+   "rev": 1,
+   "variant": "1024",
+   "nameHash": "591a79e61b"
+  },
+  {
+   "path": "optimized/covers/O06-cover-160-r1-0431baa8cc.webp",
+   "folder": "optimized/covers",
+   "bytes": 7800,
+   "sha256": "0431baa8ccf30fe817c8f5a8046eafbb1ff4e3cd223a2007a2c39a3487c455e3",
+   "width": 160,
+   "height": 160,
+   "kind": "cover-variant",
+   "id": "O06",
+   "rev": 1,
+   "variant": "160",
+   "nameHash": "0431baa8cc"
+  },
+  {
+   "path": "optimized/covers/O06-cover-480-r1-7546184f1a.webp",
+   "folder": "optimized/covers",
+   "bytes": 42958,
+   "sha256": "7546184f1a238bcf2ef995084d47076ea8b03b5a6d6e0595518e08fc3ab7e7c8",
+   "width": 480,
+   "height": 480,
+   "kind": "cover-variant",
+   "id": "O06",
+   "rev": 1,
+   "variant": "480",
+   "nameHash": "7546184f1a"
+  },
+  {
+   "path": "optimized/covers/O24-cover-1024-r1-a4afe613fb.webp",
+   "folder": "optimized/covers",
+   "bytes": 251584,
+   "sha256": "a4afe613fbaf118c9a355f0eee4ad55eeb982a5bd636002fbc5b31b8ae54ec7a",
+   "width": 1024,
+   "height": 1024,
+   "kind": "cover-variant",
+   "id": "O24",
+   "rev": 1,
+   "variant": "1024",
+   "nameHash": "a4afe613fb"
+  },
+  {
+   "path": "optimized/covers/O24-cover-160-r1-69c1323a37.webp",
+   "folder": "optimized/covers",
+   "bytes": 12506,
+   "sha256": "69c1323a37e774eb795f8999495cbddcba90c6cae1919ef07b1ad0208a785216",
+   "width": 160,
+   "height": 160,
+   "kind": "cover-variant",
+   "id": "O24",
+   "rev": 1,
+   "variant": "160",
+   "nameHash": "69c1323a37"
+  },
+  {
+   "path": "optimized/covers/O24-cover-480-r1-b0036042d6.webp",
+   "folder": "optimized/covers",
+   "bytes": 75082,
+   "sha256": "b0036042d6cffa84199e2659e87cfa6406ef805eb7c93bfef90692e97e0dbb0c",
+   "width": 480,
+   "height": 480,
+   "kind": "cover-variant",
+   "id": "O24",
+   "rev": 1,
+   "variant": "480",
+   "nameHash": "b0036042d6"
+  }
+ ],
+ "cards": {
+  "O01": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O01-front-r2-21eca783.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": null
+  },
+  "O02": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O02-front-r2-512eeca7.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": null
+  },
+  "O03": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O03-front-r2-855957b9.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": null
+  },
+  "O04": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O04-front-r2-4c1f37fb.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": {
+    "rev": 1,
+    "original": "covers/O04-cover-r1-d7ace5fa.png",
+    "variants": [
+     "160",
+     "480",
+     "1024"
+    ],
+    "missing": [],
+    "older": []
+   }
+  },
+  "O05": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O05-front-r2-8ad22072.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": null
+  },
+  "O06": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O06-front-r2-ba9ec012.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": {
+    "rev": 1,
+    "original": "covers/O06-cover-r1-8e23a947.png",
+    "variants": [
+     "160",
+     "480",
+     "1024"
+    ],
+    "missing": [],
+    "older": []
+   }
+  },
+  "O07": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O07-front-r2-1b0edb88.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": null
+  },
+  "O08": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O08-front-r2-1bd052f1.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": null
+  },
+  "O09": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O09-front-r2-a8c90829.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": null
+  },
+  "O10": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O10-front-r2-b8fd07b7.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": null
+  },
+  "O11": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O11-front-r2-81deeae0.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": null
+  },
+  "O12": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O12-front-r2-44b7e744.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": null
+  },
+  "O13": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O13-front-r2-84b39927.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": null
+  },
+  "O14": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O14-front-r2-dfc3bc61.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": null
+  },
+  "O15": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O15-front-r2-7da93928.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": null
+  },
+  "O16": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O16-front-r2-89bb780f.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": null
+  },
+  "O17": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O17-front-r2-4636421b.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": null
+  },
+  "O18": {
+   "front": {
+    "rev": 2,
+    "original": "cards/fronts/O18-front-r2-c2a2f9d8.png",
+    "variants": [
+     "210x360",
+     "630x1080",
+     "896x1536"
+    ],
+    "missing": [],
+    "older": []
+   },
+   "cover": null
+  },
+  "O19": {
+   "front": null,
+   "cover": null
+  },
+  "O20": {
+   "front": null,
+   "cover": null
+  },
+  "O21": {
+   "front": null,
+   "cover": null
+  },
+  "O22": {
+   "front": null,
+   "cover": null
+  },
+  "O23": {
+   "front": null,
+   "cover": null
+  },
+  "O24": {
+   "front": null,
+   "cover": {
+    "rev": 1,
+    "original": "covers/O24-cover-r1-054b4da2.png",
+    "variants": [
+     "160",
+     "480",
+     "1024"
+    ],
+    "missing": [],
+    "older": []
+   }
+  },
+  "T03": {
+   "front": null,
+   "cover": null
+  }
+ },
+ "issues": [],
+ "changes": {
+  "base": "2026-11-18T16:31:24+00:00",
+  "added": [],
+  "changed": [],
+  "removed": []
+ },
+ "server": {
+  "base": "https://flowisaurus.de/wunderhaus/media/",
+  "checkedAt": "2026-11-18T16:32:33+00:00",
+  "files": {
+   "MEDIEN-KONVENTION.md": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O01-front-r2-21eca783.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O02-front-r2-512eeca7.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O03-front-r2-855957b9.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O04-front-r2-4c1f37fb.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O05-front-r2-8ad22072.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O06-front-r2-ba9ec012.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O07-front-r2-1b0edb88.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O08-front-r2-1bd052f1.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O09-front-r2-a8c90829.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O10-front-r2-b8fd07b7.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O11-front-r2-81deeae0.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O12-front-r2-44b7e744.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O13-front-r2-84b39927.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O14-front-r2-dfc3bc61.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O15-front-r2-7da93928.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O16-front-r2-89bb780f.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O17-front-r2-4636421b.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "cards/fronts/O18-front-r2-c2a2f9d8.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "covers/O04-cover-r1-d7ace5fa.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "covers/O06-cover-r1-8e23a947.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "covers/O24-cover-r1-054b4da2.png": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "katalog/index.html": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "manifest.schema.json": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "media-loader.js": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "media-loader.mjs": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O01-210x360-r2-cf504e3af4.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O01-630x1080-r2-40012d6477.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O01-896x1536-r2-3802406a5d.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O02-210x360-r2-6203e53312.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O02-630x1080-r2-b1f9dea9fe.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O02-896x1536-r2-7166c6f234.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O03-210x360-r2-cebbdadcf6.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O03-630x1080-r2-c64db9e0aa.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O03-896x1536-r2-7d75f35827.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O04-210x360-r2-6e0c04602b.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O04-630x1080-r2-591713b4ff.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O04-896x1536-r2-6c5dc04d67.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O05-210x360-r2-d65b9ecfcc.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O05-630x1080-r2-1577b496a1.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O05-896x1536-r2-9452de2d68.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O06-210x360-r2-d509b6ee27.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O06-630x1080-r2-32e5dcf848.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O06-896x1536-r2-ba53e220fa.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O07-210x360-r2-52ab11a097.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O07-630x1080-r2-b7332e4570.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O07-896x1536-r2-81a57e7166.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O08-210x360-r2-a6709e22ab.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O08-630x1080-r2-e337ee566c.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O08-896x1536-r2-e4c832a4cc.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O09-210x360-r2-8d42b9fcbe.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O09-630x1080-r2-971b2e5ec5.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O09-896x1536-r2-f169ed24da.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O10-210x360-r2-ecc2ba2186.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O10-630x1080-r2-3d8faa63fb.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O10-896x1536-r2-e3965b5922.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O11-210x360-r2-a6bfb4f0b4.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O11-630x1080-r2-c0ca88a800.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O11-896x1536-r2-d4d0987140.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O12-210x360-r2-4d0586e98b.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O12-630x1080-r2-36153a690a.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O12-896x1536-r2-f2d1191746.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O13-210x360-r2-722d41cab9.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O13-630x1080-r2-daa9fe8ae3.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O13-896x1536-r2-98ecb282ab.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O14-210x360-r2-3e3297e394.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O14-630x1080-r2-6febf30cb9.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O14-896x1536-r2-95147f7e99.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O15-210x360-r2-94612bdcef.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O15-630x1080-r2-79099121eb.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O15-896x1536-r2-375ad25ee2.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O16-210x360-r2-e83fd0ea3d.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O16-630x1080-r2-54d0fc0cf1.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O16-896x1536-r2-b6fd4b63f4.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O17-210x360-r2-bc72fd0b61.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O17-630x1080-r2-9ea3d8e5b0.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O17-896x1536-r2-92e812b450.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O18-210x360-r2-ee55331393.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O18-630x1080-r2-c8ce29b09b.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/cards/O18-896x1536-r2-1d85cbd388.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/covers/O04-cover-1024-r1-652111cb2f.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/covers/O04-cover-160-r1-42284f8fef.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/covers/O04-cover-480-r1-b913075283.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/covers/O06-cover-1024-r1-591a79e61b.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/covers/O06-cover-160-r1-0431baa8cc.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/covers/O06-cover-480-r1-7546184f1a.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/covers/O24-cover-1024-r1-a4afe613fb.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/covers/O24-cover-160-r1-69c1323a37.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   },
+   "optimized/covers/O24-cover-480-r1-b0036042d6.webp": {
+    "status": 404,
+    "state": "fehlt online"
+   }
+  }
+ }
+}

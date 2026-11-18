@@ -1,0 +1,33 @@
+{
+ "id": "T01",
+ "name": "Kartentisch",
+ "version": "0.5.0",
+ "room": "Teezimmer",
+ "status": "Erkennungsmodell nach P2-Formstudie; kein freigegebener Objektmaster",
+ "offen": "Register 1,40×1,00 m / 0,76 m vs. niedriger runder Tisch der Bildstudien – Entscheidung Nutzerin",
+ "origin": "Mitte Registergrundfläche, Bodenhöhe",
+ "placement": {
+  "x": 12.2,
+  "y": 2.5,
+  "z": 0,
+  "rotation_deg": 0
+ },
+ "register": {
+  "x": 11.5,
+  "y": 2,
+  "z": 0,
+  "w": 1.4,
+  "d": 1,
+  "h": 0.76
+ },
+ "pick_box": {
+  "w": 1.4,
+  "d": 1,
+  "h": 0.76
+ },
+ "collision": "Registerhülle in data/navigation-eg.json (Radius 0,40 m); Asset selbst nicht kollidierend",
+ "materials": {
+  "wood_texture": "MAT-01-walnuss-P2.png",
+  "tile_m": 1.9
+ }
+}

@@ -1,0 +1,95 @@
+{
+ "version": "0.5.0",
+ "treppen": [
+  {
+   "id": "S1",
+   "unten": {
+    "ebene": "EG",
+    "ort": "Halle",
+    "punkt": [
+     3.53,
+     2.48
+    ],
+    "erste_stufe": [
+     2.745,
+     2.201
+    ]
+   },
+   "oben": {
+    "ebene": "OG",
+    "ort": "Terrasse",
+    "punkt": [
+     2.73,
+     2.27
+    ],
+    "letzte_stufe": [
+     2.745,
+     1.799
+    ]
+   },
+   "steigungen": 20,
+   "steigung_m": 0.16,
+   "status": "Verbindung vorbereitet; Treppenbegehung mit Höhenverlauf folgt v0.5.1"
+  },
+  {
+   "id": "S2",
+   "unten": {
+    "ebene": "EG",
+    "ort": "Hof",
+    "punkt": [
+     7.93,
+     5.23
+    ],
+    "erste_stufe": [
+     7.7,
+     5.4
+    ]
+   },
+   "oben": {
+    "ebene": "OG",
+    "ort": "Terrasse",
+    "punkt": [
+     6.98,
+     5.43
+    ],
+    "letzte_stufe": [
+     6.515,
+     5.429
+    ]
+   },
+   "steigungen": 20,
+   "steigung_m": 0.16,
+   "status": "Verbindung vorbereitet; Treppenbegehung mit Höhenverlauf folgt v0.5.1"
+  },
+  {
+   "id": "S3",
+   "unten": {
+    "ebene": "EG",
+    "ort": "Atelier",
+    "punkt": [
+     14.78,
+     9.93
+    ],
+    "erste_stufe": [
+     14.775,
+     10.335
+    ]
+   },
+   "oben": {
+    "ebene": "OG",
+    "ort": "Schlafzimmer",
+    "punkt": [
+     13.23,
+     9.93
+    ],
+    "letzte_stufe": [
+     13.225,
+     10.335
+    ]
+   },
+   "steigungen": 18,
+   "steigung_m": 0.178,
+   "status": "Verbindung vorbereitet; Treppenbegehung mit Höhenverlauf folgt v0.5.1"
+  }
+ ]
+}
