@@ -1,0 +1,79 @@
+pfad;format;endung_passt;breite;hoehe;modus;transparenz;bytes;sha256;bereits_vorhanden;im_repo
+aussen/R-AUSSEN_architekturvorlage_v1.png;PNG;True;1800;1480;RGBA;False;327264;5388676216a7e1c60d93c170d736a32fb22bb4390797a4ffb6217678282bd4a7;;ja
+kartenproduktion/extension_mask_v1.png;PNG;True;896;1536;L;False;1584;36595c1e6a2fed889ab3a96069e3d278cc763385486476a8f7deb15307069be5;;ja
+kartenproduktion/freude_b_7x12_rgba_v1.png;PNG;True;896;1536;RGBA;True;577849;4820e64f8243f14fc25a0623b71fc0c05516108892f12d38d5dd0836f5ded592;;ja
+kartenproduktion/halt_b_7x12_rgba_v1.png;PNG;True;896;1536;RGBA;True;606855;478e105467ccf1d7a7df482fdb701263527ef4b3394b596af372f48e2bc7741c;;ja
+kartenproduktion/kraft_b_7x12_rgba_v1.png;PNG;True;896;1536;RGBA;True;585874;899afe0e6fea644a371dc854b15c560715ac84b698984c676510782a7e6803be;;ja
+kartenproduktion/original_eingepasst_v1.png;PNG;True;744;1116;RGBA;False;1544714;63202b9d96a016f9adf8a70992ff7dc9c06b6c8ba63852eec40776fe737de975;;ja
+kartenproduktion/original_unveraendert_v1.jpeg;JPEG;True;1024;1536;RGB;False;647854;adeb48d5c8803ce626c7714c499f405d94c35848d3ba1c9957654d376e3781e0;;ja
+kartenproduktion/ruhe_b_7x12_rgba_v1.png;PNG;True;896;1536;RGBA;True;622764;518cbcc6ae47e3a7594a49013e19652ffa37b0718ccaa2d9d9e3c830894c217f;;ja
+kartenproduktion/vorbereitung_und_maske_v1.jpg;JPEG;True;720;690;RGB;False;53458;44c9d4f25491af8b4efa080ac44e7ec34b81219601486dff4f04b4051a9507b1;;ja
+kartenproduktion/vorbereitung_v1.png;PNG;True;896;1536;RGBA;False;1572801;f35d1b7bb5c78a2b7fb077c4530b89b75de4ae8fc02e563a9182cd31e7bdfb06;;ja
+mockups/bildkarten_raster_ui_v1.jpeg;JPEG;True;864;1536;RGB;False;706700;220141da28fddbf25fd36fa85da413a09eeb731715b615f2060dd40722591b42;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/bildkarten-raster-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/einzelkarte_blaettern_ui_v1.jpeg;JPEG;True;864;1536;RGB;False;617328;3c87246f57497db9c287826d83dc7cb2de6b70e44b39a9f7adee420cf0d4451a;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/einzelkarte-blaettern-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/entstehung_langer_text_ui_v1.jpeg;JPEG;True;1293;1217;RGB;False;717398;201792f99a77d89c4f6495d8ebe42db2d030ac396ff2ec4ede892506c62bea1f;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/entstehung-langer-text-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/geschenkbrief_ui_v1.jpeg;JPEG;True;711;1536;RGB;False;475446;04b306d8142b4352bc3ab3c4668ec9a165396b1889022364fb91567518c7ac25;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/geschenkbrief-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/hauseingang_ui_v1.jpeg;JPEG;True;711;1536;RGB;False;651908;9308ca4c074d384d13f45e6617b257cef04faadbd869d7333e538332bd593263;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/hauseingang-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/hilfe_ui_v1.jpeg;JPEG;True;864;1536;RGB;False;572302;ab9daf8939a50d9c55f8235b83234259db0c25d0d526b6478638228035f9a336;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/hilfe-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/kartendetail_o13_ui_v1.jpeg;JPEG;True;864;1536;RGB;False;614433;a4459b26cc1a3f5027cf641c1da0ca1214aea84d56a98b83fadff033a22acf70;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/kartendetail-O13-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/kartenlesart_o13_ui_v1.jpeg;JPEG;True;864;1536;RGB;False;534557;f21d3dec4bd91c589d79d12d51cdb0f699a15481483ce37351c1fee82b91a971;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/kartenlesart-O13-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/musik_komposition_o13_ui_v1.jpeg;JPEG;True;711;1536;RGB;False;458158;24a7faed499f0bf58142d4707dffeacae3d06fbd4eb39eb2635f82a1542d72df;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/musik-komposition-O13-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/musik_playlist_ui_v1.jpeg;JPEG;True;711;1536;RGB;False;399419;e901f2ceea15c6255d38da471381ad6158a0eafc58966569191593a774e53875;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/musik-playlist-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/musikzimmer_ui_v1.jpeg;JPEG;True;711;1536;RGB;False;503961;b88a4bb19c3b9b2e67cf3fe64e487225601f8a2b3b18db9656c502ef4b651670;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/musikzimmer-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/p01_fensterzimmer_ui_v1.jpeg;JPEG;True;711;1536;RGB;False;511777;b017ee2be3e77c31ab3952fe0996235d9950f759e40355e17e1571dfe8499971;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/P01-fensterzimmer-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/p03_wintergarten_ui_v1.jpeg;JPEG;True;711;1536;RGB;False;611987;58c3e0fd31dafb5933c105ddb60e935b7da1ade562ee2d76825d8f1cf7820a47;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/P03-wintergarten-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/p04_atelier_ui_v1.jpeg;JPEG;True;864;1536;RGB;False;623589;ef986d80f920c5670d975ab10edf11a92d3c945b50fb9c1ddbcf09b51a0fed48;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/P04-atelier-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/p06_galerie_ui_v1.jpeg;JPEG;True;711;1536;RGB;False;627415;23b9af7be7805a3b60bdf9463457c4955eeddb34df862ef558ea7b71c6e3adf6;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/P06-galerie-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/p07_dachterrasse_ui_v1.jpeg;JPEG;True;711;1536;RGB;False;591809;b89e1d056d19042d18b7236bb5a1710b19a302e7a99bbb01c41af0fa892651e2;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/P07-dachterrasse-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/p08_teezimmer_ui_v1.jpeg;JPEG;True;711;1536;RGB;False;488562;0baf41dc59a11fec1bdf5633cebf6dc1829f474f59c4e5350d07d18c90e28553;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/P08-teezimmer-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/raumuebersicht_ui_v1.jpeg;JPEG;True;864;1536;RGB;False;790249;4ba788c1a6ae6eb131c412785372cdad29169a5de895dd60bd9bc693ead055d3;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/raumuebersicht-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/responsive/R-ATELIER_p04_desktop_v1.jpg;JPEG;True;1440;900;RGB;False;297527;b979666fb9a7b538a6befbf90c68f87125768056888444c55b6b03dbae79928a;;ja
+mockups/responsive/R-ATELIER_p04_phone_landscape_v1.jpg;JPEG;True;844;390;RGB;False;95315;7fb23401b2438045b4cba819bf4263371ed82080c13679c0aa7c16e4a8c80824;;ja
+mockups/responsive/R-ATELIER_p04_phone_portrait_v1.jpg;JPEG;True;390;844;RGB;False;103525;5109f926eac712d2ae2aa6d0937df60d8a9b05485dd6c9aaa9f25e38659bf994;;ja
+mockups/responsive/R-ATELIER_p04_tablet_landscape_v1.jpg;JPEG;True;1024;768;RGB;False;209423;e891f67b1f806a8e5c8d0d6215e157f8ea6189780f04dd1d10f748c7e7bd5a67;;ja
+mockups/responsive/R-ATELIER_p04_tablet_portrait_v1.jpg;JPEG;True;768;1024;RGB;False;212501;7ad20f85e9ca8d526515eb409d6e61d08ded248e258863f9ce9da00ce70e9381;;ja
+mockups/responsive/R-BIBLIOTHEK_p02_desktop_v1.jpg;JPEG;True;1440;900;RGB;False;294428;75838ab44f2da1eb9adce4ba5689cb76e4c6a113a1f02576409e19e60ec7e763;;ja
+mockups/responsive/R-BIBLIOTHEK_p02_phone_landscape_v1.jpg;JPEG;True;844;390;RGB;False;95119;9cc891b464c24b3dc2c62c8c6d49faf77334bef3d747724698011584fec1a3e3;;ja
+mockups/responsive/R-BIBLIOTHEK_p02_phone_portrait_v1.jpg;JPEG;True;390;844;RGB;False;104786;c6b3606e6b36961b2b53e151b0df80b18cf52359eb61f7170ecd9c8561f77688;;ja
+mockups/responsive/R-BIBLIOTHEK_p02_tablet_landscape_v1.jpg;JPEG;True;1024;768;RGB;False;207655;9f78c9293269cc2ea820eaf431eab4953b84ea8fc6e36ec9ee0a26e1364b53dc;;ja
+mockups/responsive/R-BIBLIOTHEK_p02_tablet_portrait_v1.jpg;JPEG;True;768;1024;RGB;False;213359;8c517420a633bbd85eb1e0a057208d8d3cccd3bd4f5bdaa55c7863370e97ae49;;ja
+mockups/responsive/R-DACH_p07_desktop_v1.jpg;JPEG;True;1440;900;RGB;False;298503;e61879c3081d76fb546d72510648e6fd5cd343fd3baa83beb7dfc6fb6b783825;;ja
+mockups/responsive/R-DACH_p07_phone_landscape_v1.jpg;JPEG;True;844;390;RGB;False;97691;3b321dfcbde822a949ec630ac7276ec0cf076c2c9b84c8ea1377eab59da436d2;;ja
+mockups/responsive/R-DACH_p07_phone_portrait_v1.jpg;JPEG;True;390;844;RGB;False;105330;844e3469b414622174ec84ce32d51d75cff7c09c8da00638aa95926bb9eecdff;;ja
+mockups/responsive/R-DACH_p07_tablet_landscape_v1.jpg;JPEG;True;1024;768;RGB;False;209950;299433ec1513c09f40523d5264ecb80f7c3cb69b836a7eb0bfdea1f49f827f20;;ja
+mockups/responsive/R-DACH_p07_tablet_portrait_v1.jpg;JPEG;True;768;1024;RGB;False;214652;f489788a90f1be43b59f8f575d4c776f5218fe1cc02612b02d4de3c4d7a6ed7f;;ja
+mockups/responsive/R-FENSTER_p01_desktop_v1.jpg;JPEG;True;1440;900;RGB;False;302186;690a0aaa3d84fd419773fe64e4af63f68982d9c81a41e0b28895482a37911acf;;ja
+mockups/responsive/R-FENSTER_p01_phone_landscape_v1.jpg;JPEG;True;844;390;RGB;False;97273;0e09a0054d70b880de3bddd804828153e65dae7fc10326e2e684ad3150924a9b;;ja
+mockups/responsive/R-FENSTER_p01_phone_portrait_v1.jpg;JPEG;True;390;844;RGB;False;105016;0d0eb8fc58c2edbb995dc8f10404c1b8f0136ae8e9d99f418e8fb3a3fa6ddc7e;;ja
+mockups/responsive/R-FENSTER_p01_tablet_landscape_v1.jpg;JPEG;True;1024;768;RGB;False;212231;f163403f72b30ea4472664099c36417938de72ede63d46d83ca13b03df8007df;;ja
+mockups/responsive/R-FENSTER_p01_tablet_portrait_v1.jpg;JPEG;True;768;1024;RGB;False;215924;dc38fc9e2b5a5d16a07c723a04ea097d9c227fad983146621dcbb905556abb14;;ja
+mockups/responsive/R-GALERIE_p06_desktop_v1.jpg;JPEG;True;1440;900;RGB;False;293127;bf3cac5f54a4109f1f24ea55d763c741338e797e27ef12a9e380c6fb02d016e4;;ja
+mockups/responsive/R-GALERIE_p06_phone_landscape_v1.jpg;JPEG;True;844;390;RGB;False;94062;5c1de5626df6dd2073c56a4cbee9526a0241468f222c59b32e8ac366bbd1213e;;ja
+mockups/responsive/R-GALERIE_p06_phone_portrait_v1.jpg;JPEG;True;390;844;RGB;False;102489;e5334e8334164ef09b307de0e24e3418ff7962520dbc2fab2e60beaa50ccab28;;ja
+mockups/responsive/R-GALERIE_p06_tablet_landscape_v1.jpg;JPEG;True;1024;768;RGB;False;206027;56a379b9fea27186d3d1c7b785e968cab9a74698d92b02da5b7445fef44d990b;;ja
+mockups/responsive/R-GALERIE_p06_tablet_portrait_v1.jpg;JPEG;True;768;1024;RGB;False;207293;4e737df77c230b3e1dd679e325886405f5f659f714ff046640af065b6f0b4499;;ja
+mockups/responsive/R-HALLE_flur_desktop_v1.jpg;JPEG;True;1440;900;RGB;False;277364;26d436ff63a57c96895c337633333db8c8eef3b3361854affbd2c16ec60806ec;;ja
+mockups/responsive/R-HALLE_flur_phone_landscape_v1.jpg;JPEG;True;844;390;RGB;False;90332;b6cf1b7a5c2151c39a8c2281222e826162809e2f951488971617c38abfbad1cc;;ja
+mockups/responsive/R-HALLE_flur_phone_portrait_v1.jpg;JPEG;True;390;844;RGB;False;99083;fd736b450779f306b9ac7773ebc6c1f53106b58c82694537a45a15e2d86905b7;;ja
+mockups/responsive/R-HALLE_flur_tablet_landscape_v1.jpg;JPEG;True;1024;768;RGB;False;199454;ddf83e7e6f72e0249e77d3004d14c16c475121939006e7bde405348a974d3236;;ja
+mockups/responsive/R-HALLE_flur_tablet_portrait_v1.jpg;JPEG;True;768;1024;RGB;False;202233;ab3570672142a9b31713f7cd7828017bc3a702f72b5c5f5b01448d8d1a1289c0;;ja
+mockups/responsive/R-HOF_p05_desktop_v1.jpg;JPEG;True;1440;900;RGB;False;323361;f5c01ef8b462d86a3def9a804cd288b36560e5535043349e2b783cc456adb210;;ja
+mockups/responsive/R-HOF_p05_phone_landscape_v1.jpg;JPEG;True;844;390;RGB;False;98043;a7bbbd8181952be046172bc65206cf9e3984ec165c1b9c6a2ee81803a17e6433;;ja
+mockups/responsive/R-HOF_p05_phone_portrait_v1.jpg;JPEG;True;390;844;RGB;False;109424;ad5db32609e9c9502c38a9277d357736de3ef398804785bb97fc6c85e0f170b6;;ja
+mockups/responsive/R-HOF_p05_tablet_landscape_v1.jpg;JPEG;True;1024;768;RGB;False;227546;49425736d300b3e0b1b52fe569043c9016875139d1554080f8c95b23c56a33a7;;ja
+mockups/responsive/R-HOF_p05_tablet_portrait_v1.jpg;JPEG;True;768;1024;RGB;False;234491;8a170c7a2b20fcf235e896c88160c173c08c68b7381faa8202e363ca01a20e2f;;ja
+mockups/responsive/R-TEE_p08_desktop_v1.jpg;JPEG;True;1440;900;RGB;False;297843;4d4366f5b33cf1fa58ac950536b880740809d5bb6967755a0b7b3f490c6a8921;;ja
+mockups/responsive/R-TEE_p08_phone_landscape_v1.jpg;JPEG;True;844;390;RGB;False;97460;1d34a6755d2215b28d3239e37378aa7c0f0e7562f0e4900ec282544700aaf122;;ja
+mockups/responsive/R-TEE_p08_phone_portrait_v1.jpg;JPEG;True;390;844;RGB;False;105288;258b2faca153f81351fda74d7de15f27cd70f6cbbce571153820c9bad5063262;;ja
+mockups/responsive/R-TEE_p08_tablet_landscape_v1.jpg;JPEG;True;1024;768;RGB;False;209715;d666f8ae23916434a9b7111bc3ed132085e99d148ae8025b7652c897baeabf73;;ja
+mockups/responsive/R-TEE_p08_tablet_portrait_v1.jpg;JPEG;True;768;1024;RGB;False;213663;55b03c1b1a4621fae160fc3d67ff683c99230d148749d8de876e0525174dc6b2;;ja
+mockups/responsive/R-WINTERGARTEN_p03_desktop_v1.jpg;JPEG;True;1440;900;RGB;False;357706;4a6132171ef9e4f96a6a7840e20b73513a9ca41f08d9248953db87d97e44bed2;;ja
+mockups/responsive/R-WINTERGARTEN_p03_phone_landscape_v1.jpg;JPEG;True;844;390;RGB;False;105860;334c8ae8bea1f14b9ea1a800b71f1e540d9d837237758f53abefbb46d9dc8b1f;;ja
+mockups/responsive/R-WINTERGARTEN_p03_phone_portrait_v1.jpg;JPEG;True;390;844;RGB;False;120767;2eb001cae0db94df598173e009ad5958668297991fe8d132420030c6691d0cb8;;ja
+mockups/responsive/R-WINTERGARTEN_p03_tablet_landscape_v1.jpg;JPEG;True;1024;768;RGB;False;252321;b3728d4231ab479f5e8e2d76ed26d036078fecd33d3e4b029b7760bd3644f304;;ja
+mockups/responsive/R-WINTERGARTEN_p03_tablet_portrait_v1.jpg;JPEG;True;768;1024;RGB;False;258990;35e94dc1a63821932b5a54fef3985337bcbf4924efb3138f1b153e0a5e54ffdf;;ja
+mockups/wegauswahl_ui_v1.jpeg;JPEG;True;711;1536;RGB;False;486539;cfb3d59ad55eccd40740dacf42042209ef51f067ad5ce8a9ad1d043f1c95d5de;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/wegauswahl-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/weihnachtszimmer_ui_v1.jpeg;JPEG;True;711;1536;RGB;False;575055;d58377865966e4e87a06a6abd13cbbbad8121fc12a0b7a441a60401b49fc9bbb;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/weihnachtszimmer-ui.jpeg;nein (Duplikat, nur vermerkt)
+mockups/weltenweberin_ui_v1.jpeg;JPEG;True;711;1536;RGB;False;527556;14562721d8985e046206dea02437906303fd3d574b65d6ca1a60776bfef768aa;https://flowisaurus.de/wunderhaus/media/_referenzen/mockups/weltenweberin-ui.jpeg;nein (Duplikat, nur vermerkt)
+portraets/weltenweberin_v1.jpeg;JPEG;True;1024;1536;RGB;False;702593;bcf5ba44ceaff0990ce16a9b8c816fe7b0aab161651b5b8ff4b564be843d91c1;https://flowisaurus.de/wunderhaus/media/portraits/weltenweberin.jpeg;nein (Duplikat, nur vermerkt)
+uebersichten/objekte_O01-O24_studienuebersicht_v1.jpg;JPEG;True;1200;1440;RGB;False;551931;3011ed5fff041d11b90c3aa872f1b788064ef3ecee6ac7bcf4cb85c666419e1d;;ja
