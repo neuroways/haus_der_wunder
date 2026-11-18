@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Medienkatalog · Haus der kleinen Wunder</title>
+<style>
+  :root {
+    --bg: #0d1a22; --panel: #13252f; --line: #2a4250; --ink: #efe6d2; --muted: #a9b6b8;
+    --gold: #d6b26a; --ok: #7fc59a; --warn: #e2b55a; --bad: #e0796b; --info: #8fb8d8;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); line-height: 1.4; }
+  header { position: sticky; top: 0; z-index: 5; background: rgba(13,26,34,.96); border-bottom: 1px solid var(--line); padding: max(10px, env(safe-area-inset-top)) 14px 10px; }
+  @media (max-width: 700px) { header { position: static; } }
+  h1 { font-size: 1.15rem; margin: 0 0 4px; color: var(--gold); letter-spacing: .02em; font-weight: 600; }
+  h2 { font-size: 1rem; color: var(--gold); margin: 28px 14px 10px; font-weight: 600; }
+  .meta { font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); word-break: break-all; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; font-family: system-ui, -apple-system, sans-serif; font-size: 13px; }
+  .controls label, .controls button, .controls select { background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 6px 9px; font: inherit; }
+  .controls button { cursor: pointer; }
+  .controls button:active { transform: translateY(1px); }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin: 12px 14px 0; font-family: system-ui, -apple-system, sans-serif; }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 9px 10px; }
+  .stat b { display: block; font-size: 1.25rem; color: var(--ink); }
+  .stat span { font-size: 12px; color: var(--muted); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 12px; padding: 0 14px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+  .card .imgs { display: grid; grid-template-columns: 1fr; position: relative; background: #0a141a; }
+  .card .front { aspect-ratio: 896 / 1536; width: 100%; object-fit: cover; display: block; }
+  .card .cover { position: absolute; right: 6px; bottom: 6px; width: 34%; aspect-ratio: 1; object-fit: cover; border: 1px solid rgba(214,178,106,.7); border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,.6); background: #0a141a; }
+  .placeholder { aspect-ratio: 896 / 1536; display: grid; place-items: center; color: var(--muted); font: 13px system-ui, sans-serif; text-align: center; padding: 10px; border: 1px dashed var(--line); }
+  .body { padding: 8px 9px 10px; font-family: system-ui, -apple-system, sans-serif; font-size: 12.5px; display: grid; gap: 5px; }
+  .title { font-family: "Iowan Old Style", Georgia, serif; font-size: 14.5px; color: var(--ink); }
+  .title small { color: var(--gold); margin-right: 6px; }
+  .row { display: flex; justify-content: space-between; gap: 6px; align-items: center; }
+  .k { color: var(--muted); }
+  .b { display: inline-block; border-radius: 999px; padding: 1px 7px; font-size: 11px; border: 1px solid; white-space: nowrap; }
+  .s-current, .s-available { color: var(--ok); border-color: var(--ok); }
+  .s-fallback, .s-unconfirmed { color: var(--warn); border-color: var(--warn); }
+  .s-unavailable, .s-error, .s-unknown { color: var(--bad); border-color: var(--bad); }
+  .s-info { color: var(--info); border-color: var(--info); }
+  .reason { color: var(--muted); font-size: 11.5px; }
+  audio { width: 100%; height: 32px; }
+  table { width: calc(100% - 28px); margin: 0 14px; border-collapse: collapse; font: 12.5px system-ui, -apple-system, sans-serif; }
+  th, td { border-bottom: 1px solid var(--line); padding: 6px 5px; text-align: left; vertical-align: top; }
+  th { color: var(--muted); font-weight: 500; }
+  td img { width: 40px; height: 40px; object-fit: cover; border-radius: 3px; display: block; }
+  .err { margin: 12px 14px; padding: 10px; border: 1px solid var(--bad); color: var(--bad); border-radius: 8px; font-family: system-ui, sans-serif; }
+  .hide { display: none !important; }
+  footer { padding: 30px 14px max(30px, env(safe-area-inset-bottom)); color: var(--muted); font: 12px system-ui, sans-serif; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Medienkatalog · Haus der kleinen Wunder</h1>
+  <div class="meta" id="meta">Lade Manifest …</div>
+  <div class="controls">
+    <label><input type="checkbox" id="staged"> vorbereitete Dateien (Staging) anzeigen</label>
+    <select id="channel" aria-label="Kanal"><option value="private">Kanal: privat</option><option value="public">Kanal: öffentlich</option></select>
+    <select id="filter" aria-label="Filter">
+      <option value="all">alle Karten</option><option value="problem">nur mit Lücken</option>
+    </select>
+    <button id="probe" type="button">Dateien auf dem Server prüfen</button>
+    <button id="reload" type="button">Manifest neu laden</button>
+  </div>
+</header>
+<div id="errors"></div>
+<div class="stats" id="stats"></div>
+<h2>24 Karten · Vorderseite, Cover, Musik, Objekt</h2>
+<div class="grid" id="cards"></div>
+<h2>Playlist · 25 Primärstücke (keine automatische Wiedergabe)</h2>
+<table id="playlist"><thead><tr><th>#</th><th>Cover</th><th>Titel</th><th>Audio</th><th>Prüfung</th></tr></thead><tbody></tbody></table>
+<h2>Objekte · Status je Motiv</h2>
+<table id="objects"><thead><tr><th>ID</th><th>Referenz-WebP</th><th>Studie</th><th>Freigestellt</th><th>3D-Modell</th><th>Geschichte</th></tr></thead><tbody></tbody></table>
+<h2>Räume (2D-Bestand)</h2>
+<table id="rooms"><thead><tr><th>ID</th><th>Bild</th><th>Status</th><th>Varianten</th></tr></thead><tbody></tbody></table>
+<footer>Nur Anzeige und lesende Prüfung. Diese Seite verändert keine Dateien. Musik startet nur nach Tippen.</footer>
+
+<script src="../media-loader.js"></script>
+<script>
+(function () {
+  'use strict';
+  const $ = (s) => document.querySelector(s);
+  const el = (tag, attrs, ...kids) => {
+    const n = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs || {})) {
+      if (v == null || v === false) continue;
+      if (k === 'class') n.className = v; else if (k === 'text') n.textContent = v; else n.setAttribute(k, v === true ? '' : v);
+    }
+    for (const kid of kids.flat()) if (kid != null) n.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+    return n;
+  };
+  const LABEL = { current: 'aktuell', available: 'vorhanden', fallback: 'Ersatz', unconfirmed: 'unbestätigt', unavailable: 'fehlt', unknown: 'unbekannt', error: 'Ladefehler' };
+  const badge = (state, text) => el('span', { class: 'b s-' + state, text: text || LABEL[state] || state });
+  const params = new URLSearchParams(location.search);
+  $('#staged').checked = params.get('staged') === '1';
+  $('#channel').value = params.get('channel') === 'public' ? 'public' : 'private';
+  let loader;
+
+  function onImgError(img, holder) {
+    img.addEventListener('error', () => {
+      const ph = el('div', { class: 'placeholder', text: 'Bild lädt nicht: ' + img.getAttribute('src').split('/').pop() });
+      img.replaceWith(ph);
+      if (holder) holder.prepend(badge('error'));
+    }, { once: true });
+  }
+
+  function cardTile(c) {
+    const tile = el('article', { class: 'card', 'data-problem': (c.front.state !== 'current' || c.cover.state !== 'current' || !c.audio.usable) ? '1' : '0' });
+    const imgs = el('div', { class: 'imgs' });
+    if (c.front.url) { const img = el('img', { class: 'front', src: c.front.url, alt: c.title, loading: 'lazy', decoding: 'async' }); onImgError(img); imgs.append(img); }
+    else imgs.append(el('div', { class: 'placeholder', text: 'Vorderseite fehlt' }));
+    if (c.cover.url) { const im = el('img', { class: 'cover', src: c.cover.url, alt: 'Cover ' + c.title, loading: 'lazy' }); onImgError(im); imgs.append(im); }
+    const body = el('div', { class: 'body' },
+      el('div', { class: 'title' }, el('small', { text: c.id }), c.title),
+      el('div', { class: 'row' }, el('span', { class: 'k', text: 'Vorderseite' }), badge(c.front.state)),
+      c.front.reason ? el('div', { class: 'reason', text: c.front.reason }) : null,
+      el('div', { class: 'row' }, el('span', { class: 'k', text: 'CD-Cover' }),
+        !c.cover.usable ? badge('unavailable', 'fehlt') : c.cover.state === 'fallback' ? badge('fallback', 'fehlt · Alt-Ausschnitt') : badge('current')),
+      el('div', { class: 'row' }, el('span', { class: 'k', text: 'Musik' }), badge(c.audio.usable ? 'available' : 'unavailable', c.audio.usable ? (c.audio.availability === 'verified' ? 'geprüft' : 'ungeprüft') : 'gesperrt')),
+      c.audio.usable ? el('audio', { controls: true, preload: 'none', src: c.audio.url }) : el('div', { class: 'reason', text: c.audio.reason }),
+      el('div', { class: 'row' }, el('span', { class: 'k', text: 'Objekt' }), badge(c.objectSprite.usable ? 'available' : 'unavailable', c.objectSprite.usable ? 'Sprite' : 'kein Sprite')),
+      ...c.notes.map((n) => el('div', { class: 'reason', text: '• ' + n }))
+    );
+    tile.append(imgs, body);
+    return tile;
+  }
+
+  function stat(n, label) { return el('div', { class: 'stat' }, el('b', { text: n }), el('span', { text: label })); }
+
+  function render() {
+    const m = loader.manifest;
+    const st = loader.status;
+    $('#meta').textContent = `${loader.manifestUrl} · Revision ${st.revision} (${st.revisionLabel || '–'}) · Quelle: ${st.source}${st.stale ? ' (veraltet, offline)' : ''} · Loader ${loader.version}`;
+    const ids = loader.listCards();
+    const cards = ids.map((id) => loader.getCard(id, { front: 'view', cover: 'thumb' }));
+    const pl = loader.getPlaylist('primary');
+    const count = (arr, f) => arr.filter(f).length;
+    const themeCover = pl.items[0].cover;
+    const stats = $('#stats'); stats.replaceChildren(
+      stat(`${count(cards, (c) => c.front.state === 'current')}/24`, 'Vorderseiten aktuell'),
+      stat(count(cards, (c) => c.front.state === 'fallback'), 'Vorderseiten als Ersatz (veraltet)'),
+      stat(count(cards, (c) => c.front.state === 'unconfirmed'), 'Vorderseiten unbestätigt (Update erwartet)'),
+      stat(`${count(cards, (c) => c.cover.state === 'current') + (themeCover && themeCover.state === 'current' ? 1 : 0)}/25`, 'eigenständige CD-Cover'),
+      stat(`${count(pl.items, (i) => i.audio.usable)}/25`, 'Primärstücke abspielbar (Status)'),
+      stat(`${count(cards, (c) => c.objectSprite.usable)}/24`, 'freigestellte Objekt-Sprites'),
+    );
+    const grid = $('#cards'); grid.replaceChildren(...cards.map(cardTile));
+    applyFilter();
+    const tb = $('#playlist tbody'); tb.replaceChildren(...pl.items.map((it, i) => {
+      const cov = it.cover && it.cover.url ? el('img', { src: it.cover.url, alt: '', loading: 'lazy' }) : el('span', { class: 'reason', text: '–' });
+      return el('tr', { 'data-url': it.audio.url || '' },
+        el('td', { text: i + 1 }), el('td', {}, cov, it.cover ? badge(it.cover.state === 'current' ? 'current' : it.cover.state === 'fallback' ? 'fallback' : 'unavailable', it.cover.state === 'current' ? 'Cover' : it.cover.state === 'fallback' ? 'Alt' : 'fehlt') : null),
+        el('td', {}, el('div', { text: `${it.id} · ${it.title}` }), el('div', { class: 'reason', text: it.audio.url ? it.audio.url.replace(loader.mediaRoot, '') : it.audio.reason })),
+        el('td', {}, it.audio.usable ? el('audio', { controls: true, preload: 'none', src: it.audio.url }) : badge('unavailable', 'gesperrt')),
+        el('td', { class: 'probe-cell' }, badge('info', 'ungeprüft')));
+    }));
+    const ob = $('#objects tbody'); ob.replaceChildren(...ids.map((id) => {
+      const card = m.cards[id];
+      const a = (aid) => (aid ? loader.getAsset(aid, 'original') : null);
+      const cell = (x, okText) => el('td', {}, !x ? badge('unknown', '–') : x.usable ? badge('available', okText || 'vorhanden') : badge(x.availability === 'archived' ? 'fallback' : 'unavailable', x.availability === 'archived' ? 'nur Archiv' : 'fehlt'));
+      const study = a(card.objectStudy);
+      return el('tr', {}, el('td', { text: id }), cell(a(card.objectReference)),
+        el('td', {}, badge(study.release === 'approved' ? 'current' : 'fallback', study.release === 'approved' ? 'freigegeben' : 'Sichtung'), ' ', el('span', { class: 'reason', text: 'Archiv' })),
+        cell(a(card.objectSprite)), cell(a(card.model)), cell(a(card.story)));
+    }));
+    const rb = $('#rooms tbody'); rb.replaceChildren(...Object.keys(m.rooms).sort().map((rid) => {
+      const r = loader.getRoom(rid, { width: 480 });
+      const img = r.image && r.image.url ? el('img', { src: r.image.url, alt: '', loading: 'lazy' }) : null;
+      return el('tr', {}, el('td', { text: `${rid} · ${r.name}` }), el('td', {}, img), el('td', {}, r.image ? badge(r.image.usable ? 'available' : 'unavailable', r.image.usable ? r.image.availability : r.image.reason) : badge('unknown', '–')),
+        el('td', { text: r.alternatives.length ? `${r.alternatives.length} (nicht automatisch aktiv)` : '–' }));
+    }));
+  }
+
+  function applyFilter() {
+    const only = $('#filter').value === 'problem';
+    for (const t of document.querySelectorAll('#cards .card')) t.classList.toggle('hide', only && t.dataset.problem !== '1');
+  }
+
+  async function sniffUrl(url) {
+    try {
+      const res = await fetch(url, { headers: { Range: 'bytes=0-15' }, cache: 'no-cache' });
+      const buf = new Uint8Array(await res.arrayBuffer()).slice(0, 16);
+      const ct = res.headers.get('content-type') || '';
+      const head = String.fromCharCode(...buf);
+      if (!res.ok) return ['unavailable', `HTTP ${res.status}`];
+      if (/text\/html/i.test(ct) || /^\s*</.test(head)) return ['unavailable', 'HTML statt Datei'];
+      const isMp3 = head.startsWith('ID3') || (buf[0] === 0xff && (buf[1] & 0xe0) === 0xe0);
+      if (/\.mp3$/i.test(url)) return isMp3 ? (res.status === 206 ? ['current', 'MP3 · 206'] : ['fallback', `MP3 · ${res.status} statt 206`]) : ['unavailable', 'keine MP3-Signatur'];
+      return ['current', `${res.status} · ${ct.split(';')[0]}`];
+    } catch (e) { return ['unavailable', 'Netzwerkfehler']; }
+  }
+
+  async function probeAll() {
+    const btn = $('#probe'); btn.disabled = true; btn.textContent = 'prüfe …';
+    const rows = [...document.querySelectorAll('#playlist tbody tr')];
+    for (const tr of rows) {
+      const url = tr.dataset.url; const cell = tr.querySelector('.probe-cell');
+      if (!url) { cell.replaceChildren(badge('unavailable', 'kein Pfad')); continue; }
+      const [state, text] = await sniffUrl(url);
+      cell.replaceChildren(badge(state, text));
+    }
+    btn.disabled = false; btn.textContent = 'Dateien auf dem Server prüfen';
+  }
+
+  async function start() {
+    $('#errors').replaceChildren();
+    loader = EMFDMedia.create({ allowStaged: $('#staged').checked, channel: $('#channel').value });
+    loader.on('error', (e) => $('#errors').append(el('div', { class: 'err', text: `Manifest: ${e.message} (es wird der letzte gute Stand angezeigt)` })));
+    loader.on('update', render);
+    try { await loader.init(); render(); }
+    catch (e) { $('#meta').textContent = 'Manifest konnte nicht geladen werden'; $('#errors').append(el('div', { class: 'err', text: e.message })); }
+  }
+  $('#staged').addEventListener('change', start);
+  $('#channel').addEventListener('change', start);
+  $('#filter').addEventListener('change', applyFilter);
+  $('#reload').addEventListener('click', () => loader && loader.refresh());
+  $('#probe').addEventListener('click', probeAll);
+  start();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowisaurus.de/wunderhaus/media/manifest.schema.json",
+  "title": "EMFD Media Core Manifest",
+  "description": "Zentrales Medienmanifest für alle 2D-/3D-Anwendungen von 'Ein Moment für dich · Das Haus der kleinen Wunder'. Gilt für das Wurzelobjekt (clean) oder für den Schlüssel 'mediaCore' (merge).",
+  "type": "object",
+  "required": ["schema", "schemaVersion", "revision", "updatedAt", "mediaRoot", "policy", "cards", "themes", "playlists", "assets"],
+  "properties": {
+    "schema": {"const": "emfd-media-core"},
+    "schemaVersion": {"type": "string", "pattern": "^2\\.\\d+\\.\\d+$"},
+    "revision": {"type": "integer", "minimum": 1},
+    "revisionLabel": {"type": "string"},
+    "updatedAt": {"type": "string", "format": "date-time"},
+    "generator": {"type": "string"},
+    "mediaRoot": {"type": "string", "description": "Medienwurzel relativ zur Manifest-URL; Standard './'"},
+    "project": {"type": "string"},
+    "policy": {
+      "type": "object",
+      "required": ["pathsRelativeTo", "autoplay", "channels", "usableAvailability"],
+      "properties": {
+        "pathsRelativeTo": {"const": "manifest"},
+        "autoplay": {"const": false},
+        "precacheAudio": {"const": false},
+        "allowedOrigins": {"type": "array", "items": {"type": "string", "pattern": "^https://"}},
+        "channels": {"type": "object", "additionalProperties": {"type": "array", "items": {"$ref": "#/$defs/release"}}},
+        "usableAvailability": {"type": "array", "items": {"$ref": "#/$defs/availability"}}
+      }
+    },
+    "cards": {
+      "type": "object",
+      "propertyNames": {"pattern": "^O(0[1-9]|1[0-9]|2[0-4])$"},
+      "minProperties": 24, "maxProperties": 24,
+      "additionalProperties": {"$ref": "#/$defs/card"}
+    },
+    "themes": {"type": "object", "additionalProperties": {
+      "type": "object", "required": ["title", "audio"],
+      "properties": {"title": {"type": "string"}, "cover": {"$ref": "#/$defs/ref"}, "audio": {"$ref": "#/$defs/assetId"},
+                     "fallbacks": {"type": "object", "additionalProperties": {"$ref": "#/$defs/ref"}}}}},
+    "playlists": {
+      "type": "object", "required": ["primary"],
+      "additionalProperties": {"type": "object", "required": ["items"],
+        "properties": {"title": {"type": "string"}, "items": {"type": "array", "items": {"$ref": "#/$defs/assetId"}, "uniqueItems": true}}}
+    },
+    "devices": {"type": "object", "additionalProperties": {"type": "object",
+      "properties": {"cardIds": {"type": "array", "items": {"type": "string", "pattern": "^O(0[1-9]|1[0-9]|2[0-4])$"}}}}},
+    "rooms": {"type": "object", "additionalProperties": {"type": "object",
+      "properties": {"name": {"type": "string"}, "image": {"$ref": "#/$defs/ref"},
+                     "alternatives": {"type": "array", "items": {"$ref": "#/$defs/assetId"}}}}},
+    "shared": {"type": "object"},
+    "assets": {"type": "object", "propertyNames": {"$ref": "#/$defs/assetId"}, "additionalProperties": {"$ref": "#/$defs/asset"}},
+    "expectations": {"type": "object"},
+    "summary": {"type": "object"}
+  },
+  "$defs": {
+    "assetId": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"},
+    "ref": {"oneOf": [{"$ref": "#/$defs/assetId"}, {"type": "null"}]},
+    "availability": {"enum": ["verified", "listed", "referenced", "staged", "archived", "missing", "broken"]},
+    "release": {"enum": ["approved", "internal", "review", "test", "superseded", "archive"]},
+    "card": {
+      "type": "object",
+      "required": ["title", "category", "front", "frontState", "back", "audio"],
+      "properties": {
+        "title": {"type": "string"},
+        "category": {"enum": ["Ruhe", "Kraft", "Halt", "Freude"]},
+        "order": {"type": "integer"},
+        "front": {"$ref": "#/$defs/assetId"},
+        "frontState": {"enum": ["current", "unconfirmed"]},
+        "back": {"$ref": "#/$defs/assetId"},
+        "cover": {"$ref": "#/$defs/ref"},
+        "audio": {"$ref": "#/$defs/assetId"},
+        "objectReference": {"$ref": "#/$defs/ref"},
+        "objectStudy": {"$ref": "#/$defs/ref"},
+        "objectSprite": {"$ref": "#/$defs/ref"},
+        "model": {"$ref": "#/$defs/ref"},
+        "layers": {"type": "array", "items": {"$ref": "#/$defs/assetId"}},
+        "story": {"$ref": "#/$defs/ref"},
+        "fallbacks": {"type": "object", "additionalProperties": {"$ref": "#/$defs/ref"}},
+        "notes": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "variant": {
+      "type": "object",
+      "required": ["availability"],
+      "properties": {
+        "path": {"type": ["string", "null"], "pattern": "^(?![/]|https?:)(?!.*(^|/)\\.\\.(/|$)).+$"},
+        "mime": {"type": "string"},
+        "width": {"type": "integer"}, "height": {"type": "integer"},
+        "alpha": {"type": "boolean"},
+        "bytes": {"type": "integer"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "availability": {"$ref": "#/$defs/availability"},
+        "durationSeconds": {"type": "number"},
+        "derivedFrom": {"type": "string"},
+        "etag": {"type": "string"},
+        "evidence": {"type": "object"}
+      }
+    },
+    "asset": {
+      "type": "object",
+      "required": ["role", "release", "origin", "variants"],
+      "properties": {
+        "role": {"enum": ["front", "back", "cover", "coverFallback", "giftCover", "audio", "objectReference", "objectStudy",
+                          "objectSprite", "model", "layers", "room", "roomVariant", "background", "portrait", "story",
+                          "reference", "original", "texture"]},
+        "owner": {"type": ["string", "null"]},
+        "release": {"$ref": "#/$defs/release"},
+        "revision": {"type": "integer"},
+        "origin": {"type": "object"},
+        "supersedes": {"$ref": "#/$defs/assetId"},
+        "supersededBy": {"$ref": "#/$defs/assetId"},
+        "notes": {"type": "array", "items": {"type": "string"}},
+        "variants": {"type": "object", "minProperties": 1, "additionalProperties": {"$ref": "#/$defs/variant"}}
+      }
+    }
+  }
+}
