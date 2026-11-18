@@ -42,7 +42,8 @@
         "properties": {"title": {"type": "string"}, "items": {"type": "array", "items": {"$ref": "#/$defs/assetId"}, "uniqueItems": true}}}
     },
     "devices": {"type": "object", "additionalProperties": {"type": "object",
-      "properties": {"cardIds": {"type": "array", "items": {"type": "string", "pattern": "^O(0[1-9]|1[0-9]|2[0-4])$"}}}}},
+      "properties": {"cardIds": {"type": "array", "items": {"type": "string", "pattern": "^O(0[1-9]|1[0-9]|2[0-4])$"}},
+                     "name": {"type": "string"}, "image": {"$ref": "#/$defs/ref"}}}},
     "rooms": {"type": "object", "additionalProperties": {"type": "object",
       "properties": {"name": {"type": "string"}, "image": {"$ref": "#/$defs/ref"},
                      "alternatives": {"type": "array", "items": {"$ref": "#/$defs/assetId"}}}}},
@@ -101,7 +102,7 @@
       "properties": {
         "role": {"enum": ["front", "back", "cover", "coverFallback", "giftCover", "audio", "objectReference", "objectStudy",
                           "objectSprite", "model", "layers", "room", "roomVariant", "background", "portrait", "story",
-                          "reference", "original", "texture"]},
+                          "reference", "original", "texture", "deviceImage"]},
         "owner": {"type": ["string", "null"]},
         "release": {"$ref": "#/$defs/release"},
         "revision": {"type": "integer"},

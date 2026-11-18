@@ -498,8 +498,10 @@ OPT_RE = re.compile(r"^optimized/(?P<dir>[a-z]+)/(?P<base>.+?)-(?P<size>\d+(?:x\
 
 class Builder:
     def __init__(self, handoff: Path, staged: dict | None, inventory: dict | None, live: dict | None,
-                 assignments: list[dict] | None = None):
+                 assignments: list[dict] | None = None, room_music_map: Path | None = None):
         self.assignments = assignments or []
+        # Live-Fassung der App-Zuordnung (z. B. live/home/room-music-map.json) hat Vorrang vor der Uebergabe
+        self.room_music_map = room_music_map
         self.h = handoff
         self.q = handoff / "quellen"
         self.staged = staged
@@ -614,7 +616,8 @@ class Builder:
         profiles = self._read_image_profiles()
         music = load_json(self.q / "app__home__music-manifest.json")
         tracks = {t["assetId"]: t for t in music["tracks"]}
-        room_music = load_json(self.q / "app__home__room-music-map.json")
+        room_music_src = self.room_music_map or (self.q / "app__home__room-music-map.json")
+        room_music = load_json(room_music_src)
         objwebp = {x["id"]: x for x in load_json(self.q / "objektwebp__manifest.json")["items"]}
         story_media = {x["cardId"]: x for x in load_json(self.q / "app__home__composition-story-media.json")["illustrations"]}
         inventory_rows = self._read_inventory_csv()
@@ -648,7 +651,8 @@ class Builder:
         }, {"source": "App v0.6.56 image-profiles.js", "note": "nicht im Medienarchiv 29.10. enthalten"})
         self.add_asset("card.back.legacy-rueckseite", "back", "superseded", {
             "original": {"path": "cards/rueckseite.jpeg", "availability": "missing"},
-        }, {"source": "App v0.6.18 (Altverweis)", "note": "Datei wurde nie geliefert; nicht verwenden"})
+        }, {"source": "App v0.6.18 (Altverweis); Live-App v0.6.66 media-catalog.json nennt sie als Rueckfall",
+            "note": "Nur ausdruecklicher Ersatz, solange EMFD_Kartenrueckseite_v1.2 fehlt; ob Motiv = v1.2 ist, ist unbelegt"})
         self.add_asset("gift.cover.r1", "giftCover", "review", {
             "original": {"path": "cards/deckblatt.jpeg", "availability": "missing"},
         }, {"source": "playlist-catalog.json / Medienablage README", "note": "von App erwartet, Datei nicht geliefert"})
@@ -723,7 +727,7 @@ class Builder:
             cards[cid] = {
                 "title": c["title"], "category": c["category"], "order": CARD_IDS.index(cid) + 1,
                 "front": front, "frontState": front_state,
-                "fallbacks": {"front": r1 if front != r1 else None, "cover": thumb},
+                "fallbacks": {"front": r1 if front != r1 else None, "cover": thumb, "back": "card.back.legacy-rueckseite"},
                 "back": "card.back.r1",
                 "cover": cover, "audio": audio, "objectReference": objref, "objectStudy": objstudy,
                 "objectSprite": sprite, "model": model, "story": story,
@@ -764,9 +768,19 @@ class Builder:
         rooms, other = self._rooms_and_misc(v1_by_path, inventory_rows)
 
         # ---- devices / music map
-        devices = {pid: {"kind": "roomMusicDevice", "cardIds": r["cardIds"],
-                         "playlist": [f"audio.{x}" for x in r["cardIds"]]}
-                   for pid, r in room_music["rooms"].items()}
+        devices = {}
+        for pid, r in room_music["rooms"].items():
+            d = {"kind": "roomMusicDevice", "cardIds": r["cardIds"],
+                 "playlist": [f"audio.{x}" for x in r["cardIds"]]}
+            if r.get("deviceName"):
+                d["name"] = r["deviceName"]
+            if r.get("deviceImage"):
+                # Pfad aus der App ist relativ zu home/ ("../media/raumgeraete/P01.webp") -> relativ zu media/
+                d["image"] = self.add_asset(f"device.{pid}.image", "deviceImage", "review", {
+                    "original": {"path": r["deviceImage"]},
+                }, {"source": f"App room-music-map.json {room_music.get('appVersion') or ''}".strip(),
+                    "note": "von der Live-App verwendet; Erreichbarkeit ist keine Freigabe"}, owner=pid)
+            devices[pid] = d
 
         playlist_primary = ["audio.T03"] + [f"audio.{c}" for c in CARD_IDS]
         core = {
@@ -982,7 +996,8 @@ def cmd_build(a) -> int:
             if r["role"] not in ("front", "cover"):
                 print(f"Zuordnung {r['path']}: Rolle {r['role']} nicht unterstuetzt (front|cover)", file=sys.stderr)
                 return 2
-    b = Builder(Path(a.handoff), staged, inv, live, assignments)
+    b = Builder(Path(a.handoff), staged, inv, live, assignments,
+                room_music_map=Path(a.room_music_map) if a.room_music_map else None)
     core = b.build(a.revision, a.label)
     if a.mode == "merge":
         if not live:
@@ -1191,6 +1206,7 @@ def main(argv=None) -> int:
     s.add_argument("--inventory", action="append", help="Ergebnis von scan-dir/import-list/http-check (mehrfach moeglich; spaetere ergaenzen fruehere)")
     s.add_argument("--live-manifest", help="aktuelle Live-Datei manifest.json (lokale Kopie)")
     s.add_argument("--assign", help="CSV path;owner;role;variant fuer bereits auf dem Server liegende neue Dateien")
+    s.add_argument("--room-music-map", help="aktuelle room-music-map.json der Live-App (Vorrang vor quellen/; Geraetenamen und -bilder)")
     s.add_argument("--mode", choices=["clean", "merge"], default="clean",
                    help="clean: nur v2; merge: Live-Inhalt unveraendert + Schluessel mediaCore (additiv)")
     s.add_argument("--revision", type=int, required=True)

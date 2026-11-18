@@ -1,5 +1,7 @@
 # EMFD-MEDIA-CORE-01 · Deployment und Rollback
 
+> **Hinweis (18.11.2026):** Im Repo gibt es kein `deploy/`; die Dateien liegen in `media/`, der Manifest-Kandidat in `release/`. Die aktuellen, repo-genauen Befehle stehen in [`../release/README.md`](../release/README.md).
+
 **Nichts davon ist bisher ausgeführt.** Jeder Schritt mit ⚠ verändert den Server und braucht deine Freigabe. Grundsätze: nur neue Dateien hinzufügen, nichts überschreiben oder löschen, Manifest zuletzt und atomar.
 
 Werkzeug: `python3 tools/emfd_media.py <befehl>` (Python 3.9+, Pillow nur für `stage`). Alle Prüfbefehle sind rein lesend.

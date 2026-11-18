@@ -1,6 +1,6 @@
 {
  "tool": "emfd-media-check/1.0",
- "generatedAt": "2026-11-18T16:43:38+00:00",
+ "generatedAt": "2026-11-18T16:54:31+00:00",
  "mediaRoot": "media",
  "files": [
   {
@@ -1456,7 +1456,7 @@
   }
  ],
  "changes": {
-  "base": "2026-11-18T16:43:18+00:00",
+  "base": "2026-11-18T16:43:38+00:00",
   "added": [],
   "changed": [],
   "removed": []
@@ -1491,7 +1491,7 @@
  },
  "server": {
   "base": "https://flowisaurus.de/wunderhaus/media/",
-  "checkedAt": "2026-11-18T16:43:38+00:00",
+  "checkedAt": "2026-11-18T16:54:31+00:00",
   "files": {
    "MEDIEN-KONVENTION.md": {
     "status": 404,

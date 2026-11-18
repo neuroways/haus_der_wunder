@@ -46,10 +46,12 @@ await media.init({ waitForNetwork: true });   // false: sofort mit letztem guten
 | `getCard(id, {front, cover, back})` | Karte mit aufgelösten Slots; jeder Slot: `url`, `usable`, `state`, `reason`, `width`, `height`, `availability`, `release` |
 | `getAsset(id, variant, opts)` | einzelnes Asset; `variant` = Name, `'auto'` oder `{width}` |
 | `getPlaylist('primary'|'internal')` | Einträge mit `audio` und `cover`; `autoplay:false` |
-| `getRoom(id, variant)` / `getDevice(id)` | Raumbild + Varianten / Gerät mit Tracks |
+| `getRoom(id, variant)` / `getDevice(id)` | Raumbild + Varianten / Gerät P01–P08 mit `name`, `image` (Gerätebild, z. B. `raumgeraete/P01.webp`), `cardIds`, `tracks` |
 | `resolveUrl(assetIdOrPath, variant)` | absolute URL; wirft bei `../`, absoluten oder fremden Pfaden |
 | `on('update'|'error'|'status', fn)` | Revisionswechsel, Fehler, Statusänderung |
 | `status` | `source` network/cache, `revision`, `stale`, `error` |
+
+Slots mit erklärtem Ersatz: `front` (r2 → r1), `cover` (eigenes Cover → Playlist-Thumbnail), `back` (Rückseite v1.2 → `cards/rueckseite.jpeg`).
 
 Slot-Zustände: `current` (aktuelle Fassung), `unconfirmed` (Altfassung, Update angekündigt), `fallback` (veraltete Fassung als erklärter Ersatz – sichtbar markieren), `unavailable` (fehlt; `url:null`, `reason`).
 
@@ -62,4 +64,4 @@ Slot-Zustände: `current` (aktuelle Fassung), `unconfirmed` (Altfassung, Update 
 | Altdateien ohne Hash (`cards/O01.png`, `audio/*.mp3`, `rooms/*.webp`) | `no-cache` | Revalidierung, kein veralteter Stand |
 | MP3 | `Accept-Ranges: bytes`, Antwort 206 auf Range | iOS-Wiedergabe und Spulen |
 
-Vorschlag als `.htaccess`: `deploy/wunderhaus/media/htaccess-vorschlag.txt`. Service Worker: jede App nur mit eigenem Scope und eigenem Cache-Namen (`emfd-<app>-<version>`), Audio nicht vorladen, Manifest nie aus dem SW-Cache bedienen (nur Netz, Loader hat eigenen Offline-Stand).
+Vorschlag als `.htaccess`: [`release/htaccess-vorschlag.txt`](../release/htaccess-vorschlag.txt). Befund 18.11.2026: Der Server sendet bisher **kein** `Cache-Control`. Service Worker: jede App nur mit eigenem Scope und eigenem Cache-Namen (`emfd-<app>-<version>`), Audio nicht vorladen, Manifest nie aus dem SW-Cache bedienen (nur Netz, Loader hat eigenen Offline-Stand).

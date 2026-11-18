@@ -64,6 +64,13 @@ Weitere Ausgaben: `EMFD-v0.6.66-MEDIA01-home-Patch.zip` (nur `home/index.html` m
 7. **3D-App nach `/wunderhaus/wunderhaus_3d/`**: Quellordner der Nutzerin abwarten; Brücke `src/bridge/media.js` einbauen, `<meta name="emfd-media-base" content="../media/">`, keine Medienkopien unter `assets/`.
 8. Danach: Testkopie `home/3d/wunderhaus/` entfernen (nur mit Zustimmung); Folgeschritte für die 2D-App (Cover in `music-room.js` über `EMFDImages.cover(id)`, Service-Worker-Muster für `-r2-`, Alt-Texte, `assets/recovery` bereinigen).
 
+## 5a. Stand 18.11.2026 abends (Claude-Code-Sitzung, Repo)
+
+- Schritt 1 erledigt: Live-Manifest in `live/manifest.json`, unverändert seit 04.11.
+- Serverprüfung (lesend) erledigt: [`07_Live-Bestand-2026-11-18.md`](07_Live-Bestand-2026-11-18.md). Wichtigste Befunde: `cards/O01–O18.png` enthalten **bereits** die neuen Vorderseiten (am 17.11. ersetzt), O19–O24 sind Altstand, **keine MP3 live**, Rückseite v1.2 fehlt (`rueckseite.jpeg` vorhanden), kein `Cache-Control`. Die Testkopie `home/3d/wunderhaus/media/` ist unter diesem Pfad nicht erreichbar.
+- Schritt 4 vorgezogen: Kandidat Revision 2 in [`../release/manifest.json.neu`](../release/manifest.json.neu). Er übernimmt die Live-Gerätezuordnung v0.6.66 (Namen und Bilder P01–P08) und führt die alte Rückseite als markierten Ersatz. Die Release-Prüfung bleibt bis zum Upload gesperrt.
+- Weiter mit Schritt 2 (Upload, ⚠ Freigabe) nach [`../release/README.md`](../release/README.md).
+
 Rollback: altes Manifest zurück (Upload als `.neu` + Umbenennen); Notbremse 2D `?emfd-media-bridge=off`; neue Dateien bleiben unschädlich liegen. Revisionen nur hochzählen, nie zurückzählen.
 
 ## 6. Offene Fragen an die Nutzerin

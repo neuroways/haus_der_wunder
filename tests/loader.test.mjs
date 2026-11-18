@@ -216,5 +216,25 @@ test('Gerätezuordnung P01–P08 aus Live-Stand 04.11.', async () => {
   await l.init();
   assert.deepEqual(l.getDevice('P03').cardIds, ['O21', 'O13', 'O10', 'O05']);
   assert.deepEqual(l.getDevice('P08').cardIds, ['O24', 'O04', 'O06']);
+  const p01 = l.getDevice('P01');
+  assert.equal(p01.name, 'Fensterdose');
+  assert.equal(p01.image.url, `${ORIGIN}/wunderhaus/media/raumgeraete/P01.webp`);
+  for (const app of ['home/', 'home/3d/claude/v1/', 'home_3d/']) assert.ok(!p01.image.url.includes(app));
   assert.ok(l.getRoom('P08').image.url.endsWith('/wunderhaus/media/rooms/P08-teezimmer.webp') || l.getRoom('P08').image.url.includes('/optimized/rooms/P08-teezimmer-'));
+});
+
+test('Rückseite: fehlt v1.2, wird die vorhandene alte Rückseite als markierter Ersatz geliefert', async () => {
+  const m = JSON.parse(MANIFEST_TEXT);
+  m.assets['card.back.legacy-rueckseite'].variants.original.availability = 'verified';
+  for (const v of Object.values(m.assets['card.back.r1'].variants)) v.availability = 'missing';
+  const l = EMFDMedia.create({ manifestUrl: `${ORIGIN}/wunderhaus/home/3d/claude/v1/../../../../media/manifest.json`, fetch: fakeFetch(JSON.stringify(m)), storage: memStorage() });
+  await l.init();
+  const b = l.getCard('O07').back;
+  assert.equal(b.state, 'fallback');
+  assert.equal(b.url, `${ORIGIN}/wunderhaus/media/cards/rueckseite.jpeg`);
+  // ohne vorhandenen Ersatz: kein geratener Pfad
+  for (const v of Object.values(m.assets['card.back.legacy-rueckseite'].variants)) v.availability = 'missing';
+  const l2 = EMFDMedia.create({ manifestUrl: `${ORIGIN}/wunderhaus/media/manifest.json`, fetch: fakeFetch(JSON.stringify(m)), storage: memStorage() });
+  await l2.init();
+  assert.equal(l2.getCard('O07').back.url, null);
 });

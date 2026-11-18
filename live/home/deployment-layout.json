@@ -1,0 +1,47 @@
+{
+  "appVersion": "0.6.66",
+  "applicationZipTopLevel": [
+    "home/"
+  ],
+  "applicationTarget": "Root/wunderhaus/",
+  "sharedMedia": {
+    "cards": "Root/wunderhaus/media/cards/",
+    "audio": "Root/wunderhaus/media/audio/"
+  },
+  "appBase": "/wunderhaus/home/",
+  "routes": "hash routes retained within /wunderhaus/home/",
+  "serviceWorker": {
+    "file": "home/image-service-worker.js",
+    "scope": "wunderhaus/home/",
+    "imageCacheBytes": 20971520,
+    "audioCached": false
+  },
+  "legacyRootLinks": "optional server redirect from /home/ to /wunderhaus/home/; hash fragments are client-side and cannot be forwarded by a server redirect",
+  "roomMediaBase": "../media/rooms/",
+  "houseSceneMediaBase": "../media/rooms/",
+  "house01": {
+    "newRoutes": [
+      "#ort/P01",
+      "#ort/P02",
+      "#ort/P03",
+      "#ort/P05",
+      "#ort/P06",
+      "#ort/P07"
+    ],
+    "directory": "#raeume",
+    "thumbnailBase": "../media/rooms/thumbs/",
+    "catalog": "home/app.js:ROOMS"
+  },
+  "roomMusic": {
+    "file": "home/room-music-map.json",
+    "feature": "EMFD-HOUSE-MUSIC-01",
+    "requiresAudioFilesInExistingSharedMedia": true
+  },
+  "integrationRevision": "START02-DESKTOP-MUSIK-1",
+  "features": {
+    "registry": "home/feature-registry.js",
+    "designSystem": "home/design-system-v0.6.64.css",
+    "readingPreferenceBootstrap": "home/reading-preferences.js",
+    "startMediaIdentities": "home/media-catalog.json"
+  }
+}

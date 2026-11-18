@@ -1,10 +1,12 @@
 # Browser-Rauchtest (Playwright + Chrome). Erwartet einen lokalen Testserver auf :8766 mit /wunderhaus/media, PWA- und 3D-Attrappe (siehe docs/06_Tests.md).
-import asyncio, json
+import asyncio, json, os, shutil
 from playwright.async_api import async_playwright
 B='http://127.0.0.1:8766'
+# Chrome-Pfad: EMFD_CHROME, sonst google-chrome, sonst vorinstalliertes Chromium
+CHROME=os.environ.get('EMFD_CHROME') or shutil.which('google-chrome') or '/opt/pw-browsers/chromium'
 async def main():
     async with async_playwright() as p:
-        br = await p.chromium.launch(executable_path='/usr/bin/google-chrome', args=['--no-sandbox'])
+        br = await p.chromium.launch(executable_path=CHROME, args=['--no-sandbox'])
         ctx = await br.new_context(viewport={'width':390,'height':844}, device_scale_factor=2)
         page = await ctx.new_page()
         logs=[]; page.on('console', lambda m: logs.append(m.type+': '+m.text)); page.on('pageerror', lambda e: logs.append('PAGEERROR '+str(e)))

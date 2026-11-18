@@ -264,7 +264,11 @@
       if (primary.usable) return Object.assign(primary, { state: key === 'front' && card.frontState !== 'current' ? 'unconfirmed' : 'current' });
       const fbId = card.fallbacks && card.fallbacks[key];
       if (fbId) {
-        const fb = getAsset(fbId, variant === 'auto' || typeof variant === 'object' ? variant : (key === 'cover' ? 'thumb' : variant), { allowSuperseded: true });
+        let fv = variant === 'auto' || typeof variant === 'object' ? variant : (key === 'cover' ? 'thumb' : variant);
+        const fbAsset = requireCore().assets[fbId];
+        // Ersatz hat oft nur 'original' (z. B. alte Rückseite): dann passende Größe automatisch wählen
+        if (typeof fv === 'string' && fv !== 'auto' && fbAsset && !(fv in (fbAsset.variants || {}))) fv = 'auto';
+        const fb = getAsset(fbId, fv, { allowSuperseded: true });
         if (fb.usable) return Object.assign(fb, { state: 'fallback', reason: `Ersatz für ${card[key] || key}: ${primary.reason}` });
       }
       return primary;
@@ -278,7 +282,7 @@
       return {
         id, title: card.title, category: card.category, order: card.order,
         front: slot(card, 'front', o.front),
-        back: getAsset(card.back, o.back),
+        back: slot(card, 'back', o.back),
         cover: slot(card, 'cover', o.cover),
         audio: getAsset(card.audio, 'original'),
         objectReference: getAsset(card.objectReference, 'original'),
@@ -325,7 +329,11 @@
       const c = requireCore();
       const d = c.devices && c.devices[id];
       if (!d) return null;
-      return { id, cardIds: d.cardIds.slice(), tracks: d.cardIds.map((cid) => getAsset(c.cards[cid].audio, 'original')) };
+      return {
+        id, name: d.name || null, cardIds: d.cardIds.slice(),
+        image: d.image ? getAsset(d.image, 'original') : null,
+        tracks: d.cardIds.map((cid) => getAsset(c.cards[cid].audio, 'original')),
+      };
     }
 
     /** resolveUrl(assetIdOrRecord, variant?) – liefert absolute URL oder null (nie geratene URL). */

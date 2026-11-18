@@ -1,9 +1,9 @@
 {
- "manifestRevision": 1,
- "createdAt": "2026-11-18T09:24:30Z",
- "inventory": null,
+ "manifestRevision": 2,
+ "createdAt": "2026-11-18T17:02:31Z",
+ "inventory": "http:https://flowisaurus.de/wunderhaus/media/ + http:https://flowisaurus.de/wunderhaus/media/ + download:https://flowisaurus.de/wunderhaus/media/cards/O01-O24.png (2026-11-18) + http:https://flowisaurus.de/wunderhaus/media/",
  "summary": {
-  "assets": 338,
+  "assets": 346,
   "byRole": {
    "audio": 35,
    "background": 3,
@@ -11,6 +11,7 @@
    "coverFallback": 25,
    "cover": 3,
    "back": 2,
+   "deviceImage": 8,
    "giftCover": 1,
    "model": 24,
    "objectReference": 24,
@@ -24,14 +25,13 @@
    "story": 24
   },
   "byAvailability": {
-   "referenced": 49,
-   "listed": 330,
+   "missing": 226,
+   "verified": 282,
    "staged": 84,
-   "missing": 98,
-   "archived": 24
+   "broken": 1
   },
   "byRelease": {
-   "review": 162,
+   "review": 170,
    "test": 10,
    "internal": 46,
    "superseded": 45,
@@ -77,7 +77,133 @@
    "T03"
   ]
  },
- "unknownOnServer": [],
+ "unknownOnServer": [
+  "README.md",
+  "_metadata/altes-raum-manifest-v0.6.12.json",
+  "_metadata/app-acht-kartenpfade-korrigieren.csv",
+  "_metadata/app-acht-kartenpfade-korrigieren.json",
+  "_metadata/datei-zuordnung.csv",
+  "_metadata/doppelte-uploads.csv",
+  "_metadata/karten-musik-zuordnung-v0.6.18.json",
+  "_referenzen/button-bibliothek-v0.3/README.md",
+  "_referenzen/button-bibliothek-v0.3/css/emfd-ui.css",
+  "_referenzen/button-bibliothek-v0.3/demo.html",
+  "_referenzen/button-bibliothek-v0.3/js/emfd-ui.js",
+  "audio/README_FEHLENDE_AUDIODATEIEN.txt",
+  "audio/manifest-erwartete-tracks.json",
+  "cards/karten-manifest.json",
+  "manifest.json",
+  "rooms/manifest.json"
+ ],
  "duplicateFilesByHash": {},
- "stagedAlreadyOnServer": []
+ "stagedAlreadyOnServer": [
+  {
+   "serverPath": "cards/O01.png",
+   "sameBytesAs": "card.O01.front.r2",
+   "plannedPath": "cards/fronts/O01-front-r2-21eca783.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O02.png",
+   "sameBytesAs": "card.O02.front.r2",
+   "plannedPath": "cards/fronts/O02-front-r2-512eeca7.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O03.png",
+   "sameBytesAs": "card.O03.front.r2",
+   "plannedPath": "cards/fronts/O03-front-r2-855957b9.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O04.png",
+   "sameBytesAs": "card.O04.front.r2",
+   "plannedPath": "cards/fronts/O04-front-r2-4c1f37fb.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O05.png",
+   "sameBytesAs": "card.O05.front.r2",
+   "plannedPath": "cards/fronts/O05-front-r2-8ad22072.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O06.png",
+   "sameBytesAs": "card.O06.front.r2",
+   "plannedPath": "cards/fronts/O06-front-r2-ba9ec012.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O07.png",
+   "sameBytesAs": "card.O07.front.r2",
+   "plannedPath": "cards/fronts/O07-front-r2-1b0edb88.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O08.png",
+   "sameBytesAs": "card.O08.front.r2",
+   "plannedPath": "cards/fronts/O08-front-r2-1bd052f1.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O09.png",
+   "sameBytesAs": "card.O09.front.r2",
+   "plannedPath": "cards/fronts/O09-front-r2-a8c90829.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O10.png",
+   "sameBytesAs": "card.O10.front.r2",
+   "plannedPath": "cards/fronts/O10-front-r2-b8fd07b7.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O11.png",
+   "sameBytesAs": "card.O11.front.r2",
+   "plannedPath": "cards/fronts/O11-front-r2-81deeae0.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O12.png",
+   "sameBytesAs": "card.O12.front.r2",
+   "plannedPath": "cards/fronts/O12-front-r2-44b7e744.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O13.png",
+   "sameBytesAs": "card.O13.front.r2",
+   "plannedPath": "cards/fronts/O13-front-r2-84b39927.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O14.png",
+   "sameBytesAs": "card.O14.front.r2",
+   "plannedPath": "cards/fronts/O14-front-r2-dfc3bc61.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O15.png",
+   "sameBytesAs": "card.O15.front.r2",
+   "plannedPath": "cards/fronts/O15-front-r2-7da93928.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O16.png",
+   "sameBytesAs": "card.O16.front.r2",
+   "plannedPath": "cards/fronts/O16-front-r2-89bb780f.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O17.png",
+   "sameBytesAs": "card.O17.front.r2",
+   "plannedPath": "cards/fronts/O17-front-r2-4636421b.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  },
+  {
+   "serverPath": "cards/O18.png",
+   "sameBytesAs": "card.O18.front.r2",
+   "plannedPath": "cards/fronts/O18-front-r2-c2a2f9d8.png",
+   "hint": "Datei liegt bereits auf dem Server -> per --assign zuordnen statt erneut hochladen"
+  }
+ ]
 }

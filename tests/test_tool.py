@@ -67,6 +67,26 @@ class ValidateTests(unittest.TestCase):
         self.assertEqual(sorted(core["cards"]), M.CARD_IDS)
 
 
+class LiveStandTests(unittest.TestCase):
+    """Abgleich mit dem Serverbestand 18.11.2026 (live/)."""
+
+    def test_devices_from_live_room_music_map(self):
+        for pid in [f"P0{i}" for i in range(1, 9)]:
+            d = MANIFEST["devices"][pid]
+            self.assertTrue(d.get("name"))
+            a = MANIFEST["assets"][d["image"]]
+            self.assertEqual((a["role"], a["variants"]["original"]["path"]), ("deviceImage", f"raumgeraete/{pid}.webp"))
+
+    def test_release_candidate_dev_valid(self):
+        cand = ROOT / "release/manifest.json.neu"
+        doc = json.loads(cand.read_text(encoding="utf-8"))
+        live = json.loads((ROOT / "live/manifest.json").read_text(encoding="utf-8"))
+        self.assertEqual({k: v for k, v in doc.items() if k != "mediaCore"}, live, "Altinhalt muss unveraendert bleiben")
+        self.assertEqual(codes(doc["mediaCore"]), set())
+        # Release bleibt gesperrt, bis die neuen Dateien hochgeladen sind
+        self.assertIn("release-staged", codes(doc["mediaCore"], release=True))
+
+
 class SniffTests(unittest.TestCase):
     def test_html_detected(self):
         self.assertEqual(M.sniff(b"<!DOCTYPE html><html>")["kind"], "html")
