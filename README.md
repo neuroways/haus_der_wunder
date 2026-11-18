@@ -13,12 +13,12 @@ Weitere Ordner:
 
 | Ordner | Inhalt |
 |---|---|
-| `tools/` | `emfd_media.py` (Manifest bauen/prüfen, aus EMFD-MEDIA-CORE-01) · `media_check.py` (Bestand und Aktualität prüfen) |
+| `tools/` | `emfd_media.py` (Manifest bauen/prüfen, aus EMFD-MEDIA-CORE-01) · `media_check.py` (Bestand und Aktualität prüfen) · `grundriss.py` (Raumgrundriss aus dem Hausmodell für Design-Briefings) |
 | `tests/` | Loader-, Werkzeug- und Browsertests; `bash tests/run_tests.sh` führt alles ohne Server aus |
 | `input/handoff/` | unveränderte Übergabedaten (Quelle für `build`) |
 | `reports/` | `staging.json`, `medienstatus.csv`, `abgleich.json` (Paket) · `media-bericht.md`, `media-inventar.json` (Medien-Check) |
 | `3d-integration/` | Original der 3D-Brücke aus dem Paket (v1.0.0); eingebaut ist die angepasste Fassung in `home_3d/src/bridge/media.js` |
-| `docs/` | Übergabe, Paket-README, `01`–`08` (Bestand, Schnittstelle, Deployment/Rollback, PWA, 3D, Tests, Live-Bestand 18.11., Entscheidungen) |
+| `docs/` | Übergabe, Paket-README, `01`–`08` (Bestand, Schnittstelle, Deployment/Rollback, PWA, 3D, Tests, Live-Bestand 18.11., Entscheidungen) · `design-briefing/` (Raum-Briefings für ChatGPT) |
 | `live/` | Momentaufnahmen vom Server (nur gelesen): Manifest v1, `home/` (v0.6.66), `inventar/` (Serverprüfung) |
 | `release/` | Manifest-Kandidat Revision 2 und `.htaccess`-Vorschlag – **nicht live** |
 

@@ -1,0 +1,239 @@
+{
+ "raum": "Teezimmer",
+ "ebene": "EG",
+ "quelle": "Haus-v0.4.4.glb + home_3d/data (v0.5.x)",
+ "koordinaten": "lokal, Meter; Ursprung Südwest-Innenecke; x nach Osten, y nach Norden; Möbel: x,y = Südwest-Ecke, w = Ost-West, d = Nord-Süd",
+ "innenmass_m": {
+  "breite_ost_west": 6.0,
+  "tiefe_nord_sued": 4.2
+ },
+ "lichte_hoehe_m": 2.9,
+ "waende": {
+  "S": "Süd",
+  "N": "Nord",
+  "W": "West",
+  "E": "Ost"
+ },
+ "seiten": {
+  "S": [
+   {
+    "art": "wand",
+    "von": 0.0,
+    "bis": 6.0,
+    "breite_m": 6.0
+   }
+  ],
+  "N": [
+   {
+    "art": "wand",
+    "von": 0.0,
+    "bis": 2.6,
+    "breite_m": 2.6
+   },
+   {
+    "art": "oeffnung",
+    "von": 2.6,
+    "bis": 5.4,
+    "sturz_m": 2.6,
+    "breite_m": 2.8,
+    "fuehrt_zu": "Wintergarten"
+   },
+   {
+    "art": "wand",
+    "von": 5.4,
+    "bis": 6.0,
+    "breite_m": 0.6
+   }
+  ],
+  "W": [
+   {
+    "art": "wand",
+    "von": 0.0,
+    "bis": 1.4,
+    "breite_m": 1.4
+   },
+   {
+    "art": "oeffnung",
+    "von": 1.4,
+    "bis": 2.4,
+    "sturz_m": 2.2,
+    "breite_m": 1.0,
+    "fuehrt_zu": "Halle"
+   },
+   {
+    "art": "wand",
+    "von": 2.4,
+    "bis": 4.2,
+    "breite_m": 1.8
+   }
+  ],
+  "E": [
+   {
+    "art": "wand",
+    "von": 0.0,
+    "bis": 4.2,
+    "breite_m": 4.2
+   }
+  ]
+ },
+ "tueren_laut_tueren_json": [
+  "D02 Halle Tee (Drehtür 1 m)",
+  "O01 (offener Durchgang Teezimmer–Wintergarten, 2.8 m)"
+ ],
+ "platzhalter": [
+  {
+   "id": "T01",
+   "name": "Kartentisch",
+   "x": 1.9,
+   "y": 1.6,
+   "z": 0,
+   "w": 1.4,
+   "d": 1,
+   "h": 0.76,
+   "art": "moebel",
+   "steht_auf": null,
+   "motiv": null,
+   "status": "Entwurfsplatzhalter"
+  },
+  {
+   "id": "T02",
+   "name": "Sitzbank",
+   "x": 2.0,
+   "y": 0.1,
+   "z": 0,
+   "w": 2.1,
+   "d": 0.65,
+   "h": 0.46,
+   "art": "moebel",
+   "steht_auf": null,
+   "motiv": null,
+   "status": "Entwurfsplatzhalter"
+  },
+  {
+   "id": "T03",
+   "name": "Stuhl am Kartentisch",
+   "x": 2.2,
+   "y": 2.75,
+   "z": 0,
+   "w": 0.6,
+   "d": 0.55,
+   "h": 0.9,
+   "art": "moebel",
+   "steht_auf": null,
+   "motiv": null,
+   "status": "Entwurfsplatzhalter"
+  },
+  {
+   "id": "T04",
+   "name": "Geschirrschrank",
+   "x": 0.15,
+   "y": 0.1,
+   "z": 0,
+   "w": 0.45,
+   "d": 1,
+   "h": 1.8,
+   "art": "moebel",
+   "steht_auf": null,
+   "motiv": null,
+   "status": "Entwurfsplatzhalter"
+  },
+  {
+   "id": "T05",
+   "name": "Kachelofen Reserve",
+   "x": 5.0,
+   "y": 0.2,
+   "z": 0,
+   "w": 0.7,
+   "d": 0.8,
+   "h": 1.8,
+   "art": "moebel",
+   "steht_auf": null,
+   "motiv": null,
+   "status": "Geometrische Reserve, Wärmeabstände nicht geprüft"
+  },
+  {
+   "id": "T06",
+   "name": "Spieluhrtisch",
+   "x": 4.9,
+   "y": 2.6,
+   "z": 0,
+   "w": 0.8,
+   "d": 0.7,
+   "h": 0.76,
+   "art": "moebel",
+   "steht_auf": null,
+   "motiv": null,
+   "status": "Entwurfsplatzhalter"
+  },
+  {
+   "id": "P08",
+   "name": "Tee-Spieluhr",
+   "x": 5.08,
+   "y": 2.75,
+   "z": 0.76,
+   "w": 0.38,
+   "d": 0.38,
+   "h": 0.32,
+   "art": "musikgeraet",
+   "steht_auf": "T06",
+   "motiv": null,
+   "status": "Entwurfsplatzhalter"
+  },
+  {
+   "id": "T07",
+   "name": "Lesesessel",
+   "x": 4.9,
+   "y": 1.5,
+   "z": 0,
+   "w": 0.8,
+   "d": 0.8,
+   "h": 1.0,
+   "art": "moebel",
+   "steht_auf": null,
+   "motiv": null,
+   "status": "Entwurfsplatzhalter"
+  },
+  {
+   "id": "O04",
+   "name": "Kissen",
+   "x": 2.4,
+   "y": 0.2,
+   "z": 0.46,
+   "w": 0.5,
+   "d": 0.45,
+   "h": 0.17,
+   "art": "objekt",
+   "steht_auf": "T02",
+   "motiv": "O04",
+   "status": "Sitzbank als Standortvorschlag statt Fensterbank"
+  },
+  {
+   "id": "CARDS",
+   "name": "Begleiterkarten-Stapel",
+   "x": 2.2,
+   "y": 1.8,
+   "z": 0.76,
+   "w": 0.3,
+   "d": 0.42,
+   "h": 0.04,
+   "art": "objekt",
+   "steht_auf": "T01",
+   "motiv": null,
+   "status": "Entwurfsplatzhalter"
+  },
+  {
+   "id": "O24",
+   "name": "Schraege Tasse",
+   "x": 2.8,
+   "y": 2.0,
+   "z": 0.76,
+   "w": 0.103,
+   "d": 0.083,
+   "h": 0.092,
+   "art": "objekt",
+   "steht_auf": "T01",
+   "motiv": "O24",
+   "status": "Bindender Tassenmaster; Maße als Arbeitsmaß, inklusive Henkel"
+  }
+ ]
+}

@@ -22,7 +22,7 @@ Ergebnis: **gesperrt**, solange die 84 neuen Dateien nicht hochgeladen sind. Das
 ## Reihenfolge (jeder ⚠-Schritt nur nach deiner ausdrücklichen Freigabe)
 
 1. ⚠ **Sicherung** im STRATO-Dateimanager: `media/manifest.json` kopieren nach `media/manifest-v1-perf01-2026-11-18.json`.
-2. ⚠ **Neue Dateien hochladen** aus diesem Repo nach `/wunderhaus/media/`. Es sind nur neue Namen, nichts wird überschrieben:
+2. ⚠ **Neue Dateien hochladen**: die Pakete `EMFD-Medien-Karten-Cover-Teil1von4.zip` … `Teil4von4.zip` (je < 20 MB, 89 Dateien) nacheinander in **`/wunderhaus/`** hochladen und dort entpacken (der Ordner `media/` steckt im ZIP). Es sind nur neue Namen, nichts wird überschrieben:
    `cards/fronts/` (18), `covers/` (3), `optimized/cards/*-r2-*` (54), `optimized/covers/` (9), `media-loader.js`, `media-loader.mjs`, `manifest.schema.json`, `MEDIEN-KONVENTION.md`, `katalog/index.html`.
 3. **Prüfen** (lesend) und **neu bauen**:
    ```bash
