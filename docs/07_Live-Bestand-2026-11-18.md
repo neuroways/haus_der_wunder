@@ -29,6 +29,10 @@ Rohdaten: [`live/inventar/server-2026-11-18.json`](../live/inventar/server-2026-
 9. **Cache: Der Server sendet kein `Cache-Control`**, nur ETag und Last-Modified. Browser behalten das Manifest dann heuristisch einige Stunden bis Tage, ohne nachzufragen. Vorschlag: [`release/htaccess-vorschlag.txt`](../release/htaccess-vorschlag.txt).
 10. **`_referenzen/button-bibliothek-v0.3/demo.html`** liegt öffentlich im Medienordner (HTML, kein Medium). Das ist harmlos, gehört aber nicht dorthin.
 
+## 2a. Atelier P04: Entscheidung vom 18.11.2026
+
+**Das Hauptbild des Ateliers ist die Werkbank** (Original vom 29.10., 1086×1448, archiviert unter `input/bilder/raeume/R-ATELIER_p04_atelier_v1.webp`). Auf dem Server wurde `rooms/P04-atelier.webp` am 05.11. durch ein anderes Motiv ersetzt (Kartenauslage, 941×1672); ebenso `rooms/varianten/P04-atelier-kartenauslage-v1.webp` (941×1672 statt 864×1536). Das Werkzeug erkennt solche Ersetzungen jetzt an den abweichenden Maßen (`dimension-mismatch`), markiert sie als `broken` und liefert sie nie aus. Der Loader nimmt für P04 die optimierten Werkbank-Varianten `optimized/rooms/P04-atelier-{480,900,1086}-v1-*`. Wiederherstellung am Server (⚠ Freigabe): Original als neue Datei hochladen. Altpfad nur mit ausdrücklicher Zustimmung zurücksetzen.
+
 ## 3. Zahlen (Manifest-Kandidat Revision 2, Varianten)
 
 | Rolle | verifiziert live | vorbereitet (staged) | fehlt | fehlerhaft |

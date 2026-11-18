@@ -578,6 +578,16 @@ class Builder:
                 v["evidence"] = ev
             if self.inv and v["path"] in self.inv["files"]:
                 rec = self.inv["files"][v["path"]]
+                # Andere Bildmaße als erwartet = Datei wurde am Altpfad durch ein anderes Bild ersetzt
+                if (v.get("width") and v.get("height") and rec.get("width") and rec.get("height")
+                        and (v["width"], v["height"]) != (rec["width"], rec["height"])
+                        and v["availability"] in ("verified", "listed")):
+                    v["availability"] = "broken"
+                    v.setdefault("evidence", {})["problems"] = [
+                        f"Maße auf dem Server {rec['width']}×{rec['height']} statt {v['width']}×{v['height']} (anderes Bild am Altpfad)"]
+                    self.issue("error", "dimension-mismatch",
+                               f"{v['path']}: Server {rec['width']}×{rec['height']}, erwartet {v['width']}×{v['height']}", aid)
+                    v["width"], v["height"] = rec["width"], rec["height"]
                 for k in ("bytes", "width", "height", "alpha"):
                     if v.get(k) is None and rec.get(k) is not None:
                         v[k] = rec[k]
@@ -766,6 +776,12 @@ class Builder:
 
         # ---- rooms, backgrounds, portrait, references from file inventory
         rooms, other = self._rooms_and_misc(v1_by_path, inventory_rows)
+        # Nutzerentscheidung 18.11.2026: Atelier-Hauptbild ist die Werkbank (Original 29.10.), nicht die Kartenauslage
+        if "room.P04-atelier.r1" in self.assets:
+            self.assets["room.P04-atelier.r1"].setdefault("notes", []).append(
+                "Nutzerentscheidung 18.11.2026: Hauptbild = Werkbank (Original 29.10., 1086×1448). "
+                "rooms/P04-atelier.webp zeigt live seit 05.11. die Kartenauslage und gilt nicht; "
+                "die optimierten Varianten optimized/rooms/P04-atelier-* zeigen die Werkbank.")
 
         # ---- devices / music map
         devices = {}

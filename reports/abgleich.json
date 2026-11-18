@@ -1,6 +1,6 @@
 {
  "manifestRevision": 2,
- "createdAt": "2026-11-18T17:02:31Z",
+ "createdAt": "2026-11-18T18:01:01Z",
  "inventory": "http:https://flowisaurus.de/wunderhaus/media/ + http:https://flowisaurus.de/wunderhaus/media/ + download:https://flowisaurus.de/wunderhaus/media/cards/O01-O24.png (2026-11-18) + http:https://flowisaurus.de/wunderhaus/media/",
  "summary": {
   "assets": 346,
@@ -26,9 +26,9 @@
   },
   "byAvailability": {
    "missing": 226,
-   "verified": 282,
+   "verified": 280,
    "staged": 84,
-   "broken": 1
+   "broken": 3
   },
   "byRelease": {
    "review": 170,

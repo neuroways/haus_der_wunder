@@ -474,14 +474,14 @@ room.P04-atelier-arbeitsflaeche-v1.r1;original;roomVariant;P04;review;missing;ro
 room.P04-atelier-arbeitsflaeche-v1.r1;w480;roomVariant;P04;review;verified;optimized/rooms/P04-atelier-arbeitsflaeche-v1-480-v1-eb9bc98784.webp;102370;
 room.P04-atelier-arbeitsflaeche-v1.r1;w900;roomVariant;P04;review;verified;optimized/rooms/P04-atelier-arbeitsflaeche-v1-900-v1-b4c307927e.webp;284294;
 room.P04-atelier-arbeitsflaeche-v1.r1;w1086;roomVariant;P04;review;verified;optimized/rooms/P04-atelier-arbeitsflaeche-v1-1086-v1-d63b84e54b.webp;374726;
-room.P04-atelier-kartenauslage-v1.r1;original;roomVariant;P04;review;verified;rooms/varianten/P04-atelier-kartenauslage-v1.webp;377658;4cad132c20b0b799
+room.P04-atelier-kartenauslage-v1.r1;original;roomVariant;P04;review;broken;rooms/varianten/P04-atelier-kartenauslage-v1.webp;377658;4cad132c20b0b799
 room.P04-atelier-kartenauslage-v1.r1;w480;roomVariant;P04;review;verified;optimized/rooms/P04-atelier-kartenauslage-v1-480-v1-c418ae7687.webp;135734;
 room.P04-atelier-kartenauslage-v1.r1;w864;roomVariant;P04;review;verified;optimized/rooms/P04-atelier-kartenauslage-v1-864-v1-dcb82f452e.webp;314524;
 room.P04-atelier-treppenblick-v1.r1;original;roomVariant;P04;review;missing;rooms/varianten/P04-atelier-treppenblick-v1.webp;411360;78af4870336dea6a
 room.P04-atelier-treppenblick-v1.r1;w480;roomVariant;P04;review;verified;optimized/rooms/P04-atelier-treppenblick-v1-480-v1-7118b0d27c.webp;95560;
 room.P04-atelier-treppenblick-v1.r1;w900;roomVariant;P04;review;verified;optimized/rooms/P04-atelier-treppenblick-v1-900-v1-4cbe71c146.webp;254524;
 room.P04-atelier-treppenblick-v1.r1;w1086;roomVariant;P04;review;verified;optimized/rooms/P04-atelier-treppenblick-v1-1086-v1-aeb80d2a97.webp;336630;
-room.P04-atelier.r1;original;room;P04;internal;verified;rooms/P04-atelier.webp;379994;9b6f11cc77d06f00
+room.P04-atelier.r1;original;room;P04;internal;broken;rooms/P04-atelier.webp;379994;9b6f11cc77d06f00
 room.P04-atelier.r1;w480;room;P04;internal;verified;optimized/rooms/P04-atelier-480-v1-d9e90088e3.webp;101474;
 room.P04-atelier.r1;w900;room;P04;internal;verified;optimized/rooms/P04-atelier-900-v1-f57b4df238.webp;277810;
 room.P04-atelier.r1;w1086;room;P04;internal;verified;optimized/rooms/P04-atelier-1086-v1-0a9f9576ef.webp;367244;

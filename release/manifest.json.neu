@@ -7558,7 +7558,7 @@
   "schemaVersion": "2.0.0",
   "revision": 2,
   "revisionLabel": "Kandidat Rev. 2 · Serverbestand 18.11.2026",
-  "updatedAt": "2026-11-18T17:02:31Z",
+  "updatedAt": "2026-11-18T18:00:45Z",
   "generator": "emfd_media.py 1.0.0",
   "mediaRoot": "./",
   "project": "Ein Moment für dich · Das Haus der kleinen Wunder",
@@ -18080,16 +18080,18 @@
      "original": {
       "path": "rooms/varianten/P04-atelier-kartenauslage-v1.webp",
       "mime": "image/webp",
-      "width": 864,
-      "height": 1536,
+      "width": 941,
+      "height": 1672,
       "alpha": false,
       "bytes": 377658,
       "sha256": "4cad132c20b0b79917da42f9be802ea475dbd7b1fb72f764022eff126e0bd05a",
-      "availability": "verified",
+      "availability": "broken",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 200,
-       "problems": []
+       "problems": [
+        "Maße auf dem Server 941×1672 statt 864×1536 (anderes Bild am Altpfad)"
+       ]
       },
       "etag": "\"4cdfe-65f81ff9a8300\""
      },
@@ -18209,16 +18211,18 @@
      "original": {
       "path": "rooms/P04-atelier.webp",
       "mime": "image/webp",
-      "width": 1086,
-      "height": 1448,
+      "width": 941,
+      "height": 1672,
       "alpha": false,
       "bytes": 379994,
       "sha256": "9b6f11cc77d06f009d7f727e948e65ebb1ae2594072de621bd527fedeb2cec5c",
-      "availability": "verified",
+      "availability": "broken",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 200,
-       "problems": []
+       "problems": [
+        "Maße auf dem Server 941×1672 statt 1086×1448 (anderes Bild am Altpfad)"
+       ]
       },
       "etag": "\"4f6e0-65f81ff7bfe80\""
      },
@@ -18282,7 +18286,10 @@
       },
       "etag": "\"a4c2-65f673db7f480\""
      }
-    }
+    },
+    "notes": [
+     "Nutzerentscheidung 18.11.2026: Hauptbild = Werkbank (Original 29.10., 1086×1448). rooms/P04-atelier.webp zeigt live seit 05.11. die Kartenauslage und gilt nicht; die optimierten Varianten optimized/rooms/P04-atelier-* zeigen die Werkbank."
+    ]
    },
    "room.P05-innenhof-brunnen-v1.r1": {
     "role": "roomVariant",
@@ -20248,9 +20255,9 @@
    },
    "byAvailability": {
     "missing": 226,
-    "verified": 282,
+    "verified": 280,
     "staged": 84,
-    "broken": 1
+    "broken": 3
    },
    "byRelease": {
     "review": 170,

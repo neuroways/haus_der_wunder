@@ -87,6 +87,16 @@ class LiveStandTests(unittest.TestCase):
         self.assertIn("release-staged", codes(doc["mediaCore"], release=True))
 
 
+class DimensionMismatchTests(unittest.TestCase):
+    def test_replaced_legacy_file_marked_broken(self):
+        """Am Altpfad ersetzte Datei (andere Maße) wird broken, nie ausgeliefert (Atelier P04, 05.11.2026)."""
+        cand = json.loads((ROOT / "release/manifest.json.neu").read_text(encoding="utf-8"))["mediaCore"]
+        room = cand["assets"]["room.P04-atelier.r1"]
+        self.assertEqual(room["variants"]["original"]["availability"], "broken")
+        self.assertEqual(room["variants"]["w1086"]["availability"], "verified")
+        self.assertTrue(any("Werkbank" in n for n in room.get("notes", [])))
+
+
 class SniffTests(unittest.TestCase):
     def test_html_detected(self):
         self.assertEqual(M.sniff(b"<!DOCTYPE html><html>")["kind"], "html")
