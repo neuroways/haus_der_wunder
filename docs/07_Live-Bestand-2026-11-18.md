@@ -59,5 +59,5 @@ Gesamt: 346 Assets · 593 Varianten · 282 verifiziert · 84 vorbereitet · 226 
 ## 5. Was daraus folgt
 
 - Der Manifest-Kandidat liegt in [`release/manifest.json.neu`](../release/manifest.json.neu): additiv, der Altinhalt ist byte-gleich übernommen, das Neue steht unter `mediaCore`, Revision 2. Er besteht die Entwicklungsprüfung, die **Release-Prüfung blockiert er bewusst**, bis die 84 vorbereiteten Dateien hochgeladen sind.
-- Ohne Ihre Lieferung bleiben offen: Audio (35), Vorderseiten O19–O24, 22 Cover, Rückseite v1.2, Objektmedien. Das Manifest zeigt sie als „fehlt“ und rät keine Pfade.
+- Ohne deine Lieferung bleiben offen: Audio (35), Vorderseiten O19–O24, 22 Cover, Rückseite v1.2, Objektmedien. Das Manifest zeigt sie als „fehlt“ und rät keine Pfade.
 - Reihenfolge und Freigabepunkte: [`release/README.md`](../release/README.md).

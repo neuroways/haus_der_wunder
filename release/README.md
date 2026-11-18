@@ -19,7 +19,7 @@ python3 tools/emfd_media.py validate release/manifest.json.neu --release
 ```
 Ergebnis: **gesperrt**, solange die 84 neuen Dateien nicht hochgeladen sind. Das ist gewollt: Das Manifest darf erst veröffentlicht werden, wenn alles, worauf es verweist, auf dem Server liegt.
 
-## Reihenfolge (jeder ⚠-Schritt nur nach Ihrer ausdrücklichen Freigabe)
+## Reihenfolge (jeder ⚠-Schritt nur nach deiner ausdrücklichen Freigabe)
 
 1. ⚠ **Sicherung** im STRATO-Dateimanager: `media/manifest.json` kopieren nach `media/manifest-v1-perf01-2026-11-18.json`.
 2. ⚠ **Neue Dateien hochladen** aus diesem Repo nach `/wunderhaus/media/`. Es sind nur neue Namen, nichts wird überschrieben:
