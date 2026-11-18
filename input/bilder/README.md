@@ -14,8 +14,11 @@ Vollständige Liste mit Format, Maßen, Alpha, Bytes und SHA-256: [`bestand.csv`
 | `mockups/` (Hauptordner) | 21 | 0 | **Duplikate**: byte-gleich mit `media/_referenzen/mockups/*-ui.jpeg` auf dem Server (Namen dort mit Bindestrich statt Unterstrich, ohne `_v1`) |
 | `portraets/` | 1 | 0 | **Duplikat**: `weltenweberin_v1.jpeg` = `media/portraits/weltenweberin.jpeg` auf dem Server |
 | `aussen/` | 1 | 1 | `R-AUSSEN_architekturvorlage_v1.png`, siehe Hinweis unten |
+| `orakelkarten/` | 24 | 18 | `O01–O24_kartenbild_v1.png` (29.10.), 896×1536. Das sind die **alten Kartenbilder r1**, byte-gleich mit dem Medienarchiv vom 29.10. (`cards/Oxx.png`). **O01–O18**: Archiv der überholten Fassung. Auf dem Server sind sie seit 17.11. durch r2 überschrieben, nur Rückfall/Vergleich, **nie wieder produktiv**. **O19–O24**: byte-gleich mit dem heutigen Server (`cards/O19–O24.png`), nur vermerkt. |
 
-78 Dateien geliefert, 56 im Repo, 22 Duplikate nur vermerkt.
+102 Dateien geliefert (Eingang 1: 78, Eingang 2 „orakelkarten“: 24), 74 im Repo, 28 Duplikate nur vermerkt.
+
+**Neue Vorderseiten O19–O24 sind weiterhin nicht geliefert.**
 
 ## Hinweise
 
