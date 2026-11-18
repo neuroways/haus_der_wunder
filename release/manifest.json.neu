@@ -7558,7 +7558,7 @@
   "schemaVersion": "2.0.0",
   "revision": 2,
   "revisionLabel": "Kandidat Rev. 2 · Serverbestand 18.11.2026",
-  "updatedAt": "2026-11-18T18:01:33Z",
+  "updatedAt": "2026-11-18T18:05:16Z",
   "generator": "emfd_media.py 1.0.0",
   "mediaRoot": "./",
   "project": "Ein Moment für dich · Das Haus der kleinen Wunder",
@@ -17319,13 +17319,14 @@
       "height": 1448,
       "bytes": 377884,
       "sha256": "6cf757353937d97caa37bf8200c6db2a7cad2d64a8f6877a948a06e855bf4ed1",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -17391,13 +17392,14 @@
       "height": 1448,
       "bytes": 439248,
       "sha256": "5f98867e967582d10f01eef31adda49c337cdaabcd63dab6f06d8208d9dec0e2",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -17550,13 +17552,14 @@
       "height": 1448,
       "bytes": 376468,
       "sha256": "b4874571b6e278281519deba05d17acaea3dbda3465ea9b03c301c3d02a97b76",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -17622,13 +17625,14 @@
       "height": 1448,
       "bytes": 421918,
       "sha256": "bdde87888fb7037c97dbd97f92e001bc31d48f78badd7ef14ee54735514a21a5",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -17781,13 +17785,14 @@
       "height": 1448,
       "bytes": 616882,
       "sha256": "72c1302e63601913b3e91b85e6bf4a7b3da18a55663494dd896f946f6063e4fa",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -17853,13 +17858,14 @@
       "height": 1448,
       "bytes": 642338,
       "sha256": "78f5dd51b478c484dd3340ad37423b9d050cec8003b4567d3dddd1a7ebb3266a",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -18012,13 +18018,14 @@
       "height": 1448,
       "bytes": 444368,
       "sha256": "f0548a378e7d8872aba67e22c6fe5d9c11102f670cc28935ac394e4e64b5c475",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -18143,13 +18150,14 @@
       "height": 1448,
       "bytes": 411360,
       "sha256": "78af4870336dea6a99c5c35317a450461116e5f76d1bb417a22e68b493739166",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -18209,22 +18217,16 @@
     },
     "variants": {
      "original": {
-      "path": "rooms/P04-atelier.webp",
+      "path": "rooms/P04-atelier-r1-9b6f11cc.webp",
       "mime": "image/webp",
-      "width": 941,
-      "height": 1672,
-      "alpha": false,
+      "width": 1086,
+      "height": 1448,
       "bytes": 379994,
       "sha256": "9b6f11cc77d06f009d7f727e948e65ebb1ae2594072de621bd527fedeb2cec5c",
-      "availability": "broken",
+      "availability": "staged",
       "evidence": {
-       "inventory": "http-check+http-check+scan-dir+http-check",
-       "httpStatus": 200,
-       "problems": [
-        "Maße auf dem Server 941×1672 statt 1086×1448 (anderes Bild am Altpfad)"
-       ]
-      },
-      "etag": "\"4f6e0-65f81ff7bfe80\""
+       "note": "lokal in media/ vorbereitet"
+      }
      },
      "w480": {
       "path": "optimized/rooms/P04-atelier-480-v1-d9e90088e3.webp",
@@ -18307,13 +18309,14 @@
       "height": 1448,
       "bytes": 576908,
       "sha256": "50159afd2b83a284c2f6416b9c5ea143ce33d4cf537af3e4cba2b40a45a6109f",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -18379,13 +18382,14 @@
       "height": 1448,
       "bytes": 476936,
       "sha256": "5a52df026ddeea4b0d80a4ae15392daf4c51c82c880b6dd5925c3dd12a33a275",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -18538,13 +18542,14 @@
       "height": 1448,
       "bytes": 435724,
       "sha256": "12212aa04474280882f6c8174d470b4ecfa4a7bb505b93f02b63c02b188cb86c",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -18610,13 +18615,14 @@
       "height": 1448,
       "bytes": 385356,
       "sha256": "201394973ef4ad699357c7fbdb0f8a412c91fc27b44c43bc8dc09a44f83f198a",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -18769,13 +18775,14 @@
       "height": 1448,
       "bytes": 419048,
       "sha256": "00fcaa6df815bd3b3c1ae3a501d6157fd7490719cb8ec263dc347c502fc1f07d",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -18841,13 +18848,14 @@
       "height": 1448,
       "bytes": 431926,
       "sha256": "41f0fdc55e7586a602f1acfce9dc6bc88c7234c20b11ea23940179a56fedb201",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -19000,13 +19008,14 @@
       "height": 1448,
       "bytes": 403370,
       "sha256": "7000a99f1260169a833af97e885749f50da1e43d8d1aa72e5e1d485c3c8f9fb2",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -19072,13 +19081,14 @@
       "height": 1448,
       "bytes": 406052,
       "sha256": "b71e2599f8b4a4c2fbc42ada882b9a2f38d9ad8d04c2a2d2d503b7257dee31ee",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -19234,13 +19244,14 @@
       "height": 1536,
       "bytes": 291976,
       "sha256": "90bf0e39595ce2b2323966eb11d59b85d561b9c2cd6e1b0c309aab4015f118fb",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -19291,13 +19302,14 @@
       "height": 1448,
       "bytes": 431484,
       "sha256": "83008faa4690b58a922523ab77c5bfd98ad386bde20f9e8a56801a63d7033377",
-      "availability": "missing",
+      "availability": "staged",
       "evidence": {
        "inventory": "http-check+http-check+scan-dir+http-check",
        "httpStatus": 404,
        "problems": [
         "HTTP 404"
-       ]
+       ],
+       "note": "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
       }
      },
      "w480": {
@@ -20257,10 +20269,10 @@
     "story": 24
    },
    "byAvailability": {
-    "missing": 226,
+    "missing": 208,
     "verified": 280,
-    "staged": 84,
-    "broken": 3
+    "staged": 103,
+    "broken": 2
    },
    "byRelease": {
     "review": 170,

@@ -1,6 +1,6 @@
 {
  "manifestRevision": 2,
- "createdAt": "2026-11-18T18:01:01Z",
+ "createdAt": "2026-11-18T18:05:46Z",
  "inventory": "http:https://flowisaurus.de/wunderhaus/media/ + http:https://flowisaurus.de/wunderhaus/media/ + download:https://flowisaurus.de/wunderhaus/media/cards/O01-O24.png (2026-11-18) + http:https://flowisaurus.de/wunderhaus/media/",
  "summary": {
   "assets": 346,
@@ -25,10 +25,10 @@
    "story": 24
   },
   "byAvailability": {
-   "missing": 226,
+   "missing": 208,
    "verified": 280,
-   "staged": 84,
-   "broken": 3
+   "staged": 103,
+   "broken": 2
   },
   "byRelease": {
    "review": 170,
@@ -93,6 +93,7 @@
   "audio/manifest-erwartete-tracks.json",
   "cards/karten-manifest.json",
   "manifest.json",
+  "rooms/P04-atelier.webp",
   "rooms/manifest.json"
  ],
  "duplicateFilesByHash": {},

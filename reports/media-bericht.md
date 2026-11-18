@@ -1,27 +1,26 @@
 # Medien-Check · media/
 
-Erstellt: 2026-11-18T16:54:31+00:00 · Werkzeug `tools/media_check.py` · 89 Dateien, 51.7 MB
+Erstellt: 2026-11-18T18:05:32+00:00 · Werkzeug `tools/media_check.py` · 108 Dateien, 59.6 MB
 
 ## Ergebnis
 
 - Vorderseiten: **18/24** Karten · Cover: **3/25** (O01–O24 + T03)
 - Ohne Vorderseite: O19, O20, O21, O22, O23, O24
 - Ohne Cover: O01, O02, O03, O05, O07, O08, O09, O10, O11, O12, O13, O14, O15, O16, O17, O18, O19, O20, O21, O22, O23, T03
-- Fehler: **0** · Warnungen: **0** · Hinweise: **2**
-- Seit 2026-11-18T16:43:38+00:00: 0 neu, 0 geändert, 0 entfernt
-- Server (https://flowisaurus.de/wunderhaus/media/, 2026-11-18T16:54:31+00:00): fehlt online: **89**
+- Fehler: **0** · Warnungen: **0** · Hinweise: **19**
+- Seit 2026-11-18T16:54:31+00:00: 19 neu, 2 geändert, 0 entfernt
 
 ## Apps · Zugriff auf media/
 
 | App | Loader eingebunden (Repo) | absolute Medienpfade | Medienkopien | live auf dem Server |
 |---|---|---|---|---|
-| `home/` | ✓ index.html: ../media/media-loader.js | — | — | ✗ kein Loader |
-| `home_3d/` | ✓ index.html: meta emfd-media-base ../media/ | — | — | ✗ kein Loader |
+| `home/` | ✓ index.html: ../media/media-loader.js | — | — | — |
+| `home_3d/` | ✓ index.html: meta emfd-media-base ../media/ | — | — | — |
 
 ## Ordnerstruktur
 
 ```
-media/                                 89 Dateien    51.7 MB
+media/                                108 Dateien    59.6 MB
   cards/                               18 Dateien    36.9 MB
     fronts/                            18 Dateien    36.9 MB
   covers/                               3 Dateien     6.9 MB
@@ -29,6 +28,8 @@ media/                                 89 Dateien    51.7 MB
   optimized/                           63 Dateien     7.9 MB
     cards/                             54 Dateien     7.1 MB
     covers/                             9 Dateien   801.5 KB
+  rooms/                               19 Dateien     8.0 MB
+    varianten/                         18 Dateien     7.6 MB
 ```
 
 ## Karten
@@ -67,104 +68,55 @@ media/                                 89 Dateien    51.7 MB
 
 | Stufe | Datei / Karte | Befund |
 |---|---|---|
-| Hinweis | `home/ (live)` | Die Live-Fassung auf dem Server bindet den Loader noch nicht ein. |
-| Hinweis | `home_3d/ (live)` | Die Live-Fassung auf dem Server bindet den Loader noch nicht ein. |
+| Hinweis | `rooms/P04-atelier-r1-9b6f11cc.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/P01-fensterzimmer-abend-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/P01-fensterzimmer-mond-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/P02-bibliothek-leseplatz-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/P02-bibliothek-sessel-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/P03-wintergarten-brunnen-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/P03-wintergarten-werkbank-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/P04-atelier-arbeitsflaeche-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/P04-atelier-treppenblick-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/P05-innenhof-brunnen-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/P05-innenhof-steinbruecke-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/P06-galerie-bruecke-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/P06-galerie-langer-steg-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/P07-dachterrasse-mond-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/P07-dachterrasse-stadt-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/P08-teezimmer-mond-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/P08-teezimmer-rundtisch-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/flur-dunkel-tisch-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/varianten/flur-gang-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 
-## Server-Abgleich
+## Änderungen seit 2026-11-18T16:54:31+00:00
 
-Quelle: https://flowisaurus.de/wunderhaus/media/ (nur HEAD-Abfragen, nichts verändert).
+**Neu**
 
-| Datei | Zustand | Server-Größe | lokal | Last-Modified |
-|---|---|---|---|---|
-| `MEDIEN-KONVENTION.md` | fehlt online | — | 4914 | — |
-| `cards/fronts/O01-front-r2-21eca783.png` | fehlt online | — | 2185143 | — |
-| `cards/fronts/O02-front-r2-512eeca7.png` | fehlt online | — | 2173452 | — |
-| `cards/fronts/O03-front-r2-855957b9.png` | fehlt online | — | 2038717 | — |
-| `cards/fronts/O04-front-r2-4c1f37fb.png` | fehlt online | — | 2144432 | — |
-| `cards/fronts/O05-front-r2-8ad22072.png` | fehlt online | — | 2381883 | — |
-| `cards/fronts/O06-front-r2-ba9ec012.png` | fehlt online | — | 2250476 | — |
-| `cards/fronts/O07-front-r2-1b0edb88.png` | fehlt online | — | 1500622 | — |
-| `cards/fronts/O08-front-r2-1bd052f1.png` | fehlt online | — | 1974049 | — |
-| `cards/fronts/O09-front-r2-a8c90829.png` | fehlt online | — | 2291045 | — |
-| `cards/fronts/O10-front-r2-b8fd07b7.png` | fehlt online | — | 2210938 | — |
-| `cards/fronts/O11-front-r2-81deeae0.png` | fehlt online | — | 2069312 | — |
-| `cards/fronts/O12-front-r2-44b7e744.png` | fehlt online | — | 2024114 | — |
-| `cards/fronts/O13-front-r2-84b39927.png` | fehlt online | — | 2193231 | — |
-| `cards/fronts/O14-front-r2-dfc3bc61.png` | fehlt online | — | 2153324 | — |
-| `cards/fronts/O15-front-r2-7da93928.png` | fehlt online | — | 2528704 | — |
-| `cards/fronts/O16-front-r2-89bb780f.png` | fehlt online | — | 2372457 | — |
-| `cards/fronts/O17-front-r2-4636421b.png` | fehlt online | — | 2337001 | — |
-| `cards/fronts/O18-front-r2-c2a2f9d8.png` | fehlt online | — | 1859837 | — |
-| `covers/O04-cover-r1-d7ace5fa.png` | fehlt online | — | 2428755 | — |
-| `covers/O06-cover-r1-8e23a947.png` | fehlt online | — | 2147271 | — |
-| `covers/O24-cover-r1-054b4da2.png` | fehlt online | — | 2606872 | — |
-| `katalog/index.html` | fehlt online | — | 15888 | — |
-| `manifest.schema.json` | fehlt online | — | 6113 | — |
-| `media-loader.js` | fehlt online | — | 19035 | — |
-| `media-loader.mjs` | fehlt online | — | 670 | — |
-| `optimized/cards/O01-210x360-r2-cf504e3af4.webp` | fehlt online | — | 21744 | — |
-| `optimized/cards/O01-630x1080-r2-40012d6477.webp` | fehlt online | — | 145784 | — |
-| `optimized/cards/O01-896x1536-r2-3802406a5d.webp` | fehlt online | — | 248840 | — |
-| `optimized/cards/O02-210x360-r2-6203e53312.webp` | fehlt online | — | 22176 | — |
-| `optimized/cards/O02-630x1080-r2-b1f9dea9fe.webp` | fehlt online | — | 149496 | — |
-| `optimized/cards/O02-896x1536-r2-7166c6f234.webp` | fehlt online | — | 257890 | — |
-| `optimized/cards/O03-210x360-r2-cebbdadcf6.webp` | fehlt online | — | 20934 | — |
-| `optimized/cards/O03-630x1080-r2-c64db9e0aa.webp` | fehlt online | — | 127602 | — |
-| `optimized/cards/O03-896x1536-r2-7d75f35827.webp` | fehlt online | — | 208848 | — |
-| `optimized/cards/O04-210x360-r2-6e0c04602b.webp` | fehlt online | — | 22976 | — |
-| `optimized/cards/O04-630x1080-r2-591713b4ff.webp` | fehlt online | — | 140290 | — |
-| `optimized/cards/O04-896x1536-r2-6c5dc04d67.webp` | fehlt online | — | 242618 | — |
-| `optimized/cards/O05-210x360-r2-d65b9ecfcc.webp` | fehlt online | — | 31798 | — |
-| `optimized/cards/O05-630x1080-r2-1577b496a1.webp` | fehlt online | — | 197008 | — |
-| `optimized/cards/O05-896x1536-r2-9452de2d68.webp` | fehlt online | — | 317504 | — |
-| `optimized/cards/O06-210x360-r2-d509b6ee27.webp` | fehlt online | — | 24666 | — |
-| `optimized/cards/O06-630x1080-r2-32e5dcf848.webp` | fehlt online | — | 155650 | — |
-| `optimized/cards/O06-896x1536-r2-ba53e220fa.webp` | fehlt online | — | 265366 | — |
-| `optimized/cards/O07-210x360-r2-52ab11a097.webp` | fehlt online | — | 12128 | — |
-| `optimized/cards/O07-630x1080-r2-b7332e4570.webp` | fehlt online | — | 60898 | — |
-| `optimized/cards/O07-896x1536-r2-81a57e7166.webp` | fehlt online | — | 106800 | — |
-| `optimized/cards/O08-210x360-r2-a6709e22ab.webp` | fehlt online | — | 19772 | — |
-| `optimized/cards/O08-630x1080-r2-e337ee566c.webp` | fehlt online | — | 116558 | — |
-| `optimized/cards/O08-896x1536-r2-e4c832a4cc.webp` | fehlt online | — | 196218 | — |
-| `optimized/cards/O09-210x360-r2-8d42b9fcbe.webp` | fehlt online | — | 29646 | — |
-| `optimized/cards/O09-630x1080-r2-971b2e5ec5.webp` | fehlt online | — | 195600 | — |
-| `optimized/cards/O09-896x1536-r2-f169ed24da.webp` | fehlt online | — | 325528 | — |
-| `optimized/cards/O10-210x360-r2-ecc2ba2186.webp` | fehlt online | — | 18912 | — |
-| `optimized/cards/O10-630x1080-r2-3d8faa63fb.webp` | fehlt online | — | 133916 | — |
-| `optimized/cards/O10-896x1536-r2-e3965b5922.webp` | fehlt online | — | 243362 | — |
-| `optimized/cards/O11-210x360-r2-a6bfb4f0b4.webp` | fehlt online | — | 21592 | — |
-| `optimized/cards/O11-630x1080-r2-c0ca88a800.webp` | fehlt online | — | 136816 | — |
-| `optimized/cards/O11-896x1536-r2-d4d0987140.webp` | fehlt online | — | 231918 | — |
-| `optimized/cards/O12-210x360-r2-4d0586e98b.webp` | fehlt online | — | 17520 | — |
-| `optimized/cards/O12-630x1080-r2-36153a690a.webp` | fehlt online | — | 109168 | — |
-| `optimized/cards/O12-896x1536-r2-f2d1191746.webp` | fehlt online | — | 203002 | — |
-| `optimized/cards/O13-210x360-r2-722d41cab9.webp` | fehlt online | — | 22418 | — |
-| `optimized/cards/O13-630x1080-r2-daa9fe8ae3.webp` | fehlt online | — | 142612 | — |
-| `optimized/cards/O13-896x1536-r2-98ecb282ab.webp` | fehlt online | — | 240570 | — |
-| `optimized/cards/O14-210x360-r2-3e3297e394.webp` | fehlt online | — | 21874 | — |
-| `optimized/cards/O14-630x1080-r2-6febf30cb9.webp` | fehlt online | — | 138782 | — |
-| `optimized/cards/O14-896x1536-r2-95147f7e99.webp` | fehlt online | — | 242982 | — |
-| `optimized/cards/O15-210x360-r2-94612bdcef.webp` | fehlt online | — | 31546 | — |
-| `optimized/cards/O15-630x1080-r2-79099121eb.webp` | fehlt online | — | 211542 | — |
-| `optimized/cards/O15-896x1536-r2-375ad25ee2.webp` | fehlt online | — | 360318 | — |
-| `optimized/cards/O16-210x360-r2-e83fd0ea3d.webp` | fehlt online | — | 23198 | — |
-| `optimized/cards/O16-630x1080-r2-54d0fc0cf1.webp` | fehlt online | — | 172246 | — |
-| `optimized/cards/O16-896x1536-r2-b6fd4b63f4.webp` | fehlt online | — | 285156 | — |
-| `optimized/cards/O17-210x360-r2-bc72fd0b61.webp` | fehlt online | — | 24240 | — |
-| `optimized/cards/O17-630x1080-r2-9ea3d8e5b0.webp` | fehlt online | — | 170342 | — |
-| `optimized/cards/O17-896x1536-r2-92e812b450.webp` | fehlt online | — | 301166 | — |
-| `optimized/cards/O18-210x360-r2-ee55331393.webp` | fehlt online | — | 14926 | — |
-| `optimized/cards/O18-630x1080-r2-c8ce29b09b.webp` | fehlt online | — | 89910 | — |
-| `optimized/cards/O18-896x1536-r2-1d85cbd388.webp` | fehlt online | — | 159344 | — |
-| `optimized/covers/O04-cover-1024-r1-652111cb2f.webp` | fehlt online | — | 202640 | — |
-| `optimized/covers/O04-cover-160-r1-42284f8fef.webp` | fehlt online | — | 10700 | — |
-| `optimized/covers/O04-cover-480-r1-b913075283.webp` | fehlt online | — | 63414 | — |
-| `optimized/covers/O06-cover-1024-r1-591a79e61b.webp` | fehlt online | — | 154012 | — |
-| `optimized/covers/O06-cover-160-r1-0431baa8cc.webp` | fehlt online | — | 7800 | — |
-| `optimized/covers/O06-cover-480-r1-7546184f1a.webp` | fehlt online | — | 42958 | — |
-| `optimized/covers/O24-cover-1024-r1-a4afe613fb.webp` | fehlt online | — | 251584 | — |
-| `optimized/covers/O24-cover-160-r1-69c1323a37.webp` | fehlt online | — | 12506 | — |
-| `optimized/covers/O24-cover-480-r1-b0036042d6.webp` | fehlt online | — | 75082 | — |
+- `rooms/P04-atelier-r1-9b6f11cc.webp`
+- `rooms/varianten/P01-fensterzimmer-abend-v1.webp`
+- `rooms/varianten/P01-fensterzimmer-mond-v1.webp`
+- `rooms/varianten/P02-bibliothek-leseplatz-v1.webp`
+- `rooms/varianten/P02-bibliothek-sessel-v1.webp`
+- `rooms/varianten/P03-wintergarten-brunnen-v1.webp`
+- `rooms/varianten/P03-wintergarten-werkbank-v1.webp`
+- `rooms/varianten/P04-atelier-arbeitsflaeche-v1.webp`
+- `rooms/varianten/P04-atelier-treppenblick-v1.webp`
+- `rooms/varianten/P05-innenhof-brunnen-v1.webp`
+- `rooms/varianten/P05-innenhof-steinbruecke-v1.webp`
+- `rooms/varianten/P06-galerie-bruecke-v1.webp`
+- `rooms/varianten/P06-galerie-langer-steg-v1.webp`
+- `rooms/varianten/P07-dachterrasse-mond-v1.webp`
+- `rooms/varianten/P07-dachterrasse-stadt-v1.webp`
+- `rooms/varianten/P08-teezimmer-mond-v1.webp`
+- `rooms/varianten/P08-teezimmer-rundtisch-v1.webp`
+- `rooms/varianten/flur-dunkel-tisch-v1.webp`
+- `rooms/varianten/flur-gang-v1.webp`
+
+**Geändert (Inhalt anders – Konvention verbietet Überschreiben!)**
+
+- `manifest.schema.json`
+- `media-loader.js`
+
 
 ## Dateien
 
@@ -193,8 +145,8 @@ Quelle: https://flowisaurus.de/wunderhaus/media/ (nur HEAD-Abfragen, nichts ver�
 | `covers/O06-cover-r1-8e23a947.png` | cover | r1 | 1254×1254 | 2.0 MB | `8e23a9470099` |
 | `covers/O24-cover-r1-054b4da2.png` | cover | r1 | 1254×1254 | 2.5 MB | `054b4da28f09` |
 | `katalog/index.html` | support |  |  | 15.5 KB | `661a44edf28b` |
-| `manifest.schema.json` | support |  |  | 6.0 KB | `79cc113b5ce8` |
-| `media-loader.js` | support |  |  | 18.6 KB | `6268441e30dc` |
+| `manifest.schema.json` | support |  |  | 6.1 KB | `a22c1b9f659d` |
+| `media-loader.js` | support |  |  | 19.0 KB | `dabc078893d0` |
 | `media-loader.mjs` | support |  |  | 670 B | `c8660aa25c1b` |
 | `optimized/cards/O01-210x360-r2-cf504e3af4.webp` | front-variant | r2 | 210×360 | 21.2 KB | `cf504e3af46e` |
 | `optimized/cards/O01-630x1080-r2-40012d6477.webp` | front-variant | r2 | 630×1080 | 142.4 KB | `40012d6477fd` |
@@ -259,3 +211,22 @@ Quelle: https://flowisaurus.de/wunderhaus/media/ (nur HEAD-Abfragen, nichts ver�
 | `optimized/covers/O24-cover-1024-r1-a4afe613fb.webp` | cover-variant | r1 | 1024×1024 | 245.7 KB | `a4afe613fbaf` |
 | `optimized/covers/O24-cover-160-r1-69c1323a37.webp` | cover-variant | r1 | 160×160 | 12.2 KB | `69c1323a37e7` |
 | `optimized/covers/O24-cover-480-r1-b0036042d6.webp` | cover-variant | r1 | 480×480 | 73.3 KB | `b0036042d6cf` |
+| `rooms/P04-atelier-r1-9b6f11cc.webp` | unknown-media |  | 1086×1448 | 371.1 KB | `9b6f11cc77d0` |
+| `rooms/varianten/P01-fensterzimmer-abend-v1.webp` | unknown-media |  | 1086×1448 | 369.0 KB | `6cf757353937` |
+| `rooms/varianten/P01-fensterzimmer-mond-v1.webp` | unknown-media |  | 1086×1448 | 429.0 KB | `5f98867e9675` |
+| `rooms/varianten/P02-bibliothek-leseplatz-v1.webp` | unknown-media |  | 1086×1448 | 367.6 KB | `b4874571b6e2` |
+| `rooms/varianten/P02-bibliothek-sessel-v1.webp` | unknown-media |  | 1086×1448 | 412.0 KB | `bdde87888fb7` |
+| `rooms/varianten/P03-wintergarten-brunnen-v1.webp` | unknown-media |  | 1086×1448 | 602.4 KB | `72c1302e6360` |
+| `rooms/varianten/P03-wintergarten-werkbank-v1.webp` | unknown-media |  | 1086×1448 | 627.3 KB | `78f5dd51b478` |
+| `rooms/varianten/P04-atelier-arbeitsflaeche-v1.webp` | unknown-media |  | 1086×1448 | 434.0 KB | `f0548a378e7d` |
+| `rooms/varianten/P04-atelier-treppenblick-v1.webp` | unknown-media |  | 1086×1448 | 401.7 KB | `78af4870336d` |
+| `rooms/varianten/P05-innenhof-brunnen-v1.webp` | unknown-media |  | 1086×1448 | 563.4 KB | `50159afd2b83` |
+| `rooms/varianten/P05-innenhof-steinbruecke-v1.webp` | unknown-media |  | 1086×1448 | 465.8 KB | `5a52df026dde` |
+| `rooms/varianten/P06-galerie-bruecke-v1.webp` | unknown-media |  | 1086×1448 | 425.5 KB | `12212aa04474` |
+| `rooms/varianten/P06-galerie-langer-steg-v1.webp` | unknown-media |  | 1086×1448 | 376.3 KB | `201394973ef4` |
+| `rooms/varianten/P07-dachterrasse-mond-v1.webp` | unknown-media |  | 1086×1448 | 409.2 KB | `00fcaa6df815` |
+| `rooms/varianten/P07-dachterrasse-stadt-v1.webp` | unknown-media |  | 1086×1448 | 421.8 KB | `41f0fdc55e75` |
+| `rooms/varianten/P08-teezimmer-mond-v1.webp` | unknown-media |  | 1086×1448 | 393.9 KB | `7000a99f1260` |
+| `rooms/varianten/P08-teezimmer-rundtisch-v1.webp` | unknown-media |  | 1086×1448 | 396.5 KB | `b71e2599f8b4` |
+| `rooms/varianten/flur-dunkel-tisch-v1.webp` | unknown-media |  | 864×1536 | 285.1 KB | `90bf0e39595c` |
+| `rooms/varianten/flur-gang-v1.webp` | unknown-media |  | 1086×1448 | 421.4 KB | `83008faa4690` |

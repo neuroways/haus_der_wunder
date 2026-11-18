@@ -41,6 +41,24 @@ Ergebnis: **gesperrt**, solange die 84 neuen Dateien nicht hochgeladen sind. Das
 
 Rollback: Sicherung aus Schritt 1 wieder als `manifest.json` einsetzen (hochladen als `.neu`, dann umbenennen). Die neuen Dateien schaden nicht, wenn sie liegen bleiben. Revisionen werden nur hochgezählt, nie zurück.
 
+## Raum-Upload (freigegeben am 18.11.2026)
+
+Paket `EMFD-Raeume-Upload-2026-11-18.zip` (8,4 MB, 19 Dateien): im STRATO-Dateimanager in **`/wunderhaus/`** entpacken. Der Ordner `media/` im ZIP landet dann richtig.
+
+| Datei | Inhalt |
+|---|---|
+| `media/rooms/varianten/*.webp` (18) | Original-Raumvarianten vom 29.10., auf dem Server bisher 404: P01 abend/mond, P02 leseplatz/sessel, P03 brunnen/werkbank, P04 arbeitsflaeche/treppenblick, P05 brunnen/steinbruecke, P06 bruecke/langer-steg, P07 mond/stadt, P08 mond/rundtisch, flur dunkel-tisch/gang |
+| `media/rooms/P04-atelier-r1-9b6f11cc.webp` | Atelier-Hauptbild **Werkbank** (Original 29.10.) unter neuem Namen |
+
+**Es wird nichts überschrieben.** Alle 19 Namen sind auf dem Server frei (geprüft am 18.11.). Nicht enthalten ist `P04-atelier-kartenauslage-v1.webp`, weil der Server dort eine andere Fassung hat; sie bleibt gesperrt.
+Der Altpfad `rooms/P04-atelier.webp` (Kartenauslage) bleibt unverändert; Apps mit Loader nutzen ihn nicht.
+
+Kontrolle danach (lesend):
+```bash
+python3 tools/emfd_media.py http-check --base https://flowisaurus.de/wunderhaus/media/ --manifest release/manifest.json.neu --only "rooms/" --out work/http-raeume.json
+```
+Danach das Manifest neu bauen (Schritt 3 oben). Die 19 Dateien wechseln dann von `staged` auf `verified`.
+
 ## Wenn neue Medien kommen (Audio, O19–O24, Cover)
 
 1. Die Dateien nach `input/neu/` legen und mit `tools/emfd_media.py stage` in versionierte Namen überführen. Das aktualisiert `reports/staging.json`.

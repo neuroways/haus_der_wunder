@@ -1,6 +1,6 @@
 {
  "tool": "emfd-media-check/1.0",
- "generatedAt": "2026-11-18T16:54:31+00:00",
+ "generatedAt": "2026-11-18T18:05:32+00:00",
  "mediaRoot": "media",
  "files": [
   {
@@ -293,15 +293,15 @@
   {
    "path": "manifest.schema.json",
    "folder": ".",
-   "bytes": 6113,
-   "sha256": "79cc113b5ce8986e04140181cb1793341af2c4b64ca992493be97d0e9926f16a",
+   "bytes": 6211,
+   "sha256": "a22c1b9f659d0b504e94ad763ddb238e4acef7e3ff3621419b1bd098add99235",
    "kind": "support"
   },
   {
    "path": "media-loader.js",
    "folder": ".",
-   "bytes": 19035,
-   "sha256": "6268441e30dce2cfc0b7e8b13bc5beb1679f044d2d3472d03a5f882f5bfe1732",
+   "bytes": 19437,
+   "sha256": "dabc078893d0f67e7783fff0e9ca12fb5a389e197b11e9a47e0811129d0c65f2",
    "kind": "support"
   },
   {
@@ -1129,6 +1129,177 @@
    "rev": 1,
    "variant": "480",
    "nameHash": "b0036042d6"
+  },
+  {
+   "path": "rooms/P04-atelier-r1-9b6f11cc.webp",
+   "folder": "rooms",
+   "bytes": 379994,
+   "sha256": "9b6f11cc77d06f009d7f727e948e65ebb1ae2594072de621bd527fedeb2cec5c",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P01-fensterzimmer-abend-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 377884,
+   "sha256": "6cf757353937d97caa37bf8200c6db2a7cad2d64a8f6877a948a06e855bf4ed1",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P01-fensterzimmer-mond-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 439248,
+   "sha256": "5f98867e967582d10f01eef31adda49c337cdaabcd63dab6f06d8208d9dec0e2",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P02-bibliothek-leseplatz-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 376468,
+   "sha256": "b4874571b6e278281519deba05d17acaea3dbda3465ea9b03c301c3d02a97b76",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P02-bibliothek-sessel-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 421918,
+   "sha256": "bdde87888fb7037c97dbd97f92e001bc31d48f78badd7ef14ee54735514a21a5",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P03-wintergarten-brunnen-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 616882,
+   "sha256": "72c1302e63601913b3e91b85e6bf4a7b3da18a55663494dd896f946f6063e4fa",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P03-wintergarten-werkbank-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 642338,
+   "sha256": "78f5dd51b478c484dd3340ad37423b9d050cec8003b4567d3dddd1a7ebb3266a",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P04-atelier-arbeitsflaeche-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 444368,
+   "sha256": "f0548a378e7d8872aba67e22c6fe5d9c11102f670cc28935ac394e4e64b5c475",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P04-atelier-treppenblick-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 411360,
+   "sha256": "78af4870336dea6a99c5c35317a450461116e5f76d1bb417a22e68b493739166",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P05-innenhof-brunnen-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 576908,
+   "sha256": "50159afd2b83a284c2f6416b9c5ea143ce33d4cf537af3e4cba2b40a45a6109f",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P05-innenhof-steinbruecke-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 476936,
+   "sha256": "5a52df026ddeea4b0d80a4ae15392daf4c51c82c880b6dd5925c3dd12a33a275",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P06-galerie-bruecke-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 435724,
+   "sha256": "12212aa04474280882f6c8174d470b4ecfa4a7bb505b93f02b63c02b188cb86c",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P06-galerie-langer-steg-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 385356,
+   "sha256": "201394973ef4ad699357c7fbdb0f8a412c91fc27b44c43bc8dc09a44f83f198a",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P07-dachterrasse-mond-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 419048,
+   "sha256": "00fcaa6df815bd3b3c1ae3a501d6157fd7490719cb8ec263dc347c502fc1f07d",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P07-dachterrasse-stadt-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 431926,
+   "sha256": "41f0fdc55e7586a602f1acfce9dc6bc88c7234c20b11ea23940179a56fedb201",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P08-teezimmer-mond-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 403370,
+   "sha256": "7000a99f1260169a833af97e885749f50da1e43d8d1aa72e5e1d485c3c8f9fb2",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P08-teezimmer-rundtisch-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 406052,
+   "sha256": "b71e2599f8b4a4c2fbc42ada882b9a2f38d9ad8d04c2a2d2d503b7257dee31ee",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/flur-dunkel-tisch-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 291976,
+   "sha256": "90bf0e39595ce2b2323966eb11d59b85d561b9c2cd6e1b0c309aab4015f118fb",
+   "width": 864,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/flur-gang-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 431484,
+   "sha256": "83008faa4690b58a922523ab77c5bfd98ad386bde20f9e8a56801a63d7033377",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
   }
  ],
  "cards": {
@@ -1446,19 +1617,127 @@
  "issues": [
   {
    "level": "Hinweis",
-   "path": "home/ (live)",
-   "text": "Die Live-Fassung auf dem Server bindet den Loader noch nicht ein."
+   "path": "rooms/P04-atelier-r1-9b6f11cc.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
   },
   {
    "level": "Hinweis",
-   "path": "home_3d/ (live)",
-   "text": "Die Live-Fassung auf dem Server bindet den Loader noch nicht ein."
+   "path": "rooms/varianten/P01-fensterzimmer-abend-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/P01-fensterzimmer-mond-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/P02-bibliothek-leseplatz-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/P02-bibliothek-sessel-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/P03-wintergarten-brunnen-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/P03-wintergarten-werkbank-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/P04-atelier-arbeitsflaeche-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/P04-atelier-treppenblick-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/P05-innenhof-brunnen-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/P05-innenhof-steinbruecke-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/P06-galerie-bruecke-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/P06-galerie-langer-steg-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/P07-dachterrasse-mond-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/P07-dachterrasse-stadt-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/P08-teezimmer-mond-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/P08-teezimmer-rundtisch-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/flur-dunkel-tisch-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/flur-gang-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
   }
  ],
  "changes": {
-  "base": "2026-11-18T16:43:38+00:00",
-  "added": [],
-  "changed": [],
+  "base": "2026-11-18T16:54:31+00:00",
+  "added": [
+   "rooms/P04-atelier-r1-9b6f11cc.webp",
+   "rooms/varianten/P01-fensterzimmer-abend-v1.webp",
+   "rooms/varianten/P01-fensterzimmer-mond-v1.webp",
+   "rooms/varianten/P02-bibliothek-leseplatz-v1.webp",
+   "rooms/varianten/P02-bibliothek-sessel-v1.webp",
+   "rooms/varianten/P03-wintergarten-brunnen-v1.webp",
+   "rooms/varianten/P03-wintergarten-werkbank-v1.webp",
+   "rooms/varianten/P04-atelier-arbeitsflaeche-v1.webp",
+   "rooms/varianten/P04-atelier-treppenblick-v1.webp",
+   "rooms/varianten/P05-innenhof-brunnen-v1.webp",
+   "rooms/varianten/P05-innenhof-steinbruecke-v1.webp",
+   "rooms/varianten/P06-galerie-bruecke-v1.webp",
+   "rooms/varianten/P06-galerie-langer-steg-v1.webp",
+   "rooms/varianten/P07-dachterrasse-mond-v1.webp",
+   "rooms/varianten/P07-dachterrasse-stadt-v1.webp",
+   "rooms/varianten/P08-teezimmer-mond-v1.webp",
+   "rooms/varianten/P08-teezimmer-rundtisch-v1.webp",
+   "rooms/varianten/flur-dunkel-tisch-v1.webp",
+   "rooms/varianten/flur-gang-v1.webp"
+  ],
+  "changed": [
+   "manifest.schema.json",
+   "media-loader.js"
+  ],
   "removed": []
  },
  "apps": {
@@ -1469,10 +1748,7 @@
    "absolutePaths": [],
    "copies": [],
    "cardNamedFiles": [],
-   "live": {
-    "url": "https://flowisaurus.de/wunderhaus/home/index.html",
-    "loader": false
-   },
+   "live": null,
    "ok": true
   },
   "home_3d": {
@@ -1482,373 +1758,8 @@
    "absolutePaths": [],
    "copies": [],
    "cardNamedFiles": [],
-   "live": {
-    "url": "https://flowisaurus.de/wunderhaus/home_3d/index.html",
-    "loader": false
-   },
+   "live": null,
    "ok": true
-  }
- },
- "server": {
-  "base": "https://flowisaurus.de/wunderhaus/media/",
-  "checkedAt": "2026-11-18T16:54:31+00:00",
-  "files": {
-   "MEDIEN-KONVENTION.md": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O01-front-r2-21eca783.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O02-front-r2-512eeca7.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O03-front-r2-855957b9.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O04-front-r2-4c1f37fb.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O05-front-r2-8ad22072.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O06-front-r2-ba9ec012.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O07-front-r2-1b0edb88.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O08-front-r2-1bd052f1.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O09-front-r2-a8c90829.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O10-front-r2-b8fd07b7.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O11-front-r2-81deeae0.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O12-front-r2-44b7e744.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O13-front-r2-84b39927.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O14-front-r2-dfc3bc61.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O15-front-r2-7da93928.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O16-front-r2-89bb780f.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O17-front-r2-4636421b.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O18-front-r2-c2a2f9d8.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "covers/O04-cover-r1-d7ace5fa.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "covers/O06-cover-r1-8e23a947.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "covers/O24-cover-r1-054b4da2.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "katalog/index.html": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "manifest.schema.json": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "media-loader.js": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "media-loader.mjs": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O01-210x360-r2-cf504e3af4.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O01-630x1080-r2-40012d6477.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O01-896x1536-r2-3802406a5d.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O02-210x360-r2-6203e53312.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O02-630x1080-r2-b1f9dea9fe.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O02-896x1536-r2-7166c6f234.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O03-210x360-r2-cebbdadcf6.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O03-630x1080-r2-c64db9e0aa.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O03-896x1536-r2-7d75f35827.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O04-210x360-r2-6e0c04602b.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O04-630x1080-r2-591713b4ff.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O04-896x1536-r2-6c5dc04d67.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O05-210x360-r2-d65b9ecfcc.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O05-630x1080-r2-1577b496a1.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O05-896x1536-r2-9452de2d68.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O06-210x360-r2-d509b6ee27.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O06-630x1080-r2-32e5dcf848.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O06-896x1536-r2-ba53e220fa.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O07-210x360-r2-52ab11a097.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O07-630x1080-r2-b7332e4570.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O07-896x1536-r2-81a57e7166.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O08-210x360-r2-a6709e22ab.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O08-630x1080-r2-e337ee566c.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O08-896x1536-r2-e4c832a4cc.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O09-210x360-r2-8d42b9fcbe.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O09-630x1080-r2-971b2e5ec5.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O09-896x1536-r2-f169ed24da.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O10-210x360-r2-ecc2ba2186.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O10-630x1080-r2-3d8faa63fb.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O10-896x1536-r2-e3965b5922.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O11-210x360-r2-a6bfb4f0b4.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O11-630x1080-r2-c0ca88a800.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O11-896x1536-r2-d4d0987140.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O12-210x360-r2-4d0586e98b.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O12-630x1080-r2-36153a690a.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O12-896x1536-r2-f2d1191746.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O13-210x360-r2-722d41cab9.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O13-630x1080-r2-daa9fe8ae3.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O13-896x1536-r2-98ecb282ab.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O14-210x360-r2-3e3297e394.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O14-630x1080-r2-6febf30cb9.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O14-896x1536-r2-95147f7e99.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O15-210x360-r2-94612bdcef.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O15-630x1080-r2-79099121eb.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O15-896x1536-r2-375ad25ee2.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O16-210x360-r2-e83fd0ea3d.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O16-630x1080-r2-54d0fc0cf1.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O16-896x1536-r2-b6fd4b63f4.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O17-210x360-r2-bc72fd0b61.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O17-630x1080-r2-9ea3d8e5b0.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O17-896x1536-r2-92e812b450.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O18-210x360-r2-ee55331393.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O18-630x1080-r2-c8ce29b09b.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O18-896x1536-r2-1d85cbd388.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O04-cover-1024-r1-652111cb2f.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O04-cover-160-r1-42284f8fef.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O04-cover-480-r1-b913075283.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O06-cover-1024-r1-591a79e61b.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O06-cover-160-r1-0431baa8cc.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O06-cover-480-r1-7546184f1a.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O24-cover-1024-r1-a4afe613fb.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O24-cover-160-r1-69c1323a37.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O24-cover-480-r1-b0036042d6.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   }
   }
  }
 }

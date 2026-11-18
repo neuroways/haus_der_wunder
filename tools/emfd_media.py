@@ -496,6 +496,10 @@ def cmd_http_check(a) -> int:
 OPT_RE = re.compile(r"^optimized/(?P<dir>[a-z]+)/(?P<base>.+?)-(?P<size>\d+(?:x\d+)?)-v1-(?P<hash>[0-9a-f]{10})\.webp$")
 
 
+# Lokaler Upload-Bestand: entspricht /wunderhaus/media/ (Repo-Ordner media/)
+LOCAL_MEDIA = Path(__file__).resolve().parent.parent / "media"
+
+
 class Builder:
     def __init__(self, handoff: Path, staged: dict | None, inventory: dict | None, live: dict | None,
                  assignments: list[dict] | None = None, room_music_map: Path | None = None):
@@ -549,6 +553,10 @@ class Builder:
                             "problems": rec.get("problems") or []}
                 status = rec.get("httpStatus")
                 if status is not None and status >= 400:
+                    # Liegt die Datei im lokalen Upload-Bestand (Repo media/), ist sie vorbereitet, nicht verloren
+                    if LOCAL_MEDIA.joinpath(path).is_file():
+                        evidence["note"] = "lokal in media/ vorbereitet, auf dem Server noch nicht vorhanden"
+                        return "staged", evidence
                     return "missing", evidence
                 if rec.get("problems"):
                     return "broken", evidence
@@ -783,6 +791,17 @@ class Builder:
                 "(Bogenfenster, runder Holztisch, Blau/Gold, Mondsichel-Motive). Variante 'Mond' gilt nicht als Stilvorgabe.")
         # Nutzerentscheidung 18.11.2026: Atelier-Hauptbild ist die Werkbank (Original 29.10.), nicht die Kartenauslage
         if "room.P04-atelier.r1" in self.assets:
+            werkbank = sorted(LOCAL_MEDIA.glob("rooms/P04-atelier-r1-*.webp"))
+            if werkbank:
+                wp = werkbank[-1].relative_to(LOCAL_MEDIA).as_posix()
+                av, ev = self.availability_for(wp, "staged")
+                if self.inv and wp not in self.inv["files"]:
+                    av, ev = "staged", {"note": "lokal in media/ vorbereitet"}
+                self.assets["room.P04-atelier.r1"]["variants"]["original"] = {
+                    "path": wp, "mime": "image/webp", "width": 1086, "height": 1448,
+                    "bytes": werkbank[-1].stat().st_size,
+                    "sha256": hashlib.sha256(werkbank[-1].read_bytes()).hexdigest(),
+                    "availability": av, "evidence": ev}
             self.assets["room.P04-atelier.r1"].setdefault("notes", []).append(
                 "Nutzerentscheidung 18.11.2026: Hauptbild = Werkbank (Original 29.10., 1086×1448). "
                 "rooms/P04-atelier.webp zeigt live seit 05.11. die Kartenauslage und gilt nicht; "
