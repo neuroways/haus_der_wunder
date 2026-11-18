@@ -1,27 +1,26 @@
 # Medien-Check · media/
 
-Erstellt: 2026-11-18T16:43:38+00:00 · Werkzeug `tools/media_check.py` · 89 Dateien, 51.7 MB
+Erstellt: 2026-11-18T17:34:36+00:00 · Werkzeug `tools/media_check.py` · 97 Dateien, 52.0 MB
 
 ## Ergebnis
 
 - Vorderseiten: **18/24** Karten · Cover: **3/25** (O01–O24 + T03)
 - Ohne Vorderseite: O19, O20, O21, O22, O23, O24
 - Ohne Cover: O01, O02, O03, O05, O07, O08, O09, O10, O11, O12, O13, O14, O15, O16, O17, O18, O19, O20, O21, O22, O23, T03
-- Fehler: **0** · Warnungen: **0** · Hinweise: **2**
-- Seit 2026-11-18T16:43:18+00:00: 0 neu, 0 geändert, 0 entfernt
-- Server (https://flowisaurus.de/wunderhaus/media/, 2026-11-18T16:43:38+00:00): fehlt online: **89**
+- Fehler: **0** · Warnungen: **0** · Hinweise: **32**
+- Seit 2026-11-18T16:43:38+00:00: 8 neu, 0 geändert, 0 entfernt
 
 ## Apps · Zugriff auf media/
 
 | App | Loader eingebunden (Repo) | absolute Medienpfade | Medienkopien | live auf dem Server |
 |---|---|---|---|---|
-| `home/` | ✓ index.html: ../media/media-loader.js | — | — | ✗ kein Loader |
-| `home_3d/` | ✓ index.html: meta emfd-media-base ../media/ | — | — | ✗ kein Loader |
+| `home/` | ✓ index.html: ../media/media-loader.js | — | — | — |
+| `home_3d/` | ✓ index.html: meta emfd-media-base ../media/ | — | — | — |
 
 ## Ordnerstruktur
 
 ```
-media/                                 89 Dateien    51.7 MB
+media/                                 97 Dateien    52.0 MB
   cards/                               18 Dateien    36.9 MB
     fronts/                            18 Dateien    36.9 MB
   covers/                               3 Dateien     6.9 MB
@@ -29,6 +28,7 @@ media/                                 89 Dateien    51.7 MB
   optimized/                           63 Dateien     7.9 MB
     cards/                             54 Dateien     7.1 MB
     covers/                             9 Dateien   801.5 KB
+  raumgeraete/                          8 Dateien   375.2 KB
 ```
 
 ## Karten
@@ -67,104 +67,52 @@ media/                                 89 Dateien    51.7 MB
 
 | Stufe | Datei / Karte | Befund |
 |---|---|---|
-| Hinweis | `home/ (live)` | Die Live-Fassung auf dem Server bindet den Loader noch nicht ein. |
-| Hinweis | `home_3d/ (live)` | Die Live-Fassung auf dem Server bindet den Loader noch nicht ein. |
+| Hinweis | `home/assets/recovery/O01-630x1080-v1-47041d64df.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O02-630x1080-v1-ea0c9d086d.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O03-630x1080-v1-538d1729a7.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O04-630x1080-v1-9b2846a48e.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O05-630x1080-v1-66c23e33ec.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O06-630x1080-v1-d7b8985de0.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O07-630x1080-v1-55988a067e.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O08-630x1080-v1-7cace7daa6.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O09-630x1080-v1-f5631e0d0d.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O10-630x1080-v1-79dd7c2417.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O11-630x1080-v1-817636f65e.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O12-630x1080-v1-9b05b53b78.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O13-630x1080-v1-8a85824d30.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O14-630x1080-v1-43247f7cf2.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O15-630x1080-v1-b13fb25925.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O16-630x1080-v1-fc700ce626.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O17-630x1080-v1-8deb0dda40.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O18-630x1080-v1-2541c92721.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O19-630x1080-v1-6e2b113bb5.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O20-630x1080-v1-096501a523.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O21-630x1080-v1-d6447303ab.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O22-630x1080-v1-f9e0be09eb.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O23-630x1080-v1-fd5b16d29c.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `home/assets/recovery/O24-630x1080-v1-e66d387234.webp` | Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen. |
+| Hinweis | `raumgeraete/P01.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `raumgeraete/P02.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `raumgeraete/P03.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `raumgeraete/P04.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `raumgeraete/P05.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `raumgeraete/P06.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `raumgeraete/P07.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `raumgeraete/P08.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 
-## Server-Abgleich
+## Änderungen seit 2026-11-18T16:43:38+00:00
 
-Quelle: https://flowisaurus.de/wunderhaus/media/ (nur HEAD-Abfragen, nichts verändert).
+**Neu**
 
-| Datei | Zustand | Server-Größe | lokal | Last-Modified |
-|---|---|---|---|---|
-| `MEDIEN-KONVENTION.md` | fehlt online | — | 4914 | — |
-| `cards/fronts/O01-front-r2-21eca783.png` | fehlt online | — | 2185143 | — |
-| `cards/fronts/O02-front-r2-512eeca7.png` | fehlt online | — | 2173452 | — |
-| `cards/fronts/O03-front-r2-855957b9.png` | fehlt online | — | 2038717 | — |
-| `cards/fronts/O04-front-r2-4c1f37fb.png` | fehlt online | — | 2144432 | — |
-| `cards/fronts/O05-front-r2-8ad22072.png` | fehlt online | — | 2381883 | — |
-| `cards/fronts/O06-front-r2-ba9ec012.png` | fehlt online | — | 2250476 | — |
-| `cards/fronts/O07-front-r2-1b0edb88.png` | fehlt online | — | 1500622 | — |
-| `cards/fronts/O08-front-r2-1bd052f1.png` | fehlt online | — | 1974049 | — |
-| `cards/fronts/O09-front-r2-a8c90829.png` | fehlt online | — | 2291045 | — |
-| `cards/fronts/O10-front-r2-b8fd07b7.png` | fehlt online | — | 2210938 | — |
-| `cards/fronts/O11-front-r2-81deeae0.png` | fehlt online | — | 2069312 | — |
-| `cards/fronts/O12-front-r2-44b7e744.png` | fehlt online | — | 2024114 | — |
-| `cards/fronts/O13-front-r2-84b39927.png` | fehlt online | — | 2193231 | — |
-| `cards/fronts/O14-front-r2-dfc3bc61.png` | fehlt online | — | 2153324 | — |
-| `cards/fronts/O15-front-r2-7da93928.png` | fehlt online | — | 2528704 | — |
-| `cards/fronts/O16-front-r2-89bb780f.png` | fehlt online | — | 2372457 | — |
-| `cards/fronts/O17-front-r2-4636421b.png` | fehlt online | — | 2337001 | — |
-| `cards/fronts/O18-front-r2-c2a2f9d8.png` | fehlt online | — | 1859837 | — |
-| `covers/O04-cover-r1-d7ace5fa.png` | fehlt online | — | 2428755 | — |
-| `covers/O06-cover-r1-8e23a947.png` | fehlt online | — | 2147271 | — |
-| `covers/O24-cover-r1-054b4da2.png` | fehlt online | — | 2606872 | — |
-| `katalog/index.html` | fehlt online | — | 15888 | — |
-| `manifest.schema.json` | fehlt online | — | 6113 | — |
-| `media-loader.js` | fehlt online | — | 19035 | — |
-| `media-loader.mjs` | fehlt online | — | 670 | — |
-| `optimized/cards/O01-210x360-r2-cf504e3af4.webp` | fehlt online | — | 21744 | — |
-| `optimized/cards/O01-630x1080-r2-40012d6477.webp` | fehlt online | — | 145784 | — |
-| `optimized/cards/O01-896x1536-r2-3802406a5d.webp` | fehlt online | — | 248840 | — |
-| `optimized/cards/O02-210x360-r2-6203e53312.webp` | fehlt online | — | 22176 | — |
-| `optimized/cards/O02-630x1080-r2-b1f9dea9fe.webp` | fehlt online | — | 149496 | — |
-| `optimized/cards/O02-896x1536-r2-7166c6f234.webp` | fehlt online | — | 257890 | — |
-| `optimized/cards/O03-210x360-r2-cebbdadcf6.webp` | fehlt online | — | 20934 | — |
-| `optimized/cards/O03-630x1080-r2-c64db9e0aa.webp` | fehlt online | — | 127602 | — |
-| `optimized/cards/O03-896x1536-r2-7d75f35827.webp` | fehlt online | — | 208848 | — |
-| `optimized/cards/O04-210x360-r2-6e0c04602b.webp` | fehlt online | — | 22976 | — |
-| `optimized/cards/O04-630x1080-r2-591713b4ff.webp` | fehlt online | — | 140290 | — |
-| `optimized/cards/O04-896x1536-r2-6c5dc04d67.webp` | fehlt online | — | 242618 | — |
-| `optimized/cards/O05-210x360-r2-d65b9ecfcc.webp` | fehlt online | — | 31798 | — |
-| `optimized/cards/O05-630x1080-r2-1577b496a1.webp` | fehlt online | — | 197008 | — |
-| `optimized/cards/O05-896x1536-r2-9452de2d68.webp` | fehlt online | — | 317504 | — |
-| `optimized/cards/O06-210x360-r2-d509b6ee27.webp` | fehlt online | — | 24666 | — |
-| `optimized/cards/O06-630x1080-r2-32e5dcf848.webp` | fehlt online | — | 155650 | — |
-| `optimized/cards/O06-896x1536-r2-ba53e220fa.webp` | fehlt online | — | 265366 | — |
-| `optimized/cards/O07-210x360-r2-52ab11a097.webp` | fehlt online | — | 12128 | — |
-| `optimized/cards/O07-630x1080-r2-b7332e4570.webp` | fehlt online | — | 60898 | — |
-| `optimized/cards/O07-896x1536-r2-81a57e7166.webp` | fehlt online | — | 106800 | — |
-| `optimized/cards/O08-210x360-r2-a6709e22ab.webp` | fehlt online | — | 19772 | — |
-| `optimized/cards/O08-630x1080-r2-e337ee566c.webp` | fehlt online | — | 116558 | — |
-| `optimized/cards/O08-896x1536-r2-e4c832a4cc.webp` | fehlt online | — | 196218 | — |
-| `optimized/cards/O09-210x360-r2-8d42b9fcbe.webp` | fehlt online | — | 29646 | — |
-| `optimized/cards/O09-630x1080-r2-971b2e5ec5.webp` | fehlt online | — | 195600 | — |
-| `optimized/cards/O09-896x1536-r2-f169ed24da.webp` | fehlt online | — | 325528 | — |
-| `optimized/cards/O10-210x360-r2-ecc2ba2186.webp` | fehlt online | — | 18912 | — |
-| `optimized/cards/O10-630x1080-r2-3d8faa63fb.webp` | fehlt online | — | 133916 | — |
-| `optimized/cards/O10-896x1536-r2-e3965b5922.webp` | fehlt online | — | 243362 | — |
-| `optimized/cards/O11-210x360-r2-a6bfb4f0b4.webp` | fehlt online | — | 21592 | — |
-| `optimized/cards/O11-630x1080-r2-c0ca88a800.webp` | fehlt online | — | 136816 | — |
-| `optimized/cards/O11-896x1536-r2-d4d0987140.webp` | fehlt online | — | 231918 | — |
-| `optimized/cards/O12-210x360-r2-4d0586e98b.webp` | fehlt online | — | 17520 | — |
-| `optimized/cards/O12-630x1080-r2-36153a690a.webp` | fehlt online | — | 109168 | — |
-| `optimized/cards/O12-896x1536-r2-f2d1191746.webp` | fehlt online | — | 203002 | — |
-| `optimized/cards/O13-210x360-r2-722d41cab9.webp` | fehlt online | — | 22418 | — |
-| `optimized/cards/O13-630x1080-r2-daa9fe8ae3.webp` | fehlt online | — | 142612 | — |
-| `optimized/cards/O13-896x1536-r2-98ecb282ab.webp` | fehlt online | — | 240570 | — |
-| `optimized/cards/O14-210x360-r2-3e3297e394.webp` | fehlt online | — | 21874 | — |
-| `optimized/cards/O14-630x1080-r2-6febf30cb9.webp` | fehlt online | — | 138782 | — |
-| `optimized/cards/O14-896x1536-r2-95147f7e99.webp` | fehlt online | — | 242982 | — |
-| `optimized/cards/O15-210x360-r2-94612bdcef.webp` | fehlt online | — | 31546 | — |
-| `optimized/cards/O15-630x1080-r2-79099121eb.webp` | fehlt online | — | 211542 | — |
-| `optimized/cards/O15-896x1536-r2-375ad25ee2.webp` | fehlt online | — | 360318 | — |
-| `optimized/cards/O16-210x360-r2-e83fd0ea3d.webp` | fehlt online | — | 23198 | — |
-| `optimized/cards/O16-630x1080-r2-54d0fc0cf1.webp` | fehlt online | — | 172246 | — |
-| `optimized/cards/O16-896x1536-r2-b6fd4b63f4.webp` | fehlt online | — | 285156 | — |
-| `optimized/cards/O17-210x360-r2-bc72fd0b61.webp` | fehlt online | — | 24240 | — |
-| `optimized/cards/O17-630x1080-r2-9ea3d8e5b0.webp` | fehlt online | — | 170342 | — |
-| `optimized/cards/O17-896x1536-r2-92e812b450.webp` | fehlt online | — | 301166 | — |
-| `optimized/cards/O18-210x360-r2-ee55331393.webp` | fehlt online | — | 14926 | — |
-| `optimized/cards/O18-630x1080-r2-c8ce29b09b.webp` | fehlt online | — | 89910 | — |
-| `optimized/cards/O18-896x1536-r2-1d85cbd388.webp` | fehlt online | — | 159344 | — |
-| `optimized/covers/O04-cover-1024-r1-652111cb2f.webp` | fehlt online | — | 202640 | — |
-| `optimized/covers/O04-cover-160-r1-42284f8fef.webp` | fehlt online | — | 10700 | — |
-| `optimized/covers/O04-cover-480-r1-b913075283.webp` | fehlt online | — | 63414 | — |
-| `optimized/covers/O06-cover-1024-r1-591a79e61b.webp` | fehlt online | — | 154012 | — |
-| `optimized/covers/O06-cover-160-r1-0431baa8cc.webp` | fehlt online | — | 7800 | — |
-| `optimized/covers/O06-cover-480-r1-7546184f1a.webp` | fehlt online | — | 42958 | — |
-| `optimized/covers/O24-cover-1024-r1-a4afe613fb.webp` | fehlt online | — | 251584 | — |
-| `optimized/covers/O24-cover-160-r1-69c1323a37.webp` | fehlt online | — | 12506 | — |
-| `optimized/covers/O24-cover-480-r1-b0036042d6.webp` | fehlt online | — | 75082 | — |
+- `raumgeraete/P01.webp`
+- `raumgeraete/P02.webp`
+- `raumgeraete/P03.webp`
+- `raumgeraete/P04.webp`
+- `raumgeraete/P05.webp`
+- `raumgeraete/P06.webp`
+- `raumgeraete/P07.webp`
+- `raumgeraete/P08.webp`
+
 
 ## Dateien
 
@@ -259,3 +207,11 @@ Quelle: https://flowisaurus.de/wunderhaus/media/ (nur HEAD-Abfragen, nichts ver�
 | `optimized/covers/O24-cover-1024-r1-a4afe613fb.webp` | cover-variant | r1 | 1024×1024 | 245.7 KB | `a4afe613fbaf` |
 | `optimized/covers/O24-cover-160-r1-69c1323a37.webp` | cover-variant | r1 | 160×160 | 12.2 KB | `69c1323a37e7` |
 | `optimized/covers/O24-cover-480-r1-b0036042d6.webp` | cover-variant | r1 | 480×480 | 73.3 KB | `b0036042d6cf` |
+| `raumgeraete/P01.webp` | unknown-media |  | 504×227 | 52.0 KB | `021c905de6e1` |
+| `raumgeraete/P02.webp` | unknown-media |  | 504×227 | 55.6 KB | `458a3d52d745` |
+| `raumgeraete/P03.webp` | unknown-media |  | 504×227 | 48.1 KB | `f37306980d9e` |
+| `raumgeraete/P04.webp` | unknown-media |  | 504×223 | 36.3 KB | `97ff43323e0d` |
+| `raumgeraete/P05.webp` | unknown-media |  | 504×223 | 41.5 KB | `c56cb9ad0d8e` |
+| `raumgeraete/P06.webp` | unknown-media |  | 504×223 | 37.1 KB | `4dc7c58cfd63` |
+| `raumgeraete/P07.webp` | unknown-media |  | 504×248 | 56.1 KB | `cc969a5ce41c` |
+| `raumgeraete/P08.webp` | unknown-media |  | 504×248 | 48.6 KB | `57e533f5adb7` |

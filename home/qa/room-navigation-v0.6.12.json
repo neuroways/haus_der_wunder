@@ -1,0 +1,18 @@
+{
+  "build": "P0-U01 v0.6.12",
+  "date": "2026-10-28",
+  "purpose": "Internal frontend prototype for house-room navigation and generated room-scene assets.",
+  "checks": {
+    "routes": "Flur, room directory, P01-P08, existing cards, and independent music route are wired to the hash router.",
+    "roomMedia": "Nine optimized WebP scenes are under /media/rooms/ and tracked in the external room media manifest.",
+    "mainNavigation": "House / cards / music tabs are labeled and indicate the active section.",
+    "legacyCardRoutes": "#karte/O01 through #karte/O24 are retained.",
+    "audio": "No new audio content; room and route changes do not start playback.",
+    "automatedTests": "26 passed, 0 failed; 1 skipped (no local audio sample)."
+  },
+  "limitations": [
+    "Generated room images are internal prototype assets, not final media approval.",
+    "No live host or iPhone Safari/VoiceOver test was performed.",
+    "No shared audio files were present locally; the music page reports this rather than inventing tracks."
+  ]
+}

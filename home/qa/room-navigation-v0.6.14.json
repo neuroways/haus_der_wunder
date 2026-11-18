@@ -1,0 +1,14 @@
+{
+  "build": "P0-U01 v0.6.14",
+  "purpose": "Adds paired light-on/light-off Flur artwork and labeled HTML hotspots in the interactive hall.",
+  "checks": {
+    "lightToggle": "Visible button switches paired images; aria-pressed and accessible action label track state. State survives SPA route changes during the current page session.",
+    "navigation": "Atelier to #karten; Teezimmer to #ort/P08; music to #musik; rooms to #raeume; gift link opens existing origin-story dialog.",
+    "media": "Room assets remain outside the app ZIP under /media/rooms/; application package remains top-level home/."
+  },
+  "limitations": [
+    "No deployment performed.",
+    "No iPhone Safari or VoiceOver visual test performed in this build.",
+    "Licht-aus artwork was supplied by the user and is treated as the paired room-state illustration."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "build": "P0-U01 v0.6.9",
+  "date": "2026-10-27",
+  "scope": "interner Text- und Look-and-Feel-Test; keine Produktfreigabe",
+  "source": "Ein-Moment-fuer-dich_Vollstaendige-Kartentexte_v1.3.md",
+  "sourceSha256": "21def4142f53e1ead2cead9150915ff1d0ec52b742814b36c503d97163aec374",
+  "checks": {
+    "stableCardIds": "PASS: O01-O24, 24 unique IDs",
+    "groupCounts": "PASS: Ruhe, Kraft, Halt, Freude jeweils 6",
+    "optionalTextFields": "PASS: all 6 fields present for all 24 cards",
+    "imageMappingAndAltTextUnchanged": "PASS: compared with v0.6.8",
+    "javascriptSyntax": "PASS: app.js and reading.js",
+    "automatedTests": {"passed": 17, "failed": 0, "skipped": 1, "skipReason": "Shared audio sample moments/audio/S01-E-A.mp3 is absent in this workspace"},
+    "browserSmokeTest": "NOT RUN: this runtime has no installed Playwright browser executable",
+    "iPhoneSafari": "NOT TESTED",
+    "VoiceOver": "NOT TESTED",
+    "offlineCache": "NOT TESTED"
+  },
+  "imageTextReview": {
+    "vorlaeufigerPass": ["O01", "O02", "O04", "O05", "O12", "O14", "O15", "O20", "O21"],
+    "teilweise": ["O08", "O11", "O16", "O22", "O24"],
+    "offen": ["O09"],
+    "ueberarbeiten": ["O03", "O06", "O07", "O10", "O13", "O17", "O18", "O19", "O23"]
+  },
+  "knownConflicts": [
+    "O06 text describes a clock without numbers or hands; assigned image visibly includes Roman numerals and hands.",
+    "O24 text describes gold-colored surface speckles; image clearly shows blue speckled glaze and gold rim, while gold speckles are not distinct.",
+    "Nine image-text mismatches and five partial matches remain documented; source text was not silently changed."
+  ],
+  "audio": "No card-song files were available in the local shared audio folder; this build does not claim card-song integration.",
+  "release": "No public deployment or media approval."
+}

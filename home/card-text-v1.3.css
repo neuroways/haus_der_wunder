@@ -1,0 +1,66 @@
+/* Six voluntary text paths; labels and icons remain visible together. */
+.card-dock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-content:center;justify-items:center;gap:3px 5px;padding:4px 8px max(6px,env(safe-area-inset-bottom));transform:translateY(-4px);}
+.card-dock button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:100%;min-width:0;min-height:54px;padding:1px 2px;font-size:10px;line-height:1.1;text-align:center;}
+.card-dock .dock-icon{width:32px;height:32px;flex:none;}
+.card-dock .dock-icon svg{width:20px;height:20px;}
+.card-dock .dock-label{display:block;max-width:100%;text-wrap:balance;}
+.card-dock button:focus-visible{outline:2px solid #f2c879;outline-offset:1px;}
+.text-review-note{max-width:620px;margin:0 auto 4px;text-align:left;font-size:11px;color:#f0d9a7;}
+.text-review-note summary{cursor:pointer;text-align:center;text-decoration:underline;text-underline-offset:3px;}
+.text-review-note p{margin:5px 0 0;color:#dce3e7;line-height:1.35;}
+.reading-dialog{flex-direction:column;overflow:hidden;}
+.reading-dialog[open]{display:flex;}
+.reading-dialog:not([open]){display:none;}
+.reading-dialog .reading-close{width:46px;height:46px;min-width:46px;min-height:46px;padding:0;display:grid;place-items:center;border-radius:50%;font:300 32px/1 system-ui,sans-serif;}
+.reading-dialog .reading-close span{display:block;transform:translateY(-1px);}
+.reading-shell{flex:1;min-height:0;overflow:hidden;}
+.book-dialog .reading-shell{max-height:66svh;min-height:0;}
+.book-dialog .reading-title,.book-dialog .reading-page{min-height:0;overflow-y:auto;overscroll-behavior:contain;}
+.reading-choice{flex:0 0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:12px;padding-top:10px;}
+.reading-choice button{min-width:0;min-height:66px;padding:7px 5px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:11px;line-height:1.15;text-wrap:balance;}
+.reading-choice-icon{display:grid;place-items:center;flex:0 0 27px;width:27px;height:27px;color:#e7c778;}
+.reading-choice-icon svg{display:block;width:23px;height:23px;}
+.reading-choice-label{min-width:0;}
+.reading-choice button[aria-current] .reading-choice-icon{color:#142840;}
+.question-dialog .reading-shell,.impulse-dialog .reading-shell{max-height:64svh;overflow-y:auto;overscroll-behavior:contain;}
+@media(max-width:380px){.card-dock{gap:2px 4px;padding-left:6px;padding-right:6px}.card-dock button{font-size:9px}.card-dock .dock-icon{width:34px;height:34px}.reading-choice{gap:4px}.reading-choice button{min-height:70px;flex-direction:column;gap:2px;font-size:10px;padding:4px 2px}.reading-choice-icon{width:23px;height:23px;flex-basis:23px}.reading-choice-icon svg{width:20px;height:20px}}
+@media(max-height:520px){.card-dock{padding-top:3px;padding-bottom:max(4px,env(safe-area-inset-bottom));gap:2px 4px}.card-dock button{min-height:50px;flex-direction:column;gap:2px}.card-dock .dock-icon{width:30px;height:30px}.card-dock .dock-icon svg{width:18px;height:18px}.card-dock .dock-label{font-size:9px}.book-dialog .reading-shell{max-height:58svh}.reading-choice{margin-top:8px;padding-top:6px}}
+
+/* All voluntary texts are pages of the same book. */
+.reading-dialog.book-dialog .reading-shell{display:block;max-height:none;overflow-y:auto;overscroll-behavior:contain;gap:0;border:1px solid #b38b45;border-radius:10px;background:#f0dca8;color:#3c3122;box-shadow:0 8px 24px #0006;animation:reading-page-turn 360ms cubic-bezier(.2,.72,.25,1) both;transform-origin:left center;}
+.reading-dialog.book-dialog .reading-title,
+.reading-dialog.book-dialog .reading-page{min-height:0;overflow:visible;background:transparent;color:#3c3122;border:0;border-radius:0;box-shadow:none;transform:none;animation:none;font-family:Georgia,"Times New Roman",serif;}
+.reading-dialog.book-dialog .reading-title{padding:28px 30px 20px;text-align:left;}
+.reading-dialog.book-dialog .reading-title .eyebrow{color:#66502b;}
+.reading-dialog.book-dialog .reading-title h2{margin:14px 0 8px;font:36px/1.2 Georgia,"Times New Roman",serif;color:#3c3122;}
+.reading-dialog.book-dialog .reading-note{display:block;margin:0;color:#6a5940;font:14px/1.5 system-ui,sans-serif;}
+.reading-dialog.book-dialog .reading-page{padding:22px 30px 28px;border-top:1px solid #b49358;}
+.reading-dialog.book-dialog .reading-page p,
+.reading-dialog.book-dialog blockquote,
+.reading-dialog.book-dialog.impulse-dialog .reading-page>p:first-child{margin:0 0 22px;font:20px/1.72 Georgia,"Times New Roman",serif;color:#3c3122;text-align:left;}
+.reading-dialog.book-dialog blockquote{padding:0;border:0;}
+.reading-dialog.book-dialog .reading-freedom{padding-top:18px;border-top:1px solid #b49358;color:#695a43;font:14px/1.55 system-ui,sans-serif!important;}
+@keyframes reading-page-turn{0%{transform:perspective(1000px) rotateY(-6deg) translateX(-4px)}100%{transform:perspective(1000px) rotateY(0) translateX(0)}}
+@media(max-width:700px){
+ .reading-dialog.book-dialog .reading-title{padding:24px 24px 17px;}
+ .reading-dialog.book-dialog .reading-title h2{font-size:30px;line-height:1.2;}
+ .reading-dialog.book-dialog .reading-page{padding:20px 24px 26px;}
+ .reading-dialog.book-dialog .reading-page p,.reading-dialog.book-dialog blockquote{font-size:19px;line-height:1.68;}
+}
+@media(prefers-reduced-motion:reduce){.reading-dialog.book-dialog .reading-shell{animation:none;}}
+.motion-off .reading-dialog.book-dialog .reading-shell{animation:none;}
+
+/* Compact icon-only bookmarks sit above the paper page. */
+.reading-dialog .reading-choice{position:relative;z-index:2;flex:0 0 auto;display:grid;grid-template-columns:repeat(6,44px);justify-content:center;gap:5px;width:auto;margin:0 auto -2px;padding:0 8px;border:0;}
+.reading-dialog .reading-choice button{position:relative;width:44px;min-width:44px;height:46px;min-height:46px;padding:0;display:grid;place-items:center;border-radius:10px 10px 3px 3px;background:#17384d;color:#e7c778;box-shadow:0 3px 8px #0004;}
+.reading-dialog .reading-choice button[aria-current]{height:50px;min-height:50px;background:#efca75;color:#173247;border-color:#efca75;transform:translateY(3px);box-shadow:0 4px 10px #0005;}
+.reading-dialog .reading-choice button:focus-visible{outline:2px solid #fff1bd;outline-offset:2px;}
+.reading-dialog .reading-choice-icon{display:grid;place-items:center;width:27px;height:27px;flex:none;color:currentColor;}
+.reading-dialog .reading-choice-icon svg{display:block;width:24px;height:24px;}
+.reading-dialog .reading-choice-label{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;}
+@media(max-width:380px){
+ .reading-dialog .reading-choice{grid-template-columns:repeat(6,41px);gap:4px;padding-inline:4px;}
+ .reading-dialog .reading-choice button{width:41px;min-width:41px;height:44px;min-height:44px;}
+ .reading-dialog .reading-choice button[aria-current]{height:48px;min-height:48px;}
+ .reading-dialog .reading-choice-icon,.reading-dialog .reading-choice-icon svg{width:22px;height:22px;}
+}

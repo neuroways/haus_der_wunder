@@ -1,0 +1,33 @@
+/* EMFD-HOUSE-01: Grundräume auf mobilen Displays vollständig erreichbar. */
+body.house-skeleton-view.emfd-shell.immersive-room-view main.emfd-shell__content{
+  overflow-y:auto;overflow-x:hidden;overscroll-behavior-y:contain;
+  -webkit-overflow-scrolling:touch;
+  padding:clamp(12px,3vw,22px) clamp(12px,4vw,28px) max(22px,env(safe-area-inset-bottom));
+}
+body.house-skeleton-view .house-skeleton{width:min(100%,760px);margin:0 auto;padding-bottom:20px;}
+.house-skeleton .room-detail-top{margin-bottom:10px;gap:8px;}
+.house-skeleton .room-detail-top .back{margin:0;min-height:44px;}
+.house-skeleton .room-home-link{min-height:44px;}
+.house-skeleton .room-hero{border-radius:18px;}
+.house-category-access{margin:18px 0 0;padding:16px clamp(14px,4vw,22px) 20px;border:1px solid #b89b6270;border-radius:18px;background:linear-gradient(145deg,#10283c,#173c4b);}
+.house-category-access h2{font:normal clamp(23px,5vw,30px)/1.24 Georgia,serif;margin:0 0 6px;color:#f5dfb3;}
+.house-category-access p{margin:0 0 12px;color:#d8e3e3;font-size:14px;line-height:1.5;}
+.house-category-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;}
+.house-category-links a{display:flex;justify-content:center;align-items:center;min-height:46px;padding:8px 6px;border-radius:12px;border:1px solid #ceac67;color:#fce6b6;background:#071e31e8;text-decoration:none;font:normal clamp(13px,3.4vw,17px)/1.2 Georgia,serif;text-align:center;}
+.house-category-links a:hover,.house-category-links a:focus-visible{border-color:#f6da96;background:#214a55;}
+.house-directory .room-grid{margin-top:18px;}
+.house-directory .room-tile--music{border-color:#d8b36f;}
+@media(max-width:430px){
+  .house-category-links{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .house-skeleton .house-copy{padding:44px 15px 15px;}
+  .house-skeleton .house-copy h1{font-size:clamp(30px,9vw,40px);}
+  .house-skeleton .house-copy p{font-size:14px;line-height:1.35;}
+}
+@media(prefers-reduced-motion:reduce){.house-category-links a{transition:none!important;}}
+
+/* BIB-FE-01: sichtbar auf dem bestehenden P02-Motiv, ohne Bildänderung. */
+.house-skeleton .emfd-library-jump{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin-top:11px;padding:9px 17px;border:1px solid #ebc47c;border-radius:999px;background:#102f42e8;color:#ffe9bb;font:600 15px/1.25 Georgia,serif;cursor:pointer}
+.house-skeleton .emfd-library-jump:hover{background:#235366}
+.house-skeleton .emfd-library-jump:focus-visible{outline:3px solid #ffe4a4;outline-offset:3px}
+#emfd-library-root{scroll-margin-top:22px}
+.emfd-library-fallback{margin:18px 0;padding:16px;border:1px solid #b89b62;border-radius:14px;color:#f6dfaf;background:#092738;text-align:center}

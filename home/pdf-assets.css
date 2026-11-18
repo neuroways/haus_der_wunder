@@ -1,0 +1,12 @@
+/* PDF images have a different aspect ratio: show full pixels, no crop or stretch. */
+.tile .picture img,.card-front img{object-fit:contain!important}.card-front .picture{height:100%;aspect-ratio:auto!important}.tile .picture{background:#10263c}
+
+/* Keep 3D faces independent; clip only the translated reflection layer. */
+.card-gloss-clip{display:block;position:absolute;inset:0;border-radius:16px;overflow:hidden;pointer-events:none;transform:translateZ(1px);isolation:isolate}
+.card-gloss-clip .card-gloss{border-radius:0}
+.card-front .picture{max-width:none!important;background:transparent}
+.motion-off .card-gloss-clip{display:none}
+
+/* One card only: no offset gold rim or colored plate behind the artwork. */
+.card-tilt{box-shadow:0 20px 36px rgba(0,0,0,.42)}
+.card-face{background:transparent}

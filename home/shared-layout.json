@@ -1,0 +1,10 @@
+{
+  "version": "0.6.18",
+  "baseVersion": "0.6.9",
+  "appBase": "/wunderhaus/home/",
+  "audioBase": "../media/audio/",
+  "cardsBase": "../media/cards/",
+  "serviceWorker": "none",
+  "legacyRootHashRedirect": "requires-server-rule",
+  "roomMediaBase": "../media/rooms/"
+}

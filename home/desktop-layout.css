@@ -1,0 +1,144 @@
+/* Desktop corrections: normal-flow controls cannot overlap each other. */
+.start-scene > .origin-start-link.emfd-button{top:80%;bottom:auto;left:18%;right:18%;width:auto;min-height:46px;height:auto;transform:none;text-decoration:none}
+/* A missing room picture must still reserve space for its overlaid caption. */
+.house-skeleton .room-hero > .room-photo-fallback{min-height:360px;align-items:start;padding-top:24px}
+.emfd-lib-cover-title,.emfd-lib-item-name{overflow-wrap:normal;word-break:normal;hyphens:auto}
+@media(min-width:900px){
+  body.emfd-shell .global-nav{left:50%;right:auto;bottom:14px;transform:translateX(-50%);width:min(620px,calc(100% - 48px));border:1px solid #b89b6270;border-radius:20px;padding:6px;box-shadow:0 8px 28px #0006}
+  body.emfd-shell .global-nav a{min-height:52px;flex-direction:row;gap:10px;font-size:16px}
+  body.emfd-shell .global-nav a>svg{width:26px;height:26px}
+  body.emfd-shell.start-gate-mode main.emfd-shell__content{width:min(100%,1040px);max-width:1040px;margin:24px auto 0;padding:0 24px 100px}
+  .start-gate-scene .start-scene.emfd-scene__frame{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);grid-template-rows:1fr auto auto;column-gap:36px;row-gap:16px;width:100%;height:clamp(460px,calc(100dvh - 180px),680px);aspect-ratio:auto;padding:32px 40px 32px 0;text-align:left}
+  .start-scene .start-scene-art.emfd-scene__image{position:absolute;inset:0 auto 0 0;width:40%;height:100%;object-fit:cover}
+  .start-scene .start-scene-copy{grid-column:2;position:relative;inset:auto;padding:0;align-self:center;background:none;text-shadow:none}
+  .start-scene-copy h1{font-size:clamp(32px,3.4vw,46px);margin:12px 0 18px;max-width:15ch;line-height:1.12}
+  .start-scene-copy p{font-size:17px;margin:0;max-width:34ch;line-height:1.6}
+  .start-kicker{font-size:17px;color:var(--gold)}
+  .emfd-shell__content .start-scene > .start-door-action.emfd-button,
+  .emfd-shell__content .start-scene > .origin-start-link.emfd-button{grid-column:2;position:relative;inset:auto;width:100%;height:auto;min-height:50px;transform:none;margin:0;padding:12px 16px;font-size:17px}
+  .start-gate-scene .start-reassurance{font-size:13px;max-width:none}
+  body.emfd-shell.hall-view main.emfd-shell__content{margin:24px auto 0;padding-bottom:100px}
+  .hall-scene{max-width:1000px}
+  .hall-scene .hall-stage.emfd-scene__frame{width:100%;height:clamp(460px,calc(100dvh - 140px),700px);aspect-ratio:auto;display:grid;grid-template-columns:42% 1fr;grid-template-rows:auto 1fr auto;gap:20px 28px;padding:28px}
+  .hall-stage .hall-art.emfd-scene__image{position:absolute;inset:0 auto 0 0;width:42%;height:100%;object-fit:cover}
+  .hall-stage > .room-photo-fallback{position:absolute;inset:0 auto 0 0;width:42%;height:100%;align-content:center;padding:24px}
+  .hall-stage .hall-caption{position:static;grid-column:2;grid-row:1;padding:0;background:none;align-self:start}
+  .hall-caption p{font-size:19px;margin:8px 0 0}
+  .hall-stage .hall-hotspots.emfd-scene__hotspots{position:static;grid-column:2;grid-row:2;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:center}
+  .emfd-shell__content .hall-stage .hall-hotspot.emfd-button{position:relative;inset:auto!important;width:100%!important;min-height:66px;padding:12px;font-size:17px;transform:none;text-shadow:none}
+  .hall-stage .hall-hotspot span{font-size:13px;line-height:1.4}
+  .hall-stage .hall-hotspot--tea{grid-column:1/-1}
+  .hall-stage .hall-utilities{position:static;grid-column:2;grid-row:3;justify-content:flex-start;align-self:end}
+  .emfd-shell__content .hall-stage > .hall-light-toggle.emfd-button{position:absolute;inset:auto auto 18px 18px;max-width:calc(42% - 36px);min-height:44px;font-size:14px}
+  body.house-skeleton-view .house-skeleton{width:min(100%,1160px)}
+  .house-skeleton .room-hero .emfd-scene__image{height:300px;aspect-ratio:auto;object-fit:cover}
+  .house-skeleton .room-hero > .room-photo-fallback{min-height:260px}
+  .emfd-lib-embedded .emfd-lib-layout{grid-template-columns:minmax(0,1.4fr) minmax(300px,1fr);gap:24px}
+  .emfd-lib-embedded .emfd-lib-books{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 14px}
+  .emfd-lib-embedded .emfd-lib-cover{min-height:170px;aspect-ratio:4/5}
+  .emfd-lib-embedded .emfd-lib-cover-title{font-size:14px;margin-inline:10px}
+  .emfd-lib-embedded .emfd-lib-item-name{font-size:13px;min-height:34px}
+  .emfd-lib-embedded .emfd-lib-detail{position:sticky;top:24px}
+}
+@media(min-width:701px) and (max-width:899px){
+  .start-gate-scene .start-scene.emfd-scene__frame{width:min(100%,calc((100dvh - 150px)*.5625));margin-inline:auto}
+  .start-scene-copy h1{font-size:30px}.start-scene-copy p{font-size:15px}
+  .hall-scene .hall-stage.emfd-scene__frame{width:min(100%,calc((100dvh - 140px)*.5625))}
+}
+@media(min-width:900px){
+  .start-gate-scene .start-scene.emfd-scene__frame{height:clamp(420px,calc(100dvh - 230px),680px)}
+  .start-gate-scene .start-reassurance[role=status]{font-size:12px;display:flex;align-items:center;justify-content:center;gap:12px;margin-top:6px;line-height:1.4}
+  .start-reassurance[role=status] button{min-height:36px;padding:6px 12px;font-size:12px;flex-shrink:0}
+  .hall-stage .hall-hotspot--tea{grid-column:auto}
+  .hall-stage .hall-hotspot--gift{grid-column:1/-1}
+}
+@media(min-width:900px){body.house-skeleton-view .house-skeleton{max-width:1160px}}
+.start-scene > .origin-start-link.emfd-button{background:rgba(8,29,48,.94);color:#f8e7c5}
+
+.music-feedback{position:fixed;z-index:80;left:16px;bottom:110px;max-width:min(560px,calc(100% - 32px));margin:0;padding:16px;background:#092238;border:1px solid #d5ae61;border-radius:14px;box-shadow:0 6px 24px #0008;font:15px/1.5 system-ui,sans-serif;color:#fff4d2}.music-feedback[hidden]{display:none}.music-feedback button{display:block;margin-top:10px;min-height:44px}
+
+/* START-02 merge: the new gate owns the entry; keep the desktop split view. */
+body.emfd-shell.start02-active{height:auto;min-height:100dvh;overflow-y:auto}
+body.emfd-shell.start02-active main.emfd-shell__content{width:min(100%,1040px);max-width:1040px;height:auto;min-height:0;margin:0 auto;padding:16px 16px calc(112px + env(safe-area-inset-bottom));overflow:visible}
+.start02-door{min-height:0}
+.start02-gift{min-height:0}
+@media(min-width:900px){
+ .start02-door-frame{width:100%;height:clamp(420px,calc(100dvh - 190px),680px);aspect-ratio:auto;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);grid-template-rows:1fr auto;gap:24px 36px;padding:32px 40px 32px 0}
+ .start02-door-art{position:absolute;inset:0 auto 0 0;width:40%;height:100%;object-fit:cover}
+ .start02-door-copy{grid-column:2;position:relative;inset:auto;padding:0;align-self:center;background:none;text-shadow:none;text-align:left}
+ .start02-door-copy h1{font-size:clamp(32px,3.4vw,46px);max-width:15ch;margin:12px 0 18px;line-height:1.12}
+ .start02-door-copy p{font-size:17px;line-height:1.6;margin:0}
+ .start02-door-actions{grid-column:2;position:relative;inset:auto;gap:16px}
+ .start02-door-actions button{min-height:50px;padding:12px 16px;font-size:17px}
+ .start02-status{max-width:65ch}
+}
+@media(min-width:561px) and (max-width:899px) and (min-height:561px){.start02-door-frame{width:min(100%,calc((100dvh - 170px)*.5625))}.start02-door-copy h1{font-size:30px}.start02-door-copy p{font-size:15px}}
+/* Keep text fallbacks separate while A02–A04 are absent. */
+.start02-envelope>div:nth-child(1)>[data-start02-missing]{transform:translateY(-32px)}
+.start02-envelope>div:nth-child(3)>[data-start02-missing]{transform:translateY(32px)}
+.start02-table{min-height:clamp(260px,calc(100dvh - 300px),560px)}
+@media(max-width:560px){.start02-table{min-height:50svh}}
+.start02-gift[data-state="letter-visible"] .start02-table{min-height:0;flex:none;align-items:start}
+.start02-letter-copy>span{color:#76562a}
+
+/* Brief guidance appears once, without a button or focus change. */
+.card-motion-hint{position:fixed;z-index:110;left:50%;bottom:110px;transform:translateX(-50%);width:max-content;max-width:calc(100vw - 40px);margin:0;padding:12px 18px;border:1px solid #d5ae61;border-radius:16px;background:#0b2639ed;color:#fff0cf;text-align:center;font:15px/1.45 system-ui,sans-serif;box-shadow:0 6px 24px #0007;pointer-events:none;transition:opacity .3s}
+.card-motion-hint.is-leaving{opacity:0}
+body .teezimmer-view .teezimmer-actions{position:relative;inset:auto;width:min(360px,calc(100% - 40px));display:grid;grid-template-columns:1fr;gap:12px;margin:auto auto 24px;padding-top:28px}
+body .teezimmer-view .teezimmer-actions :is(a,button){display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:48px;margin:0;padding:12px 20px;font:17px/1.3 Georgia,serif;border-radius:16px;text-align:center}
+body .teezimmer-view .teezimmer-actions .primary{min-height:50px}
+body .teezimmer-view .teezimmer-heading h1{font-size:clamp(34px,5vw,52px)}
+body .teezimmer-view .teezimmer-heading p{font-size:clamp(16px,2vw,20px)}
+.teezimmer-topbar [data-teezimmer-help]{width:44px;padding:0;font-size:22px}
+#help-dialog[data-context=tea]>dl,#help-dialog[data-context=tea]>p,#help-dialog[data-context=tea]>#help-zoom,#help-dialog[data-context=tea]>.start02-help-actions{display:none}
+#teezimmer-help-content[hidden]{display:none}
+.emfd-book-v2 .reading-choice{display:flex;justify-content:center;gap:12px}
+.emfd-book-v2 .reading-choice button{display:grid;place-items:center;width:48px;min-width:48px;height:48px;padding:8px;flex:0 0 48px;border:1px solid #c3a264;border-radius:14px}
+.emfd-book-v2 .reading-choice-icon{display:grid;place-items:center;width:28px;height:28px;border:0;background:none;box-shadow:none}
+.emfd-book-v2 .reading-choice-icon svg{width:26px;height:26px}
+.emfd-book-v2 .reading-choice-label{position:absolute!important;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);width:1px;height:1px;white-space:nowrap}
+@media(prefers-reduced-motion:reduce){.card-motion-hint{transition:none}}
+:root{--book-font-size:1.25rem;--book-font-family:Georgia,Cambria,"Noto Serif","Times New Roman",serif}
+.book-reading-controls{position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-end;gap:8px;flex:0 0 auto;min-width:0;margin:4px 0 10px;font:14px/1.4 system-ui,sans-serif;color:inherit}
+.book-reading-controls select{font:inherit;min-height:40px;padding:6px 10px;border:1px solid #b49761;border-radius:9px;background:#102c40;color:#fff1cf;max-width:180px}
+.origin-book-main>.book-reading-controls{padding:0 8px}
+.start02-letter>.book-reading-controls{position:relative;color:#fff0cf;margin:0 0 12px;padding:0;flex-wrap:wrap}
+#reading-dialog .reading-page :is(p,blockquote),#origin-dialog .origin-article p:not(.origin-eyebrow),.emfd-lib-pages p,.start02-letter-copy p,.story-reader .story-page p,.thought-paper-dialog textarea{font-family:var(--book-font-family)!important;font-size:var(--book-font-size)!important;line-height:1.65!important;letter-spacing:normal;text-align:left;overflow-wrap:break-word;hyphens:auto}
+#reading-dialog .reading-page,#origin-dialog .origin-article,.emfd-lib-pages,.story-reader .story-page{min-width:0;max-width:70ch}
+#reading-dialog .reading-page p,#origin-dialog .origin-article p,.emfd-lib-pages p,.story-reader .story-page p{max-width:66ch}
+#reading-dialog .reading-page{color:#30281f}
+.origin-book-main{min-width:0}
+@media(max-width:500px){.book-reading-controls{justify-content:flex-start;font-size:13px;margin-bottom:7px}.book-reading-controls select{min-height:36px}}
+
+/* EMFD-FIX01: The entry actions always occupy two content-sized rows, never 1fr. */
+.start02-door-frame .start02-door-actions{grid-auto-rows:max-content;align-self:end;align-content:end;min-height:0;max-height:none}
+.start02-door-actions :is(button,button.emfd-button,button.emfd-button--primary){
+ display:flex;align-items:center;justify-content:center;flex:none;
+ box-sizing:border-box;width:100%;height:auto!important;min-height:48px!important;
+ max-height:76px;padding:10px 14px!important;font-size:clamp(15px,2vw,18px)!important;
+ line-height:1.3;text-align:center;overflow-wrap:normal;
+}
+/* Keep P08's choices compact also after the shared button decorator runs. */
+body .teezimmer-view .teezimmer-actions{max-width:360px;grid-auto-rows:max-content;align-self:end}
+body .teezimmer-view .teezimmer-actions :is(a,button).emfd-button{width:100%;height:auto;max-height:80px;min-height:48px;padding:10px 16px;font-size:clamp(15px,2vw,18px)}
+@media(max-width:390px){body .teezimmer-view .teezimmer-actions{width:min(310px,calc(100% - 32px))}}
+/* Book and sound are the only two actions on a revealed card. */
+.card-dock [data-reading="impulse"] .dock-label{display:none}
+.card-dock [data-reading="impulse"]{min-width:48px;min-height:48px}
+.emfd-book-v2 .reading-choice button{font-family:system-ui,sans-serif}
+
+/* FIX01: five saved reading sizes apply to all book pages, not just card notes. */
+#reading-dialog .reading-page :is(p,blockquote),
+#origin-dialog .origin-article :is(p,blockquote):not(.origin-eyebrow),
+.emfd-lib-pages :is(p,blockquote),
+.story-reader .story-page :is(p,blockquote),
+.start02-letter-copy p,
+.thought-paper-dialog textarea {font-size:var(--book-font-size)!important;line-height:1.65!important;font-family:var(--book-font-family)!important;overflow-wrap:anywhere;hyphens:auto}
+/* Text size must not stretch the page beyond the device. */
+#reading-dialog .reading-shell,.origin-book-main,.story-reader,.start02-letter,.emfd-lib-view{min-width:0;max-width:100%}
+@media(max-width:560px){#reading-dialog .reading-page,.story-reader .story-page{padding-inline:clamp(14px,4vw,22px)}}
+/* Card gestures: preserve panning but suppress browser double-tap zoom. */
+.held-card{touch-action:manipulation}
+/* Active bookmark must stand out without relying on the text label. */
+.emfd-book-v2 .reading-choice button[aria-current="false"]{background:#102b3d;color:#efdbb1;border-color:#9d8150;opacity:.95}
+.emfd-book-v2 .reading-choice button[aria-current="page"]{background:#d7af6d;color:#172a39;border-color:#f5cf7d;opacity:1}

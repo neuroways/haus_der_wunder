@@ -1,0 +1,86 @@
+/* EMFD shell: shared page frame, safe areas and viewport behavior. */
+body.emfd-shell{min-height:100vh;min-height:100dvh;overflow-x:clip}
+/* Der Flur ist die Zentrale. Zimmer wiederholen weder Markenleiste noch Hauptnavigation. */
+body.emfd-shell>header{display:none}
+body.emfd-shell.immersive-room-view{height:100vh;height:100svh;height:100dvh;min-height:0;overflow:hidden}
+body.emfd-shell.immersive-room-view>.global-nav{display:none}
+body.emfd-shell.immersive-room-view>footer{display:none}
+body.emfd-shell.immersive-room-view main.emfd-shell__content{width:100%;max-width:none;height:100%;min-height:0;margin:0;padding:0;overflow:hidden}
+body.emfd-shell.catalog-view>.global-nav{display:none}
+body.emfd-shell.catalog-view main.emfd-shell__content{padding-bottom:2rem}
+body.emfd-shell:not(.detail-mode){display:flex;flex-direction:column}
+body.emfd-shell header{width:min(100%,76rem);padding:clamp(.75rem,3vw,1.5rem) max(1rem,env(safe-area-inset-right)) 1rem max(1rem,env(safe-area-inset-left));flex:0 0 auto;min-width:0}
+body.emfd-shell header .brand{min-width:0;overflow-wrap:anywhere}
+body.emfd-shell .header-tools{min-width:0;flex:0 0 auto}
+body.emfd-shell main.emfd-shell__content{width:min(100%,75rem);max-width:75rem;min-width:0;flex:1 0 auto;margin-inline:auto;padding-inline:clamp(1rem,4vw,2rem);padding-bottom:calc(6.25rem + env(safe-area-inset-bottom));overflow-wrap:anywhere}
+body.start-gate-mode.emfd-shell main.emfd-shell__content{width:min(100%,35rem);max-width:35rem;margin-block:4px 0;padding:0 12px calc(6.25rem + env(safe-area-inset-bottom))}
+body.detail-mode.emfd-shell{height:100vh;height:100svh;height:100dvh;min-height:0;overflow:hidden}
+body.detail-mode.emfd-shell main.emfd-shell__content{width:100%;max-width:75rem;padding-bottom:calc(86px + env(safe-area-inset-bottom))}
+body.emfd-shell .global-nav{position:fixed;z-index:40;inset:auto 0 0;grid-template-columns:repeat(3,minmax(0,1fr));min-width:0;padding:8px max(10px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));}
+body.emfd-shell .global-nav a{min-width:0;min-height:72px;padding:8px 4px;gap:4px;overflow-wrap:anywhere;text-align:center}
+body.emfd-shell .global-nav a>span{color:var(--emfd-ivory);font-size:clamp(14px,2.4vw,20px);line-height:1.15}
+body.emfd-shell .global-nav a>svg{width:clamp(25px,5vw,34px);height:clamp(25px,5vw,34px);flex:0 0 auto}
+body.emfd-shell .global-nav a[aria-current=page]{border-width:1px}
+body.emfd-shell footer{padding-bottom:calc(1rem + env(safe-area-inset-bottom))}
+body.emfd-shell :where(button,a,input,select,summary){scroll-margin-block:1rem}
+body.emfd-shell :where(button,a):focus-visible{scroll-margin-block:1rem}
+
+/* Component groups follow their own available width, not device breakpoints. */
+.emfd-shell__content .house-actions,.emfd-shell__content .arrival-actions,.emfd-shell__content .music-page-panel{container-type:inline-size;container-name:emfd-actions;min-width:0}
+.emfd-shell__content .house-actions{width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,9rem),1fr));align-items:stretch}
+.emfd-shell__content .house-actions>*{min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.emfd-shell__content .room-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr));min-width:0}
+.emfd-shell__content .room-tile,.emfd-shell__content .room-tile-label,.emfd-shell__content .room-tile-label strong{min-width:0;overflow-wrap:anywhere}
+.emfd-shell__content .room-detail-top{display:flex;flex-wrap:wrap;min-width:0}
+.emfd-shell__content .room-detail-top>*{min-width:0;max-width:100%}
+.emfd-shell__content :where(.hall-hotspot,.start-door-action,.origin-start-link){white-space:normal;overflow-wrap:anywhere}
+.emfd-shell__content .emfd-button{max-width:100%;min-width:0;text-align:center;overflow-wrap:anywhere}
+.emfd-shell__content .emfd-button--full{width:100%}
+.emfd-shell__content .emfd-button--primary:not(.start-door-action){min-height:58px}
+.emfd-shell__content .start-door-action.emfd-button{min-height:48px;font-size:clamp(15px,4.3vw,22px);line-height:1.2}
+.emfd-shell__content .hall-hotspot.emfd-button{min-height:44px;padding:clamp(.25rem,1.2cqi,.55rem);font-size:clamp(11px,3cqi,18px)}
+.emfd-shell__content .hall-hotspot.emfd-button--frame-simple::after{border-width:17px;border-image-width:17px}
+
+@container emfd-actions (max-width: 28rem){
+  .house-actions>*{width:100%;grid-column:1/-1}
+}
+@media(max-width:360px){
+  body.emfd-shell header{gap:.5rem}
+  body.emfd-shell .header-tools{gap:4px}
+  body.emfd-shell main.emfd-shell__content{padding-inline:12px}
+  body.emfd-shell .global-nav{padding-inline:6px}
+  body.emfd-shell .global-nav a{font-size:13px}
+}
+@media(orientation:landscape) and (max-height:560px){
+  body.emfd-shell header{padding-block:.4rem}
+  body.emfd-shell:not(.detail-mode) main.emfd-shell__content{padding-bottom:calc(5.5rem + env(safe-area-inset-bottom))}
+  body.emfd-shell .global-nav a{min-height:54px;flex-direction:row;gap:.45rem}
+  body.emfd-shell .global-nav a>svg{width:24px;height:24px}
+  body.emfd-shell .global-nav a>span{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){body.emfd-shell *{scroll-behavior:auto}}
+
+/* Keep image-bound hall controls anchored after button-library styles are applied. */
+.emfd-shell__content .hall-stage .hall-hotspot.emfd-button{position:absolute}
+.emfd-shell__content .hall-stage>.hall-light-toggle.emfd-button{position:absolute}
+.emfd-shell__content .start-scene>.start-door-action.emfd-button,
+.emfd-shell__content .start-scene>.origin-start-link.emfd-button{position:absolute}
+
+/* Mobile viewport: one app screen between header and persistent navigation. */
+@media(max-width:700px){
+  body.emfd-shell.start-gate-mode,
+  body.emfd-shell.hall-view{height:100vh;height:100svh;height:100dvh;min-height:0;overflow:hidden;display:flex;flex-direction:column}
+  body.emfd-shell.start-gate-mode>header,
+  body.emfd-shell.hall-view>header{flex:0 0 auto}
+  body.emfd-shell.start-gate-mode main.emfd-shell__content,
+  body.emfd-shell.hall-view main.emfd-shell__content{flex:1 1 auto;min-height:0;width:100%;max-width:none;margin:0;padding:0 0 calc(88px + env(safe-area-inset-bottom));overflow:hidden}
+  body.emfd-shell.start-gate-mode .start-gate-scene,
+  body.emfd-shell.start-gate-mode .start-scene,
+  body.emfd-shell.hall-view .hall-scene,
+  body.emfd-shell.hall-view .hall-stage{width:100%;max-width:none;height:100%;min-height:0;margin:0;aspect-ratio:auto}
+  body.emfd-shell.start-gate-mode .start-scene,
+  body.emfd-shell.hall-view .hall-stage{border:0;border-radius:0;box-shadow:none}
+  body.emfd-shell.start-gate-mode .start-reassurance{display:none}
+  body.emfd-shell.start-gate-mode .start-scene>.start-door-action{left:12%;right:12%;top:68%;bottom:auto;width:auto!important;height:auto;min-height:50px;z-index:6}
+  body.emfd-shell.start-gate-mode .start-scene>.origin-start-link{left:25%;right:25%;top:80%;bottom:auto;width:auto!important;height:46px;min-height:46px;padding:6px 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;transform:none!important;z-index:5}
+}

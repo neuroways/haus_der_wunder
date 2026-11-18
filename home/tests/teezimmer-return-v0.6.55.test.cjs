@@ -1,0 +1,4 @@
+const test=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');const read=p=>fs.readFileSync(path.resolve(__dirname,'..',p),'utf8');
+test('tea card back link marks intentional music stop',()=>{assert.match(read('app.js'),/data-card-return-teezimmer/);assert.match(read('music-player.js'),/stopForTeeReturn/);assert.match(read('music-player.js'),/session.stop\(\)/);assert.match(read('music-player.js'),/lastRoute/);});
+test('card book dialog exposes exactly three short choices',()=>{assert.match(read('app.js'),/const textLabels=\{impulse:'Impuls',depth:'Vertiefung',question:'Frage'\}/);assert.doesNotMatch(read('app.js'),/const textLabels=\{[^}]*houseStory/);});
+test('new back images have the front card aspect ratio',()=>{const s=read('image-profiles.js');assert.match(s,/EMFD_Kartenrueckseite_v1\.2/);assert.match(s,/width:630,height:1080/);assert.match(s,/width:896,height:1536/);});

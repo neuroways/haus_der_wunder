@@ -1,0 +1,26 @@
+/* EMFD-HOUSE-MUSIC-01 – understated room song collections, no autoplay. */
+.room-music-panel{margin:18px 0 28px;padding:clamp(14px,4vw,22px);border:1px solid #c7a46b91;border-radius:18px;background:linear-gradient(155deg,#10283cf5,#123947f2);color:#f9edcd;box-shadow:0 14px 28px #0004}
+.room-music-heading h2{margin:3px 0 8px;font:normal clamp(23px,5vw,29px)/1.25 Georgia,serif;color:#ffe6ad}
+.room-music-heading p{font-size:14px;line-height:1.5;margin:0 0 14px;color:#d9e8e5}
+.room-song-list{padding:0;margin:0;display:grid;gap:10px;list-style:none}
+.room-song{display:grid;grid-template-columns:56px minmax(0,1fr);gap:12px;align-items:center;padding:9px;border:1px solid #bb9f646e;border-radius:13px;background:#071c2cdd}
+.room-song img{width:56px;height:92px;border-radius:6px;object-fit:cover;background:#102639}
+.room-song-body{min-width:0;display:grid;gap:4px}
+.room-song-category{font-size:11px;letter-spacing:.06em;color:#d7bea0}
+.room-song strong{font:normal 19px/1.2 Georgia,serif;color:#fff4d8;overflow-wrap:anywhere}
+.room-song-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:4px}
+.room-song-actions :is(button,a){display:inline-flex;justify-content:center;align-items:center;min-height:44px;padding:8px 10px;border:1px solid #cdad69;border-radius:10px;background:#163951;color:#fcecc8;text-decoration:none;font:normal 13px/1.15 system-ui,sans-serif;cursor:pointer}
+.room-song-actions a{background:transparent}
+.room-song-actions :is(button,a):focus-visible,.room-music-open:focus-visible,.room-music-modal-head button:focus-visible{outline:3px solid #fff1bb;outline-offset:3px}
+.room-music-footnote{font:normal 12px/1.5 system-ui,sans-serif;color:#cfdad9;margin:14px 0 0}
+.room-music-dialog{width:min(92vw,590px);max-height:min(85dvh,790px);margin:auto;padding:12px;border:1px solid #d4ac64;border-radius:20px;background:#0c2234;color:#fff0c8;box-shadow:0 24px 75px #000a;overflow-y:auto;overscroll-behavior:contain}
+.room-music-dialog::backdrop{background:#050e17c9}
+.room-music-dialog .room-music-panel{margin:8px 0;padding:10px 8px 12px;border:0;box-shadow:none;background:transparent}
+.room-music-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 8px}
+.room-music-modal-head h2{font:normal 23px/1.2 Georgia,serif;margin:0}
+.room-music-modal-head button{min-height:44px;padding:9px 15px;border:1px solid #d4b56f;border-radius:999px;background:#18394c;color:#fff2d2;cursor:pointer}
+.teezimmer-topbar .room-music-open{font-size:14px;white-space:nowrap}
+.atelier-topbar-controls .room-music-open{font-size:23px}
+@media(min-width:680px){.room-music-panel:not(.room-music-panel--modal) .room-song-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:390px){.room-song{grid-template-columns:47px minmax(0,1fr);gap:8px;padding:7px}.room-song img{width:47px;height:80px}.room-song strong{font-size:16px}.room-song-actions :is(button,a){font-size:12px;padding:6px 8px}}
+@media(prefers-reduced-motion:reduce){.room-song-actions :is(button,a){transition:none!important}}

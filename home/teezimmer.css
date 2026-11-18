@@ -1,0 +1,61 @@
+/* EMFD-TEA-01 · Teezimmer responsive layout and integrated free ThoughtPaper entry. */
+.teezimmer-view{
+  position:relative;width:min(100%,900px);height:100%;max-height:100dvh;min-height:0;
+  margin:0 auto;overflow:hidden;border-radius:22px;
+  background:#071827;color:#fff8e4;isolation:isolate;
+}
+.teezimmer-picture,.teezimmer-background{position:absolute;inset:0;width:100%;height:100%}
+.teezimmer-picture{pointer-events:none;z-index:0}
+.teezimmer-background{display:block;object-fit:cover;object-position:center}
+.teezimmer-picture::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#03111cb8 0%,#06172438 28%,#06131a30 52%,#06131ae8 91%)}
+.teezimmer-picture.is-missing .teezimmer-background{visibility:hidden}
+.teezimmer-picture.is-missing{background:linear-gradient(145deg,#163c53,#071827 64%)}
+.teezimmer-picture.is-missing::before{content:"Das Bild des Teezimmers ist gerade nicht verfügbar.";position:absolute;z-index:1;inset:42% 12% auto;padding:18px;text-align:center;color:#fff3d1}
+/* The room stays a single screen. Only its content scrolls, keeping all four actions reachable. */
+.teezimmer-content{
+  position:relative;z-index:1;display:flex;flex-direction:column;
+  box-sizing:border-box;height:100%;min-height:0;overflow-x:hidden;overflow-y:auto;
+  overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;
+  padding-bottom:calc(12px + env(safe-area-inset-bottom));
+}
+.teezimmer-topbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 12px max(12px,env(safe-area-inset-left))}
+.teezimmer-topbar .back,.teezimmer-topbar button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin:0;padding:9px 15px;border:1px solid #d2ad5c;border-radius:999px;background:#092238e8;color:#fff4d2;text-decoration:none}
+.teezimmer-topbar .back{margin-right:auto}
+.teezimmer-heading{box-sizing:border-box;width:min(90%,660px);margin:10px auto 0;text-align:center;text-shadow:0 2px 14px #000}
+.teezimmer-heading h1{margin:.12em 0;font-size:clamp(32px,9vw,70px);color:#fff8de}
+.teezimmer-heading p{margin:.3em 0;font:clamp(17px,4vw,28px)/1.25 Georgia,serif}
+.teezimmer-actions{
+  display:grid;gap:12px;box-sizing:border-box;width:min(90%,650px);
+  margin:auto auto 0;padding-top:clamp(24px,7dvh,70px);
+}
+.teezimmer-actions a,.teezimmer-actions button{
+  display:grid;grid-template-columns:32px minmax(0,1fr) 24px;align-items:center;gap:4px;
+  box-sizing:border-box;width:100%;min-width:0;min-height:58px;padding:12px 16px;
+  border:1px solid #d6af59;border-radius:999px;background:#08243bf2;
+  color:#fff5d7;text-align:left;text-decoration:none;
+  font:clamp(16px,3.6vw,21px)/1.2 Georgia,serif;box-shadow:0 8px 24px #0006;cursor:pointer;
+}
+.teezimmer-actions button.primary{background:#0b2d49f5}
+.teezimmer-actions .teezimmer-thoughtpaper{background:#13394af2}
+.teezimmer-actions :is(a,button) span:nth-child(2){min-width:0;overflow-wrap:anywhere}
+.teezimmer-actions :is(a,button) span:last-child{text-align:right;font-size:28px}
+.teezimmer-actions :is(a,button):focus-visible,.teezimmer-topbar :is(a,button):focus-visible{outline:3px solid #fff1bb;outline-offset:3px}
+.teezimmer-note,.teezimmer-status{box-sizing:border-box;width:min(88%,600px);margin:10px auto 14px;text-align:center;font-size:14px;line-height:1.45;color:#f5dfad;text-shadow:0 1px 5px #000}
+.teezimmer-status:not([hidden]){padding:12px;border:1px solid #d6af59;border-radius:9px;background:#092238ec}
+.teezimmer-status[hidden]{display:none}
+@media(max-width:620px){
+  .teezimmer-view{width:100%;border-radius:0}
+  .teezimmer-topbar{padding-inline:max(12px,env(safe-area-inset-left)) max(12px,env(safe-area-inset-right))}
+  .teezimmer-heading{margin-top:6px}
+  .teezimmer-background{object-position:center 42%}
+  .teezimmer-actions{gap:10px;padding-top:clamp(20px,5dvh,42px)}
+}
+@media(max-width:360px){
+  .teezimmer-actions a,.teezimmer-actions button{grid-template-columns:24px minmax(0,1fr) 20px;padding:10px 12px;font-size:16px}
+}
+@media(orientation:landscape) and (max-height:600px){
+  .teezimmer-heading h1{font-size:32px}
+  .teezimmer-heading p{font-size:17px}
+  .teezimmer-actions{padding-top:24px}
+}
+@media(prefers-reduced-motion:reduce){.teezimmer-content{scroll-behavior:auto}.teezimmer-actions a,.teezimmer-actions button{transition:none!important}}

@@ -36,7 +36,9 @@ Der Bericht zeigt die Ordnerstruktur, je Karte O01–O24 und T03 die neueste Rev
 
 ## Noch offen
 - **Manifest v2 noch nicht gebaut.** Das Live-Manifest (v1, PERF-01) liegt als Momentaufnahme in `live/manifest.json`. Für den Merge fehlt das Paket `EMFD-MEDIA-CORE-01_v1.1.0.zip` (u. a. `tools/emfd_media.py`, `input/handoff`, `reports/staging.json`, Inventare, Tests).
-- **`home/` ist unvollständig.** Hier liegen bisher nur `index.html` und `media-bridge.js`. Die übrigen in `index.html` eingebundenen Dateien (u. a. `app.js`, `data.js`, `style.css`, `shared/`, `library/`, `emfd-ui/`, `assets/icons/`, `manifest.webmanifest`) müssen noch ergänzt werden.
+- **`home/` ist jetzt vollständig (v0.6.66 aus `EMFD-v0.6.66-home-KOMPLETT.zip`).** Übernommen wurden alle Dateien außer `index.html`: Die Repo-Fassung bindet zusätzlich `../media/media-loader.js` und `media-bridge.js` ein und ist sonst identisch. `cd home && npm test`: 269 von 308 bestanden, 38 fehlgeschlagen, 1 übersprungen. Das entspricht dem dokumentierten Ausgangsstand von v0.6.66.
+- **`media/raumgeraete/P01–P08.webp`** stammen aus `EMFD-v0.6.66-media-Raumgeraete.zip`. `home/room-music-map.json` verweist direkt auf `../media/raumgeraete/Pxx.webp`. Die Bilder stehen noch nicht im Manifest, laut `media/MEDIEN-KONVENTION.md` sollten sie über `getDevice` kommen.
+- **Wissensübergabe aus ChatGPT** liegt unter `input/chatgpt-2d/` (Prompt und Antworten je Chat, unverändert).
 - **`home_3d/` ist angeschlossen, zeigt aber noch keine Medien.** `index.html` setzt `emfd-media-base` auf `../media/`, die Brücke liegt in `src/bridge/media.js`. Die Karten im Teezimmer sind weiterhin bewusst neutrale Platzhalter; welche Karten dort echte Motive zeigen, ist noch zu entscheiden.
 - **`deploy/` aus dem Paket fehlt im Repo.** Sein Inhalt entspricht `media/` – bis auf `manifest.json` (Revision 1, wird für Tests nach `work/` neu gebaut) und `htaccess-vorschlag.txt`.
 - `pwa-migration/` aus dem Paket ist nicht übernommen: `home/media-bridge.js` ist bereits die neuere Fassung 1.1.0.

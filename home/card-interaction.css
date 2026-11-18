@@ -1,0 +1,24 @@
+.help-open{width:44px;height:44px;min-height:44px;border-radius:50%;padding:0;font:22px Georgia,serif;color:var(--gold);border-color:#a48d5a;flex-shrink:0}.header-tools{gap:6px}.brand{min-width:0}.card-gesture-hint{position:absolute;bottom:0;left:0;right:0;text-align:center;font-size:11px;line-height:1.35;color:var(--muted);margin:0;padding:4px 2px;pointer-events:none}.held-stage{position:relative}.card-slot{padding-bottom:20px}.held-card{touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}.card-tilt{transition:transform 130ms cubic-bezier(.2,.65,.3,1)}.held-card.holding .card-tilt{transition:transform 65ms linear}.card-inner{transition:transform 680ms cubic-bezier(.28,.65,.2,1)}
+#card-closeup{width:100vw;height:var(--closeup-viewport-height,100dvh);max-width:none;max-height:none;border:0;padding:0;margin:0;background:radial-gradient(ellipse at center,#173c4bec,#071727f5);color:var(--text);overflow:hidden}#card-closeup[open]{display:grid;grid-template-rows:auto minmax(0,1fr) auto}#card-closeup::backdrop{background:#071727eb}.closeup-close{justify-self:end;margin:max(12px,env(safe-area-inset-top)) 16px 4px;min-height:44px;font-size:14px}.closeup-stage{display:flex;align-items:center;justify-content:center;min-width:0;min-height:0;padding:12px 16px;box-sizing:border-box;perspective:1400px;overflow:hidden}.closeup-stage .held-card{flex:none;max-width:100%;max-height:100%;box-shadow:0 24px 55px #0009}.closeup-hint{text-align:center;font-size:12px;line-height:1.4;margin:4px auto;padding:8px 16px max(16px,env(safe-area-inset-bottom));color:var(--muted)}
+#help-dialog{width:min(440px,calc(100vw - 24px));max-height:85dvh;overflow:auto;box-sizing:border-box;padding:22px;border:1px solid #ae8b4f;border-radius:22px;background:#102b40;color:var(--text)}#help-dialog::backdrop{background:#061526d9}#help-dialog dt{font-size:16px;color:var(--gold);margin-top:18px}#help-dialog dd{font-size:14px;line-height:1.5;margin:3px 0}#help-dialog p{font-size:13px;color:var(--muted)}@media(max-width:420px){.header-tools{gap:4px}.header-tools .music-open,.header-tools .settings-open{width:40px;height:40px;min-height:40px;padding:8px}.help-open{width:44px;height:44px;min-height:44px}.detail-mode header{padding-inline:12px}.brand span{max-width:160px;font-size:10px!important}}@media(prefers-reduced-motion:reduce){.card-tilt,.card-inner{transition:none!important}}.quiet .card-tilt,.quiet .card-inner{transition:none!important}
+
+#help-zoom{width:100%;margin-top:14px;font-size:14px}#help-zoom:disabled{opacity:.45}
+.card-gesture-hint{position:static!important;display:block!important;margin:10px auto 0!important;min-height:22px}.card-closeup-open .card-gesture-hint{visibility:hidden}
+
+/* v0.6.4: gesture hints only in ? help; icon-only circular dialog close controls */
+.card-gesture-hint{display:none!important}
+.settings-close,#music-close,#help-dialog .music-heading button,.closeup-close{display:inline-flex!important;align-items:center;justify-content:center;width:40px!important;height:40px!important;min-width:40px!important;min-height:40px!important;border-radius:50%!important;padding:0!important;font-size:26px!important;line-height:1!important;font-family:Arial,sans-serif!important;flex-shrink:0}
+.closeup-close{margin:max(12px,env(safe-area-inset-top)) 16px 4px!important}
+#card-closeup[open]{grid-template-rows:auto minmax(0,1fr) auto}
+
+.card-interaction-intro{max-width:none;margin:0 auto 3px;color:var(--muted);font-size:11px;line-height:1.25;text-align:center}
+.card-enlarge{position:absolute;right:max(8px,calc(50% - 150px));bottom:10px;z-index:4;min-height:42px;padding:7px 11px;border-color:#d6af59;border-radius:999px;background:#092238e8;color:#fff5d7;font:12px/1.1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;box-shadow:0 5px 18px #0008}
+.card-enlarge:hover{background:#173f55}
+.card-closeup-open .card-enlarge{visibility:hidden}
+.closeup-hint{display:block!important;max-width:none;margin:0;padding:8px 16px max(14px,env(safe-area-inset-bottom));color:var(--muted);font-size:12px;line-height:1.35;text-align:center}
+@media(max-width:380px){.card-enlarge{right:6px;bottom:8px;padding-inline:9px;font-size:11px}.card-interaction-intro{font-size:10px}}
+
+.card-front img,.card-back img{position:static!important;width:100%!important;height:100%!important;object-fit:contain!important;max-width:100%;clip-path:none!important;transform:none!important}
+.held-card.is-concealed .card-gloss{opacity:.28}.held-card.is-concealed:focus-visible{outline:3px solid #f2c879;outline-offset:5px}
+
+#closeup-motion{display:block;margin:0 auto;min-height:44px;font-size:14px}

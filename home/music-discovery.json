@@ -1,0 +1,975 @@
+{
+  "schemaVersion": 1,
+  "source": "playlist-catalog.json: musicalIdentity (existing editorial descriptions, not verified by listening)",
+  "items": [
+    {
+      "id": "theme",
+      "styles": [
+        "Enchanted Chamber",
+        "Deep Analog Electronica"
+      ],
+      "instruments": [
+        "Bassklarinette",
+        "Celesta",
+        "Analogsynth"
+      ],
+      "description": "Kammermusikalische Klänge treffen auf tiefe analoge Electronica. Bassklarinette, Celesta und Analogsynth öffnen den Klangraum des Hauses.",
+      "sourceDescription": "Enchanted Chamber × Deep Analog Electronica; Bassklarinette/Celesta/Analogsynth; der kleine Raum wird unmöglich weit.",
+      "coverPath": "assets/rooms/startseite-haustuer-v1.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#app-main-theme.musicalIdentity"
+      ],
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Enchanted Chamber",
+            "found": true
+          },
+          {
+            "term": "Deep Analog Electronica",
+            "found": true
+          },
+          {
+            "term": "Bassklarinette",
+            "found": true
+          },
+          {
+            "term": "Celesta",
+            "found": true
+          },
+          {
+            "term": "Analogsynth",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O01",
+      "styles": [
+        "Vintage Bar Piano",
+        "Ambient"
+      ],
+      "instruments": [
+        "Klavier",
+        "Kontrabass"
+      ],
+      "description": "Warmes Barpiano, gestrichener Kontrabass und tiefer analoger Ambient laden zum Ankommen ein.",
+      "sourceDescription": "Vintage Bar Piano × gestrichener Kontrabass × Deep Analog Ambient; freiwilliges Ankommen; 4 Min.",
+      "coverPath": "assets/recovery/O01-630x1080-v1-47041d64df.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O01.musicalIdentity",
+        "composition-stories.json#O01"
+      ],
+      "storyPath": "#musik/geschichten/O01",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Vintage Bar Piano",
+            "found": true
+          },
+          {
+            "term": "Ambient",
+            "found": true
+          },
+          {
+            "term": "Klavier",
+            "found": true
+          },
+          {
+            "term": "Kontrabass",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O02",
+      "styles": [],
+      "instruments": [
+        "Tenorsaxophon"
+      ],
+      "description": "Ein Solo-Tenorsaxophon klingt hinter weichem Rauschen. Die Musik kommt ohne Beat aus.",
+      "sourceDescription": "Solo-Tenorsaxophon hinter sanftem Rauschen, ohne Beat; 4 Min.; T09-Hörurteil ausstehend",
+      "coverPath": "assets/recovery/O02-630x1080-v1-ea0c9d086d.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O02.musicalIdentity",
+        "composition-stories.json#O02"
+      ],
+      "storyPath": "#musik/geschichten/O02",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Tenorsaxophon",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O03",
+      "styles": [],
+      "instruments": [
+        "Panflöte",
+        "Harfe"
+      ],
+      "description": "Panflöte und Harfe lassen Raum für eine offene Möglichkeit.",
+      "sourceDescription": "Panflöte und Harfe; besonders wirkungsvoll, Versionskennung noch abgleichen",
+      "coverPath": "assets/recovery/O03-630x1080-v1-538d1729a7.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O03.musicalIdentity",
+        "composition-stories.json#O03"
+      ],
+      "storyPath": "#musik/geschichten/O03",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Panflöte",
+            "found": true
+          },
+          {
+            "term": "Harfe",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O04",
+      "styles": [],
+      "instruments": [
+        "Cello",
+        "Streicher"
+      ],
+      "description": "Cello und Streicher stehen im Mittelpunkt dieser Komposition.",
+      "sourceDescription": "Cello/Streicher: Alleinstellungsmerkmal schärfen",
+      "coverPath": "assets/recovery/O04-630x1080-v1-9b2846a48e.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O04.musicalIdentity",
+        "composition-stories.json#O04"
+      ],
+      "storyPath": "#musik/geschichten/O04",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Cello",
+            "found": true
+          },
+          {
+            "term": "Streicher",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O05",
+      "styles": [],
+      "instruments": [
+        "Handpan"
+      ],
+      "description": "Der offene, nachklingende Ton einer Handpan begleitet die geschlossene Blüte.",
+      "sourceDescription": "Handpan; musikalische Offenheit und Nicht-Entfalten präzisieren",
+      "coverPath": "assets/recovery/O05-630x1080-v1-66c23e33ec.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O05.musicalIdentity",
+        "composition-stories.json#O05"
+      ],
+      "storyPath": "#musik/geschichten/O05",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Handpan",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O06",
+      "styles": [],
+      "instruments": [
+        "Glocken"
+      ],
+      "description": "Tiefe Resonanzen und einzelne Glocken lassen Zeit und Zwischenräume hörbar werden.",
+      "sourceDescription": "Tiefe Resonanzen / einzelne Glocken; Vergleich und Hörabnahme offen",
+      "coverPath": "assets/recovery/O06-630x1080-v1-d7b8985de0.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O06.musicalIdentity",
+        "composition-stories.json#O06"
+      ],
+      "storyPath": "#musik/geschichten/O06",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Glocken",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O07",
+      "styles": [],
+      "instruments": [
+        "Cello"
+      ],
+      "description": "Ein einzelner Cello-Impuls bildet den musikalischen Ausgangspunkt.",
+      "sourceDescription": "Cello-Impuls; klareres singuläres Erkennungsereignis",
+      "coverPath": "assets/recovery/O07-630x1080-v1-55988a067e.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O07.musicalIdentity",
+        "composition-stories.json#O07"
+      ],
+      "storyPath": "#musik/geschichten/O07",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Cello",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O08",
+      "styles": [],
+      "instruments": [
+        "Tenorsaxophon"
+      ],
+      "description": "Ein hoher, lang gehaltener Oberton des Tenorsaxophons steht im Mittelpunkt.",
+      "sourceDescription": "Tenorsaxophon hoher langer Obertonmoment; gewünschte Führung noch nicht sicher umgesetzt",
+      "coverPath": "assets/recovery/O08-630x1080-v1-7cace7daa6.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O08.musicalIdentity",
+        "composition-stories.json#O08"
+      ],
+      "storyPath": "#musik/geschichten/O08",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Tenorsaxophon",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O09",
+      "styles": [
+        "Minimalismus"
+      ],
+      "instruments": [
+        "Kontrabass"
+      ],
+      "description": "Kontrabass und Minimalismus erkunden Zugang und Grenze.",
+      "sourceDescription": "Kontrabass/Minimalismus; Zugang und Grenze musikalisch schärfen",
+      "coverPath": "assets/recovery/O09-630x1080-v1-f5631e0d0d.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O09.musicalIdentity",
+        "composition-stories.json#O09"
+      ],
+      "storyPath": "#musik/geschichten/O09",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Minimalismus",
+            "found": true
+          },
+          {
+            "term": "Kontrabass",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O10",
+      "styles": [],
+      "instruments": [
+        "Bassklarinette",
+        "Kontrabass"
+      ],
+      "description": "Bassklarinette und Kontrabass begegnen sich in einem gemeinsamen Klangraum.",
+      "sourceDescription": "Bassklarinette/Kontrabass; Abgrenzung zur Wurzel",
+      "coverPath": "assets/recovery/O10-630x1080-v1-79dd7c2417.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O10.musicalIdentity",
+        "composition-stories.json#O10"
+      ],
+      "storyPath": "#musik/geschichten/O10",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Bassklarinette",
+            "found": true
+          },
+          {
+            "term": "Kontrabass",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O11",
+      "styles": [],
+      "instruments": [
+        "Holz",
+        "Metall"
+      ],
+      "description": "Holz, Hämmern, Hobeln und Metall werden zu musikalischen Bausteinen.",
+      "sourceDescription": "Holz/Hämmern/Hobeln/Metall und Hilfe; vorläufig akzeptiert",
+      "coverPath": "assets/recovery/O11-630x1080-v1-817636f65e.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O11.musicalIdentity",
+        "composition-stories.json#O11"
+      ],
+      "storyPath": "#musik/geschichten/O11",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Holz",
+            "found": true
+          },
+          {
+            "term": "Metall",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O12",
+      "styles": [],
+      "instruments": [],
+      "description": "Die musikalische Idee kreist um den eigenen Einfluss und das Spiel mit Formen. Eine eindeutige Stil- oder Instrumentenangabe liegt noch nicht vor.",
+      "sourceDescription": "Papierform / eigener Einfluss; Audioabgleich mit alter Mobile-Idee",
+      "coverPath": "assets/recovery/O12-630x1080-v1-9b05b53b78.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O12.musicalIdentity",
+        "composition-stories.json#O12"
+      ],
+      "storyPath": "#musik/geschichten/O12",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": []
+      }
+    },
+    {
+      "id": "O13",
+      "styles": [
+        "Trance"
+      ],
+      "instruments": [
+        "Bassklarinette",
+        "Cello",
+        "Spieluhr"
+      ],
+      "description": "Hypnotischer Trance-Bass verbindet sich mit Bassklarinette, Cello und kleinen Spieluhrtrieben.",
+      "sourceDescription": "Hypnotischer Trance-Bass, Bassklarinette, Cello, Spieluhrtriebe",
+      "coverPath": "assets/recovery/O13-630x1080-v1-8a85824d30.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O13.musicalIdentity",
+        "composition-stories.json#O13"
+      ],
+      "storyPath": "#musik/geschichten/O13",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Trance",
+            "found": true
+          },
+          {
+            "term": "Bassklarinette",
+            "found": true
+          },
+          {
+            "term": "Cello",
+            "found": true
+          },
+          {
+            "term": "Spieluhr",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O14",
+      "styles": [],
+      "instruments": [
+        "Fagott",
+        "Panflöte"
+      ],
+      "description": "Fagott und Panflöte treten in einen musikalischen Dialog.",
+      "sourceDescription": "Fagott und Panflöte im dialogischen Zusammenspiel",
+      "coverPath": "assets/recovery/O14-630x1080-v1-43247f7cf2.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O14.musicalIdentity",
+        "composition-stories.json#O14"
+      ],
+      "storyPath": "#musik/geschichten/O14",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Fagott",
+            "found": true
+          },
+          {
+            "term": "Panflöte",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O15",
+      "styles": [
+        "Boom-Bap",
+        "Vintage Jazz"
+      ],
+      "instruments": [],
+      "description": "Boom-Bap der Neunziger begegnet Vintage Jazz und einem verbindenden Motiv.",
+      "sourceDescription": "90s Boom-Bap × Vintage Jazz; verbindendes Motiv",
+      "coverPath": "assets/recovery/O15-630x1080-v1-b13fb25925.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O15.musicalIdentity",
+        "composition-stories.json#O15"
+      ],
+      "storyPath": "#musik/geschichten/O15",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Boom-Bap",
+            "found": true
+          },
+          {
+            "term": "Vintage Jazz",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O16",
+      "styles": [
+        "Vintage Jazz",
+        "90er-Pop",
+        "Grunge"
+      ],
+      "instruments": [],
+      "description": "Eine Generationen-Collage verbindet Vintage Jazz, Neunziger-Pop und Grunge.",
+      "sourceDescription": "Generationen-Collage Vintage Jazz × 90er-Pop × Grunge; T06 warm / T07 melancholisch",
+      "coverPath": "assets/recovery/O16-630x1080-v1-fc700ce626.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O16.musicalIdentity",
+        "composition-stories.json#O16"
+      ],
+      "storyPath": "#musik/geschichten/O16",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Vintage Jazz",
+            "found": true
+          },
+          {
+            "term": "90er-Pop",
+            "found": true
+          },
+          {
+            "term": "Grunge",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O17",
+      "styles": [
+        "Drone"
+      ],
+      "instruments": [],
+      "description": "Ein Drone aus Wetterklängen: gedämpfter Regen, Rauschen und entferntes Gewitter.",
+      "sourceDescription": "Storm/Noise Drone, gedämpfter Regen, entferntes Gewitter; Hörfreigabe nicht eindeutig",
+      "coverPath": "assets/recovery/O17-630x1080-v1-8deb0dda40.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O17.musicalIdentity",
+        "composition-stories.json#O17"
+      ],
+      "storyPath": "#musik/geschichten/O17",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Drone",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O18",
+      "styles": [
+        "Minimalmusik"
+      ],
+      "instruments": [],
+      "description": "Taktile Minimalmusik aus kleinen Schwingungen und Steinresonanzen.",
+      "sourceDescription": "Taktile Minimalmusik; kleine Schwingungen gefallen, Ursprungsidee abweichend",
+      "coverPath": "assets/recovery/O18-630x1080-v1-2541c92721.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O18.musicalIdentity",
+        "composition-stories.json#O18"
+      ],
+      "storyPath": "#musik/geschichten/O18",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Minimalmusik",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O19",
+      "styles": [],
+      "instruments": [
+        "Piccolo"
+      ],
+      "description": "Piccolo und gläserner Schimmer setzen einen bewusst kleinen, hellen Klangpunkt.",
+      "sourceDescription": "Piccolo und gläserner Schimmer; bewusst minimal",
+      "coverPath": "assets/recovery/O19-630x1080-v1-6e2b113bb5.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O19.musicalIdentity",
+        "composition-stories.json#O19"
+      ],
+      "storyPath": "#musik/geschichten/O19",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Piccolo",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O20",
+      "styles": [],
+      "instruments": [
+        "Holz-Chimes",
+        "Marimba"
+      ],
+      "description": "Holz-Chimes und Marimba greifen die freudige Erwartung eines beschleunigten Herzschlags auf.",
+      "sourceDescription": "Holz-Chimes/Marimba, freudig beschleunigter Herzschlag; keine Panflöte",
+      "coverPath": "assets/recovery/O20-630x1080-v1-096501a523.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O20.musicalIdentity",
+        "composition-stories.json#O20"
+      ],
+      "storyPath": "#musik/geschichten/O20",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Holz-Chimes",
+            "found": true
+          },
+          {
+            "term": "Marimba",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O21",
+      "styles": [
+        "Folktronica",
+        "Fantasy"
+      ],
+      "instruments": [],
+      "description": "Ein Retro-Fantasy-Tanz verbindet Folktronica mit einem Sechsachteltakt und drei eigenständigen Stimmen.",
+      "sourceDescription": "90er-Fantasy-Game-Folktronica, 6/8, drei eigenständige Stimmen",
+      "coverPath": "assets/recovery/O21-630x1080-v1-d6447303ab.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O21.musicalIdentity",
+        "composition-stories.json#O21"
+      ],
+      "storyPath": "#musik/geschichten/O21",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Folktronica",
+            "found": true
+          },
+          {
+            "term": "Fantasy",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O22",
+      "styles": [
+        "Hypnotic Techno"
+      ],
+      "instruments": [],
+      "description": "Ununterbrochener hypnotischer Techno mit 126 Schlägen pro Minute. Weitere Stilvarianten sind beschrieben, aber noch nicht den vorhandenen Audiodateien zugeordnet.",
+      "sourceDescription": "126 BPM ununterbrochener Hypnotic Techno; Celtic/Oriental, Latin, French Touch × K-Pop Alternativen",
+      "coverPath": "assets/recovery/O22-630x1080-v1-f9e0be09eb.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O22.musicalIdentity",
+        "composition-stories.json#O22"
+      ],
+      "storyPath": "#musik/geschichten/O22",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Hypnotic Techno",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O23",
+      "styles": [
+        "Filmmusik",
+        "Weihnachtsfilmmusik"
+      ],
+      "instruments": [
+        "Schlittenglöckchen",
+        "Celesta"
+      ],
+      "description": "Magische Weihnachtsfilmmusik mit Schlittenglöckchen und Celesta.",
+      "sourceDescription": "Magische Weihnachtsfilmmusik, Schlittenglöckchen und Celesta; T03 als Alternative",
+      "coverPath": "assets/recovery/O23-630x1080-v1-fd5b16d29c.webp",
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O23.musicalIdentity",
+        "composition-stories.json#O23"
+      ],
+      "storyPath": "#musik/geschichten/O23",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Filmmusik",
+            "found": true
+          },
+          {
+            "term": "Weihnachtsfilmmusik",
+            "found": true
+          },
+          {
+            "term": "Schlittenglöckchen",
+            "found": true
+          },
+          {
+            "term": "Celesta",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O24",
+      "instruments": [
+        "Klavier"
+      ],
+      "description": "Charleston trifft Hip-Hop; eine fröhliche, einfache Klaviermelodie verbindet die beiden.",
+      "sourceDescription": "Charleston × Hip-Hop; fröhliche einfache Klaviermelodie",
+      "coverPath": "assets/recovery/O24-630x1080-v1-e66d387234.webp",
+      "styles": [
+        "Charleston",
+        "Hip-Hop"
+      ],
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O24.musicalIdentity",
+        "composition-stories.json#O24"
+      ],
+      "storyPath": "#musik/geschichten/O24",
+      "verification": {
+        "method": "Abgleich jeder Filterangabe mit bestehender musikalischer Beschreibung oder Kompositionsgeschichte",
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Charleston",
+            "found": true
+          },
+          {
+            "term": "Hip-Hop",
+            "found": true
+          },
+          {
+            "term": "Klavier",
+            "found": true
+          }
+        ]
+      }
+    }
+  ],
+  "variantItems": [
+    {
+      "id": "O16-T06",
+      "styles": [
+        "Vintage Jazz",
+        "90er-Pop",
+        "Grunge"
+      ],
+      "instruments": [],
+      "description": "Die liebliche und tröstliche Fassung von „Der Faden“.",
+      "cardId": "O16",
+      "label": "Lieblich & tröstlich",
+      "audioAssetId": null,
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O16.variants.O16-T06",
+        "playlist-catalog.json#card-song-O16.musicalIdentity"
+      ],
+      "sourceDescription": "Generationen-Collage Vintage Jazz × 90er-Pop × Grunge; T06 warm / T07 melancholisch; Lieblich & tröstlich",
+      "verification": {
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Vintage Jazz",
+            "found": true
+          },
+          {
+            "term": "90er-Pop",
+            "found": true
+          },
+          {
+            "term": "Grunge",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O16-T07",
+      "styles": [
+        "Vintage Jazz",
+        "90er-Pop",
+        "Grunge"
+      ],
+      "instruments": [],
+      "description": "Die melancholische und tröstliche Fassung von „Der Faden“.",
+      "cardId": "O16",
+      "label": "Melancholisch & tröstlich",
+      "audioAssetId": null,
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O16.variants.O16-T07",
+        "playlist-catalog.json#card-song-O16.musicalIdentity"
+      ],
+      "sourceDescription": "Generationen-Collage Vintage Jazz × 90er-Pop × Grunge; T06 warm / T07 melancholisch; Melancholisch & tröstlich",
+      "verification": {
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Vintage Jazz",
+            "found": true
+          },
+          {
+            "term": "90er-Pop",
+            "found": true
+          },
+          {
+            "term": "Grunge",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O22-T05",
+      "styles": [
+        "Celtic",
+        "Oriental"
+      ],
+      "instruments": [],
+      "description": "Celtic & Oriental Window: Diese Fassung verbindet keltische und orientalische Einflüsse.",
+      "cardId": "O22",
+      "label": "Celtic & Oriental Window",
+      "audioAssetId": null,
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O22.variants.O22-T05",
+        "playlist-catalog.json#card-song-O22.musicalIdentity"
+      ],
+      "sourceDescription": "126 BPM ununterbrochener Hypnotic Techno; Celtic/Oriental, Latin, French Touch × K-Pop Alternativen; Celtic & Oriental Window",
+      "verification": {
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Celtic",
+            "found": true
+          },
+          {
+            "term": "Oriental",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O22-T06",
+      "styles": [
+        "Latin"
+      ],
+      "instruments": [],
+      "description": "Latin Window: die Latin-Fassung von „Das offene Fenster“.",
+      "cardId": "O22",
+      "label": "Latin Window",
+      "audioAssetId": null,
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O22.variants.O22-T06",
+        "playlist-catalog.json#card-song-O22.musicalIdentity"
+      ],
+      "sourceDescription": "126 BPM ununterbrochener Hypnotic Techno; Celtic/Oriental, Latin, French Touch × K-Pop Alternativen; Latin Window",
+      "verification": {
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Latin",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O22-T08",
+      "styles": [
+        "Reggaeton",
+        "French Touch",
+        "K-Pop"
+      ],
+      "instruments": [],
+      "description": "Eine Fassung von „Das offene Fenster“, die Reggaeton, French Touch und K-Pop verbindet.",
+      "cardId": "O22",
+      "label": "Reggaeton × French Touch × K-Pop",
+      "audioAssetId": null,
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O22.variants.O22-T08",
+        "playlist-catalog.json#card-song-O22.musicalIdentity"
+      ],
+      "sourceDescription": "126 BPM ununterbrochener Hypnotic Techno; Celtic/Oriental, Latin, French Touch × K-Pop Alternativen; Reggaeton × French Touch × K-Pop",
+      "verification": {
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Reggaeton",
+            "found": true
+          },
+          {
+            "term": "French Touch",
+            "found": true
+          },
+          {
+            "term": "K-Pop",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O23-T04",
+      "styles": [
+        "Filmmusik",
+        "Weihnachtsfilmmusik"
+      ],
+      "instruments": [],
+      "description": "Die weihnachtliche Fassung von „Die Sternenspur“.",
+      "cardId": "O23",
+      "label": "Weihnachtliche Sternenspur",
+      "audioAssetId": null,
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O23.variants.O23-T04",
+        "playlist-catalog.json#card-song-O23.musicalIdentity"
+      ],
+      "sourceDescription": "Magische Weihnachtsfilmmusik, Schlittenglöckchen und Celesta; T03 als Alternative; Weihnachtliche Sternenspur",
+      "verification": {
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Filmmusik",
+            "found": true
+          },
+          {
+            "term": "Weihnachtsfilmmusik",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "O23-T03",
+      "styles": [
+        "Ambient"
+      ],
+      "instruments": [],
+      "description": "Die winterliche Sternen-Ambient-Fassung von „Die Sternenspur“.",
+      "cardId": "O23",
+      "label": "Winterlicher Sternen-Ambient",
+      "audioAssetId": null,
+      "sourceRefs": [
+        "playlist-catalog.json#card-song-O23.variants.O23-T03",
+        "playlist-catalog.json#card-song-O23.musicalIdentity"
+      ],
+      "sourceDescription": "Magische Weihnachtsfilmmusik, Schlittenglöckchen und Celesta; T03 als Alternative; Winterlicher Sternen-Ambient",
+      "verification": {
+        "audioVerified": false,
+        "evidence": [
+          {
+            "term": "Ambient",
+            "found": true
+          }
+        ]
+      }
+    }
+  ]
+}

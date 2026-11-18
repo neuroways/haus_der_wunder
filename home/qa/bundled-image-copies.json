@@ -1,0 +1,176 @@
+[
+  {
+    "source": "../media/optimized/cards/O01-630x1080-v1-47041d64df.webp",
+    "bundled": "assets/recovery/O01-630x1080-v1-47041d64df.webp",
+    "sha256": "47041d64df00bdf07b276dd7ddfd0cdf39e6fe2ea097a05787572549e0bd8120",
+    "bytes": 220858
+  },
+  {
+    "source": "../media/optimized/cards/O02-630x1080-v1-ea0c9d086d.webp",
+    "bundled": "assets/recovery/O02-630x1080-v1-ea0c9d086d.webp",
+    "sha256": "ea0c9d086dafe314a1269ea7a2a42aa75efe94bed28c405c84b0b82e8c9053a5",
+    "bytes": 182438
+  },
+  {
+    "source": "../media/optimized/cards/O03-630x1080-v1-538d1729a7.webp",
+    "bundled": "assets/recovery/O03-630x1080-v1-538d1729a7.webp",
+    "sha256": "538d1729a7f9daea142d7e5a42df9075f2ed78a45cd6e814a9f8c73fc0151f7f",
+    "bytes": 177464
+  },
+  {
+    "source": "../media/optimized/cards/O04-630x1080-v1-9b2846a48e.webp",
+    "bundled": "assets/recovery/O04-630x1080-v1-9b2846a48e.webp",
+    "sha256": "9b2846a48e8b8925198e3f02312f21b5611890a475969f699a7947d73777ec1c",
+    "bytes": 212868
+  },
+  {
+    "source": "../media/optimized/cards/O05-630x1080-v1-66c23e33ec.webp",
+    "bundled": "assets/recovery/O05-630x1080-v1-66c23e33ec.webp",
+    "sha256": "66c23e33eca5422ccaf896d5fee4772d29f2420b74cee36af8678a317af6dbc0",
+    "bytes": 198888
+  },
+  {
+    "source": "../media/optimized/cards/O06-630x1080-v1-d7b8985de0.webp",
+    "bundled": "assets/recovery/O06-630x1080-v1-d7b8985de0.webp",
+    "sha256": "d7b8985de023388dcc06832c3c97009f9659b77dc0a666b20d00c17db3f7ed3a",
+    "bytes": 201488
+  },
+  {
+    "source": "../media/optimized/cards/O07-630x1080-v1-55988a067e.webp",
+    "bundled": "assets/recovery/O07-630x1080-v1-55988a067e.webp",
+    "sha256": "55988a067ee103468058b69600f8dad41bf65012afe969a8fff6b6e70feaac7f",
+    "bytes": 170134
+  },
+  {
+    "source": "../media/optimized/cards/O08-630x1080-v1-7cace7daa6.webp",
+    "bundled": "assets/recovery/O08-630x1080-v1-7cace7daa6.webp",
+    "sha256": "7cace7daa6ecc11e75ebd103f3165bf3e2b2edb11adc20c9d0cdc3af46ba140e",
+    "bytes": 191014
+  },
+  {
+    "source": "../media/optimized/cards/O09-630x1080-v1-f5631e0d0d.webp",
+    "bundled": "assets/recovery/O09-630x1080-v1-f5631e0d0d.webp",
+    "sha256": "f5631e0d0d82b56616e5ec31375c8c80aacca9636664b82d62d8d1476054cc9f",
+    "bytes": 207908
+  },
+  {
+    "source": "../media/optimized/cards/O10-630x1080-v1-79dd7c2417.webp",
+    "bundled": "assets/recovery/O10-630x1080-v1-79dd7c2417.webp",
+    "sha256": "79dd7c24179202f7fc2515019119d80867affb06bcb5511e2f8a9f3ce2313179",
+    "bytes": 158284
+  },
+  {
+    "source": "../media/optimized/cards/O11-630x1080-v1-817636f65e.webp",
+    "bundled": "assets/recovery/O11-630x1080-v1-817636f65e.webp",
+    "sha256": "817636f65e517969141c1e9a1aba878b13da311060dffd9bef3249f87773495c",
+    "bytes": 183318
+  },
+  {
+    "source": "../media/optimized/cards/O12-630x1080-v1-9b05b53b78.webp",
+    "bundled": "assets/recovery/O12-630x1080-v1-9b05b53b78.webp",
+    "sha256": "9b05b53b78f8ec404702b3b5b3b56f9074023271070d64d6a345f7e0db3be7d1",
+    "bytes": 150842
+  },
+  {
+    "source": "../media/optimized/cards/O13-630x1080-v1-8a85824d30.webp",
+    "bundled": "assets/recovery/O13-630x1080-v1-8a85824d30.webp",
+    "sha256": "8a85824d306c60aab80f6a92fc4a0514cac1df0c99ab937fddb005da7a73a004",
+    "bytes": 223626
+  },
+  {
+    "source": "../media/optimized/cards/O14-630x1080-v1-43247f7cf2.webp",
+    "bundled": "assets/recovery/O14-630x1080-v1-43247f7cf2.webp",
+    "sha256": "43247f7cf2ddef0ae834ba8de15e0397ab26195f3edc460d69ed1170d2ff7f7e",
+    "bytes": 224760
+  },
+  {
+    "source": "../media/optimized/cards/O15-630x1080-v1-b13fb25925.webp",
+    "bundled": "assets/recovery/O15-630x1080-v1-b13fb25925.webp",
+    "sha256": "b13fb25925283e9b9f3332bfe45ce25b2b732593a85f39ceea5ff6bea418f111",
+    "bytes": 198916
+  },
+  {
+    "source": "../media/optimized/cards/O16-630x1080-v1-fc700ce626.webp",
+    "bundled": "assets/recovery/O16-630x1080-v1-fc700ce626.webp",
+    "sha256": "fc700ce6268c14bc84f9278099f4c89fc5c55d6dab9bd9883c331599efe8cabe",
+    "bytes": 202470
+  },
+  {
+    "source": "../media/optimized/cards/O17-630x1080-v1-8deb0dda40.webp",
+    "bundled": "assets/recovery/O17-630x1080-v1-8deb0dda40.webp",
+    "sha256": "8deb0dda40cfe6f8c7e8cd0018ed3e4e416de316bcd02276c5bc66e9f957f092",
+    "bytes": 217122
+  },
+  {
+    "source": "../media/optimized/cards/O18-630x1080-v1-2541c92721.webp",
+    "bundled": "assets/recovery/O18-630x1080-v1-2541c92721.webp",
+    "sha256": "2541c927213a760570fe2c822950fa3428f16dfece9614f87e27085d1b196fdd",
+    "bytes": 188796
+  },
+  {
+    "source": "../media/optimized/cards/O19-630x1080-v1-6e2b113bb5.webp",
+    "bundled": "assets/recovery/O19-630x1080-v1-6e2b113bb5.webp",
+    "sha256": "6e2b113bb5ec2bff9e3963a3bdc297620c584e89963edf7c454161b4429498d1",
+    "bytes": 171228
+  },
+  {
+    "source": "../media/optimized/cards/O20-630x1080-v1-096501a523.webp",
+    "bundled": "assets/recovery/O20-630x1080-v1-096501a523.webp",
+    "sha256": "096501a523b8881df067908e35744bde9fe5fd3168c599cad3fc8dfc1c36eb9a",
+    "bytes": 160764
+  },
+  {
+    "source": "../media/optimized/cards/O21-630x1080-v1-d6447303ab.webp",
+    "bundled": "assets/recovery/O21-630x1080-v1-d6447303ab.webp",
+    "sha256": "d6447303ab5ebf9e96bf560cdf4df846a30814646f0d591930096635ae5fffd3",
+    "bytes": 207698
+  },
+  {
+    "source": "../media/optimized/cards/O22-630x1080-v1-f9e0be09eb.webp",
+    "bundled": "assets/recovery/O22-630x1080-v1-f9e0be09eb.webp",
+    "sha256": "f9e0be09eb210e200b3f8b19fb635e90a28fe5c46f53b080c46785444ac2f7fe",
+    "bytes": 194818
+  },
+  {
+    "source": "../media/optimized/cards/O23-630x1080-v1-fd5b16d29c.webp",
+    "bundled": "assets/recovery/O23-630x1080-v1-fd5b16d29c.webp",
+    "sha256": "fd5b16d29ce3fd0dd0e620613a1ce8e136967149b61c993c39a15cc95f1029fc",
+    "bytes": 231502
+  },
+  {
+    "source": "../media/optimized/cards/O24-630x1080-v1-e66d387234.webp",
+    "bundled": "assets/recovery/O24-630x1080-v1-e66d387234.webp",
+    "sha256": "e66d3872349414109ea33f0a9b331ddb6cd698ae0806e94297ed8d914fedffb9",
+    "bytes": 147844
+  },
+  {
+    "source": "../media/optimized/backgrounds/bildkarten-tisch-v2-865-v1-6f87e8b55c.webp",
+    "bundled": "assets/recovery/bildkarten-tisch-v2-865-v1-6f87e8b55c.webp",
+    "sha256": "6f87e8b55c9490026100b24583cf487091864ea34e08cbb62ef0a6967b751ba0",
+    "bytes": 271312
+  },
+  {
+    "source": "../media/optimized/backgrounds/brief-pergament-v1-711-v1-693d044c38.webp",
+    "bundled": "assets/recovery/brief-pergament-v1-711-v1-693d044c38.webp",
+    "sha256": "693d044c38aebc5479a9955f557dbbbd758d2da55c01a7ae0978108bc2b69e23",
+    "bytes": 193416
+  },
+  {
+    "source": "../media/optimized/rooms/flur-v2-dim-864-v1-5aba5b505b.webp",
+    "bundled": "assets/recovery/flur-v2-dim-864-v1-5aba5b505b.webp",
+    "sha256": "5aba5b505b2d0a311ba72279d07a5e3ebdbe7fa27c747175f88e24d615491a15",
+    "bytes": 237234
+  },
+  {
+    "source": "../media/optimized/rooms/flur-v2-864-v1-e7d3476528.webp",
+    "bundled": "assets/recovery/flur-v2-864-v1-e7d3476528.webp",
+    "sha256": "e7d347652874fe00d8c44dea57bbc53d0497969d85daa8acaa0a0f962b122bb7",
+    "bytes": 386112
+  },
+  {
+    "source": "../media/optimized/rooms/musikzimmer-v1-865-v1-518f76f8bb.webp",
+    "bundled": "assets/recovery/musikzimmer-v1-865-v1-518f76f8bb.webp",
+    "sha256": "518f76f8bba5bf9a58d20696bf24e00d63274fcdf186e26fffb540b0ffdae45c",
+    "bytes": 333636
+  }
+]

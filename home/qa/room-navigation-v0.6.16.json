@@ -1,0 +1,15 @@
+{
+  "build": "P0-U01 v0.6.16",
+  "purpose": "Registers app theme T03 in the existing central music player while preserving the v0.6.15 house navigation and artwork.",
+  "checks": {
+    "theme": "T03 is a separate app-theme manifest record at /media/audio/THEME.mp3; not assigned to any card or K01–K06 soundscape.",
+    "audio": "One shared audio session; selection does not play; explicit Start is required; loop and autoplay are disabled.",
+    "navigation": "T03 selects individual mode so card and room navigation does not replace or restart it.",
+    "packaging": "App archive contains only home/; shared audio remains outside the application package."
+  },
+  "limitations": [
+    "THEME.mp3 was not present locally; media availability and real playback require separate upload and testing.",
+    "No live deployment performed.",
+    "No iPhone Safari, VoiceOver, or visual browser test performed."
+  ]
+}

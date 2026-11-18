@@ -1,0 +1,26 @@
+/* P0-U01 v0.5: one stable reading window with independent content scroll. */
+.reading-dialog{width:min(860px,calc(100vw - 32px));height:min(740px,88vh);height:min(740px,88svh);max-height:none;box-sizing:border-box;padding:20px 24px;overflow:hidden}
+.reading-dialog[open]{display:flex;flex-direction:column}
+.reading-close{position:static;align-self:flex-end;flex-shrink:0;margin:0 0 16px;min-height:44px}
+.reading-shell{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-color:#b89555 #16354a;scrollbar-width:thin}
+.reading-choice{flex-shrink:0;margin-top:16px;padding-top:12px;border-top:1px solid #9c805344}
+.reading-title h2,.question-dialog .reading-title h2,.impulse-dialog .reading-title h2{font:32px/1.3 Georgia,serif;margin:16px 0}
+.reading-page p,.question-dialog blockquote,.impulse-dialog .reading-page>p:first-child{font:20px/1.75 Georgia,serif}
+.reading-freedom{font:14px/1.65 system-ui,sans-serif!important}
+.book-dialog .reading-shell{border:1px solid #b38b45;background:#efdba5;box-shadow:0 8px 24px #0006}
+.book-dialog .reading-title{background:linear-gradient(105deg,#dfc17c,#eed8a1 65%,#d7b571);color:#3e321e;border-color:#ad884d;box-shadow:inset -10px 0 18px #72532222}
+.book-dialog .reading-title .eyebrow{color:#624821}
+.book-dialog .reading-note{color:#655138}
+.book-dialog .reading-page{background:radial-gradient(ellipse at 45% 35%,#f7e9c2 0%,#efdcaa 65%,#e1c78c 100%);color:#3c3122;box-shadow:inset 10px 0 20px #88612520}
+.book-dialog .reading-freedom{border-color:#b39359}
+.question-dialog .reading-shell,.impulse-dialog .reading-shell{display:flex;flex-direction:column}
+.question-dialog .reading-page,.impulse-dialog .reading-page{margin:auto;width:100%;box-sizing:border-box}
+.question-dialog blockquote{margin:0;color:#fae4b1}
+@media(max-width:700px){
+ .reading-dialog{width:calc(100vw - 24px);height:88vh;height:88svh;padding:16px}
+ .reading-title h2,.book-dialog .reading-title h2,.question-dialog .reading-title h2,.impulse-dialog .reading-title h2{font-size:28px;line-height:1.3;margin:12px 0}
+ .reading-page p,.question-dialog blockquote,.impulse-dialog .reading-page>p:first-child{font-size:20px;line-height:1.75}
+ .reading-choice{gap:8px;margin-top:12px;padding-top:12px}
+ .book-dialog .reading-title{box-shadow:none;border-bottom-color:#ad884d}
+ .book-dialog .reading-page{box-shadow:inset 0 8px 16px #88612518}
+}

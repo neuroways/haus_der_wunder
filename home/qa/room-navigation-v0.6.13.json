@@ -1,0 +1,20 @@
+{
+  "build": "P0-U01 v0.6.13",
+  "date": "2026-10-28",
+  "purpose": "Mobile refinement of arrival gate and hall navigation, based on the approved frontend plan v0.1.",
+  "checks": {
+    "arrival": "Dedicated arrival gate retained; card flip reveals clear actions to enter the house or draw a random card.",
+    "audio": "No arrival-screen audio selection or automatic playback; Music remains an independent navigation destination.",
+    "hall": "Hall illustration is reduced on small screens; three labeled paths remain available.",
+    "navigation": "Bottom navigation remains fixed, with extra content clearance and safe-area padding.",
+    "routes": "Existing #flur, #raeume, #ort/P01-P08, #karten, #musik and #karte/O01-O24 routes remain unchanged.",
+    "media": "All room/card/audio media paths and external media package remain unchanged.",
+    "automatedTests": "27 passed, 0 failed, 1 skipped (no local audio sample).",
+    "visualQA": "Blocked: cloud browser could not connect to the local preview; iPhone visual verification remains outstanding."
+  },
+  "limitations": [
+    "No live host upload was performed.",
+    "No iPhone Safari or VoiceOver test was performed.",
+    "The Product Design visual QA gate is blocked because the local preview could not be opened in the available browser."
+  ]
+}

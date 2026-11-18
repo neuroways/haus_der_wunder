@@ -1,0 +1,16 @@
+{
+  "build": "P0-U01 v0.6.11",
+  "date": "2026-10-27",
+  "reason": "Hotfix: v0.6.10 package omitted the client-side render() function. The renderer is restored from the prior application source.",
+  "checks": {
+    "routerRenderer": "PASS: render() is defined before its initial invocation and hashchange binding.",
+    "cardData": "PASS: O01-O24 have six populated text fields each.",
+    "mediaPaths": "PASS: card images reference /media/cards/Oxx.png.",
+    "unitTests": "PASS: 23 passed, 0 failed; 1 audio test skipped because no local MP3 sample is present.",
+    "runtimeSmoke": "PASS: in a DOM smoke harness, the landing page and #karte/O16 both populate main content."
+  },
+  "limitations": [
+    "No live-host verification from this build step.",
+    "iPhone Safari and VoiceOver remain untested."
+  ]
+}

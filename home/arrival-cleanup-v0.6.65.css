@@ -1,0 +1,59 @@
+/* ARRIVAL-01: Der Ankommensbildschirm bleibt frei von der globalen Hausnavigation. */
+body.emfd-shell.start-gate-mode > .global-nav{
+  display:none!important;
+}
+
+/* Der zuvor fuer die Navigation reservierte Platz gehoert wieder der Tueransicht. */
+body.emfd-shell.start02-active main.emfd-shell__content{
+  padding-bottom:calc(18px + env(safe-area-inset-bottom));
+}
+
+@media(max-width:560px){
+  body.emfd-shell.start02-active main.emfd-shell__content{
+    padding-bottom:calc(8px + env(safe-area-inset-bottom));
+  }
+}
+/* Shared navigation geometry and safe area for persistent gift actions. */
+.start02-gift:has(.primary){padding-bottom:calc(86px + env(safe-area-inset-bottom))}
+.start02-gift .start02-gift-actions:has(.primary){
+ position:fixed;inset:auto 0 0;z-index:8;display:grid;justify-items:center;
+ padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#102638;border-top:1px solid #c29c5c;margin:0
+}
+.start02-gift-actions .primary{width:min(100%,44rem)}
+:is(.start02-gift-toolbar,.music-room-topbar,.music04-selection-topbar,.atelier-topbar,.teezimmer-topbar){align-items:center;gap:8px}
+:is(.start02-gift-toolbar,.music-room-topbar,.music04-selection-topbar,.atelier-topbar,.teezimmer-topbar) :is(a,button){min-width:44px;min-height:44px}
+.start02-gift .start02-envelope{aspect-ratio:1.36;width:min(66%,410px);margin-top:16%;background:#08483f;isolation:isolate}
+.start02-envelope>div:first-child{background:linear-gradient(to top right,transparent 49%,#d39a36 49%,#f7ca60 51%,transparent 51%) left/50% 100% no-repeat,linear-gradient(to top left,transparent 49%,#d39a36 49%,#f7ca60 51%,transparent 51%) right/50% 100% no-repeat}
+.start02-envelope>div:nth-child(2){inset:0 0 auto;height:65%;clip-path:polygon(0 0,100% 0,50% 100%);background:linear-gradient(100deg,#d8a038,#ffde76,#c58828);transform-origin:50% 0}
+.start02-envelope>div:nth-child(2)::before{content:"";position:absolute;inset:0 1.8% 4%;background:linear-gradient(155deg,#104c42,#053a33);clip-path:polygon(0 0,100% 0,50% 100%)}
+.start02-envelope>div:nth-child(-n+2)>*{display:none!important}
+.start02-envelope .start02-envelope-seal{top:52%!important;height:24%!important}
+.start02-gift[data-state="opening"] .start02-envelope>div:nth-child(2){animation:gift-fold .8s ease forwards}
+@keyframes gift-fold{to{transform:rotateX(165deg)}}
+.start02-gift .start02-world{display:none}
+.start02-gift[data-state="world-opening"] .start02-gift-card{animation:none}
+.start02-card-portal{position:relative;transform-style:preserve-3d}
+.start02-card-portal img{backface-visibility:hidden}
+.start02-card-portal .gift-reverse{position:absolute;inset:0;width:100%;height:100%;transform:rotateY(180deg)}
+.start02-gift[data-state="world-opening"] .start02-card-portal{animation:gift-turn .65s ease both}
+@keyframes gift-turn{from{transform:rotateY(0)}to{transform:rotateY(180deg)}}
+@media(prefers-reduced-motion:reduce){.start02-gift[data-state="world-opening"] .start02-card-portal{animation:none;transform:rotateY(180deg)}.start02-gift[data-state="opening"] .start02-envelope>div:nth-child(2){animation:none;transform:rotateX(165deg)}}
+[data-room-device-host]{max-width:26rem;margin:auto}
+.room-device-art :is(.music03-tonearm-mount,.music03-platter){display:none}
+.start02-envelope>div:first-child{background:#094737 url(assets/gift/envelope.webp) center/100% 100%}
+.start02-envelope>div:first-child::after{content:"";position:absolute;inset:0;clip-path:polygon(0 0,100% 0,50% 70%);background:linear-gradient(#15362f,#0a4339)}
+.start02-envelope>div:nth-child(2){height:100%;clip-path:polygon(0 0,100% 0,50.8% 70%);background:url(assets/gift/envelope.webp) center/100% 100%}
+.start02-envelope>div:nth-child(2)::before{display:none}
+.start02-envelope .start02-envelope-seal{object-fit:cover;clip-path:ellipse(48% 47%);left:40%!important;top:53%!important;width:20%!important;height:26%!important}
+.room-device-launch{display:grid;gap:.5rem;justify-items:center;margin:auto}
+.room-device-launch[hidden]{display:none}
+.room-device-launch img{width:min(100%,24rem);height:auto;border-radius:.6rem}
+.room-device-art .music03-device{display:grid;aspect-ratio:auto;gap:.6rem;text-align:center}
+.room-device-art .music03-device .music03-cabinet{position:static;width:100%;height:auto;transform:none}
+.room-device-art .music03-cover{display:none}
+.room-device-art .music03-device :is(.music03-plaque,.music03-front){position:static;transform:none;width:100%;height:auto;inset:auto}
+.room-device-art .music03-transport{display:flex;justify-content:center;flex-wrap:wrap}
+.room-device-art .music03-transport button{min-width:44px;min-height:44px}
+:is(.room-detail-top,.music-room-topbar,.music04-selection-topbar,.start02-gift-toolbar,.atelier-topbar,.teezimmer-topbar){display:flex;justify-content:space-between;align-items:center}
+.teezimmer-topbar [data-teezimmer-help]{order:3}
+.teezimmer-topbar .back{margin-right:auto}

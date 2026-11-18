@@ -1,0 +1,27 @@
+/* EMFD scene layer: image crop and image-relative interaction coordinates. */
+.emfd-scene__frame{position:relative;container-type:inline-size;min-width:0;isolation:isolate}
+.emfd-scene__image{display:block;max-width:100%;object-fit:cover;object-position:var(--emfd-scene-focus,50% 50%)}
+.hall-stage.emfd-scene__frame{width:min(100%,47.5rem);aspect-ratio:9/16;margin-inline:auto}
+.hall-stage .emfd-scene__image{position:absolute;inset:0;width:100%;height:100%}
+.hall-stage .emfd-scene__hotspots{position:absolute;inset:0;pointer-events:none}
+.hall-stage .hall-hotspot{pointer-events:auto}
+.start-scene.emfd-scene__frame{width:100%;aspect-ratio:9/16}
+.start-scene .emfd-scene__image{position:absolute;inset:0;width:100%;height:100%}
+.room-hero.emfd-scene__frame{overflow:hidden}
+.room-hero .emfd-scene__image{width:100%;height:auto;aspect-ratio:3/4}
+.room-tile-image.emfd-scene__frame{overflow:hidden}
+.room-tile-image .emfd-scene__image{width:100%;height:100%;aspect-ratio:3/2}
+.emfd-scene__frame img{object-position:var(--emfd-scene-focus,50% 50%)}
+.room-hero img[src*="P01-"]{--emfd-scene-focus:50% 58%}
+.room-hero img[src*="P02-"]{--emfd-scene-focus:50% 45%}
+.room-hero img[src*="P03-"]{--emfd-scene-focus:50% 52%}
+.room-hero img[src*="P04-"]{--emfd-scene-focus:50% 55%}
+.room-hero img[src*="P05-"]{--emfd-scene-focus:50% 55%}
+.room-hero img[src*="P06-"]{--emfd-scene-focus:50% 50%}
+.room-hero img[src*="P07-"]{--emfd-scene-focus:50% 48%}
+.room-hero img[src*="P08-"]{--emfd-scene-focus:50% 55%}
+@media(orientation:landscape) and (max-height:560px){
+  .hall-stage.emfd-scene__frame{width:min(100%,50dvh);max-height:84dvh}
+  .hall-stage .hall-hotspot{font-size:clamp(11px,2.4cqi,16px)}
+  .start-scene.emfd-scene__frame{width:min(100%,32dvh);margin-inline:auto}
+}

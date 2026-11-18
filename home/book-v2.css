@@ -1,0 +1,16 @@
+/* EMFD BOOK-02: three paper pages, touch/pointer paging and direct navigation. */
+.emfd-book-v2{height:min(780px,90dvh);display:flex;flex-direction:column;gap:10px;overscroll-behavior:contain}
+.emfd-book-v2 .reading-close{margin:0;flex:0 0 auto;align-self:flex-end}
+.emfd-book-v2 .reading-choice{order:0;margin:0;padding:0 0 8px;flex:0 0 auto;border:0}
+.emfd-book-v2 .reading-shell{order:1;min-height:0;flex:1;overflow-y:auto;touch-action:pan-y;overscroll-behavior:contain}
+.emfd-book-v2 .reading-page{touch-action:pan-y}
+.emfd-book-v2 .reading-choice button[aria-current="false"]{opacity:.8}
+.emfd-book-v2 .reading-choice button[aria-current="page"]{background:#d7af6d;color:#1b2d3b}
+.emfd-book-v2 .book-pager{display:flex;align-items:center;justify-content:space-between;gap:8px;order:2;min-height:52px}
+.emfd-book-v2 .book-pager button{min-height:44px;min-width:92px;border-radius:999px;padding:8px 12px;border:1px solid #ba985b;background:#143c4b;color:#f7e7c6}
+.emfd-book-v2 .book-pager button:disabled{opacity:.42}
+.emfd-book-v2 .book-pager span{font:13px Georgia,serif;text-align:center;color:#e2c38e}
+.emfd-book-v2.reading-kind-question .reading-page blockquote{color:#41301d;text-align:left;font:clamp(21px,4vw,27px)/1.6 Georgia,serif}
+.emfd-book-v2 .reading-title{min-width:0}.emfd-book-v2 .reading-page{min-width:0}
+@media(max-width:700px){.emfd-book-v2{width:calc(100vw - 16px);height:min(820px,92dvh);padding:12px}.emfd-book-v2 .reading-choice{flex-wrap:nowrap}.emfd-book-v2 .reading-choice button{flex:1;padding:8px 4px;font-size:13px}.emfd-book-v2 .reading-title{padding:18px 16px}.emfd-book-v2 .reading-page{padding:22px 17px}.emfd-book-v2 .reading-shell{display:block}.emfd-book-v2 .book-pager button{min-width:75px}}
+@media(prefers-reduced-motion:reduce){.emfd-book-v2 .reading-page{animation:none!important}}

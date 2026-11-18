@@ -1,6 +1,6 @@
 {
  "tool": "emfd-media-check/1.0",
- "generatedAt": "2026-11-18T16:43:38+00:00",
+ "generatedAt": "2026-11-18T17:34:36+00:00",
  "mediaRoot": "media",
  "files": [
   {
@@ -1129,6 +1129,78 @@
    "rev": 1,
    "variant": "480",
    "nameHash": "b0036042d6"
+  },
+  {
+   "path": "raumgeraete/P01.webp",
+   "folder": "raumgeraete",
+   "bytes": 53218,
+   "sha256": "021c905de6e1fcc07bfdaf177798a22d54c0ca56a257278322e7c1459add5791",
+   "width": 504,
+   "height": 227,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "raumgeraete/P02.webp",
+   "folder": "raumgeraete",
+   "bytes": 56954,
+   "sha256": "458a3d52d74594006d80536633dcc6ec44cec0ffcc5c8d59632a2d5d8e36b8ee",
+   "width": 504,
+   "height": 227,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "raumgeraete/P03.webp",
+   "folder": "raumgeraete",
+   "bytes": 49206,
+   "sha256": "f37306980d9e6a96b600490c3024e61d1572d4c48fad281735e66f831727b49e",
+   "width": 504,
+   "height": 227,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "raumgeraete/P04.webp",
+   "folder": "raumgeraete",
+   "bytes": 37152,
+   "sha256": "97ff43323e0d2af92fee1946463047daebbbc1f6b6b70d07e975e3cfd338bb39",
+   "width": 504,
+   "height": 223,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "raumgeraete/P05.webp",
+   "folder": "raumgeraete",
+   "bytes": 42506,
+   "sha256": "c56cb9ad0d8eb23f52483fc38f90d16fd99e2294371bcceb188a2a1b8a6730c0",
+   "width": 504,
+   "height": 223,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "raumgeraete/P06.webp",
+   "folder": "raumgeraete",
+   "bytes": 37972,
+   "sha256": "4dc7c58cfd63848994825fdebb66320d6add8cab193a8f7483c8f0876e46155c",
+   "width": 504,
+   "height": 223,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "raumgeraete/P07.webp",
+   "folder": "raumgeraete",
+   "bytes": 57434,
+   "sha256": "cc969a5ce41c555d56a2d9b716d3d419d0d6ad8ff438484c71f183b3da1e3067",
+   "width": 504,
+   "height": 248,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "raumgeraete/P08.webp",
+   "folder": "raumgeraete",
+   "bytes": 49796,
+   "sha256": "57e533f5adb7400192e585765f25db0a9bd301c2fc8b6963527834e4c9b24052",
+   "width": 504,
+   "height": 248,
+   "kind": "unknown-media"
   }
  ],
  "cards": {
@@ -1446,18 +1518,177 @@
  "issues": [
   {
    "level": "Hinweis",
-   "path": "home/ (live)",
-   "text": "Die Live-Fassung auf dem Server bindet den Loader noch nicht ein."
+   "path": "raumgeraete/P01.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
   },
   {
    "level": "Hinweis",
-   "path": "home_3d/ (live)",
-   "text": "Die Live-Fassung auf dem Server bindet den Loader noch nicht ein."
+   "path": "raumgeraete/P02.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "raumgeraete/P03.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "raumgeraete/P04.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "raumgeraete/P05.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "raumgeraete/P06.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "raumgeraete/P07.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "raumgeraete/P08.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O01-630x1080-v1-47041d64df.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O02-630x1080-v1-ea0c9d086d.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O03-630x1080-v1-538d1729a7.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O04-630x1080-v1-9b2846a48e.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O05-630x1080-v1-66c23e33ec.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O06-630x1080-v1-d7b8985de0.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O07-630x1080-v1-55988a067e.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O08-630x1080-v1-7cace7daa6.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O09-630x1080-v1-f5631e0d0d.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O10-630x1080-v1-79dd7c2417.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O11-630x1080-v1-817636f65e.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O12-630x1080-v1-9b05b53b78.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O13-630x1080-v1-8a85824d30.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O14-630x1080-v1-43247f7cf2.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O15-630x1080-v1-b13fb25925.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O16-630x1080-v1-fc700ce626.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O17-630x1080-v1-8deb0dda40.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O18-630x1080-v1-2541c92721.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O19-630x1080-v1-6e2b113bb5.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O20-630x1080-v1-096501a523.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O21-630x1080-v1-d6447303ab.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O22-630x1080-v1-f9e0be09eb.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O23-630x1080-v1-fd5b16d29c.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+  },
+  {
+   "level": "Hinweis",
+   "path": "home/assets/recovery/O24-630x1080-v1-e66d387234.webp",
+   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
   }
  ],
  "changes": {
-  "base": "2026-11-18T16:43:18+00:00",
-  "added": [],
+  "base": "2026-11-18T16:43:38+00:00",
+  "added": [
+   "raumgeraete/P01.webp",
+   "raumgeraete/P02.webp",
+   "raumgeraete/P03.webp",
+   "raumgeraete/P04.webp",
+   "raumgeraete/P05.webp",
+   "raumgeraete/P06.webp",
+   "raumgeraete/P07.webp",
+   "raumgeraete/P08.webp"
+  ],
   "changed": [],
   "removed": []
  },
@@ -1468,11 +1699,33 @@
    ],
    "absolutePaths": [],
    "copies": [],
-   "cardNamedFiles": [],
-   "live": {
-    "url": "https://flowisaurus.de/wunderhaus/home/index.html",
-    "loader": false
-   },
+   "cardNamedFiles": [
+    "assets/recovery/O01-630x1080-v1-47041d64df.webp",
+    "assets/recovery/O02-630x1080-v1-ea0c9d086d.webp",
+    "assets/recovery/O03-630x1080-v1-538d1729a7.webp",
+    "assets/recovery/O04-630x1080-v1-9b2846a48e.webp",
+    "assets/recovery/O05-630x1080-v1-66c23e33ec.webp",
+    "assets/recovery/O06-630x1080-v1-d7b8985de0.webp",
+    "assets/recovery/O07-630x1080-v1-55988a067e.webp",
+    "assets/recovery/O08-630x1080-v1-7cace7daa6.webp",
+    "assets/recovery/O09-630x1080-v1-f5631e0d0d.webp",
+    "assets/recovery/O10-630x1080-v1-79dd7c2417.webp",
+    "assets/recovery/O11-630x1080-v1-817636f65e.webp",
+    "assets/recovery/O12-630x1080-v1-9b05b53b78.webp",
+    "assets/recovery/O13-630x1080-v1-8a85824d30.webp",
+    "assets/recovery/O14-630x1080-v1-43247f7cf2.webp",
+    "assets/recovery/O15-630x1080-v1-b13fb25925.webp",
+    "assets/recovery/O16-630x1080-v1-fc700ce626.webp",
+    "assets/recovery/O17-630x1080-v1-8deb0dda40.webp",
+    "assets/recovery/O18-630x1080-v1-2541c92721.webp",
+    "assets/recovery/O19-630x1080-v1-6e2b113bb5.webp",
+    "assets/recovery/O20-630x1080-v1-096501a523.webp",
+    "assets/recovery/O21-630x1080-v1-d6447303ab.webp",
+    "assets/recovery/O22-630x1080-v1-f9e0be09eb.webp",
+    "assets/recovery/O23-630x1080-v1-fd5b16d29c.webp",
+    "assets/recovery/O24-630x1080-v1-e66d387234.webp"
+   ],
+   "live": null,
    "ok": true
   },
   "home_3d": {
@@ -1482,373 +1735,8 @@
    "absolutePaths": [],
    "copies": [],
    "cardNamedFiles": [],
-   "live": {
-    "url": "https://flowisaurus.de/wunderhaus/home_3d/index.html",
-    "loader": false
-   },
+   "live": null,
    "ok": true
-  }
- },
- "server": {
-  "base": "https://flowisaurus.de/wunderhaus/media/",
-  "checkedAt": "2026-11-18T16:43:38+00:00",
-  "files": {
-   "MEDIEN-KONVENTION.md": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O01-front-r2-21eca783.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O02-front-r2-512eeca7.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O03-front-r2-855957b9.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O04-front-r2-4c1f37fb.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O05-front-r2-8ad22072.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O06-front-r2-ba9ec012.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O07-front-r2-1b0edb88.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O08-front-r2-1bd052f1.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O09-front-r2-a8c90829.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O10-front-r2-b8fd07b7.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O11-front-r2-81deeae0.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O12-front-r2-44b7e744.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O13-front-r2-84b39927.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O14-front-r2-dfc3bc61.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O15-front-r2-7da93928.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O16-front-r2-89bb780f.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O17-front-r2-4636421b.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "cards/fronts/O18-front-r2-c2a2f9d8.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "covers/O04-cover-r1-d7ace5fa.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "covers/O06-cover-r1-8e23a947.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "covers/O24-cover-r1-054b4da2.png": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "katalog/index.html": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "manifest.schema.json": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "media-loader.js": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "media-loader.mjs": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O01-210x360-r2-cf504e3af4.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O01-630x1080-r2-40012d6477.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O01-896x1536-r2-3802406a5d.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O02-210x360-r2-6203e53312.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O02-630x1080-r2-b1f9dea9fe.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O02-896x1536-r2-7166c6f234.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O03-210x360-r2-cebbdadcf6.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O03-630x1080-r2-c64db9e0aa.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O03-896x1536-r2-7d75f35827.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O04-210x360-r2-6e0c04602b.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O04-630x1080-r2-591713b4ff.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O04-896x1536-r2-6c5dc04d67.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O05-210x360-r2-d65b9ecfcc.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O05-630x1080-r2-1577b496a1.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O05-896x1536-r2-9452de2d68.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O06-210x360-r2-d509b6ee27.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O06-630x1080-r2-32e5dcf848.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O06-896x1536-r2-ba53e220fa.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O07-210x360-r2-52ab11a097.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O07-630x1080-r2-b7332e4570.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O07-896x1536-r2-81a57e7166.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O08-210x360-r2-a6709e22ab.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O08-630x1080-r2-e337ee566c.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O08-896x1536-r2-e4c832a4cc.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O09-210x360-r2-8d42b9fcbe.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O09-630x1080-r2-971b2e5ec5.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O09-896x1536-r2-f169ed24da.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O10-210x360-r2-ecc2ba2186.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O10-630x1080-r2-3d8faa63fb.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O10-896x1536-r2-e3965b5922.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O11-210x360-r2-a6bfb4f0b4.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O11-630x1080-r2-c0ca88a800.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O11-896x1536-r2-d4d0987140.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O12-210x360-r2-4d0586e98b.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O12-630x1080-r2-36153a690a.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O12-896x1536-r2-f2d1191746.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O13-210x360-r2-722d41cab9.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O13-630x1080-r2-daa9fe8ae3.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O13-896x1536-r2-98ecb282ab.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O14-210x360-r2-3e3297e394.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O14-630x1080-r2-6febf30cb9.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O14-896x1536-r2-95147f7e99.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O15-210x360-r2-94612bdcef.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O15-630x1080-r2-79099121eb.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O15-896x1536-r2-375ad25ee2.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O16-210x360-r2-e83fd0ea3d.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O16-630x1080-r2-54d0fc0cf1.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O16-896x1536-r2-b6fd4b63f4.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O17-210x360-r2-bc72fd0b61.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O17-630x1080-r2-9ea3d8e5b0.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O17-896x1536-r2-92e812b450.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O18-210x360-r2-ee55331393.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O18-630x1080-r2-c8ce29b09b.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/cards/O18-896x1536-r2-1d85cbd388.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O04-cover-1024-r1-652111cb2f.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O04-cover-160-r1-42284f8fef.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O04-cover-480-r1-b913075283.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O06-cover-1024-r1-591a79e61b.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O06-cover-160-r1-0431baa8cc.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O06-cover-480-r1-7546184f1a.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O24-cover-1024-r1-a4afe613fb.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O24-cover-160-r1-69c1323a37.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   },
-   "optimized/covers/O24-cover-480-r1-b0036042d6.webp": {
-    "status": 404,
-    "state": "fehlt online"
-   }
   }
  }
 }

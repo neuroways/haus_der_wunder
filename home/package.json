@@ -1,0 +1,11 @@
+{
+  "name": "emfd-p0-u01",
+  "version": "0.6.66",
+  "private": true,
+  "scripts": {
+    "dev": "node server.mjs",
+    "test": "node --test tests/*.test.cjs",
+    "test:arch": "node --test tests/architecture-*.test.cjs",
+    "test:arch:regression": "node --test tests/architecture-*.test.cjs tests/library-book-back.test.cjs tests/start-tour.test.cjs tests/start-adventure.test.cjs tests/start-02-v0.6.61.test.cjs tests/music-room-transport.test.cjs tests/music-books.test.cjs tests/music-player-behavior.test.cjs tests/audio-session.test.cjs tests/room-music-integration.test.cjs tests/ui-architecture-v0.6.64.test.cjs tests/music-room-entry-v0.6.38.test.cjs tests/origin-storybook.test.cjs tests/library-bib-fe-01.test.cjs tests/composition-stories-v04.test.cjs"
+  }
+}

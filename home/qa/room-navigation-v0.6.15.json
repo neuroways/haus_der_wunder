@@ -1,0 +1,14 @@
+{
+  "build": "P0-U01 v0.6.15",
+  "purpose": "Integrates the supplied start-page artwork as a separate arrival scene and retains v0.6.14 paired Flur light states.",
+  "checks": {
+    "startPage": "Start-page artwork is separate from title, copy, door action, gift action, and navigation.",
+    "hallLight": "Existing paired Flur images and accessible light toggle retained.",
+    "routes": "Door action routes to #flur; gift action opens the existing optional origin story; global Haus/Karten/Musik navigation remains visible."
+  },
+  "limitations": [
+    "No deployment performed.",
+    "No iPhone Safari or VoiceOver visual test performed.",
+    "The generated start illustration is used as supplied, converted to WebP."
+  ]
+}
