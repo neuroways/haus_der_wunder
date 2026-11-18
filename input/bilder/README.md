@@ -16,7 +16,9 @@ Vollständige Liste mit Format, Maßen, Alpha, Bytes und SHA-256: [`bestand.csv`
 | `aussen/` | 1 | 1 | `R-AUSSEN_architekturvorlage_v1.png`, siehe Hinweis unten |
 | `orakelkarten/` | 24 | 18 | `O01–O24_kartenbild_v1.png` (29.10.), 896×1536. Das sind die **alten Kartenbilder r1**, byte-gleich mit dem Medienarchiv vom 29.10. (`cards/Oxx.png`). **O01–O18**: Archiv der überholten Fassung. Auf dem Server sind sie seit 17.11. durch r2 überschrieben, nur Rückfall/Vergleich, **nie wieder produktiv**. **O19–O24**: byte-gleich mit dem heutigen Server (`cards/O19–O24.png`), nur vermerkt. |
 
-102 Dateien geliefert (Eingang 1: 78, Eingang 2 „orakelkarten“: 24), 74 im Repo, 28 Duplikate nur vermerkt.
+| `objekte/` | 16 | 16 | Eingang 3 (als Chat-Bilder, nicht als ZIP; möglicherweise nicht die Originaldateien). **15 Objekte**: O01, O03, O04, O06, O07, O09, O10, O11, O13, O16, O17, O20, O21, O22, O24. Dazu `nachweis_historische_karten_v1.jpg`, ein Kontaktbogen der alten Karten r1 O01–O24. Studienblätter („Ansichtsheet · Objektmaster v1.0“ bzw. „Objekt-Turnaround“, 1536×1024 bzw. 1774×887): O01, O04, O07, O11, O17, O21, O22. Einzelbilder: O13 (1254×1254) und O16 (1774×887; zeigt **A loser Faden** und **B gefädelt**; verbindlich ist A). **Kleine Ausschnitte mit Bildunterschrift** (≤ 683 px, aus den Studienblättern geschnitten): O03, O06, O09, O10, O20, O24. Sie taugen als Identitätsreferenz, **nicht** als Textur, Sprite oder Druckvorlage. **Es fehlen 9 Objekte**: O02, O05, O08, O12, O14, O15, O18, O19, O23 (nur auf dem Kontaktbogen `uebersichten/`). |
+
+118 Dateien geliefert (Eingang 1: 78, Eingang 2 „orakelkarten“: 24, Eingang 3 „objekte“: 16), 90 im Repo, 28 Duplikate nur vermerkt.
 
 **Neue Vorderseiten O19–O24 sind weiterhin nicht geliefert.**
 
