@@ -92,7 +92,11 @@ class DimensionMismatchTests(unittest.TestCase):
         """Am Altpfad ersetzte Datei (andere Maße) wird broken, nie ausgeliefert (Atelier P04, 05.11.2026)."""
         cand = json.loads((ROOT / "release/manifest.json.neu").read_text(encoding="utf-8"))["mediaCore"]
         room = cand["assets"]["room.P04-atelier.r1"]
-        self.assertEqual(room["variants"]["original"]["availability"], "broken")
+        # Original verweist auf die Werkbank-Datei (neuer Name), nicht auf den ersetzten Altpfad
+        self.assertRegex(room["variants"]["original"]["path"], r"^rooms/P04-atelier-r1-[0-9a-f]{8}\.webp$")
+        self.assertIn(room["variants"]["original"]["availability"], ("staged", "verified"))
+        ka = cand["assets"]["room.P04-atelier-kartenauslage-v1.r1"]["variants"]["original"]
+        self.assertEqual(ka["availability"], "broken")
         self.assertEqual(room["variants"]["w1086"]["availability"], "verified")
         self.assertTrue(any("Werkbank" in n for n in room.get("notes", [])))
 
