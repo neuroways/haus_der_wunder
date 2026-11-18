@@ -1,0 +1,83 @@
+{
+ "manifestRevision": 1,
+ "createdAt": "2026-11-18T09:24:30Z",
+ "inventory": null,
+ "summary": {
+  "assets": 338,
+  "byRole": {
+   "audio": 35,
+   "background": 3,
+   "front": 42,
+   "coverFallback": 25,
+   "cover": 3,
+   "back": 2,
+   "giftCover": 1,
+   "model": 24,
+   "objectReference": 24,
+   "objectSprite": 24,
+   "objectStudy": 24,
+   "original": 49,
+   "portrait": 1,
+   "reference": 23,
+   "roomVariant": 19,
+   "room": 15,
+   "story": 24
+  },
+  "byAvailability": {
+   "referenced": 49,
+   "listed": 330,
+   "staged": 84,
+   "missing": 98,
+   "archived": 24
+  },
+  "byRelease": {
+   "review": 162,
+   "test": 10,
+   "internal": 46,
+   "superseded": 45,
+   "approved": 3,
+   "archive": 72
+  },
+  "cardsFrontCurrent": 18,
+  "cardsFrontUnconfirmed": [
+   "O19",
+   "O20",
+   "O21",
+   "O22",
+   "O23",
+   "O24"
+  ],
+  "coversPresent": [
+   "O04",
+   "O06",
+   "O24"
+  ],
+  "coversMissing": [
+   "O01",
+   "O02",
+   "O03",
+   "O05",
+   "O07",
+   "O08",
+   "O09",
+   "O10",
+   "O11",
+   "O12",
+   "O13",
+   "O14",
+   "O15",
+   "O16",
+   "O17",
+   "O18",
+   "O19",
+   "O20",
+   "O21",
+   "O22",
+   "O23",
+   "T03"
+  ]
+ },
+ "unknownOnServer": [],
+ "duplicateFilesByHash": {},
+ "stagedAlreadyOnServer": []
+}

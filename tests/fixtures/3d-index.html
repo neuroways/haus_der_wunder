@@ -1,0 +1,14 @@
+<!doctype html><meta charset="utf-8"><title>3D-Attrappe</title>
+<script type="module">
+const THREE = { SRGBColorSpace: 'srgb', TextureLoader: class { setCrossOrigin() {} loadAsync(url) { return new Promise((res, rej) => { const img = new Image(); img.onload = () => res({ image: img, colorSpace: '', anisotropy: 1, userData: {}, dispose() {} }); img.onerror = () => rej(new Error('load ' + url)); img.src = url; }); } } };
+import { initMedia, createTextureProvider, createAudioController } from './src/bridge/media.js';
+const media = await initMedia();
+const tex = createTextureProvider(THREE, media);
+const a = await tex.cardFront('O13', 'large');
+const b = await tex.cover('O24', 'large');
+const c = await tex.objectSprite('O05');
+const audio = createAudioController(media);
+const d = await audio.playCard('O99').catch(e => ({ ok: false, reason: String(e) }));
+window.__result = { manifest: media.manifestUrl, a: { state: a.state, w: a.texture && a.texture.image.naturalWidth, url: a.texture && a.texture.userData.emfdUrl, cs: a.texture && a.texture.colorSpace },
+  b: { state: b.state, w: b.texture && b.texture.image.naturalWidth }, c: { state: c.state, reason: c.reason, tex: c.texture } };
+</script>

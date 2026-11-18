@@ -1,0 +1,270 @@
+{
+  "version": "medienablage-v1.0",
+  "cards": [
+    {
+      "id": "O01",
+      "title": "Der freie Sessel",
+      "group": "Ruhe",
+      "image": "/media/cards/O01.png",
+      "audio": "/media/audio/O01.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O02",
+      "title": "Der Vorhang",
+      "group": "Ruhe",
+      "image": "/media/cards/O02.png",
+      "audio": "/media/audio/O02.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O03",
+      "title": "Das unbeschriebene Blatt",
+      "group": "Ruhe",
+      "image": "/media/cards/O03.png",
+      "audio": "/media/audio/O03.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O04",
+      "title": "Das Kissen",
+      "group": "Ruhe",
+      "image": "/media/cards/O04.png",
+      "audio": "/media/audio/O04.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O05",
+      "title": "Die geschlossene Blüte",
+      "group": "Ruhe",
+      "image": "/media/cards/O05.png",
+      "audio": "/media/audio/O05.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O06",
+      "title": "Die ruhende Uhr",
+      "group": "Ruhe",
+      "image": "/media/cards/O06.png",
+      "audio": "/media/audio/O06.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": "Bild hat Ziffern und Zeiger; Motivanweisung v1.3 fordert keine Ziffern und Zeiger."
+    },
+    {
+      "id": "O07",
+      "title": "Der Funke",
+      "group": "Kraft",
+      "image": "/media/cards/O07.png",
+      "audio": "/media/audio/O07.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O08",
+      "title": "Die Laterne",
+      "group": "Kraft",
+      "image": "/media/cards/O08.png",
+      "audio": "/media/audio/O08.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O09",
+      "title": "Das Gartentor",
+      "group": "Kraft",
+      "image": "/media/cards/O09.png",
+      "audio": "/media/audio/O09.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O10",
+      "title": "Der Samen",
+      "group": "Kraft",
+      "image": "/media/cards/O10.png",
+      "audio": "/media/audio/O10.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O11",
+      "title": "Der Werkzeugkasten",
+      "group": "Kraft",
+      "image": "/media/cards/O11.png",
+      "audio": "/media/audio/O11.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": "Titel aus Redaktion v1.3; fruehere Titelstaende nicht uebernehmen."
+    },
+    {
+      "id": "O12",
+      "title": "Das bewegliche Mobile",
+      "group": "Kraft",
+      "image": "/media/cards/O12.png",
+      "audio": "/media/audio/O12.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": "Titel aus Redaktion v1.3; fruehere Titelstaende nicht uebernehmen."
+    },
+    {
+      "id": "O13",
+      "title": "Die Wurzel",
+      "group": "Halt",
+      "image": "/media/cards/O13.png",
+      "audio": "/media/audio/O13.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O14",
+      "title": "Die Bank",
+      "group": "Halt",
+      "image": "/media/cards/O14.png",
+      "audio": "/media/audio/O14.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O15",
+      "title": "Die Brücke",
+      "group": "Halt",
+      "image": "/media/cards/O15.png",
+      "audio": "/media/audio/O15.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O16",
+      "title": "Der Faden",
+      "group": "Halt",
+      "image": "/media/cards/O16.png",
+      "audio": "/media/audio/O16.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O17",
+      "title": "Das Dach",
+      "group": "Halt",
+      "image": "/media/cards/O17.png",
+      "audio": "/media/audio/O17.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O18",
+      "title": "Der Kiesel",
+      "group": "Halt",
+      "image": "/media/cards/O18.png",
+      "audio": "/media/audio/O18.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O19",
+      "title": "Der Lichtpunkt",
+      "group": "Freude",
+      "image": "/media/cards/O19.png",
+      "audio": "/media/audio/O19.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O20",
+      "title": "Das Windspiel",
+      "group": "Freude",
+      "image": "/media/cards/O20.png",
+      "audio": "/media/audio/O20.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O21",
+      "title": "Der Tanz der Blätter",
+      "group": "Freude",
+      "image": "/media/cards/O21.png",
+      "audio": "/media/audio/O21.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O22",
+      "title": "Das offene Fenster",
+      "group": "Freude",
+      "image": "/media/cards/O22.png",
+      "audio": "/media/audio/O22.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O23",
+      "title": "Die Sternenspur",
+      "group": "Freude",
+      "image": "/media/cards/O23.png",
+      "audio": "/media/audio/O23.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    },
+    {
+      "id": "O24",
+      "title": "Die schräge Tasse",
+      "group": "Freude",
+      "image": "/media/cards/O24.png",
+      "audio": "/media/audio/O24.mp3",
+      "audioFilePresent": false,
+      "cardImagePresent": true,
+      "imageTextReview": "ausstehend",
+      "editorialNote": null
+    }
+  ],
+  "status": "testmedia-not-released"
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0",
+  "feature": "EMFD-HOUSE-MUSIC-01",
+  "appVersion": "0.6.50",
+  "assignmentStatus": "user-approved-2026-11-04",
+  "scope": "room-to-composition associations only; not approval of audio files or publication",
+  "audioPolicy": {
+    "autoPlay": false,
+    "sharedPlayer": true,
+    "trackReuseAcrossRooms": true,
+    "fileAvailability": "not-verified; shared audio files are not packaged"
+  },
+  "rooms": {
+    "P01": {
+      "cardIds": [
+        "O01",
+        "O02",
+        "O22"
+      ]
+    },
+    "P02": {
+      "cardIds": [
+        "O03",
+        "O18",
+        "O16"
+      ]
+    },
+    "P03": {
+      "cardIds": [
+        "O21",
+        "O13",
+        "O10",
+        "O05"
+      ]
+    },
+    "P04": {
+      "cardIds": [
+        "O07",
+        "O11",
+        "O12"
+      ]
+    },
+    "P05": {
+      "cardIds": [
+        "O09",
+        "O14",
+        "O15"
+      ]
+    },
+    "P06": {
+      "cardIds": [
+        "O08",
+        "O15",
+        "O16",
+        "O19"
+      ]
+    },
+    "P07": {
+      "cardIds": [
+        "O20",
+        "O17",
+        "O23"
+      ]
+    },
+    "P08": {
+      "cardIds": [
+        "O24",
+        "O04",
+        "O06"
+      ]
+    }
+  },
+  "flur": {
+    "themeAssetId": "T03",
+    "trackPathReference": "../media/audio/THEME.mp3",
+    "renderNewControl": false
+  },
+  "musikzimmer": {
+    "mode": "complete-catalog",
+    "expectedItems": 25
+  }
+}

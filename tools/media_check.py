@@ -279,9 +279,10 @@ def check_apps(files: list[dict], server: str | None) -> dict:
                 text = p.read_text(encoding="utf-8", errors="replace")
                 rx = LOADER_RX if p.suffix.lower() == ".html" else JS_IMPORT_RX
                 r["loader"] += [f"{rel}: {m}" for m in rx.findall(text)]
-                if META_RX.search(text):
+                if p.suffix.lower() == ".html" and META_RX.search(text):
                     r["loader"].append(f"{rel}: meta emfd-media-base ../media/")
-                r["absolutePaths"] += [rel] if ABS_RX.search(text) else []
+                if any(ABS_RX.search(line) and "emfd-media-check: erlaubt" not in line for line in text.splitlines()):
+                    r["absolutePaths"].append(rel)
             elif p.suffix.lower() in {".png", ".webp", ".jpg", ".jpeg", ".mp3", ".glb"}:
                 h = sha256(p)
                 if h in media_hashes:

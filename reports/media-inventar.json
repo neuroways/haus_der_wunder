@@ -1,6 +1,6 @@
 {
  "tool": "emfd-media-check/1.0",
- "generatedAt": "2026-11-18T16:34:34+00:00",
+ "generatedAt": "2026-11-18T16:43:38+00:00",
  "mediaRoot": "media",
  "files": [
   {
@@ -1450,18 +1450,13 @@
    "text": "Die Live-Fassung auf dem Server bindet den Loader noch nicht ein."
   },
   {
-   "level": "Warnung",
-   "path": "home_3d/",
-   "text": "Bindet den gemeinsamen Loader ../media/media-loader.js nicht ein – greift nicht auf media/ zu."
-  },
-  {
-   "level": "Warnung",
+   "level": "Hinweis",
    "path": "home_3d/ (live)",
-   "text": "Live-index.html nicht abrufbar (HTTP 404) – App online erreichbar?"
+   "text": "Die Live-Fassung auf dem Server bindet den Loader noch nicht ein."
   }
  ],
  "changes": {
-  "base": "2026-11-18T16:34:00+00:00",
+  "base": "2026-11-18T16:43:18+00:00",
   "added": [],
   "changed": [],
   "removed": []
@@ -1481,20 +1476,22 @@
    "ok": true
   },
   "home_3d": {
-   "loader": [],
+   "loader": [
+    "index.html: meta emfd-media-base ../media/"
+   ],
    "absolutePaths": [],
    "copies": [],
    "cardNamedFiles": [],
    "live": {
     "url": "https://flowisaurus.de/wunderhaus/home_3d/index.html",
-    "error": "HTTP 404"
+    "loader": false
    },
-   "ok": false
+   "ok": true
   }
  },
  "server": {
   "base": "https://flowisaurus.de/wunderhaus/media/",
-  "checkedAt": "2026-11-18T16:34:34+00:00",
+  "checkedAt": "2026-11-18T16:43:38+00:00",
   "files": {
    "MEDIEN-KONVENTION.md": {
     "status": 404,

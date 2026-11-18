@@ -1,22 +1,22 @@
 # Medien-Check · media/
 
-Erstellt: 2026-11-18T16:34:34+00:00 · Werkzeug `tools/media_check.py` · 89 Dateien, 51.7 MB
+Erstellt: 2026-11-18T16:43:38+00:00 · Werkzeug `tools/media_check.py` · 89 Dateien, 51.7 MB
 
 ## Ergebnis
 
 - Vorderseiten: **18/24** Karten · Cover: **3/25** (O01–O24 + T03)
 - Ohne Vorderseite: O19, O20, O21, O22, O23, O24
 - Ohne Cover: O01, O02, O03, O05, O07, O08, O09, O10, O11, O12, O13, O14, O15, O16, O17, O18, O19, O20, O21, O22, O23, T03
-- Fehler: **0** · Warnungen: **2** · Hinweise: **1**
-- Seit 2026-11-18T16:34:00+00:00: 0 neu, 0 geändert, 0 entfernt
-- Server (https://flowisaurus.de/wunderhaus/media/, 2026-11-18T16:34:34+00:00): fehlt online: **89**
+- Fehler: **0** · Warnungen: **0** · Hinweise: **2**
+- Seit 2026-11-18T16:43:18+00:00: 0 neu, 0 geändert, 0 entfernt
+- Server (https://flowisaurus.de/wunderhaus/media/, 2026-11-18T16:43:38+00:00): fehlt online: **89**
 
 ## Apps · Zugriff auf media/
 
 | App | Loader eingebunden (Repo) | absolute Medienpfade | Medienkopien | live auf dem Server |
 |---|---|---|---|---|
 | `home/` | ✓ index.html: ../media/media-loader.js | — | — | ✗ kein Loader |
-| `home_3d/` | ✗ nein | — | — | nicht abrufbar (HTTP 404) |
+| `home_3d/` | ✓ index.html: meta emfd-media-base ../media/ | — | — | ✗ kein Loader |
 
 ## Ordnerstruktur
 
@@ -67,9 +67,8 @@ media/                                 89 Dateien    51.7 MB
 
 | Stufe | Datei / Karte | Befund |
 |---|---|---|
-| Warnung | `home_3d/` | Bindet den gemeinsamen Loader ../media/media-loader.js nicht ein – greift nicht auf media/ zu. |
-| Warnung | `home_3d/ (live)` | Live-index.html nicht abrufbar (HTTP 404) – App online erreichbar? |
 | Hinweis | `home/ (live)` | Die Live-Fassung auf dem Server bindet den Loader noch nicht ein. |
+| Hinweis | `home_3d/ (live)` | Die Live-Fassung auf dem Server bindet den Loader noch nicht ein. |
 
 ## Server-Abgleich
 

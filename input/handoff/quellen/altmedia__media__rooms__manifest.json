@@ -1,0 +1,84 @@
+{
+  "version": "medienablage-v1.0",
+  "rooms": [
+    {
+      "id": "P01",
+      "name": "Fensterzimmer",
+      "path": "/media/rooms/P01-fensterzimmer.webp",
+      "status": "bereits-im-v0.6.12-paket"
+    },
+    {
+      "id": "P02",
+      "name": "Bibliothek",
+      "path": "/media/rooms/P02-bibliothek.webp",
+      "status": "bereits-im-v0.6.12-paket"
+    },
+    {
+      "id": "P03",
+      "name": "Wintergarten",
+      "path": "/media/rooms/P03-wintergarten.webp",
+      "status": "bereits-im-v0.6.12-paket"
+    },
+    {
+      "id": "P04",
+      "name": "Atelier",
+      "path": "/media/rooms/P04-atelier.webp",
+      "status": "bereits-im-v0.6.12-paket"
+    },
+    {
+      "id": "P05",
+      "name": "Innenhof",
+      "path": "/media/rooms/P05-innenhof.webp",
+      "status": "bereits-im-v0.6.12-paket"
+    },
+    {
+      "id": "P06",
+      "name": "Galerie",
+      "path": "/media/rooms/P06-galerie.webp",
+      "status": "bereits-im-v0.6.12-paket"
+    },
+    {
+      "id": "P07",
+      "name": "Dachterrasse",
+      "path": "/media/rooms/P07-dachterrasse.webp",
+      "status": "bereits-im-v0.6.12-paket"
+    },
+    {
+      "id": "P08",
+      "name": "Teezimmer",
+      "path": "/media/rooms/P08-teezimmer.webp",
+      "status": "bereits-im-v0.6.12-paket"
+    },
+    {
+      "id": "HOUSE-ENTRY",
+      "name": "Hauseingang",
+      "path": "/media/rooms/startseite-haustuer-v1.webp",
+      "status": "aus-UI-freiem-JPEG-erstellt"
+    },
+    {
+      "id": "HALL-LIT",
+      "name": "Flur Licht an",
+      "path": "/media/rooms/flur-v2.webp",
+      "status": "unveraendert-aus-Flur-Paket"
+    },
+    {
+      "id": "HALL-DIM",
+      "name": "Flur Licht aus",
+      "path": "/media/rooms/flur-v2-dim.webp",
+      "status": "unveraendert-aus-Flur-Paket"
+    },
+    {
+      "id": "MUSIC",
+      "name": "Musikzimmer",
+      "path": "/media/rooms/musikzimmer-v1.webp",
+      "status": "aus-UI-freiem-JPEG-erstellt"
+    },
+    {
+      "id": "HOUSE-HUB",
+      "name": "Zentrale Halle",
+      "path": "/media/rooms/haus-zentrale-halle-v1.webp",
+      "status": "zusatzoption-keine-automatische-Freigabe"
+    }
+  ],
+  "note": "Bestehende acht Raumdateien + Flurzustande aus Paketen unveraendert; weitere Varianten unter /media/rooms/varianten."
+}

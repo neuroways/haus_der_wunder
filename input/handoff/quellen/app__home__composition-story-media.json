@@ -1,0 +1,249 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "v0.4",
+  "illustrationStatus": "pending",
+  "fallbackPolicy": "original-card",
+  "updatedAt": "2026-11-03",
+  "illustrations": [
+    {
+      "illustrationId": "KG-O01",
+      "cardId": "O01",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O01",
+      "fallbackPath": "../media/optimized/cards/O01-630x1080-v1-47041d64df.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O01: Der freie Sessel."
+    },
+    {
+      "illustrationId": "KG-O02",
+      "cardId": "O02",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O02",
+      "fallbackPath": "../media/optimized/cards/O02-630x1080-v1-ea0c9d086d.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O02: Der Vorhang."
+    },
+    {
+      "illustrationId": "KG-O03",
+      "cardId": "O03",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O03",
+      "fallbackPath": "../media/optimized/cards/O03-630x1080-v1-538d1729a7.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O03: Das unbeschriebene Blatt."
+    },
+    {
+      "illustrationId": "KG-O04",
+      "cardId": "O04",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O04",
+      "fallbackPath": "../media/optimized/cards/O04-630x1080-v1-9b2846a48e.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O04: Das Kissen."
+    },
+    {
+      "illustrationId": "KG-O05",
+      "cardId": "O05",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O05",
+      "fallbackPath": "../media/optimized/cards/O05-630x1080-v1-66c23e33ec.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O05: Die geschlossene Blüte."
+    },
+    {
+      "illustrationId": "KG-O06",
+      "cardId": "O06",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O06",
+      "fallbackPath": "../media/optimized/cards/O06-630x1080-v1-d7b8985de0.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O06: Die ruhende Uhr."
+    },
+    {
+      "illustrationId": "KG-O07",
+      "cardId": "O07",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O07",
+      "fallbackPath": "../media/optimized/cards/O07-630x1080-v1-55988a067e.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O07: Der Funke."
+    },
+    {
+      "illustrationId": "KG-O08",
+      "cardId": "O08",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O08",
+      "fallbackPath": "../media/optimized/cards/O08-630x1080-v1-7cace7daa6.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O08: Die Laterne."
+    },
+    {
+      "illustrationId": "KG-O09",
+      "cardId": "O09",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O09",
+      "fallbackPath": "../media/optimized/cards/O09-630x1080-v1-f5631e0d0d.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O09: Das Gartentor."
+    },
+    {
+      "illustrationId": "KG-O10",
+      "cardId": "O10",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O10",
+      "fallbackPath": "../media/optimized/cards/O10-630x1080-v1-79dd7c2417.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O10: Der Samen."
+    },
+    {
+      "illustrationId": "KG-O11",
+      "cardId": "O11",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O11",
+      "fallbackPath": "../media/optimized/cards/O11-630x1080-v1-817636f65e.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O11: Der Werkzeugkasten."
+    },
+    {
+      "illustrationId": "KG-O12",
+      "cardId": "O12",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O12",
+      "fallbackPath": "../media/optimized/cards/O12-630x1080-v1-9b05b53b78.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O12: Das bewegliche Mobile."
+    },
+    {
+      "illustrationId": "KG-O13",
+      "cardId": "O13",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O13",
+      "fallbackPath": "../media/optimized/cards/O13-630x1080-v1-8a85824d30.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O13: Die Wurzel."
+    },
+    {
+      "illustrationId": "KG-O14",
+      "cardId": "O14",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O14",
+      "fallbackPath": "../media/optimized/cards/O14-630x1080-v1-43247f7cf2.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O14: Die Bank."
+    },
+    {
+      "illustrationId": "KG-O15",
+      "cardId": "O15",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O15",
+      "fallbackPath": "../media/optimized/cards/O15-630x1080-v1-b13fb25925.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O15: Die Brücke."
+    },
+    {
+      "illustrationId": "KG-O16",
+      "cardId": "O16",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O16",
+      "fallbackPath": "../media/optimized/cards/O16-630x1080-v1-fc700ce626.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O16: Der Faden."
+    },
+    {
+      "illustrationId": "KG-O17",
+      "cardId": "O17",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O17",
+      "fallbackPath": "../media/optimized/cards/O17-630x1080-v1-8deb0dda40.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O17: Das Dach."
+    },
+    {
+      "illustrationId": "KG-O18",
+      "cardId": "O18",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O18",
+      "fallbackPath": "../media/optimized/cards/O18-630x1080-v1-2541c92721.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O18: Der Kiesel."
+    },
+    {
+      "illustrationId": "KG-O19",
+      "cardId": "O19",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O19",
+      "fallbackPath": "../media/optimized/cards/O19-630x1080-v1-6e2b113bb5.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O19: Der Lichtpunkt."
+    },
+    {
+      "illustrationId": "KG-O20",
+      "cardId": "O20",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O20",
+      "fallbackPath": "../media/optimized/cards/O20-630x1080-v1-096501a523.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O20: Das Windspiel."
+    },
+    {
+      "illustrationId": "KG-O21",
+      "cardId": "O21",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O21",
+      "fallbackPath": "../media/optimized/cards/O21-630x1080-v1-d6447303ab.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O21: Der Tanz der Blätter."
+    },
+    {
+      "illustrationId": "KG-O22",
+      "cardId": "O22",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O22",
+      "fallbackPath": "../media/optimized/cards/O22-630x1080-v1-f9e0be09eb.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O22: Das offene Fenster."
+    },
+    {
+      "illustrationId": "KG-O23",
+      "cardId": "O23",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O23",
+      "fallbackPath": "../media/optimized/cards/O23-630x1080-v1-fd5b16d29c.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O23: Die Sternenspur."
+    },
+    {
+      "illustrationId": "KG-O24",
+      "cardId": "O24",
+      "status": "pending",
+      "masterPath": null,
+      "webPath": null,
+      "fallbackCardImageId": "O24",
+      "fallbackPath": "../media/optimized/cards/O24-630x1080-v1-e66d387234.webp",
+      "alt": "Temporäre Vorschau mit der unveränderten Originalkarte O24: Die schräge Tasse."
+    }
+  ]
+}
