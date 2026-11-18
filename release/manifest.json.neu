@@ -7558,7 +7558,7 @@
   "schemaVersion": "2.0.0",
   "revision": 2,
   "revisionLabel": "Kandidat Rev. 2 · Serverbestand 18.11.2026",
-  "updatedAt": "2026-11-18T18:00:45Z",
+  "updatedAt": "2026-11-18T18:01:33Z",
   "generator": "emfd_media.py 1.0.0",
   "mediaRoot": "./",
   "project": "Ein Moment für dich · Das Haus der kleinen Wunder",
@@ -19126,7 +19126,10 @@
       },
       "etag": "\"5328c-65f6785d71700\""
      }
-    }
+    },
+    "notes": [
+     "Nutzerentscheidung 18.11.2026: verbindliche Stilreferenz für das Teezimmer im 3D-Haus (Bogenfenster, runder Holztisch, Blau/Gold, Mondsichel-Motive). Variante 'Mond' gilt nicht als Stilvorgabe."
+    ]
    },
    "room.P08-teezimmer.r1": {
     "role": "room",

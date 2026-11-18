@@ -776,6 +776,11 @@ class Builder:
 
         # ---- rooms, backgrounds, portrait, references from file inventory
         rooms, other = self._rooms_and_misc(v1_by_path, inventory_rows)
+        # Nutzerentscheidung 18.11.2026: Stilreferenz des Teezimmers (3D) ist die Variante "Rundtisch"
+        if "room.P08-teezimmer-rundtisch-v1.r1" in self.assets:
+            self.assets["room.P08-teezimmer-rundtisch-v1.r1"].setdefault("notes", []).append(
+                "Nutzerentscheidung 18.11.2026: verbindliche Stilreferenz für das Teezimmer im 3D-Haus "
+                "(Bogenfenster, runder Holztisch, Blau/Gold, Mondsichel-Motive). Variante 'Mond' gilt nicht als Stilvorgabe.")
         # Nutzerentscheidung 18.11.2026: Atelier-Hauptbild ist die Werkbank (Original 29.10.), nicht die Kartenauslage
         if "room.P04-atelier.r1" in self.assets:
             self.assets["room.P04-atelier.r1"].setdefault("notes", []).append(

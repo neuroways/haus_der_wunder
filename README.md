@@ -18,7 +18,7 @@ Weitere Ordner:
 | `input/handoff/` | unveränderte Übergabedaten (Quelle für `build`) |
 | `reports/` | `staging.json`, `medienstatus.csv`, `abgleich.json` (Paket) · `media-bericht.md`, `media-inventar.json` (Medien-Check) |
 | `3d-integration/` | Original der 3D-Brücke aus dem Paket (v1.0.0); eingebaut ist die angepasste Fassung in `home_3d/src/bridge/media.js` |
-| `docs/` | Übergabe, Paket-README, `01`–`07` (Bestand, Schnittstelle, Deployment/Rollback, PWA, 3D, Tests, Live-Bestand 18.11.) |
+| `docs/` | Übergabe, Paket-README, `01`–`08` (Bestand, Schnittstelle, Deployment/Rollback, PWA, 3D, Tests, Live-Bestand 18.11., Entscheidungen) |
 | `live/` | Momentaufnahmen vom Server (nur gelesen): Manifest v1, `home/` (v0.6.66), `inventar/` (Serverprüfung) |
 | `release/` | Manifest-Kandidat Revision 2 und `.htaccess`-Vorschlag – **nicht live** |
 
