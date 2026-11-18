@@ -16,6 +16,8 @@ Geprüft wird:
     4. Aktualität   je Karte O01–O24 (+ T03): neueste Revision, ältere Revisionen, fehlende Varianten
     5. Änderungen   neu / geändert / entfernt seit dem letzten Inventar
     6. Server       (--server) liegt dieselbe Datei auf flowisaurus.de/wunderhaus/media/? (Größe, Last-Modified)
+    7. Apps         home/ und home_3d/: binden sie ../media/media-loader.js ein? keine absoluten Medienpfade,
+                    keine Medienkopien im App-Ordner? (mit --server auch die Live-index.html)
 
 Ändert nichts in media/ und nichts am Server. Exit-Code 1 bei Fehlern (z. B. Hash passt nicht).
 """
@@ -246,6 +248,79 @@ def server_check(files: list[dict], base: str, workers: int = 8) -> dict:
         return dict(ex.map(head, files))
 
 
+
+# ---------------------------------------------------------------- Apps: greifen sie auf media/ zu?
+
+APPS = ["home", "home_3d"]
+LOADER_RX = re.compile(r"""(?:src|href|from|import\(?)\s*=?\s*["'](\.\./media/media-loader\.m?js)[?"']""")
+META_RX = re.compile(r"""<meta[^>]+name=["']emfd-media-base["'][^>]+content=["']\.\./media/["']""")
+ABS_RX = re.compile(r"""["'(]/wunderhaus/media/""")
+JS_IMPORT_RX = re.compile(r"""(?:\bfrom\s*|\bimport\s*\(\s*|\bimport\s+)["'](\.\./media/media-loader\.m?js)[?"']""")
+CARDNAME_RX = re.compile(r"(?:^|/)(?:O(?:0[1-9]|1[0-9]|2[0-4])|T03)[-.][^/]*\.(?:png|webp|jpe?g)$", re.I)
+CODE_EXT = {".html", ".js", ".mjs", ".css", ".json"}
+
+
+def check_apps(files: list[dict], server: str | None) -> dict:
+    """Je App: Loader eingebunden? absolute Medienpfade? Medienkopien? (+ live index.html)"""
+    media_hashes = {f["sha256"]: f["path"] for f in files}
+    result = {}
+    for app in APPS:
+        d = ROOT / app
+        if not d.is_dir():
+            continue
+        r = {"loader": [], "absolutePaths": [], "copies": [], "cardNamedFiles": [], "live": None}
+        for p in sorted(d.rglob("*")):
+            if not p.is_file():
+                continue
+            rel = p.relative_to(d).as_posix()
+            if rel.startswith("vendor/"):
+                continue
+            if p.suffix.lower() in CODE_EXT:
+                text = p.read_text(encoding="utf-8", errors="replace")
+                rx = LOADER_RX if p.suffix.lower() == ".html" else JS_IMPORT_RX
+                r["loader"] += [f"{rel}: {m}" for m in rx.findall(text)]
+                if META_RX.search(text):
+                    r["loader"].append(f"{rel}: meta emfd-media-base ../media/")
+                r["absolutePaths"] += [rel] if ABS_RX.search(text) else []
+            elif p.suffix.lower() in {".png", ".webp", ".jpg", ".jpeg", ".mp3", ".glb"}:
+                h = sha256(p)
+                if h in media_hashes:
+                    r["copies"].append(f"{rel} = media/{media_hashes[h]}")
+                elif CARDNAME_RX.search(rel):
+                    r["cardNamedFiles"].append(rel)
+        if server:
+            url = server.rstrip("/").rsplit("/", 1)[0] + f"/{app}/index.html"
+            try:
+                with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "emfd-media-check/1.0"}), timeout=20) as resp:
+                    text = resp.read().decode("utf-8", "replace")
+                r["live"] = {"url": url, "loader": bool(LOADER_RX.search(text) or META_RX.search(text))}
+            except urllib.error.HTTPError as e:
+                r["live"] = {"url": url, "error": f"HTTP {e.code}"}
+            except Exception as e:
+                r["live"] = {"url": url, "error": str(e)[:120]}
+        r["ok"] = bool(r["loader"]) and not r["absolutePaths"] and not r["copies"]
+        result[app] = r
+    return result
+
+
+def app_issues(apps: dict) -> list[dict]:
+    out = []
+    for app, r in apps.items():
+        if not r["loader"]:
+            out.append({"level": "Warnung", "path": f"{app}/", "text": "Bindet den gemeinsamen Loader ../media/media-loader.js nicht ein – greift nicht auf media/ zu."})
+        for rel in r["absolutePaths"]:
+            out.append({"level": "Warnung", "path": f"{app}/{rel}", "text": "Absoluter Pfad /wunderhaus/media/ – unter haus-der-wunder.de nicht erreichbar; relativ ../media/ nutzen."})
+        for c in r["copies"]:
+            out.append({"level": "Fehler", "path": f"{app}/{c.split(' = ')[0]}", "text": f"Kopie einer Mediendatei ({c.split(' = ')[1]}) im App-Ordner – Konvention verbietet Medienkopien."})
+        for rel in r["cardNamedFiles"]:
+            out.append({"level": "Hinweis", "path": f"{app}/{rel}", "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."})
+        if r["live"] and "error" in r["live"]:
+            out.append({"level": "Warnung", "path": f"{app}/ (live)", "text": f"Live-index.html nicht abrufbar ({r['live']['error']}) – App online erreichbar?"})
+        if r["live"] and r["live"].get("loader") is False:
+            out.append({"level": "Hinweis", "path": f"{app}/ (live)", "text": "Die Live-Fassung auf dem Server bindet den Loader noch nicht ein."})
+    return out
+
+
 # ---------------------------------------------------------------- Bericht
 
 def human(n: int) -> str:
@@ -310,6 +385,13 @@ def report(inv: dict) -> str:
         for r in server["files"].values():
             st[r["state"]] = st.get(r["state"], 0) + 1
         L.append(f"- Server ({server['base']}, {server['checkedAt']}): " + " · ".join(f"{k}: **{v}**" for k, v in sorted(st.items())))
+    apps = inv.get("apps") or {}
+    if apps:
+        L += ["", "## Apps · Zugriff auf media/", "",
+              "| App | Loader eingebunden (Repo) | absolute Medienpfade | Medienkopien | live auf dem Server |", "|---|---|---|---|---|"]
+        for app, r in apps.items():
+            live = "—" if not r["live"] else (f"nicht abrufbar ({r['live']['error']})" if "error" in r["live"] else ("✓ Loader" if r["live"]["loader"] else "✗ kein Loader"))
+            L.append(f"| `{app}/` | {'✓ ' + '; '.join(r['loader']) if r['loader'] else '✗ nein'} | {len(r['absolutePaths']) or '—'} | {len(r['copies']) or '—'} | {live} |")
     L += ["", "## Ordnerstruktur", "", "```", *tree(files), "```", "",
           "## Karten", "",
           "✓ = neueste Revision vollständig (Original + alle Varianten) · ⚠ = unvollständig · — = nicht vorhanden · (+n alt) = ältere Revisionen liegen noch", ""]
@@ -381,6 +463,11 @@ def main(argv=None) -> int:
         "issues": check_files(files) + card_issues,
         "changes": diff(old, files),
     }
+    server_base = None
+    if args.server:
+        server_base = args.server if args.server.endswith("/") else args.server + "/"
+    inv["apps"] = check_apps(files, server_base)
+    inv["issues"] += app_issues(inv["apps"])
     if args.server:
         base = args.server if args.server.endswith("/") else args.server + "/"
         inv["server"] = {"base": base, "checkedAt": inv["generatedAt"], "files": server_check(files, base)}
@@ -397,6 +484,9 @@ def main(argv=None) -> int:
         for r in inv["server"]["files"].values():
             st[r["state"]] = st.get(r["state"], 0) + 1
         print("Server: " + ", ".join(f"{k} {v}" for k, v in sorted(st.items())))
+    for app, r in inv["apps"].items():
+        live = "" if not r["live"] else ("  live: " + (r["live"]["error"] if "error" in r["live"] else ("Loader" if r["live"]["loader"] else "kein Loader")))
+        print(f"App {app}/: {'nutzt media/' if r['ok'] else 'nutzt media/ NICHT (oder verletzt Konvention)'}{live}")
 
     if not args.nur_anzeigen:
         args.out.mkdir(parents=True, exist_ok=True)
