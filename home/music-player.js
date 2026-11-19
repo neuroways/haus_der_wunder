@@ -10,6 +10,7 @@
  const roomAvailability=new Map();
  let roomExplicitQueue=false;
  let roomEntries=[],roomQueue=[],roomQueueFinished=false,roomMode='track',recordPlaced=false;
+ let playContext=null,pendingContext=null,roomSelecting=false;
  function registerRoomEntries(entries){roomEntries=entries;for(const entry of entries){if(entry.variantId&&!entry.audioAssetId)roomAvailability.set(entry.entryId,'missing');}if(tracks.length&&entries.some(entry=>entry.audioAssetId&&tracks.some(track=>track.assetId===entry.audioAssetId)&&!roomAvailability.has(entry.audioAssetId)))refreshRoomAvailability();updateRoom();}
  const missingRecordMessage='Leider ist die Platte verloren gegangen, sie wird gerade im Haus gesucht.';
  function roomTrack(id){const entry=roomEntries.find(item=>item.entryId===id);if(entry?.variantId)return tracks.find(track=>track.assetId===entry.audioAssetId)||null;return id==='theme'?tracks.find(t=>t.assetId==='T03'&&t.kind==='app-theme'):tracks.find(t=>t.cardId===id);}
@@ -62,7 +63,8 @@
    window.EMFDAudio?.publish();updateRoom();return true;
  }
  function cycleRoomMode(){const modes=roomQueue.length?['once','playlist','track']:['track','once'];setRoomMode(modes[(modes.indexOf(roomMode)+1)%modes.length]);}
- function selectRoomTrack(id,{play=false,explicit=false,keepQueue=false}={}){
+ function selectRoomTrack(id,options={}){roomSelecting=true;try{return selectRoomTrackNow(id,options);}finally{roomSelecting=false;}}
+ function selectRoomTrackNow(id,{play=false,explicit=false,keepQueue=false}={}){
    if(!roomTracksReady)return false;
    const entry=roomEntries.find(item=>item.entryId===id),track=roomTrack(id);
    if(!track&&!entry?.variantId)return false;
@@ -79,12 +81,15 @@
    if(play){if(quiet)return true;if((globalSilence||entryMusicOff())&&!explicit&&!roomExplicitQueue){updateRoom();return true;}if(explicit){globalSilence=false;store(silenceKey,false);}userPaused=false;enabled=true;recordPlaced=true;session.play();}
    updateDock();updateRoom();return true;
  }
- function startRoomPlaylist(ids,{explicit=false,startId=null}={}){
+ function startRoomPlaylist(ids,{explicit=false,startId=null,context=null}={}){
    if(!roomTracksReady||!ids.length)return false;
    roomExplicitQueue=explicit;
    roomQueue=[...new Set(ids)].filter(id=>availabilityFor(id)!=='missing'&&roomTrack(id));roomQueueFinished=false;roomMode='once';
-   if(!roomQueue.length){selectRoomTrack(ids[0],{keepQueue:true});return true;}
-   return selectRoomTrack(roomQueue.includes(startId)?startId:roomQueue[0],{play:true,explicit,keepQueue:true});
+   // EMFD-PLAYER-01: a deliberate start binds the playback to its source (e.g. a room device).
+   pendingContext=context?Object.freeze({...context,queueKey:roomQueue.join(',')}):null;
+   const result=!roomQueue.length?(selectRoomTrack(ids[0],{keepQueue:true}),true):selectRoomTrack(roomQueue.includes(startId)?startId:roomQueue[0],{play:true,explicit,keepQueue:true});
+   if(pendingContext){playContext=pendingContext;pendingContext=null;window.EMFDAudio?.publish();}
+   return result;
  }
  function advanceRoomQueue(){
    if(roomMode==='track'||!roomQueue.length||!enabled||userPaused||globalSilence||quiet)return;
@@ -184,7 +189,14 @@
  function stopPlayback(){userPaused=true;enabled=false;session.stop();updateDock();return true;}
  function setPlaybackVolume(value){session.setVolume(value);volume.value=String(session.volume);store(volumeKey,session.volume);}
  function chooseSilence(){globalSilence=true;store(silenceKey,true);family.value='silence';choose();return true;}
- window.EMFDMusic={startPlayback:()=>startRoomMusic(true),pausePlayback,stopPlayback,setPlaybackVolume,chooseSilence,toggleTheme,unbindRoom,startRoomPlaylist,setRoomMode,get recordPlaced(){return recordPlaced;},get roomMode(){return roomMode;},get roomQueue(){return [...roomQueue];},registerRoomEntries,refreshRoomAvailability,availability:availabilityFor,missingRecordMessage,selectRoomTrack,stepRoomTrack,get roomTrackId(){return roomId();},get ready(){return roomTracksReady;},cardChanged,setEnabled,setQuiet,bindDock,bindRoom,selectTheme,selectCardTrack,setBackgroundPreference,concealCard,revealCard,stopForTeeReturn,get mode(){return mode;},get enabled(){return enabled;},get globalSilence(){return globalSilence;},get session(){return session;}};const initialVolume=Number(stored(volumeKey,'0.7'));if(Number.isFinite(initialVolume)){session.setVolume(initialVolume);volume.value=String(session.volume);}
+ // EMFD-PLAYER-01: playback context = which source deliberately started the current track.
+ // Display/binding only: it never starts, pauses or stops audio (W1: music continues across rooms).
+ {const baseSelect=session.select.bind(session);session.select=track=>{
+   if(pendingContext){playContext=pendingContext;pendingContext=null;}
+   else if(!(roomSelecting&&playContext&&roomQueue.length&&playContext.queueKey===roomQueue.join(',')))playContext=null;
+   return baseSelect(track);
+ };}
+ window.EMFDMusic={get playContext(){return playContext;},startPlayback:()=>startRoomMusic(true),pausePlayback,stopPlayback,setPlaybackVolume,chooseSilence,toggleTheme,unbindRoom,startRoomPlaylist,setRoomMode,get recordPlaced(){return recordPlaced;},get roomMode(){return roomMode;},get roomQueue(){return [...roomQueue];},registerRoomEntries,refreshRoomAvailability,availability:availabilityFor,missingRecordMessage,selectRoomTrack,stepRoomTrack,get roomTrackId(){return roomId();},get ready(){return roomTracksReady;},cardChanged,setEnabled,setQuiet,bindDock,bindRoom,selectTheme,selectCardTrack,setBackgroundPreference,concealCard,revealCard,stopForTeeReturn,get mode(){return mode;},get enabled(){return enabled;},get globalSilence(){return globalSilence;},get session(){return session;}};const initialVolume=Number(stored(volumeKey,'0.7'));if(Number.isFinite(initialVolume)){session.setVolume(initialVolume);volume.value=String(session.volume);}
  window.EMFDAudio?.attach(window.EMFDMusic);
  session.emit();bindDock();window.dispatchEvent?.(new CustomEvent('emfd:music-ready'));
  (window.EMFDContent?window.EMFDContent.musicManifest():fetch('music-manifest.json?v=0.6.61-audio').then(r=>{if(!r.ok)throw Error('manifest');return r.json();})).then(m=>{tracks=m.tracks;refreshRoomAvailability();updateRoom();for(const [id,label] of [['S01-E','Harfe und Handpan'],['S01-F-H','Harfe'],['S01-F-P','Handpan'],['S01-D','Percussion'],['W01','Winterstille']]){const o=document.createElement('option');o.value=id;o.textContent=label;family.append(o);}const appThemes=document.createElement('optgroup');appThemes.label='App-Theme';tracks.filter(t=>t.kind==='app-theme').forEach(t=>{const o=document.createElement('option');o.value=t.family;o.textContent=t.title;appThemes.append(o);});if(appThemes.children.length)family.append(appThemes);const cardSongs=document.createElement('optgroup');cardSongs.label='Kartenmusik';tracks.filter(t=>t.cardId).forEach(t=>{const o=document.createElement('option');o.value=t.family;o.textContent=`${t.cardId} · ${t.title}`;cardSongs.append(o);});family.append(cardSongs);family.disabled=false;return window.EMFDContent?window.EMFDContent.cardMusicMap().then(data=>({ok:true,json:async()=>data})):fetch('card-music-map.json');}).then(r=>{if(!r.ok)throw Error('map');return r.json();}).then(m=>{cardMap=m.cards||{};if(concealedRoute())concealCard();else if(enabled&&mode==='matching')playForCard(currentCard);if(pendingBackgroundStart&&!concealedRoute()){pendingBackgroundStart=false;setBackgroundPreference('on',{start:true});}if(pendingCardSelection)selectCardTrack(pendingCardSelection);if(pendingRevealCard){const id=pendingRevealCard;pendingRevealCard=null;const track=currentCard===id&&!concealedRoute()?prepareRevealTrack(id):null;if(track)status.textContent='Kartenmusik ist bereit. Tippe im Player auf Start.';}}).catch(()=>{status.textContent='Die Musikauswahl oder Kartenzuordnung konnte nicht geladen werden. Stille bleibt verfügbar.';});

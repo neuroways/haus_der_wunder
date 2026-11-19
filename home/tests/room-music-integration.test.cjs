@@ -26,17 +26,18 @@ test('HOUSE-MUSIC-01 new room panels and advanced room accessors are wired to th
  assert.match(music,/\.house-skeleton/);
  assert.match(music,/\.atelier-topbar-controls/);
  assert.match(music,/\.teezimmer-topbar/);
- assert.match(music,/room-music-map\.json/);
- assert.match(index,/room-music\.js\?v=0\.6\.66/);
+ // EMFD-PLAYER-01: allocations come from the device register (shared/devices.js), checked against the approved map above.
+ assert.match(music,/root\.EMFDDevices\?\.forRoom\(roomId\)/);
+ assert.match(index,/room-music\.js\?v=[\w.-]+"/);
  assert.match(index,/room-music\.css\?v=0\.6\.53/);
  assert.match(music,/data-room-song-select/);
- assert.match(music,/#musik\/geschichten\//);
+ assert.match(music,/data-room-device-link/);
 });
 test('Each room offers reading and explicit playback on the shared device',()=>{
  const ui=read('room-music.js');
- assert.match(ui,/player.startRoomPlaylist/);
- assert.match(ui,/EMFDMusicDevice.bind/);
- assert.match(ui,/#musik\/geschichten\//);
- assert.doesNotMatch(ui,/selectCardTrack/);
+ // Explicit playback goes through the shared device station; stories open as a book dialog (PLA-D04).
+ assert.match(ui,/root\.EMFDDeviceStation\?\.start\(device\.id,\{startId:play\.dataset\.roomSongSelect\}\)/);
+ assert.match(ui,/root\.EMFDReaders\?\.openComposition\?\.\(story\.dataset\.roomSongStory,story\)/);
+ assert.doesNotMatch(ui,/selectCardTrack|startRoomPlaylist|location\.hash/);
  for(const room of Object.values(mapping.rooms)) assert.ok(room.deviceName&&room.deviceImage);
 });

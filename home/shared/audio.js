@@ -8,7 +8,9 @@
      return Object.freeze({version:1,ready:Boolean(owner?.ready),state:s?.state||'silent',pending:Boolean(s?.pending),
        track:t?Object.freeze({assetId:t.assetId||null,cardId:t.cardId||null,entryId:owner.roomTrackId,title:t.title,path:t.path}):null,
        entryId:owner?.roomTrackId||'theme',volume:s?.volume??0.7,enabled:Boolean(owner?.enabled),globalSilence:Boolean(owner?.globalSilence),
-       repeat:owner?.roomMode||'track',queue:Object.freeze([...(owner?.roomQueue||[])]),recordPlaced:Boolean(owner?.recordPlaced),message:s?.message||'Stille'});
+       repeat:owner?.roomMode||'track',queue:Object.freeze([...(owner?.roomQueue||[])]),recordPlaced:Boolean(owner?.recordPlaced),message:s?.message||'Stille',
+       // EMFD-PLAYER-01: who started the current track ({source,deviceId,roomId} or null).
+       context:owner?.playContext||null});
    }
    function publish(){const value=snapshot();for(const listener of [...listeners]){try{listener(value);}catch(error){root.console?.error(error);}}return value;}
    function command(name,value){
@@ -28,7 +30,7 @@
    return Object.freeze({version:1,snapshot,publish,command,
      attach(controller){if(owner&&owner!==controller)throw Error('EMFD audio owner already attached');owner=controller;publish();},
      select:(id,options)=>owner?.selectRoomTrack(id,options)||false,
-     playlist:ids=>owner?.startRoomPlaylist(ids)||false,
+     playlist:(ids,options)=>owner?.startRoomPlaylist(ids,options)||false,
      availability:id=>owner?.availability(id)||'checking',
      subscribe(listener){listeners.add(listener);listener(snapshot());return ()=>listeners.delete(listener);}});
  }

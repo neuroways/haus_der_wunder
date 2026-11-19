@@ -1,4 +1,4 @@
-# Codekarte · 2D-PWA `home/` (v0.6.67)
+# Codekarte · 2D-PWA `home/` (v0.6.68)
 
 Arbeitskarte für Claude Code: **zuerst hier nachsehen, dann direkt an die genannte Stelle springen.** Stand 19.11.2026. Bei jedem Auftrag, der Struktur, Routen, Dienste, Speicher-Schlüssel oder Ereignisse ändert, diese Karte im selben Commit mitpflegen.
 
@@ -20,8 +20,8 @@ Ergänzende Quellen in `home/`:
 2. Daten und Medien: `data.js` (`window.CARDS`) → `image-profiles.js` (`EMFDImages`) → `../media/media-loader.js` (Loader) → `media-bridge.js` → `media-core.js` → `media-catalog.js` → `media-recovery.js`
 3. Karten: `card-motion.js`, `card-preload.js`, `card-draw.js`, `device-light.js`, `card-tap.js`
 4. Räume: `atelier-hand.js`, `atelier.js`, `teezimmer.js`
-5. Gemeinsame Dienste: `shared/navigation.js`, `shared/stations.js`, `shared/audio.js`, `shared/content.js`, `shared/readers.js`, `shared/help.js`
-6. Musik: `music-discovery.js`, `music-device.js`, `music-books.js`, `music-room.js`, `room-music.js`
+5. Gemeinsame Dienste: `shared/devices.js` (Geräteregister, vor der Navigation), `shared/navigation.js`, `shared/stations.js`, `shared/audio.js`, `shared/content.js`, `shared/readers.js`, `shared/help.js`
+6. Musik: `music-discovery.js`, `music-device.js`, `music-books.js`, `music-room.js`, `room-music.js`, `device-station.js` (Station `device`)
 7. `feature-registry.js` → **`app.js`** (lädt `start-gate.js` dynamisch nach) → `settings.js` → `audio-session.js` → `music-player.js` → `start-tour.js` → `music-entry.js` → `card-interaction.js` → `origin-story.js`
 8. Module: `library/library-entry.js`, `emfd-ui-runtime.js`
 9. `thought-qr.js`, `thought-paper.js`, `book-reading.js`, `music-help.js`, `shared/help-dialog.js`, `navigation-icons.js`
@@ -45,6 +45,7 @@ Router: `app.js` `render()` (ca. Zeile 181). Erlaubte Routen prüft zusätzlich 
 | `#karte/verdeckt` | `app.js` + `card-draw.js` | Gezogene Karte zuerst verdeckt; Ziel-ID in sessionStorage. |
 | `#musik` | Station `gramophone` (`music-room.js` `renderRoom`) | Grammophon des Musikzimmers. |
 | `#musik/playlist` | Station `records` (`music-room.js` `renderPlaylist`) | Plattensammlung mit Kategorie-, Stil- und Instrumentfilter. |
+| `#ort/P0x/geraet`, `#atelier/geraet`, `#teezimmer/geraet` | Station `device` (`device-station.js`), Gerät aus `EMFDDevices.forRoute()` | Gerätestation (PLAYER-01). Öffnen startet nichts. Ersatz-Rückweg: zugehöriger Raum. |
 | `#musik/geschichten`, `…/Oxx` | Station `compositions` (`music-room.js` → `music-books.js` → `library/library.js`) | Regal mit 24 Kompositionsgeschichten. |
 
 Nach jedem Render (Ende von `render()`): Raummusik einhängen (`EMFDRoomMusic.mount` für P01–P08), Kontext-Zurück (`EMFDFeatures.addContextBack`), Seitentitel, `EMFDUI.enhance`, Kartenbewegung, `EMFDNavigation.ready()`.
@@ -63,8 +64,10 @@ Nach jedem Render (Ende von `render()`): Raummusik einhängen (`EMFDRoomMusic.mo
 |---|---|---|
 | `EMFDNavigation` | `shared/navigation.js` | Routen prüfen, `go(route,{origin,returnTo,kind,trigger})`, `back(fallback)`, `returnRoute(fallback)`, `backLink(fallback)` → `{target,name,label}`, `backLinkMarkup(fallback)`, `replace(route)` (URL ersetzen ohne neuen Eintrag), `place(route)` (Ort P01–P08/flur/raeume/musik/ankommen oder `null` für Karten, Galerie, Geschichten), `fallbackFor(route)`, Rückkehr mit Fokus/Scroll. Sendet `emfd:navigation`. Siehe Abschnitt 3a. |
 | `EMFDStations` | `shared/stations.js` | Lebenszyklus für Ansichten mit `render/leave`. Registriert: `gramophone`, `records`, `compositions`, `library`. |
-| `EMFDAudio` | `shared/audio.js` | Lese-Port und Befehle (`command('play'|'pause'|'stop'|'next'|'previous'|'repeat'|'volume'|'silence')`, `select`, `playlist`, `subscribe`). Eigentümer ist `EMFDMusic`. |
-| `EMFDMusic` | `music-player.js` | **Der einzige Player** (Dialog `#music-dialog`, Hintergrundmusik, Raum-Warteschlange, Stille, Lautstärke, verdeckte Karte still). Nutzt `EMFDAudioSession` (`audio-session.js`). |
+| `EMFDAudio` | `shared/audio.js` | Lese-Port und Befehle (`command('play'|'pause'|'stop'|'next'|'previous'|'repeat'|'volume'|'silence')`, `select`, `playlist(ids,{explicit,startId,context})`, `subscribe`). `snapshot().context` = Wiedergabekontext. Eigentümer ist `EMFDMusic`. |
+| `EMFDDevices` | `shared/devices.js` | **Geräteregister** (einzige Liste der Musikgeräte): `list`, `get(id)`, `forRoom(roomId)`, `forRoute(hash)`. Felder: `id` (MP-P0x), `roomId`, `route`, `roomRoute`, `name`, `to`/`article`/`at` (Grammatik), `mode`, `image`, `tracks`, `description`. Muss mit `room-music-map.json` (bestätigte Zuordnung) übereinstimmen; Test prüft das. |
+| `EMFDDeviceStation` | `device-station.js` | Gemeinsame Gerätestation (`render/leave`, `start(deviceId,{startId})` = bewusster Start mit Wiedergabekontext, `view(snapshot,device)`). |
+| `EMFDMusic` | `music-player.js` | **Der einzige Player** (Dialog `#music-dialog`, Hintergrundmusik, Raum-Warteschlange, Stille, Lautstärke, verdeckte Karte still). Nutzt `EMFDAudioSession` (`audio-session.js`). **Wiedergabekontext** `playContext` (`{source:'device',deviceId,roomId,queueKey}` oder `null`): gesetzt nur bei bewusstem Start mit `context`, bleibt beim Weiterschalten derselben Gerätewarteschlange, wird bei jeder anderen Titelwahl gelöscht. Pausiert nie wegen Navigation (W1). |
 | `EMFDContent` | `shared/content.js` | Lädt und cached JSON: `music()`, `compositions()`, `story(id)`, `musicForCard(id)`, `musicSources()`. |
 | `EMFDReaders` | `shared/readers.js` | Bücher öffnen: `openBook('weltenweberin'|'klangwelten')`, `openComposition(id)`. |
 | `EMFDReader` / `EMFDCardBook` | `app.js` | Kartenbuch (`#reading-dialog`): `open({type:'card',cardId,section})`, `type:'story'` → `EMFDOriginStory`. |
@@ -95,7 +98,7 @@ Weitere Modul-APIs: `EMFDAtelier` (atelier.js: `renderAtelier`, `renderTable`, `
 ### Räume
 - Raumdaten P01–P08: `ROOMS` in `app.js` (Name, Orientierungssatz, Alt-Text) + Bildpfade aus `EMFD_ROOM_PROFILES` (Zeile 1).
 - Funktionen pro Raum: `feature-registry.js` `roomFeatures`. P04 und P08 rendern ihre Knöpfe selbst, die anderen bekommen sie über `mountRoom`.
-- Musik pro Raum: `room-music.js` + `room-music-map.json` (Karten-Stücke, Gerätename, Gerätebild). Antippen des Geräts baut den gemeinsamen Plattenspieler (`EMFDMusicDevice.device`) und tauscht dessen Korpus gegen das Gerätebild; im Modus `.room-device-art` (`room-music.css`) sind Plattenteller, Tonarm und Cover ausgeblendet, darunter Titelschild und Steuerung (zurück, Start, Stopp, weiter, Wiederholen). Startet die Raum-Playlist. Wiedergabe über `EMFDMusic`. Die Gruppe heißt für Screenreader noch „Schallplattenspieler“.
+- Musik pro Raum (seit PLAYER-01): `room-music.js` zeigt „<Gerät> ansehen“ (Link zur Gerätestation) und die Stückliste; „Musik abspielen“ = `EMFDDeviceStation.start`, „Geschichte lesen“ = Buchdialog. Daten aus `EMFDDevices`. Frühere Fassung: `room-music.js` + `room-music-map.json` (Karten-Stücke, Gerätename, Gerätebild). Antippen des Geräts baut den gemeinsamen Plattenspieler (`EMFDMusicDevice.device`) und tauscht dessen Korpus gegen das Gerätebild; im Modus `.room-device-art` (`room-music.css`) sind Plattenteller, Tonarm und Cover ausgeblendet, darunter Titelschild und Steuerung (zurück, Start, Stopp, weiter, Wiederholen). Startet die Raum-Playlist. Wiedergabe über `EMFDMusic`. Die Gruppe heißt für Screenreader noch „Schallplattenspieler“.
 - Bibliothek P02: `library/library-entry.js` (Station `library`) + `library/library.js` + `library/catalog.js` (Bücher, Status).
 - Flur: `renderHall()` in `app.js`; Starttour beim ersten Betreten: `start-tour.js` (6 Schritte).
 
@@ -151,6 +154,7 @@ Versionsangaben in Tests nie fest eintragen, sondern aus `package.json` lesen.
 - **Texte einer Karte:** `data.js` (eine Zeile JSON). Buchseiten zeigen `impulse`, `depth`, `question`.
 - **Musik einem Raum zuordnen:** `room-music-map.json` (`cardIds`, `deviceName`, `deviceImage`).
 - **Hilfetext:** `EMFDHelp.register` im zuständigen Modul (siehe `music-help.js`).
+- **Neues Musikgerät:** Eintrag in `shared/devices.js` (Route, Raum, Name mit Artikel, Bild, Stücke); Navigation, Station und Raumansicht übernehmen es automatisch.
 - **Neue Route:** `app.js` `render()` + `shared/navigation.js` `route()`/`station()`; Titel in `titles`.
 - **Neue Ansicht mit Lebenszyklus:** als Station über `EMFDStations.register(id,{render,leave})`.
 - **Rückweg einer Ansicht:** `backLinkMarkup(fallback)`, siehe 3a. Keine festen `href`-Rücklinks.

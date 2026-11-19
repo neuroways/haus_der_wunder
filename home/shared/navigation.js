@@ -5,9 +5,13 @@
 (function(root){
  'use strict';
  const cardId=id=>typeof id==='string'&&/^O(?:0[1-9]|1\d|2[0-4])$/.test(id);
+ // EMFD-PLAYER-01: device stations come from the device register (shared/devices.js).
+ const devices=typeof module!=='undefined'&&typeof require==='function'?require('./devices.js'):root.EMFDDevices;
+ const device=value=>devices?.forRoute?.(value)||null;
  function route(value){
    if(typeof value!=='string')return null;
    const hash=value.startsWith('#')?value:'#'+value;
+   if(device(hash))return hash;
    return /^#(?:ankommen|flur|haus|raeume|karten|atelier|teezimmer|musik|musik\/playlist|musik\/geschichten|ort\/P0[1-8]|karte\/verdeckt)$/.test(hash)||
      (/^#atelier\/tisch\/O\d{2}$/.test(hash)&&cardId(hash.split('/')[2]))||
      (/^#karte\/O\d{2}(?:\/frage)?$/.test(hash)&&cardId(hash.split('/')[1]))||
@@ -15,6 +19,7 @@
  }
  function station(value){
    const hash=route(value);if(!hash)return null;
+   if(device(hash))return station(device(hash).roomRoute);
    if(hash==='#musik')return 'gramophone';
    if(hash==='#musik/playlist')return 'records';
    if(hash.startsWith('#musik/geschichten'))return 'compositions';
@@ -33,6 +38,7 @@
  // Places of the house (spatial context). Cards, gallery, stories and dialogs are transient views.
  function place(value){
    const hash=route(value);if(!hash)return null;
+   if(device(hash))return device(hash).roomId;
    if(hash==='#flur'||hash==='#haus')return 'flur';
    if(hash==='#raeume')return 'raeume';
    if(hash==='#ankommen')return 'ankommen';
@@ -44,6 +50,7 @@
  // Steps inside the same view (e.g. turning through the atelier gallery) share one back target.
  function viewKey(value){
    const hash=route(value);if(!hash)return null;
+   if(device(hash))return device(hash).route;
    if(hash==='#haus')return '#flur';
    if(hash==='#ort/P04'||hash.startsWith('#atelier'))return '#atelier';
    if(hash==='#ort/P08')return '#teezimmer';
@@ -63,6 +70,7 @@
  function fallbackFor(value){
    const hash=route(value);
    if(!hash)return '#flur';
+   if(device(hash))return device(hash).roomRoute;
    if(hash==='#raeume'||hash==='#karten'||hash==='#musik')return '#flur';
    if(/^#ort\/P0[1-8]$/.test(hash)||hash==='#atelier'||hash==='#teezimmer'||hash.startsWith('#atelier/tisch/'))return '#raeume';
    if(hash==='#musik/playlist'||hash.startsWith('#musik/geschichten'))return '#musik';
@@ -73,6 +81,7 @@
  // [visible name, accessible "Zurück …" phrase]
  function describe(value,cards=root.CARDS){
    const hash=route(value);if(!hash)return ['Flur','Zurück zum Flur'];
+   if(device(hash)){const d=device(hash);return [d.name,`Zurück ${d.to} ${d.name}`];}
    const room=place(hash);
    if(room&&ROOM_NAMES[room]){const [name,article]=ROOM_NAMES[room];return [name,`Zurück ${article} ${name}`];}
    if(hash==='#flur'||hash==='#haus')return ['Flur','Zurück zum Flur'];

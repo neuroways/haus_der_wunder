@@ -187,16 +187,19 @@ function render(){
   if(settingsHost)settingsHost.textContent='Karten reagieren auf Berührung und verfügbare Handybewegungen.';
   const route=location.hash.slice(1)||'ankommen';
   const isCard=route.startsWith('karte/');
+  const device=window.EMFDDevices?.forRoute?.('#'+route)||null; // EMFD-PLAYER-01 device station
   const isRoom=route==='flur'||route==='haus'||route==='raeume'||route==='atelier'||route==='teezimmer'||route.startsWith('atelier/tisch/')||route.startsWith('ort/');
   document.body.classList.toggle('detail-mode',isCard);
   document.body.classList.toggle('room-view',isRoom||route.startsWith('musik')||route==='karten');
   document.body.classList.toggle('hall-view',route==='flur'||route==='haus');
   document.body.classList.toggle('atelier-home-view',route==='atelier');
   document.body.classList.toggle('atelier-table-view',route.startsWith('atelier/tisch/'));
-  document.body.classList.toggle('house-skeleton-view',route.startsWith('ort/')&&route!=='ort/P04'&&route!=='ort/P08');
-  document.body.classList.toggle('immersive-room-view',route==='atelier'||route==='teezimmer'||route==='musik'||route.startsWith('atelier/tisch/')||route.startsWith('ort/'));
+  document.body.classList.toggle('house-skeleton-view',!device&&route.startsWith('ort/')&&route!=='ort/P04'&&route!=='ort/P08');
+  document.body.classList.toggle('immersive-room-view',!device&&(route==='atelier'||route==='teezimmer'||route==='musik'||route.startsWith('atelier/tisch/')||route.startsWith('ort/')));
+  document.body.classList.toggle('device-view',Boolean(device));
   document.body.classList.toggle('catalog-view',route==='karten'||route==='raeume'||route==='musik/playlist'||route.startsWith('musik/geschichten'));
-  if(route==='karten'&&window.EMFDAtelier)window.EMFDAtelier.renderGrid(main);
+  if(device)window.EMFDStations.render('device',main,{deviceId:device.id});
+  else if(route==='karten'&&window.EMFDAtelier)window.EMFDAtelier.renderGrid(main);
   else if(route==='karten')room();
   else if(route==='atelier'||route==='ort/P04')window.EMFDAtelier?.renderAtelier(main);
   else if(route.startsWith('atelier/tisch/'))window.EMFDAtelier?.renderTable(main,route.split('/')[2]);
@@ -226,11 +229,11 @@ function render(){
   const musicRoomId=route==='atelier'||route==='ort/P04'||route.startsWith('atelier/tisch/')?'P04':
     route==='teezimmer'||route==='ort/P08'?'P08':
     route.startsWith('ort/')?route.split('/')[1]:null;
-  if(musicRoomId)window.EMFDRoomMusic?.mount(main,musicRoomId,{compact:musicRoomId==='P04'||musicRoomId==='P08'});
+  if(musicRoomId&&!device)window.EMFDRoomMusic?.mount(main,musicRoomId,{compact:musicRoomId==='P04'||musicRoomId==='P08'});
   window.EMFDFeatures?.addContextBack(main,route);
   const titles={'ankommen':'Ankommen','karten':'Der Kartenraum','flur':'Im Flur','haus':'Im Flur','raeume':'Alle Räume','musik':'Musikzimmer','musik/playlist':'Playlist','musik/geschichten':'Kompositionsgeschichten','atelier':'Im Atelier','teezimmer':'Im Teezimmer'};
-  const roomTitle=route.startsWith('ort/')?ROOMS.find(item=>item.id===route.split('/')[1])?.name:'';
-  const pageTitle=route.startsWith('musik/geschichten/')?'Kompositionsgeschichte':titles[route];
+  const roomTitle=!device&&route.startsWith('ort/')?ROOMS.find(item=>item.id===route.split('/')[1])?.name:'';
+  const pageTitle=device?device.name:route.startsWith('musik/geschichten/')?'Kompositionsgeschichte':titles[route];
   document.title=(route==='karte/verdeckt'?'Verdeckte Karte':isCard?CARDS.find(c=>c.id===route.split('/')[1])?.name:roomTitle||pageTitle||'Ankommen')+' · Haus der kleinen Wunder';
   const draw=main.querySelector('#draw-card');if(draw)draw.onclick=drawRandomCard;
   window.EMFDUI?.enhance(main);const afterPaint=window.requestAnimationFrame||((callback)=>callback());afterPaint(()=>afterPaint(()=>{bindMotion();fitActiveCard();}));window.EMFDReading?.bind();updateGlobalNav(route);window.scrollTo(0,0);main.focus({preventScroll:true});if(!route.startsWith('musik'))window.EMFDNavigation?.ready();
@@ -240,4 +243,4 @@ document.addEventListener('click',e=>{const link=e.target.closest?.('a[href="#fl
 document.querySelector('#quiet').onclick=e=>{quiet=!quiet;document.body.classList.toggle('quiet',quiet);e.currentTarget.setAttribute('aria-pressed',quiet);e.currentTarget.textContent=quiet?'Ruhige Ansicht an':'Ruhige Ansicht';motionState();};
 window.addEventListener('hashchange',render);render();
 function fitActiveCard(){const slot=main.querySelector('.card-slot'),card=slot?.querySelector('.held-card');if(!slot||!card)return;const c=CARDS.find(c=>location.hash.endsWith('/'+c.id));const ratio=(c?.imageWidth||630)/(c?.imageHeight||1080);const fit=()=>{const width=Math.max(1,Math.min(slot.clientWidth-12,Math.max(1,slot.clientHeight-40)*ratio));card.style.width=width+'px';card.style.height=(width/ratio)+'px';};fit();cardSizer=new ResizeObserver(fit);cardSizer.observe(slot);}
-const startGateScript=document.createElement('script');startGateScript.src='start-gate.js?v=0.6.67';document.head.append(startGateScript);
+const startGateScript=document.createElement('script');startGateScript.src='start-gate.js?v=0.6.68';document.head.append(startGateScript);
