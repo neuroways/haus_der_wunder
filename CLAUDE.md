@@ -3,7 +3,7 @@
 Planung und Gestaltung passieren in ChatGPT, die Umsetzung hier. ChatGPT liefert **Entwicklungsaufträge** (`EMFD-<BEREICH>-<NN>`), Claude Code setzt sie um und liefert eine **EMFD-Rückmeldung**. Der Prompt, mit dem ChatGPT arbeitet, liegt in `docs/CHATGPT-PLANUNG-PROMPT.md`. Ändert sich hier etwas, das ChatGPT wissen muss (Entscheidungen, Struktur, offene Punkte), wird der Prompt mit angepasst.
 
 ## Gemeinsames Projekt-Repository
-Entscheidungen (D-xx), Aufträge, Register, `TASKS.json`, `STATUS.json` und `CHANGELOG.md` werden im gemeinsamen Repository `neuroways/haus-der-wunder` nach dessen `AGENTS.md` geführt (Entscheidungen W1–W7 dort als D-13, Aufträge unter `docs/development/auftraege/`). Dieses Repository enthält den App-Entwicklungsstand; ob die App hier bleibt, ist offen (dort K-18 / offen.md #11).
+Entscheidungen (D-xx), Aufträge, Register, `TASKS.json`, `STATUS.json` und `CHANGELOG.md` werden im gemeinsamen Repository `neuroways/haus-der-wunder` nach dessen `AGENTS.md` geführt (Entscheidungen W1–W7 dort als D-13, Aufträge unter `docs/development/auftraege/`). Die 2D-App wird hier weiterentwickelt, und zwar von Claude (dort D-14, 19.11.2026). Musik liegt nur auf STRATO (`/wunderhaus/media/audio/`) und nie im Repository.
 
 ## Orientierung
 `docs/CODEKARTE.md` beschreibt Aufbau, Routen, Dienste, Speicher-Schlüssel, Ereignisse, Medien, Tests und typische Ansatzstellen der App. **Vor jedem Auftrag zuerst dort nachsehen** und dann gezielt die genannten Dateien lesen, statt den Code neu zu durchsuchen.

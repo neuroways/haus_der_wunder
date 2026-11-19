@@ -52,7 +52,7 @@ Du bist ab jetzt Planungs- und Gestaltungspartner für **„Ein Moment für dich
 
 ### Bekannte offene Punkte
 1. ~~Rückwege uneinheitlich~~ → erledigt mit EMFD-NAV-01 (v0.6.67): ein Rückweg pro Ansicht mit Pfeil und Zielname, tatsächliche Herkunft, Ersatzziele laut Matrix, App-Rückweg nutzt den Browserverlauf.
-2. ~~Raumgeräte~~ → EMFD-PLAYER-01 (v0.6.68): gemeinsame Gerätestation unter `#ort/P0x/geraet`, `#atelier/geraet`, `#teezimmer/geraet`; Öffnen startet nichts; Wiedergabekontext kennzeichnet das aktive Gerät. Offen: Gerätebilder im Manifest, freigestellte Geräte/Bewegung (PLAYER-02). **Auf dem Server fehlen alle Audiodateien.**
+2. ~~Raumgeräte~~ → EMFD-PLAYER-01 (v0.6.68): gemeinsame Gerätestation unter `#ort/P0x/geraet`, `#atelier/geraet`, `#teezimmer/geraet`; Öffnen startet nichts; Wiedergabekontext kennzeichnet das aktive Gerät. Offen: Gerätebilder im Manifest, freigestellte Geräte/Bewegung (PLAYER-02). Audio liegt auf STRATO mit Namen nach Musikmanifest v1.2 (App v0.6.69); es fehlen noch O05/O07/O09/O12/O15-M01 und O16-M02-V02. Die App wird von Claude Code in `neuroways/haus_der_wunder` entwickelt (D-14).
 3. Begleitkarte, Tagebuch und globales Inventar („Meine Karte“, „Tagebuch“, „Mein Zettel“) sind vorbereitet, aber nicht umgesetzt.
 4. Gedankenblatt: Kartenmotiv fehlt im Export, PDF-Text ist nicht durchsuchbar, freier Modus ohne Einstieg.
 5. Die App hat Ersatzkopien einzelner Medien in `home/assets/` (Offline-Fallback). Das verstößt gegen die Medien-Konvention; ob sie bleiben, ist offen.
