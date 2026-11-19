@@ -6,13 +6,15 @@ const root=path.resolve(__dirname,'..');
 const read=name=>fs.readFileSync(path.join(root,name),'utf8');
 const js=read('teezimmer.js'),css=read('teezimmer.css'),html=read('index.html');
 
-test('TEA-01: paper is fourth standard navigation action, not a standalone overlay',()=>{
+// Decision v0.6.64 (EMFD-UI-ARCH-01), confirmed 19.11.2026: the tea room keeps exactly two actions.
+// The free thought paper from TEA-01 (v0.6.58) has no tea-room entry any more.
+test('TEA-01: tea room offers exactly the two chosen actions and no paper button',()=>{
   const nav=js.match(/<nav class="teezimmer-actions"[^>]*>([\s\S]*?)<\/nav>/);
   assert.ok(nav,'Teezimmer action nav must exist');
-  assert.equal((nav[1].match(/data-(?:daily-card|card-overview|teezimmer-paper)/g)||[]).length,4);
-  assert.match(nav[1],/data-teezimmer-paper/);
-  assert.match(nav[1],/Ein leeres Blatt nehmen/);
-  assert.doesNotMatch(js,/teezimmer-note-access/);
+  assert.equal((nav[1].match(/data-house-feature="/g)||[]).length,2);
+  assert.match(nav[1],/data-card-overview>Eine Karte aussuchen</);
+  assert.match(nav[1],/data-daily-card>Tageskarte ziehen</);
+  assert.doesNotMatch(js,/data-teezimmer-paper|Ein leeres Blatt nehmen|teezimmer-note-access/);
 });
 test('TEA-02: single bounded scroll region inside immersive room, not viewport-height fixed-offset controls',()=>{
   assert.match(js,/class="teezimmer-content" role="region"[^>]*tabindex="0"/);
@@ -23,10 +25,10 @@ test('TEA-02: single bounded scroll region inside immersive room, not viewport-h
   assert.match(css,/env\(safe-area-inset-bottom\)/);
   assert.match(css,/@media\(orientation:landscape\)/);
 });
-test('TEA-03: uses the one shared private free-mode editor and has a visible failure announcement',()=>{
-  assert.match(js,/root\.EMFDThoughtPaper\.open\(\{mode:'free'\},e\.currentTarget\)/);
+test('TEA-03: tea room opens no editor of its own; the shared thought paper keeps its free mode',()=>{
+  assert.doesNotMatch(js,/EMFDThoughtPaper/);
   assert.match(js,/data-teezimmer-status role="status" hidden/);
-  assert.match(js,/Das Gedankenblatt konnte nicht geladen werden/);
+  // Free mode stays in the shared module (currently without an entry point, see open points).
   assert.match(read('thought-paper.js'),/returnHash:'#teezimmer'/);
   assert.match(read('thought-paper.js'),/if\(old\?\.isConnected\)old\.focus/);
 });

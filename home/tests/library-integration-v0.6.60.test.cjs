@@ -42,7 +42,7 @@ test('BIB v0.6.60: protected NOTE-03, TEA and card-book resources remain wired',
   assert.match(html,/teezimmer\.js\?v=[\w.-]+"/);
   assert.match(html,/book-v2\.css\?v=0\.6\.57/);
   assert.match(read('app.js'),/const readingKeys=\['impulse','depth','question'\]/);
-  assert.match(read('teezimmer.js'),/data-teezimmer-paper/);
+  assert.doesNotMatch(read('teezimmer.js'),/data-teezimmer-paper/); // removed by decision in v0.6.64
   assert.match(read('thought-paper.js'),/documentPages/);
 });
 
