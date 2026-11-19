@@ -4,3 +4,6 @@ __pycache__/
 .DS_Store
 __MACOSX/
 dist/
+
+# Musik ist nicht öffentlich freigegeben: Audiodateien liegen im privaten Repo neuroways/haus-der-wunder (assets/audio, LFS)
+media/audio/*.mp3
