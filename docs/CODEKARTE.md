@@ -87,7 +87,7 @@ Weitere Modul-APIs: `EMFDAtelier` (atelier.js: `renderAtelier`, `renderTable`, `
 ### Räume
 - Raumdaten P01–P08: `ROOMS` in `app.js` (Name, Orientierungssatz, Alt-Text) + Bildpfade aus `EMFD_ROOM_PROFILES` (Zeile 1).
 - Funktionen pro Raum: `feature-registry.js` `roomFeatures`. P04 und P08 rendern ihre Knöpfe selbst, die anderen bekommen sie über `mountRoom`.
-- Musik pro Raum: `room-music.js` + `room-music-map.json` (Karten-Stücke, Gerätename, Gerätebild). Gerät öffnet den gemeinsamen Plattenspieler (`EMFDMusicDevice.device`), Wiedergabe über `EMFDMusic`.
+- Musik pro Raum: `room-music.js` + `room-music-map.json` (Karten-Stücke, Gerätename, Gerätebild). Antippen des Geräts baut den gemeinsamen Plattenspieler (`EMFDMusicDevice.device`) und tauscht dessen Korpus gegen das Gerätebild; im Modus `.room-device-art` (`room-music.css`) sind Plattenteller, Tonarm und Cover ausgeblendet, darunter Titelschild und Steuerung (zurück, Start, Stopp, weiter, Wiederholen). Startet die Raum-Playlist. Wiedergabe über `EMFDMusic`. Die Gruppe heißt für Screenreader noch „Schallplattenspieler“.
 - Bibliothek P02: `library/library-entry.js` (Station `library`) + `library/library.js` + `library/catalog.js` (Bücher, Status).
 - Flur: `renderHall()` in `app.js`; Starttour beim ersten Betreten: `start-tour.js` (6 Schritte).
 

@@ -2,7 +2,7 @@
 
 **So benutzt du ihn:** Alles unterhalb der Linie kopieren und in ChatGPT einfügen, am besten als Anweisungen des ChatGPT-Projekts (dann gilt er für jeden Chat im Projekt). In einem einzelnen Chat als erste Nachricht einfügen. Nach jeder Umsetzung die Rückmeldung von Claude Code in ChatGPT einfügen, damit der Stand dort aktuell bleibt.
 
-Stand dieses Prompts: 19.11.2026, Repo-Branch `claude/modest-galileo-ifo41b`.
+Stand dieses Prompts: 19.11.2026 (ergänzt um die Codeanalyse), Repo-Branch `claude/modest-galileo-ifo41b`.
 
 ---
 
@@ -51,8 +51,8 @@ Du bist ab jetzt Planungs- und Gestaltungspartner für **„Ein Moment für dich
 | Karten | 24 Orakelkarten getrennt von den 24 identischen QR-Geschenkkarten. Keine O25. |
 
 ### Bekannte offene Punkte
-1. Rückwege sind uneinheitlich (mal Raumübersicht, mal Flur), Musikzugänge unterscheiden sich je nach Raum.
-2. Raumgeräte: Die Geräte starten die Raum-Playlist; ein vollständiger Geräteplayer (Cover, Titel, Steuerung, Geschichte am Gerät) ist nicht umgesetzt.
+1. Rückwege sind uneinheitlich: Raumseiten, Raumübersicht, Teezimmer, Kartengalerie und Einzelkarte haben feste Rückziele; ein zentraler Rückweg-Mechanismus existiert, wird dort aber nicht genutzt (Details: `docs/UEBERGABE-AN-CHATGPT-2026-11-19.md`).
+2. Raumgeräte: Das Gerätebild dient beim Abspielen als Player mit Titelschild und Steuerung (zurück, Start, Stopp, weiter, Wiederholen). Es fehlen Cover und Geschichte am Gerät, Zustandsanzeige und gerätetypische Bewegung. Objektstudien liegen bei der Planung vor; für die Umsetzung werden fertige Bilddateien mit fester Zuordnung gebraucht.
 3. Begleitkarte, Tagebuch und globales Inventar („Meine Karte“, „Tagebuch“, „Mein Zettel“) sind vorbereitet, aber nicht umgesetzt.
 4. Gedankenblatt: Kartenmotiv fehlt im Export, PDF-Text ist nicht durchsuchbar, freier Modus ohne Einstieg.
 5. Die App hat Ersatzkopien einzelner Medien in `home/assets/` (Offline-Fallback). Das verstößt gegen die Medien-Konvention; ob sie bleiben, ist offen.
