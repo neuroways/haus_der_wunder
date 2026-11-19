@@ -18,7 +18,7 @@ Planung und Gestaltung passieren in ChatGPT, die Umsetzung hier. ChatGPT liefert
 ## Feste Regeln
 - Kein Autoplay; Musik nur nach bewusster Auswahl. Keine dauerhafte Speicherung von Notizen.
 - Keine Pflichtwege, Freischaltungen, Punkte, Fortschrittsanzeigen.
-- Teezimmer (P08): genau zwei Aktionen, kein Gedankenblatt (Entscheidung 19.11.2026).
+- Entscheidungen stehen in `docs/ENTSCHEIDUNGEN.md` (neuere ersetzen ältere). Kurz: Musik läuft bei Raum- und Blickwechsel weiter (W1); bisheriges Teezimmer genau zwei Aktionen, Gedankenblatt erst im Bilderbuch-Teezimmer über die Karte (W2); Begleiterkarte nur als Karten-ID lokal speichern (W6).
 - Medien nur nach `media/MEDIEN-KONVENTION.md`; keine Medien erfinden oder generieren, keine neuen Kopien in `home/`.
 - Texte aus Aufträgen wörtlich übernehmen.
 - Nichts auf dem Live-Server veröffentlichen ohne ausdrückliche Freigabe.

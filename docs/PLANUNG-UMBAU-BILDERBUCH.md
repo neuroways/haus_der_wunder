@@ -62,7 +62,7 @@ PLAYER-01 sollte **jetzt schon so gebaut werden, wie BOOK-01 es braucht**, sonst
 
 Damit ist PLAYER-01 kein Wegwerfschritt, sondern das Audio- und Gerätefundament des Bilderbuchs.
 
-## 5. Widersprüche, die vor der Umsetzung entschieden werden müssen
+## 5. Widersprüche (entschieden am 19.11.2026, siehe `docs/ENTSCHEIDUNGEN.md` W1–W7)
 
 | # | Thema | PLAYER-01 / bisherige Entscheidung | BOOK-01 | Empfehlung |
 |---|---|---|---|---|
