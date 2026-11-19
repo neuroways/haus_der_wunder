@@ -59,10 +59,11 @@ Du bist ab jetzt Planungs- und Gestaltungspartner für **„Ein Moment für dich
 1. ~~Rückwege uneinheitlich~~ → erledigt mit EMFD-NAV-01 (v0.6.67): ein Rückweg pro Ansicht mit Pfeil und Zielname, tatsächliche Herkunft, Ersatzziele laut Matrix, App-Rückweg nutzt den Browserverlauf.
 2. ~~Raumgeräte~~ → EMFD-PLAYER-01 (v0.6.68): gemeinsame Gerätestation unter `#ort/P0x/geraet`, `#atelier/geraet`, `#teezimmer/geraet`; Öffnen startet nichts; Wiedergabekontext kennzeichnet das aktive Gerät. Offen: Gerätebilder im Manifest, freigestellte Geräte/Bewegung (PLAYER-02). Audio liegt auf STRATO mit Namen nach Musikmanifest v1.2, Schema `<Karte>-M<Stück>[-V<Version>].mp3` (immer `-M01`; `-M02` … bei mehreren Stücken einer Karte; `-V02` … für weitere Versionen, V01 ohne Zusatz). Die App v0.6.69 spielt je Karte nur `-M01`; es fehlen noch O05/O07/O09/O12/O15-M01 und O16-M02-V02. Die App wird von Claude Code in `neuroways/haus_der_wunder` entwickelt (D-14).
 3. ~~Register~~ → EMFD-BOOK-01a (v0.6.70): Räume, Szenen, Geräte, Objekte und Medien kommen aus den gemeinsamen Registern (`neuroways/haus-der-wunder`, `manifests/`), ergänzt um App-Felder (`home/data/registry-app.json`). Neue Adressen `#raum/<RAUM>/<ANSICHT>` (z. B. `#raum/H00/C01`) und `#geraet/<GERÄT>`; bis zur Szenenkomponente zeigen sie die bisherige Ansicht, alle alten Adressen bleiben gültig. Fehlende Bilder erscheinen als gezeichnete Platzhalter mit Medien-ID und Seitenverhältnis; ein fertiges Bild ist ein Registereintrag, kein Code. Für neue Bilder liefert die Bildproduktion: Medien-ID (z. B. `scene.H00-C01`), Format 16:9, Pixelmaß, Status, Datei. Die Szenenbilder liegen bisher nur im gemeinsamen Repository, nicht auf dem Server. Nächster Schritt: BOOK-01b (Szenenkomponente).
-4. Begleitkarte, Tagebuch und globales Inventar („Meine Karte“, „Tagebuch“, „Mein Zettel“) sind vorbereitet, aber nicht umgesetzt.
-5. Gedankenblatt: Kartenmotiv fehlt im Export, PDF-Text ist nicht durchsuchbar, freier Modus ohne Einstieg.
-6. Die App hat Ersatzkopien einzelner Medien in `home/assets/` (Offline-Fallback). Das verstößt gegen die Medien-Konvention; ob sie bleiben, ist offen.
-7. Keine Prüfung auf echtem iPhone dokumentiert.
+4. Offline (EMFD-CACHE-01, v0.6.71, noch nicht freigegeben): Die App startet ohne Netz und lädt alle Bilder einmalig (rund 42 MB). Ein Musikstück wird nach dem ersten Abspielen gespeichert. Musik wird nie vorab geladen, eine Lade- oder Fortschrittsanzeige gibt es nicht. Neue Bilder sind offline verfügbar, sobald sie im Register als ausgeliefert eingetragen sind. Offen: ein Knopf „Alle Musik offline speichern“ (D-05).
+5. Begleitkarte, Tagebuch und globales Inventar („Meine Karte“, „Tagebuch“, „Mein Zettel“) sind vorbereitet, aber nicht umgesetzt.
+6. Gedankenblatt: Kartenmotiv fehlt im Export, PDF-Text ist nicht durchsuchbar, freier Modus ohne Einstieg.
+7. Die App hat Ersatzkopien einzelner Medien in `home/assets/` (Offline-Fallback). Das verstößt gegen die Medien-Konvention; ob sie bleiben, ist offen.
+8. Keine Prüfung auf echtem iPhone dokumentiert.
 
 ## Format eines Entwicklungsauftrags
 

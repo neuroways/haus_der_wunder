@@ -17,14 +17,17 @@
  */
 'use strict';
 importScripts('offline-policy.js', 'offline-precache.js', 'offline-images.js', 'media-core.js', 'media-catalog.js');
+// Raum-, Szenen- und Gerätebilder aus dem Register (BOOK-01a). Fehlt die Datei, bleibt es bei der festen Liste.
+try { importScripts('data/registry.js'); } catch (_) {}
 
 const P = self.EMFDOfflinePolicy;
 const CACHES = P.CACHES;
 const SCOPE = self.location.href;
 const abs = p => new URL(p, SCOPE).href;
 const IMAGE_LIST = self.EMFDOfflineImages || { start: [], house: [] };
-const startImages = IMAGE_LIST.start.map(abs);
-const allowed = new Set([...IMAGE_LIST.start, ...IMAGE_LIST.house].map(abs)); // Bilder, die die App nutzt
+const REGISTER_IMAGES = P.registerImages(self.EMFD_REGISTRY);
+const startImages = [...new Set([...IMAGE_LIST.start, ...REGISTER_IMAGES.start].map(abs))];
+const allowed = new Set([...IMAGE_LIST.start, ...IMAGE_LIST.house, ...REGISTER_IMAGES.start, ...REGISTER_IMAGES.house].map(abs)); // Bilder, die die App nutzt
 const shellFiles = (self.EMFDPrecache?.shell || []).map(abs);
 const mediaGroups = self.EMFDMediaCatalog?.groups || [];
 const mediaLookup = self.EMFDMediaCore?.index(mediaGroups);
@@ -76,6 +79,11 @@ async function imageResponse(event, retry) {
       event.waitUntil(fetch(key, { cache: 'no-cache' }).then(r => r.ok ? storeImage(key, r) : null).catch(() => {}));
     }
     return hit;
+  }
+  // App-eigene Grafik (assets/…) liegt im App-Cache (offline-precache.js), nicht im Bildcache.
+  if (!retry) {
+    const own = await (await caches.open(CACHES.shell)).match(event.request, { ignoreSearch: true });
+    if (own) return own;
   }
   try {
     const response = await fetch(event.request);

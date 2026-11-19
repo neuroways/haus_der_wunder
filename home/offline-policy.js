@@ -15,7 +15,7 @@
 (function (root) {
   'use strict';
 
-  var VERSION = 'cache01-v1';
+  var VERSION = 'cache01-v2';
   var CACHES = Object.freeze({
     shell: 'emfd-shell-' + VERSION,
     images: 'emfd-media-images-v1',
@@ -93,7 +93,31 @@
     return kind === 'image' ? cacheKey(parse(url, scopeHref).href, 'image') : null;
   }
 
+  /** Bilder aus dem Raum- und Szenenregister (data/registry.js, BOOK-01a) für die Offline-Liste.
+   *  Aufgenommen wird nur, was als Original eingebunden und ausgeliefert ist (integration 'original',
+   *  verfuegbarkeit 'vorhanden', Datei gesetzt) – nie Platzhalter. Stufe 'start': Medien des Eingangs
+   *  (Räume der Ebene AUSSEN), Stufe 'house': alle übrigen. Neue Szenenbilder kommen so ohne Handpflege dazu. */
+  function registerImages(registry) {
+    var out = { start: [], house: [] };
+    if (!registry || typeof registry !== 'object' || !registry.medien) return out;
+    var outside = {};
+    (registry.raeume || []).forEach(function (room) { if (room && room.ebene === 'AUSSEN') outside[room.id] = true; });
+    var stageOf = {};
+    var mark = function (mediaId, roomId) { if (mediaId && outside[roomId]) stageOf[mediaId] = 'start'; };
+    (registry.raeume || []).forEach(function (room) { if (room) { mark(room.bild, room.id); mark(room.vorschau, room.id); } });
+    (registry.szenen || []).forEach(function (scene) { if (scene) { mark(scene.medium, scene.raumId); mark(scene.platzhalter, scene.raumId); } });
+    (registry.geraete || []).forEach(function (device) { if (device) mark(device.bild, device.raumId); });
+    Object.keys(registry.medien).sort().forEach(function (id) {
+      var m = registry.medien[id];
+      if (!m || typeof m.datei !== 'string' || !m.datei || m.integration !== 'original' || m.verfuegbarkeit !== 'vorhanden') return;
+      if (!IMAGE_EXT.test(m.datei.split('?')[0])) return;
+      out[stageOf[id] || 'house'].push(m.datei);
+    });
+    return out;
+  }
+
   var api = Object.freeze({ VERSION: VERSION, CACHES: CACHES, LEGACY_CACHE: LEGACY_CACHE,
-    classify: classify, isImmutable: isImmutable, cacheKey: cacheKey, parseRange: parseRange, acceptWarmUrl: acceptWarmUrl });
+    classify: classify, isImmutable: isImmutable, cacheKey: cacheKey, parseRange: parseRange, acceptWarmUrl: acceptWarmUrl,
+    registerImages: registerImages });
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.EMFDOfflinePolicy = api;
 })(typeof self !== 'undefined' ? self : globalThis);

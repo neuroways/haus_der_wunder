@@ -29,3 +29,40 @@ Datum: 19.11.2026 · Ergebnis: umgesetzt (im Code; auf dem iPhone noch nicht get
 1. ⚪ Optionaler Knopf „Musik offline speichern“ (alle Stücke auf einmal) braucht eine Änderung von D-05. Die Technik ist vorhanden, die Entscheidung liegt bei der Nutzerin.
 2. 🟡 STRATO-`.htaccess` in `/wunderhaus/media/` empfohlen: `immutable` für Dateien mit Hash, `no-cache` für `manifest.json`. In `/wunderhaus/home/` `no-cache` für `image-service-worker.js` und `offline-*.js` (siehe PR).
 3. ⚪ iPhone-Abnahme: siehe PR-Beschreibung.
+
+## Nachtrag 19.11.2026 · Übernahme in die App-Linie (App-Chat)
+Ergebnis: übernommen und im Browser geprüft. Gemergt ist noch nichts; das geschieht erst nach Freigabe durch die Nutzerin. Version 0.6.71, Cache-Version `cache01-v2`.
+
+### Was sich geändert hat
+- **Stand der App-Linie übernommen:** `claude/modest-galileo-ifo41b` ist eingemischt. Das betraf nur Dokumentation, Konflikte gab es keine.
+- **Fehler aus der Browserprüfung behoben:**
+  - Offline fehlten der Rückweg-Pfeil (`assets/music-icons/arrow-left.svg`) und die Gerätebilder (`media/raumgeraete/P0x.webp`).
+  - Ursache 1: App-eigene Grafik liegt im App-Cache, der Bild-Handler suchte aber nur im Bildcache. Er sieht jetzt vor dem Netz auch im App-Cache nach.
+  - Ursache 2: Die Gerätebilder standen in keiner Liste.
+- **Offline-Bildliste aus dem Register:** Der Worker lädt `data/registry.js` und nimmt alle Medien auf, die als Original ausgeliefert sind (`EMFDOfflinePolicy.registerImages`). Medien des Eingangs (Ebene AUSSEN) kommen in Stufe `start`, alle übrigen in `house`, Platzhalter nie. Neue Szenenbilder brauchen damit keine Handpflege. `offline-images.js` bleibt für Karten, Rückseiten und Startbilder zuständig.
+  - **Abweichung vom Vorschlag „Status ≥ INTEGRATED“:** In `media.json` hat heute kein Medium den Produktionsstatus INTEGRATED, auch die Raumbilder der App nicht. Maßgeblich ist deshalb das Feld `integration:'original'` aus der BOOK-01a-Trennung (D-13/W7). Das heißt: Die Datei ist ausgeliefert und als Original eingebunden.
+- **Version:** 0.6.71. `VERSION` in `offline-policy.js` ist jetzt `cache01-v2`, ebenso `?v=` der Registrierung. Die Cache-Namen der Bilder und der Musik sind unverändert.
+
+### Tests
+- `npm test`: 351 bestanden, 0 fehlgeschlagen, 1 übersprungen.
+- 3 neue Tests:
+  - Registerbilder (auch: ein neues Szenenbild landet nur über das Register in der richtigen Stufe),
+  - der Worker lädt die Gerätebilder vor,
+  - `assets/` kommt offline aus dem App-Cache.
+- 2 Tests lesen die Version jetzt aus `package.json` bzw. `offline-policy.js`, statt sie fest einzutragen.
+
+**Browser** (Chromium mit Service Worker, lokaler Server):
+- Die Installation übernimmt die Seite. Die Stufe `house` meldet 223 von 227 Bildern im Cache, rund 42 MB. Die 4 fehlenden Dateien fehlen auf dem Server: die Kartenrückseite v1.2 als JPEG und in drei WebP-Größen.
+- Gespielt wurde ein echtes Stück von STRATO (O24), nur lokal abgelegt und nicht im Repository. Es wurde nach dem ersten Abspielen gespeichert.
+- Danach im Offline-Modus:
+  - Flur, Alle Räume, Innenhof, Karte O07 und Atelier zeigen alle Bilder.
+  - O24 spielt.
+  - O01 (nie gehört) meldet „nicht verfügbar“.
+  - Keine Skriptfehler.
+
+**Nicht geprüft:** iPhone/Safari und STRATO (Abnahme durch die Nutzerin, siehe PR).
+
+### Offen
+- ⚪ D-05: Knopf „Alle Musik offline speichern“, Entscheidung der Nutzerin.
+- 🟡 STRATO-`.htaccess` wie in der PR-Beschreibung.
+- Im STRATO-Paket müssen diese Dateien dabei sein: `offline-*.js`, `image-service-worker.js`, `image-profiles.js`, `index.html` und der Ordner `data/`.

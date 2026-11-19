@@ -96,7 +96,8 @@ test('CACHE-01 Installation lädt App-Dateien und Startbilder, aber keine Musik'
   const shell = w.store.get(P.CACHES.shell), images = w.store.get(P.CACHES.images);
   const precache = vm.runInNewContext(read('offline-precache.js') + ';EMFDPrecache', {});
   assert.ok(precache.shell.length > 50);
-  for (const f of ['./', 'index.html', 'app.js?v=0.6.70', 'offline-ready.js?v=cache01-v1', '../media/media-loader.js?v=1.1.0']) {
+  const appVersion = JSON.parse(read('package.json')).version;
+  for (const f of ['./', 'index.html', `app.js?v=${appVersion}`, 'offline-ready.js?v=cache01-v1', '../media/media-loader.js?v=1.1.0']) {
     assert.ok(shell.has(new URL(f, SW).href), 'fehlt im App-Cache: ' + f);
   }
   const start = vm.runInNewContext(read('offline-images.js') + ';EMFDOfflineImages', {}).start;
@@ -187,9 +188,46 @@ test('CACHE-01 App startet offline aus dem Cache', async () => {
 });
 
 test('CACHE-01 Registrierung, Einbindung und erzeugte Liste sind aktuell', () => {
-  assert.match(read('image-profiles.js'), /register\('image-service-worker\.js\?v=cache01-v1',\{scope:'\.\/',updateViaCache:'none'\}\)/);
+  assert.ok(read('image-profiles.js').includes(`register('image-service-worker.js?v=${P.VERSION}',{scope:'./',updateViaCache:'none'})`), 'Registrierung trägt die Version aus offline-policy.js');
   const html = read('index.html');
   assert.ok(html.indexOf('media-bridge.js') < html.indexOf('offline-ready.js'));
   execFileSync(process.execPath, [path.join(home, 'scripts/build-offline-precache.mjs'), '--check'], { stdio: 'pipe' });
   assert.doesNotMatch(read('offline-ready.js'), /createElement|innerHTML|progress-bar/, 'keine sichtbare Fortschrittsanzeige');
+});
+
+test('CACHE-01 Register: Raum-, Szenen- und Gerätebilder kommen aus data/registry.js, nie Platzhalter', () => {
+  const registry = require('../data/registry.js');
+  const list = P.registerImages(registry);
+  const all = [...list.start, ...list.house];
+  for (const id of ['P01', 'P02', 'P03', 'P04', 'P05', 'P06', 'P07', 'P08']) {
+    assert.ok(all.includes(registry.medien[`app.device.MP-${id}`].datei), `Gerätebild ${id}`);
+    assert.ok(all.includes(registry.medien[`app.room.${id}`].datei), `Raumbild ${id}`);
+  }
+  for (const [id, m] of Object.entries(registry.medien)) if (m.integration !== 'original') assert.ok(!all.includes(m.datei), `${id} ist Platzhalter`);
+  for (const file of all) assert.ok(fs.existsSync(path.resolve(home, file)), file);
+  // Ein neues Szenenbild des Eingangs gehört zu Stufe 1, eines der Halle zu Stufe 2 – nur über das Register.
+  const next = JSON.parse(JSON.stringify(registry));
+  Object.assign(next.medien['scene.EXT-C01.kandidat'], { datei: '../media/rooms/EXT-C01.webp', verfuegbarkeit: 'vorhanden', integration: 'original' });
+  Object.assign(next.medien['scene.H00-C01.kandidat'], { datei: '../media/rooms/H00-C01.webp', verfuegbarkeit: 'vorhanden', integration: 'original' });
+  const grown = P.registerImages(next);
+  assert.ok(grown.start.includes('../media/rooms/EXT-C01.webp'));
+  assert.ok(grown.house.includes('../media/rooms/H00-C01.webp'));
+  assert.deepEqual(P.registerImages(null), { start: [], house: [] });
+});
+
+test('CACHE-01 der Worker lädt die Registerbilder mit vor und kennt sie', async () => {
+  const w = worker({ network: okNetwork });
+  await w.dispatch('install');
+  await w.dispatch('message', { data: { type: 'emfd-cache-warm', urls: [] } });
+  const images = w.store.get(P.CACHES.images);
+  for (const id of ['P01', 'P05', 'P08']) assert.ok(images.has(`${ORIGIN}/wunderhaus/media/raumgeraete/${id}.webp`), `Gerätebild ${id} offline`);
+});
+
+test('CACHE-01 App-eigene Grafik (assets/…) kommt offline aus dem App-Cache', async () => {
+  let online = true;
+  const w = worker({ network: (u, m, h) => { if (!online) throw new TypeError('offline'); return okNetwork(u, m, h); } });
+  await w.dispatch('install');
+  online = false;
+  const icon = await w.request(`${ORIGIN}/wunderhaus/home/assets/music-icons/arrow-left.svg`);
+  assert.equal(icon.status, 200);
 });

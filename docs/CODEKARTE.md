@@ -1,4 +1,4 @@
-# Codekarte · 2D-PWA `home/` (v0.6.70)
+# Codekarte · 2D-PWA `home/` (v0.6.71)
 
 Arbeitskarte für Claude Code: **zuerst hier nachsehen, dann direkt an die genannte Stelle springen.** Stand 19.11.2026. Bei jedem Auftrag, der Struktur, Routen, Dienste, Speicher-Schlüssel oder Ereignisse ändert, diese Karte im selben Commit mitpflegen.
 
@@ -143,9 +143,13 @@ Weitere Modul-APIs: `EMFDAtelier` (atelier.js: `renderAtelier`, `renderTable`, `
 - Schichten: `image-profiles.js` (feste PERF-01-Varianten, generiert) → `media-bridge.js` (r2-Vorderseiten und Cover aus `../media/manifest.json` v2, falls vorhanden) → bei Ladefehler `media-recovery.js` mit Gruppen aus `media-catalog.js` (`media-core.js` sucht Alternativen) → zuletzt Ersatzbilder in `home/assets/recovery/`.
 - Offline-Cache (EMFD-CACHE-01), Service Worker `image-service-worker.js` (Registrierung in `image-profiles.js`, `updateViaCache:'none'`). Regeln in `offline-policy.js`, Listen in `offline-precache.js` (App-Dateien, **generiert**: `node scripts/build-offline-precache.mjs` nach jeder Änderung an `index.html`/Dateistruktur; Test prüft Aktualität) und `offline-images.js` (Bildliste der App, Stufe `start`/`house`). Seitenseite `offline-ready.js` (`EMFDOffline.status()`, Ereignis `emfd-offline-progress`, keine sichtbare Anzeige).
   - Caches: `emfd-shell-<VERSION>` (App-Dateien, Netz-zuerst für HTML/`manifest.json`), `emfd-media-images-v1` und `emfd-media-audio-v1` (versionsübergreifend, keine Größengrenze). Alte `emfd-images-*` werden beim Update übernommen.
+  - **Bilder aus dem Register:** Der Worker lädt zusätzlich `data/registry.js` und nimmt über `EMFDOfflinePolicy.registerImages()` alle Medien auf, die als Original ausgeliefert sind (`integration:'original'`, `verfuegbarkeit:'vorhanden'`, `datei` gesetzt). Platzhalter werden nie aufgenommen. Medien von Räumen der Ebene AUSSEN (Eingang) kommen in Stufe `start`, alle übrigen in `house`. Ein neues Szenenbild wird damit offline verfügbar, sobald es im Register ausgeliefert ist: `registry-app.json` eintragen und `node tools/build-registry.mjs` laufen lassen. `offline-images.js` bleibt nur für Karten, Rückseiten und Startbilder (PERF-01) zuständig.
+  - App-eigene Grafik unter `assets/` liegt im App-Cache. Der Bild-Handler sieht dort nach, bevor er das Netz fragt; das betrifft z. B. den Rückweg-Pfeil.
   - Installation: alle App-Dateien + Startbilder. Nach dem Start: alle Hausbilder im Hintergrund (plus aktuelle Vorderseiten aus `media-bridge.js`). Hash-Dateinamen werden nie erneut geladen.
   - Musik: kein Vorab-Laden. Erste Wiedergabe streamt aus dem Netz, parallel einmalige Speicherung; danach Wiedergabe aus dem Cache mit Range/206. HEAD-Prüfung (ETag/Länge) verwirft geänderte Dateien gleichen Namens.
-  - Neue App-Version: `VERSION` in `offline-policy.js` und `?v=` der Registrierung erhöhen, dann Liste neu erzeugen.
+  - Neue App-Version: `VERSION` in `offline-policy.js` und `?v=` der Registrierung erhöhen, dann Liste neu erzeugen (seit v0.6.71: `cache01-v2`).
+  - **Feste Regeln:** Nach jeder Änderung an `index.html` oder der Dateistruktur `node scripts/build-offline-precache.mjs` ausführen. Cache-Namen `emfd-media-images-v1`/`emfd-media-audio-v1` nie umbenennen. Kein Audio-Vorabladen. Keine Lade- oder Fortschrittsanzeige.
+  - Größe (Browserprüfung 19.11.2026): 223 Bilder, rund 42 MB einmalig. 4 Dateien fehlen auf dem Server und werden übersprungen (Kartenrückseite v1.2 in drei Größen und als JPEG).
 - Raumgeräte-Bilder: `../media/raumgeraete/P0x.webp`, als Medien-IDs `app.device.MP-P0x` im Register (noch nicht im Medienmanifest).
 - Raumbilder P01–P08 und Musikzimmer: Medien-IDs `app.room.<RAUM>` / `app.room.<RAUM>.thumb` im Register, verknüpft mit den Einträgen in `media.json`. Szenenbilder (`scene.<RAUM>-C0x.kandidat`) liegen nur im gemeinsamen Repo, nicht auf dem Server → Platzhalter.
 
