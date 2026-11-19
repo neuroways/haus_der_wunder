@@ -1,5 +1,7 @@
 # Entscheidungsprotokoll
 
+> Maßgeblich ist seit 19.11.2026 das Entscheidungsregister im gemeinsamen Repository `neuroways/haus-der-wunder` (`docs/decisions/`, W1–W7 = D-13). Diese Datei bleibt als Verlauf.
+
 Verbindliche Planungsentscheidungen für die Entwicklung. Neuere Einträge ersetzen ältere ausdrücklich. Quelle der fachlichen Entscheidung ist die Planung in ChatGPT; Claude Code dokumentiert und versioniert sie hier.
 
 ## 19.11.2026 · EMFD-DEV-BOOK-01 · Entscheidungsrunde W1–W7

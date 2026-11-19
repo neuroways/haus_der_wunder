@@ -2,6 +2,9 @@
 
 Planung und Gestaltung passieren in ChatGPT, die Umsetzung hier. ChatGPT liefert **Entwicklungsaufträge** (`EMFD-<BEREICH>-<NN>`), Claude Code setzt sie um und liefert eine **EMFD-Rückmeldung**. Der Prompt, mit dem ChatGPT arbeitet, liegt in `docs/CHATGPT-PLANUNG-PROMPT.md`. Ändert sich hier etwas, das ChatGPT wissen muss (Entscheidungen, Struktur, offene Punkte), wird der Prompt mit angepasst.
 
+## Gemeinsames Projekt-Repository
+Entscheidungen (D-xx), Aufträge, Register, `TASKS.json`, `STATUS.json` und `CHANGELOG.md` werden im gemeinsamen Repository `neuroways/haus-der-wunder` nach dessen `AGENTS.md` geführt (Entscheidungen W1–W7 dort als D-13, Aufträge unter `docs/development/auftraege/`). Dieses Repository enthält den App-Entwicklungsstand; ob die App hier bleibt, ist offen (dort K-18 / offen.md #11).
+
 ## Orientierung
 `docs/CODEKARTE.md` beschreibt Aufbau, Routen, Dienste, Speicher-Schlüssel, Ereignisse, Medien, Tests und typische Ansatzstellen der App. **Vor jedem Auftrag zuerst dort nachsehen** und dann gezielt die genannten Dateien lesen, statt den Code neu zu durchsuchen.
 
