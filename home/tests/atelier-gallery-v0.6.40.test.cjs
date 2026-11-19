@@ -26,7 +26,8 @@ test('cyclic navigation covers O24 to O01 and O01 to O24',()=>{
 });
 
 test('gallery has three primary actions and a clear exit',()=>{
-  assert.match(js,/Atelier verlassen/);
+  // EMFD-NAV-01: the exit is the shared context back link (fallback: all rooms).
+  assert.ok(js.includes("backLinkMarkup?.('#raeume')"));
   assert.match(js,/>Zurück</);
   assert.match(js,/>Text lesen</);
   assert.match(js,/>Weiter</);

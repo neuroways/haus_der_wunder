@@ -18,10 +18,10 @@ test('ARRIVAL-01 removes the gift button only from the arrival door',()=>{
 test('The global navigation is absent on every route',()=>{
   assert.doesNotMatch(read('index.html'),/<nav class="global-nav/);
 });
-test('ARRIVAL-01 release metadata is consistently v0.6.66',()=>{
-  assert.equal(JSON.parse(read('package.json')).version,'0.6.66');
-  assert.equal(JSON.parse(read('manifest.webmanifest')).version,'0.6.66');
-  assert.equal(JSON.parse(read('deployment-layout.json')).appVersion,'0.6.66');
-  assert.match(read('index.html'),/application-version" content="0\.6\.66"/);
-  assert.match(read('app.js'),/start-gate\.js\?v=0\.6\.66/);
+test('ARRIVAL-01 release metadata is consistent across all version markers',()=>{
+  const version=JSON.parse(read('package.json')).version;
+  assert.equal(JSON.parse(read('manifest.webmanifest')).version,version);
+  assert.equal(JSON.parse(read('deployment-layout.json')).appVersion,version);
+  assert.ok(read('index.html').includes(`application-version" content="${version}"`));
+  assert.ok(read('app.js').includes(`start-gate.js?v=${version}`));
 });

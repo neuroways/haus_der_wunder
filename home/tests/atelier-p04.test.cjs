@@ -12,7 +12,7 @@ const app=read('app.js');
 test('P04-01/02: Atelier and Flur navigation are wired',()=>{
   assert.match(app,/href="#atelier"><strong>Atelier/);
   assert.match(app,/route==='atelier'/);
-  assert.match(atelier,/Atelier verlassen/);
+  assert.ok(atelier.includes("backLinkMarkup?.('#raeume')"),'atelier exit is the shared back link');
 });
 
 test('P04-03/08: table route supports stable previous and next cards',()=>{

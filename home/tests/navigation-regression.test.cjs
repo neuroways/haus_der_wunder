@@ -46,8 +46,8 @@ test('NAV-05: card detail returns to the entry context',()=>{
   assert.match(read('feature-registry.js'),/root\.EMFDAtelier\?\.rememberReturn\?\.\(origin\?roomRoute\(origin\):'#karten'\)/);
   assert.match(read('teezimmer.js'),/function rememberReturn\(\)\{root\.EMFDAtelier\?\.rememberReturn\?\.\('#teezimmer'\);\}/);
   // Music sub-views return to their entry via the shared navigation trail (ARCH-01).
-  assert.match(read('music-room.js'),/data-station-back href="#musik"/);
-  assert.match(read('shared/navigation.js'),/function back\(fallback='#flur'\)\{return go\(returnRoute\(fallback\),\{kind:'return'\}\);\}/);
+  assert.ok(read('music-room.js').includes("backLinkMarkup?.('#musik')"),'music sub-views fall back to the music room');
+  assert.match(read('shared/navigation.js'),/function back\(fallback\)\{/);
 });
 
 test('NAV-06: modal openers are idempotent',()=>{

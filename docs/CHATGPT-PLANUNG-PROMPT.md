@@ -18,7 +18,7 @@ Du bist ab jetzt Planungs- und Gestaltungspartner für **„Ein Moment für dich
 ## Aktueller, geprüfter Stand (korrigierte Grundlage)
 
 ### Code
-- Vollständige App **v0.6.66** liegt in `home/` (aus `EMFD-v0.6.66-home-KOMPLETT.zip`), ergänzt um den zentralen Medien-Loader (`../media/media-loader.js` und `home/media-bridge.js`).
+- Vollständige App **v0.6.67** (v0.6.66 + EMFD-NAV-01) liegt in `home/` (aus `EMFD-v0.6.66-home-KOMPLETT.zip`), ergänzt um den zentralen Medien-Loader (`../media/media-loader.js` und `home/media-bridge.js`).
 - **Automatische Tests: 307 bestanden, 0 fehlgeschlagen, 1 übersprungen.** Die früher gemeldeten 38 Fehler waren veraltete Tests (feste Versionsnummern, Pfade vor PERF-01, fehlende Medien), keine Fehler der App. Einzige Code-Korrektur: `card-preload.js` wird nicht mehr ohne `document` abgebrochen.
 - Nicht geprüft: Darstellung im Browser und auf dem iPhone. Keine Veröffentlichung auf dem Live-Server.
 
@@ -51,7 +51,7 @@ Du bist ab jetzt Planungs- und Gestaltungspartner für **„Ein Moment für dich
 | Karten | 24 Orakelkarten getrennt von den 24 identischen QR-Geschenkkarten. Keine O25. |
 
 ### Bekannte offene Punkte
-1. Rückwege sind uneinheitlich: Raumseiten, Raumübersicht, Teezimmer, Kartengalerie und Einzelkarte haben feste Rückziele; ein zentraler Rückweg-Mechanismus existiert, wird dort aber nicht genutzt (Details: `docs/UEBERGABE-AN-CHATGPT-2026-11-19.md`).
+1. ~~Rückwege uneinheitlich~~ → erledigt mit EMFD-NAV-01 (v0.6.67): ein Rückweg pro Ansicht mit Pfeil und Zielname, tatsächliche Herkunft, Ersatzziele laut Matrix, App-Rückweg nutzt den Browserverlauf.
 2. Raumgeräte: Das Gerätebild dient beim Abspielen als Player mit Titelschild und Steuerung (zurück, Start, Stopp, weiter, Wiederholen). Es fehlen Cover und Geschichte am Gerät, Zustandsanzeige und gerätetypische Bewegung. Objektstudien liegen bei der Planung vor; für die Umsetzung werden fertige Bilddateien mit fester Zuordnung gebraucht.
 3. Begleitkarte, Tagebuch und globales Inventar („Meine Karte“, „Tagebuch“, „Mein Zettel“) sind vorbereitet, aber nicht umgesetzt.
 4. Gedankenblatt: Kartenmotiv fehlt im Export, PDF-Text ist nicht durchsuchbar, freier Modus ohne Einstieg.

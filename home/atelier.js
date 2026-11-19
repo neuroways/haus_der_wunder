@@ -74,7 +74,7 @@
     try{direction=sessionStorage.getItem(DIRECTION_KEY)||'';sessionStorage.removeItem(DIRECTION_KEY);}catch{}
     host.innerHTML=shell(`<img class="atelier-background" src="../media/optimized/rooms/P04-atelier-1086-v1-0a9f9576ef.webp" srcset="../media/optimized/rooms/P04-atelier-900-v1-f57b4df238.webp 900w, ../media/optimized/rooms/P04-atelier-1086-v1-0a9f9576ef.webp 1086w" sizes="100vw" alt="" aria-hidden="true" width="1086" height="1448" fetchpriority="high">
       <div class="atelier-gallery-shade" aria-hidden="true"></div>
-      <div class="atelier-topbar"><a class="back" href="#flur">Atelier verlassen</a><div class="atelier-topbar-controls"><button class="atelier-music-toggle" type="button" data-music-toggle aria-label="Musik einschalten" aria-pressed="false"><span class="dock-icon" aria-hidden="true"></span></button><button type="button" data-atelier-help aria-label="Hilfe öffnen">?</button></div></div>
+      <div class="atelier-topbar">${(root.EMFDNavigation?.backLinkMarkup?.('#raeume')||'<a class="back" href="#raeume">Zurück</a>')}<div class="atelier-topbar-controls"><button class="atelier-music-toggle" type="button" data-music-toggle aria-label="Musik einschalten" aria-pressed="false"><span class="dock-icon" aria-hidden="true"></span></button><button type="button" data-atelier-help aria-label="Hilfe öffnen">?</button></div></div>
       <div class="atelier-gallery${direction?` is-entering is-entering-${direction}`:''}" data-gallery>
         <p class="atelier-position" aria-live="polite"><span>${esc(card.group)}</span><span>${String(index+1).padStart(2,'0')} / ${registry.length}</span></p>
         <div class="atelier-wall" aria-label="Kunstwerk ${index+1} von ${registry.length}">
@@ -173,10 +173,7 @@
   }
 
   function renderGrid(host){
-    const remembered=returnTarget();
-    const gridBackTarget=remembered==='#karten'?'#flur':remembered;
-    const gridBackLabel=gridBackTarget==='#teezimmer'?'Zurück ins Teezimmer':gridBackTarget.startsWith('#atelier')?'Zurück ins Atelier':'Zurück zum Flur';
-    const topbar=`<div class="atelier-topbar"><a class="back" href="${gridBackTarget}">${gridBackLabel}</a><div class="atelier-topbar-controls"><button class="atelier-music-toggle" type="button" data-music-toggle aria-label="Musik einschalten" aria-pressed="false"><span class="dock-icon" aria-hidden="true"></span></button><button type="button" data-atelier-help aria-label="Hilfe öffnen">?</button></div></div>`;
+    const topbar=`<div class="atelier-topbar">${(root.EMFDNavigation?.backLinkMarkup?.('#flur')||'<a class="back" href="#flur">Zurück</a>')}<div class="atelier-topbar-controls"><button class="atelier-music-toggle" type="button" data-music-toggle aria-label="Musik einschalten" aria-pressed="false"><span class="dock-icon" aria-hidden="true"></span></button><button type="button" data-atelier-help aria-label="Hilfe öffnen">?</button></div></div>`;
     const background='<img class="atelier-background atelier-background--soft" src="../media/optimized/rooms/P04-atelier-kartenauslage-v1-864-v1-dcb82f452e.webp" alt="" aria-hidden="true" width="864" height="1536" fetchpriority="high">';
     if(!group){
       host.innerHTML=shell(`${background}${topbar}<div class="atelier-invitation"><div class="atelier-invitation-card" aria-labelledby="atelier-invitation-title"><span class="eyebrow">Das Atelier der Bildkarten</span><h1 id="atelier-invitation-title">Wie möchtest du heute schauen?</h1><p>Entdecke alle Kunstwerke oder wähle eine der vier Gruppen. Du kannst deine Auswahl jederzeit ändern.</p><div class="atelier-choice" role="group" aria-label="Bildkarten auswählen"><button class="atelier-choice-primary" type="button" data-group="Alle">Alle entdecken</button><div class="atelier-choice-groups">${GROUPS.slice(1).map(name=>`<button type="button" data-group="${name}">${name}</button>`).join('')}</div></div></div></div>`,'atelier-overview atelier-overview--invitation');

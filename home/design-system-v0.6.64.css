@@ -92,3 +92,11 @@ main :is(.teezimmer-heading p,.hall-caption p,.start02-door-copy p,.room-detail 
 :where(dialog) :is(.music-controls button,.origin-book-controls button,.origin-toc-items button,.start02-dialog-actions button){font-family:var(--emfd-font-ui)!important;font-size:var(--emfd-text-action)!important;line-height:1.4}
 :where(dialog) :is(.caption,.origin-top small,.origin-book-count,.origin-progress){font-family:var(--emfd-font-ui);font-size:var(--emfd-text-sm)}
 .emfd-shell .global-nav a>span{font-family:var(--emfd-font-ui)!important;font-size:var(--emfd-text-sm)!important}
+
+/* EMFD-NAV-01 · one context back link per view: arrow + target name, same place, same look. */
+body a.emfd-back{display:inline-flex;align-items:center;gap:7px;box-sizing:border-box;width:auto;max-width:min(100%,22rem);min-height:44px;height:auto;margin:0;padding:8px 14px 8px 10px;border:1px solid #b99a5b;border-radius:999px;background:#12313be6;color:#f4dfaf;font-size:15px;line-height:1.2;text-decoration:none;white-space:nowrap}
+body a.emfd-back .emfd-back-icon{display:block;flex:none;width:20px;height:20px;margin:0}
+body a.emfd-back .emfd-back-name{overflow:hidden;text-overflow:ellipsis}
+body a.emfd-back:hover{background:#18414e}
+body a.emfd-back:focus-visible{outline:3px solid #f2c879;outline-offset:3px}
+@media(max-width:380px){body a.emfd-back{font-size:14px;padding:7px 12px 7px 8px}}

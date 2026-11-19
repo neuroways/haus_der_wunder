@@ -1,4 +1,4 @@
-# Codekarte · 2D-PWA `home/` (v0.6.66, korrigiert)
+# Codekarte · 2D-PWA `home/` (v0.6.67)
 
 Arbeitskarte für Claude Code: **zuerst hier nachsehen, dann direkt an die genannte Stelle springen.** Stand 19.11.2026. Bei jedem Auftrag, der Struktur, Routen, Dienste, Speicher-Schlüssel oder Ereignisse ändert, diese Karte im selben Commit mitpflegen.
 
@@ -49,11 +49,19 @@ Router: `app.js` `render()` (ca. Zeile 181). Erlaubte Routen prüft zusätzlich 
 
 Nach jedem Render (Ende von `render()`): Raummusik einhängen (`EMFDRoomMusic.mount` für P01–P08), Kontext-Zurück (`EMFDFeatures.addContextBack`), Seitentitel, `EMFDUI.enhance`, Kartenbewegung, `EMFDNavigation.ready()`.
 
+## 3a. Rückwege (EMFD-NAV-01, v0.6.67)
+
+- **Jede untergeordnete Ansicht hat genau einen Rückweg**, erzeugt mit `EMFDNavigation.backLinkMarkup(fallback)` (in `app.js` über die Hilfsfunktion `backLink(fallback)`). Sichtbar: Pfeil (`assets/music-icons/arrow-left.svg`) + Zielname; zugänglich: „Zurück zum/zur …“ (`describe()` in `shared/navigation.js`). Stil: `body a.emfd-back` in `design-system-v0.6.64.css`. Keine festen Rücklinks mehr; `EMFDFeatures.addContextBack` ist leer, `navigation-icons.js` macht aus Rücklinks keine Türen mehr.
+- **Ziel:** tatsächliche Herkunft aus dem Navigationskontext. Blättern innerhalb derselben Ansicht (`sameView`, z. B. `#atelier/tisch/O02 → O03`, `#karte/verdeckt → #karte/O07`) behält den Rückweg der Ansicht. Ohne gültige Herkunft greift `fallbackFor()`: Räume P01–P08 → `#raeume`, `#raeume`/`#karten`/`#musik` → `#flur`, `#musik/playlist` und Geschichten → `#musik`, Einzelkarte → `#karten`. Der Fallback der aufrufenden Ansicht wird als Argument übergeben.
+- **Browserverlauf:** `createHistoryMirror` spiegelt den Verlauf des Tabs (Index in `history.state.emfdNav`, Liste in sessionStorage `emfd.nav.history.v1`). Klick auf `[data-emfd-back]` → `EMFDNavigation.back()`: Ist das Ziel der vorherige Eintrag (Schritte derselben Ansicht übersprungen), `history.go(-n)`; sonst `location.replace` (kein neuer Eintrag). Back/Forward werden über `history.state` als Wechsel im Verlauf erkannt und nie erneut gepusht. Nach einem Reload ist die Herkunft aus dem gespiegelten Verlauf bekannt.
+- URL ersetzen ohne Verlaufseintrag: `EMFDNavigation.replace(route)` (nicht `history.replaceState(null,…)`, das löscht die Markierung).
+- Neue Ansicht mit Rückweg: im Markup `backLinkMarkup('<fallback>')` einsetzen, Fallback in `fallbackFor` ergänzen, ggf. `viewKey`/`describe` erweitern. Tests: `tests/nav-01-back-navigation.test.cjs` (simulierter Browserverlauf).
+
 ## 4. Gemeinsame Dienste (nur einmal vorhanden, nie duplizieren)
 
 | Global | Datei | Zweck |
 |---|---|---|
-| `EMFDNavigation` | `shared/navigation.js` | Routen prüfen, `go(route,{origin,returnTo,kind,trigger})`, `back()`, `returnRoute()`, Rückkehr mit Fokus/Scroll. Sendet `emfd:navigation`. |
+| `EMFDNavigation` | `shared/navigation.js` | Routen prüfen, `go(route,{origin,returnTo,kind,trigger})`, `back(fallback)`, `returnRoute(fallback)`, `backLink(fallback)` → `{target,name,label}`, `backLinkMarkup(fallback)`, `replace(route)` (URL ersetzen ohne neuen Eintrag), `place(route)` (Ort P01–P08/flur/raeume/musik/ankommen oder `null` für Karten, Galerie, Geschichten), `fallbackFor(route)`, Rückkehr mit Fokus/Scroll. Sendet `emfd:navigation`. Siehe Abschnitt 3a. |
 | `EMFDStations` | `shared/stations.js` | Lebenszyklus für Ansichten mit `render/leave`. Registriert: `gramophone`, `records`, `compositions`, `library`. |
 | `EMFDAudio` | `shared/audio.js` | Lese-Port und Befehle (`command('play'|'pause'|'stop'|'next'|'previous'|'repeat'|'volume'|'silence')`, `select`, `playlist`, `subscribe`). Eigentümer ist `EMFDMusic`. |
 | `EMFDMusic` | `music-player.js` | **Der einzige Player** (Dialog `#music-dialog`, Hintergrundmusik, Raum-Warteschlange, Stille, Lautstärke, verdeckte Karte still). Nutzt `EMFDAudioSession` (`audio-session.js`). |
@@ -108,7 +116,7 @@ Weitere Modul-APIs: `EMFDAtelier` (atelier.js: `renderAtelier`, `renderTable`, `
 
 **localStorage:** `emfd.house.light.v1` (app.js) · `emfd.reading.size.v1` (book-reading.js, reading-preferences.js) · `emfd.music.mode`, `emfd.music.startOnEntry`, `emfd.music.volume`, `emfd.music.globalSilence` (music-player.js) · `emfd.music.entryPreference` (music-entry.js) · `emfd.start02.gift-completed.v1`, `emfd.start02.tutorial-completed.v1`, `emfd.start02.install-dismissed.v1`, `emfd.start03.intro-completed.v1` (start-gate.js) · `emfd.card.motionHint.v1.*` (card-motion.js) · `emfd-media-bridge` (Notbremse, media-bridge.js).
 
-**sessionStorage:** `emfd.cardDraw.concealed` · `emfd.card.return` · `emfd.atelier.current|direction|gridScroll|group` · `emfd.music.entryPreference.session`.
+**sessionStorage:** `emfd.nav.history.v1` (Verlaufsspiegel, nur Routen) · `emfd.cardDraw.concealed` · `emfd.card.return` · `emfd.atelier.current|direction|gridScroll|group` · `emfd.music.entryPreference.session`.
 
 **Ereignisse (window):** `emfd:navigation` · `emfd:music-ready` · `emfd:music-state` · `emfd:music-availability` · `emfd:card-concealed` · `emfd:card-revealed` · `emfd:hall-light-change` · `emfd:start-gate-rendered` · `emfd-media-updated`. Am Kartenelement: `cancel-card-tap`.
 
@@ -145,7 +153,7 @@ Versionsangaben in Tests nie fest eintragen, sondern aus `package.json` lesen.
 - **Hilfetext:** `EMFDHelp.register` im zuständigen Modul (siehe `music-help.js`).
 - **Neue Route:** `app.js` `render()` + `shared/navigation.js` `route()`/`station()`; Titel in `titles`.
 - **Neue Ansicht mit Lebenszyklus:** als Station über `EMFDStations.register(id,{render,leave})`.
-- **Rückwege vereinheitlichen:** `EMFDNavigation.returnRoute()`/`back()` nutzen statt fester `href`. Heute noch feste Ziele in `app.js` (`renderRoomDetail`: „Alle Räume“ und „Zum Flur“), `atelier.js` `renderGrid`, Karten-Zweig in `render()`.
+- **Rückweg einer Ansicht:** `backLinkMarkup(fallback)`, siehe 3a. Keine festen `href`-Rücklinks.
 
 ## 11. Fallstricke
 

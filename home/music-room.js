@@ -22,14 +22,9 @@
     root.EMFDMusic?.unbindRoom(host);
   }
 
-  function bindReturn(host){
-    const link=host.querySelector('[data-station-back]');if(!link)return;
-    const nav=root.EMFDNavigation,target=nav.returnRoute('#musik'),station=nav.station(target);
-    const label=station==='library'?'Zurück zur Bibliothek':station==='records'?'Zurück zur Plattensammlung':station==='compositions'?'Zurück zu den Kompositionsgeschichten':station==='gramophone'?'Zurück zum Musikplayer':station==='hall'?'Zurück zum Flur':station==='teezimmer'?'Zurück ins Teezimmer':station==='atelier'?'Zurück ins Atelier':station==='cards'?'Zurück zu den Karten':'Zurück zum vorherigen Raum';
-    link.setAttribute('href',target);link.setAttribute('aria-label',label);link.title=label;
-    link.innerHTML=root.EMFDMusicDevice.icon(station==='library'||station==='compositions'?'book-open':station==='records'?'layout-grid':station==='gramophone'?'disc-3':'door-open');
-    link.addEventListener('click',event=>{event.preventDefault();nav.back('#musik');});
-  }
+  // EMFD-NAV-01: back links come from EMFDNavigation.backLinkMarkup; clicks are handled centrally.
+  function bindReturn(){}
+
 
   function fallbackImage(event){
     const image=event.currentTarget;
@@ -56,7 +51,7 @@
     root.EMFDMusicDevice.bind(host,data);
     host.innerHTML=`<section class="music-room music-room--scene music03-room" aria-labelledby="music-room-title">
       <img class="music03-background" src="assets/recovery/musikzimmer-v1-865-v1-518f76f8bb.webp" alt="" aria-hidden="true">
-      <div class="music-room-topbar"><a class="back" href="#flur">Zurück zum Flur</a><button type="button" data-music-help aria-label="Hilfe im Musikzimmer" title="Hilfe">?</button></div>
+      <div class="music-room-topbar">${(root.EMFDNavigation?.backLinkMarkup?.('#flur')||'<a class="back" href="#flur">Zurück</a>')}<button type="button" data-music-help aria-label="Hilfe im Musikzimmer" title="Hilfe">?</button></div>
       <h1 id="music-room-title">Musikzimmer</h1>
       <figure class="music03-stage">
         ${root.EMFDMusicDevice.device(theme)}
@@ -80,7 +75,7 @@
     const options=key=>[...new Set(data.items.flatMap(item=>item.music[key]))].sort((a,b)=>a.localeCompare(b,'de')).map(value=>'<option value="'+escape(value)+'">'+escape(value)+'</option>').join('');
     host.innerHTML=`<section class="music04-selection" aria-labelledby="playlist-title">
       <img class="music04-backdrop" src="assets/recovery/musikzimmer-v1-865-v1-518f76f8bb.webp" alt="">
-      <div class="music04-content"><div class="music04-selection-topbar"><a class="back" data-station-back href="#musik" aria-label="Zurück zum Musikplayer" title="Zurück zum Musikplayer">${root.EMFDMusicDevice.icon('disc-3')}</a><button type="button" data-music-help aria-label="Hilfe zur Plattensammlung" title="Hilfe">?</button></div>
+      <div class="music04-content"><div class="music04-selection-topbar">${(root.EMFDNavigation?.backLinkMarkup?.('#musik')||'<a class="back" href="#musik">Zurück</a>')}<button type="button" data-music-help aria-label="Hilfe zur Plattensammlung" title="Hilfe">?</button></div>
       <h1 id="playlist-title">Deine Plattensammlung</h1><p class="music04-intro">Wische durch die Cover und lege eine Platte auf.</p>
       <div class="music-filters" role="group" aria-label="Kategorie">${[...GROUPS,'Main Theme'].map(group=>'<button type="button" data-music-group="'+group+'" aria-pressed="'+(state.category===group)+'">'+group+'</button>').join('')}</div>
       <div class="music04-filter-fields"><label>Musikstil<select data-filter-style aria-label="Musikstil"><option value="">Alle Musikstile</option>${options('styles')}</select></label><label>Instrument<select data-filter-instrument aria-label="Instrument"><option value="">Alle Instrumente</option>${options('instruments')}</select></label><button type="button" data-filter-reset>Filter zurücksetzen</button></div>
@@ -145,7 +140,7 @@
   }
 
   async function renderStories(host,{catalog:stories,media},request,selectedId){
-    host.innerHTML=`<section class="music04-story-selection"><div class="music04-story-topbar"><a class="back" data-station-back href="#musik" aria-label="Zurück zum Musikplayer" title="Zurück zum Musikplayer">${root.EMFDMusicDevice.icon('disc-3')}</a><button type="button" data-music-help aria-label="Hilfe zu den Kompositionsgeschichten" title="Hilfe">?</button></div><div class="music04-story-shelf" data-composition-shelf></div></section>`;
+    host.innerHTML=`<section class="music04-story-selection"><div class="music04-story-topbar">${(root.EMFDNavigation?.backLinkMarkup?.('#musik')||'<a class="back" href="#musik">Zurück</a>')}<button type="button" data-music-help aria-label="Hilfe zu den Kompositionsgeschichten" title="Hilfe">?</button></div><div class="music04-story-shelf" data-composition-shelf></div></section>`;
     const shelf=await root.EMFDMusicBooks.mount(host.querySelector('[data-composition-shelf]'),stories,media,selectedId);
     if(request!==renderRequest){shelf?.destroy();return null;}storyShelf=shelf;return shelf;
   }
@@ -177,7 +172,7 @@
       root.EMFDNavigation.ready();
     }catch{
       if(request!==renderRequest)return;
-      host.innerHTML='<section class="music-room"><a class="back" href="#flur">Zurück zum Flur</a><h1>Musikzimmer</h1><p role="alert">Die Playlist-Daten konnten nicht geladen werden. Die Anwendung bleibt still.</p></section>';
+      host.innerHTML='<section class="music-room">'+(root.EMFDNavigation?.backLinkMarkup?.('#flur')||'<a class="back" href="#flur">Zurück</a>')+'<h1>Musikzimmer</h1><p role="alert">Die Playlist-Daten konnten nicht geladen werden. Die Anwendung bleibt still.</p></section>';
     }
   }
 

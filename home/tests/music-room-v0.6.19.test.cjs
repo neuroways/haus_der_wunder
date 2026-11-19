@@ -56,7 +56,7 @@ test('PLAY-11/12: music routes and missing-asset fallbacks are present',()=>{
   assert.match(app,/musik\/playlist/);
   assert.match(app,/musik\/geschichten/);
   assert.match(room,/Bild wird nachgeliefert/);
-  assert.match(room,/Zurück zum Flur/);
+  assert.ok(room.includes("backLinkMarkup?.('#flur')"),'music room back link falls back to the hall');
 });
 
 test('PLAY-15: filters, status and storybook expose accessible semantics',()=>{

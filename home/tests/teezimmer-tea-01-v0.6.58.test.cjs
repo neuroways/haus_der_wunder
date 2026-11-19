@@ -35,7 +35,7 @@ test('TEA-03: tea room opens no editor of its own; the shared thought paper keep
 test('TEA-04: preserve daily-card return, existing routes, music entry, and unchanged illustration',()=>{
   assert.match(js,/data-house-feature="daily" data-feature-room="P08"/);
   assert.match(read('feature-registry.js'),/root\.EMFDCardDraw\?\.begin\?\.\(card\.id,origin\?roomRoute\(origin\):'#karten'\)/);
-  assert.match(js,/href="#flur"/);
+  assert.ok(js.includes("backLinkMarkup?.('#raeume')"),'tea room back link (fallback all rooms)');
   assert.match(js,/href="#karten"/);
   assert.match(js,/media\/rooms\/teezimmer_p08_background\.webp/);
   assert.match(js,/media\/rooms\/P08-teezimmer\.webp/);

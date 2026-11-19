@@ -13,7 +13,8 @@ function renderRoute(hash,atelier){
  const dialog={addEventListener(){},setAttribute(){},showModal(){},close(){},focus(){},querySelector(){return null;},className:'',innerHTML:'',open:false};
  const ctl={onclick:null};
  const document={body:{classList:{toggle(){},add(){},remove(){},contains(){return false;}},appendChild(node){return node;}},head:{append(){}},title:'',querySelector(sel){return sel==='main'?main:sel==='.skip'||sel==='#quiet'?ctl:null;},querySelectorAll(){return [];},createElement(){return Object.assign({},dialog);},addEventListener(){}};
- const window={EMFDAtelier:atelier,matchMedia(){return {matches:false,addEventListener(){}};},addEventListener(){},scrollTo(){}};
+ const navModule=require('../shared/navigation.js');let navHash=hash;const nav=navModule.createNavigation({getHash:()=>navHash,setHash:value=>{navHash=value;}});
+ const window={EMFDNavigation:{...nav,backLinkMarkup:(fallback,className)=>navModule.backLinkHTML(nav,fallback,className)},EMFDAtelier:atelier,matchMedia(){return {matches:false,addEventListener(){}};},addEventListener(){},scrollTo(){}};
  const location={hash};
  vm.runInNewContext(app,{document,window,location,CARDS:cards,console,ResizeObserver:undefined},{filename:'app.js'});
  return {html:main.innerHTML,window};
@@ -42,7 +43,10 @@ test('HOUSE-01 six basic rooms contain their original image, way back and access
   const hero=html.match(new RegExp(`src="(\\.\\.\\/media\\/(?:optimized\\/)?rooms\\/${id}-[^\"]+\\.webp)"`));
   assert.ok(hero,id);
   assert.ok(fs.existsSync(path.resolve(home,hero[1])),hero[1]);
-  for(const link of ['#raeume','#flur'])assert.ok(html.includes(`href="${link}"`),id+' '+link);
+  // NAV-01: exactly one context back link; direct call without origin falls back to all rooms.
+  assert.equal((html.match(/data-emfd-back(?=[\s>])/g)||[]).length,1,id+' one back link');
+  assert.ok(html.includes('href="#raeume"'),id+' back to all rooms');
+  assert.doesNotMatch(html,/Zum Flur/,id);
   for(const group of ['Ruhe','Kraft','Halt','Freude'])assert.ok(html.includes(`data-house-category="${group}"`),id+' '+group);
   assert.doesNotMatch(html,/Baustelle|noch nicht fertig|Platzhaltergeschichte/);
  }

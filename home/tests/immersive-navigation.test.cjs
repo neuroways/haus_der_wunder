@@ -44,9 +44,11 @@ test('Playlist ist eine kompakte bildgestützte Titelliste und Filter bleiben fu
 
 test('Rückwege aus Karten und Übersicht berücksichtigen den Einstieg',()=>{
   const app=read('app.js'),atelier=read('atelier.js');
-  assert.match(app,/Zurück ins Teezimmer/);
-  assert.match(app,/Zurück zum Kartentisch/);
-  assert.match(atelier,/gridBackTarget==='#teezimmer'/);
-  assert.match(atelier,/remembered==='#karten'\?'#flur':remembered/);
+  // EMFD-NAV-01: card and gallery use the shared back link; the origin comes from the navigation history.
+  assert.match(app,/backLink\('#karten'\)/);
+  assert.match(app,/returnTarget==='#teezimmer'\?'<a data-card-return-teezimmer="true" '/);
+  assert.ok(atelier.includes("backLinkMarkup?.('#flur')"),'gallery back link');
+  assert.doesNotMatch(atelier,/gridBackTarget|Atelier verlassen/);
   assert.match(app,/a\[href=\"#flur\"\]/);
+  assert.match(app,/link\.hasAttribute\('data-emfd-back'\)/);
 });

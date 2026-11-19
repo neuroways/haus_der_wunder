@@ -86,14 +86,9 @@
     if(insertion)insertion.before(section);else host.append(section);
     return section;
   }
-  function addContextBack(main,route){
-    if(!main||!(route==='karten'||route==='musik'))return;
-    const origin=getOrigin();if(!origin)return;
-    const name=root.EMFDHouse?.rooms?.find(room=>room.id===origin.roomId)?.name||'Zimmer';
-    const link=document.createElement('a');link.className='feature-context-back back';
-    link.href=origin.route;link.textContent=`Zurück ins ${name}`;
-    main.prepend(link);
-  }
+  // EMFD-NAV-01: every view has exactly one back link from EMFDNavigation; no second context link.
+  function addContextBack(){}
+
   // Event delegation for links and buttons in any room, without per-room code.
   document.addEventListener('click',event=>{
     if(event.target.closest?.('.global-nav a'))clearOrigin();

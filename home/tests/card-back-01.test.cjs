@@ -37,7 +37,9 @@ test('start and tea random draws use concealed flow while direct cards remain di
  assert.match(registry,/root\.EMFDCardDraw\?\.begin\?\.\(card\.id,origin\?roomRoute\(origin\):'#karten'\)/);
  assert.match(registry,/id==='P08'\?'#teezimmer'/);
  assert.match(app,/route==='karte\/verdeckt'/);
- assert.match(app,/history\.replaceState\(null,'',`#karte\/\$\{c\.id\}`\)/);
+ // NAV-01: revealing replaces the URL but keeps the history entry and its back target.
+ assert.match(app,/window\.EMFDNavigation\?\.replace\?\.\(`#karte\/\$\{c\.id\}`\)/);
+ assert.match(app,/history\.replaceState\(history\.state,'',`#karte\/\$\{c\.id\}`\)/);
  assert.match(app,/href="#karte\/\$\{c\.id\}"/);
  assert.match(app,/Verdeckte Karte/);
 });
