@@ -1,4 +1,4 @@
-# Codekarte · 2D-PWA `home/` (v0.6.68)
+# Codekarte · 2D-PWA `home/` (v0.6.69)
 
 Arbeitskarte für Claude Code: **zuerst hier nachsehen, dann direkt an die genannte Stelle springen.** Stand 19.11.2026. Bei jedem Auftrag, der Struktur, Routen, Dienste, Speicher-Schlüssel oder Ereignisse ändert, diese Karte im selben Commit mitpflegen.
 
@@ -103,6 +103,7 @@ Weitere Modul-APIs: `EMFDAtelier` (atelier.js: `renderAtelier`, `renderTable`, `
 - Flur: `renderHall()` in `app.js`; Starttour beim ersten Betreten: `start-tour.js` (6 Schritte).
 
 ### Musik
+- Audiodateien (seit v0.6.69, Musikmanifest v1.2): `../media/audio/O##-M01.mp3`, Hauptthema `THEME-M01.mp3`; Asset-IDs in der App bleiben `O01`…`O24`, `T03`. Zusatzfassungen O03-M02, O16-M02, O16-M01-V02 liegen auf dem Server, sind aber noch nicht eingebunden. Audio liegt nicht im Repository (öffentlich; Musik nicht freigegeben, `.gitignore`).
 - Daten: `music-manifest.json` (Audiospuren), `card-music-map.json` (Karte → Spur), `playlist-catalog.json` (25 Einträge: T03 + O01–O24), `music-discovery.json` (Stile, Instrumente, Cover, Varianten), `composition-stories.json` (24 Geschichten), `composition-story-media.json`.
 - Ablauf: Auswahl → `EMFDAudio.select(id,{play})` → `EMFDMusic` → `EMFDAudioSession`. Nie Autoplay; `globalSilence` hat Vorrang.
 - Erster Besuch: `music-entry.js` fragt „mit/ohne Hintergrundmusik“ (Speichern nur auf Wunsch).

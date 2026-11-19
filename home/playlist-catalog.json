@@ -57,7 +57,7 @@
           "label": "Main Theme",
           "creativeStatus": "confirmed",
           "audioAssetId": null,
-          "audioSourcePath": "media/audio/THEME.mp3",
+          "audioSourcePath": "media/audio/THEME-M01.mp3",
           "audioUrl": null,
           "pathStatus": "user_confirmed_not_binary_verified",
           "technicalStatus": "unverified",
@@ -73,7 +73,7 @@
       "notes": "Separates Theme, nicht an Oxx gebunden; keine automatische Wiedergabe; keine Loop-Pflicht.",
       "media": {
         "imagePath": "../media/optimized/playlist/main-theme-house-160-v1-edfa2ea0a4.webp",
-        "audioPath": "../media/audio/THEME.mp3",
+        "audioPath": "../media/audio/THEME-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -125,7 +125,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O01-160-v1-1fc9f5c551.webp",
-        "audioPath": "../media/audio/O01.mp3",
+        "audioPath": "../media/audio/O01-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -177,7 +177,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O02-160-v1-debb9abe22.webp",
-        "audioPath": "../media/audio/O02.mp3",
+        "audioPath": "../media/audio/O02-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -214,7 +214,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O03-160-v1-a0ae7c9434.webp",
-        "audioPath": "../media/audio/O03.mp3",
+        "audioPath": "../media/audio/O03-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -251,7 +251,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O04-160-v1-5e0a133981.webp",
-        "audioPath": "../media/audio/O04.mp3",
+        "audioPath": "../media/audio/O04-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -288,7 +288,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O05-160-v1-c3ea5765f8.webp",
-        "audioPath": "../media/audio/O05.mp3",
+        "audioPath": "../media/audio/O05-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -325,7 +325,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O06-160-v1-9eedc6c010.webp",
-        "audioPath": "../media/audio/O06.mp3",
+        "audioPath": "../media/audio/O06-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -362,7 +362,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O07-160-v1-0571a38f40.webp",
-        "audioPath": "../media/audio/O07.mp3",
+        "audioPath": "../media/audio/O07-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -399,7 +399,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O08-160-v1-86b01bbb7e.webp",
-        "audioPath": "../media/audio/O08.mp3",
+        "audioPath": "../media/audio/O08-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -436,7 +436,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O09-160-v1-fb07d53584.webp",
-        "audioPath": "../media/audio/O09.mp3",
+        "audioPath": "../media/audio/O09-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -473,7 +473,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O10-160-v1-93c9090bb6.webp",
-        "audioPath": "../media/audio/O10.mp3",
+        "audioPath": "../media/audio/O10-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -510,7 +510,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O11-160-v1-9fe79c302d.webp",
-        "audioPath": "../media/audio/O11.mp3",
+        "audioPath": "../media/audio/O11-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -547,7 +547,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O12-160-v1-184a3d18c5.webp",
-        "audioPath": "../media/audio/O12.mp3",
+        "audioPath": "../media/audio/O12-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -584,7 +584,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O13-160-v1-30b7945456.webp",
-        "audioPath": "../media/audio/O13.mp3",
+        "audioPath": "../media/audio/O13-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -621,7 +621,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O14-160-v1-447fb4766d.webp",
-        "audioPath": "../media/audio/O14.mp3",
+        "audioPath": "../media/audio/O14-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -658,7 +658,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O15-160-v1-4dd2c4a0d7.webp",
-        "audioPath": "../media/audio/O15.mp3",
+        "audioPath": "../media/audio/O15-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -724,7 +724,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O16-160-v1-7c187e5181.webp",
-        "audioPath": "../media/audio/O16.mp3",
+        "audioPath": "../media/audio/O16-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -776,7 +776,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O17-160-v1-846870247c.webp",
-        "audioPath": "../media/audio/O17.mp3",
+        "audioPath": "../media/audio/O17-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -828,7 +828,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O18-160-v1-026aa40243.webp",
-        "audioPath": "../media/audio/O18.mp3",
+        "audioPath": "../media/audio/O18-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -880,7 +880,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O19-160-v1-17fd90cc7b.webp",
-        "audioPath": "../media/audio/O19.mp3",
+        "audioPath": "../media/audio/O19-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -932,7 +932,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O20-160-v1-3da9bdd744.webp",
-        "audioPath": "../media/audio/O20.mp3",
+        "audioPath": "../media/audio/O20-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -984,7 +984,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O21-160-v1-9c09937160.webp",
-        "audioPath": "../media/audio/O21.mp3",
+        "audioPath": "../media/audio/O21-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -1064,7 +1064,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O22-160-v1-c11b758071.webp",
-        "audioPath": "../media/audio/O22.mp3",
+        "audioPath": "../media/audio/O22-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -1130,7 +1130,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O23-160-v1-3f90fa12bb.webp",
-        "audioPath": "../media/audio/O23.mp3",
+        "audioPath": "../media/audio/O23-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },
@@ -1182,7 +1182,7 @@
       "notes": "Kartenmusik mit der Vorderseite derselben O-ID verbinden; keine neue Illustration erstellen.",
       "media": {
         "imagePath": "../media/optimized/playlist/O24-160-v1-6bc597f80a.webp",
-        "audioPath": "../media/audio/O24.mp3",
+        "audioPath": "../media/audio/O24-M01.mp3",
         "imageWidth": 160,
         "imageHeight": 160
       },

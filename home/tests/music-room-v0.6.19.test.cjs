@@ -26,14 +26,15 @@ test('PLAY-03/04: every O-ID has the canonical image and audio path',()=>{
     // PERF-01: the playlist uses the optimized 160 px square thumbnail of the same card.
     assert.match(item.media.imagePath,new RegExp(`^\\.\\./media/optimized/playlist/${id}-160-v1-[0-9a-f]+\\.webp$`));
     assert.ok(fs.existsSync(path.join(root,item.media.imagePath)),item.media.imagePath);
-    assert.equal(item.media.audioPath,`../media/audio/${id}.mp3`);
+    // Musikmanifest v1.2 (19.11.2026): Dateinamen O##-M##.mp3
+    assert.equal(item.media.audioPath,`../media/audio/${id}-M01.mp3`);
   });
 });
 
-test('PLAY-05: main theme has no card ID and uses THEME.mp3',()=>{
+test('PLAY-05: main theme has no card ID and uses THEME-M01.mp3',()=>{
   const theme=items.find(item=>item.type==='app_theme');
   assert.equal(theme.cardId,null);
-  assert.equal(theme.media.audioPath,'../media/audio/THEME.mp3');
+  assert.equal(theme.media.audioPath,'../media/audio/THEME-M01.mp3');
 });
 
 test('PLAY-06: documented multi-variants are retained',()=>{

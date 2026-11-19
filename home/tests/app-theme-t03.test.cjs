@@ -12,7 +12,7 @@ test('T03 is an independent app-theme asset, separate from card songs',()=>{
  const themes=manifest.tracks.filter(track=>track.assetId==='T03');
  assert.equal(themes.length,1);
  assert.deepEqual({kind:themes[0].kind,path:themes[0].path,version:themes[0].version,loop:themes[0].loop,autoplay:themes[0].autoplay},
-  {kind:'app-theme',path:'../media/audio/THEME.mp3',version:'T03',loop:true,autoplay:false});
+  {kind:'app-theme',path:'../media/audio/THEME-M01.mp3',version:'T03',loop:true,autoplay:false});
  assert.equal(themes[0].musicalStatus,'confirmed');
  assert.equal(themes[0].availability,'not-verified');
  assert.equal(themes[0].cardId,undefined);
