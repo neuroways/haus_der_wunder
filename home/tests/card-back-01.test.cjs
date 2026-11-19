@@ -7,7 +7,7 @@ const home=path.resolve(__dirname,'..');
 const read=file=>fs.readFileSync(path.join(home,file),'utf8');
 
 test('CARD-BACK-01 uses one v1.2 back profile and no v1.0 reference',()=>{
- const files=['app.js','image-profiles.js','card-preload.js','image-service-worker.js','card-interaction.js'];
+ const files=['app.js','image-profiles.js','card-preload.js','image-service-worker.js','offline-images.js','card-interaction.js'];
  const source=files.map(read).join('\n');
  assert.doesNotMatch(source,/EMFD_Kartenrueckseite_v1\.0/);
  for(const profile of ['210x360-adc3b9f4a1', '630x1080-3d4d2cb907', '896x1536-f5853026a0'])assert.match(source,new RegExp(profile));
@@ -68,8 +68,8 @@ test('build version and cache preserve the card back in the current build',()=>{
  assert.equal(JSON.parse(read('manifest.webmanifest')).version,version);
  assert.ok(read('index.html').includes(`application-version" content="${version}"`));
  const sw=read('image-service-worker.js');
- assert.match(sw,/const CACHE='emfd-images-[a-z0-9-]+-v\d+'/);
+ assert.match(read('offline-policy.js'),/images: 'emfd-media-images-v\d+'/);
  // The card back is allowed through the shared media catalog group.
- assert.match(sw,/importScripts\('media-core\.js','media-catalog\.js'\)/);
+ assert.match(sw,/importScripts\([^)]*'media-core\.js', 'media-catalog\.js'\)/);
  assert.match(read('media-catalog.js'),/"id":"card-back","paths":\["\.\.\/media\/cards\/rueckseite\.jpeg"/);
 });

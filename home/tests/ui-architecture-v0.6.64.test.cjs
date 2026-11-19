@@ -61,7 +61,7 @@ test('image recovery is actually linked to START-02 and can retry after uploadin
  const start=read('start-gate.js');assert.match(start,/root\.EMFDMedia\?\.resolve/);
  assert.match(start,/function retryMissing/);assert.match(start,/data-start02-retry/);
  assert.match(start,/preload\(\[ASSETS\.A01,ASSETS\.A02,ASSETS\.A03,ASSETS\.A04,ASSETS\.A05,ASSETS\.A06\]\)/);
- assert.match(read('image-service-worker.js'),/emfd-images-recovery-v8/);
+ assert.match(read('image-service-worker.js'),/P\.LEGACY_CACHE/); // CACHE-01 übernimmt emfd-images-recovery-v8
 });
 test('PWA installation metadata retains domain root and correct app name',()=>{
  const manifest=JSON.parse(read('manifest.webmanifest'));

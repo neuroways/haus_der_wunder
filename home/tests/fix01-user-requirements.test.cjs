@@ -87,5 +87,6 @@ test('FIX01: start image requests cannot block doorway indefinitely',()=>{
 test('FIX01: release version and SW image cache are updated',()=>{
  const version=JSON.parse(read('package.json')).version;
  assert.ok(html.includes(`application-version" content="${version}"`));
- assert.match(read('image-service-worker.js'),/CACHE='emfd-images-recovery-v\d+'/);
+ // EMFD-CACHE-01: versionsübergreifender Bildcache statt emfd-images-recovery-v8.
+ assert.match(read('offline-policy.js'),/images: 'emfd-media-images-v\d+'/);
 });
