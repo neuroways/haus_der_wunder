@@ -18,6 +18,6 @@ test('Android and iOS get the requested install name', () => {
   assert.match(html, /<title>Haus der kleinen Wunder<\/title>/);
 });
 test('manifest link carries new cache revision and scope is internally consistent', () => {
-  assert.match(html,/href="manifest\.webmanifest\?v=0\.6\.63-install01"/);
+  assert.ok(html.includes(`href="manifest.webmanifest?v=${manifest.version}"`),'manifest link is cache-busted with the manifest version');
   assert.ok(manifest.start_url.startsWith(manifest.scope));
 });

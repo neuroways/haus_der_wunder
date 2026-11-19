@@ -27,7 +27,10 @@ test('card interaction exposes real-life gestures and explicit close-up access',
   assert.match(app,/data-card-enlarge/);
   assert.match(app,/EMFDCardView\?\.open\(card\)/);
   assert.match(app,/card\.dataset\.motionBound==='true'/);
-  assert.match(app,/pointerup[^\n]*else\{flip\(\);suppressClick=true;\}/);
+  // FIX01: a single tap flips after a short delay so a double tap can open the book instead.
+  assert.match(app,/if\(e\.detail===0\)\{cancelTap\(\);flip\(\);return;\}/);
+  assert.match(app,/singleTapTimer=setTimeout\(\(\)=>\{singleTapTimer=null;if\(card\.isConnected\)flip\(\);\},280\)/);
+  assert.match(app,/card\.addEventListener\('dblclick',e=>\{e\.preventDefault\(\);cancelTap\(\);openBook\(\);\}\)/);
   assert.match(app,/const afterPaint=window\.requestAnimationFrame\|\|/);
   assert.match(app,/afterPaint\(\(\)=>afterPaint\(\(\)=>\{bindMotion\(\);fitActiveCard\(\);\}\)\)/);
   assert.match(interaction,/area\.append\(card\)/);

@@ -7,7 +7,9 @@ const home=path.resolve(__dirname,'..');
 const app=fs.readFileSync(path.join(home,'app.js'),'utf8');
 const cards=JSON.parse(fs.readFileSync(path.join(home,'data.js'),'utf8').replace(/^window\.CARDS=/,'').replace(/;\s*$/,''));
 function renderRoute(hash,atelier){
- const main={innerHTML:'',focus(){},querySelector(){return null;},querySelectorAll(){return [];}};
+ // The library shelf is part of the markup that renderRoom just wrote, so a browser always finds it.
+ const shelf={innerHTML:''};
+ const main={innerHTML:'',focus(){},querySelector(sel){return sel==='#emfd-library-root'&&main.innerHTML.includes('id="emfd-library-root"')?shelf:null;},querySelectorAll(){return [];}};
  const dialog={addEventListener(){},setAttribute(){},showModal(){},close(){},focus(){},querySelector(){return null;},className:'',innerHTML:'',open:false};
  const ctl={onclick:null};
  const document={body:{classList:{toggle(){},add(){},remove(){},contains(){return false;}},appendChild(node){return node;}},head:{append(){}},title:'',querySelector(sel){return sel==='main'?main:sel==='.skip'||sel==='#quiet'?ctl:null;},querySelectorAll(){return [];},createElement(){return Object.assign({},dialog);},addEventListener(){}};
@@ -37,7 +39,9 @@ test('HOUSE-01 six basic rooms contain their original image, way back and access
  for(const [id,name] of Object.entries(names)){
   const {html}=renderRoute(`#ort/${id}`);
   assert.match(html,new RegExp(`id="room-title">${name}`),id);
-  assert.match(html,new RegExp(`src="\\.\\.\\/media\\/rooms\\/${id}-[^\"]+\\.webp"`),id);
+  const hero=html.match(new RegExp(`src="(\\.\\.\\/media\\/(?:optimized\\/)?rooms\\/${id}-[^\"]+\\.webp)"`));
+  assert.ok(hero,id);
+  assert.ok(fs.existsSync(path.resolve(home,hero[1])),hero[1]);
   for(const link of ['#raeume','#flur'])assert.ok(html.includes(`href="${link}"`),id+' '+link);
   for(const group of ['Ruhe','Kraft','Halt','Freude'])assert.ok(html.includes(`data-house-category="${group}"`),id+' '+group);
   assert.doesNotMatch(html,/Baustelle|noch nicht fertig|Platzhaltergeschichte/);

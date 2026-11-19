@@ -23,7 +23,9 @@ test('PLAY-03/04: every O-ID has the canonical image and audio path',()=>{
   cards.forEach((item,index)=>{
     const id=`O${String(index+1).padStart(2,'0')}`;
     assert.equal(item.cardId,id);
-    assert.equal(item.media.imagePath,`../media/cards/${id}.png`);
+    // PERF-01: the playlist uses the optimized 160 px square thumbnail of the same card.
+    assert.match(item.media.imagePath,new RegExp(`^\\.\\./media/optimized/playlist/${id}-160-v1-[0-9a-f]+\\.webp$`));
+    assert.ok(fs.existsSync(path.join(root,item.media.imagePath)),item.media.imagePath);
     assert.equal(item.media.audioPath,`../media/audio/${id}.mp3`);
   });
 });
@@ -59,17 +61,31 @@ test('PLAY-11/12: music routes and missing-asset fallbacks are present',()=>{
 
 test('PLAY-15: filters, status and storybook expose accessible semantics',()=>{
   const room=fs.readFileSync(path.join(root,'music-room.js'),'utf8');
-  assert.match(room,/aria-label="Musikgruppe"/);
-  assert.match(room,/role="status"/);
-  assert.match(room,/aria-labelledby="stories-title"/);
-  assert.match(room,/aria-labelledby="story-title"/);
-  assert.match(room,/aria-label="Verknüpfungen dieser Geschichte"/);
+  assert.match(room,/class="music-filters" role="group" aria-label="Kategorie"/);
+  assert.match(room,/aria-pressed="'\+\(state\.category===group\)/);
+  assert.match(room,/<select data-filter-style aria-label="Musikstil">/);
+  assert.match(room,/<select data-filter-instrument aria-label="Instrument">/);
+  assert.match(room,/role="status" aria-live="polite" data-playlist-count/);
+  assert.match(room,/aria-labelledby="playlist-title"/);
+  // Composition stories moved to the shared book shelf (EMFDMusicBooks) in music04.
+  assert.match(room,/root\.EMFDMusicBooks\.mount\(/);
+  assert.match(room,/aria-label="Kompositionsgeschichten lesen"/);
 });
 
 test('PLAY-16: category filters visually remove hidden playlist cards',()=>{
   const room=fs.readFileSync(path.join(root,'music-room.js'),'utf8');
   const css=fs.readFileSync(path.join(root,'music-room.css'),'utf8');
-  assert.match(room,/item\.hidden=!show/);
+  // music04: the playlist is a cover gallery; the category filter decides which records exist in it.
+  const discovery=require(path.join(root,'music-discovery.js'));
+  const catalog=JSON.parse(fs.readFileSync(path.join(root,'playlist-catalog.json'),'utf8'));
+  const items=catalog.items||catalog;
+  const groups={Ruhe:[1,6],Kraft:[7,12],Halt:[13,18],Freude:[19,24]};
+  assert.equal(discovery.filter(items,{category:'Alle'}).length,25);
+  assert.deepEqual(discovery.filter(items,{category:'Main Theme'}).map(discovery.id),['theme']);
+  for(const [group,[from,to]] of Object.entries(groups))
+    assert.deepEqual(discovery.filter(items,{category:group}).map(discovery.id),Array.from({length:to-from+1},(_,i)=>'O'+String(from+i).padStart(2,'0')));
+  assert.match(room,/filtered=helper\.filter\(data\.items,state\)/);
+  assert.match(room,/if\(!item\)\{gallery\.replaceChildren\(\);return;\}/);
   assert.match(css,/\.playlist-card\[hidden\]\{display:none\}/);
 });
 

@@ -31,7 +31,11 @@ test('random draw stores identity privately and exposes only neutral route',()=>
 test('start and tea random draws use concealed flow while direct cards remain direct',()=>{
  const app=read('app.js'),tea=read('teezimmer.js');
  assert.match(app,/EMFDCardDraw\?\.begin\(choices\[index\]\.id,'#ankommen'\)/);
- assert.match(tea,/EMFDCardDraw\?\.begin\?\.\(card\.id,'#teezimmer'\)/);
+ // Since ARCH-01 the tea room delegates its daily draw to the shared feature registry.
+ const registry=read('feature-registry.js');
+ assert.match(tea,/data-house-feature="daily" data-feature-room="P08"/);
+ assert.match(registry,/root\.EMFDCardDraw\?\.begin\?\.\(card\.id,origin\?roomRoute\(origin\):'#karten'\)/);
+ assert.match(registry,/id==='P08'\?'#teezimmer'/);
  assert.match(app,/route==='karte\/verdeckt'/);
  assert.match(app,/history\.replaceState\(null,'',`#karte\/\$\{c\.id\}`\)/);
  assert.match(app,/href="#karte\/\$\{c\.id\}"/);
@@ -58,8 +62,12 @@ test('both faces remain proportional and uncropped in normal and close-up views'
 });
 
 test('build version and cache preserve the card back in the current build',()=>{
- assert.equal(JSON.parse(read('package.json')).version,'0.6.61');
- assert.equal(JSON.parse(read('manifest.webmanifest')).version,'0.6.61');
- assert.match(read('index.html'),/application-version" content="0\.6\.61/);
- assert.match(read('image-service-worker.js'),/emfd-images-start02-v5/);
+ const version=JSON.parse(read('package.json')).version;
+ assert.equal(JSON.parse(read('manifest.webmanifest')).version,version);
+ assert.ok(read('index.html').includes(`application-version" content="${version}"`));
+ const sw=read('image-service-worker.js');
+ assert.match(sw,/const CACHE='emfd-images-[a-z0-9-]+-v\d+'/);
+ // The card back is allowed through the shared media catalog group.
+ assert.match(sw,/importScripts\('media-core\.js','media-catalog\.js'\)/);
+ assert.match(read('media-catalog.js'),/"id":"card-back","paths":\["\.\.\/media\/cards\/rueckseite\.jpeg"/);
 });

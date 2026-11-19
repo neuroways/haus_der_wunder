@@ -1,0 +1,105 @@
+{
+  "version": "0.6.12",
+  "status": "internal-prototype-assets",
+  "items": [
+    {
+      "id": "flur",
+      "name": "Flur",
+      "role": "orientation-scene",
+      "file": "flur.webp",
+      "source_file": "exec-133ba0a1-4525-4b09-9248-0ae439666d65.png",
+      "width": 1086,
+      "height": 1448,
+      "mime_type": "image/webp",
+      "sha256": "8f58c73b6f710ff6575bb08c9a4550d27439e7ec7a5129ec48f86fe1c9ce6f5f"
+    },
+    {
+      "id": "P01",
+      "name": "Fensterzimmer",
+      "role": "room",
+      "file": "P01-fensterzimmer.webp",
+      "source_file": "exec-8cde0351-3b4e-4221-b813-a01444c03352.png",
+      "width": 1086,
+      "height": 1448,
+      "mime_type": "image/webp",
+      "sha256": "4970b222a6db802eb1449119c3a757e45d441e8ace4472c29b81a757d218af8d"
+    },
+    {
+      "id": "P02",
+      "name": "Bibliothek",
+      "role": "room",
+      "file": "P02-bibliothek.webp",
+      "source_file": "exec-645b4e82-e915-4fe1-8386-1819470bc26b.png",
+      "width": 1086,
+      "height": 1448,
+      "mime_type": "image/webp",
+      "sha256": "52c6dd35f829002871c5a16eddbaad9fc25d8cf8b6bbcfc5ce298a3a4cc436d4"
+    },
+    {
+      "id": "P03",
+      "name": "Wintergarten",
+      "role": "room",
+      "file": "P03-wintergarten.webp",
+      "source_file": "exec-015d1dd8-a706-4d5f-97cc-18031c072471.png",
+      "width": 1086,
+      "height": 1448,
+      "mime_type": "image/webp",
+      "sha256": "f2dfac043ba1aa334ececa25848cff59176a731d8e61bc986516869a36fa7d1a"
+    },
+    {
+      "id": "P04",
+      "name": "Atelier",
+      "role": "room",
+      "file": "P04-atelier.webp",
+      "source_file": "exec-ee895959-7d88-4e3b-bae1-c8f00dbcf963.png",
+      "width": 1086,
+      "height": 1448,
+      "mime_type": "image/webp",
+      "sha256": "9b6f11cc77d06f009d7f727e948e65ebb1ae2594072de621bd527fedeb2cec5c"
+    },
+    {
+      "id": "P05",
+      "name": "Innenhof",
+      "role": "room",
+      "file": "P05-innenhof.webp",
+      "source_file": "exec-1cfbae73-f85a-4095-9981-df9ec043995d.png",
+      "width": 1086,
+      "height": 1448,
+      "mime_type": "image/webp",
+      "sha256": "60cb5245f41a3e2633f2ead5b41154afb7266d21fb89c6bd10c4d2614fe78f3f"
+    },
+    {
+      "id": "P06",
+      "name": "Galerie",
+      "role": "room",
+      "file": "P06-galerie.webp",
+      "source_file": "exec-625ade41-4e11-4851-a869-488fe305cc3a.png",
+      "width": 1086,
+      "height": 1448,
+      "mime_type": "image/webp",
+      "sha256": "b67df3b659cd8fdd2e348174333cb526964cb673ecb1f37db839eb5449bee400"
+    },
+    {
+      "id": "P07",
+      "name": "Dachterrasse",
+      "role": "room",
+      "file": "P07-dachterrasse.webp",
+      "source_file": "exec-7d7063a3-abb1-470c-afd4-afb3b83bdbc5.png",
+      "width": 1086,
+      "height": 1448,
+      "mime_type": "image/webp",
+      "sha256": "046c17f3a04165acce22d4002403dea46cecdb035215bafef8f8bdd4c232bf33"
+    },
+    {
+      "id": "P08",
+      "name": "Teezimmer",
+      "role": "room",
+      "file": "P08-teezimmer.webp",
+      "source_file": "exec-00195d1f-ee0b-4443-b5cf-c4a467ccc990.png",
+      "width": 1086,
+      "height": 1448,
+      "mime_type": "image/webp",
+      "sha256": "3a53ae112f433592519939fd23a8b794d952164b8672d5b58bad012163d7cd1a"
+    }
+  ]
+}

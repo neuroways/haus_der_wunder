@@ -7,13 +7,13 @@ const read=name=>fs.readFileSync(path.join(root,name),'utf8');
 
 test('BIB v0.6.61: application version advances while library cache keys stay consistent',()=>{
   const html=read('index.html');
-  assert.match(html,/application-version" content="0\.6\.61"/);
-  assert.match(html,/app\.js\?v=0\.6\.61/);
-  for(const asset of ['origin-story.js','origin-storybook.css','house-grundausbau.css','library\/library.css','library\/library-entry.js'])
-    assert.match(html,new RegExp(asset.replace('.','\\.')+'\\?v=0\\.6\\.60'));
-  assert.equal(JSON.parse(read('package.json')).version,'0.6.61');
-  assert.equal(JSON.parse(read('deployment-layout.json')).appVersion,'0.6.61');
-  assert.equal(JSON.parse(read('manifest.webmanifest')).version,'0.6.61');
+  const version=JSON.parse(read('package.json')).version;
+  assert.ok(html.includes(`application-version" content="${version}"`));
+  assert.ok(html.includes(`app.js?v=${version}`));
+  for(const asset of ['origin-story.js','origin-storybook.css','house-grundausbau.css','library/library.css','library/library-entry.js'])
+    assert.ok(new RegExp(asset.replace(/[./]/g,'\\$&')+'\\?v=[\\w.-]+"').test(html),asset);
+  assert.equal(JSON.parse(read('deployment-layout.json')).appVersion,version);
+  assert.equal(JSON.parse(read('manifest.webmanifest')).version,version);
 });
 
 test('BIB v0.6.60: P02 has a recoverable single shelf mount',()=>{
@@ -39,7 +39,7 @@ test('BIB v0.6.60: story reader stays separate and coordinates dialogs',()=>{
 test('BIB v0.6.60: protected NOTE-03, TEA and card-book resources remain wired',()=>{
   const html=read('index.html');
   assert.match(html,/thought-paper\.js\?v=0\.6\.59/);
-  assert.match(html,/teezimmer\.js\?v=0\.6\.58/);
+  assert.match(html,/teezimmer\.js\?v=[\w.-]+"/);
   assert.match(html,/book-v2\.css\?v=0\.6\.57/);
   assert.match(read('app.js'),/const readingKeys=\['impulse','depth','question'\]/);
   assert.match(read('teezimmer.js'),/data-teezimmer-paper/);

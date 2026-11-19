@@ -22,8 +22,9 @@ test('reading choice icons remain legible in the compact three-column layout',()
 
 test('reading dialog uses a compact accessible x close control',()=>{
  const app=read('app.js'),css=read('card-text-v1.3.css');
- assert.match(app,/class="reading-close" type="button" aria-label="Leseansicht schließen"><span aria-hidden="true">×<\/span>/);
- assert.doesNotMatch(app,/aria-label="Leseansicht schließen">Schließen<\/button>/);
+ // The reading dialog became the card book in v0.6.56; its × keeps an explicit accessible name.
+ assert.match(app,/class="reading-close" type="button" aria-label="Buch schließen">×<\/button>/);
+ assert.doesNotMatch(app,/aria-label="[^"]*schließen">Schließen<\/button>/);
  assert.match(css,/\.reading-dialog \.reading-close\{width:46px;height:46px/);
  assert.match(css,/\.reading-dialog\[open\]\{display:flex;\}/);
  assert.match(css,/\.reading-dialog:not\(\[open\]\)\{display:none;\}/);
@@ -41,7 +42,7 @@ test('all reading sections render as consistent pages of one book',()=>{
 
 test('book navigation uses six compact icon-only bookmarks above the page',()=>{
  const app=read('app.js'),css=read('card-text-v1.3.css');
- assert.match(app,/aria-label="\$\{esc\(title\)\}" title="\$\{esc\(title\)\}"/);
+ assert.match(app,/<span class="reading-choice-icon" aria-hidden="true">\$\{dockIcons\[key\]\}<\/span><span class="reading-choice-label">\$\{escape\(textLabels\[key\]\)\}<\/span><\/button>/);
  assert.match(app,/reading-close[^]*<nav class="reading-choice"[^]*<div class="reading-shell"/);
  assert.match(css,/Compact icon-only bookmarks sit above the paper page/);
  assert.match(css,/grid-template-columns:repeat\(6,44px\)/);

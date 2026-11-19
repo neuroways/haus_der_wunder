@@ -54,5 +54,7 @@
   // Start background warming after the initial document has rendered; allow
   // first content and door art to take network priority.
   const schedule=()=>root.setTimeout(()=>initialize().catch(()=>{}),900);
-  if(document.readyState==='complete')schedule();else root.addEventListener('load',schedule,{once:true});
+  const doc=root.document;
+  if(!doc)return;
+  if(doc.readyState==='complete')schedule();else root.addEventListener?.('load',schedule,{once:true});
 })(globalThis);

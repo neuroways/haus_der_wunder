@@ -56,6 +56,6 @@ test('FE-05 does not introduce automatic or parallel audio',()=>{
 });
 
 test('existing Atelier media is used and no new image path is invented',()=>{
-  assert.match(js,/\.\.\/media\/rooms\/varianten\/P04-atelier-kartenauslage-v1\.webp/);
+  assert.match(js,/\.\.\/media\/optimized\/rooms\/P04-atelier-kartenauslage-v1-\d+-v1-[0-9a-f]+\.webp/);
   assert.doesNotMatch(js,/generated|placeholder.*atelier/i);
 });

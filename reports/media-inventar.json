@@ -1,6 +1,6 @@
 {
  "tool": "emfd-media-check/1.0",
- "generatedAt": "2026-11-18T17:34:36+00:00",
+ "generatedAt": "2026-11-19T06:46:56+00:00",
  "mediaRoot": "media",
  "files": [
   {
@@ -9,6 +9,249 @@
    "bytes": 4914,
    "sha256": "ad4a5e63507753c1059656cc95386019350332176fd69aca4e4d7d378c0464e6",
    "kind": "support"
+  },
+  {
+   "path": "backgrounds/bildkarten-tisch-v1.webp",
+   "folder": "backgrounds",
+   "bytes": 298376,
+   "sha256": "bb67a4b24b2a9cc318aee002eaf8930147e779bd4da4391a5e2671924f5e937c",
+   "width": 865,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "backgrounds/bildkarten-tisch-v2.webp",
+   "folder": "backgrounds",
+   "bytes": 321646,
+   "sha256": "ac0822ebafa239647afbadff08d35db1f8f36ae81898c16a81ca069f4c8b056c",
+   "width": 865,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "backgrounds/brief-pergament-v1.webp",
+   "folder": "backgrounds",
+   "bytes": 235712,
+   "sha256": "cf440164b90c4584605e2c62f68f0ed8ce15f94877fc7c70e7ed5498bb64e27a",
+   "width": 711,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O01.png",
+   "folder": "cards",
+   "bytes": 2185143,
+   "sha256": "21eca783770b95cd4502098743469febf83018983a2179fa293dd66fefecb40a",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O02.png",
+   "folder": "cards",
+   "bytes": 2173452,
+   "sha256": "512eeca7c006201a1d1ac654cb2a4869aba5be824b4743335e25bcae5487b442",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O03.png",
+   "folder": "cards",
+   "bytes": 2038717,
+   "sha256": "855957b93caed85accd21eda55a36a57a2372096fc5630e16db7fcdd29ec288e",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O04.png",
+   "folder": "cards",
+   "bytes": 2144432,
+   "sha256": "4c1f37fb408b42deea55f08d708dc4bf9754e87058fd5daf770299865ea2b488",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O05.png",
+   "folder": "cards",
+   "bytes": 2381883,
+   "sha256": "8ad220724d29ee327f8e5b5703e477bda5447dc0c249382275a04c0d991c09eb",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O06.png",
+   "folder": "cards",
+   "bytes": 2250476,
+   "sha256": "ba9ec012e32e99e2149155f6f8412deac94cac3e24d8d49275158a7585756043",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O07.png",
+   "folder": "cards",
+   "bytes": 1500622,
+   "sha256": "1b0edb8898d5234063270c3b6bea9ffe6ec169f73ae60d2db5c398b4aca9aa13",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O08.png",
+   "folder": "cards",
+   "bytes": 1974049,
+   "sha256": "1bd052f1fdc7ff04901f3a1f283ff564fe303b9118bc3157c90c0530f7da4780",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O09.png",
+   "folder": "cards",
+   "bytes": 2291045,
+   "sha256": "a8c90829733e27417115f04122247fbdae22a964d3001e248c280052ba9a6f0b",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O10.png",
+   "folder": "cards",
+   "bytes": 2210938,
+   "sha256": "b8fd07b7c6c91ed044d78f817b88fbfc747d2935970ba069e4380436fd876ace",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O11.png",
+   "folder": "cards",
+   "bytes": 2069312,
+   "sha256": "81deeae0adc775b6c253a9f961c2b220ee8c71be47ca66f9b525a7a27b8b8384",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O12.png",
+   "folder": "cards",
+   "bytes": 2024114,
+   "sha256": "44b7e744897a8035111e60d402b3d3d0e276a61b5629e54faaeddea7bd9e6b11",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O13.png",
+   "folder": "cards",
+   "bytes": 2193231,
+   "sha256": "84b399278659c41e9d1601e6480835fe2eb6fa28549bc5d43678c215d4719e28",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O14.png",
+   "folder": "cards",
+   "bytes": 2153324,
+   "sha256": "dfc3bc61cee7fb95bf06b5c6d40b80bf27a77f3b5d9e973a351ee47f5c5d704d",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O15.png",
+   "folder": "cards",
+   "bytes": 2528704,
+   "sha256": "7da93928fed231ed09deb9809e4017c5b805d5ad70308cd6bc34348daf65a514",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O16.png",
+   "folder": "cards",
+   "bytes": 2372457,
+   "sha256": "89bb780f955638bc7629c1438dc538432b5e8491ccbb3aade5081cf5d12427ec",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O17.png",
+   "folder": "cards",
+   "bytes": 2337001,
+   "sha256": "4636421b7ff05b5ab999922b65052ecd0715f9c8ce4cf006a1d887507f7bfec2",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O18.png",
+   "folder": "cards",
+   "bytes": 1859837,
+   "sha256": "c2a2f9d8428009951c534b37dc1fa9a5eb2960e9cb1475987344c3c5aace4c28",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O19.png",
+   "folder": "cards",
+   "bytes": 2113511,
+   "sha256": "be9ec724796356690f0eec87f227042b0ec0e42b860d62c1deb741b289e831ce",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O20.png",
+   "folder": "cards",
+   "bytes": 2012662,
+   "sha256": "fa5fabeb550456122b9df345ebd22fa5645d5b925fd53feb4809ff2669783051",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O21.png",
+   "folder": "cards",
+   "bytes": 2294432,
+   "sha256": "44386a942953c30d1c3b1159b40ee7b16092844306f3ae411323bc0220e13149",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O22.png",
+   "folder": "cards",
+   "bytes": 2234024,
+   "sha256": "ba72229bdfd1f04c42e454bf3c30acbe90d3f1414802ce33ff9393df9ded7a60",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O23.png",
+   "folder": "cards",
+   "bytes": 2486095,
+   "sha256": "e2e6a00ed41668edb83daf5a449010d0bf6706f683d71777c25d2503ec74250b",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "cards/O24.png",
+   "folder": "cards",
+   "bytes": 1948047,
+   "sha256": "912146c757f43f1e3c987f5b89f1aed45a362441f56dd2b9d713c673a954b60b",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
   },
   {
    "path": "cards/fronts/O01-front-r2-21eca783.png",
@@ -245,6 +488,15 @@
    "nameHash": "c2a2f9d8"
   },
   {
+   "path": "cards/rueckseite.jpeg",
+   "folder": "cards",
+   "bytes": 822775,
+   "sha256": "d1edf154afa2d825a995dc6b59288f183db54342cbc763da9391c9fbb44e3752",
+   "width": 958,
+   "height": 1642,
+   "kind": "unknown-media"
+  },
+  {
    "path": "covers/O04-cover-r1-d7ace5fa.png",
    "folder": "covers",
    "bytes": 2428755,
@@ -312,6 +564,96 @@
    "kind": "support"
   },
   {
+   "path": "music03/cabinet-v2.png",
+   "folder": "music03",
+   "bytes": 2216744,
+   "sha256": "ae1ce05de0d87e2f9e5af332e9d6411e81590a9bf08907ea101912a95ea66ecc",
+   "width": 1161,
+   "height": 1354,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "music03/tonearm-v1.png",
+   "folder": "music03",
+   "bytes": 703372,
+   "sha256": "e94dcad4f49f54f5972cef72be7f4fea6e68f36d088d602c1f4d7be6a3331007",
+   "width": 1254,
+   "height": 1254,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "music03/vinyl-v1.png",
+   "folder": "music03",
+   "bytes": 2391589,
+   "sha256": "c0769431f277a97ca181f86c4d03e44ee586931477025e6702b089eec2f6d9e7",
+   "width": 1254,
+   "height": 1254,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/backgrounds/bildkarten-tisch-v1-480-v1-23dedb6d9e.webp",
+   "folder": "optimized/backgrounds",
+   "bytes": 112822,
+   "sha256": "23dedb6d9e86f2d285398a2a8942d24fdf55cecc0790f40c8978a775434cfda3",
+   "width": 480,
+   "height": 852,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/backgrounds/bildkarten-tisch-v1-865-v1-4cc89ba2c3.webp",
+   "folder": "optimized/backgrounds",
+   "bytes": 248288,
+   "sha256": "4cc89ba2c327403681515d0fe60aeee3dc2956c0dc7238534106d9a51b13f17b",
+   "width": 865,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/backgrounds/bildkarten-tisch-v2-480-v1-e779da16d4.webp",
+   "folder": "optimized/backgrounds",
+   "bytes": 122170,
+   "sha256": "e779da16d4a48c415ee012385ff242aac41947b64ff1986c3757728714686b01",
+   "width": 480,
+   "height": 852,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/backgrounds/bildkarten-tisch-v2-865-v1-6f87e8b55c.webp",
+   "folder": "optimized/backgrounds",
+   "bytes": 271312,
+   "sha256": "6f87e8b55c9490026100b24583cf487091864ea34e08cbb62ef0a6967b751ba0",
+   "width": 865,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/backgrounds/brief-pergament-v1-480-v1-312c3ff280.webp",
+   "folder": "optimized/backgrounds",
+   "bytes": 107018,
+   "sha256": "312c3ff280480bc2ddcb9a3afafb3937b053b623fec1b95666b7500e74064819",
+   "width": 480,
+   "height": 1037,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/backgrounds/brief-pergament-v1-711-v1-693d044c38.webp",
+   "folder": "optimized/backgrounds",
+   "bytes": 193416,
+   "sha256": "693d044c38aebc5479a9955f557dbbbd758d2da55c01a7ae0978108bc2b69e23",
+   "width": 711,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/backgrounds/weltenweberin-480-v1-47dc928fcd.webp",
+   "folder": "optimized/backgrounds",
+   "bytes": 113142,
+   "sha256": "47dc928fcd9ad55a8ae8ac4903b79e30e307ac5f70297d74ea0f620853123a53",
+   "width": 480,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O01-210x360-r2-cf504e3af4.webp",
    "folder": "optimized/cards",
    "bytes": 21744,
@@ -323,6 +665,15 @@
    "rev": 2,
    "variant": "210x360",
    "nameHash": "cf504e3af4"
+  },
+  {
+   "path": "optimized/cards/O01-210x360-v1-51dc2133ba.webp",
+   "folder": "optimized/cards",
+   "bytes": 34356,
+   "sha256": "51dc2133ba391ff69ad153a6442413cd6ef15fd408844ccc580c35d854ce4262",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O01-630x1080-r2-40012d6477.webp",
@@ -338,6 +689,15 @@
    "nameHash": "40012d6477"
   },
   {
+   "path": "optimized/cards/O01-630x1080-v1-47041d64df.webp",
+   "folder": "optimized/cards",
+   "bytes": 220858,
+   "sha256": "47041d64df00bdf07b276dd7ddfd0cdf39e6fe2ea097a05787572549e0bd8120",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O01-896x1536-r2-3802406a5d.webp",
    "folder": "optimized/cards",
    "bytes": 248840,
@@ -349,6 +709,15 @@
    "rev": 2,
    "variant": "896x1536",
    "nameHash": "3802406a5d"
+  },
+  {
+   "path": "optimized/cards/O01-896x1536-v1-e9495cfcc9.webp",
+   "folder": "optimized/cards",
+   "bytes": 368202,
+   "sha256": "e9495cfcc925959f52fa94b4240458d80a28e200da49da283ec49cdf3f424c46",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O02-210x360-r2-6203e53312.webp",
@@ -364,6 +733,15 @@
    "nameHash": "6203e53312"
   },
   {
+   "path": "optimized/cards/O02-210x360-v1-9b55a36656.webp",
+   "folder": "optimized/cards",
+   "bytes": 30566,
+   "sha256": "9b55a366566cbc87c5e8a138ea9b8b45a4c7ed7c5839efe7f0fd51b475f466d7",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O02-630x1080-r2-b1f9dea9fe.webp",
    "folder": "optimized/cards",
    "bytes": 149496,
@@ -375,6 +753,15 @@
    "rev": 2,
    "variant": "630x1080",
    "nameHash": "b1f9dea9fe"
+  },
+  {
+   "path": "optimized/cards/O02-630x1080-v1-ea0c9d086d.webp",
+   "folder": "optimized/cards",
+   "bytes": 182438,
+   "sha256": "ea0c9d086dafe314a1269ea7a2a42aa75efe94bed28c405c84b0b82e8c9053a5",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O02-896x1536-r2-7166c6f234.webp",
@@ -390,6 +777,15 @@
    "nameHash": "7166c6f234"
   },
   {
+   "path": "optimized/cards/O02-896x1536-v1-34f8b90824.webp",
+   "folder": "optimized/cards",
+   "bytes": 297546,
+   "sha256": "34f8b908242344a6a47a56066bf71930cc04014f54626df7f9bb4d361d656dbc",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O03-210x360-r2-cebbdadcf6.webp",
    "folder": "optimized/cards",
    "bytes": 20934,
@@ -401,6 +797,15 @@
    "rev": 2,
    "variant": "210x360",
    "nameHash": "cebbdadcf6"
+  },
+  {
+   "path": "optimized/cards/O03-210x360-v1-da68444279.webp",
+   "folder": "optimized/cards",
+   "bytes": 32320,
+   "sha256": "da684442792160a18e3cf4966a0c89884b0433b60d71061142c70aed4d4eb18e",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O03-630x1080-r2-c64db9e0aa.webp",
@@ -416,6 +821,15 @@
    "nameHash": "c64db9e0aa"
   },
   {
+   "path": "optimized/cards/O03-630x1080-v1-538d1729a7.webp",
+   "folder": "optimized/cards",
+   "bytes": 177464,
+   "sha256": "538d1729a7f9daea142d7e5a42df9075f2ed78a45cd6e814a9f8c73fc0151f7f",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O03-896x1536-r2-7d75f35827.webp",
    "folder": "optimized/cards",
    "bytes": 208848,
@@ -427,6 +841,15 @@
    "rev": 2,
    "variant": "896x1536",
    "nameHash": "7d75f35827"
+  },
+  {
+   "path": "optimized/cards/O03-896x1536-v1-f933d3941f.webp",
+   "folder": "optimized/cards",
+   "bytes": 279694,
+   "sha256": "f933d3941f11c77cd545d3fc9ea4a223454e4caf2eaf29727ffefd937886a242",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O04-210x360-r2-6e0c04602b.webp",
@@ -442,6 +865,15 @@
    "nameHash": "6e0c04602b"
   },
   {
+   "path": "optimized/cards/O04-210x360-v1-76e4c08fb6.webp",
+   "folder": "optimized/cards",
+   "bytes": 41188,
+   "sha256": "76e4c08fb6cfb6d31966f29492fd3a62846190f9133999efe27749cee520809a",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O04-630x1080-r2-591713b4ff.webp",
    "folder": "optimized/cards",
    "bytes": 140290,
@@ -453,6 +885,15 @@
    "rev": 2,
    "variant": "630x1080",
    "nameHash": "591713b4ff"
+  },
+  {
+   "path": "optimized/cards/O04-630x1080-v1-9b2846a48e.webp",
+   "folder": "optimized/cards",
+   "bytes": 212868,
+   "sha256": "9b2846a48e8b8925198e3f02312f21b5611890a475969f699a7947d73777ec1c",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O04-896x1536-r2-6c5dc04d67.webp",
@@ -468,6 +909,15 @@
    "nameHash": "6c5dc04d67"
   },
   {
+   "path": "optimized/cards/O04-896x1536-v1-10b15142cd.webp",
+   "folder": "optimized/cards",
+   "bytes": 331110,
+   "sha256": "10b15142cd9bcca6a4b4c63c5bc450005ecfd29ba6e6e33a84ea99e56659912a",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O05-210x360-r2-d65b9ecfcc.webp",
    "folder": "optimized/cards",
    "bytes": 31798,
@@ -479,6 +929,15 @@
    "rev": 2,
    "variant": "210x360",
    "nameHash": "d65b9ecfcc"
+  },
+  {
+   "path": "optimized/cards/O05-210x360-v1-3562abd332.webp",
+   "folder": "optimized/cards",
+   "bytes": 38792,
+   "sha256": "3562abd3320e7fe7b2e4520796916534e223ca6ae543224370c0a777d579977f",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O05-630x1080-r2-1577b496a1.webp",
@@ -494,6 +953,15 @@
    "nameHash": "1577b496a1"
   },
   {
+   "path": "optimized/cards/O05-630x1080-v1-66c23e33ec.webp",
+   "folder": "optimized/cards",
+   "bytes": 198888,
+   "sha256": "66c23e33eca5422ccaf896d5fee4772d29f2420b74cee36af8678a317af6dbc0",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O05-896x1536-r2-9452de2d68.webp",
    "folder": "optimized/cards",
    "bytes": 317504,
@@ -505,6 +973,15 @@
    "rev": 2,
    "variant": "896x1536",
    "nameHash": "9452de2d68"
+  },
+  {
+   "path": "optimized/cards/O05-896x1536-v1-5bf2e1ae96.webp",
+   "folder": "optimized/cards",
+   "bytes": 304636,
+   "sha256": "5bf2e1ae960e18b5a9bb0201832eec2b66dc08eb0145108d67e087e97ffe0862",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O06-210x360-r2-d509b6ee27.webp",
@@ -520,6 +997,15 @@
    "nameHash": "d509b6ee27"
   },
   {
+   "path": "optimized/cards/O06-210x360-v1-ed2119269d.webp",
+   "folder": "optimized/cards",
+   "bytes": 38014,
+   "sha256": "ed2119269d75696581a6b86e8769770518ecf718d5538ca27b7aef91424dc0ed",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O06-630x1080-r2-32e5dcf848.webp",
    "folder": "optimized/cards",
    "bytes": 155650,
@@ -531,6 +1017,15 @@
    "rev": 2,
    "variant": "630x1080",
    "nameHash": "32e5dcf848"
+  },
+  {
+   "path": "optimized/cards/O06-630x1080-v1-d7b8985de0.webp",
+   "folder": "optimized/cards",
+   "bytes": 201488,
+   "sha256": "d7b8985de023388dcc06832c3c97009f9659b77dc0a666b20d00c17db3f7ed3a",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O06-896x1536-r2-ba53e220fa.webp",
@@ -546,6 +1041,15 @@
    "nameHash": "ba53e220fa"
   },
   {
+   "path": "optimized/cards/O06-896x1536-v1-9364501a66.webp",
+   "folder": "optimized/cards",
+   "bytes": 309988,
+   "sha256": "9364501a668805a5b99b509fcca017a76dcdcec3c17f4618c330d4c3f3eeeab1",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O07-210x360-r2-52ab11a097.webp",
    "folder": "optimized/cards",
    "bytes": 12128,
@@ -557,6 +1061,15 @@
    "rev": 2,
    "variant": "210x360",
    "nameHash": "52ab11a097"
+  },
+  {
+   "path": "optimized/cards/O07-210x360-v1-5332556ecc.webp",
+   "folder": "optimized/cards",
+   "bytes": 35928,
+   "sha256": "5332556ecc3c6921f7e1052225921d83fd9bef4b599d2f3e9729a17175da3b3a",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O07-630x1080-r2-b7332e4570.webp",
@@ -572,6 +1085,15 @@
    "nameHash": "b7332e4570"
   },
   {
+   "path": "optimized/cards/O07-630x1080-v1-55988a067e.webp",
+   "folder": "optimized/cards",
+   "bytes": 170134,
+   "sha256": "55988a067ee103468058b69600f8dad41bf65012afe969a8fff6b6e70feaac7f",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O07-896x1536-r2-81a57e7166.webp",
    "folder": "optimized/cards",
    "bytes": 106800,
@@ -583,6 +1105,15 @@
    "rev": 2,
    "variant": "896x1536",
    "nameHash": "81a57e7166"
+  },
+  {
+   "path": "optimized/cards/O07-896x1536-v1-d3dd078b87.webp",
+   "folder": "optimized/cards",
+   "bytes": 265920,
+   "sha256": "d3dd078b87b87244f340d4d743a5598605cf49300dea0367d43033bb2968f030",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O08-210x360-r2-a6709e22ab.webp",
@@ -598,6 +1129,15 @@
    "nameHash": "a6709e22ab"
   },
   {
+   "path": "optimized/cards/O08-210x360-v1-9ddcc75394.webp",
+   "folder": "optimized/cards",
+   "bytes": 31940,
+   "sha256": "9ddcc75394377d5880715a572a3fa99e7872c73b427710fac54b99d0ed5463d1",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O08-630x1080-r2-e337ee566c.webp",
    "folder": "optimized/cards",
    "bytes": 116558,
@@ -609,6 +1149,15 @@
    "rev": 2,
    "variant": "630x1080",
    "nameHash": "e337ee566c"
+  },
+  {
+   "path": "optimized/cards/O08-630x1080-v1-7cace7daa6.webp",
+   "folder": "optimized/cards",
+   "bytes": 191014,
+   "sha256": "7cace7daa6ecc11e75ebd103f3165bf3e2b2edb11adc20c9d0cdc3af46ba140e",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O08-896x1536-r2-e4c832a4cc.webp",
@@ -624,6 +1173,15 @@
    "nameHash": "e4c832a4cc"
   },
   {
+   "path": "optimized/cards/O08-896x1536-v1-e2e6882e83.webp",
+   "folder": "optimized/cards",
+   "bytes": 305382,
+   "sha256": "e2e6882e83e06b28267c5c6f7d88073d633bc059b4e6197a9ccb4bf4440dc0e8",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O09-210x360-r2-8d42b9fcbe.webp",
    "folder": "optimized/cards",
    "bytes": 29646,
@@ -635,6 +1193,15 @@
    "rev": 2,
    "variant": "210x360",
    "nameHash": "8d42b9fcbe"
+  },
+  {
+   "path": "optimized/cards/O09-210x360-v1-36d57cd4d7.webp",
+   "folder": "optimized/cards",
+   "bytes": 42018,
+   "sha256": "36d57cd4d75adc4aaffc1afb59a327bede6e8411dd0478667478fe7b36ec609e",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O09-630x1080-r2-971b2e5ec5.webp",
@@ -650,6 +1217,15 @@
    "nameHash": "971b2e5ec5"
   },
   {
+   "path": "optimized/cards/O09-630x1080-v1-f5631e0d0d.webp",
+   "folder": "optimized/cards",
+   "bytes": 207908,
+   "sha256": "f5631e0d0d82b56616e5ec31375c8c80aacca9636664b82d62d8d1476054cc9f",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O09-896x1536-r2-f169ed24da.webp",
    "folder": "optimized/cards",
    "bytes": 325528,
@@ -661,6 +1237,15 @@
    "rev": 2,
    "variant": "896x1536",
    "nameHash": "f169ed24da"
+  },
+  {
+   "path": "optimized/cards/O09-896x1536-v1-bc1fe257bf.webp",
+   "folder": "optimized/cards",
+   "bytes": 310960,
+   "sha256": "bc1fe257bfc5fdf06d2a3c59db52487fec5e7ae31df04b00a76a802ea2aa7dee",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O10-210x360-r2-ecc2ba2186.webp",
@@ -676,6 +1261,15 @@
    "nameHash": "ecc2ba2186"
   },
   {
+   "path": "optimized/cards/O10-210x360-v1-404569a939.webp",
+   "folder": "optimized/cards",
+   "bytes": 34768,
+   "sha256": "404569a9397326811893b9b5a1d302281869496d0772452b4b6385c5244fcbbb",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O10-630x1080-r2-3d8faa63fb.webp",
    "folder": "optimized/cards",
    "bytes": 133916,
@@ -687,6 +1281,15 @@
    "rev": 2,
    "variant": "630x1080",
    "nameHash": "3d8faa63fb"
+  },
+  {
+   "path": "optimized/cards/O10-630x1080-v1-79dd7c2417.webp",
+   "folder": "optimized/cards",
+   "bytes": 158284,
+   "sha256": "79dd7c24179202f7fc2515019119d80867affb06bcb5511e2f8a9f3ce2313179",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O10-896x1536-r2-e3965b5922.webp",
@@ -702,6 +1305,15 @@
    "nameHash": "e3965b5922"
   },
   {
+   "path": "optimized/cards/O10-896x1536-v1-7dc57c2699.webp",
+   "folder": "optimized/cards",
+   "bytes": 240476,
+   "sha256": "7dc57c2699a3690b88879780269bab4eaf6bb3a8940b3693ab434337412443ce",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O11-210x360-r2-a6bfb4f0b4.webp",
    "folder": "optimized/cards",
    "bytes": 21592,
@@ -713,6 +1325,15 @@
    "rev": 2,
    "variant": "210x360",
    "nameHash": "a6bfb4f0b4"
+  },
+  {
+   "path": "optimized/cards/O11-210x360-v1-2ced015983.webp",
+   "folder": "optimized/cards",
+   "bytes": 35462,
+   "sha256": "2ced015983b7030f5bf08418d9299a30c8847248ccb061725b726a307ba8048e",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O11-630x1080-r2-c0ca88a800.webp",
@@ -728,6 +1349,15 @@
    "nameHash": "c0ca88a800"
   },
   {
+   "path": "optimized/cards/O11-630x1080-v1-817636f65e.webp",
+   "folder": "optimized/cards",
+   "bytes": 183318,
+   "sha256": "817636f65e517969141c1e9a1aba878b13da311060dffd9bef3249f87773495c",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O11-896x1536-r2-d4d0987140.webp",
    "folder": "optimized/cards",
    "bytes": 231918,
@@ -739,6 +1369,15 @@
    "rev": 2,
    "variant": "896x1536",
    "nameHash": "d4d0987140"
+  },
+  {
+   "path": "optimized/cards/O11-896x1536-v1-5904a1b82d.webp",
+   "folder": "optimized/cards",
+   "bytes": 293988,
+   "sha256": "5904a1b82d6f5ec8c8cef0e4451329911fe5a06a7bcb01ad08b5c8655936e673",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O12-210x360-r2-4d0586e98b.webp",
@@ -754,6 +1393,15 @@
    "nameHash": "4d0586e98b"
   },
   {
+   "path": "optimized/cards/O12-210x360-v1-74c6b7a13d.webp",
+   "folder": "optimized/cards",
+   "bytes": 32576,
+   "sha256": "74c6b7a13dd046e7ef9fa998b8f511b74c216e2d30f2c0da446159413f9f93e7",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O12-630x1080-r2-36153a690a.webp",
    "folder": "optimized/cards",
    "bytes": 109168,
@@ -765,6 +1413,15 @@
    "rev": 2,
    "variant": "630x1080",
    "nameHash": "36153a690a"
+  },
+  {
+   "path": "optimized/cards/O12-630x1080-v1-9b05b53b78.webp",
+   "folder": "optimized/cards",
+   "bytes": 150842,
+   "sha256": "9b05b53b78f8ec404702b3b5b3b56f9074023271070d64d6a345f7e0db3be7d1",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O12-896x1536-r2-f2d1191746.webp",
@@ -780,6 +1437,15 @@
    "nameHash": "f2d1191746"
   },
   {
+   "path": "optimized/cards/O12-896x1536-v1-919aae5296.webp",
+   "folder": "optimized/cards",
+   "bytes": 236512,
+   "sha256": "919aae5296e58d0ac95660334afd54f74ec66112069d1fa4586e099169bc4bf5",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O13-210x360-r2-722d41cab9.webp",
    "folder": "optimized/cards",
    "bytes": 22418,
@@ -791,6 +1457,15 @@
    "rev": 2,
    "variant": "210x360",
    "nameHash": "722d41cab9"
+  },
+  {
+   "path": "optimized/cards/O13-210x360-v1-7036b7b2ba.webp",
+   "folder": "optimized/cards",
+   "bytes": 38972,
+   "sha256": "7036b7b2bad177c6329fbcaa503c5f1e512e74495dfad35080472740bf2a6455",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O13-630x1080-r2-daa9fe8ae3.webp",
@@ -806,6 +1481,15 @@
    "nameHash": "daa9fe8ae3"
   },
   {
+   "path": "optimized/cards/O13-630x1080-v1-8a85824d30.webp",
+   "folder": "optimized/cards",
+   "bytes": 223626,
+   "sha256": "8a85824d306c60aab80f6a92fc4a0514cac1df0c99ab937fddb005da7a73a004",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O13-896x1536-r2-98ecb282ab.webp",
    "folder": "optimized/cards",
    "bytes": 240570,
@@ -817,6 +1501,15 @@
    "rev": 2,
    "variant": "896x1536",
    "nameHash": "98ecb282ab"
+  },
+  {
+   "path": "optimized/cards/O13-896x1536-v1-979c9a6361.webp",
+   "folder": "optimized/cards",
+   "bytes": 350698,
+   "sha256": "979c9a6361c8d5899365f41ecdaf9e0573c69b95bd69c9a79369e40ea327120a",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O14-210x360-r2-3e3297e394.webp",
@@ -832,6 +1525,15 @@
    "nameHash": "3e3297e394"
   },
   {
+   "path": "optimized/cards/O14-210x360-v1-765abfbb61.webp",
+   "folder": "optimized/cards",
+   "bytes": 41460,
+   "sha256": "765abfbb61a5b08d2b173fab5787dce0ba272dc9bec846d275bc2a2043133e36",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O14-630x1080-r2-6febf30cb9.webp",
    "folder": "optimized/cards",
    "bytes": 138782,
@@ -843,6 +1545,15 @@
    "rev": 2,
    "variant": "630x1080",
    "nameHash": "6febf30cb9"
+  },
+  {
+   "path": "optimized/cards/O14-630x1080-v1-43247f7cf2.webp",
+   "folder": "optimized/cards",
+   "bytes": 224760,
+   "sha256": "43247f7cf2ddef0ae834ba8de15e0397ab26195f3edc460d69ed1170d2ff7f7e",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O14-896x1536-r2-95147f7e99.webp",
@@ -858,6 +1569,15 @@
    "nameHash": "95147f7e99"
   },
   {
+   "path": "optimized/cards/O14-896x1536-v1-5c4fcf9637.webp",
+   "folder": "optimized/cards",
+   "bytes": 359000,
+   "sha256": "5c4fcf963795960aa7890a1c11d6d3ede85ad6ad49ec6854da219eeb7ef3645f",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O15-210x360-r2-94612bdcef.webp",
    "folder": "optimized/cards",
    "bytes": 31546,
@@ -869,6 +1589,15 @@
    "rev": 2,
    "variant": "210x360",
    "nameHash": "94612bdcef"
+  },
+  {
+   "path": "optimized/cards/O15-210x360-v1-b7c6e53dfd.webp",
+   "folder": "optimized/cards",
+   "bytes": 35722,
+   "sha256": "b7c6e53dfda723bf3b4e675e91ca5834121554e0425ea5e02ef6f03706a87aed",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O15-630x1080-r2-79099121eb.webp",
@@ -884,6 +1613,15 @@
    "nameHash": "79099121eb"
   },
   {
+   "path": "optimized/cards/O15-630x1080-v1-b13fb25925.webp",
+   "folder": "optimized/cards",
+   "bytes": 198916,
+   "sha256": "b13fb25925283e9b9f3332bfe45ce25b2b732593a85f39ceea5ff6bea418f111",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O15-896x1536-r2-375ad25ee2.webp",
    "folder": "optimized/cards",
    "bytes": 360318,
@@ -895,6 +1633,15 @@
    "rev": 2,
    "variant": "896x1536",
    "nameHash": "375ad25ee2"
+  },
+  {
+   "path": "optimized/cards/O15-896x1536-v1-e4ecd3dafa.webp",
+   "folder": "optimized/cards",
+   "bytes": 306356,
+   "sha256": "e4ecd3dafa206463132e85666d55f1cc61dd537fb46cbe32f25471271968dc22",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O16-210x360-r2-e83fd0ea3d.webp",
@@ -910,6 +1657,15 @@
    "nameHash": "e83fd0ea3d"
   },
   {
+   "path": "optimized/cards/O16-210x360-v1-c06360dd6f.webp",
+   "folder": "optimized/cards",
+   "bytes": 39934,
+   "sha256": "c06360dd6f407c163160f8ca15439146653419171b3af55967b36ae0c5d07934",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O16-630x1080-r2-54d0fc0cf1.webp",
    "folder": "optimized/cards",
    "bytes": 172246,
@@ -921,6 +1677,15 @@
    "rev": 2,
    "variant": "630x1080",
    "nameHash": "54d0fc0cf1"
+  },
+  {
+   "path": "optimized/cards/O16-630x1080-v1-fc700ce626.webp",
+   "folder": "optimized/cards",
+   "bytes": 202470,
+   "sha256": "fc700ce6268c14bc84f9278099f4c89fc5c55d6dab9bd9883c331599efe8cabe",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O16-896x1536-r2-b6fd4b63f4.webp",
@@ -936,6 +1701,15 @@
    "nameHash": "b6fd4b63f4"
   },
   {
+   "path": "optimized/cards/O16-896x1536-v1-5e35960d55.webp",
+   "folder": "optimized/cards",
+   "bytes": 314726,
+   "sha256": "5e35960d55009b6f401e44146d0976511092ef58d3b7b4305913aad52403b3a2",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O17-210x360-r2-bc72fd0b61.webp",
    "folder": "optimized/cards",
    "bytes": 24240,
@@ -947,6 +1721,15 @@
    "rev": 2,
    "variant": "210x360",
    "nameHash": "bc72fd0b61"
+  },
+  {
+   "path": "optimized/cards/O17-210x360-v1-1f4d32b94d.webp",
+   "folder": "optimized/cards",
+   "bytes": 39272,
+   "sha256": "1f4d32b94dfbba90923cc027ed936fc89fe10be590b14c0b6d8f90b3991e5edf",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O17-630x1080-r2-9ea3d8e5b0.webp",
@@ -962,6 +1745,15 @@
    "nameHash": "9ea3d8e5b0"
   },
   {
+   "path": "optimized/cards/O17-630x1080-v1-8deb0dda40.webp",
+   "folder": "optimized/cards",
+   "bytes": 217122,
+   "sha256": "8deb0dda40cfe6f8c7e8cd0018ed3e4e416de316bcd02276c5bc66e9f957f092",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O17-896x1536-r2-92e812b450.webp",
    "folder": "optimized/cards",
    "bytes": 301166,
@@ -973,6 +1765,15 @@
    "rev": 2,
    "variant": "896x1536",
    "nameHash": "92e812b450"
+  },
+  {
+   "path": "optimized/cards/O17-896x1536-v1-5980c3295e.webp",
+   "folder": "optimized/cards",
+   "bytes": 341010,
+   "sha256": "5980c3295e1a2cf59dd3420473ff7e23b599fb385afb6ba58d3bf9d8908c049e",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/cards/O18-210x360-r2-ee55331393.webp",
@@ -988,6 +1789,15 @@
    "nameHash": "ee55331393"
   },
   {
+   "path": "optimized/cards/O18-210x360-v1-99021656a6.webp",
+   "folder": "optimized/cards",
+   "bytes": 35598,
+   "sha256": "99021656a638a62cbc6453d2439ed8dd8ffb2d829849eb5f5a9d265846a14c4d",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O18-630x1080-r2-c8ce29b09b.webp",
    "folder": "optimized/cards",
    "bytes": 89910,
@@ -1001,6 +1811,15 @@
    "nameHash": "c8ce29b09b"
   },
   {
+   "path": "optimized/cards/O18-630x1080-v1-2541c92721.webp",
+   "folder": "optimized/cards",
+   "bytes": 188796,
+   "sha256": "2541c927213a760570fe2c822950fa3428f16dfece9614f87e27085d1b196fdd",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
+  },
+  {
    "path": "optimized/cards/O18-896x1536-r2-1d85cbd388.webp",
    "folder": "optimized/cards",
    "bytes": 159344,
@@ -1012,6 +1831,177 @@
    "rev": 2,
    "variant": "896x1536",
    "nameHash": "1d85cbd388"
+  },
+  {
+   "path": "optimized/cards/O18-896x1536-v1-f97f62dfca.webp",
+   "folder": "optimized/cards",
+   "bytes": 303122,
+   "sha256": "f97f62dfcaf0ca030e99782a5bbfa6efcda2b5d501613f9c8e68a6150a661869",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O19-210x360-v1-29ba58465a.webp",
+   "folder": "optimized/cards",
+   "bytes": 34978,
+   "sha256": "29ba58465a69b40a4496d5ac1f9675dc2d2c55cfde5a9cb710580f1977b45e28",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O19-630x1080-v1-6e2b113bb5.webp",
+   "folder": "optimized/cards",
+   "bytes": 171228,
+   "sha256": "6e2b113bb5ec2bff9e3963a3bdc297620c584e89963edf7c454161b4429498d1",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O19-896x1536-v1-f0bf7d9344.webp",
+   "folder": "optimized/cards",
+   "bytes": 272086,
+   "sha256": "f0bf7d9344280e9e9648a4fff140a1831fe71dbff2970f1779541d170dfb5c5f",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O20-210x360-v1-1d9ba718de.webp",
+   "folder": "optimized/cards",
+   "bytes": 32612,
+   "sha256": "1d9ba718dec8ab6454fc638621a0d55877b30326d5d6b7206fa31d99ff5ba5af",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O20-630x1080-v1-096501a523.webp",
+   "folder": "optimized/cards",
+   "bytes": 160764,
+   "sha256": "096501a523b8881df067908e35744bde9fe5fd3168c599cad3fc8dfc1c36eb9a",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O20-896x1536-v1-6eb9cbcf87.webp",
+   "folder": "optimized/cards",
+   "bytes": 247212,
+   "sha256": "6eb9cbcf87af1e012cb504a842a9b5006b1cc1cd099abe5fd3e7ce9dfa4b78ae",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O21-210x360-v1-eba95f7800.webp",
+   "folder": "optimized/cards",
+   "bytes": 40528,
+   "sha256": "eba95f7800c3640264fa3081ddd9e09b487b3790236a98b3c03c6534883232e7",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O21-630x1080-v1-d6447303ab.webp",
+   "folder": "optimized/cards",
+   "bytes": 207698,
+   "sha256": "d6447303ab5ebf9e96bf560cdf4df846a30814646f0d591930096635ae5fffd3",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O21-896x1536-v1-a2a39f1e06.webp",
+   "folder": "optimized/cards",
+   "bytes": 315794,
+   "sha256": "a2a39f1e067bdb3918607c9e2683b4d2d43a3ec0eb58592f33d29a74f7795bb8",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O22-210x360-v1-f0efc6012d.webp",
+   "folder": "optimized/cards",
+   "bytes": 37354,
+   "sha256": "f0efc6012d9306ff9bda89048e8e259ae2616f4617323eeda7ea2da1e5c55253",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O22-630x1080-v1-f9e0be09eb.webp",
+   "folder": "optimized/cards",
+   "bytes": 194818,
+   "sha256": "f9e0be09eb210e200b3f8b19fb635e90a28fe5c46f53b080c46785444ac2f7fe",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O22-896x1536-v1-6c0dde1ba6.webp",
+   "folder": "optimized/cards",
+   "bytes": 296026,
+   "sha256": "6c0dde1ba66e8e0d3daf41df8702a18b3407b31468d0d7990033d699e3b8ae4e",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O23-210x360-v1-ac97241528.webp",
+   "folder": "optimized/cards",
+   "bytes": 40382,
+   "sha256": "ac9724152847dffdc5615669b703c3c9ff69a66436b7d6c819c2741935086b1f",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O23-630x1080-v1-fd5b16d29c.webp",
+   "folder": "optimized/cards",
+   "bytes": 231502,
+   "sha256": "fd5b16d29ce3fd0dd0e620613a1ce8e136967149b61c993c39a15cc95f1029fc",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O23-896x1536-v1-09f21cf972.webp",
+   "folder": "optimized/cards",
+   "bytes": 366066,
+   "sha256": "09f21cf972baab3d03ae16171481896538df7c29071a88a7d55d2d9b94fe6da8",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O24-210x360-v1-dde8967d48.webp",
+   "folder": "optimized/cards",
+   "bytes": 29050,
+   "sha256": "dde8967d482b95449bf6cf664eded1dea4f5c8f1127240f6d56872bbdafa10e4",
+   "width": 210,
+   "height": 360,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O24-630x1080-v1-e66d387234.webp",
+   "folder": "optimized/cards",
+   "bytes": 147844,
+   "sha256": "e66d3872349414109ea33f0a9b331ddb6cd698ae0806e94297ed8d914fedffb9",
+   "width": 630,
+   "height": 1080,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/cards/O24-896x1536-v1-68b4dc698a.webp",
+   "folder": "optimized/cards",
+   "bytes": 230788,
+   "sha256": "68b4dc698a4b28379dc939f4b33ae825ceacaf6221369b21f6db4aede0c922ce",
+   "width": 896,
+   "height": 1536,
+   "kind": "unknown-media"
   },
   {
    "path": "optimized/covers/O04-cover-1024-r1-652111cb2f.webp",
@@ -1131,6 +2121,1077 @@
    "nameHash": "b0036042d6"
   },
   {
+   "path": "optimized/playlist/O01-160-v1-1fc9f5c551.webp",
+   "folder": "optimized/playlist",
+   "bytes": 12376,
+   "sha256": "1fc9f5c55152d42da8984f0176510cc5657b3c3cdf9d36cf6e3828ed52022a12",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O02-160-v1-debb9abe22.webp",
+   "folder": "optimized/playlist",
+   "bytes": 10608,
+   "sha256": "debb9abe22c477326b780d521c37f30a6384dcbeab6e2dbc93063e7c637aa378",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O03-160-v1-a0ae7c9434.webp",
+   "folder": "optimized/playlist",
+   "bytes": 12056,
+   "sha256": "a0ae7c943478692367bc87793d1ebcbde5a5feaa8317fe7b1b25e71742be0446",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O04-160-v1-5e0a133981.webp",
+   "folder": "optimized/playlist",
+   "bytes": 14342,
+   "sha256": "5e0a133981e1a540284fca5355dd3b67e553e01d98b460f7a7df6924c9707bf4",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O05-160-v1-c3ea5765f8.webp",
+   "folder": "optimized/playlist",
+   "bytes": 14400,
+   "sha256": "c3ea5765f825f626b11d17b554948f831a4224d5faaadbadd68c9b5b4065299a",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O06-160-v1-9eedc6c010.webp",
+   "folder": "optimized/playlist",
+   "bytes": 14644,
+   "sha256": "9eedc6c01045dc0732609edeba78289c423461ce5b70ed42cd5c9fa31ea5f621",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O07-160-v1-0571a38f40.webp",
+   "folder": "optimized/playlist",
+   "bytes": 13858,
+   "sha256": "0571a38f400b188bfe05f9108ae51f46ceb2d5b3b0f562efdcd4ba51bf6cdc08",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O08-160-v1-86b01bbb7e.webp",
+   "folder": "optimized/playlist",
+   "bytes": 11272,
+   "sha256": "86b01bbb7e9e3c2d18f3d23f87b38a47da506c06af6cb3fef4fcb76ba09a6203",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O09-160-v1-fb07d53584.webp",
+   "folder": "optimized/playlist",
+   "bytes": 15008,
+   "sha256": "fb07d535840c0f3210168d7b34ef03b63a5ac26d9cd3166654beba18a1ba6d07",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O10-160-v1-93c9090bb6.webp",
+   "folder": "optimized/playlist",
+   "bytes": 14048,
+   "sha256": "93c9090bb6de800b46e6f81bf94a68fc775b7dfe153b7b27b3af9a98a8d513d2",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O11-160-v1-9fe79c302d.webp",
+   "folder": "optimized/playlist",
+   "bytes": 12946,
+   "sha256": "9fe79c302d0f2dd835deab5e09a27b6fe96b7e7a84ec746dccba65bfabc16b4c",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O12-160-v1-184a3d18c5.webp",
+   "folder": "optimized/playlist",
+   "bytes": 12052,
+   "sha256": "184a3d18c5c9e73c04666f150c1be51f4c9bb9c6774dea11f65dd1c8e609e8d6",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O13-160-v1-30b7945456.webp",
+   "folder": "optimized/playlist",
+   "bytes": 14432,
+   "sha256": "30b794545699998072941343e549e0abd3cf5c799f5b99b75786ca0192ec0b6d",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O14-160-v1-447fb4766d.webp",
+   "folder": "optimized/playlist",
+   "bytes": 15430,
+   "sha256": "447fb4766d302c224c9417e5826fbde44b2b423493a57080d922de09d3a61492",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O15-160-v1-4dd2c4a0d7.webp",
+   "folder": "optimized/playlist",
+   "bytes": 12862,
+   "sha256": "4dd2c4a0d7845a60cfa34e80c364a7512c41bcf02a7632b56ae00e81da2e7a33",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O16-160-v1-7c187e5181.webp",
+   "folder": "optimized/playlist",
+   "bytes": 14010,
+   "sha256": "7c187e518108634a44e433c714252c396cb1634784d72cdaf2c2a3940b6efcc6",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O17-160-v1-846870247c.webp",
+   "folder": "optimized/playlist",
+   "bytes": 14362,
+   "sha256": "846870247c88c2aa43d2279ef22aa45e4a39343c490a364cbd22f4edc535f2e8",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O18-160-v1-026aa40243.webp",
+   "folder": "optimized/playlist",
+   "bytes": 13896,
+   "sha256": "026aa40243683769098e587fd79ddb23aa3d4b8f5386192a9c29bb5e02f11f60",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O19-160-v1-17fd90cc7b.webp",
+   "folder": "optimized/playlist",
+   "bytes": 13812,
+   "sha256": "17fd90cc7b8cdcfe1e0dfac4fe09014bc54ed72ec2c9493c762e3796a37491e6",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O20-160-v1-3da9bdd744.webp",
+   "folder": "optimized/playlist",
+   "bytes": 12750,
+   "sha256": "3da9bdd744f90af5a49a43d8498ebc7c0b1ed48a1287b59bee9202f400668efb",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O21-160-v1-9c09937160.webp",
+   "folder": "optimized/playlist",
+   "bytes": 14776,
+   "sha256": "9c09937160a398262a14058f5991dd86822b69e44b75e8d24c9bc73c9c2e00b2",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O22-160-v1-c11b758071.webp",
+   "folder": "optimized/playlist",
+   "bytes": 14136,
+   "sha256": "c11b758071708044f2519646469d1e2af80e4cc9a38ab45a7933eb11195989fd",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O23-160-v1-3f90fa12bb.webp",
+   "folder": "optimized/playlist",
+   "bytes": 15252,
+   "sha256": "3f90fa12bba0d8c27c9987e0dd8fb29312548b5a0f02abd516022de1948bbb69",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/O24-160-v1-6bc597f80a.webp",
+   "folder": "optimized/playlist",
+   "bytes": 11064,
+   "sha256": "6bc597f80a9973f1fb20a64a120f330ac055c3ff374aabdef38ca4e4ee7c8851",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/playlist/main-theme-house-160-v1-edfa2ea0a4.webp",
+   "folder": "optimized/playlist",
+   "bytes": 12828,
+   "sha256": "edfa2ea0a4dfda8a2e06b67cb92315f7f1fdadb48fe3186f00a25a0e4df5e702",
+   "width": 160,
+   "height": 160,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P01-fensterzimmer-1086-v1-6e8da968c9.webp",
+   "folder": "optimized/rooms",
+   "bytes": 363092,
+   "sha256": "6e8da968c933ce4e447f31ba3117adb0189de85d8e39fe2eb01b54d2ba0e8aa6",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P01-fensterzimmer-480-v1-c6c2f4a855.webp",
+   "folder": "optimized/rooms",
+   "bytes": 101998,
+   "sha256": "c6c2f4a8553b682a372d6d23fcb1399794107a5b02c3f9b5378885d238b99917",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P01-fensterzimmer-900-v1-c1e7c8d13e.webp",
+   "folder": "optimized/rooms",
+   "bytes": 274242,
+   "sha256": "c1e7c8d13e0078d4fd0277b616cab72f1af2860e42f5a79198bb7923c5667f54",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P01-fensterzimmer-abend-v1-1086-v1-0f7fc0dba1.webp",
+   "folder": "optimized/rooms",
+   "bytes": 309464,
+   "sha256": "0f7fc0dba1f2ed0e8f64b64e692f27e47f4e87b4b19cf23bea38ece2ab2cfd4d",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P01-fensterzimmer-abend-v1-480-v1-988f40dc20.webp",
+   "folder": "optimized/rooms",
+   "bytes": 85784,
+   "sha256": "988f40dc20df281884e12908d25e339fd3aae1641a7cf0f574b6acbdf85c4c18",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P01-fensterzimmer-abend-v1-900-v1-513b7d7ad1.webp",
+   "folder": "optimized/rooms",
+   "bytes": 232578,
+   "sha256": "513b7d7ad18a6c2ae00003473afbe59acfa9503b95a552f54418a613461d8798",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P01-fensterzimmer-mond-v1-1086-v1-9efbbe52e8.webp",
+   "folder": "optimized/rooms",
+   "bytes": 370394,
+   "sha256": "9efbbe52e86209c52ab99805e9d2e7a63cbdac280b7143ec0a673974fbef6b54",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P01-fensterzimmer-mond-v1-480-v1-867a055398.webp",
+   "folder": "optimized/rooms",
+   "bytes": 102088,
+   "sha256": "867a0553989c0e694322d0d2d16c3c323b5a0576faec4941ce9248d55ef5dd1c",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P01-fensterzimmer-mond-v1-900-v1-2ca13a534f.webp",
+   "folder": "optimized/rooms",
+   "bytes": 283436,
+   "sha256": "2ca13a534f90c0a18a584dfe03fe3d0ca5f11d4954a24b01d4b1e4bab6e067b1",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P02-bibliothek-1086-v1-c6cfb3d7be.webp",
+   "folder": "optimized/rooms",
+   "bytes": 347646,
+   "sha256": "c6cfb3d7be33682433a70f8bc7815cd6d69a6875dc9b13f9fc65c7104bce0873",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P02-bibliothek-480-v1-1b6f532da9.webp",
+   "folder": "optimized/rooms",
+   "bytes": 95350,
+   "sha256": "1b6f532da95d645aa039befd23bc0c8b5649d7e5c006213e36f1ffbc1e2513ab",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P02-bibliothek-900-v1-606d68be27.webp",
+   "folder": "optimized/rooms",
+   "bytes": 256464,
+   "sha256": "606d68be274b190d85a48856ea3322ee7514a38a71df263530b6c1cab7109f84",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P02-bibliothek-leseplatz-v1-1086-v1-ee0e0da547.webp",
+   "folder": "optimized/rooms",
+   "bytes": 308280,
+   "sha256": "ee0e0da5474474fa8654e3ebac9e459e91cd1a847291ec39664aeab047875b11",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P02-bibliothek-leseplatz-v1-480-v1-00b1894ab5.webp",
+   "folder": "optimized/rooms",
+   "bytes": 87746,
+   "sha256": "00b1894ab534110b6991fe6047bf9d39ad6da579eaf9bccf731d37a326dab639",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P02-bibliothek-leseplatz-v1-900-v1-436995e313.webp",
+   "folder": "optimized/rooms",
+   "bytes": 234512,
+   "sha256": "436995e3139917457c9c7e088c477ee8c57666fea031a7b03af6070861945dc5",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P02-bibliothek-sessel-v1-1086-v1-2e7aae3cb6.webp",
+   "folder": "optimized/rooms",
+   "bytes": 354878,
+   "sha256": "2e7aae3cb6bc09e82f569c7c1bcc952fb1f6e2e12e6c56b7c19dc73c8dc31e40",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P02-bibliothek-sessel-v1-480-v1-1be6ceafcd.webp",
+   "folder": "optimized/rooms",
+   "bytes": 96164,
+   "sha256": "1be6ceafcdcb33df3ae9390d00bbef5423089b02b928cf0d410e5ae821dd6086",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P02-bibliothek-sessel-v1-900-v1-744df7c8ac.webp",
+   "folder": "optimized/rooms",
+   "bytes": 265330,
+   "sha256": "744df7c8ac48ec416dda898f8ac6cd087d157dc0c05e206f2bd05511d2494894",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P03-wintergarten-1086-v1-2c0a049ef6.webp",
+   "folder": "optimized/rooms",
+   "bytes": 551890,
+   "sha256": "2c0a049ef634dcf4957d36a198e37928e79100d5d4b7cb39cc293dbd54b47aad",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P03-wintergarten-480-v1-13fc9ea957.webp",
+   "folder": "optimized/rooms",
+   "bytes": 142472,
+   "sha256": "13fc9ea957a07f388f96956ff7d7f830cdc47421fb0724d54355279a272b341a",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P03-wintergarten-900-v1-713e9d7fcc.webp",
+   "folder": "optimized/rooms",
+   "bytes": 405826,
+   "sha256": "713e9d7fcc8be4798048bf109cbb3943028c682c07ceb5d5a484b14e25547d56",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P03-wintergarten-brunnen-v1-1086-v1-0bce2a2ac4.webp",
+   "folder": "optimized/rooms",
+   "bytes": 525432,
+   "sha256": "0bce2a2ac4e319683692ea9eb805c4cb6ea4d49060dc3e1e0261b7023b898fda",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P03-wintergarten-brunnen-v1-480-v1-703126cd14.webp",
+   "folder": "optimized/rooms",
+   "bytes": 140748,
+   "sha256": "703126cd14367e44829a326368545d97d1fb9e35c6b92892e7c2a28587fee70c",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P03-wintergarten-brunnen-v1-900-v1-1178031762.webp",
+   "folder": "optimized/rooms",
+   "bytes": 393826,
+   "sha256": "117803176213ed20473a2b2b24e0d96eb9e2b5fccfc58bc3c03fcd4b09e8a680",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P03-wintergarten-werkbank-v1-1086-v1-3846c47adb.webp",
+   "folder": "optimized/rooms",
+   "bytes": 556178,
+   "sha256": "3846c47adb9bb8989d9dde0003ad6c8d8800d92f6e276dbe36689e82d69bed2d",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P03-wintergarten-werkbank-v1-480-v1-a45fd4724d.webp",
+   "folder": "optimized/rooms",
+   "bytes": 142476,
+   "sha256": "a45fd4724d71b7a6b150dad8af8ec8ec0756e6c05d734fdb15364d6f834356ec",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P03-wintergarten-werkbank-v1-900-v1-a30ed8b0c9.webp",
+   "folder": "optimized/rooms",
+   "bytes": 408484,
+   "sha256": "a30ed8b0c90b73f119d0a3e3a6f0328c392817d3220b182af70c622266bc9a36",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P04-atelier-1086-v1-0a9f9576ef.webp",
+   "folder": "optimized/rooms",
+   "bytes": 367244,
+   "sha256": "0a9f9576ef83f79f75ca6ea0c9e637eba70428492fdb08e8ae95dfa9efaf313f",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P04-atelier-480-v1-d9e90088e3.webp",
+   "folder": "optimized/rooms",
+   "bytes": 101474,
+   "sha256": "d9e90088e398b191d59901158f4c85331e7c52d8ebcea4662c6e377ecc36397c",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P04-atelier-900-v1-f57b4df238.webp",
+   "folder": "optimized/rooms",
+   "bytes": 277810,
+   "sha256": "f57b4df238fe288bfa0da0a138426c731c3e7b33392593e2ab4fc087b71544e1",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P04-atelier-arbeitsflaeche-v1-1086-v1-d63b84e54b.webp",
+   "folder": "optimized/rooms",
+   "bytes": 374726,
+   "sha256": "d63b84e54b9078c104221465beeff1f474093c98e954618ad83b52845c482b32",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P04-atelier-arbeitsflaeche-v1-480-v1-eb9bc98784.webp",
+   "folder": "optimized/rooms",
+   "bytes": 102370,
+   "sha256": "eb9bc987847a4bfc0d60441f4e95b800c1984fb7173fd3c80040f75d9823adc9",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P04-atelier-arbeitsflaeche-v1-900-v1-b4c307927e.webp",
+   "folder": "optimized/rooms",
+   "bytes": 284294,
+   "sha256": "b4c307927e1ce93f6f3ff2fa7f2e8c81ab9d93b470abd831bb29b8f59a043b33",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P04-atelier-kartenauslage-v1-480-v1-c418ae7687.webp",
+   "folder": "optimized/rooms",
+   "bytes": 135734,
+   "sha256": "c418ae76878ca6401717e4b9bc53c53b6726fc7d232bfbe7bead3596a86202f2",
+   "width": 480,
+   "height": 853,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P04-atelier-kartenauslage-v1-864-v1-dcb82f452e.webp",
+   "folder": "optimized/rooms",
+   "bytes": 314524,
+   "sha256": "dcb82f452e1eacbc6aebd74413d6b4f298556417c0a961c2cd9e50f06b7abcb8",
+   "width": 864,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P04-atelier-treppenblick-v1-1086-v1-aeb80d2a97.webp",
+   "folder": "optimized/rooms",
+   "bytes": 336630,
+   "sha256": "aeb80d2a97e870499bf13861e6f3c5cc1baa15db19d0752386c1557ac748c933",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P04-atelier-treppenblick-v1-480-v1-7118b0d27c.webp",
+   "folder": "optimized/rooms",
+   "bytes": 95560,
+   "sha256": "7118b0d27c308c22bb0dfdc4edfdd6009178f2f4aa18d97a270f5198e202f83b",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P04-atelier-treppenblick-v1-900-v1-4cbe71c146.webp",
+   "folder": "optimized/rooms",
+   "bytes": 254524,
+   "sha256": "4cbe71c14630ae88e4c69a83ea773a178e8ff64c42f3f74916852d134d572e33",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P05-innenhof-1086-v1-e2185806f0.webp",
+   "folder": "optimized/rooms",
+   "bytes": 479828,
+   "sha256": "e2185806f06e60329368080f6de37a76fb9265a01e47cad77d5d29a52756c4ee",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P05-innenhof-480-v1-022510bf7e.webp",
+   "folder": "optimized/rooms",
+   "bytes": 122960,
+   "sha256": "022510bf7edfb53b0efe72f492a85455602f473d6a2983b1598f470309e688e9",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P05-innenhof-900-v1-c9cad8cb40.webp",
+   "folder": "optimized/rooms",
+   "bytes": 356836,
+   "sha256": "c9cad8cb409efc62b0fd919dc1a06a23d2c5e046c837297406dc3615246cf14f",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P05-innenhof-brunnen-v1-1086-v1-a70a13ee57.webp",
+   "folder": "optimized/rooms",
+   "bytes": 480942,
+   "sha256": "a70a13ee57d07696ebf725bb4789adfc6b3bb545ea31f40107a19f0f7f37de14",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P05-innenhof-brunnen-v1-480-v1-a760ee02dc.webp",
+   "folder": "optimized/rooms",
+   "bytes": 123362,
+   "sha256": "a760ee02dc6c680a48e3cb9c79ed3ce51a88b7b5d4c167dee010ed5badfecd03",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P05-innenhof-brunnen-v1-900-v1-e0b994f959.webp",
+   "folder": "optimized/rooms",
+   "bytes": 363344,
+   "sha256": "e0b994f95900359a6b95b9e95c13fcbd0b7ae3092277a09b285505e9bfe87bf7",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P05-innenhof-steinbruecke-v1-1086-v1-09506320fb.webp",
+   "folder": "optimized/rooms",
+   "bytes": 396876,
+   "sha256": "09506320fbd7f44af50f43a0d0dba61c12b14e4488b273c5978a4826f8b2b231",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P05-innenhof-steinbruecke-v1-480-v1-f09e580d96.webp",
+   "folder": "optimized/rooms",
+   "bytes": 107002,
+   "sha256": "f09e580d96da047663ade2ae63102da0faaadb076b4595f9c0437c8c6b144440",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P05-innenhof-steinbruecke-v1-900-v1-cdc86882aa.webp",
+   "folder": "optimized/rooms",
+   "bytes": 302210,
+   "sha256": "cdc86882aacd8560c0a05bb8a0884fb74e5998b183c959c507574c0b6f14dec6",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P06-galerie-1086-v1-5179cca5cf.webp",
+   "folder": "optimized/rooms",
+   "bytes": 314186,
+   "sha256": "5179cca5cf06a2d0c96f437f3dd6ee699d6ed82b6be5a586ebec70488f80907a",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P06-galerie-480-v1-0c1d261f35.webp",
+   "folder": "optimized/rooms",
+   "bytes": 90732,
+   "sha256": "0c1d261f350a8efe87a1e1ac317dddc511f8c4a5111a069d84e727494b274dcd",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P06-galerie-900-v1-469657cd0a.webp",
+   "folder": "optimized/rooms",
+   "bytes": 234462,
+   "sha256": "469657cd0a69308b6f956e1793309a37f8b0f99c37d3806a45bf16a96b477f5b",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P06-galerie-bruecke-v1-1086-v1-faeeca735f.webp",
+   "folder": "optimized/rooms",
+   "bytes": 352520,
+   "sha256": "faeeca735fc2e106383c8ae7c2d0591ddd4f894220d4ab5ceaee59fa61237bcc",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P06-galerie-bruecke-v1-480-v1-2a1e364049.webp",
+   "folder": "optimized/rooms",
+   "bytes": 97844,
+   "sha256": "2a1e364049c9796f95910e64d1fcd20d568d6857efd401712f4ca91144910f95",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P06-galerie-bruecke-v1-900-v1-16bcf96cb5.webp",
+   "folder": "optimized/rooms",
+   "bytes": 273730,
+   "sha256": "16bcf96cb5eaef6376396b35e37b1e99f4adbc3140914f3b91b1bf4bcfaf37fe",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P06-galerie-langer-steg-v1-1086-v1-bf48271f3b.webp",
+   "folder": "optimized/rooms",
+   "bytes": 323918,
+   "sha256": "bf48271f3bdca2b9a361bb06e50f60adcbeec6faaa2bca2079890be7e8349209",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P06-galerie-langer-steg-v1-480-v1-3aa7850327.webp",
+   "folder": "optimized/rooms",
+   "bytes": 91568,
+   "sha256": "3aa7850327161534dfa4f271f131b54e0333bc2b638282272821ddff40190c4f",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P06-galerie-langer-steg-v1-900-v1-1849696171.webp",
+   "folder": "optimized/rooms",
+   "bytes": 240544,
+   "sha256": "1849696171845c8d25a44adf2345bc026c737046452440bbccf15fa3f0dcba3f",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P07-dachterrasse-1086-v1-2f32fc0cfa.webp",
+   "folder": "optimized/rooms",
+   "bytes": 344352,
+   "sha256": "2f32fc0cfa1b5b7a5f4bd5d2879d169469c9983af205842fc23222a41790c8eb",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P07-dachterrasse-480-v1-1bd636f21a.webp",
+   "folder": "optimized/rooms",
+   "bytes": 99310,
+   "sha256": "1bd636f21a72ccdee608cb8488214533d55bd41ba9e13772b2459a5cecb46eed",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P07-dachterrasse-900-v1-5d8c6e1b93.webp",
+   "folder": "optimized/rooms",
+   "bytes": 260660,
+   "sha256": "5d8c6e1b933e3c2def17b5565c2b51d3329d3ce8c4332e77687b0712f5f196db",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P07-dachterrasse-mond-v1-1086-v1-e2cd0147af.webp",
+   "folder": "optimized/rooms",
+   "bytes": 352996,
+   "sha256": "e2cd0147af90f19d673374f6fdfdc2c89cee96e63e6d31a4a54684a18f014d30",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P07-dachterrasse-mond-v1-480-v1-4e785aa1e0.webp",
+   "folder": "optimized/rooms",
+   "bytes": 100692,
+   "sha256": "4e785aa1e030a05477d491145b75943425877fc418392f8bb65686e4250667c8",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P07-dachterrasse-mond-v1-900-v1-e0401a3dde.webp",
+   "folder": "optimized/rooms",
+   "bytes": 268112,
+   "sha256": "e0401a3ddefe49639f248935b88a32bd00952fbe1a7227675b2e4435554b3b3b",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P07-dachterrasse-stadt-v1-1086-v1-f3b6fc6d26.webp",
+   "folder": "optimized/rooms",
+   "bytes": 346016,
+   "sha256": "f3b6fc6d2658365a2a445101bde859912ff647e4deb14d07215d5eb19f4b22bf",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P07-dachterrasse-stadt-v1-480-v1-11ab9304d0.webp",
+   "folder": "optimized/rooms",
+   "bytes": 97718,
+   "sha256": "11ab9304d0f38500bc12b8cdc333f6f7815337eed07e1f0b2fd032e68cd7e645",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P07-dachterrasse-stadt-v1-900-v1-33faead4ab.webp",
+   "folder": "optimized/rooms",
+   "bytes": 270834,
+   "sha256": "33faead4aba49d992e544d1476ab607c7dcd1ca41f8732d7247ffe833003bf4f",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P08-teezimmer-1086-v1-f2647243bf.webp",
+   "folder": "optimized/rooms",
+   "bytes": 331408,
+   "sha256": "f2647243bfb23aeb7404514fa593d409cf69737467a46970c878d71c1a9539d6",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P08-teezimmer-480-v1-87238a5af5.webp",
+   "folder": "optimized/rooms",
+   "bytes": 99190,
+   "sha256": "87238a5af5ae842b834401cda41155746da099c038a2c2b5689e6e0c5d089634",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P08-teezimmer-900-v1-513112e022.webp",
+   "folder": "optimized/rooms",
+   "bytes": 255690,
+   "sha256": "513112e02218203971aea7376122230ae4a775fb520a90330f6ad965335d43c7",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P08-teezimmer-mond-v1-1086-v1-e809200111.webp",
+   "folder": "optimized/rooms",
+   "bytes": 339370,
+   "sha256": "e8092001116cce0973476290dae00d1718b0f9d20b1146eb7221803088128dac",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P08-teezimmer-mond-v1-480-v1-b07f48256a.webp",
+   "folder": "optimized/rooms",
+   "bytes": 99198,
+   "sha256": "b07f48256a67695bcad7d24c6b308991c0244f2c03d691b08063ebde2b8f826c",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P08-teezimmer-mond-v1-900-v1-67e0e81205.webp",
+   "folder": "optimized/rooms",
+   "bytes": 262794,
+   "sha256": "67e0e81205cb929fd37501841c32f474bc348291fce18b8ae6f1ea4197b9f201",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P08-teezimmer-rundtisch-v1-1086-v1-62c6ef057a.webp",
+   "folder": "optimized/rooms",
+   "bytes": 340620,
+   "sha256": "62c6ef057a2209e41ad3034167fb92878fa9c499b6131e75b82cc37131f0c428",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P08-teezimmer-rundtisch-v1-480-v1-3a1b3b91cf.webp",
+   "folder": "optimized/rooms",
+   "bytes": 99094,
+   "sha256": "3a1b3b91cf2235e383347902363501f2cd01159c1db4e685b1a90ebae66bcafd",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/P08-teezimmer-rundtisch-v1-900-v1-f3b10237dd.webp",
+   "folder": "optimized/rooms",
+   "bytes": 264392,
+   "sha256": "f3b10237dd5deb1735d60dadb3fc3d26f320d1f7d52847a6c80fc4272538497f",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/flur-1086-v1-58139e29ee.webp",
+   "folder": "optimized/rooms",
+   "bytes": 352116,
+   "sha256": "58139e29ee8470e03335035d883216bc33540218c18b2bd955d6960ecc209e78",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/flur-480-v1-5d05f659cb.webp",
+   "folder": "optimized/rooms",
+   "bytes": 95040,
+   "sha256": "5d05f659cb73e8a68ff2f9ff1cee8e54e37ee9f2ad38dea2171a8e18d36cc7b8",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/flur-900-v1-8ba6a01c2e.webp",
+   "folder": "optimized/rooms",
+   "bytes": 259348,
+   "sha256": "8ba6a01c2e8a0e63f421d549ea382315f660a392478a9478408afbd01d248065",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/flur-dunkel-tisch-v1-480-v1-8e7014841f.webp",
+   "folder": "optimized/rooms",
+   "bytes": 102470,
+   "sha256": "8e7014841f27c4c0d123acebd7b984edf9113c980f829782286861a556386583",
+   "width": 480,
+   "height": 853,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/flur-dunkel-tisch-v1-864-v1-0f657c24e3.webp",
+   "folder": "optimized/rooms",
+   "bytes": 239686,
+   "sha256": "0f657c24e314d4caa120099a989f30fddb188265e7f39cfc9034237fbe2eb51f",
+   "width": 864,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/flur-gang-v1-1086-v1-8e981e57b0.webp",
+   "folder": "optimized/rooms",
+   "bytes": 355908,
+   "sha256": "8e981e57b0576ec6439e4871ae46b7cc4dcd228ce257d35952e657948325b010",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/flur-gang-v1-480-v1-f4a74ee359.webp",
+   "folder": "optimized/rooms",
+   "bytes": 95746,
+   "sha256": "f4a74ee359fa3b4018997ca5e024be6b397d9cc904afef648137048c031a7a59",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/flur-gang-v1-900-v1-5e2ed2176e.webp",
+   "folder": "optimized/rooms",
+   "bytes": 266744,
+   "sha256": "5e2ed2176ed9e9f7871f465bed0459737a6a86c1e048d66daf9086a83be01550",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/flur-v2-480-v1-690f9a5e60.webp",
+   "folder": "optimized/rooms",
+   "bytes": 149422,
+   "sha256": "690f9a5e607c79e78a5a4925f7f26a94fee2c95eed3f2eff61269dfba9b5ec50",
+   "width": 480,
+   "height": 853,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/flur-v2-864-v1-e7d3476528.webp",
+   "folder": "optimized/rooms",
+   "bytes": 386112,
+   "sha256": "e7d347652874fe00d8c44dea57bbc53d0497969d85daa8acaa0a0f962b122bb7",
+   "width": 864,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/flur-v2-dim-480-v1-a7e1d77c11.webp",
+   "folder": "optimized/rooms",
+   "bytes": 98966,
+   "sha256": "a7e1d77c117926eb3fcfc11fc8101aa6332a8176cf59f0be6cb64cba0f2864c8",
+   "width": 480,
+   "height": 853,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/flur-v2-dim-864-v1-5aba5b505b.webp",
+   "folder": "optimized/rooms",
+   "bytes": 237234,
+   "sha256": "5aba5b505b2d0a311ba72279d07a5e3ebdbe7fa27c747175f88e24d615491a15",
+   "width": 864,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/haus-zentrale-halle-v1-1086-v1-88203d299c.webp",
+   "folder": "optimized/rooms",
+   "bytes": 370242,
+   "sha256": "88203d299cf75c03cf917002cd1c48a2d3094b2cbc97bde494b9bbe5219c36ae",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/haus-zentrale-halle-v1-480-v1-aeccaa0bfa.webp",
+   "folder": "optimized/rooms",
+   "bytes": 92462,
+   "sha256": "aeccaa0bfa5e73c3ce3783f5777f95e575368b5a638c662906c12685f09af7b6",
+   "width": 480,
+   "height": 640,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/haus-zentrale-halle-v1-900-v1-7bccfc23eb.webp",
+   "folder": "optimized/rooms",
+   "bytes": 270254,
+   "sha256": "7bccfc23ebaec8c9cd4709e52bc896c01e88ed672e2b47018fbd722fdf22f419",
+   "width": 900,
+   "height": 1200,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/musikzimmer-v1-480-v1-6a0acc8c3f.webp",
+   "folder": "optimized/rooms",
+   "bytes": 137872,
+   "sha256": "6a0acc8c3f8d37fc7c510b7eb0c729331f11734827a0097bb2561658b7524f77",
+   "width": 480,
+   "height": 852,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/musikzimmer-v1-865-v1-518f76f8bb.webp",
+   "folder": "optimized/rooms",
+   "bytes": 333636,
+   "sha256": "518f76f8bba5bf9a58d20696bf24e00d63274fcdf186e26fffb540b0ffdae45c",
+   "width": 865,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/startseite-haustuer-v1-480-v1-defb3a3a29.webp",
+   "folder": "optimized/rooms",
+   "bytes": 169558,
+   "sha256": "defb3a3a297f661ed866535a62cd0d0ce47e215777474eb69eeebacca61ed01a",
+   "width": 480,
+   "height": 853,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "optimized/rooms/startseite-haustuer-v1-864-v1-6f7c1c2055.webp",
+   "folder": "optimized/rooms",
+   "bytes": 391738,
+   "sha256": "6f7c1c20557f1a026ddac9ee857818337207521a8930f86e4eb9047ed10a13eb",
+   "width": 864,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "portraits/weltenweberin.jpeg",
+   "folder": "portraits",
+   "bytes": 702593,
+   "sha256": "bcf5ba44ceaff0990ce16a9b8c816fe7b0aab161651b5b8ff4b564be843d91c1",
+   "width": 1024,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
    "path": "raumgeraete/P01.webp",
    "folder": "raumgeraete",
    "bytes": 53218,
@@ -1200,6 +3261,292 @@
    "sha256": "57e533f5adb7400192e585765f25db0a9bd301c2fc8b6963527834e4c9b24052",
    "width": 504,
    "height": 248,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P01-fensterzimmer.webp",
+   "folder": "rooms",
+   "bytes": 383910,
+   "sha256": "4970b222a6db802eb1449119c3a757e45d441e8ace4472c29b81a757d218af8d",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P02-bibliothek.webp",
+   "folder": "rooms",
+   "bytes": 366920,
+   "sha256": "52c6dd35f829002871c5a16eddbaad9fc25d8cf8b6bbcfc5ce298a3a4cc436d4",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P03-wintergarten.webp",
+   "folder": "rooms",
+   "bytes": 566966,
+   "sha256": "f2dfac043ba1aa334ececa25848cff59176a731d8e61bc986516869a36fa7d1a",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P04-atelier.webp",
+   "folder": "rooms",
+   "bytes": 325344,
+   "sha256": "8e8db89b3ab77b3ff02a2446055796327c162b6fbfc099c3fc3e9af6714c432d",
+   "width": 941,
+   "height": 1672,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P05-innenhof.webp",
+   "folder": "rooms",
+   "bytes": 494854,
+   "sha256": "60cb5245f41a3e2633f2ead5b41154afb7266d21fb89c6bd10c4d2614fe78f3f",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P06-galerie.webp",
+   "folder": "rooms",
+   "bytes": 328926,
+   "sha256": "b67df3b659cd8fdd2e348174333cb526964cb673ecb1f37db839eb5449bee400",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P07-dachterrasse.webp",
+   "folder": "rooms",
+   "bytes": 365670,
+   "sha256": "046c17f3a04165acce22d4002403dea46cecdb035215bafef8f8bdd4c232bf33",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08-teezimmer.webp",
+   "folder": "rooms",
+   "bytes": 349734,
+   "sha256": "3a53ae112f433592519939fd23a8b794d952164b8672d5b58bad012163d7cd1a",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/flur-v2-dim.webp",
+   "folder": "rooms",
+   "bytes": 271792,
+   "sha256": "c1ba7f78c18512de6df95cbcf9078d72d54b62309fa913c22f3ede3c7879632e",
+   "width": 864,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/flur-v2.webp",
+   "folder": "rooms",
+   "bytes": 430784,
+   "sha256": "1437393ae7c322c65ccf79931b568ba631145c6c30c178f8ccce48eec01d504c",
+   "width": 864,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/flur.webp",
+   "folder": "rooms",
+   "bytes": 380468,
+   "sha256": "8f58c73b6f710ff6575bb08c9a4550d27439e7ec7a5129ec48f86fe1c9ce6f5f",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/haus-zentrale-halle-v1.webp",
+   "folder": "rooms",
+   "bytes": 444880,
+   "sha256": "c9f6def0417197246898d1a44b6a60f63ee06b216deb22a522dffd9c59b9dfdc",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/manifest.json",
+   "folder": "rooms",
+   "bytes": 3210,
+   "sha256": "be76f77104aba2a4b21f06a13157a4aaee5c0df60d7a0e55847ab13ae411f775",
+   "kind": "support"
+  },
+  {
+   "path": "rooms/musikzimmer-v1.webp",
+   "folder": "rooms",
+   "bytes": 393910,
+   "sha256": "43a681e375e647fc5043d82572c79243bd3482cf30de8cda0f4d2bb83bdf09ea",
+   "width": 865,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/startseite-haustuer-v1.webp",
+   "folder": "rooms",
+   "bytes": 462422,
+   "sha256": "9be7413ffc8fcb6478b40bf6d6022ea1e6bc66825b21dabb01ba2d1b7854d2db",
+   "width": 864,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/teezimmer_p08_background.webp",
+   "folder": "rooms",
+   "bytes": 481854,
+   "sha256": "393bd136e1c33c497bffbd5cac20dfa9addc3160e9bdb701b89ff427f321f1fa",
+   "width": 1024,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/thumbs/P01-fensterzimmer-thumb.webp",
+   "folder": "rooms/thumbs",
+   "bytes": 42500,
+   "sha256": "fa343d13f106e1336e88aaf1d76058e64bf350c19bed8844070fceb49a88fac9",
+   "width": 480,
+   "height": 320,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/thumbs/P02-bibliothek-thumb.webp",
+   "folder": "rooms/thumbs",
+   "bytes": 38010,
+   "sha256": "feb85c87015910f8893f4a96c54a772a0fab0459a7f347c5e4e64c8df32d6c23",
+   "width": 480,
+   "height": 320,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/thumbs/P03-wintergarten-thumb.webp",
+   "folder": "rooms/thumbs",
+   "bytes": 64982,
+   "sha256": "5051961106a58d425c83433c1550a192977d82402bd4d55818c9f7a095a9e3d5",
+   "width": 480,
+   "height": 320,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/thumbs/P04-atelier-thumb.webp",
+   "folder": "rooms/thumbs",
+   "bytes": 42178,
+   "sha256": "38f98f3f50b4b53a9a999024e2b5afac5dd8252bcf88affec5cc1135634a157a",
+   "width": 480,
+   "height": 320,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/thumbs/P05-innenhof-thumb.webp",
+   "folder": "rooms/thumbs",
+   "bytes": 55758,
+   "sha256": "aa3cdbd46de7f941eaf6872662e5798b20ae325b782a432efa559569b27db5e6",
+   "width": 480,
+   "height": 320,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/thumbs/P06-galerie-thumb.webp",
+   "folder": "rooms/thumbs",
+   "bytes": 37672,
+   "sha256": "c8c04b383bc3e8f62e0032d71e73946e87a9e94f50d458b0cc41d5053ed8ab03",
+   "width": 480,
+   "height": 320,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/thumbs/P07-dachterrasse-thumb.webp",
+   "folder": "rooms/thumbs",
+   "bytes": 45392,
+   "sha256": "ad6207494d772919936e028adde2905ccc379a11fce3a53d8cb688f44034ef71",
+   "width": 480,
+   "height": 320,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/thumbs/P08-teezimmer-thumb.webp",
+   "folder": "rooms/thumbs",
+   "bytes": 42832,
+   "sha256": "7b7dd263b62bb0cbaa5a7312c9b2c0462eadaccc01a57957995df87e085008e5",
+   "width": 480,
+   "height": 320,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/thumbs/musikzimmer-v1-thumb.webp",
+   "folder": "rooms/thumbs",
+   "bytes": 45546,
+   "sha256": "067bbe1b1e77f641e8dbe7a7ef419513dc56bbb2e60fe04429f366080970e81e",
+   "width": 480,
+   "height": 320,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/varianten/P04-atelier-kartenauslage-v1.webp",
+   "folder": "rooms/varianten",
+   "bytes": 314878,
+   "sha256": "6359dd6ac86e93d1546f3e7e98b257e2437b6452880260a63496580f06ad15ff",
+   "width": 941,
+   "height": 1672,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "start/EMFD-START-02-A01-tisch.webp",
+   "folder": "start",
+   "bytes": 314766,
+   "sha256": "59a8035b53f15ae430631f037cd4b6f8468cd8290a0ff9e113839ebed0d7df90",
+   "width": 1024,
+   "height": 1536,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "start/EMFD-START-02-A02-umschlag-koerper.webp",
+   "folder": "start",
+   "bytes": 83194,
+   "sha256": "74564e853c03022dc403ee9b13cac46dbbe6cf728c65007be0e014b585169ecc",
+   "width": 1536,
+   "height": 1024,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "start/EMFD-START-02-A03-umschlag-lasche.webp",
+   "folder": "start",
+   "bytes": 32202,
+   "sha256": "7a1a4885d21e1fa2bc30fcce5023a0e5b4d0b8eb1d12be4ec96e9a61c79b5c7e",
+   "width": 1536,
+   "height": 1024,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "start/EMFD-START-02-A04-herzsiegel.webp",
+   "folder": "start",
+   "bytes": 202758,
+   "sha256": "729ebc2ead047af7b8ad3153d0de1848f28653fdce268b422af80d3115c40d59",
+   "width": 1278,
+   "height": 1230,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "start/EMFD-START-02-A05-briefpapier.webp",
+   "folder": "start",
+   "bytes": 190030,
+   "sha256": "9664b6a1dddafb6f1d7f657c094308e5b9179e283ac27b447fffa83293242859",
+   "width": 1054,
+   "height": 1492,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "start/EMFD-START-02-A06-geschenkkarte-vorderseite.webp",
+   "folder": "start",
+   "bytes": 929714,
+   "sha256": "0f77df1f774c04cfc3748f2718e0298c72ecb4602c0a1b78b77fafb68906505b",
+   "width": 1654,
+   "height": 2835,
    "kind": "unknown-media"
   }
  ],
@@ -1518,6 +3865,1151 @@
  "issues": [
   {
    "level": "Hinweis",
+   "path": "backgrounds/bildkarten-tisch-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "backgrounds/bildkarten-tisch-v2.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "backgrounds/brief-pergament-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O01.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O02.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O03.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O04.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O05.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O06.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O07.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O08.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O09.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O10.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O11.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O12.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O13.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O14.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O15.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O16.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O17.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O18.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O19.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O20.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O21.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O22.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O23.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/O24.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "cards/rueckseite.jpeg",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "music03/cabinet-v2.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "music03/tonearm-v1.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "music03/vinyl-v1.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/backgrounds/bildkarten-tisch-v1-480-v1-23dedb6d9e.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/backgrounds/bildkarten-tisch-v1-865-v1-4cc89ba2c3.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/backgrounds/bildkarten-tisch-v2-480-v1-e779da16d4.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/backgrounds/bildkarten-tisch-v2-865-v1-6f87e8b55c.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/backgrounds/brief-pergament-v1-480-v1-312c3ff280.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/backgrounds/brief-pergament-v1-711-v1-693d044c38.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/backgrounds/weltenweberin-480-v1-47dc928fcd.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O01-210x360-v1-51dc2133ba.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O01-630x1080-v1-47041d64df.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O01-896x1536-v1-e9495cfcc9.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O02-210x360-v1-9b55a36656.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O02-630x1080-v1-ea0c9d086d.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O02-896x1536-v1-34f8b90824.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O03-210x360-v1-da68444279.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O03-630x1080-v1-538d1729a7.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O03-896x1536-v1-f933d3941f.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O04-210x360-v1-76e4c08fb6.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O04-630x1080-v1-9b2846a48e.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O04-896x1536-v1-10b15142cd.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O05-210x360-v1-3562abd332.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O05-630x1080-v1-66c23e33ec.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O05-896x1536-v1-5bf2e1ae96.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O06-210x360-v1-ed2119269d.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O06-630x1080-v1-d7b8985de0.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O06-896x1536-v1-9364501a66.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O07-210x360-v1-5332556ecc.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O07-630x1080-v1-55988a067e.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O07-896x1536-v1-d3dd078b87.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O08-210x360-v1-9ddcc75394.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O08-630x1080-v1-7cace7daa6.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O08-896x1536-v1-e2e6882e83.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O09-210x360-v1-36d57cd4d7.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O09-630x1080-v1-f5631e0d0d.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O09-896x1536-v1-bc1fe257bf.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O10-210x360-v1-404569a939.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O10-630x1080-v1-79dd7c2417.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O10-896x1536-v1-7dc57c2699.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O11-210x360-v1-2ced015983.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O11-630x1080-v1-817636f65e.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O11-896x1536-v1-5904a1b82d.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O12-210x360-v1-74c6b7a13d.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O12-630x1080-v1-9b05b53b78.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O12-896x1536-v1-919aae5296.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O13-210x360-v1-7036b7b2ba.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O13-630x1080-v1-8a85824d30.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O13-896x1536-v1-979c9a6361.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O14-210x360-v1-765abfbb61.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O14-630x1080-v1-43247f7cf2.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O14-896x1536-v1-5c4fcf9637.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O15-210x360-v1-b7c6e53dfd.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O15-630x1080-v1-b13fb25925.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O15-896x1536-v1-e4ecd3dafa.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O16-210x360-v1-c06360dd6f.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O16-630x1080-v1-fc700ce626.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O16-896x1536-v1-5e35960d55.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O17-210x360-v1-1f4d32b94d.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O17-630x1080-v1-8deb0dda40.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O17-896x1536-v1-5980c3295e.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O18-210x360-v1-99021656a6.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O18-630x1080-v1-2541c92721.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O18-896x1536-v1-f97f62dfca.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O19-210x360-v1-29ba58465a.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O19-630x1080-v1-6e2b113bb5.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O19-896x1536-v1-f0bf7d9344.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O20-210x360-v1-1d9ba718de.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O20-630x1080-v1-096501a523.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O20-896x1536-v1-6eb9cbcf87.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O21-210x360-v1-eba95f7800.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O21-630x1080-v1-d6447303ab.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O21-896x1536-v1-a2a39f1e06.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O22-210x360-v1-f0efc6012d.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O22-630x1080-v1-f9e0be09eb.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O22-896x1536-v1-6c0dde1ba6.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O23-210x360-v1-ac97241528.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O23-630x1080-v1-fd5b16d29c.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O23-896x1536-v1-09f21cf972.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O24-210x360-v1-dde8967d48.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O24-630x1080-v1-e66d387234.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/cards/O24-896x1536-v1-68b4dc698a.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O01-160-v1-1fc9f5c551.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O02-160-v1-debb9abe22.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O03-160-v1-a0ae7c9434.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O04-160-v1-5e0a133981.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O05-160-v1-c3ea5765f8.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O06-160-v1-9eedc6c010.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O07-160-v1-0571a38f40.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O08-160-v1-86b01bbb7e.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O09-160-v1-fb07d53584.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O10-160-v1-93c9090bb6.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O11-160-v1-9fe79c302d.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O12-160-v1-184a3d18c5.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O13-160-v1-30b7945456.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O14-160-v1-447fb4766d.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O15-160-v1-4dd2c4a0d7.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O16-160-v1-7c187e5181.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O17-160-v1-846870247c.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O18-160-v1-026aa40243.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O19-160-v1-17fd90cc7b.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O20-160-v1-3da9bdd744.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O21-160-v1-9c09937160.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O22-160-v1-c11b758071.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O23-160-v1-3f90fa12bb.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/O24-160-v1-6bc597f80a.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/playlist/main-theme-house-160-v1-edfa2ea0a4.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P01-fensterzimmer-1086-v1-6e8da968c9.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P01-fensterzimmer-480-v1-c6c2f4a855.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P01-fensterzimmer-900-v1-c1e7c8d13e.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P01-fensterzimmer-abend-v1-1086-v1-0f7fc0dba1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P01-fensterzimmer-abend-v1-480-v1-988f40dc20.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P01-fensterzimmer-abend-v1-900-v1-513b7d7ad1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P01-fensterzimmer-mond-v1-1086-v1-9efbbe52e8.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P01-fensterzimmer-mond-v1-480-v1-867a055398.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P01-fensterzimmer-mond-v1-900-v1-2ca13a534f.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P02-bibliothek-1086-v1-c6cfb3d7be.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P02-bibliothek-480-v1-1b6f532da9.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P02-bibliothek-900-v1-606d68be27.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P02-bibliothek-leseplatz-v1-1086-v1-ee0e0da547.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P02-bibliothek-leseplatz-v1-480-v1-00b1894ab5.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P02-bibliothek-leseplatz-v1-900-v1-436995e313.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P02-bibliothek-sessel-v1-1086-v1-2e7aae3cb6.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P02-bibliothek-sessel-v1-480-v1-1be6ceafcd.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P02-bibliothek-sessel-v1-900-v1-744df7c8ac.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P03-wintergarten-1086-v1-2c0a049ef6.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P03-wintergarten-480-v1-13fc9ea957.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P03-wintergarten-900-v1-713e9d7fcc.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P03-wintergarten-brunnen-v1-1086-v1-0bce2a2ac4.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P03-wintergarten-brunnen-v1-480-v1-703126cd14.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P03-wintergarten-brunnen-v1-900-v1-1178031762.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P03-wintergarten-werkbank-v1-1086-v1-3846c47adb.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P03-wintergarten-werkbank-v1-480-v1-a45fd4724d.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P03-wintergarten-werkbank-v1-900-v1-a30ed8b0c9.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P04-atelier-1086-v1-0a9f9576ef.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P04-atelier-480-v1-d9e90088e3.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P04-atelier-900-v1-f57b4df238.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P04-atelier-arbeitsflaeche-v1-1086-v1-d63b84e54b.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P04-atelier-arbeitsflaeche-v1-480-v1-eb9bc98784.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P04-atelier-arbeitsflaeche-v1-900-v1-b4c307927e.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P04-atelier-kartenauslage-v1-480-v1-c418ae7687.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P04-atelier-kartenauslage-v1-864-v1-dcb82f452e.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P04-atelier-treppenblick-v1-1086-v1-aeb80d2a97.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P04-atelier-treppenblick-v1-480-v1-7118b0d27c.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P04-atelier-treppenblick-v1-900-v1-4cbe71c146.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P05-innenhof-1086-v1-e2185806f0.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P05-innenhof-480-v1-022510bf7e.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P05-innenhof-900-v1-c9cad8cb40.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P05-innenhof-brunnen-v1-1086-v1-a70a13ee57.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P05-innenhof-brunnen-v1-480-v1-a760ee02dc.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P05-innenhof-brunnen-v1-900-v1-e0b994f959.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P05-innenhof-steinbruecke-v1-1086-v1-09506320fb.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P05-innenhof-steinbruecke-v1-480-v1-f09e580d96.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P05-innenhof-steinbruecke-v1-900-v1-cdc86882aa.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P06-galerie-1086-v1-5179cca5cf.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P06-galerie-480-v1-0c1d261f35.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P06-galerie-900-v1-469657cd0a.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P06-galerie-bruecke-v1-1086-v1-faeeca735f.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P06-galerie-bruecke-v1-480-v1-2a1e364049.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P06-galerie-bruecke-v1-900-v1-16bcf96cb5.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P06-galerie-langer-steg-v1-1086-v1-bf48271f3b.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P06-galerie-langer-steg-v1-480-v1-3aa7850327.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P06-galerie-langer-steg-v1-900-v1-1849696171.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P07-dachterrasse-1086-v1-2f32fc0cfa.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P07-dachterrasse-480-v1-1bd636f21a.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P07-dachterrasse-900-v1-5d8c6e1b93.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P07-dachterrasse-mond-v1-1086-v1-e2cd0147af.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P07-dachterrasse-mond-v1-480-v1-4e785aa1e0.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P07-dachterrasse-mond-v1-900-v1-e0401a3dde.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P07-dachterrasse-stadt-v1-1086-v1-f3b6fc6d26.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P07-dachterrasse-stadt-v1-480-v1-11ab9304d0.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P07-dachterrasse-stadt-v1-900-v1-33faead4ab.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P08-teezimmer-1086-v1-f2647243bf.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P08-teezimmer-480-v1-87238a5af5.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P08-teezimmer-900-v1-513112e022.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P08-teezimmer-mond-v1-1086-v1-e809200111.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P08-teezimmer-mond-v1-480-v1-b07f48256a.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P08-teezimmer-mond-v1-900-v1-67e0e81205.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P08-teezimmer-rundtisch-v1-1086-v1-62c6ef057a.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P08-teezimmer-rundtisch-v1-480-v1-3a1b3b91cf.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/P08-teezimmer-rundtisch-v1-900-v1-f3b10237dd.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/flur-1086-v1-58139e29ee.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/flur-480-v1-5d05f659cb.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/flur-900-v1-8ba6a01c2e.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/flur-dunkel-tisch-v1-480-v1-8e7014841f.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/flur-dunkel-tisch-v1-864-v1-0f657c24e3.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/flur-gang-v1-1086-v1-8e981e57b0.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/flur-gang-v1-480-v1-f4a74ee359.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/flur-gang-v1-900-v1-5e2ed2176e.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/flur-v2-480-v1-690f9a5e60.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/flur-v2-864-v1-e7d3476528.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/flur-v2-dim-480-v1-a7e1d77c11.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/flur-v2-dim-864-v1-5aba5b505b.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/haus-zentrale-halle-v1-1086-v1-88203d299c.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/haus-zentrale-halle-v1-480-v1-aeccaa0bfa.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/haus-zentrale-halle-v1-900-v1-7bccfc23eb.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/musikzimmer-v1-480-v1-6a0acc8c3f.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/musikzimmer-v1-865-v1-518f76f8bb.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/startseite-haustuer-v1-480-v1-defb3a3a29.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "optimized/rooms/startseite-haustuer-v1-864-v1-6f7c1c2055.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "portraits/weltenweberin.jpeg",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
    "path": "raumgeraete/P01.webp",
    "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
   },
@@ -1558,136 +5050,584 @@
   },
   {
    "level": "Hinweis",
+   "path": "rooms/P01-fensterzimmer.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P02-bibliothek.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P03-wintergarten.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P04-atelier.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P05-innenhof.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P06-galerie.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P07-dachterrasse.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08-teezimmer.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/flur-v2-dim.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/flur-v2.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/flur.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/haus-zentrale-halle-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/musikzimmer-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/startseite-haustuer-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/teezimmer_p08_background.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/thumbs/P01-fensterzimmer-thumb.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/thumbs/P02-bibliothek-thumb.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/thumbs/P03-wintergarten-thumb.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/thumbs/P04-atelier-thumb.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/thumbs/P05-innenhof-thumb.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/thumbs/P06-galerie-thumb.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/thumbs/P07-dachterrasse-thumb.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/thumbs/P08-teezimmer-thumb.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/thumbs/musikzimmer-v1-thumb.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/varianten/P04-atelier-kartenauslage-v1.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "start/EMFD-START-02-A01-tisch.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "start/EMFD-START-02-A02-umschlag-koerper.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "start/EMFD-START-02-A03-umschlag-lasche.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "start/EMFD-START-02-A04-herzsiegel.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "start/EMFD-START-02-A05-briefpapier.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "start/EMFD-START-02-A06-geschenkkarte-vorderseite.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Fehler",
    "path": "home/assets/recovery/O01-630x1080-v1-47041d64df.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O01-630x1080-v1-47041d64df.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O02-630x1080-v1-ea0c9d086d.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O02-630x1080-v1-ea0c9d086d.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O03-630x1080-v1-538d1729a7.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O03-630x1080-v1-538d1729a7.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O04-630x1080-v1-9b2846a48e.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O04-630x1080-v1-9b2846a48e.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O05-630x1080-v1-66c23e33ec.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O05-630x1080-v1-66c23e33ec.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O06-630x1080-v1-d7b8985de0.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O06-630x1080-v1-d7b8985de0.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O07-630x1080-v1-55988a067e.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O07-630x1080-v1-55988a067e.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O08-630x1080-v1-7cace7daa6.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O08-630x1080-v1-7cace7daa6.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O09-630x1080-v1-f5631e0d0d.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O09-630x1080-v1-f5631e0d0d.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O10-630x1080-v1-79dd7c2417.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O10-630x1080-v1-79dd7c2417.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O11-630x1080-v1-817636f65e.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O11-630x1080-v1-817636f65e.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O12-630x1080-v1-9b05b53b78.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O12-630x1080-v1-9b05b53b78.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O13-630x1080-v1-8a85824d30.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O13-630x1080-v1-8a85824d30.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O14-630x1080-v1-43247f7cf2.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O14-630x1080-v1-43247f7cf2.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O15-630x1080-v1-b13fb25925.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O15-630x1080-v1-b13fb25925.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O16-630x1080-v1-fc700ce626.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O16-630x1080-v1-fc700ce626.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O17-630x1080-v1-8deb0dda40.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O17-630x1080-v1-8deb0dda40.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O18-630x1080-v1-2541c92721.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O18-630x1080-v1-2541c92721.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O19-630x1080-v1-6e2b113bb5.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O19-630x1080-v1-6e2b113bb5.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O20-630x1080-v1-096501a523.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O20-630x1080-v1-096501a523.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O21-630x1080-v1-d6447303ab.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O21-630x1080-v1-d6447303ab.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O22-630x1080-v1-f9e0be09eb.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O22-630x1080-v1-f9e0be09eb.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O23-630x1080-v1-fd5b16d29c.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O23-630x1080-v1-fd5b16d29c.webp) im App-Ordner – Konvention verbietet Medienkopien."
   },
   {
-   "level": "Hinweis",
+   "level": "Fehler",
    "path": "home/assets/recovery/O24-630x1080-v1-e66d387234.webp",
-   "text": "Kartenbild im App-Ordner (alter Stand?) – Karten sollten aus media/ kommen."
+   "text": "Kopie einer Mediendatei (media/optimized/cards/O24-630x1080-v1-e66d387234.webp) im App-Ordner – Konvention verbietet Medienkopien."
+  },
+  {
+   "level": "Fehler",
+   "path": "home/assets/recovery/bildkarten-tisch-v2-865-v1-6f87e8b55c.webp",
+   "text": "Kopie einer Mediendatei (media/optimized/backgrounds/bildkarten-tisch-v2-865-v1-6f87e8b55c.webp) im App-Ordner – Konvention verbietet Medienkopien."
+  },
+  {
+   "level": "Fehler",
+   "path": "home/assets/recovery/brief-pergament-v1-711-v1-693d044c38.webp",
+   "text": "Kopie einer Mediendatei (media/optimized/backgrounds/brief-pergament-v1-711-v1-693d044c38.webp) im App-Ordner – Konvention verbietet Medienkopien."
+  },
+  {
+   "level": "Fehler",
+   "path": "home/assets/recovery/flur-v2-864-v1-e7d3476528.webp",
+   "text": "Kopie einer Mediendatei (media/optimized/rooms/flur-v2-864-v1-e7d3476528.webp) im App-Ordner – Konvention verbietet Medienkopien."
+  },
+  {
+   "level": "Fehler",
+   "path": "home/assets/recovery/flur-v2-dim-864-v1-5aba5b505b.webp",
+   "text": "Kopie einer Mediendatei (media/optimized/rooms/flur-v2-dim-864-v1-5aba5b505b.webp) im App-Ordner – Konvention verbietet Medienkopien."
+  },
+  {
+   "level": "Fehler",
+   "path": "home/assets/recovery/musikzimmer-v1-865-v1-518f76f8bb.webp",
+   "text": "Kopie einer Mediendatei (media/optimized/rooms/musikzimmer-v1-865-v1-518f76f8bb.webp) im App-Ordner – Konvention verbietet Medienkopien."
+  },
+  {
+   "level": "Fehler",
+   "path": "home/assets/recovery/rueckseite.jpeg",
+   "text": "Kopie einer Mediendatei (media/cards/rueckseite.jpeg) im App-Ordner – Konvention verbietet Medienkopien."
+  },
+  {
+   "level": "Fehler",
+   "path": "home/assets/rooms/startseite-haustuer-v1.webp",
+   "text": "Kopie einer Mediendatei (media/rooms/startseite-haustuer-v1.webp) im App-Ordner – Konvention verbietet Medienkopien."
+  },
+  {
+   "level": "Fehler",
+   "path": "home/assets/weltenweberin.jpeg",
+   "text": "Kopie einer Mediendatei (media/portraits/weltenweberin.jpeg) im App-Ordner – Konvention verbietet Medienkopien."
   }
  ],
  "changes": {
-  "base": "2026-11-18T16:43:38+00:00",
+  "base": "2026-11-18T17:34:36+00:00",
   "added": [
-   "raumgeraete/P01.webp",
-   "raumgeraete/P02.webp",
-   "raumgeraete/P03.webp",
-   "raumgeraete/P04.webp",
-   "raumgeraete/P05.webp",
-   "raumgeraete/P06.webp",
-   "raumgeraete/P07.webp",
-   "raumgeraete/P08.webp"
+   "backgrounds/bildkarten-tisch-v1.webp",
+   "backgrounds/bildkarten-tisch-v2.webp",
+   "backgrounds/brief-pergament-v1.webp",
+   "cards/O01.png",
+   "cards/O02.png",
+   "cards/O03.png",
+   "cards/O04.png",
+   "cards/O05.png",
+   "cards/O06.png",
+   "cards/O07.png",
+   "cards/O08.png",
+   "cards/O09.png",
+   "cards/O10.png",
+   "cards/O11.png",
+   "cards/O12.png",
+   "cards/O13.png",
+   "cards/O14.png",
+   "cards/O15.png",
+   "cards/O16.png",
+   "cards/O17.png",
+   "cards/O18.png",
+   "cards/O19.png",
+   "cards/O20.png",
+   "cards/O21.png",
+   "cards/O22.png",
+   "cards/O23.png",
+   "cards/O24.png",
+   "cards/rueckseite.jpeg",
+   "music03/cabinet-v2.png",
+   "music03/tonearm-v1.png",
+   "music03/vinyl-v1.png",
+   "optimized/backgrounds/bildkarten-tisch-v1-480-v1-23dedb6d9e.webp",
+   "optimized/backgrounds/bildkarten-tisch-v1-865-v1-4cc89ba2c3.webp",
+   "optimized/backgrounds/bildkarten-tisch-v2-480-v1-e779da16d4.webp",
+   "optimized/backgrounds/bildkarten-tisch-v2-865-v1-6f87e8b55c.webp",
+   "optimized/backgrounds/brief-pergament-v1-480-v1-312c3ff280.webp",
+   "optimized/backgrounds/brief-pergament-v1-711-v1-693d044c38.webp",
+   "optimized/backgrounds/weltenweberin-480-v1-47dc928fcd.webp",
+   "optimized/cards/O01-210x360-v1-51dc2133ba.webp",
+   "optimized/cards/O01-630x1080-v1-47041d64df.webp",
+   "optimized/cards/O01-896x1536-v1-e9495cfcc9.webp",
+   "optimized/cards/O02-210x360-v1-9b55a36656.webp",
+   "optimized/cards/O02-630x1080-v1-ea0c9d086d.webp",
+   "optimized/cards/O02-896x1536-v1-34f8b90824.webp",
+   "optimized/cards/O03-210x360-v1-da68444279.webp",
+   "optimized/cards/O03-630x1080-v1-538d1729a7.webp",
+   "optimized/cards/O03-896x1536-v1-f933d3941f.webp",
+   "optimized/cards/O04-210x360-v1-76e4c08fb6.webp",
+   "optimized/cards/O04-630x1080-v1-9b2846a48e.webp",
+   "optimized/cards/O04-896x1536-v1-10b15142cd.webp",
+   "optimized/cards/O05-210x360-v1-3562abd332.webp",
+   "optimized/cards/O05-630x1080-v1-66c23e33ec.webp",
+   "optimized/cards/O05-896x1536-v1-5bf2e1ae96.webp",
+   "optimized/cards/O06-210x360-v1-ed2119269d.webp",
+   "optimized/cards/O06-630x1080-v1-d7b8985de0.webp",
+   "optimized/cards/O06-896x1536-v1-9364501a66.webp",
+   "optimized/cards/O07-210x360-v1-5332556ecc.webp",
+   "optimized/cards/O07-630x1080-v1-55988a067e.webp",
+   "optimized/cards/O07-896x1536-v1-d3dd078b87.webp",
+   "optimized/cards/O08-210x360-v1-9ddcc75394.webp",
+   "optimized/cards/O08-630x1080-v1-7cace7daa6.webp",
+   "optimized/cards/O08-896x1536-v1-e2e6882e83.webp",
+   "optimized/cards/O09-210x360-v1-36d57cd4d7.webp",
+   "optimized/cards/O09-630x1080-v1-f5631e0d0d.webp",
+   "optimized/cards/O09-896x1536-v1-bc1fe257bf.webp",
+   "optimized/cards/O10-210x360-v1-404569a939.webp",
+   "optimized/cards/O10-630x1080-v1-79dd7c2417.webp",
+   "optimized/cards/O10-896x1536-v1-7dc57c2699.webp",
+   "optimized/cards/O11-210x360-v1-2ced015983.webp",
+   "optimized/cards/O11-630x1080-v1-817636f65e.webp",
+   "optimized/cards/O11-896x1536-v1-5904a1b82d.webp",
+   "optimized/cards/O12-210x360-v1-74c6b7a13d.webp",
+   "optimized/cards/O12-630x1080-v1-9b05b53b78.webp",
+   "optimized/cards/O12-896x1536-v1-919aae5296.webp",
+   "optimized/cards/O13-210x360-v1-7036b7b2ba.webp",
+   "optimized/cards/O13-630x1080-v1-8a85824d30.webp",
+   "optimized/cards/O13-896x1536-v1-979c9a6361.webp",
+   "optimized/cards/O14-210x360-v1-765abfbb61.webp",
+   "optimized/cards/O14-630x1080-v1-43247f7cf2.webp",
+   "optimized/cards/O14-896x1536-v1-5c4fcf9637.webp",
+   "optimized/cards/O15-210x360-v1-b7c6e53dfd.webp",
+   "optimized/cards/O15-630x1080-v1-b13fb25925.webp",
+   "optimized/cards/O15-896x1536-v1-e4ecd3dafa.webp",
+   "optimized/cards/O16-210x360-v1-c06360dd6f.webp",
+   "optimized/cards/O16-630x1080-v1-fc700ce626.webp",
+   "optimized/cards/O16-896x1536-v1-5e35960d55.webp",
+   "optimized/cards/O17-210x360-v1-1f4d32b94d.webp",
+   "optimized/cards/O17-630x1080-v1-8deb0dda40.webp",
+   "optimized/cards/O17-896x1536-v1-5980c3295e.webp",
+   "optimized/cards/O18-210x360-v1-99021656a6.webp",
+   "optimized/cards/O18-630x1080-v1-2541c92721.webp",
+   "optimized/cards/O18-896x1536-v1-f97f62dfca.webp",
+   "optimized/cards/O19-210x360-v1-29ba58465a.webp",
+   "optimized/cards/O19-630x1080-v1-6e2b113bb5.webp",
+   "optimized/cards/O19-896x1536-v1-f0bf7d9344.webp",
+   "optimized/cards/O20-210x360-v1-1d9ba718de.webp",
+   "optimized/cards/O20-630x1080-v1-096501a523.webp",
+   "optimized/cards/O20-896x1536-v1-6eb9cbcf87.webp",
+   "optimized/cards/O21-210x360-v1-eba95f7800.webp",
+   "optimized/cards/O21-630x1080-v1-d6447303ab.webp",
+   "optimized/cards/O21-896x1536-v1-a2a39f1e06.webp",
+   "optimized/cards/O22-210x360-v1-f0efc6012d.webp",
+   "optimized/cards/O22-630x1080-v1-f9e0be09eb.webp",
+   "optimized/cards/O22-896x1536-v1-6c0dde1ba6.webp",
+   "optimized/cards/O23-210x360-v1-ac97241528.webp",
+   "optimized/cards/O23-630x1080-v1-fd5b16d29c.webp",
+   "optimized/cards/O23-896x1536-v1-09f21cf972.webp",
+   "optimized/cards/O24-210x360-v1-dde8967d48.webp",
+   "optimized/cards/O24-630x1080-v1-e66d387234.webp",
+   "optimized/cards/O24-896x1536-v1-68b4dc698a.webp",
+   "optimized/playlist/O01-160-v1-1fc9f5c551.webp",
+   "optimized/playlist/O02-160-v1-debb9abe22.webp",
+   "optimized/playlist/O03-160-v1-a0ae7c9434.webp",
+   "optimized/playlist/O04-160-v1-5e0a133981.webp",
+   "optimized/playlist/O05-160-v1-c3ea5765f8.webp",
+   "optimized/playlist/O06-160-v1-9eedc6c010.webp",
+   "optimized/playlist/O07-160-v1-0571a38f40.webp",
+   "optimized/playlist/O08-160-v1-86b01bbb7e.webp",
+   "optimized/playlist/O09-160-v1-fb07d53584.webp",
+   "optimized/playlist/O10-160-v1-93c9090bb6.webp",
+   "optimized/playlist/O11-160-v1-9fe79c302d.webp",
+   "optimized/playlist/O12-160-v1-184a3d18c5.webp",
+   "optimized/playlist/O13-160-v1-30b7945456.webp",
+   "optimized/playlist/O14-160-v1-447fb4766d.webp",
+   "optimized/playlist/O15-160-v1-4dd2c4a0d7.webp",
+   "optimized/playlist/O16-160-v1-7c187e5181.webp",
+   "optimized/playlist/O17-160-v1-846870247c.webp",
+   "optimized/playlist/O18-160-v1-026aa40243.webp",
+   "optimized/playlist/O19-160-v1-17fd90cc7b.webp",
+   "optimized/playlist/O20-160-v1-3da9bdd744.webp",
+   "optimized/playlist/O21-160-v1-9c09937160.webp",
+   "optimized/playlist/O22-160-v1-c11b758071.webp",
+   "optimized/playlist/O23-160-v1-3f90fa12bb.webp",
+   "optimized/playlist/O24-160-v1-6bc597f80a.webp",
+   "optimized/playlist/main-theme-house-160-v1-edfa2ea0a4.webp",
+   "optimized/rooms/P01-fensterzimmer-1086-v1-6e8da968c9.webp",
+   "optimized/rooms/P01-fensterzimmer-480-v1-c6c2f4a855.webp",
+   "optimized/rooms/P01-fensterzimmer-900-v1-c1e7c8d13e.webp",
+   "optimized/rooms/P01-fensterzimmer-abend-v1-1086-v1-0f7fc0dba1.webp",
+   "optimized/rooms/P01-fensterzimmer-abend-v1-480-v1-988f40dc20.webp",
+   "optimized/rooms/P01-fensterzimmer-abend-v1-900-v1-513b7d7ad1.webp",
+   "optimized/rooms/P01-fensterzimmer-mond-v1-1086-v1-9efbbe52e8.webp",
+   "optimized/rooms/P01-fensterzimmer-mond-v1-480-v1-867a055398.webp",
+   "optimized/rooms/P01-fensterzimmer-mond-v1-900-v1-2ca13a534f.webp",
+   "optimized/rooms/P02-bibliothek-1086-v1-c6cfb3d7be.webp",
+   "optimized/rooms/P02-bibliothek-480-v1-1b6f532da9.webp",
+   "optimized/rooms/P02-bibliothek-900-v1-606d68be27.webp",
+   "optimized/rooms/P02-bibliothek-leseplatz-v1-1086-v1-ee0e0da547.webp",
+   "optimized/rooms/P02-bibliothek-leseplatz-v1-480-v1-00b1894ab5.webp",
+   "optimized/rooms/P02-bibliothek-leseplatz-v1-900-v1-436995e313.webp",
+   "optimized/rooms/P02-bibliothek-sessel-v1-1086-v1-2e7aae3cb6.webp",
+   "optimized/rooms/P02-bibliothek-sessel-v1-480-v1-1be6ceafcd.webp",
+   "optimized/rooms/P02-bibliothek-sessel-v1-900-v1-744df7c8ac.webp",
+   "optimized/rooms/P03-wintergarten-1086-v1-2c0a049ef6.webp",
+   "optimized/rooms/P03-wintergarten-480-v1-13fc9ea957.webp",
+   "optimized/rooms/P03-wintergarten-900-v1-713e9d7fcc.webp",
+   "optimized/rooms/P03-wintergarten-brunnen-v1-1086-v1-0bce2a2ac4.webp",
+   "optimized/rooms/P03-wintergarten-brunnen-v1-480-v1-703126cd14.webp",
+   "optimized/rooms/P03-wintergarten-brunnen-v1-900-v1-1178031762.webp",
+   "optimized/rooms/P03-wintergarten-werkbank-v1-1086-v1-3846c47adb.webp",
+   "optimized/rooms/P03-wintergarten-werkbank-v1-480-v1-a45fd4724d.webp",
+   "optimized/rooms/P03-wintergarten-werkbank-v1-900-v1-a30ed8b0c9.webp",
+   "optimized/rooms/P04-atelier-1086-v1-0a9f9576ef.webp",
+   "optimized/rooms/P04-atelier-480-v1-d9e90088e3.webp",
+   "optimized/rooms/P04-atelier-900-v1-f57b4df238.webp",
+   "optimized/rooms/P04-atelier-arbeitsflaeche-v1-1086-v1-d63b84e54b.webp",
+   "optimized/rooms/P04-atelier-arbeitsflaeche-v1-480-v1-eb9bc98784.webp",
+   "optimized/rooms/P04-atelier-arbeitsflaeche-v1-900-v1-b4c307927e.webp",
+   "optimized/rooms/P04-atelier-kartenauslage-v1-480-v1-c418ae7687.webp",
+   "optimized/rooms/P04-atelier-kartenauslage-v1-864-v1-dcb82f452e.webp",
+   "optimized/rooms/P04-atelier-treppenblick-v1-1086-v1-aeb80d2a97.webp",
+   "optimized/rooms/P04-atelier-treppenblick-v1-480-v1-7118b0d27c.webp",
+   "optimized/rooms/P04-atelier-treppenblick-v1-900-v1-4cbe71c146.webp",
+   "optimized/rooms/P05-innenhof-1086-v1-e2185806f0.webp",
+   "optimized/rooms/P05-innenhof-480-v1-022510bf7e.webp",
+   "optimized/rooms/P05-innenhof-900-v1-c9cad8cb40.webp",
+   "optimized/rooms/P05-innenhof-brunnen-v1-1086-v1-a70a13ee57.webp",
+   "optimized/rooms/P05-innenhof-brunnen-v1-480-v1-a760ee02dc.webp",
+   "optimized/rooms/P05-innenhof-brunnen-v1-900-v1-e0b994f959.webp",
+   "optimized/rooms/P05-innenhof-steinbruecke-v1-1086-v1-09506320fb.webp",
+   "optimized/rooms/P05-innenhof-steinbruecke-v1-480-v1-f09e580d96.webp",
+   "optimized/rooms/P05-innenhof-steinbruecke-v1-900-v1-cdc86882aa.webp",
+   "optimized/rooms/P06-galerie-1086-v1-5179cca5cf.webp",
+   "optimized/rooms/P06-galerie-480-v1-0c1d261f35.webp",
+   "optimized/rooms/P06-galerie-900-v1-469657cd0a.webp",
+   "optimized/rooms/P06-galerie-bruecke-v1-1086-v1-faeeca735f.webp",
+   "optimized/rooms/P06-galerie-bruecke-v1-480-v1-2a1e364049.webp",
+   "optimized/rooms/P06-galerie-bruecke-v1-900-v1-16bcf96cb5.webp",
+   "optimized/rooms/P06-galerie-langer-steg-v1-1086-v1-bf48271f3b.webp",
+   "optimized/rooms/P06-galerie-langer-steg-v1-480-v1-3aa7850327.webp",
+   "optimized/rooms/P06-galerie-langer-steg-v1-900-v1-1849696171.webp",
+   "optimized/rooms/P07-dachterrasse-1086-v1-2f32fc0cfa.webp",
+   "optimized/rooms/P07-dachterrasse-480-v1-1bd636f21a.webp",
+   "optimized/rooms/P07-dachterrasse-900-v1-5d8c6e1b93.webp",
+   "optimized/rooms/P07-dachterrasse-mond-v1-1086-v1-e2cd0147af.webp",
+   "optimized/rooms/P07-dachterrasse-mond-v1-480-v1-4e785aa1e0.webp",
+   "optimized/rooms/P07-dachterrasse-mond-v1-900-v1-e0401a3dde.webp",
+   "optimized/rooms/P07-dachterrasse-stadt-v1-1086-v1-f3b6fc6d26.webp",
+   "optimized/rooms/P07-dachterrasse-stadt-v1-480-v1-11ab9304d0.webp",
+   "optimized/rooms/P07-dachterrasse-stadt-v1-900-v1-33faead4ab.webp",
+   "optimized/rooms/P08-teezimmer-1086-v1-f2647243bf.webp",
+   "optimized/rooms/P08-teezimmer-480-v1-87238a5af5.webp",
+   "optimized/rooms/P08-teezimmer-900-v1-513112e022.webp",
+   "optimized/rooms/P08-teezimmer-mond-v1-1086-v1-e809200111.webp",
+   "optimized/rooms/P08-teezimmer-mond-v1-480-v1-b07f48256a.webp",
+   "optimized/rooms/P08-teezimmer-mond-v1-900-v1-67e0e81205.webp",
+   "optimized/rooms/P08-teezimmer-rundtisch-v1-1086-v1-62c6ef057a.webp",
+   "optimized/rooms/P08-teezimmer-rundtisch-v1-480-v1-3a1b3b91cf.webp",
+   "optimized/rooms/P08-teezimmer-rundtisch-v1-900-v1-f3b10237dd.webp",
+   "optimized/rooms/flur-1086-v1-58139e29ee.webp",
+   "optimized/rooms/flur-480-v1-5d05f659cb.webp",
+   "optimized/rooms/flur-900-v1-8ba6a01c2e.webp",
+   "optimized/rooms/flur-dunkel-tisch-v1-480-v1-8e7014841f.webp",
+   "optimized/rooms/flur-dunkel-tisch-v1-864-v1-0f657c24e3.webp",
+   "optimized/rooms/flur-gang-v1-1086-v1-8e981e57b0.webp",
+   "optimized/rooms/flur-gang-v1-480-v1-f4a74ee359.webp",
+   "optimized/rooms/flur-gang-v1-900-v1-5e2ed2176e.webp",
+   "optimized/rooms/flur-v2-480-v1-690f9a5e60.webp",
+   "optimized/rooms/flur-v2-864-v1-e7d3476528.webp",
+   "optimized/rooms/flur-v2-dim-480-v1-a7e1d77c11.webp",
+   "optimized/rooms/flur-v2-dim-864-v1-5aba5b505b.webp",
+   "optimized/rooms/haus-zentrale-halle-v1-1086-v1-88203d299c.webp",
+   "optimized/rooms/haus-zentrale-halle-v1-480-v1-aeccaa0bfa.webp",
+   "optimized/rooms/haus-zentrale-halle-v1-900-v1-7bccfc23eb.webp",
+   "optimized/rooms/musikzimmer-v1-480-v1-6a0acc8c3f.webp",
+   "optimized/rooms/musikzimmer-v1-865-v1-518f76f8bb.webp",
+   "optimized/rooms/startseite-haustuer-v1-480-v1-defb3a3a29.webp",
+   "optimized/rooms/startseite-haustuer-v1-864-v1-6f7c1c2055.webp",
+   "portraits/weltenweberin.jpeg",
+   "rooms/P01-fensterzimmer.webp",
+   "rooms/P02-bibliothek.webp",
+   "rooms/P03-wintergarten.webp",
+   "rooms/P04-atelier.webp",
+   "rooms/P05-innenhof.webp",
+   "rooms/P06-galerie.webp",
+   "rooms/P07-dachterrasse.webp",
+   "rooms/P08-teezimmer.webp",
+   "rooms/flur-v2-dim.webp",
+   "rooms/flur-v2.webp",
+   "rooms/flur.webp",
+   "rooms/haus-zentrale-halle-v1.webp",
+   "rooms/manifest.json",
+   "rooms/musikzimmer-v1.webp",
+   "rooms/startseite-haustuer-v1.webp",
+   "rooms/teezimmer_p08_background.webp",
+   "rooms/thumbs/P01-fensterzimmer-thumb.webp",
+   "rooms/thumbs/P02-bibliothek-thumb.webp",
+   "rooms/thumbs/P03-wintergarten-thumb.webp",
+   "rooms/thumbs/P04-atelier-thumb.webp",
+   "rooms/thumbs/P05-innenhof-thumb.webp",
+   "rooms/thumbs/P06-galerie-thumb.webp",
+   "rooms/thumbs/P07-dachterrasse-thumb.webp",
+   "rooms/thumbs/P08-teezimmer-thumb.webp",
+   "rooms/thumbs/musikzimmer-v1-thumb.webp",
+   "rooms/varianten/P04-atelier-kartenauslage-v1.webp",
+   "start/EMFD-START-02-A01-tisch.webp",
+   "start/EMFD-START-02-A02-umschlag-koerper.webp",
+   "start/EMFD-START-02-A03-umschlag-lasche.webp",
+   "start/EMFD-START-02-A04-herzsiegel.webp",
+   "start/EMFD-START-02-A05-briefpapier.webp",
+   "start/EMFD-START-02-A06-geschenkkarte-vorderseite.webp"
   ],
   "changed": [],
   "removed": []
@@ -1698,35 +5638,43 @@
     "index.html: ../media/media-loader.js"
    ],
    "absolutePaths": [],
-   "copies": [],
-   "cardNamedFiles": [
-    "assets/recovery/O01-630x1080-v1-47041d64df.webp",
-    "assets/recovery/O02-630x1080-v1-ea0c9d086d.webp",
-    "assets/recovery/O03-630x1080-v1-538d1729a7.webp",
-    "assets/recovery/O04-630x1080-v1-9b2846a48e.webp",
-    "assets/recovery/O05-630x1080-v1-66c23e33ec.webp",
-    "assets/recovery/O06-630x1080-v1-d7b8985de0.webp",
-    "assets/recovery/O07-630x1080-v1-55988a067e.webp",
-    "assets/recovery/O08-630x1080-v1-7cace7daa6.webp",
-    "assets/recovery/O09-630x1080-v1-f5631e0d0d.webp",
-    "assets/recovery/O10-630x1080-v1-79dd7c2417.webp",
-    "assets/recovery/O11-630x1080-v1-817636f65e.webp",
-    "assets/recovery/O12-630x1080-v1-9b05b53b78.webp",
-    "assets/recovery/O13-630x1080-v1-8a85824d30.webp",
-    "assets/recovery/O14-630x1080-v1-43247f7cf2.webp",
-    "assets/recovery/O15-630x1080-v1-b13fb25925.webp",
-    "assets/recovery/O16-630x1080-v1-fc700ce626.webp",
-    "assets/recovery/O17-630x1080-v1-8deb0dda40.webp",
-    "assets/recovery/O18-630x1080-v1-2541c92721.webp",
-    "assets/recovery/O19-630x1080-v1-6e2b113bb5.webp",
-    "assets/recovery/O20-630x1080-v1-096501a523.webp",
-    "assets/recovery/O21-630x1080-v1-d6447303ab.webp",
-    "assets/recovery/O22-630x1080-v1-f9e0be09eb.webp",
-    "assets/recovery/O23-630x1080-v1-fd5b16d29c.webp",
-    "assets/recovery/O24-630x1080-v1-e66d387234.webp"
+   "copies": [
+    "assets/recovery/O01-630x1080-v1-47041d64df.webp = media/optimized/cards/O01-630x1080-v1-47041d64df.webp",
+    "assets/recovery/O02-630x1080-v1-ea0c9d086d.webp = media/optimized/cards/O02-630x1080-v1-ea0c9d086d.webp",
+    "assets/recovery/O03-630x1080-v1-538d1729a7.webp = media/optimized/cards/O03-630x1080-v1-538d1729a7.webp",
+    "assets/recovery/O04-630x1080-v1-9b2846a48e.webp = media/optimized/cards/O04-630x1080-v1-9b2846a48e.webp",
+    "assets/recovery/O05-630x1080-v1-66c23e33ec.webp = media/optimized/cards/O05-630x1080-v1-66c23e33ec.webp",
+    "assets/recovery/O06-630x1080-v1-d7b8985de0.webp = media/optimized/cards/O06-630x1080-v1-d7b8985de0.webp",
+    "assets/recovery/O07-630x1080-v1-55988a067e.webp = media/optimized/cards/O07-630x1080-v1-55988a067e.webp",
+    "assets/recovery/O08-630x1080-v1-7cace7daa6.webp = media/optimized/cards/O08-630x1080-v1-7cace7daa6.webp",
+    "assets/recovery/O09-630x1080-v1-f5631e0d0d.webp = media/optimized/cards/O09-630x1080-v1-f5631e0d0d.webp",
+    "assets/recovery/O10-630x1080-v1-79dd7c2417.webp = media/optimized/cards/O10-630x1080-v1-79dd7c2417.webp",
+    "assets/recovery/O11-630x1080-v1-817636f65e.webp = media/optimized/cards/O11-630x1080-v1-817636f65e.webp",
+    "assets/recovery/O12-630x1080-v1-9b05b53b78.webp = media/optimized/cards/O12-630x1080-v1-9b05b53b78.webp",
+    "assets/recovery/O13-630x1080-v1-8a85824d30.webp = media/optimized/cards/O13-630x1080-v1-8a85824d30.webp",
+    "assets/recovery/O14-630x1080-v1-43247f7cf2.webp = media/optimized/cards/O14-630x1080-v1-43247f7cf2.webp",
+    "assets/recovery/O15-630x1080-v1-b13fb25925.webp = media/optimized/cards/O15-630x1080-v1-b13fb25925.webp",
+    "assets/recovery/O16-630x1080-v1-fc700ce626.webp = media/optimized/cards/O16-630x1080-v1-fc700ce626.webp",
+    "assets/recovery/O17-630x1080-v1-8deb0dda40.webp = media/optimized/cards/O17-630x1080-v1-8deb0dda40.webp",
+    "assets/recovery/O18-630x1080-v1-2541c92721.webp = media/optimized/cards/O18-630x1080-v1-2541c92721.webp",
+    "assets/recovery/O19-630x1080-v1-6e2b113bb5.webp = media/optimized/cards/O19-630x1080-v1-6e2b113bb5.webp",
+    "assets/recovery/O20-630x1080-v1-096501a523.webp = media/optimized/cards/O20-630x1080-v1-096501a523.webp",
+    "assets/recovery/O21-630x1080-v1-d6447303ab.webp = media/optimized/cards/O21-630x1080-v1-d6447303ab.webp",
+    "assets/recovery/O22-630x1080-v1-f9e0be09eb.webp = media/optimized/cards/O22-630x1080-v1-f9e0be09eb.webp",
+    "assets/recovery/O23-630x1080-v1-fd5b16d29c.webp = media/optimized/cards/O23-630x1080-v1-fd5b16d29c.webp",
+    "assets/recovery/O24-630x1080-v1-e66d387234.webp = media/optimized/cards/O24-630x1080-v1-e66d387234.webp",
+    "assets/recovery/bildkarten-tisch-v2-865-v1-6f87e8b55c.webp = media/optimized/backgrounds/bildkarten-tisch-v2-865-v1-6f87e8b55c.webp",
+    "assets/recovery/brief-pergament-v1-711-v1-693d044c38.webp = media/optimized/backgrounds/brief-pergament-v1-711-v1-693d044c38.webp",
+    "assets/recovery/flur-v2-864-v1-e7d3476528.webp = media/optimized/rooms/flur-v2-864-v1-e7d3476528.webp",
+    "assets/recovery/flur-v2-dim-864-v1-5aba5b505b.webp = media/optimized/rooms/flur-v2-dim-864-v1-5aba5b505b.webp",
+    "assets/recovery/musikzimmer-v1-865-v1-518f76f8bb.webp = media/optimized/rooms/musikzimmer-v1-865-v1-518f76f8bb.webp",
+    "assets/recovery/rueckseite.jpeg = media/cards/rueckseite.jpeg",
+    "assets/rooms/startseite-haustuer-v1.webp = media/rooms/startseite-haustuer-v1.webp",
+    "assets/weltenweberin.jpeg = media/portraits/weltenweberin.jpeg"
    ],
+   "cardNamedFiles": [],
    "live": null,
-   "ok": true
+   "ok": false
   },
   "home_3d": {
    "loader": [

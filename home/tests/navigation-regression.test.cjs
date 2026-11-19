@@ -22,7 +22,7 @@ test('NAV-02: every persistent dialog has an explicit close control',()=>{
   assert.match(html,/aria-label="Hilfe schließen"/);
   assert.match(html,/class="closeup-close" aria-label="Nahansicht schließen"/);
   assert.match(read('origin-story.js'),/aria-label="Hinter dem Haus schließen"/);
-  assert.match(read('app.js'),/aria-label="Leseansicht schließen"/);
+  assert.match(read('app.js'),/class="reading-close" type="button" aria-label="Buch schließen">×<\/button>/);
 });
 
 test('NAV-03: route changes close every open overlay',()=>{
@@ -42,9 +42,12 @@ test('NAV-04: start controls have separate bounded hit areas',()=>{
 
 test('NAV-05: card detail returns to the entry context',()=>{
   assert.match(read('atelier.js'),/rememberCard\(card\.id\)/);
-  assert.match(read('teezimmer.js'),/rememberReturn\(\)/);
-  assert.match(read('music-room.js'),/data-story-card/);
-  assert.match(read('music-room.js'),/rememberReturn\?\.\('#musik\/geschichten'\)/);
+  // Tea room and other rooms remember their origin through the shared feature registry.
+  assert.match(read('feature-registry.js'),/root\.EMFDAtelier\?\.rememberReturn\?\.\(origin\?roomRoute\(origin\):'#karten'\)/);
+  assert.match(read('teezimmer.js'),/function rememberReturn\(\)\{root\.EMFDAtelier\?\.rememberReturn\?\.\('#teezimmer'\);\}/);
+  // Music sub-views return to their entry via the shared navigation trail (ARCH-01).
+  assert.match(read('music-room.js'),/data-station-back href="#musik"/);
+  assert.match(read('shared/navigation.js'),/function back\(fallback='#flur'\)\{return go\(returnRoute\(fallback\),\{kind:'return'\}\);\}/);
 });
 
 test('NAV-06: modal openers are idempotent',()=>{

@@ -53,8 +53,11 @@ test('P04-12/13: responsive and accessible controls are provided',()=>{
 });
 
 test('P04 media paths reference supplied UI-free assets',()=>{
-  assert.match(atelier,/\/media\/rooms\/P04-atelier\.webp/);
-  assert.match(atelier,/\/media\/rooms\/varianten\/P04-atelier-kartenauslage-v1\.webp/);
+  // PERF-01 (v0.6.51) replaced the original room files by their optimized variants.
+  const paths=[...new Set(atelier.match(/\.\.\/media\/optimized\/rooms\/P04-atelier[^'"`\s,)]+\.webp/g)||[])];
+  assert.ok(paths.some(p=>/\/P04-atelier-\d+-v1-[0-9a-f]+\.webp$/.test(p)),'P04 room image');
+  assert.ok(paths.some(p=>/\/P04-atelier-kartenauslage-v1-\d+-v1-[0-9a-f]+\.webp$/.test(p)),'P04 card table variant');
+  for(const p of paths)assert.ok(fs.existsSync(path.resolve(__dirname,'..',p)),p);
 });
 
 test('documented O-ID image swaps are corrected canonically',()=>{

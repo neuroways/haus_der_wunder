@@ -31,7 +31,8 @@ test('TEA-03: uses the one shared private free-mode editor and has a visible fai
   assert.match(read('thought-paper.js'),/if\(old\?\.isConnected\)old\.focus/);
 });
 test('TEA-04: preserve daily-card return, existing routes, music entry, and unchanged illustration',()=>{
-  assert.match(js,/EMFDCardDraw\?\.begin\?\.\(card\.id,'#teezimmer'\)/);
+  assert.match(js,/data-house-feature="daily" data-feature-room="P08"/);
+  assert.match(read('feature-registry.js'),/root\.EMFDCardDraw\?\.begin\?\.\(card\.id,origin\?roomRoute\(origin\):'#karten'\)/);
   assert.match(js,/href="#flur"/);
   assert.match(js,/href="#karten"/);
   assert.match(js,/media\/rooms\/teezimmer_p08_background\.webp/);
@@ -42,8 +43,8 @@ test('TEA-04: preserve daily-card return, existing routes, music entry, and unch
 });
 test('TEA-05: changed JS and CSS are cache-busted; versions consistent',()=>{
   for(const asset of ['teezimmer.js','teezimmer.css','thought-paper.css'])
-    assert.ok(html.includes(asset+'?v=0.6.58'),asset);
-  assert.match(html,/application-version" content="0\.6\.61"/);
-  assert.equal(JSON.parse(read('package.json')).version,'0.6.61');
-  assert.equal(JSON.parse(read('deployment-layout.json')).appVersion,'0.6.61');
+    assert.ok(new RegExp(asset.replace('.','\\.')+'\\?v=[\\w.-]+"').test(html),asset);
+  const version=JSON.parse(read('package.json')).version;
+  assert.ok(html.includes(`application-version" content="${version}"`));
+  assert.equal(JSON.parse(read('deployment-layout.json')).appVersion,version);
 });

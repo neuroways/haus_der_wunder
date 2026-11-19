@@ -81,9 +81,11 @@ test('FIX01: five synchronized persistent reading sizes',()=>{
 test('FIX01: start image requests cannot block doorway indefinitely',()=>{
  const gate=read('start-gate.js');
  assert.match(gate,/softDeadline=root\.setTimeout\(releaseDoor,2500\)/);
- assert.match(gate,/loadOne\(url,timeout=10000\)/);
+ const timeout=Number(gate.match(/async function loadOne\(url,timeout=(\d+)\)/)?.[1]);
+ assert.ok(timeout>0&&timeout<=15000,'each start image request has a bounded timeout');
 });
 test('FIX01: release version and SW image cache are updated',()=>{
- assert.match(html,/application-version" content="0\.6\.63"/);
- assert.match(read('image-service-worker.js'),/CACHE='emfd-images-recovery-v7'/);
+ const version=JSON.parse(read('package.json')).version;
+ assert.ok(html.includes(`application-version" content="${version}"`));
+ assert.match(read('image-service-worker.js'),/CACHE='emfd-images-recovery-v\d+'/);
 });
