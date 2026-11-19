@@ -1,4 +1,4 @@
-const EMFD_ROOM_PROFILES={"P01": {"image": "../media/optimized/rooms/P01-fensterzimmer-1086-v1-6e8da968c9.webp", "thumbnail": "../media/rooms/thumbs/P01-fensterzimmer-thumb.webp"}, "P02": {"image": "../media/optimized/rooms/P02-bibliothek-1086-v1-c6cfb3d7be.webp", "thumbnail": "../media/rooms/thumbs/P02-bibliothek-thumb.webp"}, "P03": {"image": "../media/optimized/rooms/P03-wintergarten-1086-v1-2c0a049ef6.webp", "thumbnail": "../media/rooms/thumbs/P03-wintergarten-thumb.webp"}, "P04": {"image": "../media/optimized/rooms/P04-atelier-1086-v1-0a9f9576ef.webp", "thumbnail": "../media/rooms/thumbs/P04-atelier-thumb.webp"}, "P05": {"image": "../media/optimized/rooms/P05-innenhof-1086-v1-e2185806f0.webp", "thumbnail": "../media/rooms/thumbs/P05-innenhof-thumb.webp"}, "P06": {"image": "../media/optimized/rooms/P06-galerie-1086-v1-5179cca5cf.webp", "thumbnail": "../media/rooms/thumbs/P06-galerie-thumb.webp"}, "P07": {"image": "../media/optimized/rooms/P07-dachterrasse-1086-v1-2f32fc0cfa.webp", "thumbnail": "../media/rooms/thumbs/P07-dachterrasse-thumb.webp"}, "P08": {"image": "../media/optimized/rooms/P08-teezimmer-1086-v1-f2647243bf.webp", "thumbnail": "../media/rooms/thumbs/P08-teezimmer-thumb.webp"}};
+// EMFD-BOOK-01a: rooms, names, routes and images come from the room register (shared/registry.js, data/registry.js).
 const emfdFe07Style=document.createElement('link');emfdFe07Style.rel='stylesheet';emfdFe07Style.href='emfd-fe07.css';document.head.append(emfdFe07Style);
 const immersiveStyle=document.createElement('link');immersiveStyle.rel='stylesheet';immersiveStyle.href='immersive-v0.6.32.css?v=0.6.50-housemusic01';document.head.append(immersiveStyle);
 const dockIcons={
@@ -20,21 +20,15 @@ const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const textLabels={impulse:'Impuls',depth:'Vertiefung',question:'Frage'};
 // EMFD-NAV-01: the one context back link of a view (target from the shared navigation).
 const backLink=(fallback,className='back')=>window.EMFDNavigation?.backLinkMarkup?.(fallback,className)||`<a class="${className}" href="${fallback}">Zurück</a>`;
-const ROOMS=[
- {id:'P01',name:'Fensterzimmer',file:'P01-fensterzimmer.webp',orientation:'Ein geschützter Platz zum Beobachten.',alt:'Ein gepolsterter Sessel steht neben einer tiefen Fensternische mit Vorhängen. Links sind Regale und eine Katze auf dem Teppich zu sehen; draußen liegt eine nächtliche Landschaft.'},
- {id:'P02',name:'Bibliothek',file:'P02-bibliothek.webp',orientation:'Ein Raum zum Lesen, Nachdenken und Entdecken.',alt:'Hohe Bücherregale umgeben ein Lesepult und einen grünen Sessel. Eine Leiter lehnt an den Regalen; mehrere Lampen beleuchten den Raum.'},
- {id:'P03',name:'Wintergarten',file:'P03-wintergarten.webp',orientation:'Ein heller, bepflanzter Übergang zwischen Innen und Außen.',alt:'Hohe Glasflächen und ein Glasdach umgeben zahlreiche Pflanzen. Ein heller Steinweg führt durch den Raum; links steht ein Arbeitstisch.'},
- {id:'P04',name:'Atelier',file:'P04-atelier.webp',orientation:'Ein benutzbarer Werkraum für gestalterische Versuche.',alt:'Eine große hölzerne Werkbank füllt den Vordergrund. Dahinter stehen Schubladenschränke und Werkzeuge; eine Arbeitsleuchte wirft warmes Licht auf die Tischfläche.'},
- {id:'P05',name:'Innenhof',file:'P05-innenhof.webp',orientation:'Ein geschützter Außenraum unter offenem Himmel.',alt:'Ein gepflasterter Innenhof liegt zwischen beleuchteten Hausfassaden. In der Mitte steht ein Gartentor; daneben sind eine Bank, Pflanzen und ein steinerner Brunnen zu sehen.'},
- {id:'P06',name:'Galerie',file:'P06-galerie.webp',orientation:'Ein erhöhter Durchgang mit mehreren Blicken in das Haus.',alt:'Ein erhöhter Holzsteg mit Metallbrüstung führt an mehreren Bögen entlang. Durch die Brüstung sind beleuchtete Räume auf tieferen Ebenen sichtbar.'},
- {id:'P07',name:'Dachterrasse',file:'P07-dachterrasse.webp',orientation:'Ein kleiner Außenraum mit weitem Horizont.',alt:'Auf einer Dachterrasse stehen Sitzgelegenheiten, ein Tisch und Pflanzgefäße. Eine steinerne Brüstung rahmt den Blick auf eine beleuchtete Landschaft unter dem Abendhimmel.'},
- {id:'P08',name:'Teezimmer',file:'P08-teezimmer.webp',orientation:'Ein wohnlicher Platz für eine kleine Pause oder Begegnung.',alt:'Ein warmes Teezimmer mit rundem Holztisch, Teekanne, Tassen, Kartenstapel, blauen Sesseln und einem großen Bogenfenster zum nächtlichen Schloss.'}
-].map(room=>({...room,image:EMFD_ROOM_PROFILES[room.id].image,thumbnail:EMFD_ROOM_PROFILES[room.id].thumbnail}));
+const REGISTRY=window.EMFDRegistry;
+const roomEntry=room=>({id:room.id,name:room.anzeigename,route:room.route,orientation:room.orientierung||'',alt:room.alt||'',
+ image:REGISTRY.resolveMedia(room.bild).src||'',thumbnail:REGISTRY.resolveMedia(room.vorschau).src||''});
+const ROOMS=(REGISTRY?.directory?.()||[]).map(roomEntry);
 // EMFD-HOUSE-01: Alle Kategorien sind unabhängig von einer späteren Raum-Zuordnung erreichbar.
 // Verbindungen und kuratierte Raum-Kategorien werden erst nach UX-Freigabe hinzugefügt.
 const HOUSE_CATEGORIES=Object.freeze(['Ruhe','Kraft','Halt','Freude']);
 const HOUSE_CONNECTIONS=Object.freeze([]); // Physical relations remain unapproved; room-to-feature links live in EMFDFeatures.
-const MUSIC_ROOM={id:'Musik',name:'Musikzimmer',thumbnail:'../media/rooms/thumbs/musikzimmer-v1-thumb.webp',image:'../media/optimized/rooms/musikzimmer-v1-865-v1-518f76f8bb.webp',route:'#musik'};
+const MUSIC_ROOM={...roomEntry(REGISTRY?.room?.('M01')||{id:'M01',anzeigename:'Musikzimmer',route:'#musik'}),id:'Musik'};
 window.EMFDHouse=Object.freeze({rooms:ROOMS.map(({id,name,image,thumbnail})=>({id,name,image,thumbnail,categories:[],connections:[],features:window.EMFDFeatures?.list(id).map(item=>item.id)||[]})),categories:[...HOUSE_CATEGORIES],connections:HOUSE_CONNECTIONS});
 const readingDialog=document.querySelector('#reading-dialog')||document.body.appendChild(Object.assign(document.createElement('dialog'),{id:'reading-dialog'}));
 let readingOpener=null;
@@ -145,8 +139,8 @@ function renderHall(){
  bindRoomImages();main.querySelector('[data-hall-help]')?.addEventListener('click',()=>document.querySelector('#help-open')?.click());main.querySelector('[data-hall-settings]')?.addEventListener('click',()=>document.querySelector('#settings-open')?.click());const toggle=main.querySelector('.hall-light-toggle');if(toggle)toggle.addEventListener('click',e=>{setHallLight(!hallLightOn);const image=main.querySelector('.hall-art');if(image)image.src=hallLightOn?'../media/optimized/rooms/flur-v2-864-v1-e7d3476528.webp':'../media/optimized/rooms/flur-v2-dim-864-v1-5aba5b505b.webp';e.currentTarget.setAttribute('aria-pressed',String(hallLightOn));e.currentTarget.setAttribute('aria-label',hallLightOn?'Licht ausschalten':'Licht einschalten');e.currentTarget.innerHTML=hallLampMarkup(hallLightOn);});
 }
 function renderRoomDirectory(){
- const tiles=ROOMS.map(room=>`<a class="room-tile" href="${room.id==='P04'?'#atelier':room.id==='P08'?'#teezimmer':`#ort/${room.id}`}" aria-label="${room.id} ${escape(room.name)}"><span class="room-tile-image">${roomImage(room,true)}</span><span class="room-tile-label"><small>${room.id}</small><strong>${escape(room.name)}</strong></span></a>`).join('');
- const musicTile=`<a class="room-tile room-tile--music" href="#musik" aria-label="Musikzimmer betreten"><span class="room-tile-image"><img class="room-photo" src="${MUSIC_ROOM.thumbnail}" alt="" aria-hidden="true" loading="lazy" width="480" height="320"></span><span class="room-tile-label"><small>Musik</small><strong>Musikzimmer</strong></span></a>`;
+ const tiles=ROOMS.map(room=>`<a class="room-tile" href="${room.route}" aria-label="${room.id} ${escape(room.name)}"><span class="room-tile-image">${roomImage(room,true)}</span><span class="room-tile-label"><small>${room.id}</small><strong>${escape(room.name)}</strong></span></a>`).join('');
+ const musicTile=`<a class="room-tile room-tile--music" href="${MUSIC_ROOM.route}" aria-label="${escape(MUSIC_ROOM.name)} betreten"><span class="room-tile-image"><img class="room-photo" src="${MUSIC_ROOM.thumbnail}" alt="" aria-hidden="true" loading="lazy" width="480" height="320"></span><span class="room-tile-label"><small>Musik</small><strong>${escape(MUSIC_ROOM.name)}</strong></span></a>`;
  main.innerHTML=`<section class="room-directory house-directory" aria-labelledby="rooms-title">${backLink('#flur')}<div class="eyebrow">Das Haus der kleinen Wunder</div><h1 id="rooms-title">Alle Räume</h1><p class="muted">Such dir einen Ort aus. Alle Zimmer sind erreichbar – auch die, in denen du vorerst einfach verweilen kannst.</p><div class="room-grid">${tiles}${musicTile}</div></section>`;
  bindRoomImages();
 }
@@ -181,6 +175,10 @@ function updateGlobalNav(route){
   });
 }
 function render(){
+  // EMFD-BOOK-01a: new addresses (#raum/…, #geraet/…) show the view that implements them today; replaced without a history entry.
+  const registryTarget=window.EMFDRegistry?.redirect?.(location.hash);
+  if(registryTarget){if(window.EMFDNavigation?.replace?.(registryTarget)&&location.hash===registryTarget)render();else location.replace(registryTarget);return;}
+  if(/^#(?:raum|geraet)\//.test(location.hash)){location.replace('#flur');return;}
   window.EMFDStations?.leaveAll();
   cardSizer?.disconnect();window.EMFDHandy?.stop();
   const settingsHost=document.querySelector('#motion-settings');
@@ -243,4 +241,4 @@ document.addEventListener('click',e=>{const link=e.target.closest?.('a[href="#fl
 document.querySelector('#quiet').onclick=e=>{quiet=!quiet;document.body.classList.toggle('quiet',quiet);e.currentTarget.setAttribute('aria-pressed',quiet);e.currentTarget.textContent=quiet?'Ruhige Ansicht an':'Ruhige Ansicht';motionState();};
 window.addEventListener('hashchange',render);render();
 function fitActiveCard(){const slot=main.querySelector('.card-slot'),card=slot?.querySelector('.held-card');if(!slot||!card)return;const c=CARDS.find(c=>location.hash.endsWith('/'+c.id));const ratio=(c?.imageWidth||630)/(c?.imageHeight||1080);const fit=()=>{const width=Math.max(1,Math.min(slot.clientWidth-12,Math.max(1,slot.clientHeight-40)*ratio));card.style.width=width+'px';card.style.height=(width/ratio)+'px';};fit();cardSizer=new ResizeObserver(fit);cardSizer.observe(slot);}
-const startGateScript=document.createElement('script');startGateScript.src='start-gate.js?v=0.6.69';document.head.append(startGateScript);
+const startGateScript=document.createElement('script');startGateScript.src='start-gate.js?v=0.6.70';document.head.append(startGateScript);

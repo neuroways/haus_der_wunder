@@ -26,7 +26,8 @@ test('responsive shell and scene use safe areas, dynamic viewport sizing, and im
 
 test('existing navigation targets and room image behavior are retained',()=>{
  const app=read('app.js'),player=read('music-player.js'),ui=read('emfd-ui-runtime.js');
- for(const route of ['#flur','#karten','#musik','#raeume','#ort/'])assert.ok(app.includes(route),route);
+ for(const route of ['#flur','#karten','#musik','#raeume'])assert.ok(app.includes(route),route);
+ assert.equal(require('../shared/registry.js').room('P03').route,'#ort/P03'); // room addresses live in the register (BOOK-01a)
  assert.match(ui,/href:'#flur'/);assert.match(ui,/href:'#karten'/);assert.match(ui,/href:'#musik'/);
  assert.match(app,/function roomImage\(room,decorative=false\)/);
  assert.match(app,/window\.EMFDMusic/);assert.doesNotMatch(ui,/autoplay|\.play\s*\(/i);

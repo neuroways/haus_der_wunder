@@ -26,7 +26,8 @@ test('room scenes have stable, separate media records and accessible routes',()=
  assert.ok(items.length>=9);
  for(const id of ['P01','P02','P03','P04','P05','P06','P07','P08'])assert.ok(items.some(item=>item.id===id),id);
  for(const item of items){const file=item.file||item.path.replace(/^\.?\.?(?:\/)?media\/rooms\//,'').replace(/^\/media\/rooms\//,'');assert.ok(fs.existsSync(path.resolve(home,'../media/rooms',file)),file);if(item.mime_type)assert.equal(item.mime_type,'image/webp');}
- const app=read('app.js');for(const route of ['#flur','#raeume','#ort/'])assert.ok(app.includes(route),`missing ${route}`);
+ const app=read('app.js');for(const route of ['#flur','#raeume'])assert.ok(app.includes(route),`missing ${route}`);
+ for(const id of ['P01','P02','P03','P05','P06','P07'])assert.equal(require('../shared/registry.js').room(id).route,`#ort/${id}`); // BOOK-01a: room addresses from the register
  // START-02 leads from the gift letter into the hall via enterHall() instead of a static link.
  assert.match(read('start-gate.js'),/function enterHall\(\)\{[\s\S]*?location\.hash='flur'/);
  // v0.6.66 removed the bottom main navigation (see arrival-cleanup test); the header brand always leads back to the hall.

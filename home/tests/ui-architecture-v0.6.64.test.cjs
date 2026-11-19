@@ -5,7 +5,7 @@ const html=read('index.html'),styles=read('design-system-v0.6.64.css');
 function registry(){
  const listeners={};const cards=Array.from({length:24},(_,i)=>({id:'O'+String(i+1).padStart(2,'0'),image:'test.png'}));
  const events=[],ctx={CARDS:cards,document:{addEventListener(name,cb){listeners[name]=cb}},
-  location:{hash:'#teezimmer'},crypto:{getRandomValues(values){values[0]=5}},
+  location:{hash:'#teezimmer'},EMFDRegistry:require('../shared/registry.js'),crypto:{getRandomValues(values){values[0]=5}},
   EMFDAtelier:{rememberReturn(url){events.push(['return',url])}},EMFDCardDraw:{begin(id,url){events.push(['begin',id,url]);return true}},
   dispatchEvent(){events.push(['hashchange'])},HashChangeEvent:function(){}};
  ctx.globalThis=ctx;vm.runInNewContext(read('feature-registry.js'),ctx);

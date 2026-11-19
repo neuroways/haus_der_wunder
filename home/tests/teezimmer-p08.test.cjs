@@ -17,7 +17,7 @@ function teaRoom(){
     EMFDCardDraw:{begin:(id,target)=>calls.push(['begin',id,target])},
     EMFDAtelier:{rememberReturn:target=>calls.push(['return',target])},
     EMFDNavigation:{go:(href,options)=>calls.push(['go',href,options.origin])},
-    dispatchEvent(){},HashChangeEvent:class{}};
+    EMFDRegistry:require('../shared/registry.js'),dispatchEvent(){},HashChangeEvent:class{}};
   context.globalThis=context;
   vm.runInNewContext(read('feature-registry.js'),context);
   const tap=(featureId)=>{let prevented=false;clickHandler({target:{closest:selector=>selector==='[data-house-feature]'?{dataset:{houseFeature:featureId,featureRoom:'P08'}}:null},preventDefault:()=>{prevented=true;}});return prevented;};
@@ -26,7 +26,11 @@ function teaRoom(){
 
 test('P08-01/02: Teezimmer is reachable from Flur and room directory',()=>{
   assert.match(app,/href="#teezimmer"><strong>Teezimmer/);
-  assert.match(app,/room\.id==='P08'\?'#teezimmer'/);
+  // EMFD-BOOK-01a: the directory tile uses the address from the room register.
+  const registry=require('../shared/registry.js'),nav=require('../shared/navigation.js');
+  assert.equal(registry.room('P08').route,'#teezimmer');
+  assert.match(app,/href="\$\{room\.route\}"/);
+  assert.equal(nav.place('#ort/P08'),'P08');assert.equal(nav.place('#teezimmer'),'P08');
   assert.match(app,/route==='teezimmer'\|\|route==='ort\/P08'/);
 });
 

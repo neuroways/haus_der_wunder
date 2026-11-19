@@ -1,4 +1,4 @@
-# Codekarte · 2D-PWA `home/` (v0.6.69)
+# Codekarte · 2D-PWA `home/` (v0.6.70)
 
 Arbeitskarte für Claude Code: **zuerst hier nachsehen, dann direkt an die genannte Stelle springen.** Stand 19.11.2026. Bei jedem Auftrag, der Struktur, Routen, Dienste, Speicher-Schlüssel oder Ereignisse ändert, diese Karte im selben Commit mitpflegen.
 
@@ -20,7 +20,7 @@ Ergänzende Quellen in `home/`:
 2. Daten und Medien: `data.js` (`window.CARDS`) → `image-profiles.js` (`EMFDImages`) → `../media/media-loader.js` (Loader) → `media-bridge.js` → `media-core.js` → `media-catalog.js` → `media-recovery.js`
 3. Karten: `card-motion.js`, `card-preload.js`, `card-draw.js`, `device-light.js`, `card-tap.js`
 4. Räume: `atelier-hand.js`, `atelier.js`, `teezimmer.js`
-5. Gemeinsame Dienste: `shared/devices.js` (Geräteregister, vor der Navigation), `shared/navigation.js`, `shared/stations.js`, `shared/audio.js`, `shared/content.js`, `shared/readers.js`, `shared/help.js`
+5. Gemeinsame Dienste: `data/registry.js` (Registerdaten, erzeugt) → `shared/registry.js` (Registerdienst) → `shared/devices.js` (Geräteregister, vor der Navigation), `shared/navigation.js`, `shared/stations.js`, `shared/audio.js`, `shared/content.js`, `shared/readers.js`, `shared/help.js`
 6. Musik: `music-discovery.js`, `music-device.js`, `music-books.js`, `music-room.js`, `room-music.js`, `device-station.js` (Station `device`)
 7. `feature-registry.js` → **`app.js`** (lädt `start-gate.js` dynamisch nach) → `settings.js` → `audio-session.js` → `music-player.js` → `start-tour.js` → `music-entry.js` → `card-interaction.js` → `origin-story.js`
 8. Module: `library/library-entry.js`, `emfd-ui-runtime.js`
@@ -30,7 +30,9 @@ Wichtig: `app.js` läuft **vor** `music-player.js`. Code in `app.js`, der `EMFDM
 
 ## 3. Routen → Renderer
 
-Router: `app.js` `render()` (ca. Zeile 181). Erlaubte Routen prüft zusätzlich `shared/navigation.js` `route()`. **Eine neue Route muss an beiden Stellen ergänzt werden.**
+Router: `app.js` `render()` (ca. Zeile 181). Erlaubte Routen prüft zusätzlich `shared/navigation.js` `route()`. **Eine neue Route muss an beiden Stellen ergänzt werden.** Raum- und Geräteadressen (`#flur`, `#ort/P0x`, `#atelier`, `#teezimmer`, `#musik`, Gerätestationen samt Aliasen) stehen seit BOOK-01a im Register (Abschnitt 4a), nicht mehr im Code.
+
+**Neue Adressen (BOOK-01a):** `#raum/<RAUM>/<ANSICHT>` (z. B. `#raum/H00/C01`, `#raum/P05/C02`), `#raum/<RAUM>` (= erste Ansicht) und `#geraet/<GERÄT>` (z. B. `#geraet/MP-P04`). `render()` ersetzt sie am Anfang über `EMFDRegistry.redirect()` durch die Adresse der Ansicht, die sie heute zeigt (`#flur`, `#ort/P05`, `#atelier/geraet` …), mit `EMFDNavigation.replace` ohne Verlaufseintrag. Räume ohne bisherige Ansicht (EXT, KUE, SCH, BAD) und unbekannte IDs führen in den Flur. Die Navigation behandelt die neuen Adressen wie ihr Ziel (`canon()` in `shared/navigation.js`). Mit der Szenenkomponente (BOOK-01b/c) dreht sich das um: dann sind `#raum/…` die eigentlichen Adressen.
 
 | Route | Renderer | Bemerkung |
 |---|---|---|
@@ -65,7 +67,8 @@ Nach jedem Render (Ende von `render()`): Raummusik einhängen (`EMFDRoomMusic.mo
 | `EMFDNavigation` | `shared/navigation.js` | Routen prüfen, `go(route,{origin,returnTo,kind,trigger})`, `back(fallback)`, `returnRoute(fallback)`, `backLink(fallback)` → `{target,name,label}`, `backLinkMarkup(fallback)`, `replace(route)` (URL ersetzen ohne neuen Eintrag), `place(route)` (Ort P01–P08/flur/raeume/musik/ankommen oder `null` für Karten, Galerie, Geschichten), `fallbackFor(route)`, Rückkehr mit Fokus/Scroll. Sendet `emfd:navigation`. Siehe Abschnitt 3a. |
 | `EMFDStations` | `shared/stations.js` | Lebenszyklus für Ansichten mit `render/leave`. Registriert: `gramophone`, `records`, `compositions`, `library`. |
 | `EMFDAudio` | `shared/audio.js` | Lese-Port und Befehle (`command('play'|'pause'|'stop'|'next'|'previous'|'repeat'|'volume'|'silence')`, `select`, `playlist(ids,{explicit,startId,context})`, `subscribe`). `snapshot().context` = Wiedergabekontext. Eigentümer ist `EMFDMusic`. |
-| `EMFDDevices` | `shared/devices.js` | **Geräteregister** (einzige Liste der Musikgeräte): `list`, `get(id)`, `forRoom(roomId)`, `forRoute(hash)`. Felder: `id` (MP-P0x), `roomId`, `route`, `roomRoute`, `name`, `to`/`article`/`at` (Grammatik), `mode`, `image`, `tracks`, `description`. Muss mit `room-music-map.json` (bestätigte Zuordnung) übereinstimmen; Test prüft das. |
+| `EMFDRegistry` | `shared/registry.js` | **Registerdienst** (BOOK-01a), siehe 4a. |
+| `EMFDDevices` | `shared/devices.js` | **Geräteregister** (einzige Liste der Musikgeräte, Daten aus `EMFDRegistry`; nur Geräte mit App-Adresse): `list`, `get(id)`, `forRoom(roomId)`, `forRoute(hash)`. Felder: `id` (MP-P0x), `roomId`, `route`, `roomRoute`, `name`, `to`/`article`/`at` (Grammatik), `mode`, `image`, `tracks`, `description`. Zusätzlich `objectName` (Objektbeschreibung aus dem Register) und `mediaId`. Muss mit `room-music-map.json` (bestätigte Zuordnung) übereinstimmen; Test prüft das. |
 | `EMFDDeviceStation` | `device-station.js` | Gemeinsame Gerätestation (`render/leave`, `start(deviceId,{startId})` = bewusster Start mit Wiedergabekontext, `view(snapshot,device)`). |
 | `EMFDMusic` | `music-player.js` | **Der einzige Player** (Dialog `#music-dialog`, Hintergrundmusik, Raum-Warteschlange, Stille, Lautstärke, verdeckte Karte still). Nutzt `EMFDAudioSession` (`audio-session.js`). **Wiedergabekontext** `playContext` (`{source:'device',deviceId,roomId,queueKey}` oder `null`): gesetzt nur bei bewusstem Start mit `context`, bleibt beim Weiterschalten derselben Gerätewarteschlange, wird bei jeder anderen Titelwahl gelöscht. Pausiert nie wegen Navigation (W1). |
 | `EMFDContent` | `shared/content.js` | Lädt und cached JSON: `music()`, `compositions()`, `story(id)`, `musicForCard(id)`, `musicSources()`. |
@@ -84,6 +87,16 @@ Nach jedem Render (Ende von `render()`): Raummusik einhängen (`EMFDRoomMusic.mo
 | `EMFDUI` | `emfd-ui-runtime.js` | Bibliothekskomponenten (`emfd-ui/`) auf vorhandenes Markup anwenden: `enhance(root)`. |
 | `EMFDReadingSize` | `book-reading.js` | Leseschriftgröße (5 Stufen), Bedienelement in allen Lesern. |
 
+## 4a. Register (EMFD-BOOK-01a, v0.6.70)
+
+- **Quelle:** die gemeinsamen Register in `neuroways/haus-der-wunder` (`manifests/rooms.json`, `scenes.json`, `music-devices.json`, `objects.json`, `media.json`) plus die App-Felder in `home/data/registry-app.json` (Adressen und Aliase, Artikel/Präpositionen für Ansagen, Texte der bisherigen Raumansichten, Stücklisten, ausgelieferte Mediendateien unter `../media/`).
+- **Erzeugen:** `node tools/build-registry.mjs [--manifests <Pfad>]` (Standard: `../haus-der-wunder/manifests` neben dem App-Repo) schreibt `home/data/registry.js` (`EMFD_REGISTRY`) und den Notfallbestand zwischen `FALLBACK:BEGIN/END` in `home/shared/registry.js`. `--check` meldet veraltete Dateien. Das Werkzeug bricht ab, wenn App-Felder auf unbekannte Räume, Geräte, Objekte oder Medien zeigen oder eine Adresse doppelt vergeben ist. **Nie von Hand ändern.**
+- **Auslieferung:** als Skript mit der App (kein Nachladen zur Laufzeit). Fehlt `data/registry.js` oder ist es ungültig, gilt der Notfallbestand (Räume und Geräte mit Adresse, deren Bilder); ungültige Einzeleinträge werden übersprungen (`EMFDRegistry.warnings`). `EMFDRegistry.source` = `register` | `notfall`.
+- **API:** `rooms()`, `room(id)`, `directory()` (Raumübersicht P01–P08), `scenes(roomId)`, `scene(id)`, `devices()`, `device(id)`, `deviceForRoom`, `deviceForRoute`, `roomForRoute`, `objects()`, `media(id)`, `resolveMedia(id)` → `{type:'file',src,width,height}` oder `{type:'placeholder',id,width,height,ratio}`, `sceneMedia(sceneId)`, `mediaMarkup(id,{alt})`, `placeholderMarkup(id)`, `resolveRoute(hash)` (→ `canonical`, `target`), `redirect(hash)`, `create(data)` (für Tests).
+- **Medien:** Ansichten kennen nur Medien-IDs. Ohne Datei zeichnet `placeholderMarkup` eine beschriftete SVG-Fläche (Medien-ID, Pixelmaß, Seitenverhältnis), keine Bilddatei. Fertiges Bild einsetzen = `datei` in `registry-app.json` → `medien` eintragen (mit `register`-Verweis auf die Medien-ID) und neu erzeugen; kein Code.
+- **Medienstatus (D-13/W7):** je Medium `produktion` (Skala aus `media.json`), `verfuegbarkeit` (`vorhanden`/`fehlt`, aus der Auslieferung), `integration` (`original`/`platzhalter`). Freigabe und Verifikation folgen (Vorschlag K-16).
+- **Namen:** Raumname aus `rooms.json`, Anzeigename des Flurs (H00) „Flur“ aus den App-Feldern; Geräte: `anzeigename` aus `music-devices.json` (W4), `name` dort ist die Objektbeschreibung.
+
 Weitere Modul-APIs: `EMFDAtelier` (atelier.js: `renderAtelier`, `renderTable`, `renderGrid`, `returnTarget`, `rememberReturn`, `selectGroup`), `EMFDTeezimmer`, `EMFDRoomMusic` (`mount`), `EMFDMusicRoom`, `EMFDMusicDevice` (Plattenspieler-Markup, Icons), `EMFDMusicDiscovery` (Filter, Varianten), `EMFDMusicBooks`, `EMFDMusicEntry` (Musikfrage beim ersten Besuch), `EMFDStartTour`, `EMFDStart02` (Start, Geschenkbrief), `EMFDLibrary`, `EMFDHandy`/`EMFDCardMotion` (Bewegung), `EMFDCardAssets` (Vorladen), `EMFDCardTap`.
 
 ## 5. Bereiche im Detail
@@ -96,7 +109,7 @@ Weitere Modul-APIs: `EMFDAtelier` (atelier.js: `renderAtelier`, `renderTable`, `
 - Rückweg aus der Karte: `EMFDAtelier.returnTarget()` (sessionStorage `emfd.card.return`) bzw. `returnTarget` der verdeckten Ziehung.
 
 ### Räume
-- Raumdaten P01–P08: `ROOMS` in `app.js` (Name, Orientierungssatz, Alt-Text) + Bildpfade aus `EMFD_ROOM_PROFILES` (Zeile 1).
+- Raumdaten P01–P08: `ROOMS` in `app.js` wird aus `EMFDRegistry.directory()` gebaut (Name, Adresse, Orientierungssatz, Alt-Text, Bild, Vorschau); Musikzimmer-Kachel aus `EMFDRegistry.room('M01')`.
 - Funktionen pro Raum: `feature-registry.js` `roomFeatures`. P04 und P08 rendern ihre Knöpfe selbst, die anderen bekommen sie über `mountRoom`.
 - Musik pro Raum (seit PLAYER-01): `room-music.js` zeigt „<Gerät> ansehen“ (Link zur Gerätestation) und die Stückliste; „Musik abspielen“ = `EMFDDeviceStation.start`, „Geschichte lesen“ = Buchdialog. Daten aus `EMFDDevices`. Frühere Fassung: `room-music.js` + `room-music-map.json` (Karten-Stücke, Gerätename, Gerätebild). Antippen des Geräts baut den gemeinsamen Plattenspieler (`EMFDMusicDevice.device`) und tauscht dessen Korpus gegen das Gerätebild; im Modus `.room-device-art` (`room-music.css`) sind Plattenteller, Tonarm und Cover ausgeblendet, darunter Titelschild und Steuerung (zurück, Start, Stopp, weiter, Wiederholen). Startet die Raum-Playlist. Wiedergabe über `EMFDMusic`. Die Gruppe heißt für Screenreader noch „Schallplattenspieler“.
 - Bibliothek P02: `library/library-entry.js` (Station `library`) + `library/library.js` + `library/catalog.js` (Bücher, Status).
@@ -129,7 +142,8 @@ Weitere Modul-APIs: `EMFDAtelier` (atelier.js: `renderAtelier`, `renderTable`, `
 - Regeln: `media/MEDIEN-KONVENTION.md`. Ausschließlich relative Pfade `../media/…`.
 - Schichten: `image-profiles.js` (feste PERF-01-Varianten, generiert) → `media-bridge.js` (r2-Vorderseiten und Cover aus `../media/manifest.json` v2, falls vorhanden) → bei Ladefehler `media-recovery.js` mit Gruppen aus `media-catalog.js` (`media-core.js` sucht Alternativen) → zuletzt Ersatzbilder in `home/assets/recovery/`.
 - Service Worker `image-service-worker.js`: nur Bilder, Cache `emfd-images-recovery-v8`, max. 20 MB. Erlaubte URLs: feste Liste + alle Pfade aus `media-catalog.js`. Neues Bild außerhalb des Katalogs wird nicht gecacht.
-- Raumgeräte-Bilder: `../media/raumgeraete/P0x.webp` (noch nicht im Manifest).
+- Raumgeräte-Bilder: `../media/raumgeraete/P0x.webp`, als Medien-IDs `app.device.MP-P0x` im Register (noch nicht im Medienmanifest).
+- Raumbilder P01–P08 und Musikzimmer: Medien-IDs `app.room.<RAUM>` / `app.room.<RAUM>.thumb` im Register, verknüpft mit den Einträgen in `media.json`. Szenenbilder (`scene.<RAUM>-C0x.kandidat`) liegen nur im gemeinsamen Repo, nicht auf dem Server → Platzhalter.
 
 ## 8. CSS-Schichten
 
@@ -142,6 +156,7 @@ Reine Node-Tests (`node:test`), kein Browser. Viele lesen Quelltext per Regex, n
 - Karten: `card-*`, `card-texts-v1.3`, `fe05-needs-gallery`, `fe08-entry-preload`
 - Atelier: `atelier-*`; Teezimmer: `teezimmer-*`; Häuser/Räume: `house-01-integration`, `immersive-navigation`, `navigation-regression`
 - Musik: `music-*`, `audio-session`, `app-theme-t03`, `room-music-integration`, `composition-stories-v04`
+- Register/Routen: `book-01a-registry` (Alias-Matrix, neue Adressen, Platzhalter, Rückfall, Notfallbestand), `nav-01-back-navigation`, `player-01-devices`
 - Bücher/Bibliothek: `library-*`, `origin-storybook`, `reading-choice-icons`, `thought-book-v0.6.56`
 - Gedankenblatt: `thought-paper-*`; Start: `start-*`, `arrival-cleanup-v0.6.65`; PWA/Paket: `pwa-install-01`, `package-layout`, `server`, `ui-architecture-v0.6.64`, `fix01-user-requirements`
 - Medien-Tests prüfen echte Dateien unter `../media/` (seit 19.11.2026 im Repo).
@@ -151,11 +166,11 @@ Versionsangaben in Tests nie fest eintragen, sondern aus `package.json` lesen.
 ## 10. Wo setze ich an? (Rezepte)
 
 - **Funktion in einem Raum ergänzen/entfernen:** `feature-registry.js` `roomFeatures` (und ggf. `features`). Für P04/P08 das Markup in `atelier.js`/`teezimmer.js`.
-- **Neuen Raum P09 o. Ä.:** `ROOMS` in `app.js`, `EMFD_ROOM_PROFILES`, `roomFeatures`, Routenmuster in `shared/navigation.js` (`ort\/P0[1-8]`) und `feature-registry.js` (`roomFromHash`), Raumübersicht, ggf. `room-music-map.json`. Tests `house-01-integration` prüfen derzeit „kein P09“.
+- **Neuen Raum / neue Ansicht:** Eintrag in den gemeinsamen Registern (`rooms.json`, `scenes.json`), App-Felder (Adresse, Texte, Bilder) in `home/data/registry-app.json`, dann `node tools/build-registry.mjs`. Funktionen in `feature-registry.js` `roomFeatures`. Eine eigene Ansicht braucht bis BOOK-01b noch einen Renderer in `app.js`. Tests `house-01-integration` prüfen derzeit „kein P09“.
 - **Texte einer Karte:** `data.js` (eine Zeile JSON). Buchseiten zeigen `impulse`, `depth`, `question`.
-- **Musik einem Raum zuordnen:** `room-music-map.json` (`cardIds`, `deviceName`, `deviceImage`).
+- **Musik einem Raum zuordnen:** `registry-app.json` → `geraete.<ID>.stuecke`, neu erzeugen; `room-music-map.json` (bestätigte Zuordnung) muss übereinstimmen (Test).
 - **Hilfetext:** `EMFDHelp.register` im zuständigen Modul (siehe `music-help.js`).
-- **Neues Musikgerät:** Eintrag in `shared/devices.js` (Route, Raum, Name mit Artikel, Bild, Stücke); Navigation, Station und Raumansicht übernehmen es automatisch.
+- **Neues Musikgerät:** Eintrag in `music-devices.json` (mit `anzeigename`), App-Felder (Adresse, Artikel, Bild, Stücke) in `registry-app.json` → `geraete`, neu erzeugen; Navigation, Station und Raumansicht übernehmen es automatisch.
 - **Neue Route:** `app.js` `render()` + `shared/navigation.js` `route()`/`station()`; Titel in `titles`.
 - **Neue Ansicht mit Lebenszyklus:** als Station über `EMFDStations.register(id,{render,leave})`.
 - **Rückweg einer Ansicht:** `backLinkMarkup(fallback)`, siehe 3a. Keine festen `href`-Rücklinks.
@@ -163,6 +178,7 @@ Versionsangaben in Tests nie fest eintragen, sondern aus `package.json` lesen.
 ## 11. Fallstricke
 
 - **Zwei Globale namens `EMFDMedia`:** `../media/media-loader.js` setzt den Loader, `media-bridge.js` greift ihn sofort ab, danach überschreibt `media-recovery.js` den Namen mit dem Ersatzbild-Dienst. Reihenfolge in `index.html` nicht ändern.
+- Registerdaten nie von Hand ändern; `tools/build-registry.mjs` erzeugt `data/registry.js` und den Notfallbestand gemeinsam (Test `book-01a-registry` prüft die Gleichheit).
 - `app.js` ist ein großes Skript mit sehr langen Zeilen; Änderungen mit eindeutigen Textstücken vornehmen und danach `node --check app.js`.
 - `start-gate.js` rendert `#ankommen` nach `app.js` neu; Änderungen am Start dort, nicht im Startseiten-Zweig von `app.js`.
 - Alte Pfade wie `../media/cards/Oxx.png` und `rooms/varianten/` stehen noch in Daten und Katalogen; tatsächlich angezeigt werden die optimierten Varianten aus `image-profiles.js`.

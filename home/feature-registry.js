@@ -26,13 +26,13 @@
   ]);
   let lastOrigin=null;
   const safeRoom=id=>Object.hasOwn(roomFeatures,String(id))?String(id):null;
-  function roomRoute(id){return id==='P04'?'#atelier':id==='P08'?'#teezimmer':`#ort/${id}`;}
+  // EMFD-BOOK-01a: addresses of the rooms come from the room register.
+  const registry=()=>root.EMFDRegistry||(typeof require==='function'?require('./shared/registry.js'):null);
+  function roomRoute(id){return registry()?.room?.(id)?.route||`#ort/${id}`;}
   function roomFromHash(hash){
-    const path=String(hash||root.location.hash||'').replace(/^#/,'');
-    if(path==='atelier'||path.startsWith('atelier/tisch/'))return 'P04';
-    if(path==='teezimmer')return 'P08';
-    const match=path.match(/^ort\/(P0[1-8])$/);
-    return match?safeRoom(match[1]):null;
+    const value='#'+String(hash||root.location.hash||'').replace(/^#/,'');
+    const target=value.startsWith('#atelier/tisch/')?'#atelier':registry()?.redirect?.(value)||value;
+    return safeRoom(registry()?.roomForRoute?.(target)?.id);
   }
   function list(roomId){return (roomFeatures[safeRoom(roomId)]||[]).map(id=>features[id]);}
   function remember(roomId){const id=safeRoom(roomId);if(id)lastOrigin={roomId:id,route:roomRoute(id)};}

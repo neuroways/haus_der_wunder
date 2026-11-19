@@ -14,7 +14,7 @@ function renderRoute(hash,atelier){
  const ctl={onclick:null};
  const document={body:{classList:{toggle(){},add(){},remove(){},contains(){return false;}},appendChild(node){return node;}},head:{append(){}},title:'',querySelector(sel){return sel==='main'?main:sel==='.skip'||sel==='#quiet'?ctl:null;},querySelectorAll(){return [];},createElement(){return Object.assign({},dialog);},addEventListener(){}};
  const navModule=require('../shared/navigation.js');let navHash=hash;const nav=navModule.createNavigation({getHash:()=>navHash,setHash:value=>{navHash=value;}});
- const window={EMFDNavigation:{...nav,backLinkMarkup:(fallback,className)=>navModule.backLinkHTML(nav,fallback,className)},EMFDAtelier:atelier,matchMedia(){return {matches:false,addEventListener(){}};},addEventListener(){},scrollTo(){}};
+ const window={EMFDRegistry:require('../shared/registry.js'),EMFDNavigation:{...nav,backLinkMarkup:(fallback,className)=>navModule.backLinkHTML(nav,fallback,className)},EMFDAtelier:atelier,matchMedia(){return {matches:false,addEventListener(){}};},addEventListener(){},scrollTo(){}};
  const location={hash};
  vm.runInNewContext(app,{document,window,location,CARDS:cards,console,ResizeObserver:undefined},{filename:'app.js'});
  return {html:main.innerHTML,window};

@@ -25,7 +25,7 @@ test('runtime paints the landing page and O16 detail instead of leaving main bla
     createElement(){return Object.assign({},dialog);},
     addEventListener(){},
   };
-  const window={matchMedia(){return {matches:false,addEventListener(){}};},addEventListener(){},scrollTo(){}};
+  const window={EMFDRegistry:require('../shared/registry.js'),matchMedia(){return {matches:false,addEventListener(){}};},addEventListener(){},scrollTo(){}};
   for(const hash of ['', '#karte/O16']){
     main.innerHTML='';
     const context={document,window,location:{hash},CARDS:cards,console,ResizeObserver:undefined};
@@ -44,7 +44,7 @@ test('new house routes render the Flur, room directory, room detail, and indepen
     const main={innerHTML:'',focus(){},querySelector(sel){return sel==='#open-player-from-page'?{onclick:null}:null;},querySelectorAll(){return [];}};
     const settings={textContent:''},control={onclick:null},dialog={addEventListener(){},setAttribute(){},showModal(){},close(){},focus(){},querySelector(){return null;},className:'',innerHTML:'',open:false};
     const document={body:{classList:{toggle(){},add(){},remove(){},contains(){return false;}},appendChild(node){return node;}},head:{append(){}},title:'',querySelector(sel){return sel==='main'?main:sel==='#motion-settings'?settings:sel==='.skip'||sel==='#quiet'?control:null;},querySelectorAll(){return [];},createElement(){return Object.assign({},dialog);},addEventListener(){}};
-    const window={matchMedia(){return {matches:false,addEventListener(){}};},addEventListener(){},scrollTo(){}};
+    const window={EMFDRegistry:require('../shared/registry.js'),matchMedia(){return {matches:false,addEventListener(){}};},addEventListener(){},scrollTo(){}};
     vm.runInNewContext(app,{document,window,location:{hash},CARDS:cards,console,ResizeObserver:undefined},{filename:'app.js'});
     assert.match(main.innerHTML,new RegExp(expected));
   }
