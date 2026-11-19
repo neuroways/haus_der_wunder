@@ -103,7 +103,7 @@ Weitere Modul-APIs: `EMFDAtelier` (atelier.js: `renderAtelier`, `renderTable`, `
 - Flur: `renderHall()` in `app.js`; Starttour beim ersten Betreten: `start-tour.js` (6 Schritte).
 
 ### Musik
-- Audiodateien (seit v0.6.69, Musikmanifest v1.2): `../media/audio/O##-M01.mp3`, Hauptthema `THEME-M01.mp3`; Asset-IDs in der App bleiben `O01`…`O24`, `T03`. Zusatzfassungen O03-M02, O16-M02, O16-M01-V02 liegen auf dem Server, sind aber noch nicht eingebunden. Audio liegt nicht im Repository (öffentlich; Musik nicht freigegeben, `.gitignore`).
+- Audiodateien (seit v0.6.69, Musikmanifest v1.2): Schema `<Karte>-M<Stück>[-V<Version>].mp3`. `M01` gibt es für jede Karte; `M02`, `M03` … nur, wenn eine Karte mehrere Stücke hat; `-V02`, `-V03` … sind weitere Versionen desselben Stücks, die erste Version (V01) steht ohne Zusatz im Namen (z. B. `O16-M01.mp3`, `O16-M01-V02.mp3`). Die App spielt je Karte `../media/audio/O##-M01.mp3`, Hauptthema `THEME-M01.mp3`; Asset-IDs in der App bleiben `O01`…`O24`, `T03`. Zusatzfassungen O03-M02, O16-M02, O16-M01-V02 liegen auf dem Server, sind aber noch nicht eingebunden. Audio liegt nicht im Repository (öffentlich; Musik nicht freigegeben, `.gitignore`).
 - Daten: `music-manifest.json` (Audiospuren), `card-music-map.json` (Karte → Spur), `playlist-catalog.json` (25 Einträge: T03 + O01–O24), `music-discovery.json` (Stile, Instrumente, Cover, Varianten), `composition-stories.json` (24 Geschichten), `composition-story-media.json`.
 - Ablauf: Auswahl → `EMFDAudio.select(id,{play})` → `EMFDMusic` → `EMFDAudioSession`. Nie Autoplay; `globalSilence` hat Vorrang.
 - Erster Besuch: `music-entry.js` fragt „mit/ohne Hintergrundmusik“ (Speichern nur auf Wunsch).
