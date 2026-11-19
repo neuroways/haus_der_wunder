@@ -17,7 +17,7 @@ Ergänzende Quellen in `home/`:
 ## 2. Ladereihenfolge (`index.html`)
 
 1. `reading-preferences.js` (synchron, setzt Schriftgröße vor dem ersten Zeichnen)
-2. Daten und Medien: `data.js` (`window.CARDS`) → `image-profiles.js` (`EMFDImages`) → `../media/media-loader.js` (Loader) → `media-bridge.js` → `media-core.js` → `media-catalog.js` → `media-recovery.js`
+2. Daten und Medien: `data.js` (`window.CARDS`) → `image-profiles.js` (`EMFDImages`, registriert den Service Worker) → `../media/media-loader.js` (Loader) → `media-bridge.js` → `offline-ready.js` → `media-core.js` → `media-catalog.js` → `media-recovery.js`
 3. Karten: `card-motion.js`, `card-preload.js`, `card-draw.js`, `device-light.js`, `card-tap.js`
 4. Räume: `atelier-hand.js`, `atelier.js`, `teezimmer.js`
 5. Gemeinsame Dienste: `data/registry.js` (Registerdaten, erzeugt) → `shared/registry.js` (Registerdienst) → `shared/devices.js` (Geräteregister, vor der Navigation), `shared/navigation.js`, `shared/stations.js`, `shared/audio.js`, `shared/content.js`, `shared/readers.js`, `shared/help.js`
@@ -135,13 +135,17 @@ Weitere Modul-APIs: `EMFDAtelier` (atelier.js: `renderAtelier`, `renderTable`, `
 
 **sessionStorage:** `emfd.nav.history.v1` (Verlaufsspiegel, nur Routen) · `emfd.cardDraw.concealed` · `emfd.card.return` · `emfd.atelier.current|direction|gridScroll|group` · `emfd.music.entryPreference.session`.
 
-**Ereignisse (window):** `emfd:navigation` · `emfd:music-ready` · `emfd:music-state` · `emfd:music-availability` · `emfd:card-concealed` · `emfd:card-revealed` · `emfd:hall-light-change` · `emfd:start-gate-rendered` · `emfd-media-updated`. Am Kartenelement: `cancel-card-tap`.
+**Ereignisse (window):** `emfd:navigation` · `emfd:music-ready` · `emfd:music-state` · `emfd:music-availability` · `emfd:card-concealed` · `emfd:card-revealed` · `emfd:hall-light-change` · `emfd:start-gate-rendered` · `emfd-media-updated` · `emfd-offline-progress`. Am Kartenelement: `cancel-card-tap`.
 
 ## 7. Medien
 
 - Regeln: `media/MEDIEN-KONVENTION.md`. Ausschließlich relative Pfade `../media/…`.
 - Schichten: `image-profiles.js` (feste PERF-01-Varianten, generiert) → `media-bridge.js` (r2-Vorderseiten und Cover aus `../media/manifest.json` v2, falls vorhanden) → bei Ladefehler `media-recovery.js` mit Gruppen aus `media-catalog.js` (`media-core.js` sucht Alternativen) → zuletzt Ersatzbilder in `home/assets/recovery/`.
-- Service Worker `image-service-worker.js`: nur Bilder, Cache `emfd-images-recovery-v8`, max. 20 MB. Erlaubte URLs: feste Liste + alle Pfade aus `media-catalog.js`. Neues Bild außerhalb des Katalogs wird nicht gecacht.
+- Offline-Cache (EMFD-CACHE-01), Service Worker `image-service-worker.js` (Registrierung in `image-profiles.js`, `updateViaCache:'none'`). Regeln in `offline-policy.js`, Listen in `offline-precache.js` (App-Dateien, **generiert**: `node scripts/build-offline-precache.mjs` nach jeder Änderung an `index.html`/Dateistruktur; Test prüft Aktualität) und `offline-images.js` (Bildliste der App, Stufe `start`/`house`). Seitenseite `offline-ready.js` (`EMFDOffline.status()`, Ereignis `emfd-offline-progress`, keine sichtbare Anzeige).
+  - Caches: `emfd-shell-<VERSION>` (App-Dateien, Netz-zuerst für HTML/`manifest.json`), `emfd-media-images-v1` und `emfd-media-audio-v1` (versionsübergreifend, keine Größengrenze). Alte `emfd-images-*` werden beim Update übernommen.
+  - Installation: alle App-Dateien + Startbilder. Nach dem Start: alle Hausbilder im Hintergrund (plus aktuelle Vorderseiten aus `media-bridge.js`). Hash-Dateinamen werden nie erneut geladen.
+  - Musik: kein Vorab-Laden. Erste Wiedergabe streamt aus dem Netz, parallel einmalige Speicherung; danach Wiedergabe aus dem Cache mit Range/206. HEAD-Prüfung (ETag/Länge) verwirft geänderte Dateien gleichen Namens.
+  - Neue App-Version: `VERSION` in `offline-policy.js` und `?v=` der Registrierung erhöhen, dann Liste neu erzeugen.
 - Raumgeräte-Bilder: `../media/raumgeraete/P0x.webp`, als Medien-IDs `app.device.MP-P0x` im Register (noch nicht im Medienmanifest).
 - Raumbilder P01–P08 und Musikzimmer: Medien-IDs `app.room.<RAUM>` / `app.room.<RAUM>.thumb` im Register, verknüpft mit den Einträgen in `media.json`. Szenenbilder (`scene.<RAUM>-C0x.kandidat`) liegen nur im gemeinsamen Repo, nicht auf dem Server → Platzhalter.
 

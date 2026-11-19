@@ -1,40 +1,319 @@
-/* EMFD-PERF-01: bounded, image-only cache. Audio is deliberately outside the allow-list. */
-const CACHE='emfd-images-recovery-v8', MAX_BYTES=20*1024*1024,MAX_FILES=256;
-const allowed=new Set(["../media/cards/EMFD_Kartenrueckseite_v1.2.jpeg", "../media/optimized/cards/EMFD_Kartenrueckseite-v1.2-210x360-adc3b9f4a1.webp", "../media/optimized/cards/EMFD_Kartenrueckseite-v1.2-630x1080-3d4d2cb907.webp", "../media/optimized/cards/EMFD_Kartenrueckseite-v1.2-896x1536-f5853026a0.webp", "../media/optimized/playlist/O01-160-v1-1fc9f5c551.webp", "../media/optimized/cards/O01-210x360-v1-51dc2133ba.webp", "../media/optimized/cards/O01-630x1080-v1-47041d64df.webp", "../media/optimized/cards/O01-896x1536-v1-e9495cfcc9.webp", "../media/optimized/playlist/O02-160-v1-debb9abe22.webp", "../media/optimized/cards/O02-210x360-v1-9b55a36656.webp", "../media/optimized/cards/O02-630x1080-v1-ea0c9d086d.webp", "../media/optimized/cards/O02-896x1536-v1-34f8b90824.webp", "../media/optimized/playlist/O03-160-v1-a0ae7c9434.webp", "../media/optimized/cards/O03-210x360-v1-da68444279.webp", "../media/optimized/cards/O03-630x1080-v1-538d1729a7.webp", "../media/optimized/cards/O03-896x1536-v1-f933d3941f.webp", "../media/optimized/playlist/O04-160-v1-5e0a133981.webp", "../media/optimized/cards/O04-210x360-v1-76e4c08fb6.webp", "../media/optimized/cards/O04-630x1080-v1-9b2846a48e.webp", "../media/optimized/cards/O04-896x1536-v1-10b15142cd.webp", "../media/optimized/playlist/O05-160-v1-c3ea5765f8.webp", "../media/optimized/cards/O05-210x360-v1-3562abd332.webp", "../media/optimized/cards/O05-630x1080-v1-66c23e33ec.webp", "../media/optimized/cards/O05-896x1536-v1-5bf2e1ae96.webp", "../media/optimized/playlist/O06-160-v1-9eedc6c010.webp", "../media/optimized/cards/O06-210x360-v1-ed2119269d.webp", "../media/optimized/cards/O06-630x1080-v1-d7b8985de0.webp", "../media/optimized/cards/O06-896x1536-v1-9364501a66.webp", "../media/optimized/playlist/O07-160-v1-0571a38f40.webp", "../media/optimized/cards/O07-210x360-v1-5332556ecc.webp", "../media/optimized/cards/O07-630x1080-v1-55988a067e.webp", "../media/optimized/cards/O07-896x1536-v1-d3dd078b87.webp", "../media/optimized/playlist/O08-160-v1-86b01bbb7e.webp", "../media/optimized/cards/O08-210x360-v1-9ddcc75394.webp", "../media/optimized/cards/O08-630x1080-v1-7cace7daa6.webp", "../media/optimized/cards/O08-896x1536-v1-e2e6882e83.webp", "../media/optimized/playlist/O09-160-v1-fb07d53584.webp", "../media/optimized/cards/O09-210x360-v1-36d57cd4d7.webp", "../media/optimized/cards/O09-630x1080-v1-f5631e0d0d.webp", "../media/optimized/cards/O09-896x1536-v1-bc1fe257bf.webp", "../media/optimized/playlist/O10-160-v1-93c9090bb6.webp", "../media/optimized/cards/O10-210x360-v1-404569a939.webp", "../media/optimized/cards/O10-630x1080-v1-79dd7c2417.webp", "../media/optimized/cards/O10-896x1536-v1-7dc57c2699.webp", "../media/optimized/playlist/O11-160-v1-9fe79c302d.webp", "../media/optimized/cards/O11-210x360-v1-2ced015983.webp", "../media/optimized/cards/O11-630x1080-v1-817636f65e.webp", "../media/optimized/cards/O11-896x1536-v1-5904a1b82d.webp", "../media/optimized/playlist/O12-160-v1-184a3d18c5.webp", "../media/optimized/cards/O12-210x360-v1-74c6b7a13d.webp", "../media/optimized/cards/O12-630x1080-v1-9b05b53b78.webp", "../media/optimized/cards/O12-896x1536-v1-919aae5296.webp", "../media/optimized/playlist/O13-160-v1-30b7945456.webp", "../media/optimized/cards/O13-210x360-v1-7036b7b2ba.webp", "../media/optimized/cards/O13-630x1080-v1-8a85824d30.webp", "../media/optimized/cards/O13-896x1536-v1-979c9a6361.webp", "../media/optimized/playlist/O14-160-v1-447fb4766d.webp", "../media/optimized/cards/O14-210x360-v1-765abfbb61.webp", "../media/optimized/cards/O14-630x1080-v1-43247f7cf2.webp", "../media/optimized/cards/O14-896x1536-v1-5c4fcf9637.webp", "../media/optimized/playlist/O15-160-v1-4dd2c4a0d7.webp", "../media/optimized/cards/O15-210x360-v1-b7c6e53dfd.webp", "../media/optimized/cards/O15-630x1080-v1-b13fb25925.webp", "../media/optimized/cards/O15-896x1536-v1-e4ecd3dafa.webp", "../media/optimized/playlist/O16-160-v1-7c187e5181.webp", "../media/optimized/cards/O16-210x360-v1-c06360dd6f.webp", "../media/optimized/cards/O16-630x1080-v1-fc700ce626.webp", "../media/optimized/cards/O16-896x1536-v1-5e35960d55.webp", "../media/optimized/playlist/O17-160-v1-846870247c.webp", "../media/optimized/cards/O17-210x360-v1-1f4d32b94d.webp", "../media/optimized/cards/O17-630x1080-v1-8deb0dda40.webp", "../media/optimized/cards/O17-896x1536-v1-5980c3295e.webp", "../media/optimized/playlist/O18-160-v1-026aa40243.webp", "../media/optimized/cards/O18-210x360-v1-99021656a6.webp", "../media/optimized/cards/O18-630x1080-v1-2541c92721.webp", "../media/optimized/cards/O18-896x1536-v1-f97f62dfca.webp", "../media/optimized/playlist/O19-160-v1-17fd90cc7b.webp", "../media/optimized/cards/O19-210x360-v1-29ba58465a.webp", "../media/optimized/cards/O19-630x1080-v1-6e2b113bb5.webp", "../media/optimized/cards/O19-896x1536-v1-f0bf7d9344.webp", "../media/optimized/playlist/O20-160-v1-3da9bdd744.webp", "../media/optimized/cards/O20-210x360-v1-1d9ba718de.webp", "../media/optimized/cards/O20-630x1080-v1-096501a523.webp", "../media/optimized/cards/O20-896x1536-v1-6eb9cbcf87.webp", "../media/optimized/playlist/O21-160-v1-9c09937160.webp", "../media/optimized/cards/O21-210x360-v1-eba95f7800.webp", "../media/optimized/cards/O21-630x1080-v1-d6447303ab.webp", "../media/optimized/cards/O21-896x1536-v1-a2a39f1e06.webp", "../media/optimized/playlist/O22-160-v1-c11b758071.webp", "../media/optimized/cards/O22-210x360-v1-f0efc6012d.webp", "../media/optimized/cards/O22-630x1080-v1-f9e0be09eb.webp", "../media/optimized/cards/O22-896x1536-v1-6c0dde1ba6.webp", "../media/optimized/playlist/O23-160-v1-3f90fa12bb.webp", "../media/optimized/cards/O23-210x360-v1-ac97241528.webp", "../media/optimized/cards/O23-630x1080-v1-fd5b16d29c.webp", "../media/optimized/cards/O23-896x1536-v1-09f21cf972.webp", "../media/optimized/playlist/O24-160-v1-6bc597f80a.webp", "../media/optimized/cards/O24-210x360-v1-dde8967d48.webp", "../media/optimized/cards/O24-630x1080-v1-e66d387234.webp", "../media/optimized/cards/O24-896x1536-v1-68b4dc698a.webp", "../media/optimized/playlist/main-theme-house-160-v1-edfa2ea0a4.webp", "../media/optimized/backgrounds/bildkarten-tisch-v1-480-v1-23dedb6d9e.webp", "../media/optimized/backgrounds/bildkarten-tisch-v1-865-v1-4cc89ba2c3.webp", "../media/optimized/backgrounds/bildkarten-tisch-v2-480-v1-e779da16d4.webp", "../media/optimized/backgrounds/bildkarten-tisch-v2-865-v1-6f87e8b55c.webp", "../media/optimized/backgrounds/brief-pergament-v1-480-v1-312c3ff280.webp", "../media/optimized/backgrounds/brief-pergament-v1-711-v1-693d044c38.webp", "../media/optimized/rooms/P01-fensterzimmer-480-v1-c6c2f4a855.webp", "../media/optimized/rooms/P01-fensterzimmer-900-v1-c1e7c8d13e.webp", "../media/optimized/rooms/P01-fensterzimmer-1086-v1-6e8da968c9.webp", "../media/optimized/rooms/P02-bibliothek-480-v1-1b6f532da9.webp", "../media/optimized/rooms/P02-bibliothek-900-v1-606d68be27.webp", "../media/optimized/rooms/P02-bibliothek-1086-v1-c6cfb3d7be.webp", "../media/optimized/rooms/P03-wintergarten-480-v1-13fc9ea957.webp", "../media/optimized/rooms/P03-wintergarten-900-v1-713e9d7fcc.webp", "../media/optimized/rooms/P03-wintergarten-1086-v1-2c0a049ef6.webp", "../media/optimized/rooms/P04-atelier-480-v1-d9e90088e3.webp", "../media/optimized/rooms/P04-atelier-900-v1-f57b4df238.webp", "../media/optimized/rooms/P04-atelier-1086-v1-0a9f9576ef.webp", "../media/optimized/rooms/P05-innenhof-480-v1-022510bf7e.webp", "../media/optimized/rooms/P05-innenhof-900-v1-c9cad8cb40.webp", "../media/optimized/rooms/P05-innenhof-1086-v1-e2185806f0.webp", "../media/optimized/rooms/P06-galerie-480-v1-0c1d261f35.webp", "../media/optimized/rooms/P06-galerie-900-v1-469657cd0a.webp", "../media/optimized/rooms/P06-galerie-1086-v1-5179cca5cf.webp", "../media/optimized/rooms/P07-dachterrasse-480-v1-1bd636f21a.webp", "../media/optimized/rooms/P07-dachterrasse-900-v1-5d8c6e1b93.webp", "../media/optimized/rooms/P07-dachterrasse-1086-v1-2f32fc0cfa.webp", "../media/optimized/rooms/P08-teezimmer-480-v1-87238a5af5.webp", "../media/optimized/rooms/P08-teezimmer-900-v1-513112e022.webp", "../media/optimized/rooms/P08-teezimmer-1086-v1-f2647243bf.webp", "../media/optimized/rooms/flur-v2-dim-480-v1-a7e1d77c11.webp", "../media/optimized/rooms/flur-v2-dim-864-v1-5aba5b505b.webp", "../media/optimized/rooms/flur-v2-480-v1-690f9a5e60.webp", "../media/optimized/rooms/flur-v2-864-v1-e7d3476528.webp", "../media/optimized/rooms/flur-480-v1-5d05f659cb.webp", "../media/optimized/rooms/flur-900-v1-8ba6a01c2e.webp", "../media/optimized/rooms/flur-1086-v1-58139e29ee.webp", "../media/optimized/rooms/haus-zentrale-halle-v1-480-v1-aeccaa0bfa.webp", "../media/optimized/rooms/haus-zentrale-halle-v1-900-v1-7bccfc23eb.webp", "../media/optimized/rooms/haus-zentrale-halle-v1-1086-v1-88203d299c.webp", "../media/optimized/rooms/musikzimmer-v1-480-v1-6a0acc8c3f.webp", "../media/optimized/rooms/musikzimmer-v1-865-v1-518f76f8bb.webp", "../media/optimized/rooms/startseite-haustuer-v1-480-v1-defb3a3a29.webp", "../media/optimized/rooms/startseite-haustuer-v1-864-v1-6f7c1c2055.webp", "../media/optimized/rooms/P01-fensterzimmer-abend-v1-480-v1-988f40dc20.webp", "../media/optimized/rooms/P01-fensterzimmer-abend-v1-900-v1-513b7d7ad1.webp", "../media/optimized/rooms/P01-fensterzimmer-abend-v1-1086-v1-0f7fc0dba1.webp", "../media/optimized/rooms/P01-fensterzimmer-mond-v1-480-v1-867a055398.webp", "../media/optimized/rooms/P01-fensterzimmer-mond-v1-900-v1-2ca13a534f.webp", "../media/optimized/rooms/P01-fensterzimmer-mond-v1-1086-v1-9efbbe52e8.webp", "../media/optimized/rooms/P02-bibliothek-leseplatz-v1-480-v1-00b1894ab5.webp", "../media/optimized/rooms/P02-bibliothek-leseplatz-v1-900-v1-436995e313.webp", "../media/optimized/rooms/P02-bibliothek-leseplatz-v1-1086-v1-ee0e0da547.webp", "../media/optimized/rooms/P02-bibliothek-sessel-v1-480-v1-1be6ceafcd.webp", "../media/optimized/rooms/P02-bibliothek-sessel-v1-900-v1-744df7c8ac.webp", "../media/optimized/rooms/P02-bibliothek-sessel-v1-1086-v1-2e7aae3cb6.webp", "../media/optimized/rooms/P03-wintergarten-brunnen-v1-480-v1-703126cd14.webp", "../media/optimized/rooms/P03-wintergarten-brunnen-v1-900-v1-1178031762.webp", "../media/optimized/rooms/P03-wintergarten-brunnen-v1-1086-v1-0bce2a2ac4.webp", "../media/optimized/rooms/P03-wintergarten-werkbank-v1-480-v1-a45fd4724d.webp", "../media/optimized/rooms/P03-wintergarten-werkbank-v1-900-v1-a30ed8b0c9.webp", "../media/optimized/rooms/P03-wintergarten-werkbank-v1-1086-v1-3846c47adb.webp", "../media/optimized/rooms/P04-atelier-arbeitsflaeche-v1-480-v1-eb9bc98784.webp", "../media/optimized/rooms/P04-atelier-arbeitsflaeche-v1-900-v1-b4c307927e.webp", "../media/optimized/rooms/P04-atelier-arbeitsflaeche-v1-1086-v1-d63b84e54b.webp", "../media/optimized/rooms/P04-atelier-kartenauslage-v1-480-v1-c418ae7687.webp", "../media/optimized/rooms/P04-atelier-kartenauslage-v1-864-v1-dcb82f452e.webp", "../media/optimized/rooms/P04-atelier-treppenblick-v1-480-v1-7118b0d27c.webp", "../media/optimized/rooms/P04-atelier-treppenblick-v1-900-v1-4cbe71c146.webp", "../media/optimized/rooms/P04-atelier-treppenblick-v1-1086-v1-aeb80d2a97.webp", "../media/optimized/rooms/P05-innenhof-brunnen-v1-480-v1-a760ee02dc.webp", "../media/optimized/rooms/P05-innenhof-brunnen-v1-900-v1-e0b994f959.webp", "../media/optimized/rooms/P05-innenhof-brunnen-v1-1086-v1-a70a13ee57.webp", "../media/optimized/rooms/P05-innenhof-steinbruecke-v1-480-v1-f09e580d96.webp", "../media/optimized/rooms/P05-innenhof-steinbruecke-v1-900-v1-cdc86882aa.webp", "../media/optimized/rooms/P05-innenhof-steinbruecke-v1-1086-v1-09506320fb.webp", "../media/optimized/rooms/P06-galerie-bruecke-v1-480-v1-2a1e364049.webp", "../media/optimized/rooms/P06-galerie-bruecke-v1-900-v1-16bcf96cb5.webp", "../media/optimized/rooms/P06-galerie-bruecke-v1-1086-v1-faeeca735f.webp", "../media/optimized/rooms/P06-galerie-langer-steg-v1-480-v1-3aa7850327.webp", "../media/optimized/rooms/P06-galerie-langer-steg-v1-900-v1-1849696171.webp", "../media/optimized/rooms/P06-galerie-langer-steg-v1-1086-v1-bf48271f3b.webp", "../media/optimized/rooms/P07-dachterrasse-mond-v1-480-v1-4e785aa1e0.webp", "../media/optimized/rooms/P07-dachterrasse-mond-v1-900-v1-e0401a3dde.webp", "../media/optimized/rooms/P07-dachterrasse-mond-v1-1086-v1-e2cd0147af.webp", "../media/optimized/rooms/P07-dachterrasse-stadt-v1-480-v1-11ab9304d0.webp", "../media/optimized/rooms/P07-dachterrasse-stadt-v1-900-v1-33faead4ab.webp", "../media/optimized/rooms/P07-dachterrasse-stadt-v1-1086-v1-f3b6fc6d26.webp", "../media/optimized/rooms/P08-teezimmer-mond-v1-480-v1-b07f48256a.webp", "../media/optimized/rooms/P08-teezimmer-mond-v1-900-v1-67e0e81205.webp", "../media/optimized/rooms/P08-teezimmer-mond-v1-1086-v1-e809200111.webp", "../media/optimized/rooms/P08-teezimmer-rundtisch-v1-480-v1-3a1b3b91cf.webp", "../media/optimized/rooms/P08-teezimmer-rundtisch-v1-900-v1-f3b10237dd.webp", "../media/optimized/rooms/P08-teezimmer-rundtisch-v1-1086-v1-62c6ef057a.webp", "../media/optimized/rooms/flur-dunkel-tisch-v1-480-v1-8e7014841f.webp", "../media/optimized/rooms/flur-dunkel-tisch-v1-864-v1-0f657c24e3.webp", "../media/optimized/rooms/flur-gang-v1-480-v1-f4a74ee359.webp", "../media/optimized/rooms/flur-gang-v1-900-v1-5e2ed2176e.webp", "../media/optimized/rooms/flur-gang-v1-1086-v1-8e981e57b0.webp", "../media/optimized/backgrounds/weltenweberin-480-v1-47dc928fcd.webp", "../media/rooms/thumbs/P08-teezimmer-thumb.webp", "../media/rooms/thumbs/P02-bibliothek-thumb.webp", "../media/rooms/thumbs/P05-innenhof-thumb.webp", "../media/rooms/thumbs/musikzimmer-v1-thumb.webp", "../media/rooms/thumbs/P01-fensterzimmer-thumb.webp", "../media/rooms/thumbs/P03-wintergarten-thumb.webp", "../media/rooms/thumbs/P07-dachterrasse-thumb.webp", "../media/rooms/thumbs/P06-galerie-thumb.webp", "../media/rooms/thumbs/P04-atelier-thumb.webp"].map(p=>new URL(p,self.location.href).href));
-allowed.add(new URL('assets/rooms/startseite-haustuer-v1.webp',self.location.href).href);
-const core=["assets/rooms/startseite-haustuer-v1.webp"].map(p=>new URL(p,self.location.href).href);
-for(const path of ["../media/start/EMFD-START-02-A01-tisch.webp","../media/start/EMFD-START-02-A02-umschlag-koerper.webp","../media/start/EMFD-START-02-A03-umschlag-lasche.webp","../media/start/EMFD-START-02-A04-herzsiegel.webp","../media/start/EMFD-START-02-A05-briefpapier.webp","../media/start/EMFD-START-02-A06-geschenkkarte-vorderseite.webp"])allowed.add(new URL(path,self.location.href).href);
-/* Generated same-image archive catalog; includes packaged fallbacks. */
-if(typeof importScripts==='function')importScripts('media-core.js','media-catalog.js');
-const mediaGroups=self.EMFDMediaCatalog?.groups||[];
-const mediaLookup=self.EMFDMediaCore?.index(mediaGroups);
-for(const group of mediaGroups)for(const p of group.paths)allowed.add(new URL(p,self.location.href).href);
-core.push(new URL('assets/recovery/rueckseite.jpeg',self.location.href).href);
-function mediaPath(url){const u=new URL(url),base=new URL('../media/',self.location.href),assets=new URL('assets/',self.location.href);if(u.origin!==base.origin)return null;if(u.pathname.startsWith(base.pathname))return '../media/'+u.pathname.slice(base.pathname.length);if(u.pathname.startsWith(assets.pathname))return 'assets/'+u.pathname.slice(assets.pathname.length);return null;}
-let writes=Promise.resolve();
-async function store(request,response){
- const cache=await caches.open(CACHE),blob=await response.clone().blob();
- if(blob.size>MAX_BYTES||!blob.type.startsWith('image/'))return;
- const headers=new Headers(response.headers);headers.set('X-EMFD-Bytes',String(blob.size));
- await cache.put(request,new Response(blob,{status:200,headers}));
- let keys=await cache.keys(),total=0;const sizes=new Map();
- for(const key of keys){const r=await cache.match(key);const size=Number(r.headers.get('X-EMFD-Bytes'))||0;sizes.set(key.url,size);total+=size;}
- for(const key of keys){if(total<=MAX_BYTES&&keys.length<=MAX_FILES)break;if(core.includes(key.url))continue;await cache.delete(key);total-=sizes.get(key.url)||0;keys=keys.filter(k=>k.url!==key.url);}
+/* EMFD-CACHE-01 · Offline-Service-Worker der App (ersetzt den begrenzten PERF-01-Bildcache).
+ *
+ * Ziel: Nach dem ersten Start lädt die App keine Bilder und kein bereits gehörtes Musikstück erneut
+ * über das Mobilnetz. Dateiname bleibt image-service-worker.js, damit installierte Apps den
+ * bestehenden Worker nahtlos aktualisieren (gleiche Registrierung, gleicher Scope).
+ *
+ *  App-Dateien  : bei der Installation vollständig geladen (offline-precache.js), danach aus dem Cache,
+ *                 Aktualisierung im Hintergrund.
+ *  Bilder       : Stufe 1 (Start) bei der Installation, Stufe 2 (ganzes Haus) direkt nach dem Start im
+ *                 Hintergrund. Cache zuerst; Dateien mit Hash im Namen werden nie erneut geladen.
+ *                 Keine 20-MB-Grenze mehr: es wird nichts mehr verdrängt.
+ *  Musik        : KEIN Vorab-Laden (MEDIEN-KONVENTION). Beim ersten Abspielen spielt die Musik direkt
+ *                 aus dem Netz; parallel wird die Datei einmal vollständig gespeichert. Ab dann kommt sie
+ *                 aus dem Cache, inkl. Teilanfragen (Range/206), die iOS für Audio verlangt.
+ *                 Geänderte Dateien gleichen Namens erkennt eine kurze HEAD-Prüfung (ETag/Länge).
+ *  Manifest     : Netz zuerst, sonst die letzte gute Fassung.
+ */
+'use strict';
+importScripts('offline-policy.js', 'offline-precache.js', 'offline-images.js', 'media-core.js', 'media-catalog.js');
+
+const P = self.EMFDOfflinePolicy;
+const CACHES = P.CACHES;
+const SCOPE = self.location.href;
+const abs = p => new URL(p, SCOPE).href;
+const IMAGE_LIST = self.EMFDOfflineImages || { start: [], house: [] };
+const startImages = IMAGE_LIST.start.map(abs);
+const allowed = new Set([...IMAGE_LIST.start, ...IMAGE_LIST.house].map(abs)); // Bilder, die die App nutzt
+const shellFiles = (self.EMFDPrecache?.shell || []).map(abs);
+const mediaGroups = self.EMFDMediaCatalog?.groups || [];
+const mediaLookup = self.EMFDMediaCore?.index(mediaGroups);
+const MAX_FILE_BYTES = 40 * 1024 * 1024;
+const NETWORK_TIMEOUT_MS = 3500;
+const AUDIO_STORE_DELAY_MS = Number(self.EMFD_AUDIO_STORE_DELAY_MS ?? 4000); // Wiedergabe zuerst, dann speichern (Tests: 0)
+const WARM_CONCURRENCY = 3;
+
+/* ---------- Hilfen ---------- */
+function withTimeout(promise, ms) {
+  return new Promise((resolve, reject) => {
+    const t = setTimeout(() => reject(new Error('timeout')), ms);
+    promise.then(v => { clearTimeout(t); resolve(v); }, e => { clearTimeout(t); reject(e); });
+  });
 }
-function queue(request,response){writes=writes.catch(()=>{}).then(()=>store(request,response));return writes;}
-self.addEventListener('install',event=>event.waitUntil((async()=>{for(const url of core){try{const r=await fetch(url);if(r.ok)await queue(url,r);}catch{}}await self.skipWaiting();})()));
-self.addEventListener('activate',event=>event.waitUntil((async()=>{
- for(const name of await caches.keys())if((name.startsWith('emfd-images-')&&name!==CACHE)||name.startsWith('emfd-card-media-'))await caches.delete(name);
- await self.clients.claim();
+const wait = ms => new Promise(r => setTimeout(r, ms));
+async function broadcast(message) {
+  try { for (const client of await self.clients.matchAll({ includeUncontrolled: true })) client.postMessage(message); } catch (_) {}
+}
+async function pool(items, limit, worker) {
+  let i = 0;
+  const run = async () => { while (i < items.length) { const item = items[i++]; try { await worker(item); } catch (_) {} } };
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, run));
+}
+
+/* ---------- Bilder ---------- */
+let imageWrites = Promise.resolve();
+function storeImage(key, response) {
+  imageWrites = imageWrites.catch(() => {}).then(async () => {
+    const blob = await response.blob();
+    if (!blob.size || blob.size > MAX_FILE_BYTES || !/^image\//.test(blob.type || response.headers.get('Content-Type') || '')) return false;
+    const headers = new Headers(response.headers);
+    headers.set('X-EMFD-Bytes', String(blob.size));
+    headers.set('X-EMFD-Stored', String(Date.now()));
+    await (await caches.open(CACHES.images)).put(key, new Response(blob, { status: 200, headers }));
+    return true;
+  });
+  return imageWrites;
+}
+const revalidated = new Set();
+async function imageResponse(event, retry) {
+  const key = P.cacheKey(event.request.url, 'image');
+  const cache = await caches.open(CACHES.images);
+  const hit = retry ? null : await cache.match(key);
+  if (hit) {
+    // Dateien ohne Hash einmal pro Sitzung im Hintergrund prüfen (Server antwortet meist 304).
+    if (!P.isImmutable(key) && !revalidated.has(key) && self.navigator?.onLine !== false) {
+      revalidated.add(key);
+      event.waitUntil(fetch(key, { cache: 'no-cache' }).then(r => r.ok ? storeImage(key, r) : null).catch(() => {}));
+    }
+    return hit;
+  }
+  try {
+    const response = await fetch(event.request);
+    if (response.ok) { event.waitUntil(storeImage(key, response.clone())); return response; }
+  } catch (_) {}
+  const stale = retry ? await cache.match(key) : null;
+  if (stale) return stale;
+  // Rückfall auf ein gleichwertiges Bild derselben Mediengruppe (wie bisher).
+  const relative = mediaPath(key);
+  const options = mediaLookup && self.EMFDMediaCore ? self.EMFDMediaCore.candidates(relative, mediaLookup).filter(p => p !== relative) : [];
+  for (const option of options) {
+    const alternative = abs(option);
+    const cached = await cache.match(alternative);
+    if (cached) return cached;
+    try {
+      const r = await fetch(alternative);
+      if (r.ok && (r.headers.get('Content-Type') || '').startsWith('image/')) { event.waitUntil(storeImage(alternative, r.clone())); return r; }
+    } catch (_) {}
+  }
+  return new Response('', { status: 503, statusText: 'Image unavailable' });
+}
+function mediaPath(url) {
+  const u = new URL(url), base = new URL('../media/', SCOPE), assets = new URL('assets/', SCOPE);
+  if (u.origin !== base.origin) return null;
+  if (u.pathname.startsWith(base.pathname)) return '../media/' + u.pathname.slice(base.pathname.length);
+  if (u.pathname.startsWith(assets.pathname)) return 'assets/' + u.pathname.slice(assets.pathname.length);
+  return null;
+}
+
+/* Vorab-Laden (Stufe 1 bei Installation, Stufe 2 auf Nachricht der Seite). Wiederaufnehmbar:
+ * bereits gespeicherte Dateien werden übersprungen, abgebrochene Läufe setzen beim nächsten Start fort. */
+let warming = null;
+async function warmImages(urls, stage) {
+  const cache = await caches.open(CACHES.images);
+  const keys = [...new Set(urls.map(u => P.cacheKey(u, 'image')))];
+  const todo = [];
+  for (const key of keys) if (!(await cache.match(key))) todo.push(key);
+  const progress = { type: 'emfd-cache-progress', stage, total: keys.length, cached: keys.length - todo.length, failed: 0 };
+  await broadcast(progress);
+  await pool(todo, WARM_CONCURRENCY, async key => {
+    try {
+      const r = await withTimeout(fetch(key, { cache: 'no-cache' }), 30000);
+      if (r.ok && (await storeImage(key, r))) progress.cached++; else progress.failed++;
+    } catch (_) { progress.failed++; }
+    if ((progress.cached + progress.failed) % 10 === 0) await broadcast(progress);
+  });
+  await broadcast({ ...progress, done: true });
+  return progress;
+}
+
+/* ---------- Musik ---------- */
+let audioIndex = null;                       // Set der gespeicherten Musik-URLs
+const audioReady = caches.open(CACHES.audio).then(c => c.keys()).then(keys => { audioIndex = new Set(keys.map(k => k.url)); }).catch(() => { audioIndex = new Set(); });
+const audioInFlight = new Map();
+const audioChecked = new Set();
+let audioQueue = Promise.resolve();
+
+function storeAudio(key) {
+  if (audioInFlight.has(key)) return audioInFlight.get(key);
+  const job = audioQueue = audioQueue.catch(() => {}).then(async () => {
+    await wait(AUDIO_STORE_DELAY_MS);
+    const cache = await caches.open(CACHES.audio);
+    if (await cache.match(key)) return true;
+    const r = await fetch(key, { cache: 'no-cache' });           // vollständige Datei, ohne Range
+    if (r.status !== 200) return false;
+    const blob = await r.blob();
+    const type = r.headers.get('Content-Type') || blob.type || 'audio/mpeg';
+    if (!blob.size || blob.size > MAX_FILE_BYTES || !/^(audio\/|application\/octet-stream)/.test(type)) return false;
+    const headers = new Headers({ 'Content-Type': /^audio\//.test(type) ? type : 'audio/mpeg', 'Content-Length': String(blob.size), 'Accept-Ranges': 'bytes', 'X-EMFD-Bytes': String(blob.size) });
+    for (const h of ['ETag', 'Last-Modified']) if (r.headers.get(h)) headers.set('X-EMFD-' + h, r.headers.get(h));
+    await cache.put(key, new Response(blob, { status: 200, headers }));
+    audioIndex?.add(key);
+    return true;
+  }).catch(() => false).finally(() => audioInFlight.delete(key));
+  audioInFlight.set(key, job);
+  return job;
+}
+
+/* Gleicher Dateiname, neuer Inhalt? Einmal pro Worker-Laufzeit leichte HEAD-Prüfung. */
+async function revalidateAudio(key, cached) {
+  if (audioChecked.has(key)) return;
+  audioChecked.add(key);
+  try {
+    const r = await withTimeout(fetch(key, { method: 'HEAD', cache: 'no-cache' }), 8000);
+    if (!r.ok) return;
+    const etag = r.headers.get('ETag'), modified = r.headers.get('Last-Modified'), length = r.headers.get('Content-Length');
+    const changed = (etag && cached.headers.get('X-EMFD-ETag') && etag !== cached.headers.get('X-EMFD-ETag')) ||
+      (!etag && modified && cached.headers.get('X-EMFD-Last-Modified') && modified !== cached.headers.get('X-EMFD-Last-Modified')) ||
+      (length && cached.headers.get('X-EMFD-Bytes') && length !== cached.headers.get('X-EMFD-Bytes'));
+    if (changed) { await (await caches.open(CACHES.audio)).delete(key); audioIndex?.delete(key); }
+  } catch (_) {}
+}
+
+async function rangeResponse(request, cached) {
+  const blob = await cached.blob();
+  const type = cached.headers.get('Content-Type') || 'audio/mpeg';
+  const header = request.headers.get('Range');
+  if (!header) return new Response(blob, { status: 200, headers: { 'Content-Type': type, 'Content-Length': String(blob.size), 'Accept-Ranges': 'bytes' } });
+  const range = P.parseRange(header, blob.size);
+  if (!range) return new Response('', { status: 416, headers: { 'Content-Range': `bytes */${blob.size}` } });
+  const part = blob.slice(range.start, range.end + 1);
+  return new Response(part, { status: 206, statusText: 'Partial Content', headers: {
+    'Content-Type': type, 'Content-Length': String(part.size), 'Accept-Ranges': 'bytes',
+    'Content-Range': `bytes ${range.start}-${range.end}/${blob.size}` } });
+}
+
+function handleAudio(event) {
+  const key = P.cacheKey(event.request.url, 'audio');
+  if (audioIndex && !audioIndex.has(key)) {
+    // Noch nicht gespeichert: Browser spielt direkt aus dem Netz (natives Streaming), wir speichern parallel.
+    event.waitUntil(storeAudio(key));
+    return;
+  }
+  event.respondWith((async () => {
+    await audioReady;
+    const cached = await (await caches.open(CACHES.audio)).match(key);
+    if (cached) { event.waitUntil(revalidateAudio(key, cached)); return rangeResponse(event.request, cached); }
+    event.waitUntil(storeAudio(key));
+    return fetch(event.request);
+  })());
+}
+
+/* ---------- App-Dateien und Manifest ---------- */
+async function putShell(key, response) {
+  if (!response || !response.ok || response.type === 'opaque') return;
+  await (await caches.open(CACHES.shell)).put(key, response);
+}
+const refreshed = new Set();
+async function shellResponse(event) {
+  const req = event.request, cache = await caches.open(CACHES.shell);
+  const hit = await cache.match(req);
+  if (hit) {
+    if (!refreshed.has(req.url)) {
+      refreshed.add(req.url);
+      event.waitUntil(fetch(req, { cache: 'no-cache' }).then(r => putShell(req, r)).catch(() => {}));
+    }
+    return hit;
+  }
+  try {
+    const r = await fetch(req);
+    if (r.ok) event.waitUntil(putShell(req, r.clone()));
+    return r;
+  } catch (error) {
+    const older = await cache.match(req, { ignoreSearch: true });   // ältere Fassung derselben Datei
+    if (older) return older;
+    throw error;
+  }
+}
+async function networkFirst(event, fallbackKeys) {
+  const req = event.request, cache = await caches.open(CACHES.shell);
+  try {
+    const r = await withTimeout(fetch(req, { cache: 'no-cache' }), NETWORK_TIMEOUT_MS);
+    if (r.ok) { event.waitUntil(putShell(req.mode === 'navigate' ? abs('./') : req, r.clone())); return r; }
+    if (r.status < 500) return r;
+  } catch (_) {}
+  for (const key of [req, ...fallbackKeys]) {
+    const hit = await cache.match(key, { ignoreSearch: true });
+    if (hit) return hit;
+  }
+  return fetch(req);
+}
+
+async function precacheShell() {
+  const cache = await caches.open(CACHES.shell);
+  let missing = 0;
+  await pool(shellFiles, 4, async url => {
+    try {
+      const r = await withTimeout(fetch(url, { cache: 'no-cache' }), 30000);
+      if (r.ok) await cache.put(url, r); else missing++;
+    } catch (_) { missing++; }
+  });
+  return missing;
+}
+
+/* Bisherige Bild-Caches übernehmen statt neu laden (spart beim Update das Datenvolumen). */
+async function migrateLegacyCaches() {
+  const target = await caches.open(CACHES.images);
+  for (const name of await caches.keys()) {
+    if (!P.LEGACY_CACHE.test(name)) continue;
+    try {
+      const old = await caches.open(name);
+      for (const request of await old.keys()) {
+        const key = P.cacheKey(request.url, 'image');
+        if (P.classify(key, SCOPE) !== 'image' || await target.match(key)) continue;
+        const response = await old.match(request);
+        if (response && response.status === 200) await target.put(key, response);
+      }
+    } catch (_) {}
+    await caches.delete(name);
+  }
+}
+
+/* ---------- Lebenszyklus ---------- */
+self.addEventListener('install', event => event.waitUntil((async () => {
+  await precacheShell();
+  await warmImages(startImages, 'start');
+  await self.skipWaiting();
 })()));
-self.addEventListener('fetch',event=>{
- const clean=new URL(event.request.url);const retry=clean.searchParams.has('emfd_retry');clean.searchParams.delete('emfd_retry');const url=clean.href;
- if(event.request.method!=='GET'||!allowed.has(url))return;
- event.respondWith((async()=>{const cache=await caches.open(CACHE),hit=await cache.match(url);if(hit&&!retry)return hit;
-  try{const response=await fetch(event.request);if(response.ok){event.waitUntil(queue(url,response.clone()));return response;}}catch{}
-  if(hit)return hit;
-  const requested=mediaPath(url),options=mediaLookup&&self.EMFDMediaCore?self.EMFDMediaCore.candidates(requested,mediaLookup).filter(p=>p!==requested):[];
-  for(const option of options){const alternative=new URL(option,self.location.href).href,cached=await cache.match(alternative);if(cached)return cached;try{const r=await fetch(alternative);if(r.ok&&r.headers.get('Content-Type')?.startsWith('image/')){event.waitUntil(queue(url,r.clone()));return r;}}catch{}}
-  return new Response('',{status:503,statusText:'Image unavailable'});
- })());
+
+self.addEventListener('activate', event => event.waitUntil((async () => {
+  await migrateLegacyCaches();
+  const keep = new Set(Object.values(CACHES));
+  for (const name of await caches.keys()) if (name.startsWith('emfd-shell-') && !keep.has(name)) await caches.delete(name);
+  await self.clients.claim();
+})()));
+
+self.addEventListener('fetch', event => {
+  const req = event.request;
+  if (req.method !== 'GET') return;
+  const url = new URL(req.url);
+  const retry = url.searchParams.has('emfd_retry');
+  const kind = P.classify(req.url, SCOPE);
+  if (!kind) return;
+  if (kind === 'audio') return handleAudio(event);
+  if (kind === 'image') return event.respondWith(imageResponse(event, retry));
+  if (kind === 'manifest') return event.respondWith(networkFirst(event, []));
+  if (kind === 'document') return event.respondWith(networkFirst(event, [abs('./'), abs('index.html')]));
+  if (kind === 'shell') return event.respondWith(shellResponse(event));
+});
+
+self.addEventListener('message', event => {
+  const data = event.data || {};
+  if (data.type === 'emfd-cache-warm') {
+    const extra = Array.isArray(data.urls) ? data.urls.map(u => P.acceptWarmUrl(u, SCOPE)).filter(Boolean) : [];
+    const urls = [...startImages, ...allowed, ...extra];
+    if (!warming) warming = warmImages(urls, 'house').finally(() => { warming = null; });
+    event.waitUntil(warming);
+  } else if (data.type === 'emfd-cache-status') {
+    event.waitUntil((async () => {
+      const result = { type: 'emfd-cache-status', version: P.VERSION, caches: {} };
+      for (const [name, cacheName] of Object.entries(CACHES)) {
+        const cache = await caches.open(cacheName), keys = await cache.keys();
+        let bytes = 0;
+        for (const k of keys) bytes += Number((await cache.match(k))?.headers.get('X-EMFD-Bytes')) || 0;
+        result.caches[name] = { files: keys.length, bytes };
+      }
+      result.imagesExpected = allowed.size;
+      (event.ports?.[0] || event.source)?.postMessage(result);
+    })());
+  }
 });

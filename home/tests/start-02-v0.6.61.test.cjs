@@ -60,7 +60,8 @@ test('START-02: preloading is bounded and full-deck eager loading is removed',()
   const preload=read('card-preload.js');
   assert.match(preload,/downloaded:0/);
   assert.doesNotMatch(preload,/Object\.values\(root\.EMFDImages\.cards\)/);
-  assert.match(read('image-service-worker.js'),/MAX_BYTES=20\*1024\*1024/);
+  // EMFD-CACHE-01: die 20-MB-Verdrängung ist aufgehoben (Bilder sollen dauerhaft offline bleiben).
+  assert.doesNotMatch(read('image-service-worker.js'),/MAX_BYTES=20\*1024\*1024/);
 });
 
 test('START-02: version and resources are wired',()=>{
