@@ -50,6 +50,11 @@ Du bist ab jetzt Planungs- und Gestaltungspartner für **„Ein Moment für dich
 | Gestaltung | Cozy Enchanted Fantasy · Midnight Blue & Golden Teal. Keine eingebrannten Texte oder Bedienelemente in Raumbildern. |
 | Karten | 24 Orakelkarten getrennt von den 24 identischen QR-Geschenkkarten. Keine O25. |
 
+### Neue Oberfläche (19.11.2026)
+- Frontend und Backend werden getrennt. Die Funktionen bleiben erhalten: Musik und Geräte, Karten, Gedankenblatt, Bücher, Navigation, Hilfe, Einstellungen und Register. Neu werden die Bilder und die Steuerung.
+- Von der bisherigen Oberfläche wird nichts übernommen, auch keine Buttons. Alle Bedienelemente sind einheitlich. Ein Auftrag für die neue Oberfläche legt deshalb den gemeinsamen Satz an Bedienelementen fest: Arten, Zustände, Größen, Abstände, Beschriftung und Barrierefreiheit. Oder er verweist auf einen bereits festgelegten Satz.
+- Je Ansicht beschreibt der Auftrag, welche vorhandene Funktion ein Bedienelement oder Hotspot auslöst. Claude Code ergänzt nichts und fragt bei Unklarheit nach.
+
 ### Bekannte offene Punkte
 1. ~~Rückwege uneinheitlich~~ → erledigt mit EMFD-NAV-01 (v0.6.67): ein Rückweg pro Ansicht mit Pfeil und Zielname, tatsächliche Herkunft, Ersatzziele laut Matrix, App-Rückweg nutzt den Browserverlauf.
 2. ~~Raumgeräte~~ → EMFD-PLAYER-01 (v0.6.68): gemeinsame Gerätestation unter `#ort/P0x/geraet`, `#atelier/geraet`, `#teezimmer/geraet`; Öffnen startet nichts; Wiedergabekontext kennzeichnet das aktive Gerät. Offen: Gerätebilder im Manifest, freigestellte Geräte/Bewegung (PLAYER-02). Audio liegt auf STRATO mit Namen nach Musikmanifest v1.2, Schema `<Karte>-M<Stück>[-V<Version>].mp3` (immer `-M01`; `-M02` … bei mehreren Stücken einer Karte; `-V02` … für weitere Versionen, V01 ohne Zusatz). Die App v0.6.69 spielt je Karte nur `-M01`; es fehlen noch O05/O07/O09/O12/O15-M01 und O16-M02-V02. Die App wird von Claude Code in `neuroways/haus_der_wunder` entwickelt (D-14).

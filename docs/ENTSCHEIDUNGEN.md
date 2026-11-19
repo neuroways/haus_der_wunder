@@ -4,6 +4,14 @@
 
 Verbindliche Planungsentscheidungen für die Entwicklung. Neuere Einträge ersetzen ältere ausdrücklich. Quelle der fachlichen Entscheidung ist die Planung in ChatGPT; Claude Code dokumentiert und versioniert sie hier.
 
+## 19.11.2026 · Neue Oberfläche, Funktionen bleiben
+
+Festgelegt von der Projektinhaberin am 19.11.2026 (an Claude Code):
+- **Frontend und Backend werden getrennt.** Die Funktionen bleiben erhalten. Dazu gehören Musik und Gerätestationen, Karten, Gedankenblatt, Bücher, Navigation mit Rückwegen, Hilfe, Einstellungen und Register. Neu werden die Bilder und die Steuerung.
+- **Das Frontend wird neu gedacht.** Von der bisherigen Oberfläche werden auch keine Buttons übernommen, weil sie nicht einheitlich sind. Alle Bedienelemente sind einheitlich und kommen aus einem gemeinsamen Satz.
+- Umgesetzt wird streng nach dem jeweiligen Auftrag. Bei Unklarheiten fragt Claude Code nach, statt selbst zu gestalten.
+- Die bisherigen Ansichten bleiben erreichbar, bis die neue Oberfläche sie ersetzt. Alte Adressen und QR-Codes bleiben gültig.
+
 ## 19.11.2026 · EMFD-DEV-BOOK-01 · Entscheidungsrunde W1–W7
 
 Quelle: ChatGPT-Entscheidungsrunde „EMFD-DEV-BOOK-01 · Entscheidungsrunde W1–W7“, von der Projektinhaberin am 19.11.2026 an Claude Code übermittelt. Grundlage: `docs/PLANUNG-UMBAU-BILDERBUCH.md`.
