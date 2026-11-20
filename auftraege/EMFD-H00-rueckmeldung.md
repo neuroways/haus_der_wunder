@@ -1,5 +1,5 @@
 # EMFD-Rückmeldung · EMFD-H00 v0.3 (BOOK-01e) · Die Halle
-Datum: 20.11.2026 · Ergebnis: umgesetzt als Testversion (nicht live) · Commit: siehe Branch `claude/book-01e-halle` (neuroways/haus_der_wunder); Register: Branch `claude/book-01e-halle` (neuroways/haus-der-wunder)
+Datum: 20.11.2026 · Ergebnis: umgesetzt als Testversion (nicht live) · Commit: 6f9a973 auf `claude/book-01e-halle` (neuroways/haus_der_wunder); Register: Branch `claude/book-01e-halle` (neuroways/haus-der-wunder)
 Ausgangsversion: v0.6.72 (BOOK-01d, PR #2, noch nicht gemergt) · Zielversion: v0.6.73 · Live unverändert v0.6.69
 
 ## Was sich für die Person ändert
