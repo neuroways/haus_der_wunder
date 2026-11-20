@@ -1,5 +1,5 @@
 # EMFD-Rückmeldung · EMFD-LIGHT-01 · Verbindliche hausweite Lichtsteuerung
-Datum: 20.11.2026 · Ergebnis: technisch umgesetzt; die visuelle Abnahme wartet auf die Lichtebenen von Work · Commit: siehe unten auf `claude/light-01` · App v0.6.81
+Datum: 20.11.2026 · Ergebnis: technisch umgesetzt; die visuelle Abnahme wartet auf die Lichtebenen von Work · Commit: c26d5d5 auf `claude/light-01` · App v0.6.81
 Ausgangsbasis: aktuellster Teststand `claude/h00-direkt` (v0.6.80: Küche, Halle mit neuer C01-Fassung, Direkteintritt). Das Mäppchen (`claude/maeppchen-01`, v0.6.79) ist ein paralleler Stand und hier nicht enthalten; beim Zusammenführen ist kein Konflikt in der Lichtlogik zu erwarten.
 
 ## Was sich für die Person ändert
