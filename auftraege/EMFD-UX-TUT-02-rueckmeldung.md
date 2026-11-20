@@ -1,5 +1,5 @@
 # EMFD-Rückmeldung · EMFD-UX-TUT-02 (BOOK-01d) · Eingang, freiwillige Einführung, gemeinsame Bedienelemente
-Datum: 20.11.2026 · Ergebnis: umgesetzt als Testversion (nicht live) · Commit: siehe PR-Branch `claude/book-01d-tutorial` (Repository neuroways/haus_der_wunder); Register: Branch `claude/book-01d-tutorial` in neuroways/haus-der-wunder
+Datum: 20.11.2026 · Ergebnis: umgesetzt als Testversion (nicht live) · Commit: d7247e1 auf `claude/book-01d-tutorial` (Repository neuroways/haus_der_wunder); Register: Branch `claude/book-01d-tutorial` in neuroways/haus-der-wunder
 Ausgangsversion: v0.6.71 (CACHE-01, PR #1, noch nicht gemergt) · Zielversion: v0.6.72 · Live unverändert v0.6.69
 
 ## Was sich für die Person ändert
