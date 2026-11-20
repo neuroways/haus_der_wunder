@@ -1,14 +1,14 @@
 # Medien-Check · media/
 
-Erstellt: 2026-11-19T06:48:38+00:00 · Werkzeug `tools/media_check.py` · 358 Dateien, 152.9 MB
+Erstellt: 2026-11-20T15:56:41+00:00 · Werkzeug `tools/media_check.py` · 397 Dateien, 198.1 MB
 
 ## Ergebnis
 
 - Vorderseiten: **18/24** Karten · Cover: **3/25** (O01–O24 + T03)
 - Ohne Vorderseite: O19, O20, O21, O22, O23, O24
 - Ohne Cover: O01, O02, O03, O05, O07, O08, O09, O10, O11, O12, O13, O14, O15, O16, O17, O18, O19, O20, O21, O22, O23, T03
-- Fehler: **32** · Warnungen: **0** · Hinweise: **268**
-- Seit 2026-11-19T06:46:56+00:00: 0 neu, 0 geändert, 0 entfernt
+- Fehler: **32** · Warnungen: **0** · Hinweise: **307**
+- Seit 2026-11-19T06:48:38+00:00: 39 neu, 0 geändert, 0 entfernt
 
 ## Apps · Zugriff auf media/
 
@@ -20,12 +20,18 @@ Erstellt: 2026-11-19T06:48:38+00:00 · Werkzeug `tools/media_check.py` · 358 Da
 ## Ordnerstruktur
 
 ```
-media/                                358 Dateien   152.9 MB
+media/                                397 Dateien   198.1 MB
+  audio/                                7 Dateien    31.5 MB
   backgrounds/                          3 Dateien   835.7 KB
   cards/                               43 Dateien    87.1 MB
     fronts/                            18 Dateien    36.9 MB
   covers/                               3 Dateien     6.9 MB
   katalog/                              1 Dateien    15.5 KB
+  maeppchen/                           26 Dateien     9.6 MB
+    gluehwuermchen/                     7 Dateien     1.3 MB
+    maeppchen/                         11 Dateien     2.4 MB
+    papier/                             6 Dateien     1.6 MB
+    szene/                              2 Dateien     4.3 MB
   music03/                              3 Dateien     5.1 MB
   optimized/                          260 Dateien    43.8 MB
     backgrounds/                        7 Dateien     1.1 MB
@@ -35,7 +41,8 @@ media/                                358 Dateien   152.9 MB
     rooms/                             93 Dateien    22.4 MB
   portraits/                            1 Dateien   686.1 KB
   raumgeraete/                          8 Dateien   375.2 KB
-  rooms/                               26 Dateien     6.5 MB
+  rooms/                               32 Dateien    10.6 MB
+    szenen/                             6 Dateien     4.1 MB
     thumbs/                             9 Dateien   405.1 KB
     varianten/                          1 Dateien   307.5 KB
   start/                                6 Dateien     1.7 MB
@@ -109,6 +116,13 @@ media/                                358 Dateien   152.9 MB
 | Fehler | `home/assets/recovery/rueckseite.jpeg` | Kopie einer Mediendatei (media/cards/rueckseite.jpeg) im App-Ordner – Konvention verbietet Medienkopien. |
 | Fehler | `home/assets/rooms/startseite-haustuer-v1.webp` | Kopie einer Mediendatei (media/rooms/startseite-haustuer-v1.webp) im App-Ordner – Konvention verbietet Medienkopien. |
 | Fehler | `home/assets/weltenweberin.jpeg` | Kopie einer Mediendatei (media/portraits/weltenweberin.jpeg) im App-Ordner – Konvention verbietet Medienkopien. |
+| Hinweis | `audio/O01-M01.mp3` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `audio/O02-M01.mp3` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `audio/O03-M01.mp3` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `audio/O04-M01.mp3` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `audio/O08-M01.mp3` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `audio/O24-M01.mp3` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `audio/THEME-M01.mp3` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `backgrounds/bildkarten-tisch-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `backgrounds/bildkarten-tisch-v2.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `backgrounds/brief-pergament-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
@@ -137,6 +151,32 @@ media/                                358 Dateien   152.9 MB
 | Hinweis | `cards/O23.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `cards/O24.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `cards/rueckseite.jpeg` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/gluehwuermchen/15-hand.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/gluehwuermchen/16-papierkoerper.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/gluehwuermchen/17-papierfluegel-links.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/gluehwuermchen/18-papierfluegel-rechts.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/gluehwuermchen/19-lebendiger-koerper.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/gluehwuermchen/20-flugfluegel-links.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/gluehwuermchen/21-flugfluegel-rechts.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/maeppchen/01-lederaussenseite.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/maeppchen/01a-lederriemen.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/maeppchen/01b-riemenschlaufe.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/maeppchen/02-innenseite-links.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/maeppchen/03-innenseite-rechts.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/maeppchen/03a-falz.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/maeppchen/04-kartenfach.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/maeppchen/05-impulsfach.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/maeppchen/06-fragefach.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/maeppchen/07-leinenband.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/maeppchen/08-papierlasche.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/papier/09-impulskaertchen.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/papier/10-fragekaertchen.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/papier/11-gedankenbuch-einband.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/papier/12-geschichtenheft-umschlag.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/papier/13-buch-aufgeschlagen.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/papier/14-papierblatt.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/szene/00-holztisch.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/szene/22-nachthimmel.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `music03/cabinet-v2.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `music03/tonearm-v1.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `music03/vinyl-v1.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
@@ -360,6 +400,12 @@ media/                                358 Dateien   152.9 MB
 | Hinweis | `rooms/haus-zentrale-halle-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `rooms/musikzimmer-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `rooms/startseite-haustuer-v1.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/szenen/EXT-C01-tut02-ref-4b2b6f9e.jpeg` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/szenen/EXT-C02-tut02-ref-13701a58.jpeg` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/szenen/H00-C01-h00-ref-c7a61a97.jpeg` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/szenen/H00-C02-h00-ref-c4451a14.jpeg` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/szenen/KUE-C01-kue-ref-385e7bde.jpg` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/szenen/KUE-C02-kue-ref-1e614f14.jpg` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `rooms/teezimmer_p08_background.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `rooms/thumbs/P01-fensterzimmer-thumb.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `rooms/thumbs/P02-bibliothek-thumb.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
@@ -378,11 +424,63 @@ media/                                358 Dateien   152.9 MB
 | Hinweis | `start/EMFD-START-02-A05-briefpapier.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `start/EMFD-START-02-A06-geschenkkarte-vorderseite.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 
+## Änderungen seit 2026-11-19T06:48:38+00:00
+
+**Neu**
+
+- `audio/O01-M01.mp3`
+- `audio/O02-M01.mp3`
+- `audio/O03-M01.mp3`
+- `audio/O04-M01.mp3`
+- `audio/O08-M01.mp3`
+- `audio/O24-M01.mp3`
+- `audio/THEME-M01.mp3`
+- `maeppchen/gluehwuermchen/15-hand.png`
+- `maeppchen/gluehwuermchen/16-papierkoerper.png`
+- `maeppchen/gluehwuermchen/17-papierfluegel-links.png`
+- `maeppchen/gluehwuermchen/18-papierfluegel-rechts.png`
+- `maeppchen/gluehwuermchen/19-lebendiger-koerper.png`
+- `maeppchen/gluehwuermchen/20-flugfluegel-links.png`
+- `maeppchen/gluehwuermchen/21-flugfluegel-rechts.png`
+- `maeppchen/maeppchen/01-lederaussenseite.png`
+- `maeppchen/maeppchen/01a-lederriemen.png`
+- `maeppchen/maeppchen/01b-riemenschlaufe.png`
+- `maeppchen/maeppchen/02-innenseite-links.png`
+- `maeppchen/maeppchen/03-innenseite-rechts.png`
+- `maeppchen/maeppchen/03a-falz.png`
+- `maeppchen/maeppchen/04-kartenfach.png`
+- `maeppchen/maeppchen/05-impulsfach.png`
+- `maeppchen/maeppchen/06-fragefach.png`
+- `maeppchen/maeppchen/07-leinenband.png`
+- `maeppchen/maeppchen/08-papierlasche.png`
+- `maeppchen/papier/09-impulskaertchen.png`
+- `maeppchen/papier/10-fragekaertchen.png`
+- `maeppchen/papier/11-gedankenbuch-einband.png`
+- `maeppchen/papier/12-geschichtenheft-umschlag.png`
+- `maeppchen/papier/13-buch-aufgeschlagen.png`
+- `maeppchen/papier/14-papierblatt.png`
+- `maeppchen/szene/00-holztisch.png`
+- `maeppchen/szene/22-nachthimmel.png`
+- `rooms/szenen/EXT-C01-tut02-ref-4b2b6f9e.jpeg`
+- `rooms/szenen/EXT-C02-tut02-ref-13701a58.jpeg`
+- `rooms/szenen/H00-C01-h00-ref-c7a61a97.jpeg`
+- `rooms/szenen/H00-C02-h00-ref-c4451a14.jpeg`
+- `rooms/szenen/KUE-C01-kue-ref-385e7bde.jpg`
+- `rooms/szenen/KUE-C02-kue-ref-1e614f14.jpg`
+
+
 ## Dateien
 
 | Datei | Typ | Rev | Maß | Größe | SHA-256 (Anfang) |
 |---|---|---|---|---|---|
 | `MEDIEN-KONVENTION.md` | support |  |  | 4.8 KB | `ad4a5e635077` |
+| `audio/O01-M01.mp3` | unknown-media |  |  | 5.1 MB | `9a58372c06ce` |
+| `audio/O02-M01.mp3` | unknown-media |  |  | 5.9 MB | `0065c46da4a6` |
+| `audio/O03-M01.mp3` | unknown-media |  |  | 4.1 MB | `c6def0bd91b6` |
+| `audio/O04-M01.mp3` | unknown-media |  |  | 4.6 MB | `753c0ccfd446` |
+| `audio/O08-M01.mp3` | unknown-media |  |  | 4.1 MB | `46b7ea736655` |
+| `audio/O24-M01.mp3` | unknown-media |  |  | 3.3 MB | `2fbccd3e747f` |
+| `audio/THEME-M01.mp3` | unknown-media |  |  | 4.5 MB | `da70701a2340` |
 | `backgrounds/bildkarten-tisch-v1.webp` | unknown-media |  | 865×1536 | 291.4 KB | `bb67a4b24b2a` |
 | `backgrounds/bildkarten-tisch-v2.webp` | unknown-media |  | 865×1536 | 314.1 KB | `ac0822ebafa2` |
 | `backgrounds/brief-pergament-v1.webp` | unknown-media |  | 711×1536 | 230.2 KB | `cf440164b90c` |
@@ -433,6 +531,32 @@ media/                                358 Dateien   152.9 MB
 | `covers/O06-cover-r1-8e23a947.png` | cover | r1 | 1254×1254 | 2.0 MB | `8e23a9470099` |
 | `covers/O24-cover-r1-054b4da2.png` | cover | r1 | 1254×1254 | 2.5 MB | `054b4da28f09` |
 | `katalog/index.html` | support |  |  | 15.5 KB | `661a44edf28b` |
+| `maeppchen/gluehwuermchen/15-hand.png` | unknown-media |  | 550×756 | 439.4 KB | `87cb00981b48` |
+| `maeppchen/gluehwuermchen/16-papierkoerper.png` | unknown-media |  | 323×442 | 149.3 KB | `974743db93e0` |
+| `maeppchen/gluehwuermchen/17-papierfluegel-links.png` | unknown-media |  | 439×204 | 141.0 KB | `4f7eb817b3a8` |
+| `maeppchen/gluehwuermchen/18-papierfluegel-rechts.png` | unknown-media |  | 447×205 | 143.6 KB | `25359dde1ec3` |
+| `maeppchen/gluehwuermchen/19-lebendiger-koerper.png` | unknown-media |  | 300×441 | 150.9 KB | `00fdbc18166c` |
+| `maeppchen/gluehwuermchen/20-flugfluegel-links.png` | unknown-media |  | 473×193 | 159.2 KB | `10554a71ef10` |
+| `maeppchen/gluehwuermchen/21-flugfluegel-rechts.png` | unknown-media |  | 475×194 | 155.8 KB | `502fd3a74949` |
+| `maeppchen/maeppchen/01-lederaussenseite.png` | unknown-media |  | 393×539 | 456.2 KB | `039b4e20a69f` |
+| `maeppchen/maeppchen/01a-lederriemen.png` | unknown-media |  | 526×69 | 69.8 KB | `c298fe2bd8ca` |
+| `maeppchen/maeppchen/01b-riemenschlaufe.png` | unknown-media |  | 147×302 | 85.1 KB | `44095705d6f8` |
+| `maeppchen/maeppchen/02-innenseite-links.png` | unknown-media |  | 400×538 | 523.3 KB | `550a090a046a` |
+| `maeppchen/maeppchen/03-innenseite-rechts.png` | unknown-media |  | 399×542 | 520.7 KB | `afe6455d6ccb` |
+| `maeppchen/maeppchen/03a-falz.png` | unknown-media |  | 156×692 | 210.8 KB | `1566c787be5d` |
+| `maeppchen/maeppchen/04-kartenfach.png` | unknown-media |  | 371×188 | 149.9 KB | `cd3f7d16d3b9` |
+| `maeppchen/maeppchen/05-impulsfach.png` | unknown-media |  | 364×166 | 131.9 KB | `134074d07690` |
+| `maeppchen/maeppchen/06-fragefach.png` | unknown-media |  | 371×166 | 137.8 KB | `2f2dd94860d9` |
+| `maeppchen/maeppchen/07-leinenband.png` | unknown-media |  | 383×100 | 81.3 KB | `05b54597a52e` |
+| `maeppchen/maeppchen/08-papierlasche.png` | unknown-media |  | 262×193 | 92.0 KB | `3878f15ed1e8` |
+| `maeppchen/papier/09-impulskaertchen.png` | unknown-media |  | 268×368 | 176.8 KB | `f1500a7bf60c` |
+| `maeppchen/papier/10-fragekaertchen.png` | unknown-media |  | 268×361 | 174.2 KB | `398563d39b7f` |
+| `maeppchen/papier/11-gedankenbuch-einband.png` | unknown-media |  | 271×358 | 205.1 KB | `db39d00e2a42` |
+| `maeppchen/papier/12-geschichtenheft-umschlag.png` | unknown-media |  | 301×375 | 204.4 KB | `1be37073d390` |
+| `maeppchen/papier/13-buch-aufgeschlagen.png` | unknown-media |  | 644×511 | 564.8 KB | `293f1283c1d1` |
+| `maeppchen/papier/14-papierblatt.png` | unknown-media |  | 392×562 | 360.5 KB | `d2039d05e6b8` |
+| `maeppchen/szene/00-holztisch.png` | unknown-media |  | 1086×1448 | 2.2 MB | `93b1898128ff` |
+| `maeppchen/szene/22-nachthimmel.png` | unknown-media |  | 1024×1536 | 2.1 MB | `013247ce11f8` |
 | `manifest.schema.json` | support |  |  | 6.0 KB | `79cc113b5ce8` |
 | `media-loader.js` | support |  |  | 18.6 KB | `6268441e30dc` |
 | `media-loader.mjs` | support |  |  | 670 B | `c8660aa25c1b` |
@@ -723,6 +847,12 @@ media/                                358 Dateien   152.9 MB
 | `rooms/manifest.json` | support |  |  | 3.1 KB | `be76f77104ab` |
 | `rooms/musikzimmer-v1.webp` | unknown-media |  | 865×1536 | 384.7 KB | `43a681e375e6` |
 | `rooms/startseite-haustuer-v1.webp` | unknown-media |  | 864×1536 | 451.6 KB | `9be7413ffc8f` |
+| `rooms/szenen/EXT-C01-tut02-ref-4b2b6f9e.jpeg` | unknown-media |  | 1536×865 | 900.7 KB | `4b2b6f9e910e` |
+| `rooms/szenen/EXT-C02-tut02-ref-13701a58.jpeg` | unknown-media |  | 1536×864 | 844.2 KB | `13701a5814a1` |
+| `rooms/szenen/H00-C01-h00-ref-c7a61a97.jpeg` | unknown-media |  | 1536×864 | 653.2 KB | `c7a61a97dda5` |
+| `rooms/szenen/H00-C02-h00-ref-c4451a14.jpeg` | unknown-media |  | 1536×864 | 641.7 KB | `c4451a14d564` |
+| `rooms/szenen/KUE-C01-kue-ref-385e7bde.jpg` | unknown-media |  | 1536×864 | 596.1 KB | `385e7bdea344` |
+| `rooms/szenen/KUE-C02-kue-ref-1e614f14.jpg` | unknown-media |  | 1536×864 | 607.4 KB | `1e614f146104` |
 | `rooms/teezimmer_p08_background.webp` | unknown-media |  | 1024×1536 | 470.6 KB | `393bd136e1c3` |
 | `rooms/thumbs/P01-fensterzimmer-thumb.webp` | unknown-media |  | 480×320 | 41.5 KB | `fa343d13f106` |
 | `rooms/thumbs/P02-bibliothek-thumb.webp` | unknown-media |  | 480×320 | 37.1 KB | `feb85c870159` |

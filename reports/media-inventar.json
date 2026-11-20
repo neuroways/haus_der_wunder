@@ -1,6 +1,6 @@
 {
  "tool": "emfd-media-check/1.0",
- "generatedAt": "2026-11-19T06:48:38+00:00",
+ "generatedAt": "2026-11-20T15:56:41+00:00",
  "mediaRoot": "media",
  "files": [
   {
@@ -9,6 +9,55 @@
    "bytes": 4914,
    "sha256": "ad4a5e63507753c1059656cc95386019350332176fd69aca4e4d7d378c0464e6",
    "kind": "support"
+  },
+  {
+   "path": "audio/O01-M01.mp3",
+   "folder": "audio",
+   "bytes": 5342920,
+   "sha256": "9a58372c06ce7ea5a2990b911cfc7201c6748594025c635bf3dbbbbcaec84199",
+   "kind": "unknown-media"
+  },
+  {
+   "path": "audio/O02-M01.mp3",
+   "folder": "audio",
+   "bytes": 6140599,
+   "sha256": "0065c46da4a678b6a5f95fba775f40206bc5bd864f557bfd67f1284dc66e53f8",
+   "kind": "unknown-media"
+  },
+  {
+   "path": "audio/O03-M01.mp3",
+   "folder": "audio",
+   "bytes": 4300858,
+   "sha256": "c6def0bd91b672e2d1cba8fbcbad7c78e3c01d940ea356f61de7d4dc41357a92",
+   "kind": "unknown-media"
+  },
+  {
+   "path": "audio/O04-M01.mp3",
+   "folder": "audio",
+   "bytes": 4789597,
+   "sha256": "753c0ccfd446c34bddac77279493bf0cb4da057fe58ff81557e8b751972dd993",
+   "kind": "unknown-media"
+  },
+  {
+   "path": "audio/O08-M01.mp3",
+   "folder": "audio",
+   "bytes": 4305127,
+   "sha256": "46b7ea73665504b8d9a3dc500451eccf539f6058b6ccb58de268020fa136cbca",
+   "kind": "unknown-media"
+  },
+  {
+   "path": "audio/O24-M01.mp3",
+   "folder": "audio",
+   "bytes": 3425249,
+   "sha256": "2fbccd3e747f16de39f43028533190ddd57c13eea6b3c6a37fcba97ed4763e96",
+   "kind": "unknown-media"
+  },
+  {
+   "path": "audio/THEME-M01.mp3",
+   "folder": "audio",
+   "bytes": 4681174,
+   "sha256": "da70701a23400bf4f2494d7a0f2494c63b311054057c08a334936bd91a7beab5",
+   "kind": "unknown-media"
   },
   {
    "path": "backgrounds/bildkarten-tisch-v1.webp",
@@ -541,6 +590,240 @@
    "bytes": 15888,
    "sha256": "661a44edf28bf65b8a2f00ed7d1b68eaa0a0a38f02482dfd079cdf345ed4b0ae",
    "kind": "support"
+  },
+  {
+   "path": "maeppchen/gluehwuermchen/15-hand.png",
+   "folder": "maeppchen/gluehwuermchen",
+   "bytes": 449965,
+   "sha256": "87cb00981b486642a63433d58fd485e84f512ed0d8b7d266d20d6b0526d6d4ce",
+   "width": 550,
+   "height": 756,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/gluehwuermchen/16-papierkoerper.png",
+   "folder": "maeppchen/gluehwuermchen",
+   "bytes": 152918,
+   "sha256": "974743db93e03c78b93bbbf5032ce2a6012d82b5ae79f0008656ee5cc3aa93d1",
+   "width": 323,
+   "height": 442,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/gluehwuermchen/17-papierfluegel-links.png",
+   "folder": "maeppchen/gluehwuermchen",
+   "bytes": 144429,
+   "sha256": "4f7eb817b3a88c23ffb78a20b96286d78e0deb8bc318ec4bf221595210b234ee",
+   "width": 439,
+   "height": 204,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/gluehwuermchen/18-papierfluegel-rechts.png",
+   "folder": "maeppchen/gluehwuermchen",
+   "bytes": 147018,
+   "sha256": "25359dde1ec3d58985f1c45c6409a8381d0e554e29cd8ef4b9eaa87ffa843ab4",
+   "width": 447,
+   "height": 205,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/gluehwuermchen/19-lebendiger-koerper.png",
+   "folder": "maeppchen/gluehwuermchen",
+   "bytes": 154554,
+   "sha256": "00fdbc18166cde2359d9744b723f9615a066d56333788e0d3278bf333f3b26dd",
+   "width": 300,
+   "height": 441,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/gluehwuermchen/20-flugfluegel-links.png",
+   "folder": "maeppchen/gluehwuermchen",
+   "bytes": 163047,
+   "sha256": "10554a71ef1017640c5925c82e285999c16ebc3fb1038bb21004a5da896d3619",
+   "width": 473,
+   "height": 193,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/gluehwuermchen/21-flugfluegel-rechts.png",
+   "folder": "maeppchen/gluehwuermchen",
+   "bytes": 159588,
+   "sha256": "502fd3a74949b46df65412b68b3ca0f5ee1eab424dff16016ffcab1acc8b594d",
+   "width": 475,
+   "height": 194,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/maeppchen/01-lederaussenseite.png",
+   "folder": "maeppchen/maeppchen",
+   "bytes": 467098,
+   "sha256": "039b4e20a69f6a2b60eef2f7ae81bed587468d8e9dc0b44c0334ea1c7ac178a8",
+   "width": 393,
+   "height": 539,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/maeppchen/01a-lederriemen.png",
+   "folder": "maeppchen/maeppchen",
+   "bytes": 71526,
+   "sha256": "c298fe2bd8caf7351fb5c50e559a588ffeb1de9d28578ea07422998c862dbb7d",
+   "width": 526,
+   "height": 69,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/maeppchen/01b-riemenschlaufe.png",
+   "folder": "maeppchen/maeppchen",
+   "bytes": 87119,
+   "sha256": "44095705d6f843a4f45589d699cd0b6356144a18acf7d956d9b4d4ec9009f614",
+   "width": 147,
+   "height": 302,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/maeppchen/02-innenseite-links.png",
+   "folder": "maeppchen/maeppchen",
+   "bytes": 535906,
+   "sha256": "550a090a046ae400e9d3643c4b3a236837397be240c446f6d3dcc342080c2570",
+   "width": 400,
+   "height": 538,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/maeppchen/03-innenseite-rechts.png",
+   "folder": "maeppchen/maeppchen",
+   "bytes": 533202,
+   "sha256": "afe6455d6ccb3a5c9ab5a2315d38a334014537bd5eb30599424ccac0da8b5983",
+   "width": 399,
+   "height": 542,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/maeppchen/03a-falz.png",
+   "folder": "maeppchen/maeppchen",
+   "bytes": 215873,
+   "sha256": "1566c787be5d1d45f8eac3c2401a99008907d8de386cfd710429fc6525ed3f98",
+   "width": 156,
+   "height": 692,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/maeppchen/04-kartenfach.png",
+   "folder": "maeppchen/maeppchen",
+   "bytes": 153463,
+   "sha256": "cd3f7d16d3b9a26a96369e1a02b8920c71624616563abd4e7e1de0a56325c77c",
+   "width": 371,
+   "height": 188,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/maeppchen/05-impulsfach.png",
+   "folder": "maeppchen/maeppchen",
+   "bytes": 135087,
+   "sha256": "134074d07690cf1edcd0b2fadaac57abf5c0d4d9b6ee82aa050b127237021e03",
+   "width": 364,
+   "height": 166,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/maeppchen/06-fragefach.png",
+   "folder": "maeppchen/maeppchen",
+   "bytes": 141056,
+   "sha256": "2f2dd94860d9b620a08edd56c162c5ba71e3c98217ec4ee3b5df1feb2754d0df",
+   "width": 371,
+   "height": 166,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/maeppchen/07-leinenband.png",
+   "folder": "maeppchen/maeppchen",
+   "bytes": 83250,
+   "sha256": "05b54597a52e2604a0cf0f23980b3a6ccb9bc850086615b8905800aa7643f5ac",
+   "width": 383,
+   "height": 100,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/maeppchen/08-papierlasche.png",
+   "folder": "maeppchen/maeppchen",
+   "bytes": 94217,
+   "sha256": "3878f15ed1e8e6b1b3ad8116f21ed3eb5ccb0452a8670370f8fb2ca573a32dc1",
+   "width": 262,
+   "height": 193,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/papier/09-impulskaertchen.png",
+   "folder": "maeppchen/papier",
+   "bytes": 181077,
+   "sha256": "f1500a7bf60c64a4c913b23093f35407b1840dfe23da85b1008b52a0c591f2b1",
+   "width": 268,
+   "height": 368,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/papier/10-fragekaertchen.png",
+   "folder": "maeppchen/papier",
+   "bytes": 178414,
+   "sha256": "398563d39b7ffcf6256edfd61dd9b7e366a3d7c168e57adada2305bab1643614",
+   "width": 268,
+   "height": 361,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/papier/11-gedankenbuch-einband.png",
+   "folder": "maeppchen/papier",
+   "bytes": 210037,
+   "sha256": "db39d00e2a42667ba2ededb2a914969356c6f5d0356847cb2542d06d60280836",
+   "width": 271,
+   "height": 358,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/papier/12-geschichtenheft-umschlag.png",
+   "folder": "maeppchen/papier",
+   "bytes": 209341,
+   "sha256": "1be37073d390dea8196e14b4cae67b9c768fb2ac6730a3a0c169781eb9650a42",
+   "width": 301,
+   "height": 375,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/papier/13-buch-aufgeschlagen.png",
+   "folder": "maeppchen/papier",
+   "bytes": 578353,
+   "sha256": "293f1283c1d155f6ee114ba20972b5e73f9fad907e188a29670a0dd8852977b7",
+   "width": 644,
+   "height": 511,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/papier/14-papierblatt.png",
+   "folder": "maeppchen/papier",
+   "bytes": 369169,
+   "sha256": "d2039d05e6b8c3e7b20611ad02759adc3fa4b32a2f182b62437ad05e3e4ffb0f",
+   "width": 392,
+   "height": 562,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/szene/00-holztisch.png",
+   "folder": "maeppchen/szene",
+   "bytes": 2289054,
+   "sha256": "93b1898128ff196e9f8ec67c79d496194d3f2e0e33020ac3c012122aa87b20f7",
+   "width": 1086,
+   "height": 1448,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/szene/22-nachthimmel.png",
+   "folder": "maeppchen/szene",
+   "bytes": 2178924,
+   "sha256": "013247ce11f8999e99cb69a2a2c3cc2f779f9690df3836140764625b00fa43fe",
+   "width": 1024,
+   "height": 1536,
+   "kind": "unknown-media"
   },
   {
    "path": "manifest.schema.json",
@@ -3397,6 +3680,60 @@
    "kind": "unknown-media"
   },
   {
+   "path": "rooms/szenen/EXT-C01-tut02-ref-4b2b6f9e.jpeg",
+   "folder": "rooms/szenen",
+   "bytes": 922353,
+   "sha256": "4b2b6f9e910e645ee4e5a290837f6158f7b45971842f75681a4e3df8eeaa5b07",
+   "width": 1536,
+   "height": 865,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/szenen/EXT-C02-tut02-ref-13701a58.jpeg",
+   "folder": "rooms/szenen",
+   "bytes": 864487,
+   "sha256": "13701a5814a14702eda5793cc640521002fd05e683eb498adbd853c19412bb16",
+   "width": 1536,
+   "height": 864,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/szenen/H00-C01-h00-ref-c7a61a97.jpeg",
+   "folder": "rooms/szenen",
+   "bytes": 668861,
+   "sha256": "c7a61a97dda5aa85aee491c5f7cde2be36b095a271752f4f2662713fa2438ddf",
+   "width": 1536,
+   "height": 864,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/szenen/H00-C02-h00-ref-c4451a14.jpeg",
+   "folder": "rooms/szenen",
+   "bytes": 657113,
+   "sha256": "c4451a14d564a38347082c37e5e88dc96153c43b52ff736940cc87af87126fa8",
+   "width": 1536,
+   "height": 864,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/szenen/KUE-C01-kue-ref-385e7bde.jpg",
+   "folder": "rooms/szenen",
+   "bytes": 610382,
+   "sha256": "385e7bdea3446446c6296ce309308d30e4b35fb1dc937058b9b6d2681d68957b",
+   "width": 1536,
+   "height": 864,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/szenen/KUE-C02-kue-ref-1e614f14.jpg",
+   "folder": "rooms/szenen",
+   "bytes": 622000,
+   "sha256": "1e614f14610453101b63d41deca3cfb68d69cc3db6dde583c38ae7b4ba4f63af",
+   "width": 1536,
+   "height": 864,
+   "kind": "unknown-media"
+  },
+  {
    "path": "rooms/teezimmer_p08_background.webp",
    "folder": "rooms",
    "bytes": 481854,
@@ -3865,6 +4202,41 @@
  "issues": [
   {
    "level": "Hinweis",
+   "path": "audio/O01-M01.mp3",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "audio/O02-M01.mp3",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "audio/O03-M01.mp3",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "audio/O04-M01.mp3",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "audio/O08-M01.mp3",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "audio/O24-M01.mp3",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "audio/THEME-M01.mp3",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
    "path": "backgrounds/bildkarten-tisch-v1.webp",
    "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
   },
@@ -4001,6 +4373,136 @@
   {
    "level": "Hinweis",
    "path": "cards/rueckseite.jpeg",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/gluehwuermchen/15-hand.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/gluehwuermchen/16-papierkoerper.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/gluehwuermchen/17-papierfluegel-links.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/gluehwuermchen/18-papierfluegel-rechts.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/gluehwuermchen/19-lebendiger-koerper.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/gluehwuermchen/20-flugfluegel-links.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/gluehwuermchen/21-flugfluegel-rechts.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/maeppchen/01-lederaussenseite.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/maeppchen/01a-lederriemen.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/maeppchen/01b-riemenschlaufe.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/maeppchen/02-innenseite-links.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/maeppchen/03-innenseite-rechts.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/maeppchen/03a-falz.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/maeppchen/04-kartenfach.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/maeppchen/05-impulsfach.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/maeppchen/06-fragefach.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/maeppchen/07-leinenband.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/maeppchen/08-papierlasche.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/papier/09-impulskaertchen.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/papier/10-fragekaertchen.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/papier/11-gedankenbuch-einband.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/papier/12-geschichtenheft-umschlag.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/papier/13-buch-aufgeschlagen.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/papier/14-papierblatt.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/szene/00-holztisch.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/szene/22-nachthimmel.png",
    "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
   },
   {
@@ -5120,6 +5622,36 @@
   },
   {
    "level": "Hinweis",
+   "path": "rooms/szenen/EXT-C01-tut02-ref-4b2b6f9e.jpeg",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/szenen/EXT-C02-tut02-ref-13701a58.jpeg",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/szenen/H00-C01-h00-ref-c7a61a97.jpeg",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/szenen/H00-C02-h00-ref-c4451a14.jpeg",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/szenen/KUE-C01-kue-ref-385e7bde.jpg",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/szenen/KUE-C02-kue-ref-1e614f14.jpg",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
    "path": "rooms/teezimmer_p08_background.webp",
    "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
   },
@@ -5365,8 +5897,48 @@
   }
  ],
  "changes": {
-  "base": "2026-11-19T06:46:56+00:00",
-  "added": [],
+  "base": "2026-11-19T06:48:38+00:00",
+  "added": [
+   "audio/O01-M01.mp3",
+   "audio/O02-M01.mp3",
+   "audio/O03-M01.mp3",
+   "audio/O04-M01.mp3",
+   "audio/O08-M01.mp3",
+   "audio/O24-M01.mp3",
+   "audio/THEME-M01.mp3",
+   "maeppchen/gluehwuermchen/15-hand.png",
+   "maeppchen/gluehwuermchen/16-papierkoerper.png",
+   "maeppchen/gluehwuermchen/17-papierfluegel-links.png",
+   "maeppchen/gluehwuermchen/18-papierfluegel-rechts.png",
+   "maeppchen/gluehwuermchen/19-lebendiger-koerper.png",
+   "maeppchen/gluehwuermchen/20-flugfluegel-links.png",
+   "maeppchen/gluehwuermchen/21-flugfluegel-rechts.png",
+   "maeppchen/maeppchen/01-lederaussenseite.png",
+   "maeppchen/maeppchen/01a-lederriemen.png",
+   "maeppchen/maeppchen/01b-riemenschlaufe.png",
+   "maeppchen/maeppchen/02-innenseite-links.png",
+   "maeppchen/maeppchen/03-innenseite-rechts.png",
+   "maeppchen/maeppchen/03a-falz.png",
+   "maeppchen/maeppchen/04-kartenfach.png",
+   "maeppchen/maeppchen/05-impulsfach.png",
+   "maeppchen/maeppchen/06-fragefach.png",
+   "maeppchen/maeppchen/07-leinenband.png",
+   "maeppchen/maeppchen/08-papierlasche.png",
+   "maeppchen/papier/09-impulskaertchen.png",
+   "maeppchen/papier/10-fragekaertchen.png",
+   "maeppchen/papier/11-gedankenbuch-einband.png",
+   "maeppchen/papier/12-geschichtenheft-umschlag.png",
+   "maeppchen/papier/13-buch-aufgeschlagen.png",
+   "maeppchen/papier/14-papierblatt.png",
+   "maeppchen/szene/00-holztisch.png",
+   "maeppchen/szene/22-nachthimmel.png",
+   "rooms/szenen/EXT-C01-tut02-ref-4b2b6f9e.jpeg",
+   "rooms/szenen/EXT-C02-tut02-ref-13701a58.jpeg",
+   "rooms/szenen/H00-C01-h00-ref-c7a61a97.jpeg",
+   "rooms/szenen/H00-C02-h00-ref-c4451a14.jpeg",
+   "rooms/szenen/KUE-C01-kue-ref-385e7bde.jpg",
+   "rooms/szenen/KUE-C02-kue-ref-1e614f14.jpg"
+  ],
   "changed": [],
   "removed": []
  },

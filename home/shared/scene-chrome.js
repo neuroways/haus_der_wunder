@@ -169,9 +169,10 @@
       case 'paper':root.EMFDThoughtPaper?.open?.({mode:'free'},trigger);break;
       case 'house':go('#raeume');break;
       case 'companion':{
-        // Begleiterkarte (BOOK-01g, W6) ist noch nicht umgesetzt: erklären statt eine Funktion vorzutäuschen.
+        // Begleiterkarte (EMFD-MAEPPCHEN-01): Mäppchen der aktiven Begleitung öffnen, sonst freundlich erklären.
+        if(root.EMFDMaeppchen?.openFromNavigation?.(trigger))return true;
         const note=current?.scene?.el?.querySelector('[data-moment-note]');
-        if(note){note.hidden=false;note.textContent='Die Begleiterkarte wird gerade vorbereitet. Bis dahin kannst du über „Karte ziehen“ eine Karte für dich finden.';}
+        if(note){note.hidden=false;note.textContent=root.EMFDMaeppchen?.emptyText||'Noch begleitet dich keine Karte.';}
         return false;}
     }
     return true;

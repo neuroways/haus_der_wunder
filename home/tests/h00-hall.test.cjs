@@ -78,7 +78,7 @@ test('„Dein Moment“: sechs Ziele, vorhandene Module, kein Pfotensymbol, kein
  const src=read('shared/scene-chrome.js');
  assert.match(src,/EMFDCardDraw\?\.begin\?\.\(card\.id,hash\)/);assert.match(src,/EMFDFeatures\?\.activate\?\.\('stories'/);
  assert.match(src,/EMFDThoughtPaper\?\.open\?\.\(\{mode:'free'\}/);assert.match(src,/case 'house':go\('#raeume'\)/);
- assert.match(src,/Die Begleiterkarte wird gerade vorbereitet/,'Begleiter erklärt statt vorgetäuscht');
+ assert.match(src,/EMFDMaeppchen\?\.openFromNavigation\?\.\(trigger\)/,'Begleiter öffnet das Mäppchen (EMFD-MAEPPCHEN-01)');assert.match(src,/EMFDMaeppchen\?\.emptyText/,'ohne Begleitung: Erklärung statt vorgetäuschter Funktion');
  assert.match(src,/hidden>`\+/,'standardmäßig geschlossen');
  assert.doesNotMatch(read('index.html'),/<nav class="global-nav/);
 });

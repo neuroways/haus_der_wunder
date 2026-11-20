@@ -88,7 +88,7 @@ function bindImages(){main.querySelectorAll('img').forEach(img=>{const loaded=()
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
 function motionState(){document.body.classList.toggle('motion-off',quiet||reduced.matches);}
 reduced.addEventListener?.('change',motionState);
-function cardDock(c){return `<nav class="card-dock" aria-label="Begleitung zur Karte"><button type="button" data-reading="impulse" data-card="${c.id}" aria-label="Kartenbuch öffnen" title="Kartenbuch öffnen"><span class="dock-icon" aria-hidden="true">${dockIcons.houseStory}</span><span class="dock-label">Buch</span></button></nav>`;}
+function cardDock(c){return `<nav class="card-dock" aria-label="Begleitung zur Karte"><button type="button" data-reading="impulse" data-card="${c.id}" aria-label="Kartenbuch öffnen" title="Kartenbuch öffnen"><span class="dock-icon" aria-hidden="true">${dockIcons.houseStory}</span><span class="dock-label">Buch</span></button>${window.EMFDMaeppchen?.dockButton?.(c.id)||''}</nav>`;}
 function heldCard(c,{concealed=false}={}){if(!c.image)return picture(c,true);const back=window.EMFDImages?.cardBack?.['card-view']||{url:'../media/cards/EMFD_Kartenrueckseite_v1.2.jpeg',width:1024,height:1536};const front=concealed?'<span class="picture concealed-front"></span>':picture(c,true);return `<div class="held-stage"><button class="held-card${concealed?' flipped is-concealed':''}" data-concealed="${concealed}" style="aspect-ratio:${c.imageWidth||630}/${c.imageHeight||1080}" aria-label="${concealed?'Verdeckte Karte. Karte umdrehen':`${escape(c.name)} · Vorderseite. Einmal tippen zum Umdrehen`}"><span class="card-tilt"><span class="card-inner"><span class="card-face card-front" aria-hidden="${concealed}">${front}</span><span class="card-face card-back" aria-hidden="${!concealed}"><img src="${back.url}" alt="${concealed?'Verdeckte Karte':'Kartenrückseite'}" width="${back.width}" height="${back.height}"></span></span><span class="card-gloss-clip" aria-hidden="true"><span class="card-gloss"></span></span></span></button><button class="card-enlarge" type="button" data-card-enlarge aria-label="${concealed?'Verdeckte Karte groß ansehen':`${escape(c.name)} groß ansehen`}"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button></div>`;}
 function revealConcealedCard(card){
  const draw=window.EMFDCardDraw?.reveal?.();if(!draw||card.dataset.revealed==='true')return false;
@@ -182,7 +182,9 @@ function render(){
   const sceneRoute=window.EMFDRegistry?.isSceneRoute?.(location.hash);
   if(!sceneRoute&&(location.hash||'#ankommen')==='#ankommen'&&window.EMFDEntrance?.isReturning()){if(window.EMFDNavigation?.replace?.('#flur')&&location.hash==='#flur')render();else location.replace('#flur');return;}
   if(!sceneRoute&&/^#(?:raum|geraet)\//.test(location.hash)){location.replace('#flur');return;}
-  if(!sceneRoute&&location.hash!==''&&location.hash!=='#ankommen'){window.EMFDEntrance?.leave?.();window.EMFDHall?.leave?.();window.EMFDKitchen?.leave?.();}
+  if(!sceneRoute&&location.hash!==''&&location.hash!=='#ankommen'){window.EMFDEntrance?.leave?.();window.EMFDHall?.leave?.();window.EMFDKitchen?.leave?.();
+    // Szenenansicht verlassen: Szenenmodus sicher beenden (die Szene hängt beim Verlassen noch im DOM, bis main neu gefüllt wird).
+    document.body.classList.remove('scene-mode','hall-mode','kitchen-mode');}
   window.EMFDStations?.leaveAll();
   cardSizer?.disconnect();window.EMFDHandy?.stop();
   const settingsHost=document.querySelector('#motion-settings');
@@ -252,4 +254,4 @@ document.addEventListener('click',e=>{const link=e.target.closest?.('a[href="#fl
 document.querySelector('#quiet').onclick=e=>{quiet=!quiet;document.body.classList.toggle('quiet',quiet);e.currentTarget.setAttribute('aria-pressed',quiet);e.currentTarget.textContent=quiet?'Ruhige Ansicht an':'Ruhige Ansicht';motionState();};
 window.addEventListener('hashchange',render);render();
 function fitActiveCard(){const slot=main.querySelector('.card-slot'),card=slot?.querySelector('.held-card');if(!slot||!card)return;const c=CARDS.find(c=>location.hash.endsWith('/'+c.id));const ratio=(c?.imageWidth||630)/(c?.imageHeight||1080);const fit=()=>{const width=Math.max(1,Math.min(slot.clientWidth-12,Math.max(1,slot.clientHeight-40)*ratio));card.style.width=width+'px';card.style.height=(width/ratio)+'px';};fit();cardSizer=new ResizeObserver(fit);cardSizer.observe(slot);}
-const startGateScript=document.createElement('script');startGateScript.src='start-gate.js?v=0.6.78';document.head.append(startGateScript);
+const startGateScript=document.createElement('script');startGateScript.src='start-gate.js?v=0.6.79';document.head.append(startGateScript);

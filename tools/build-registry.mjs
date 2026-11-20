@@ -66,7 +66,7 @@ for(const [id,entry] of Object.entries(app.medien)){
   const reg=entry.register?mediaById.get(entry.register):null;
   out[id]={art:reg?.kind||entry.art||'app-bild',breite:entry.breite,hoehe:entry.hoehe,produktion:reg?.status||entry.produktion||'DRAFT',...(entry.freigabe?{freigabe:entry.freigabe}:{}),
     datei:entry.datei||null,verfuegbarkeit:entry.datei?'vorhanden':'fehlt',integration:entry.datei?'original':'platzhalter',
-    ...(entry.register?{register:entry.register}:{})};
+    ...(entry.register?{register:entry.register}:{}),...(entry.anker&&Object.keys(entry.anker).length?{anker:entry.anker}:{})};
 }
 const sceneList=scenes.szenen.filter(scene=>scene.ansicht!=='C00').map(scene=>{
   addRegisterMedium(scene.medium?.aktuell);addRegisterMedium(scene.medium?.platzhalter);

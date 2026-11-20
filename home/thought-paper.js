@@ -134,4 +134,6 @@ function open(config,source){if(state)return;state=context(config);opener=source
  dialog.setAttribute('aria-labelledby','thought-paper-heading');dialog.showModal();dialog.querySelector('[data-note-close]').focus({preventScroll:true});
 }
 root.EMFDThoughtPaper=Object.freeze({open,context,dateDisplay});
+// Gemeinsame Werkzeuge für andere Exporte (Mäppchen): PDF aus Seiten, Teilen/Download, Zeilenumbruch, QR.
+root.EMFDThoughtPaperTools=Object.freeze({pdfFromCanvases,offerFile,lines,drawQr});
 })(globalThis);
