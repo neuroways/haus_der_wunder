@@ -39,9 +39,10 @@ test('all local runtime files are contained in home and present',()=>{
 });
 
 test('v0.6.15 integrates a text-free start image with real HTML navigation',()=>{
- const gate=read('start-gate.js'),app=read('app.js'),css=read('experience.css')+'\n'+read('room-navigation.css');
- const door=gate.slice(gate.indexOf('function renderDoor'),gate.indexOf('function giftMarkup'));
- assert.match(gate,/startseite-haustuer-v1\.webp/);assert.match(gate,/Die Tür öffnen/);assert.doesNotMatch(door,/Über dieses Geschenk/);
+ const app=read('app.js'),css=read('experience.css')+'\n'+read('room-navigation.css');
+ // BOOK-01d: Start ist die Eingangsszene EXT-C01 aus dem Register; die Tür ist ein echter Button (Hotspot + Aktionsliste).
+ const registry=require('../shared/registry.js');
+ assert.ok(registry.scene('EXT-C01').hotspots.some(h=>h.typ==='NAVIGATION'&&h.label==='Haus betreten'));
  assert.match(css,/start-scene-art/);assert.match(css,/start-door-action/);
  assert.match(app,/hall-light-toggle/);
 });

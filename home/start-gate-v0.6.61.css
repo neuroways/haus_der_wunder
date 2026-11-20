@@ -105,3 +105,21 @@ body.start02-active main.emfd-shell__content{width:min(100%,720px);max-width:720
   .start02-table{min-height:400px}
 }
 @media(prefers-reduced-motion:reduce){.start02 *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* EMFD-BOOK-01d: Geschenkbereich als Ebene über der aktuellen Ansicht (Brief-Hotspot, Hilfe, alte Verknüpfungen). */
+.start02-gift-dialog{inline-size:100vw;max-inline-size:100vw;block-size:100dvh;max-block-size:100dvh;margin:0;padding:clamp(8px,2vw,18px) 12px calc(18px + env(safe-area-inset-bottom));border:0;background:radial-gradient(ellipse at 50% 0%,#14324a,#061725 70%);color:#fff4dc;overflow:auto}
+.start02-gift-dialog::backdrop{background:#02080e}
+.start02-gift-dialog .start02{max-inline-size:720px;margin:0 auto;min-height:calc(100dvh - 40px)}
+.start02-gift-dialog .start02-gift-toolbar{align-items:center}
+.start02-gift-dialog .start02-gift-actions{padding-bottom:12px}
+.start02-card-portal{position:relative;perspective:1200px}
+.start02-card-portal>img,.start02-card-back{backface-visibility:hidden;transition:transform .6s ease}
+.start02-card-back{position:absolute;inset:0;display:grid;place-items:center;transform:rotateY(180deg);border-radius:12px;overflow:hidden}
+.start02-card-back>img{position:absolute;inset:0;inline-size:100%;block-size:100%;object-fit:cover}
+.start02-card-qr{position:relative;inline-size:46%;padding:8px;background:#fff;border-radius:10px;box-shadow:0 4px 18px rgba(0,0,0,.45)}
+.start02-card-qr svg{display:block;inline-size:100%;block-size:auto}
+.start02-card-portal.is-flipped>img{transform:rotateY(180deg)}
+.start02-card-portal.is-flipped .start02-card-back{transform:rotateY(360deg)}
+@media (prefers-reduced-motion:reduce){.start02-card-portal>img,.start02-card-back{transition:none}}
+/* Hilfe-Hinweis der Einführung markiert das Fragezeichen dezent (kein Leuchten). */
+#help-open.is-hinted{outline:2px dashed #f7d18a;outline-offset:4px}

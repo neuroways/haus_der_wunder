@@ -1,6 +1,6 @@
 {
  "schema": "emfd-app-registry-overlay/1",
- "hinweis": "App-eigene Felder zu den gemeinsamen Registern (neuroways/haus-der-wunder, manifests/). Erzeugt wird daraus home/data/registry.js mit tools/build-registry.mjs. Hier stehen nur Dinge, die die Register nicht führen: Adressen und Aliase, Artikel und Präpositionen für Ansagen, der Anzeigename des Flurs, Texte der bisherigen Raumansichten und die auf dem Server ausgelieferten Mediendateien.",
+ "hinweis": "App-eigene Felder zu den gemeinsamen Registern (neuroways/haus-der-wunder, manifests/). Erzeugt wird daraus home/data/registry.js mit tools/build-registry.mjs. Hier stehen nur Dinge, die die Register nicht führen: Adressen und Aliase, Artikel und Präpositionen für Ansagen, der Anzeigename des Flurs, Texte der bisherigen Raumansichten und die auf dem Server ausgelieferten Mediendateien. Szenen-Overrides (`szenen`) setzen das Medium einer Szene, solange das Register noch einen anderen Kandidaten führt (K-21).",
  "raeume": {
   "H00": {
    "anzeigename": "Flur",
@@ -107,6 +107,12 @@
    "alt": "Ein warmes Teezimmer mit rundem Holztisch, Teekanne, Tassen, Kartenstapel, blauen Sesseln und einem großen Bogenfenster zum nächtlichen Schloss.",
    "bild": "app.room.P08",
    "vorschau": "app.room.P08.thumb"
+  },
+  "EXT": {
+   "anzeigename": "Eingang",
+   "zu": "zum",
+   "route": "#raum/EXT/C01",
+   "aliase": []
   }
  },
  "geraete": {
@@ -369,6 +375,32 @@
    "datei": "../media/raumgeraete/P08.webp",
    "breite": 504,
    "hoehe": 248
+  },
+  "scene.EXT-C01.tut02-referenz": {
+   "datei": "../media/rooms/szenen/EXT-C01-tut02-ref-4b2b6f9e.jpeg",
+   "breite": 1536,
+   "hoehe": 865,
+   "art": "szenenbild",
+   "produktion": "DRAFT",
+   "freigabe": "test",
+   "herkunft": "EMFD-UX-TUT-02 v0.2 references/EXT-C01.jpeg (unverändert, sha256 4b2b6f9e…); Register-Kandidat scene.EXT-C01.kandidat ist eine andere Datei (K-21)"
+  },
+  "scene.EXT-C02.tut02-referenz": {
+   "datei": "../media/rooms/szenen/EXT-C02-tut02-ref-13701a58.jpeg",
+   "breite": 1536,
+   "hoehe": 864,
+   "art": "szenenbild",
+   "produktion": "DRAFT",
+   "freigabe": "test",
+   "herkunft": "EMFD-UX-TUT-02 v0.2 references/EXT-C02.jpeg (unverändert, sha256 13701a58…); Register-Kandidat scene.EXT-C02.kandidat ist eine andere Datei (K-21)"
+  }
+ },
+ "szenen": {
+  "EXT-C01": {
+   "medium": "scene.EXT-C01.tut02-referenz"
+  },
+  "EXT-C02": {
+   "medium": "scene.EXT-C02.tut02-referenz"
   }
  }
 }

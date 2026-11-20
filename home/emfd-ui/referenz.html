@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EMFD UI-Referenz</title>
+<link rel="stylesheet" href="css/emfd-ui.css?v=0.6.72-book01d">
+<link rel="stylesheet" href="../emfd-scene.css?v=0.6.72-book01d">
+<style>
+ body{margin:0;background:#061725;color:#f5e9d7;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+ main{max-width:960px;margin:0 auto;padding:24px 16px 64px}
+ h1{font-family:Georgia,serif;color:#f7d18a;margin:0 0 4px}
+ h2{font-family:Georgia,serif;color:#f7d18a;margin:40px 0 8px;font-size:1.3rem}
+ p.lead{margin:0 0 24px;color:#d9ccb6}
+ .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:12px 0}
+ .demo{position:relative;border:1px dashed rgba(216,166,93,.45);border-radius:12px;padding:16px;background:#0b2234}
+ .demo--stage{block-size:260px;overflow:hidden;background:linear-gradient(135deg,#2a3f4f,#0d2333)}
+ code{color:#7fd1c7}
+ table{border-collapse:collapse;width:100%;font-size:.95rem}
+ td,th{border-bottom:1px solid rgba(216,166,93,.25);padding:6px 8px;text-align:left;vertical-align:top}
+ .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+</style>
+</head>
+<body>
+<main class="emfd-ui">
+ <h1>EMFD UI-Referenz · v0.4</h1>
+ <p class="lead">Gemeinsame Bedienelemente des Hauses (Referenz: Eingang, BOOK-01d / EMFD-UX-TUT-02). Jede neue Ansicht nutzt nur diese Komponenten. Quelle: <code>emfd-ui/css/emfd-ui.css</code>, <code>emfd-ui/js/emfd-ui-kit.js</code> (klassische Skripte) und <code>emfd-ui/js/emfd-ui.js</code> (ES-Modul, gleiche Icons). Mindestfläche 48 × 48 CSS-Pixel (nie unter 44), sichtbarer Fokus, Zustände über ARIA.</p>
+
+ <h2>Primäre und sekundäre Textbuttons</h2>
+ <div class="row" id="buttons"></div>
+ <p>Primär: höchstens eine Hauptaktion je Hinweis oder Paneel. Sekundär: Alternativen. Textbutton (unterstrichen): leise Zusatzaktion. Deaktiviert nur mit Begründung im Text.</p>
+
+ <h2>Iconbuttons</h2>
+ <div class="row" id="icons"></div>
+ <p>Immer mit Beschriftung (<code>aria-label</code> und <code>title</code>). Als Schalter mit <code>aria-pressed</code> (z. B. Licht).</p>
+
+ <h2>Hilfe und Orientierung, Zurück und Schließen</h2>
+ <div class="row" id="orientation"></div>
+ <p>Hilfe oben rechts in jeder Szene. „Einführung beenden“ nur während einer Einführung. Rückwege: <code>EMFDNavigation.backLinkMarkup()</code> (EMFD-NAV-01). Schließen: Iconbutton „Schließen“ in Paneelen, „Hinweis schließen“ in Hinweisen.</p>
+
+ <h2>Bild-Hotspots, Umschaupfeile, Positionspunkte, Umdrehen</h2>
+ <div class="demo demo--stage emfd-scene-view" style="block-size:260px" id="stage"></div>
+ <p>Hotspots liegen in normalisierten Koordinaten (0–1) auf dem Bildmaster und sind unsichtbar, bis sie Fokus bekommen oder ein Einführungshinweis sie dezent markiert. Pfeile und Punkte nur im schmalen Ausschnittmodus; die Punkte zeigen nur L/M/R. „Umdrehen“ erscheint am Bildrand bzw. auf breiten Bildschirmen an beiden Seiten.</p>
+
+ <h2>Kontextbezogener Hinweis</h2>
+ <div class="demo" style="block-size:220px" id="hint"></div>
+ <p>Höchstens einer gleichzeitig, kurz, schließbar ohne die vorgestellte Funktion auszulösen, nie über dem Zielobjekt (Platzierung oben/unten/seitlich).</p>
+
+ <h2>Paneel, Musiksteuerung, Lichtschalter</h2>
+ <div class="demo" id="panel"></div>
+
+ <h2>Zustände</h2>
+ <table>
+  <tr><th>Zustand</th><th>Darstellung</th><th>Technik</th></tr>
+  <tr><td>Fokus</td><td>3 px Kontur in Hellgold, 3 px Abstand</td><td><code>:focus-visible</code></td></tr>
+  <tr><td>Gedrückt / aktiv</td><td>Goldener Rand, helle Schrift</td><td><code>aria-pressed="true"</code>, <code>aria-current</code></td></tr>
+  <tr><td>Nicht verfügbar</td><td>50 % Deckkraft, Text erklärt den Grund</td><td><code>disabled</code></td></tr>
+  <tr><td>Markiert (Einführung)</td><td>Dünne gestrichelte Kontur, kein Leuchten</td><td><code>.is-hinted</code></td></tr>
+  <tr><td>Wiedergabe</td><td>Zustand als Text („Spielt“, „Pausiert“, „Still“)</td><td><code>role="status"</code></td></tr>
+  <tr><td>Reduzierte Bewegung</td><td>Keine Übergänge, kurze Überblendung</td><td><code>prefers-reduced-motion</code></td></tr>
+ </table>
+
+ <h2>Globale Navigationselemente</h2>
+ <p>Die untere Hauptnavigation gibt es seit v0.6.66 nicht. Globale Navigation (Haus, Karten, Musik, Begleiter) folgt mit BOOK-01h und verwendet dann dieselben Iconbuttons und Textbuttons.</p>
+</main>
+<script src="js/emfd-ui-kit.js?v=0.6.72-book01d"></script>
+<script>
+(function(){
+ const ui=window.EMFDUIKit,$=s=>document.querySelector(s);
+ $('#buttons').innerHTML=ui.button({label:'Haus betreten',variant:'primary'})+ui.button({label:'Bedienung kennenlernen',variant:'secondary'})+ui.button({label:'Musik entdecken',variant:'primary',iconName:'music'})+ui.textButton({label:'Das Haus griffbereit'})+ui.button({label:'Nicht verfügbar',variant:'secondary',disabled:true});
+ $('#icons').innerHTML=['help','settings','list','close','play','pause','stop','turn','light','bell','letter','door','cards','book'].map(n=>ui.iconButton({label:n,iconName:n})).join('')+ui.iconButton({label:'Licht (an)',iconName:'light',pressed:true});
+ $('#orientation').innerHTML='<button type="button" class="emfd-chip">Einführung beenden</button>'+ui.iconButton({label:'Hilfe und Orientierung',iconName:'help'})+ui.iconButton({label:'Schließen',iconName:'close'});
+ $('#stage').innerHTML='<div class="emfd-scene-view__hotspots">'+ui.hotspot({id:'demo-a',label:'Wandlaterne ein- oder ausschalten',rect:{x:.1,y:.2,w:.12,h:.4},pressed:true})+ui.hotspot({id:'demo-b',label:'Brief öffnen',rect:{x:.6,y:.5,w:.15,h:.2}})+'</div>'+ui.iconButton({label:'Nach links schauen',iconName:'chevron-left',className:'emfd-pan emfd-pan--left'})+ui.iconButton({label:'Nach rechts schauen',iconName:'chevron-right',className:'emfd-pan emfd-pan--right'})+ui.turnButton({side:'left',label:'Umdrehen: Garten'})+ui.dots({current:1});
+ document.querySelector('[data-hotspot="demo-b"]').classList.add('is-hinted');
+ $('#hint').innerHTML=ui.hint({id:'demo',title:'Die Glocke',text:'An vielen Orten im Haus findest du besondere Musikgeräte. Jedes eröffnet dir eine eigene Klangwelt.',actions:[{label:'Glocke berühren',variant:'primary'}]});
+ $('#panel').innerHTML='<div class="emfd-panel" style="position:relative"><h2>Die Eingangsglocke</h2><p>Dieses Haus hat seine eigene Musik. Du kannst es mit Musik oder in Stille entdecken.</p><div class="emfd-panel__actions"><div class="emfd-music-control">'+ui.iconButton({label:'Abspielen',iconName:'play'})+ui.iconButton({label:'Pausieren',iconName:'pause'})+ui.iconButton({label:'Stoppen',iconName:'stop'})+'<p class="emfd-music-control__state" role="status">Still.</p></div>'+ui.button({label:'Mit Musik entdecken',variant:'primary',iconName:'music'})+ui.button({label:'In Stille entdecken',variant:'secondary'})+'<label class="emfd-check"><input type="checkbox"> Meine Auswahl merken</label></div></div>';
+})();
+</script>
+</body>
+</html>

@@ -205,10 +205,13 @@ test('CACHE-01 Register: Raum-, Szenen- und Gerätebilder kommen aus data/regist
   }
   for (const [id, m] of Object.entries(registry.medien)) if (m.integration !== 'original') assert.ok(!all.includes(m.datei), `${id} ist Platzhalter`);
   for (const file of all) assert.ok(fs.existsSync(path.resolve(home, file)), file);
+  // Die Eingangsszenen (Ebene AUSSEN) gehören zur Stufe 1, damit der erste Besuch offline vollständig ist.
+  for (const id of ['EXT-C01', 'EXT-C02']) { const m = registry.medien[registry.szenen.find(scene => scene.id === id).medium]; if (m && m.datei) assert.ok(list.start.includes(m.datei), id); }
   // Ein neues Szenenbild des Eingangs gehört zu Stufe 1, eines der Halle zu Stufe 2 – nur über das Register.
   const next = JSON.parse(JSON.stringify(registry));
-  Object.assign(next.medien['scene.EXT-C01.kandidat'], { datei: '../media/rooms/EXT-C01.webp', verfuegbarkeit: 'vorhanden', integration: 'original' });
-  Object.assign(next.medien['scene.H00-C01.kandidat'], { datei: '../media/rooms/H00-C01.webp', verfuegbarkeit: 'vorhanden', integration: 'original' });
+  const mediumOf = id => next.szenen.find(scene => scene.id === id).medium;
+  Object.assign(next.medien[mediumOf('EXT-C01')], { datei: '../media/rooms/EXT-C01.webp', verfuegbarkeit: 'vorhanden', integration: 'original' });
+  Object.assign(next.medien[mediumOf('H00-C01')], { datei: '../media/rooms/H00-C01.webp', verfuegbarkeit: 'vorhanden', integration: 'original' });
   const grown = P.registerImages(next);
   assert.ok(grown.start.includes('../media/rooms/EXT-C01.webp'));
   assert.ok(grown.house.includes('../media/rooms/H00-C01.webp'));

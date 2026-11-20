@@ -11,6 +11,6 @@ const cardBack=Object.freeze({
 root.EMFDImages=Object.freeze({cards,cardBack,card(id,purpose='card-view'){return cards[id]?.[purpose]?.url||'';},back(purpose='card-view'){return cardBack[purpose]?.url||cardBack.original.url;}});
 for(const card of CARDS){const p=cards[card.id];if(!p)continue;card.image=p['card-view'].url;card.imageOverview=p['card-overview'].url;card.imageDetail=p['card-detail-large'].url;card.imageWidth=p['card-view'].width;card.imageHeight=p['card-view'].height;}
 if('serviceWorker' in navigator && /^https?:$/.test(location.protocol)){
- navigator.serviceWorker.register('image-service-worker.js?v=cache01-v2',{scope:'./',updateViaCache:'none'}).catch(error=>console.warn('Offline-Cache nicht verfügbar',error));
+ navigator.serviceWorker.register('image-service-worker.js?v=cache01-v3',{scope:'./',updateViaCache:'none'}).catch(error=>console.warn('Offline-Cache nicht verfügbar',error));
 }
 })(globalThis);

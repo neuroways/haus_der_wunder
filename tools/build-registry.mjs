@@ -25,6 +25,8 @@ const scenes=read(path.join(manifests,'scenes.json'));
 const devices=read(path.join(manifests,'music-devices.json'));
 const objects=read(path.join(manifests,'objects.json'));
 const media=read(path.join(manifests,'media.json'));
+// Hotspots, Tutorialhinweise und Glockentexte (BOOK-01d / EMFD-UX-TUT-02); optional, ältere Register haben sie nicht.
+const hotspotSource=fs.existsSync(path.join(manifests,'quellen','szenen-hotspots.json'))?read(path.join(manifests,'quellen','szenen-hotspots.json')):null;
 const app=read(path.join(repo,'home','data','registry-app.json'));
 let commit=null;
 try{commit=execFileSync('git',['-C',manifests,'rev-parse','--short','HEAD'],{encoding:'utf8'}).trim();}catch{}
@@ -40,7 +42,9 @@ for(const [id,device] of Object.entries(app.geraete)){
   for(const track of device.stuecke||[])if(!objectIds.has(track))errors.push(`Stück ${track} von ${id} fehlt in objects.json`);
 }
 for(const [id,entry] of Object.entries(app.medien))if(entry.register&&!mediaById.has(entry.register))errors.push(`Medium ${id}: Registereintrag ${entry.register} fehlt in media.json`);
-const mediaRefs=[...Object.values(app.raeume).flatMap(room=>[room.bild,room.vorschau]),...Object.values(app.geraete).map(device=>device.bild)].filter(Boolean);
+const sceneIds=new Set(scenes.szenen.map(scene=>scene.id));
+for(const [id,extra] of Object.entries(app.szenen||{})){if(!sceneIds.has(id))errors.push(`App-Szene ${id} fehlt in scenes.json`);if(extra.medium&&!app.medien[extra.medium])errors.push(`Szene ${id}: Medium ${extra.medium} ist in registry-app.json nicht beschrieben`);}
+const mediaRefs=[...Object.values(app.raeume).flatMap(room=>[room.bild,room.vorschau]),...Object.values(app.geraete).map(device=>device.bild),...Object.values(app.szenen||{}).map(scene=>scene.medium)].filter(Boolean);
 for(const id of mediaRefs)if(!app.medien[id])errors.push(`Medien-ID ${id} ist in registry-app.json nicht beschrieben`);
 const routes=new Map();
 const claim=(route,owner)=>{if(routes.has(route))errors.push(`Adresse ${route} doppelt (${routes.get(route)} und ${owner})`);routes.set(route,owner);};
@@ -60,15 +64,19 @@ function addRegisterMedium(id){
 }
 for(const [id,entry] of Object.entries(app.medien)){
   const reg=entry.register?mediaById.get(entry.register):null;
-  out[id]={art:reg?.kind||'app-bild',breite:entry.breite,hoehe:entry.hoehe,produktion:reg?.status||'DRAFT',
+  out[id]={art:reg?.kind||entry.art||'app-bild',breite:entry.breite,hoehe:entry.hoehe,produktion:reg?.status||entry.produktion||'DRAFT',...(entry.freigabe?{freigabe:entry.freigabe}:{}),
     datei:entry.datei||null,verfuegbarkeit:entry.datei?'vorhanden':'fehlt',integration:entry.datei?'original':'platzhalter',
     ...(entry.register?{register:entry.register}:{})};
 }
 const sceneList=scenes.szenen.filter(scene=>scene.ansicht!=='C00').map(scene=>{
   addRegisterMedium(scene.medium?.aktuell);addRegisterMedium(scene.medium?.platzhalter);
+  const extra=(app.szenen||{})[scene.id]||{};
+  const master=scene.hotspotMaster||null;
   return {id:scene.id,raumId:scene.raumId,ansicht:scene.ansicht,beschreibung:scene.beschreibung,
     gegenansicht:scene.gegenansicht||null,status:scene.status,format:scene.format||'16:9',
-    medium:scene.medium?.aktuell||null,platzhalter:scene.medium?.platzhalter||null};
+    medium:extra.medium||scene.medium?.aktuell||null,platzhalter:scene.medium?.platzhalter||null,
+    hotspots:(scene.hotspots||[]).map(h=>({id:h.id,typ:h.typ,rect:h.rect,label:h.label,ziel:h.ziel||{},hinweis:h.hinweis||null})),
+    ...(master?{hotspotMaster:{breite:master.breite,hoehe:master.hoehe,sha256:master.sha256}}:{})};
 });
 const roomList=rooms.raeume.map(room=>{
   const extra=app.raeume[room.id]||{};
@@ -85,15 +93,21 @@ const deviceList=devices.geraete.map(device=>{
     stuecke:extra.stuecke||[],status:device.status};
 });
 const objectList=objects.objekte.map(object=>({id:object.id,titel:object.titel,raumId:object.raumId||null}));
+const tutorial=hotspotSource?.tutorial?{id:hotspotSource.tutorial.id,version:hotspotSource.tutorial.version,regeln:hotspotSource.tutorial.regeln,
+  hinweise:hotspotSource.tutorial.hinweise.map(h=>({id:h.id,szene:h.szene,titel:h.titel,text:h.text,aktion:h.aktion}))}:null;
 const data={version:1,quelle:{repository:'neuroways/haus-der-wunder',commit,stand:rooms.stand||null},
-  raeume:roomList,szenen:sceneList,geraete:deviceList,objekte:objectList,medien:out};
+  raeume:roomList,szenen:sceneList,geraete:deviceList,objekte:objectList,medien:out,
+  ...(tutorial?{tutorial}:{}),...(hotspotSource?.glocke?{glocke:hotspotSource.glocke}:{})};
 
 // Notfallbestand: nur, was die bisherigen Ansichten brauchen (Räume mit Adresse, Geräte mit Adresse, deren Bilder).
 const fbRooms=roomList.filter(room=>room.route);
 const fbDevices=deviceList.filter(device=>device.route);
 const fbMedia={};
 for(const id of [...fbRooms.flatMap(room=>[room.bild,room.vorschau]),...fbDevices.map(device=>device.bild)].filter(Boolean))fbMedia[id]=out[id];
-const fallback={version:1,quelle:{...data.quelle,notfall:true},raeume:fbRooms,szenen:[],geraete:fbDevices,objekte:[],medien:fbMedia};
+const fbScenes=sceneList.filter(scene=>fbRooms.some(room=>room.id===scene.raumId&&room.route&&room.route.startsWith('#raum/')));
+for(const scene of fbScenes)for(const id of [scene.medium,scene.platzhalter].filter(Boolean))if(out[id])fbMedia[id]=out[id];
+const fallback={version:1,quelle:{...data.quelle,notfall:true},raeume:fbRooms,szenen:fbScenes,geraete:fbDevices,objekte:[],medien:fbMedia,
+  ...(data.tutorial?{tutorial:data.tutorial}:{}),...(data.glocke?{glocke:data.glocke}:{})};
 
 const header='/* Erzeugt von tools/build-registry.mjs (EMFD-BOOK-01a) – nicht von Hand ändern.\n * Quelle: gemeinsame Register neuroways/haus-der-wunder manifests/ + home/data/registry-app.json. */\n';
 const dataFile=path.join(repo,'home','data','registry.js');

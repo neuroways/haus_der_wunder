@@ -8,7 +8,7 @@ const read=(file)=>fs.readFileSync(path.join(home,file),'utf8');
 test('v0.3 button library assets are integrated locally and remain backend-independent',()=>{
  for(const file of ['emfd-ui/css/emfd-ui.css','emfd-ui/js/emfd-ui.js','emfd-ui/assets/frames/ornate-nine-slice.svg','emfd-ui/assets/frames/simple-nine-slice.svg','emfd-ui-runtime.js'])assert.ok(fs.existsSync(path.join(home,file)),file);
  const html=read('index.html'),css=read('emfd-ui/css/emfd-ui.css');
- assert.match(html,/href="emfd-ui\/css\/emfd-ui\.css"/);assert.match(html,/type="module" src="emfd-ui-runtime\.js"/);
+ assert.match(html,/href="emfd-ui\/css\/emfd-ui\.css(?:\?v=[^"]+)?"/);assert.match(html,/type="module" src="emfd-ui-runtime\.js"/);
  assert.match(css,/border-image-source:url\('\.\.\/assets\/frames\/ornate-nine-slice\.svg'\)/);
  assert.match(css,/border-image-source:url\('\.\.\/assets\/frames\/simple-nine-slice\.svg'\)/);
  assert.doesNotMatch(css,/:root\{/,'the component stylesheet must not leak global custom properties');

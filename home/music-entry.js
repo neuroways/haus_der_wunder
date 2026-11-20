@@ -35,12 +35,19 @@
     const pending=flow;flow=null;dialog.close();
     if(pending?.onCancel)pending.onCancel();else if(previousFocus?.isConnected)previousFocus.focus({preventScroll:true});
   }
+  /** Musikentscheidung anwenden (Musikfrage, Eingangsglocke): speichert nur auf Wunsch und startet nur bei „mit Musik“
+   *  innerhalb der auslösenden Geste. Präferenz und Wiedergabezustand bleiben getrennt. */
+  function apply(value,{remember=false}={}){
+    if(!values.has(value))return false;
+    save(value,Boolean(remember));
+    window.EMFDMusic?.setBackgroundPreference(value,{start:value==='on',explicit:true});
+    return true;
+  }
   function choose(value){
     if(!values.has(value))return;
     const pending=flow;flow=null;
-    save(value,dialog.querySelector('[name="remember"]').checked);
     // Keep play() in this explicit button gesture, including on iOS.
-    window.EMFDMusic?.setBackgroundPreference(value,{start:value==='on',explicit:true});
+    apply(value,{remember:dialog.querySelector('[name="remember"]').checked});
     dialog.returnValue=value;dialog.close();
     pending?.onChoose?.(value);
   }
@@ -65,5 +72,5 @@
   }
 
   mountSettings();
-  window.EMFDMusicEntry={preference,save,forget,show};
+  window.EMFDMusicEntry={preference,save,forget,show,apply};
 })();
