@@ -270,21 +270,8 @@
         chrome().onPanelClose(audio()?.subscribe?.(snapshot=>sync(snapshot))||null);sync();
       });
   }
-  /** Gegenstand (Orakelobjekt): Karte ansehen, eigenes Musikstück, Geschichte – dieselben Wege wie im Haus. */
-  function openObject(id,{focus}={}){
-    const object=(reg()?.objects?.()||[]).find(o=>o.id===id);
-    const card=(root.CARDS||[]).find(c=>c.id===id);
-    const name=card?.name||object?.titel||id;
-    openPanel(`<h2>${esc(name)}</h2><p>${focus==='musik'?'Dieser Gegenstand hat sein eigenes Musikstück.':'Zu diesem Gegenstand gehört eine Karte mit einem Gedanken für dich.'}</p>`+
-      `<div class="emfd-panel__actions">${musicControl(id,'Musikstück')}`+
-      kit().button({label:'Karte ansehen',variant:focus==='karte'?'primary':'secondary',iconName:'cards',data:{'data-object':'card'}})+
-      kit().button({label:'Geschichte lesen',variant:'secondary',iconName:'book',data:{'data-object':'story'}})+`</div>`,d=>{
-        bindMusic(d,id);
-        if(focus==='musik')d.querySelector('[data-music="play"]')?.setAttribute('data-panel-focus','');
-        d.querySelector('[data-object="card"]').addEventListener('click',()=>{d.close();openCard(id);});
-        d.querySelector('[data-object="story"]').addEventListener('click',()=>{d.close();root.EMFDReaders?.openComposition?.(id);});
-      });
-  }
+  /** Gegenstand (Orakelobjekt): gemeinsames Paneel aus scene-chrome.js (Karte · Musik · Geschichte). */
+  function openObject(id,options){chrome().openObject(id,options);}
 
   root.addEventListener?.('hashchange',()=>{chrome()?.closePanel?.();if(!/^#(?:raum\/EXT|ankommen)/.test(location.hash))leave();});
   root.addEventListener?.('emfd:light-change',event=>scene?.setLight(event.detail.id,event.detail.on));

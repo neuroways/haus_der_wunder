@@ -84,6 +84,8 @@
       const route=`#raum/${ziel.szene.replace('-','/')}`;
       const target=reg()?.redirect?.(route)||(reg()?.isSceneRoute?.(route)?route:null);
       if(!target){showHint('kitchen');return;}
+      // Einstiegsausschnitt der Zielszene aus dem Register (z. B. Küche: KUE-C02 Mitte).
+      if(ziel.segment&&reg()?.isSceneRoute?.(target)){try{root.sessionStorage?.setItem('emfd.scene.view.v1',JSON.stringify({sceneId:ziel.szene,segment:ziel.segment}));}catch{}}
       root.EMFDNavigation?.go?go(target):location.hash=target.slice(1);
     }
   }

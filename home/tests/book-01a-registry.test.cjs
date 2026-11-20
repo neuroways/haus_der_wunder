@@ -91,11 +91,11 @@ test('Räume, Geräte und Namen stammen aus den Registern; keine festen Listen i
 });
 
 test('Medien-ID ohne Datei wird als Platzhalter mit ID und Seitenverhältnis gezeichnet',()=>{
- const media=registry.sceneMedia('KUE-C01');
- assert.equal(media.type,'placeholder');assert.equal(media.id,'scene.KUE-C01.kandidat');assert.equal(media.ratio,'16:9');
- const markup=registry.mediaMarkup('scene.KUE-C01.kandidat',{alt:'Küche, Blick nach Süden'});
- assert.match(markup,/data-media-id="scene\.KUE-C01\.kandidat"/);assert.match(markup,/aspect-ratio:1672\/941/);
- assert.match(markup,/role="img" aria-label="Küche, Blick nach Süden"/);assert.match(markup,/1672 × 941 · 16:9/);
+ const media=registry.sceneMedia('P05-C01');
+ assert.equal(media.type,'placeholder');assert.equal(media.id,'scene.P05-C01.kandidat');assert.equal(media.ratio,'16:9');
+ const markup=registry.mediaMarkup('scene.P05-C01.kandidat',{alt:'Innenhof, Blick nach Norden'});
+ assert.match(markup,/data-media-id="scene\.P05-C01\.kandidat"/);assert.match(markup,/aspect-ratio:1672\/941/);
+ assert.match(markup,/role="img" aria-label="Innenhof, Blick nach Norden"/);assert.match(markup,/1672 × 941 · 16:9/);
  assert.doesNotMatch(markup,/<img/,'kein Ersatzbild');
  const unknown=registry.resolveMedia('scene.GIBTS-NICHT');assert.equal(unknown.type,'placeholder');assert.equal(unknown.ratio,'16:9');
  // Szenen ohne Kandidat nutzen das Format des Platzhaltereintrags.
@@ -105,11 +105,11 @@ test('Medien-ID ohne Datei wird als Platzhalter mit ID und Seitenverhältnis gez
 
 test('Austausch Platzhalter → Bild nur durch einen Registereintrag (kein Code)',()=>{
  const changed=JSON.parse(JSON.stringify(data));
- changed.medien['scene.KUE-C01.kandidat']={...changed.medien['scene.KUE-C01.kandidat'],datei:'../media/rooms/KUE-C01.webp',verfuegbarkeit:'vorhanden',integration:'original'};
+ changed.medien['scene.P05-C01.kandidat']={...changed.medien['scene.P05-C01.kandidat'],datei:'../media/rooms/P05-C01.webp',verfuegbarkeit:'vorhanden',integration:'original'};
  const reg=registry.create(changed);
- const media=reg.sceneMedia('KUE-C01');
- assert.equal(media.type,'file');assert.equal(media.src,'../media/rooms/KUE-C01.webp');
- assert.match(reg.mediaMarkup(media.id,{alt:'Küche'}),/<img src="\.\.\/media\/rooms\/KUE-C01\.webp" alt="Küche" width="1672" height="941"/);
+ const media=reg.sceneMedia('P05-C01');
+ assert.equal(media.type,'file');assert.equal(media.src,'../media/rooms/P05-C01.webp');
+ assert.match(reg.mediaMarkup(media.id,{alt:'Innenhof'}),/<img src="\.\.\/media\/rooms\/P05-C01\.webp" alt="Innenhof" width="1672" height="941"/);
 });
 
 test('Registerfehler: fehlende Datei oder ungültige IDs führen zum Rückfall statt zu einer Fehlerseite',()=>{
