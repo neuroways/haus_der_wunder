@@ -76,3 +76,6 @@ Datum: 20.11.2026 · Ergebnis: umgesetzt (Bildfreigaben offen, siehe unten) · C
 2. **Hallendurchblicke:** Welche Hallenbilder gelten? Die App nutzt C01 `0cd60aa4…` und C02 `c4451a14…`. Die Durchblicke brauchen `92852001…` und `6d91bd78…` (Hallenproduktion VIS-01, liegt nicht vor).
 3. **Soll `#teezimmer` (Raumverzeichnis, „Das Haus“, Kartenrückwege) auf das neue Teezimmer umgestellt werden?** Damit endet W2 („bisheriges Teezimmer genau zwei Aktionen“). Kartenziehen und -aussuchen liegen jetzt am Kartentisch.
 4. **Kartenrückseite v1.2 (zentraler Pfad):** Sie liefert auf dem Server 404. Bitte `media/optimized/cards/EMFD_Kartenrueckseite-v1.2-630x1080-3d4d2cb907.webp` (liegt in `quellen/karten/`) nach `/wunderhaus/media/optimized/cards/` hochladen.
+
+## Nachtrag · Regression (Browser-Protokolle, v0.6.84)
+Eingang/Einführung 60/60 · Küche 69/0 · Licht 33/33 · Mäppchen 18/18 · Halle 48 PASS, 7 erwartete Abweichungen aus gewollten Änderungen: H00-T25 (2×, Teezimmertür führt jetzt ins neue Teezimmer `#raum/P08/C01` statt `#teezimmer`), H00-T23 (2×, Küche hat eine Ansicht), H00-T19 (2×, „Begleiter“ öffnet das Mäppchen), H00-T06 (Direkteintritt ohne Begrüßung).
