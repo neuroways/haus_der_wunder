@@ -40,15 +40,15 @@
   }
 
   /* ---------- EMFD-LIGHT-01: Lichtebenen (gleiche Bühne, gleiche Koordinaten und gleicher Zuschnitt wie das Raumbild) ----------
-   * Reihenfolge: Base (Raum ohne schaltbares Kunstlicht, ersetzt dann den Master) · Ambient (natürliches Licht, nie geschaltet) ·
-   * je Lichtquelle Source · Spill · Glow · Reflection (Vollbild-Ebenen, sichtbar wenn an) · An/Aus-Bildpaar (Übergang) ·
+   * Reihenfolge: Base (Raum ohne schaltbares Kunstlicht, ersetzt dann den Master) · Auflagen (statisch, z. B. Kartenstapel) · Ambient (natürliches Licht, nie geschaltet) ·
+   * je Lichtquelle Source · Spill · Glow · Reflection oder eine vollständige additive Ein-Ebene „licht“ (Vollbild-Ebenen, sichtbar wenn an) · An/Aus-Bildpaar (Übergang) ·
    * programmatische Platzhalter (nur ohne finale Medien; gekennzeichnet, keine Freigabe). */
-  const LAYERS=Object.freeze(['source','spill','glow','reflection']);
+  const LAYERS=Object.freeze(['source','spill','glow','reflection','licht']);
   const pctBox=(r,grow=1,growY=grow)=>{const cx=r.x+r.w/2,cy=r.y+r.h/2,w=r.w*grow,h=r.h*growY;return `left:${((cx-w/2)*100).toFixed(3)}%;top:${((cy-h/2)*100).toFixed(3)}%;width:${(w*100).toFixed(3)}%;height:${(h*100).toFixed(3)}%`;};
   function lightPlan(sceneId){
     const reg=registry();const lightsDef=reg?.lightsForScene?.(sceneId)||[];const sceneDef=reg?.lightScene?.(sceneId)||{};
     const file=id=>{const m=id&&reg.resolveMedia(id);return m&&m.type==='file'?m:null;};
-    return {lights:lightsDef,base:file(sceneDef.basis),ambient:file(sceneDef.ambient),pair:sceneDef.paar&&file(sceneDef.paar.aus)?{aus:file(sceneDef.paar.aus),lichter:sceneDef.paar.lichter||lightsDef.map(l=>l.id)}:null,file};
+    return {lights:lightsDef,base:file(sceneDef.basis),ambient:file(sceneDef.ambient),overlays:(sceneDef.auflagen||[]).map(file).filter(Boolean),pair:sceneDef.paar&&file(sceneDef.paar.aus)?{aus:file(sceneDef.paar.aus),lichter:sceneDef.paar.lichter||lightsDef.map(l=>l.id)}:null,file};
   }
   /** Markup des Lichtstapels einer Szene (auch für Nahansichten, die einen Ausschnitt derselben Bühne zeigen). */
   function lightLayers(sceneId,engine=root.EMFDLights){
@@ -56,6 +56,8 @@
     const ms=id=>`--light-ms:${engine?.duration?.(id)??400}ms`;
     const img=(m,cls,extra='')=>`<img class="emfd-light-layer ${cls}" src="${ui.escape(m.src)}" alt="" aria-hidden="true" draggable="false" data-media-id="${ui.escape(m.id)}" ${extra}>`;
     let out='';
+    // Statische, registrierte Auflagen (z. B. Kartenstapel) liegen direkt auf der Basis, unter dem Licht.
+    for(const o of plan.overlays)out+=img(o,'emfd-light-layer--auflage','data-layer="auflage"');
     if(plan.ambient)out+=img(plan.ambient,'emfd-light-layer--ambient','data-layer="ambient"');
     let anyPlaceholder=false;
     for(const l of plan.lights){
@@ -147,7 +149,16 @@
     }
     const viewport=()=>el.querySelector('[data-scene-viewport]');
     const maxScroll=()=>{const v=viewport();return v?Math.max(0,v.scrollWidth-v.clientWidth):0;};
-    function isWide(){return el.clientWidth>=WIDE_MIN||maxScroll()<8;}
+    // Breit = ganze Szene sichtbar: ab WIDE_MIN oder wenn das Bild in voller Höhe ohnehin in die Breite passt.
+    // Aus der Bildgeometrie berechnet (nicht aus der Scrollbreite: im Ganzbild-Zustand gibt es nie etwas zu scrollen,
+    // sonst bliebe die Szene nach dem Verkleinern des Fensters im Ganzbild hängen).
+    function isWide(){
+      if(el.clientWidth>=WIDE_MIN)return true;
+      const v=viewport(),stage=el.querySelector('.emfd-scene-view__stage');const ratio=stageRatio(stage);
+      if(!v||!ratio)return maxScroll()<8;
+      return v.clientHeight*ratio<=v.clientWidth+8;
+    }
+    function stageRatio(stage){const m=/([\d.]+)\s*\/\s*([\d.]+)/.exec(stage?.style?.aspectRatio||'');return m?Number(m[1])/Number(m[2]):0;}
     function layout(){
       if(destroyed)return;
       const wide=isWide();

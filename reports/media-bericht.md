@@ -1,14 +1,14 @@
 # Medien-Check · media/
 
-Erstellt: 2026-11-20T15:56:41+00:00 · Werkzeug `tools/media_check.py` · 397 Dateien, 198.1 MB
+Erstellt: 2026-11-20T21:04:53+00:00 · Werkzeug `tools/media_check.py` · 465 Dateien, 233.3 MB
 
 ## Ergebnis
 
 - Vorderseiten: **18/24** Karten · Cover: **3/25** (O01–O24 + T03)
 - Ohne Vorderseite: O19, O20, O21, O22, O23, O24
 - Ohne Cover: O01, O02, O03, O05, O07, O08, O09, O10, O11, O12, O13, O14, O15, O16, O17, O18, O19, O20, O21, O22, O23, T03
-- Fehler: **32** · Warnungen: **0** · Hinweise: **307**
-- Seit 2026-11-19T06:48:38+00:00: 39 neu, 0 geändert, 0 entfernt
+- Fehler: **32** · Warnungen: **0** · Hinweise: **375**
+- Seit 2026-11-20T15:56:41+00:00: 68 neu, 0 geändert, 0 entfernt
 
 ## Apps · Zugriff auf media/
 
@@ -20,7 +20,7 @@ Erstellt: 2026-11-20T15:56:41+00:00 · Werkzeug `tools/media_check.py` · 397 Da
 ## Ordnerstruktur
 
 ```
-media/                                397 Dateien   198.1 MB
+media/                                465 Dateien   233.3 MB
   audio/                                7 Dateien    31.5 MB
   backgrounds/                          3 Dateien   835.7 KB
   cards/                               43 Dateien    87.1 MB
@@ -41,8 +41,17 @@ media/                                397 Dateien   198.1 MB
     rooms/                             93 Dateien    22.4 MB
   portraits/                            1 Dateien   686.1 KB
   raumgeraete/                          8 Dateien   375.2 KB
-  rooms/                               32 Dateien    10.6 MB
-    szenen/                             6 Dateien     4.1 MB
+  rooms/                              100 Dateien    45.8 MB
+    P08/                               67 Dateien    31.3 MB
+      detail/                           1 Dateien   307.0 KB
+      layers/                          19 Dateien     1.2 MB
+      objects/                          1 Dateien   284.8 KB
+      optimized/                       20 Dateien     5.8 MB
+      originals/                        7 Dateien    17.1 MB
+      player/                          19 Dateien     6.6 MB
+        archiv/                         7 Dateien   466.7 KB
+        registered/                     7 Dateien   706.5 KB
+    szenen/                             7 Dateien     8.1 MB
     thumbs/                             9 Dateien   405.1 KB
     varianten/                          1 Dateien   307.5 KB
   start/                                6 Dateien     1.7 MB
@@ -394,6 +403,73 @@ media/                                397 Dateien   198.1 MB
 | Hinweis | `rooms/P06-galerie.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `rooms/P07-dachterrasse.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `rooms/P08-teezimmer.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/detail/P08-D01__1280x720.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C01__Kartenstapel.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C01__Laeufer-Vorschlag.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C01__P08-L-DECKE__ein.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C01__P08-L-KARTENTISCH__ein.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C01__P08-L-SPIELUHRTISCH__ein.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C01__P08-L-WAND-NORD__ein.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C02__Kartenstapel.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C02__Laeufer-Vorschlag.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C02__O04.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C02__P08-L-BANK__ein.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C02__P08-L-DECKE__ein.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C02__P08-L-KARTENTISCH__ein.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C02__P08-L-OFEN__ein.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C02__P08-L-SPIELUHRTISCH__ein.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C02__P08-L-WAND-SUED-L__ein.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C02__P08-L-WAND-SUED-R__ein.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-C02__Tartan-Vorschlag.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-D01__Kartenstapel.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/layers/P08-D01__Laeufer-Vorschlag.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/objects/O04__Originalfreistellung.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-03f22545029c.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-508356c3b9ae.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-5d26b5de287d.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-b989bb4b2393.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-d2280acc26a7.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-001f6feed07a.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-19957301ba73.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-39bc4e16d246.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-c1d5431ece8b.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-f32bd088e9da.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-17eb0ea17687.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-5a3d69d9ca35.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-681c3307723c.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-af3b483fb6fd.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-d1a23d9e427a.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-579c4a317356.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-838956be548a.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-838a027de92f.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-a5b9781c205c.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-bd85c484d69a.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/originals/P08-C01__ohne-Spieluhr.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/originals/P08-C01__wide__aus.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/originals/P08-C01__wide__ein.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/originals/P08-C02__ohne-Spieluhr.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/originals/P08-C02__wide__aus.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/originals/P08-C02__wide__ein.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/originals/P08-D01__Cleanplate.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/P08-C01__Walzenansicht-Quelle.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/P08-Spieluhr__Cleanplate.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/P08-Spieluhr__Cleanplate.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/P08-Spieluhr__Ruhe-offener-Deckel.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/P08-Spieluhr__Ruhe-offener-Deckel.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/archiv/00-Porzellandeckel.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/archiv/01-Porzellandose.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/archiv/02-Drehteller.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/archiv/03-Figur-links.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/archiv/04-Figur-rechts.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/archiv/Raum.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/archiv/Raumansicht.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/registered/00-Porzellandeckel.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/registered/01-Porzellandose.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/registered/02-Drehteller.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/registered/03-Figur-links.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/registered/04-Figur-rechts.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/registered/P08-Spieluhr__Kontakt.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/P08/player/registered/P08-Spieluhr__Walzenansicht.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `rooms/flur-v2-dim.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `rooms/flur-v2.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `rooms/flur.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
@@ -403,6 +479,7 @@ media/                                397 Dateien   198.1 MB
 | Hinweis | `rooms/szenen/EXT-C01-tut02-ref-4b2b6f9e.jpeg` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `rooms/szenen/EXT-C02-tut02-ref-13701a58.jpeg` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `rooms/szenen/H00-C01-h00-ref-c7a61a97.jpeg` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `rooms/szenen/H00-C01-h00-v2-0cd60aa4.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `rooms/szenen/H00-C02-h00-ref-c4451a14.jpeg` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `rooms/szenen/KUE-C01-kue-ref-385e7bde.jpg` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `rooms/szenen/KUE-C02-kue-ref-1e614f14.jpg` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
@@ -424,49 +501,78 @@ media/                                397 Dateien   198.1 MB
 | Hinweis | `start/EMFD-START-02-A05-briefpapier.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `start/EMFD-START-02-A06-geschenkkarte-vorderseite.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 
-## Änderungen seit 2026-11-19T06:48:38+00:00
+## Änderungen seit 2026-11-20T15:56:41+00:00
 
 **Neu**
 
-- `audio/O01-M01.mp3`
-- `audio/O02-M01.mp3`
-- `audio/O03-M01.mp3`
-- `audio/O04-M01.mp3`
-- `audio/O08-M01.mp3`
-- `audio/O24-M01.mp3`
-- `audio/THEME-M01.mp3`
-- `maeppchen/gluehwuermchen/15-hand.png`
-- `maeppchen/gluehwuermchen/16-papierkoerper.png`
-- `maeppchen/gluehwuermchen/17-papierfluegel-links.png`
-- `maeppchen/gluehwuermchen/18-papierfluegel-rechts.png`
-- `maeppchen/gluehwuermchen/19-lebendiger-koerper.png`
-- `maeppchen/gluehwuermchen/20-flugfluegel-links.png`
-- `maeppchen/gluehwuermchen/21-flugfluegel-rechts.png`
-- `maeppchen/maeppchen/01-lederaussenseite.png`
-- `maeppchen/maeppchen/01a-lederriemen.png`
-- `maeppchen/maeppchen/01b-riemenschlaufe.png`
-- `maeppchen/maeppchen/02-innenseite-links.png`
-- `maeppchen/maeppchen/03-innenseite-rechts.png`
-- `maeppchen/maeppchen/03a-falz.png`
-- `maeppchen/maeppchen/04-kartenfach.png`
-- `maeppchen/maeppchen/05-impulsfach.png`
-- `maeppchen/maeppchen/06-fragefach.png`
-- `maeppchen/maeppchen/07-leinenband.png`
-- `maeppchen/maeppchen/08-papierlasche.png`
-- `maeppchen/papier/09-impulskaertchen.png`
-- `maeppchen/papier/10-fragekaertchen.png`
-- `maeppchen/papier/11-gedankenbuch-einband.png`
-- `maeppchen/papier/12-geschichtenheft-umschlag.png`
-- `maeppchen/papier/13-buch-aufgeschlagen.png`
-- `maeppchen/papier/14-papierblatt.png`
-- `maeppchen/szene/00-holztisch.png`
-- `maeppchen/szene/22-nachthimmel.png`
-- `rooms/szenen/EXT-C01-tut02-ref-4b2b6f9e.jpeg`
-- `rooms/szenen/EXT-C02-tut02-ref-13701a58.jpeg`
-- `rooms/szenen/H00-C01-h00-ref-c7a61a97.jpeg`
-- `rooms/szenen/H00-C02-h00-ref-c4451a14.jpeg`
-- `rooms/szenen/KUE-C01-kue-ref-385e7bde.jpg`
-- `rooms/szenen/KUE-C02-kue-ref-1e614f14.jpg`
+- `rooms/P08/detail/P08-D01__1280x720.webp`
+- `rooms/P08/layers/P08-C01__Kartenstapel.png`
+- `rooms/P08/layers/P08-C01__Laeufer-Vorschlag.png`
+- `rooms/P08/layers/P08-C01__P08-L-DECKE__ein.png`
+- `rooms/P08/layers/P08-C01__P08-L-KARTENTISCH__ein.png`
+- `rooms/P08/layers/P08-C01__P08-L-SPIELUHRTISCH__ein.png`
+- `rooms/P08/layers/P08-C01__P08-L-WAND-NORD__ein.png`
+- `rooms/P08/layers/P08-C02__Kartenstapel.png`
+- `rooms/P08/layers/P08-C02__Laeufer-Vorschlag.png`
+- `rooms/P08/layers/P08-C02__O04.png`
+- `rooms/P08/layers/P08-C02__P08-L-BANK__ein.png`
+- `rooms/P08/layers/P08-C02__P08-L-DECKE__ein.png`
+- `rooms/P08/layers/P08-C02__P08-L-KARTENTISCH__ein.png`
+- `rooms/P08/layers/P08-C02__P08-L-OFEN__ein.png`
+- `rooms/P08/layers/P08-C02__P08-L-SPIELUHRTISCH__ein.png`
+- `rooms/P08/layers/P08-C02__P08-L-WAND-SUED-L__ein.png`
+- `rooms/P08/layers/P08-C02__P08-L-WAND-SUED-R__ein.png`
+- `rooms/P08/layers/P08-C02__Tartan-Vorschlag.png`
+- `rooms/P08/layers/P08-D01__Kartenstapel.png`
+- `rooms/P08/layers/P08-D01__Laeufer-Vorschlag.png`
+- `rooms/P08/objects/O04__Originalfreistellung.png`
+- `rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-03f22545029c.webp`
+- `rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-508356c3b9ae.webp`
+- `rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-5d26b5de287d.webp`
+- `rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-b989bb4b2393.webp`
+- `rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-d2280acc26a7.webp`
+- `rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-001f6feed07a.webp`
+- `rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-19957301ba73.webp`
+- `rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-39bc4e16d246.webp`
+- `rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-c1d5431ece8b.webp`
+- `rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-f32bd088e9da.webp`
+- `rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-17eb0ea17687.webp`
+- `rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-5a3d69d9ca35.webp`
+- `rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-681c3307723c.webp`
+- `rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-af3b483fb6fd.webp`
+- `rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-d1a23d9e427a.webp`
+- `rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-579c4a317356.webp`
+- `rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-838956be548a.webp`
+- `rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-838a027de92f.webp`
+- `rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-a5b9781c205c.webp`
+- `rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-bd85c484d69a.webp`
+- `rooms/P08/originals/P08-C01__ohne-Spieluhr.png`
+- `rooms/P08/originals/P08-C01__wide__aus.png`
+- `rooms/P08/originals/P08-C01__wide__ein.png`
+- `rooms/P08/originals/P08-C02__ohne-Spieluhr.png`
+- `rooms/P08/originals/P08-C02__wide__aus.png`
+- `rooms/P08/originals/P08-C02__wide__ein.png`
+- `rooms/P08/originals/P08-D01__Cleanplate.png`
+- `rooms/P08/player/P08-C01__Walzenansicht-Quelle.png`
+- `rooms/P08/player/P08-Spieluhr__Cleanplate.png`
+- `rooms/P08/player/P08-Spieluhr__Cleanplate.webp`
+- `rooms/P08/player/P08-Spieluhr__Ruhe-offener-Deckel.png`
+- `rooms/P08/player/P08-Spieluhr__Ruhe-offener-Deckel.webp`
+- `rooms/P08/player/archiv/00-Porzellandeckel.webp`
+- `rooms/P08/player/archiv/01-Porzellandose.webp`
+- `rooms/P08/player/archiv/02-Drehteller.webp`
+- `rooms/P08/player/archiv/03-Figur-links.webp`
+- `rooms/P08/player/archiv/04-Figur-rechts.webp`
+- `rooms/P08/player/archiv/Raum.webp`
+- `rooms/P08/player/archiv/Raumansicht.webp`
+- `rooms/P08/player/registered/00-Porzellandeckel.png`
+- `rooms/P08/player/registered/01-Porzellandose.png`
+- `rooms/P08/player/registered/02-Drehteller.png`
+- `rooms/P08/player/registered/03-Figur-links.png`
+- `rooms/P08/player/registered/04-Figur-rechts.png`
+- `rooms/P08/player/registered/P08-Spieluhr__Kontakt.png`
+- `rooms/P08/player/registered/P08-Spieluhr__Walzenansicht.png`
+- `rooms/szenen/H00-C01-h00-v2-0cd60aa4.png`
 
 
 ## Dateien
@@ -839,6 +945,73 @@ media/                                397 Dateien   198.1 MB
 | `rooms/P05-innenhof.webp` | unknown-media |  | 1086×1448 | 483.3 KB | `60cb5245f41a` |
 | `rooms/P06-galerie.webp` | unknown-media |  | 1086×1448 | 321.2 KB | `b67df3b659cd` |
 | `rooms/P07-dachterrasse.webp` | unknown-media |  | 1086×1448 | 357.1 KB | `046c17f3a041` |
+| `rooms/P08/detail/P08-D01__1280x720.webp` | unknown-media |  | 1280×720 | 307.0 KB | `ee8edb9875b0` |
+| `rooms/P08/layers/P08-C01__Kartenstapel.png` | unknown-media |  | 1664×936 | 18.8 KB | `119c4924a523` |
+| `rooms/P08/layers/P08-C01__Laeufer-Vorschlag.png` | unknown-media |  | 1664×936 | 100.5 KB | `3edf1b80aa6a` |
+| `rooms/P08/layers/P08-C01__P08-L-DECKE__ein.png` | unknown-media |  | 1664×936 | 97.6 KB | `f82a68536416` |
+| `rooms/P08/layers/P08-C01__P08-L-KARTENTISCH__ein.png` | unknown-media |  | 1664×936 | 59.6 KB | `f9e28590c737` |
+| `rooms/P08/layers/P08-C01__P08-L-SPIELUHRTISCH__ein.png` | unknown-media |  | 1664×936 | 48.4 KB | `3953e1ff85d4` |
+| `rooms/P08/layers/P08-C01__P08-L-WAND-NORD__ein.png` | unknown-media |  | 1664×936 | 57.5 KB | `2842ffd4fc5d` |
+| `rooms/P08/layers/P08-C02__Kartenstapel.png` | unknown-media |  | 1664×936 | 18.7 KB | `097beb2f8af0` |
+| `rooms/P08/layers/P08-C02__Laeufer-Vorschlag.png` | unknown-media |  | 1664×936 | 106.0 KB | `824a5d81e054` |
+| `rooms/P08/layers/P08-C02__O04.png` | unknown-media |  | 1664×936 | 49.6 KB | `3a19e55a34c3` |
+| `rooms/P08/layers/P08-C02__P08-L-BANK__ein.png` | unknown-media |  | 1664×936 | 68.5 KB | `ec431216c364` |
+| `rooms/P08/layers/P08-C02__P08-L-DECKE__ein.png` | unknown-media |  | 1664×936 | 80.6 KB | `25439f7e1ded` |
+| `rooms/P08/layers/P08-C02__P08-L-KARTENTISCH__ein.png` | unknown-media |  | 1664×936 | 54.3 KB | `88bbf0180926` |
+| `rooms/P08/layers/P08-C02__P08-L-OFEN__ein.png` | unknown-media |  | 1664×936 | 93.3 KB | `070c428dfe21` |
+| `rooms/P08/layers/P08-C02__P08-L-SPIELUHRTISCH__ein.png` | unknown-media |  | 1664×936 | 54.5 KB | `144e3e505839` |
+| `rooms/P08/layers/P08-C02__P08-L-WAND-SUED-L__ein.png` | unknown-media |  | 1664×936 | 48.7 KB | `3b1c29aab55e` |
+| `rooms/P08/layers/P08-C02__P08-L-WAND-SUED-R__ein.png` | unknown-media |  | 1664×936 | 48.6 KB | `181608493170` |
+| `rooms/P08/layers/P08-C02__Tartan-Vorschlag.png` | unknown-media |  | 1664×936 | 41.9 KB | `8f0b121ba3e2` |
+| `rooms/P08/layers/P08-D01__Kartenstapel.png` | unknown-media |  | 1664×936 | 54.6 KB | `c4b7be145e4a` |
+| `rooms/P08/layers/P08-D01__Laeufer-Vorschlag.png` | unknown-media |  | 1664×936 | 144.2 KB | `bed385c4d2c1` |
+| `rooms/P08/objects/O04__Originalfreistellung.png` | unknown-media |  | 547×284 | 284.8 KB | `a17446d3f9a7` |
+| `rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-03f22545029c.webp` | unknown-media |  | 1280×720 | 307.7 KB | `03f22545029c` |
+| `rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-508356c3b9ae.webp` | unknown-media |  | 1280×720 | 307.8 KB | `508356c3b9ae` |
+| `rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-5d26b5de287d.webp` | unknown-media |  | 1280×720 | 307.8 KB | `5d26b5de287d` |
+| `rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-b989bb4b2393.webp` | unknown-media |  | 1280×720 | 307.8 KB | `b989bb4b2393` |
+| `rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-d2280acc26a7.webp` | unknown-media |  | 1280×720 | 307.8 KB | `d2280acc26a7` |
+| `rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-001f6feed07a.webp` | unknown-media |  | 1280×720 | 304.8 KB | `001f6feed07a` |
+| `rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-19957301ba73.webp` | unknown-media |  | 1280×720 | 304.9 KB | `19957301ba73` |
+| `rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-39bc4e16d246.webp` | unknown-media |  | 1280×720 | 304.1 KB | `39bc4e16d246` |
+| `rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-c1d5431ece8b.webp` | unknown-media |  | 1280×720 | 304.9 KB | `c1d5431ece8b` |
+| `rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-f32bd088e9da.webp` | unknown-media |  | 1280×720 | 304.8 KB | `f32bd088e9da` |
+| `rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-17eb0ea17687.webp` | unknown-media |  | 1280×720 | 289.5 KB | `17eb0ea17687` |
+| `rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-5a3d69d9ca35.webp` | unknown-media |  | 1280×720 | 289.5 KB | `5a3d69d9ca35` |
+| `rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-681c3307723c.webp` | unknown-media |  | 1280×720 | 289.5 KB | `681c3307723c` |
+| `rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-af3b483fb6fd.webp` | unknown-media |  | 1280×720 | 288.3 KB | `af3b483fb6fd` |
+| `rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-d1a23d9e427a.webp` | unknown-media |  | 1280×720 | 289.5 KB | `d1a23d9e427a` |
+| `rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-579c4a317356.webp` | unknown-media |  | 1280×720 | 283.0 KB | `579c4a317356` |
+| `rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-838956be548a.webp` | unknown-media |  | 1280×720 | 283.0 KB | `838956be548a` |
+| `rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-838a027de92f.webp` | unknown-media |  | 1280×720 | 281.9 KB | `838a027de92f` |
+| `rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-a5b9781c205c.webp` | unknown-media |  | 1280×720 | 283.0 KB | `a5b9781c205c` |
+| `rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-bd85c484d69a.webp` | unknown-media |  | 1280×720 | 283.0 KB | `bd85c484d69a` |
+| `rooms/P08/originals/P08-C01__ohne-Spieluhr.png` | unknown-media |  | 1664×936 | 2.5 MB | `70f2075da72a` |
+| `rooms/P08/originals/P08-C01__wide__aus.png` | unknown-media |  | 1664×936 | 2.5 MB | `d8f2c4f86e8c` |
+| `rooms/P08/originals/P08-C01__wide__ein.png` | unknown-media |  | 1664×936 | 2.5 MB | `9ddf6517111d` |
+| `rooms/P08/originals/P08-C02__ohne-Spieluhr.png` | unknown-media |  | 1664×936 | 2.4 MB | `b1c37e2e7641` |
+| `rooms/P08/originals/P08-C02__wide__aus.png` | unknown-media |  | 1664×936 | 2.4 MB | `6edfc02d7576` |
+| `rooms/P08/originals/P08-C02__wide__ein.png` | unknown-media |  | 1664×936 | 2.4 MB | `33b01a792ca9` |
+| `rooms/P08/originals/P08-D01__Cleanplate.png` | unknown-media |  | 1664×936 | 2.4 MB | `63cd0136a800` |
+| `rooms/P08/player/P08-C01__Walzenansicht-Quelle.png` | unknown-media |  | 193×242 | 113.9 KB | `f2690acd0c11` |
+| `rooms/P08/player/P08-Spieluhr__Cleanplate.png` | unknown-media |  | 1120×1400 | 2.3 MB | `7dd70e6e57d2` |
+| `rooms/P08/player/P08-Spieluhr__Cleanplate.webp` | unknown-media |  | 1120×1400 | 347.3 KB | `8c2f148c6abb` |
+| `rooms/P08/player/P08-Spieluhr__Ruhe-offener-Deckel.png` | unknown-media |  | 1120×1400 | 2.3 MB | `6bcbaf176269` |
+| `rooms/P08/player/P08-Spieluhr__Ruhe-offener-Deckel.webp` | unknown-media |  | 1120×1400 | 353.2 KB | `9299d3a8ff7d` |
+| `rooms/P08/player/archiv/00-Porzellandeckel.webp` | unknown-media |  | 1160×1360 | 101.5 KB | `560ac33ce3d1` |
+| `rooms/P08/player/archiv/01-Porzellandose.webp` | unknown-media |  | 1160×1360 | 128.3 KB | `620587b5c34b` |
+| `rooms/P08/player/archiv/02-Drehteller.webp` | unknown-media |  | 1160×1360 | 20.4 KB | `eb03abc5e20f` |
+| `rooms/P08/player/archiv/03-Figur-links.webp` | unknown-media |  | 1160×1360 | 4.0 KB | `3d6e0962295b` |
+| `rooms/P08/player/archiv/04-Figur-rechts.webp` | unknown-media |  | 1160×1360 | 6.2 KB | `2c25a4c32904` |
+| `rooms/P08/player/archiv/Raum.webp` | unknown-media |  | 380×508 | 100.6 KB | `c7a510741156` |
+| `rooms/P08/player/archiv/Raumansicht.webp` | unknown-media |  | 380×508 | 105.8 KB | `e8fce46f523a` |
+| `rooms/P08/player/registered/00-Porzellandeckel.png` | unknown-media |  | 1120×1400 | 146.2 KB | `d86876db4cfe` |
+| `rooms/P08/player/registered/01-Porzellandose.png` | unknown-media |  | 1120×1400 | 174.3 KB | `75d7b7322d34` |
+| `rooms/P08/player/registered/02-Drehteller.png` | unknown-media |  | 1120×1400 | 31.6 KB | `40ce0fea6775` |
+| `rooms/P08/player/registered/03-Figur-links.png` | unknown-media |  | 1120×1400 | 10.6 KB | `e23850d366b9` |
+| `rooms/P08/player/registered/04-Figur-rechts.png` | unknown-media |  | 1120×1400 | 13.1 KB | `03bf0b199b54` |
+| `rooms/P08/player/registered/P08-Spieluhr__Kontakt.png` | unknown-media |  | 1120×1400 | 25.7 KB | `18b3567c6c9e` |
+| `rooms/P08/player/registered/P08-Spieluhr__Walzenansicht.png` | unknown-media |  | 1120×1400 | 305.1 KB | `35f16ee563d1` |
 | `rooms/P08-teezimmer.webp` | unknown-media |  | 1086×1448 | 341.5 KB | `3a53ae112f43` |
 | `rooms/flur-v2-dim.webp` | unknown-media |  | 864×1536 | 265.4 KB | `c1ba7f78c185` |
 | `rooms/flur-v2.webp` | unknown-media |  | 864×1536 | 420.7 KB | `1437393ae7c3` |
@@ -850,6 +1023,7 @@ media/                                397 Dateien   198.1 MB
 | `rooms/szenen/EXT-C01-tut02-ref-4b2b6f9e.jpeg` | unknown-media |  | 1536×865 | 900.7 KB | `4b2b6f9e910e` |
 | `rooms/szenen/EXT-C02-tut02-ref-13701a58.jpeg` | unknown-media |  | 1536×864 | 844.2 KB | `13701a5814a1` |
 | `rooms/szenen/H00-C01-h00-ref-c7a61a97.jpeg` | unknown-media |  | 1536×864 | 653.2 KB | `c7a61a97dda5` |
+| `rooms/szenen/H00-C01-h00-v2-0cd60aa4.png` | unknown-media |  | 1672×941 | 3.9 MB | `0cd60aa446bf` |
 | `rooms/szenen/H00-C02-h00-ref-c4451a14.jpeg` | unknown-media |  | 1536×864 | 641.7 KB | `c4451a14d564` |
 | `rooms/szenen/KUE-C01-kue-ref-385e7bde.jpg` | unknown-media |  | 1536×864 | 596.1 KB | `385e7bdea344` |
 | `rooms/szenen/KUE-C02-kue-ref-1e614f14.jpg` | unknown-media |  | 1536×864 | 607.4 KB | `1e614f146104` |

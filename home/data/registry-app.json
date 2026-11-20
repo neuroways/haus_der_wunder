@@ -107,7 +107,8 @@
       "orientierung": "Ein wohnlicher Platz für eine kleine Pause oder Begegnung.",
       "alt": "Ein warmes Teezimmer mit rundem Holztisch, Teekanne, Tassen, Kartenstapel, blauen Sesseln und einem großen Bogenfenster zum nächtlichen Schloss.",
       "bild": "app.room.P08",
-      "vorschau": "app.room.P08.thumb"
+      "vorschau": "app.room.P08.thumb",
+      "szene": "#raum/P08/C01"
     },
     "EXT": {
       "anzeigename": "Eingang",
@@ -794,6 +795,186 @@
         ]
       },
       "herkunft": "EMFD-Maeppchen-Medien v0.1 media/szene/22-nachthimmel.png (unverändert, sha256 013247ce…)"
+    },
+    "scene.P08-C01.wide-ein": {
+      "datei": "../media/rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-03f22545029c.webp",
+      "breite": 1280,
+      "hoehe": 720,
+      "art": "szenenbild",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.optimized.P08-C01-cozy-wide-scene-1280x720-v001-03f22545029c.webp, sha256 03f22545…); Datei auf STRATO /wunderhaus/media/rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-03f22545029c.webp – alle Lichter an"
+    },
+    "scene.P08-C01.wide-aus": {
+      "datei": "../media/rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-39bc4e16d246.webp",
+      "breite": 1280,
+      "hoehe": 720,
+      "art": "licht-basis",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.optimized.P08-C01-dim-wide-scene-1280x720-v001-39bc4e16d246.webp, sha256 39bc4e16…); Datei auf STRATO /wunderhaus/media/rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-39bc4e16d246.webp – Aus-Basis ohne schaltbares Kunstlicht"
+    },
+    "scene.P08-C01.kartenstapel": {
+      "datei": "../media/rooms/P08/layers/P08-C01__Kartenstapel.png",
+      "breite": 1664,
+      "hoehe": 936,
+      "art": "auflage",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.layers.P08-C01__Kartenstapel.png, sha256 119c4924…); Datei auf STRATO /wunderhaus/media/rooms/P08/layers/P08-C01__Kartenstapel.png – registrierter Kartenstapel (Rückseite v1.2)"
+    },
+    "light.LIGHT-P08-DECKE.P08-C01": {
+      "datei": "../media/rooms/P08/layers/P08-C01__P08-L-DECKE__ein.png",
+      "breite": 1664,
+      "hoehe": 936,
+      "art": "lichtebene",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.layers.P08-C01__P08-L-DECKE__ein.png, sha256 f82a6853…); Datei auf STRATO /wunderhaus/media/rooms/P08/layers/P08-C01__P08-L-DECKE__ein.png – additive Ein-Ebene"
+    },
+    "light.LIGHT-P08-WAND-NORD.P08-C01": {
+      "datei": "../media/rooms/P08/layers/P08-C01__P08-L-WAND-NORD__ein.png",
+      "breite": 1664,
+      "hoehe": 936,
+      "art": "lichtebene",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.layers.P08-C01__P08-L-WAND-NORD__ein.png, sha256 2842ffd4…); Datei auf STRATO /wunderhaus/media/rooms/P08/layers/P08-C01__P08-L-WAND-NORD__ein.png – additive Ein-Ebene"
+    },
+    "light.LIGHT-P08-KARTENTISCH.P08-C01": {
+      "datei": "../media/rooms/P08/layers/P08-C01__P08-L-KARTENTISCH__ein.png",
+      "breite": 1664,
+      "hoehe": 936,
+      "art": "lichtebene",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.layers.P08-C01__P08-L-KARTENTISCH__ein.png, sha256 f9e28590…); Datei auf STRATO /wunderhaus/media/rooms/P08/layers/P08-C01__P08-L-KARTENTISCH__ein.png – additive Ein-Ebene"
+    },
+    "light.LIGHT-P08-SPIELUHRTISCH.P08-C01": {
+      "datei": "../media/rooms/P08/layers/P08-C01__P08-L-SPIELUHRTISCH__ein.png",
+      "breite": 1664,
+      "hoehe": 936,
+      "art": "lichtebene",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.layers.P08-C01__P08-L-SPIELUHRTISCH__ein.png, sha256 3953e1ff…); Datei auf STRATO /wunderhaus/media/rooms/P08/layers/P08-C01__P08-L-SPIELUHRTISCH__ein.png – additive Ein-Ebene"
+    },
+    "scene.P08-C02.wide-ein": {
+      "datei": "../media/rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-af3b483fb6fd.webp",
+      "breite": 1280,
+      "hoehe": 720,
+      "art": "szenenbild",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.optimized.P08-C02-cozy-wide-scene-1280x720-v001-af3b483fb6fd.webp, sha256 af3b483f…); Datei auf STRATO /wunderhaus/media/rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-af3b483fb6fd.webp – alle Lichter an"
+    },
+    "scene.P08-C02.wide-aus": {
+      "datei": "../media/rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-838a027de92f.webp",
+      "breite": 1280,
+      "hoehe": 720,
+      "art": "licht-basis",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.optimized.P08-C02-dim-wide-scene-1280x720-v001-838a027de92f.webp, sha256 838a027d…); Datei auf STRATO /wunderhaus/media/rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-838a027de92f.webp – Aus-Basis ohne schaltbares Kunstlicht"
+    },
+    "scene.P08-C02.kartenstapel": {
+      "datei": "../media/rooms/P08/layers/P08-C02__Kartenstapel.png",
+      "breite": 1664,
+      "hoehe": 936,
+      "art": "auflage",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.layers.P08-C02__Kartenstapel.png, sha256 097beb2f…); Datei auf STRATO /wunderhaus/media/rooms/P08/layers/P08-C02__Kartenstapel.png – registrierter Kartenstapel (Rückseite v1.2)"
+    },
+    "light.LIGHT-P08-DECKE.P08-C02": {
+      "datei": "../media/rooms/P08/layers/P08-C02__P08-L-DECKE__ein.png",
+      "breite": 1664,
+      "hoehe": 936,
+      "art": "lichtebene",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.layers.P08-C02__P08-L-DECKE__ein.png, sha256 25439f7e…); Datei auf STRATO /wunderhaus/media/rooms/P08/layers/P08-C02__P08-L-DECKE__ein.png – additive Ein-Ebene"
+    },
+    "light.LIGHT-P08-WAND-SUED-L.P08-C02": {
+      "datei": "../media/rooms/P08/layers/P08-C02__P08-L-WAND-SUED-L__ein.png",
+      "breite": 1664,
+      "hoehe": 936,
+      "art": "lichtebene",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.layers.P08-C02__P08-L-WAND-SUED-L__ein.png, sha256 3b1c29aa…); Datei auf STRATO /wunderhaus/media/rooms/P08/layers/P08-C02__P08-L-WAND-SUED-L__ein.png – additive Ein-Ebene"
+    },
+    "light.LIGHT-P08-WAND-SUED-R.P08-C02": {
+      "datei": "../media/rooms/P08/layers/P08-C02__P08-L-WAND-SUED-R__ein.png",
+      "breite": 1664,
+      "hoehe": 936,
+      "art": "lichtebene",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.layers.P08-C02__P08-L-WAND-SUED-R__ein.png, sha256 18160849…); Datei auf STRATO /wunderhaus/media/rooms/P08/layers/P08-C02__P08-L-WAND-SUED-R__ein.png – additive Ein-Ebene"
+    },
+    "light.LIGHT-P08-BANK.P08-C02": {
+      "datei": "../media/rooms/P08/layers/P08-C02__P08-L-BANK__ein.png",
+      "breite": 1664,
+      "hoehe": 936,
+      "art": "lichtebene",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.layers.P08-C02__P08-L-BANK__ein.png, sha256 ec431216…); Datei auf STRATO /wunderhaus/media/rooms/P08/layers/P08-C02__P08-L-BANK__ein.png – additive Ein-Ebene"
+    },
+    "light.LIGHT-P08-KARTENTISCH.P08-C02": {
+      "datei": "../media/rooms/P08/layers/P08-C02__P08-L-KARTENTISCH__ein.png",
+      "breite": 1664,
+      "hoehe": 936,
+      "art": "lichtebene",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.layers.P08-C02__P08-L-KARTENTISCH__ein.png, sha256 88bbf018…); Datei auf STRATO /wunderhaus/media/rooms/P08/layers/P08-C02__P08-L-KARTENTISCH__ein.png – additive Ein-Ebene"
+    },
+    "light.LIGHT-P08-SPIELUHRTISCH.P08-C02": {
+      "datei": "../media/rooms/P08/layers/P08-C02__P08-L-SPIELUHRTISCH__ein.png",
+      "breite": 1664,
+      "hoehe": 936,
+      "art": "lichtebene",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.layers.P08-C02__P08-L-SPIELUHRTISCH__ein.png, sha256 144e3e50…); Datei auf STRATO /wunderhaus/media/rooms/P08/layers/P08-C02__P08-L-SPIELUHRTISCH__ein.png – additive Ein-Ebene"
+    },
+    "light.LIGHT-P08-OFEN.P08-C02": {
+      "datei": "../media/rooms/P08/layers/P08-C02__P08-L-OFEN__ein.png",
+      "breite": 1664,
+      "hoehe": 936,
+      "art": "lichtebene",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.layers.P08-C02__P08-L-OFEN__ein.png, sha256 070c428d…); Datei auf STRATO /wunderhaus/media/rooms/P08/layers/P08-C02__P08-L-OFEN__ein.png – additive Ein-Ebene"
+    },
+    "scene.P08-D01.detail": {
+      "datei": "../media/rooms/P08/detail/P08-D01__1280x720.webp",
+      "breite": 1280,
+      "hoehe": 720,
+      "art": "nahansicht",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.detail.P08-D01__1280x720.webp, sha256 ee8edb98…); Datei auf STRATO /wunderhaus/media/rooms/P08/detail/P08-D01__1280x720.webp – Kartentisch-Nahansicht ohne Karten"
+    },
+    "scene.P08-D01.kartenstapel": {
+      "datei": "../media/rooms/P08/layers/P08-D01__Kartenstapel.png",
+      "breite": 1664,
+      "hoehe": 936,
+      "art": "auflage",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.layers.P08-D01__Kartenstapel.png, sha256 c4b7be14…); Datei auf STRATO /wunderhaus/media/rooms/P08/layers/P08-D01__Kartenstapel.png – registrierter Kartenstapel D01"
+    },
+    "device.MP-P08.nahansicht": {
+      "datei": "../media/rooms/P08/player/P08-Spieluhr__Ruhe-offener-Deckel.webp",
+      "breite": 1120,
+      "hoehe": 1400,
+      "art": "nahansicht",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.player.P08-Spieluhr__Ruhe-offener-Deckel.webp, sha256 9299d3a8…); Datei auf STRATO /wunderhaus/media/rooms/P08/player/P08-Spieluhr__Ruhe-offener-Deckel.webp – Spieluhr, statische Walzenansicht (Mechanik zur Freigabe offen)"
     }
   },
   "szenen": {
@@ -814,6 +995,12 @@
     },
     "KUE-C02": {
       "medium": "scene.KUE-C02.kue-referenz"
+    },
+    "P08-C01": {
+      "medium": "scene.P08-C01.wide-ein"
+    },
+    "P08-C02": {
+      "medium": "scene.P08-C02.wide-ein"
     }
   },
   "lichtHinweis": "EMFD-LIGHT-01: Jede schaltbare Lichtquelle des Hauses steht hier mit stabiler Licht-ID (gleiche physische Quelle = gleiche ID in allen Ansichten). Felder: art (deckenlampe|wandlampe|tischlampe|stehlampe|laterne|kerze|kamin|lichterkette|magisch|aussen|unterbau), standard (Anfangszustand), dauer (ms, sonst aus der Art), gruppen, ansichten.<Szene>.ebenen {source,spill,glow,reflection} = Medien-IDs (Vollbild-Ebenen, exakt auf den Szenenmaster registriert; fehlend = programmatischer Platzhalter). lichtSzenen.<Szene>: basis (Raum ohne schaltbares Kunstlicht), ambient (natürliches Licht), paar {an,aus,lichter} (vollständiges An/Aus-Bildpaar als Übergang).",
@@ -887,7 +1074,145 @@
       "art": "unterbau",
       "name": "Licht über der Arbeitsfläche",
       "standard": true
+    },
+    "LIGHT-P08-DECKE": {
+      "ansichten": {
+        "P08-C01": {
+          "ebenen": {
+            "licht": "light.LIGHT-P08-DECKE.P08-C01"
+          }
+        },
+        "P08-C02": {
+          "ebenen": {
+            "licht": "light.LIGHT-P08-DECKE.P08-C02"
+          }
+        }
+      },
+      "art": "deckenlampe",
+      "name": "Deckenlaterne des Teezimmers",
+      "standard": true
+    },
+    "LIGHT-P08-WAND-NORD": {
+      "ansichten": {
+        "P08-C01": {
+          "ebenen": {
+            "licht": "light.LIGHT-P08-WAND-NORD.P08-C01"
+          }
+        }
+      },
+      "art": "wandlampe",
+      "name": "Wandlaterne (Nordwand)",
+      "standard": true
+    },
+    "LIGHT-P08-KARTENTISCH": {
+      "ansichten": {
+        "P08-C01": {
+          "ebenen": {
+            "licht": "light.LIGHT-P08-KARTENTISCH.P08-C01"
+          }
+        },
+        "P08-C02": {
+          "ebenen": {
+            "licht": "light.LIGHT-P08-KARTENTISCH.P08-C02"
+          }
+        }
+      },
+      "art": "kerze",
+      "name": "Windlicht auf dem Kartentisch",
+      "standard": true
+    },
+    "LIGHT-P08-SPIELUHRTISCH": {
+      "ansichten": {
+        "P08-C01": {
+          "ebenen": {
+            "licht": "light.LIGHT-P08-SPIELUHRTISCH.P08-C01"
+          }
+        },
+        "P08-C02": {
+          "ebenen": {
+            "licht": "light.LIGHT-P08-SPIELUHRTISCH.P08-C02"
+          }
+        }
+      },
+      "art": "laterne",
+      "name": "Laterne am Spieluhrtisch",
+      "standard": true
+    },
+    "LIGHT-P08-WAND-SUED-L": {
+      "ansichten": {
+        "P08-C02": {
+          "ebenen": {
+            "licht": "light.LIGHT-P08-WAND-SUED-L.P08-C02"
+          }
+        }
+      },
+      "art": "wandlampe",
+      "name": "Linke Wandlaterne (Südwand)",
+      "standard": true
+    },
+    "LIGHT-P08-WAND-SUED-R": {
+      "ansichten": {
+        "P08-C02": {
+          "ebenen": {
+            "licht": "light.LIGHT-P08-WAND-SUED-R.P08-C02"
+          }
+        }
+      },
+      "art": "wandlampe",
+      "name": "Rechte Wandlaterne (Südwand)",
+      "standard": true
+    },
+    "LIGHT-P08-BANK": {
+      "ansichten": {
+        "P08-C02": {
+          "ebenen": {
+            "licht": "light.LIGHT-P08-BANK.P08-C02"
+          }
+        }
+      },
+      "art": "tischlampe",
+      "name": "Lampe an der Sitzbank",
+      "standard": true
+    },
+    "LIGHT-P08-OFEN": {
+      "ansichten": {
+        "P08-C02": {
+          "ebenen": {
+            "licht": "light.LIGHT-P08-OFEN.P08-C02"
+          }
+        }
+      },
+      "art": "kamin",
+      "name": "Kachelofen",
+      "standard": true
     }
   },
-  "lichtSzenen": {}
+  "lichtSzenen": {
+    "P08-C01": {
+      "basis": "scene.P08-C01.wide-aus",
+      "auflagen": [
+        "scene.P08-C01.kartenstapel"
+      ],
+      "hinweis": "Aus-Basis + additive Ein-Ebenen (sRGB, offRGB + RGB·α/255) laut Medienzuordnung lighting.blend"
+    },
+    "P08-C02": {
+      "basis": "scene.P08-C02.wide-aus",
+      "auflagen": [
+        "scene.P08-C02.kartenstapel"
+      ],
+      "hinweis": "Aus-Basis + additive Ein-Ebenen (sRGB, offRGB + RGB·α/255) laut Medienzuordnung lighting.blend"
+    }
+  },
+  "teezimmer": {
+    "anzeigename": "Das Teezimmer",
+    "kartentisch": {
+      "medium": "scene.P08-D01.detail",
+      "auflage": "scene.P08-D01.kartenstapel"
+    },
+    "spieluhr": {
+      "medium": "device.MP-P08.nahansicht",
+      "titel": "Die Teespieluhr"
+    },
+    "quelle": "EMFD-P08-VIS-01 Medienzuordnung.json"
+  }
 }

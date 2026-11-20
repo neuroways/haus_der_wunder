@@ -178,3 +178,11 @@ dialog.emfd-panel{position:fixed;inset:0;margin:auto;block-size:fit-content;max-
 .emfd-hit:focus-visible,.emfd-hotspot:focus-visible{outline:3px solid var(--emfd-ui-focus)!important;outline-offset:3px}
 @media (hover:hover) and (pointer:fine){.emfd-scene-view .emfd-hotspot:hover,.emfd-hit:hover{outline:2px solid rgba(247,209,138,.55)!important;outline-offset:-2px}}
 .emfd-scene-view .emfd-hotspot.is-hinted,.emfd-scene-view.show-hotspots .emfd-hotspot{outline:2px dashed rgba(247,209,138,.75)!important;outline-offset:2px}
+
+/* v0.4.5 · Nahansichten (Teezimmer: Kartentisch D01 16:9, Spieluhr 4:5): Basis + registrierte Auflagen deckungsgleich. */
+.emfd-closeup{position:relative;margin:0 0 12px;border-radius:14px;overflow:hidden;border:1px solid var(--emfd-ui-line);background:#0b1e2b}
+.emfd-closeup--wide{aspect-ratio:16/9}
+.emfd-closeup--portrait{aspect-ratio:4/5;max-block-size:52dvh;margin-inline:auto}
+.emfd-closeup__base,.emfd-closeup__layer{position:absolute;inset:0;inline-size:100%;block-size:100%;object-fit:fill;display:block}
+.emfd-closeup__missing{display:grid;place-items:center;color:#f7d18a;font:12px var(--emfd-font-ui,system-ui,sans-serif);background:repeating-linear-gradient(45deg,#16303f 0 10px,#122a37 10px 20px)}
+.emfd-panel__hint-text{margin:0 0 10px;color:var(--emfd-ui-muted,#c8bba0);font-size:.92rem}

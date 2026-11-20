@@ -1,0 +1,1175 @@
+{
+  "project": "Ein Moment für dich · Das Haus der kleinen Wunder",
+  "auftrag": "EMFD-P08-VIS-01 / T-WORK-04",
+  "release": "v0.7-r1",
+  "roomId": "P08",
+  "status": "REVIEW",
+  "integration": "OFFEN",
+  "coordinateConvention": "Normalized x/y in [0,1], origin top-left. Absolute size in pixels. Crops are applied after composition.",
+  "scenes": {
+    "P08-C01": {
+      "canvasPx": [
+        1664,
+        936
+      ],
+      "sourceTrimPx": [
+        4,
+        2,
+        4,
+        3
+      ],
+      "wideOn": "media/rooms/P08/originals/P08-C01__wide__ein.png",
+      "wideOff": "media/rooms/P08/originals/P08-C01__wide__aus.png",
+      "registeredDeck": "media/rooms/P08/layers/P08-C01__Kartenstapel.png",
+      "deckQuad": [
+        [
+          0.451322,
+          0.67094
+        ],
+        [
+          0.500601,
+          0.642094
+        ],
+        [
+          0.524038,
+          0.663462
+        ],
+        [
+          0.47476,
+          0.693376
+        ]
+      ],
+      "webp": {
+        "on": "media/rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-03f22545029c.webp",
+        "off": "media/rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-39bc4e16d246.webp"
+      },
+      "lights": [
+        {
+          "id": "P08-L-DECKE",
+          "file": "media/rooms/P08/layers/P08-C01__P08-L-DECKE__ein.png",
+          "source": "local illumination delta derived from the original and its dark reference; registered to the candidate master",
+          "test": {
+            "roundTripPerChannel": 0
+          },
+          "coveragePx": [
+            648,
+            0,
+            1044,
+            262
+          ]
+        },
+        {
+          "id": "P08-L-WAND-NORD",
+          "file": "media/rooms/P08/layers/P08-C01__P08-L-WAND-NORD__ein.png",
+          "source": "local illumination delta derived from the original and its dark reference; registered to the candidate master",
+          "test": {
+            "roundTripPerChannel": 0
+          },
+          "coveragePx": [
+            559,
+            186,
+            732,
+            398
+          ]
+        },
+        {
+          "id": "P08-L-KARTENTISCH",
+          "file": "media/rooms/P08/layers/P08-C01__P08-L-KARTENTISCH__ein.png",
+          "source": "local illumination delta derived from the original and its dark reference; registered to the candidate master",
+          "test": {
+            "roundTripPerChannel": 0
+          },
+          "coveragePx": [
+            599,
+            526,
+            853,
+            694
+          ]
+        },
+        {
+          "id": "P08-L-SPIELUHRTISCH",
+          "file": "media/rooms/P08/layers/P08-C01__P08-L-SPIELUHRTISCH__ein.png",
+          "source": "local illumination delta derived from the original and its dark reference; registered to the candidate master",
+          "test": {
+            "roundTripPerChannel": 0
+          },
+          "coveragePx": [
+            1244,
+            450,
+            1483,
+            610
+          ]
+        }
+      ],
+      "crops": [
+        {
+          "segment": 1,
+          "segmentLabel": "L",
+          "reviewFile": "qa/crops/P08-C01-1.webp",
+          "pixelRect": [
+            0,
+            0,
+            624,
+            936
+          ],
+          "normalizedRect": [
+            0.0,
+            0,
+            0.375,
+            1
+          ],
+          "visible": [
+            {
+              "id": "T03",
+              "widthFraction": 1.0,
+              "edgeClipped": false
+            }
+          ]
+        },
+        {
+          "segment": 2,
+          "segmentLabel": "M",
+          "reviewFile": "qa/crops/P08-C01-2.webp",
+          "pixelRect": [
+            520,
+            0,
+            624,
+            936
+          ],
+          "normalizedRect": [
+            0.3125,
+            0,
+            0.375,
+            1
+          ],
+          "visible": [
+            {
+              "id": "O01",
+              "widthFraction": 0.987,
+              "edgeClipped": true
+            },
+            {
+              "id": "P08-KARTENTISCH",
+              "widthFraction": 1.0,
+              "edgeClipped": false
+            }
+          ]
+        },
+        {
+          "segment": 3,
+          "segmentLabel": "R",
+          "reviewFile": "qa/crops/P08-C01-3.webp",
+          "pixelRect": [
+            1040,
+            0,
+            624,
+            936
+          ],
+          "normalizedRect": [
+            0.625,
+            0,
+            0.375,
+            1
+          ],
+          "visible": [
+            {
+              "id": "MP-P08",
+              "widthFraction": 1.0,
+              "edgeClipped": false
+            }
+          ]
+        }
+      ],
+      "targets": [
+        {
+          "id": "T03",
+          "polygon": [
+            [
+              0.045673,
+              0.17094
+            ],
+            [
+              0.097957,
+              0.107906
+            ],
+            [
+              0.14363,
+              0.126068
+            ],
+            [
+              0.155649,
+              0.604701
+            ],
+            [
+              0.051082,
+              0.635684
+            ]
+          ],
+          "actionOrTarget": "H00",
+          "alternative": "room action list"
+        },
+        {
+          "id": "O01",
+          "polygon": [
+            [
+              0.451923,
+              0.209402
+            ],
+            [
+              0.539663,
+              0.172009
+            ],
+            [
+              0.680889,
+              0.205128
+            ],
+            [
+              0.690505,
+              0.50641
+            ],
+            [
+              0.58774,
+              0.516026
+            ],
+            [
+              0.454327,
+              0.422009
+            ]
+          ],
+          "actionOrTarget": "P03",
+          "alternative": "room action list"
+        },
+        {
+          "id": "P08-KARTENTISCH",
+          "polygon": [
+            [
+              0.452524,
+              0.628205
+            ],
+            [
+              0.528846,
+              0.628205
+            ],
+            [
+              0.528846,
+              0.701923
+            ],
+            [
+              0.452524,
+              0.701923
+            ]
+          ],
+          "actionOrTarget": "P08-D01",
+          "alternative": "room action list"
+        },
+        {
+          "id": "MP-P08",
+          "polygon": [
+            [
+              0.826923,
+              0.366453
+            ],
+            [
+              0.945913,
+              0.366453
+            ],
+            [
+              0.945913,
+              0.629274
+            ],
+            [
+              0.826923,
+              0.629274
+            ]
+          ],
+          "actionOrTarget": "P08-SPIELUHR",
+          "alternative": "room action list"
+        }
+      ],
+      "cleanPlateWithoutMusicBox": "media/rooms/P08/originals/P08-C01__ohne-Spieluhr.png",
+      "mediaId": "scene.P08-C01.kandidat",
+      "sameSourceAsGitV1": "2de47aca18770a83f76f79b5d57ca0ac9659853be222c15e8d95afeefed04add"
+    },
+    "P08-C02": {
+      "canvasPx": [
+        1664,
+        936
+      ],
+      "sourceTrimPx": [
+        4,
+        2,
+        4,
+        3
+      ],
+      "wideOn": "media/rooms/P08/originals/P08-C02__wide__ein.png",
+      "wideOff": "media/rooms/P08/originals/P08-C02__wide__aus.png",
+      "registeredDeck": "media/rooms/P08/layers/P08-C02__Kartenstapel.png",
+      "deckQuad": [
+        [
+          0.409856,
+          0.686966
+        ],
+        [
+          0.461538,
+          0.665598
+        ],
+        [
+          0.491587,
+          0.684829
+        ],
+        [
+          0.438702,
+          0.71047
+        ]
+      ],
+      "webp": {
+        "on": "media/rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-af3b483fb6fd.webp",
+        "off": "media/rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-838a027de92f.webp"
+      },
+      "lights": [
+        {
+          "id": "P08-L-DECKE",
+          "file": "media/rooms/P08/layers/P08-C02__P08-L-DECKE__ein.png",
+          "source": "local illumination delta derived from the original and its dark reference; registered to the candidate master",
+          "test": {
+            "roundTripPerChannel": 0
+          },
+          "coveragePx": [
+            643,
+            0,
+            988,
+            271
+          ]
+        },
+        {
+          "id": "P08-L-WAND-SUED-L",
+          "file": "media/rooms/P08/layers/P08-C02__P08-L-WAND-SUED-L__ein.png",
+          "source": "local illumination delta derived from the original and its dark reference; registered to the candidate master",
+          "test": {
+            "roundTripPerChannel": 0
+          },
+          "coveragePx": [
+            592,
+            165,
+            739,
+            371
+          ]
+        },
+        {
+          "id": "P08-L-WAND-SUED-R",
+          "file": "media/rooms/P08/layers/P08-C02__P08-L-WAND-SUED-R__ein.png",
+          "source": "local illumination delta derived from the original and its dark reference; registered to the candidate master",
+          "test": {
+            "roundTripPerChannel": 0
+          },
+          "coveragePx": [
+            872,
+            163,
+            1019,
+            366
+          ]
+        },
+        {
+          "id": "P08-L-BANK",
+          "file": "media/rooms/P08/layers/P08-C02__P08-L-BANK__ein.png",
+          "source": "local illumination delta derived from the original and its dark reference; registered to the candidate master",
+          "test": {
+            "roundTripPerChannel": 0
+          },
+          "coveragePx": [
+            391,
+            294,
+            657,
+            497
+          ]
+        },
+        {
+          "id": "P08-L-KARTENTISCH",
+          "file": "media/rooms/P08/layers/P08-C02__P08-L-KARTENTISCH__ein.png",
+          "source": "local illumination delta derived from the original and its dark reference; registered to the candidate master",
+          "test": {
+            "roundTripPerChannel": 0
+          },
+          "coveragePx": [
+            744,
+            535,
+            1045,
+            724
+          ]
+        },
+        {
+          "id": "P08-L-SPIELUHRTISCH",
+          "file": "media/rooms/P08/layers/P08-C02__P08-L-SPIELUHRTISCH__ein.png",
+          "source": "local illumination delta derived from the original and its dark reference; registered to the candidate master",
+          "test": {
+            "roundTripPerChannel": 0
+          },
+          "coveragePx": [
+            20,
+            478,
+            234,
+            661
+          ]
+        },
+        {
+          "id": "P08-L-OFEN",
+          "file": "media/rooms/P08/layers/P08-C02__P08-L-OFEN__ein.png",
+          "source": "local illumination delta derived from the original and its dark reference; registered to the candidate master",
+          "test": {
+            "roundTripPerChannel": 0
+          },
+          "coveragePx": [
+            1070,
+            324,
+            1319,
+            585
+          ]
+        }
+      ],
+      "crops": [
+        {
+          "segment": 1,
+          "segmentLabel": "L",
+          "reviewFile": "qa/crops/P08-C02-1.webp",
+          "pixelRect": [
+            0,
+            0,
+            624,
+            936
+          ],
+          "normalizedRect": [
+            0.0,
+            0,
+            0.375,
+            1
+          ],
+          "visible": [
+            {
+              "id": "MP-P08",
+              "widthFraction": 1.0,
+              "edgeClipped": false
+            }
+          ]
+        },
+        {
+          "segment": 2,
+          "segmentLabel": "M",
+          "reviewFile": "qa/crops/P08-C02-2.webp",
+          "pixelRect": [
+            520,
+            0,
+            624,
+            936
+          ],
+          "normalizedRect": [
+            0.3125,
+            0,
+            0.375,
+            1
+          ],
+          "visible": [
+            {
+              "id": "O04",
+              "widthFraction": 1.0,
+              "edgeClipped": false
+            },
+            {
+              "id": "P08-KARTENTISCH",
+              "widthFraction": 1.0,
+              "edgeClipped": false
+            }
+          ]
+        },
+        {
+          "segment": 3,
+          "segmentLabel": "R",
+          "reviewFile": "qa/crops/P08-C02-3.webp",
+          "pixelRect": [
+            1040,
+            0,
+            624,
+            936
+          ],
+          "normalizedRect": [
+            0.625,
+            0,
+            0.375,
+            1
+          ],
+          "visible": [
+            {
+              "id": "T03",
+              "widthFraction": 1.0,
+              "edgeClipped": false
+            },
+            {
+              "id": "P08-L-OFEN",
+              "widthFraction": 1.0,
+              "edgeClipped": false
+            }
+          ]
+        }
+      ],
+      "targets": [
+        {
+          "id": "T03",
+          "polygon": [
+            [
+              0.891827,
+              0.133547
+            ],
+            [
+              0.959736,
+              0.071581
+            ],
+            [
+              0.989183,
+              0.105769
+            ],
+            [
+              0.987981,
+              0.696581
+            ],
+            [
+              0.890024,
+              0.702991
+            ]
+          ],
+          "actionOrTarget": "H00",
+          "alternative": "room action list"
+        },
+        {
+          "id": "O04",
+          "polygon": [
+            [
+              0.382212,
+              0.403846
+            ],
+            [
+              0.482572,
+              0.405983
+            ],
+            [
+              0.489784,
+              0.504274
+            ],
+            [
+              0.383413,
+              0.516026
+            ]
+          ],
+          "actionOrTarget": "O04",
+          "alternative": "room action list"
+        },
+        {
+          "id": "P08-KARTENTISCH",
+          "polygon": [
+            [
+              0.405649,
+              0.66453
+            ],
+            [
+              0.495192,
+              0.66453
+            ],
+            [
+              0.495192,
+              0.740385
+            ],
+            [
+              0.405649,
+              0.740385
+            ]
+          ],
+          "actionOrTarget": "P08-D01",
+          "alternative": "room action list"
+        },
+        {
+          "id": "MP-P08",
+          "polygon": [
+            [
+              0.066707,
+              0.378205
+            ],
+            [
+              0.186899,
+              0.378205
+            ],
+            [
+              0.186899,
+              0.653846
+            ],
+            [
+              0.066707,
+              0.653846
+            ]
+          ],
+          "actionOrTarget": "P08-SPIELUHR",
+          "alternative": "room action list"
+        },
+        {
+          "id": "P08-L-OFEN",
+          "polygon": [
+            [
+              0.662861,
+              0.389957
+            ],
+            [
+              0.753005,
+              0.389957
+            ],
+            [
+              0.753005,
+              0.526709
+            ],
+            [
+              0.662861,
+              0.526709
+            ]
+          ],
+          "actionOrTarget": "P08-L-OFEN",
+          "alternative": "room action list"
+        }
+      ],
+      "cleanPlateWithoutMusicBox": "media/rooms/P08/originals/P08-C02__ohne-Spieluhr.png",
+      "mediaId": "scene.P08-C02.kandidat",
+      "sameSourceAsGitV1": "4979fe656c353c26369b73d6a1cd0a24eeb1d89639833e11fc19013dc34fa741"
+    }
+  },
+  "lighting": {
+    "enabledStateIdSharedAcrossViews": true,
+    "blend": "per channel in sRGB: offRGB + sum(round(RGB * alpha/255)); clamp only after sum",
+    "restLight": "daylight, cabinet and adjacent rooms fixed ambient; no automatic glow or flicker",
+    "fire": {
+      "physicalId": "P08-L-OFEN",
+      "scene": "P08-C02",
+      "states": [
+        "off",
+        "on"
+      ],
+      "optionalGlut": "open",
+      "animation": "no sequence pending artistic choice"
+    }
+  },
+  "navigation": {
+    "H00->P08": {
+      "navigationId": "NAV-03",
+      "openingId": "T03",
+      "legacyOpening": "D02",
+      "scene": "P08-C01",
+      "segment": "L",
+      "legacyUXConflict": "A3 refers to the old camera decomposition. Left opening is T03 in C01."
+    },
+    "P08->H00": {
+      "navigationId": "NAV-03",
+      "openingId": "T03",
+      "bySource": {
+        "P08-C01": {
+          "scene": "H00-C01",
+          "segment": "R"
+        },
+        "P08-C02": {
+          "scene": "H00-C02",
+          "segment": "L"
+        }
+      },
+      "status": "paired target proposal; inspect actual hall bundle"
+    },
+    "P03->P08": {
+      "navigationId": "NAV-06",
+      "workingOpeningId": "O01",
+      "scene": "P08-C01",
+      "segment": "M",
+      "legacyUXConflict": "A1 refers to the old camera decomposition. Open arch is central in C01. Reciprocal geometry pending."
+    },
+    "P08->P03": {
+      "navigationId": "NAV-06",
+      "workingOpeningId": "O01",
+      "scene": "P03-C01",
+      "segment": "M",
+      "status": "BLOCKED: canonical target master and segment still open"
+    },
+    "direct": {
+      "scene": "P08-C01",
+      "segment": "M"
+    },
+    "turn": {
+      "P08-C01->P08-C02": {
+        "L": "R",
+        "M": "M",
+        "R": "L"
+      },
+      "P08-C02->P08-C01": {
+        "L": "R",
+        "M": "M",
+        "R": "L"
+      },
+      "status": "proposal from corresponding physical margins, verify runtime"
+    }
+  },
+  "player": {
+    "id": "MP-P08",
+    "appAssetId": "app.device.MP-P08",
+    "legacyId": "P08",
+    "canvasPx": [
+      1120,
+      1400
+    ],
+    "archiveCanvasPx": [
+      1160,
+      1360
+    ],
+    "archiveOffsetPx": [
+      50,
+      109
+    ],
+    "originalOrder": [
+      "00-Porzellandeckel.webp",
+      "01-Porzellandose.webp",
+      "02-Drehteller.webp",
+      "03-Figur-links.webp",
+      "04-Figur-rechts.webp"
+    ],
+    "sourceArchive": "EMFD-Raumplayer-Bildebenen(3).zip",
+    "sourceRegister": "Bildregister.json#Raeume.P08",
+    "archiveArtwork": "media/rooms/P08/player/archiv/Raumansicht.webp",
+    "layers": [
+      {
+        "original": {
+          "path": "media/rooms/P08/player/archiv/00-Porzellandeckel.webp",
+          "sha256": "560ac33ce3d176f4e8dc040da6c46983d4ce2d4ee157f7ffd9c68c1db0cb4fdd",
+          "width": 1160,
+          "height": 1360,
+          "alpha": true,
+          "alphaBoundsPx": [
+            378,
+            485,
+            673,
+            763
+          ],
+          "format": "WEBP"
+        },
+        "registriert": {
+          "path": "media/rooms/P08/player/registered/00-Porzellandeckel.png",
+          "sha256": "d86876db4cfe6877e501da62864522c89745bd6d3274e4a20453dda99f85d09a",
+          "width": 1120,
+          "height": 1400,
+          "alpha": true,
+          "alphaBoundsPx": [
+            428,
+            594,
+            723,
+            872
+          ],
+          "format": "PNG"
+        },
+        "pivotOriginalPx": [
+          522,
+          737
+        ],
+        "pivotRegistriertPx": [
+          572,
+          846
+        ],
+        "pivotNorm": [
+          0.510714,
+          0.604286
+        ]
+      },
+      {
+        "original": {
+          "path": "media/rooms/P08/player/archiv/01-Porzellandose.webp",
+          "sha256": "620587b5c34b29432d741746e3d7043ad0b5a8a66e88d3e2e15cd21d4e46bed6",
+          "width": 1160,
+          "height": 1360,
+          "alpha": true,
+          "alphaBoundsPx": [
+            393,
+            710,
+            762,
+            965
+          ],
+          "format": "WEBP"
+        },
+        "registriert": {
+          "path": "media/rooms/P08/player/registered/01-Porzellandose.png",
+          "sha256": "75d7b7322d34865c9779400e6fe8e9b038c3a332ab00f4b1e07dd88042911e26",
+          "width": 1120,
+          "height": 1400,
+          "alpha": true,
+          "alphaBoundsPx": [
+            443,
+            819,
+            812,
+            1074
+          ],
+          "format": "PNG"
+        },
+        "pivotOriginalPx": null,
+        "pivotRegistriertPx": null,
+        "pivotNorm": null
+      },
+      {
+        "original": {
+          "path": "media/rooms/P08/player/archiv/02-Drehteller.webp",
+          "sha256": "eb03abc5e20f08f78f2f82d0fd8239d2880bb9b84e585b0f8932909c03265d34",
+          "width": 1160,
+          "height": 1360,
+          "alpha": true,
+          "alphaBoundsPx": [
+            450,
+            723,
+            713,
+            768
+          ],
+          "format": "WEBP"
+        },
+        "registriert": {
+          "path": "media/rooms/P08/player/registered/02-Drehteller.png",
+          "sha256": "40ce0fea677518d1034da5e6898cce19846c24f938158e1b98c779720102ed3f",
+          "width": 1120,
+          "height": 1400,
+          "alpha": true,
+          "alphaBoundsPx": [
+            500,
+            832,
+            763,
+            877
+          ],
+          "format": "PNG"
+        },
+        "pivotOriginalPx": [
+          583,
+          745
+        ],
+        "pivotRegistriertPx": [
+          633,
+          854
+        ],
+        "pivotNorm": [
+          0.565179,
+          0.61
+        ]
+      },
+      {
+        "original": {
+          "path": "media/rooms/P08/player/archiv/03-Figur-links.webp",
+          "sha256": "3d6e0962295bd84bc5d9db5f0faac6dad159cb690212c33b97abcd92452e3f7b",
+          "width": 1160,
+          "height": 1360,
+          "alpha": true,
+          "alphaBoundsPx": [
+            516,
+            687,
+            547,
+            742
+          ],
+          "format": "WEBP"
+        },
+        "registriert": {
+          "path": "media/rooms/P08/player/registered/03-Figur-links.png",
+          "sha256": "e23850d366b9250ea84bac09e26825ce9c9b796b78f159aff8f5caaca897d912",
+          "width": 1120,
+          "height": 1400,
+          "alpha": true,
+          "alphaBoundsPx": [
+            566,
+            796,
+            597,
+            851
+          ],
+          "format": "PNG"
+        },
+        "pivotOriginalPx": [
+          530,
+          735
+        ],
+        "pivotRegistriertPx": [
+          580,
+          844
+        ],
+        "pivotNorm": [
+          0.517857,
+          0.602857
+        ]
+      },
+      {
+        "original": {
+          "path": "media/rooms/P08/player/archiv/04-Figur-rechts.webp",
+          "sha256": "2c25a4c32904bb756a7d9a57c592d503a17a51bcf61b009709e47e98f11c2f87",
+          "width": 1160,
+          "height": 1360,
+          "alpha": true,
+          "alphaBoundsPx": [
+            565,
+            680,
+            609,
+            745
+          ],
+          "format": "WEBP"
+        },
+        "registriert": {
+          "path": "media/rooms/P08/player/registered/04-Figur-rechts.png",
+          "sha256": "03bf0b199b547303d9c790cbbd0f09af1e358fbdce6d6fb4495dd99bd77237e1",
+          "width": 1120,
+          "height": 1400,
+          "alpha": true,
+          "alphaBoundsPx": [
+            615,
+            789,
+            659,
+            854
+          ],
+          "format": "PNG"
+        },
+        "pivotOriginalPx": [
+          586,
+          739
+        ],
+        "pivotRegistriertPx": [
+          636,
+          848
+        ],
+        "pivotNorm": [
+          0.567857,
+          0.605714
+        ]
+      }
+    ],
+    "variantApproval": "OPEN: archive turntable with figures versus room-visible cylinder; no final movement or closed-lid artwork confirmed",
+    "modes": {
+      "quiet": "open static cylinder candidate, no movement",
+      "operating": "historical registered composite for visual review only",
+      "paused": "static same frame",
+      "reducedMotion": "static same frame",
+      "autoplay": false
+    }
+  },
+  "cardTable": {
+    "sceneId": "P08-D01",
+    "canvasPx": [
+      1664,
+      936
+    ],
+    "cleanPlate": "media/rooms/P08/originals/P08-D01__Cleanplate.png",
+    "deckGroundQuad": [
+      [
+        0.375,
+        0.642
+      ],
+      [
+        0.491,
+        0.619
+      ],
+      [
+        0.552,
+        0.679
+      ],
+      [
+        0.434,
+        0.71
+      ]
+    ],
+    "animationRestQuad": [
+      [
+        0.461,
+        0.688
+      ],
+      [
+        0.548,
+        0.663
+      ],
+      [
+        0.598,
+        0.722
+      ],
+      [
+        0.501,
+        0.754
+      ]
+    ],
+    "openCardCenter": [
+      0.525,
+      0.589
+    ],
+    "openCardMaxBox": [
+      0.437,
+      0.329,
+      0.175,
+      0.53
+    ],
+    "freeWoodQuad": [
+      [
+        0.285,
+        0.568
+      ],
+      [
+        0.68,
+        0.554
+      ],
+      [
+        0.824,
+        0.747
+      ],
+      [
+        0.674,
+        0.84
+      ],
+      [
+        0.322,
+        0.814
+      ],
+      [
+        0.183,
+        0.713
+      ]
+    ],
+    "blankSheetReserveOnly": [
+      [
+        0.63,
+        0.618
+      ],
+      [
+        0.718,
+        0.612
+      ],
+      [
+        0.767,
+        0.685
+      ],
+      [
+        0.665,
+        0.716
+      ]
+    ],
+    "uiSafeZonesWide": {
+      "header": [
+        0,
+        0,
+        1,
+        0.115
+      ],
+      "bottomChrome": [
+        0,
+        0.89,
+        1,
+        0.11
+      ]
+    },
+    "back": {
+      "assetKey": "EMFDImages.cardBack.card-view",
+      "existingRelativePath": "../media/optimized/cards/EMFD_Kartenrueckseite-v1.2-630x1080-3d4d2cb907.webp",
+      "fallback": "../media/cards/EMFD_Kartenrueckseite_v1.2.jpeg",
+      "availability": "archive verified; both expected app URLs returned 404 in read-only check",
+      "sourceArchive": "EMFD-v0.6.55-media-NUR-NEUE-RUECKSEITE(3).zip",
+      "proof": {
+        "path": "quellen/karten/EMFD_Kartenrueckseite-v1.2-630x1080-3d4d2cb907.webp",
+        "sha256": "3d4d2cb907139851067b9ac80bb88b5db9ad8f60c37722ee8b251d774ceb8161",
+        "width": 630,
+        "height": 1080,
+        "alpha": false,
+        "alphaBoundsPx": null,
+        "format": "WEBP"
+      }
+    },
+    "front": "EMFDImages.card(id, card-view); centralized existing originals",
+    "renderOrder": [
+      "cleanPlate",
+      "existing deck",
+      "existing flip/tilt",
+      "shared scene chrome"
+    ],
+    "activation": "Only after deliberate card action. W2/K-23 open. Existing progression and persisted companion card are external to media.",
+    "registeredDeck": "media/rooms/P08/layers/P08-D01__Kartenstapel.png"
+  },
+  "sharedUX": {
+    "header": [
+      "Musik",
+      "Raumtitel",
+      "Hilfe"
+    ],
+    "momentPanelDefault": "geschlossen",
+    "wide": "full contain",
+    "fallbackWideMinCssPx": [
+      640,
+      360
+    ],
+    "touchTargetCssPx": [
+      44,
+      44
+    ],
+    "drawOnOpen": false,
+    "paperAction": "K-23 offen"
+  },
+  "visualSupplement": {
+    "status": "REVIEW",
+    "textilesDefaultEnabled": false,
+    "hallBase": "EMFD-H00-VIS-01_Produktion-v0.7-r1",
+    "runner": {
+      "P08-C01": {
+        "path": "media/rooms/P08/layers/P08-C01__Laeufer-Vorschlag.png",
+        "canvasPx": [
+          1664,
+          936
+        ],
+        "approved": false,
+        "placement": "teaware line, card area kept clear"
+      },
+      "P08-C02": {
+        "path": "media/rooms/P08/layers/P08-C02__Laeufer-Vorschlag.png",
+        "canvasPx": [
+          1664,
+          936
+        ],
+        "approved": false,
+        "placement": "teaware line, card area kept clear"
+      },
+      "P08-D01": {
+        "path": "media/rooms/P08/layers/P08-D01__Laeufer-Vorschlag.png",
+        "canvasPx": [
+          1664,
+          936
+        ],
+        "approved": false,
+        "placement": "teaware line, card area kept clear"
+      }
+    },
+    "hall": {
+      "H00-C01": {
+        "path": "anschlusskandidaten/H00-C01__T03-P08__Durchblick.png",
+        "canvasPx": [
+          1672,
+          941
+        ],
+        "sourceSha256": "92852001a9bfb5293d90e5fdc463155fbbd521cf00a0bbd29355f9e4b1b41dfb",
+        "openingId": "T03",
+        "navigationId": "NAV-03",
+        "approved": false,
+        "compositing": "alpha-over H00 on its native canvas; no change to Hall assets implied"
+      },
+      "H00-C02": {
+        "path": "anschlusskandidaten/H00-C02__T03-P08__Durchblick.png",
+        "canvasPx": [
+          1672,
+          941
+        ],
+        "sourceSha256": "6d91bd78f0bcc059be3e2a7ab398c1fb57242dd974d4e219d5de7d8176a6636a",
+        "openingId": "T03",
+        "navigationId": "NAV-03",
+        "approved": false,
+        "compositing": "alpha-over H00 on its native canvas; no change to Hall assets implied"
+      }
+    },
+    "tartan": {
+      "path": "media/rooms/P08/layers/P08-C02__Tartan-Vorschlag.png",
+      "canvasPx": [
+        1664,
+        936
+      ],
+      "approved": false,
+      "visibleIn": [
+        "P08-C02"
+      ]
+    }
+  }
+}

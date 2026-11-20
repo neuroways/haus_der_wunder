@@ -7,3 +7,6 @@ dist/
 
 # Musik ist nicht öffentlich freigegeben: Audiodateien liegen im privaten Repo neuroways/haus-der-wunder (assets/audio, LFS)
 media/audio/*.mp3
+
+# EMFD-P08-VIS-01: Teezimmer-Medien liegen auf STRATO (/wunderhaus/media/rooms/P08/), nicht im Repository
+media/rooms/P08/

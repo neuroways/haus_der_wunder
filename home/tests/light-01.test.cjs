@@ -12,7 +12,7 @@ test('Zentrales Lichtregister: jede Licht-ID aller Szenen definiert, mit Art, St
  for(const id of used)assert.ok(ids.has(id),id);
  for(const l of registry.lights()){
   assert.match(l.id,/^LIGHT-[A-Z0-9-]+$/);assert.ok(ART[l.art],l.id);assert.equal(typeof l.standard,'boolean');assert.ok(l.dauer>0);
-  for(const v of Object.values(l.ansichten))assert.deepEqual(Object.keys(v.ebenen).sort(),['glow','reflection','source','spill']);
+  for(const v of Object.values(l.ansichten))assert.deepEqual(Object.keys(v.ebenen).sort(),['glow','licht','reflection','source','spill']);
  }
  const deck=registry.light('LIGHT-H00-DECKENLATERNE');assert.deepEqual(Object.keys(deck.ansichten).sort(),['H00-C01','H00-C02'],'eine globale ID für beide Blickrichtungen');
  assert.equal(registry.light('LIGHT-KUE-FENSTERLATERNE').dauer,600,'Laterne 600 ms');assert.equal(registry.light('LIGHT-KUE-DECKENLEUCHTE').dauer,400,'elektrisch 400 ms');

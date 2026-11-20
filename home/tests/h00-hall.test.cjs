@@ -44,7 +44,7 @@ test('Türen: Ziele aus dem Register; Küche ohne Ansicht erklärt; Haustür mit
  assert.equal(target(c01,'H00-C01-TEEZIMMER'),'P08-C01');assert.equal(target(c02,'H00-C02-TEEZIMMER'),'P08-C01','beide Seiten → derselbe Raum');
  assert.equal(target(c01,'H00-C01-TREPPE'),'P06-C01');assert.equal(target(c02,'H00-C02-TREPPE'),'P06-C01');
  assert.equal(target(c02,'H00-C02-HAUSTUER'),'EXT-C02','Haustür führt hinaus');
- assert.equal(registry.redirect('#raum/P05/C01'),'#ort/P05');assert.equal(registry.redirect('#raum/P08/C01'),'#teezimmer');assert.equal(registry.redirect('#raum/P06/C01'),'#ort/P06');
+ assert.equal(registry.redirect('#raum/P05/C01'),'#ort/P05');assert.equal(registry.redirect('#raum/P08/C01'),null,'Teezimmer ist seit EMFD-P08-VIS-01 eine Szene');assert.equal(registry.redirect('#raum/P06/C01'),'#ort/P06');
  assert.equal(registry.redirect('#raum/KUE/C02'),null,'Küche: noch keine Ansicht');
  const src=read('hall.js');
  assert.match(src,/if\(!target\)\{showHint\('kitchen'\);return;\}/,'keine Sackgasse, Erklärung');

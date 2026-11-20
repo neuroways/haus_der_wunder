@@ -50,7 +50,9 @@ figure.emfd-scene-view__image svg{inline-size:100%;block-size:100%}
 /* EMFD-LIGHT-01 · Lichtstapel (gleiche Bühne wie das Raumbild). Echte Ebenen sind Vollbilder, exakt auf den Master registriert. */
 .emfd-light-layer{position:absolute;inset:0;inline-size:100%;block-size:100%;pointer-events:none;object-fit:fill;transition:opacity var(--light-ms,400ms) ease}
 .emfd-light-layer--ambient,.emfd-light-layer--spill,.emfd-light-layer--glow,.emfd-light-layer--reflection{mix-blend-mode:screen}
-.emfd-light-layer--source.is-off,.emfd-light-layer--spill.is-off,.emfd-light-layer--glow.is-off,.emfd-light-layer--reflection.is-off{opacity:0}
+.emfd-light-layer--source.is-off,.emfd-light-layer--spill.is-off,.emfd-light-layer--glow.is-off,.emfd-light-layer--reflection.is-off,.emfd-light-layer--licht.is-off{opacity:0}
+/* Vollständige Ein-Ebene je Quelle (Work P08): additiv in sRGB auf der Aus-Basis (offRGB + RGB·α/255), mehrere Quellen addieren sich. */
+.emfd-light-layer--licht{mix-blend-mode:plus-lighter}
 .emfd-light-layer--pair{opacity:0}
 .emfd-light-layer--pair.is-off{opacity:1}
 /* Vorläufige programmatische Lichtmasken (keine Freigabe): Quelle erlischt, Lichtschein verschwindet, Raum wird dunkler. */

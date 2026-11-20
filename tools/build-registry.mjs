@@ -55,7 +55,7 @@ for(const [id,l] of Object.entries(app.lichter||{})){
   if(!ART_DAUER[l.art])errors.push(`Licht ${id}: unbekannte Art ${l.art}`);
   for(const [sid,v] of Object.entries(l.ansichten||{})){if(!sceneIds.has(sid))errors.push(`Licht ${id}: Szene ${sid} fehlt`);for(const m of Object.values(v.ebenen||{}))if(m&&!app.medien[m])errors.push(`Licht ${id}: Ebene ${m} nicht beschrieben`);}
 }
-for(const [sid,v] of Object.entries(app.lichtSzenen||{})){if(!sceneIds.has(sid))errors.push(`Lichtszene ${sid} fehlt`);for(const m of [v.basis,v.ambient,v.paar?.an,v.paar?.aus].filter(Boolean))if(!app.medien[m])errors.push(`Lichtszene ${sid}: Medium ${m} nicht beschrieben`);}
+for(const [sid,v] of Object.entries(app.lichtSzenen||{})){if(!sceneIds.has(sid))errors.push(`Lichtszene ${sid} fehlt`);for(const m of [v.basis,v.ambient,v.paar?.an,v.paar?.aus,...(v.auflagen||[])].filter(Boolean))if(!app.medien[m])errors.push(`Lichtszene ${sid}: Medium ${m} nicht beschrieben`);}
 const routes=new Map();
 const claim=(route,owner)=>{if(routes.has(route))errors.push(`Adresse ${route} doppelt (${routes.get(route)} und ${owner})`);routes.set(route,owner);};
 for(const [id,room] of Object.entries(app.raeume))for(const route of [room.route,...(room.aliase||[])].filter(Boolean))claim(route,id);
@@ -92,7 +92,7 @@ const roomList=rooms.raeume.map(room=>{
   const extra=app.raeume[room.id]||{};
   return {id:room.id,name:room.name,anzeigename:extra.anzeigename||room.name,zu:extra.zu||null,ebene:room.ebene,status:room.status,
     szenen:room.szenen,orakelobjekte:room.orakelobjekte||[],musikgeraet:room.musikgeraet||null,
-    route:extra.route||null,aliase:extra.aliase||[],verzeichnis:Boolean(extra.verzeichnis),
+    route:extra.route||null,szenenRoute:extra.szene||null,aliase:extra.aliase||[],verzeichnis:Boolean(extra.verzeichnis),
     orientierung:extra.orientierung||null,alt:extra.alt||null,bild:extra.bild||null,vorschau:extra.vorschau||null};
 });
 const deviceList=devices.geraete.map(device=>{
@@ -108,7 +108,7 @@ const lightList=Object.entries(app.lichter||{}).map(([id,l])=>{
   const ansichten={};
   for(const scene of sceneList){const hs=scene.hotspots.filter(h=>h.ziel?.licht===id);if(!hs.length)continue;
     const extra=(l.ansichten||{})[scene.id]||{};
-    ansichten[scene.id]={hotspots:hs.map(h=>h.id),rect:extra.rect||union(hs.map(h=>h.rect)),ebenen:{source:null,spill:null,glow:null,reflection:null,...(extra.ebenen||{})}};}
+    ansichten[scene.id]={hotspots:hs.map(h=>h.id),rect:extra.rect||union(hs.map(h=>h.rect)),ebenen:{source:null,spill:null,glow:null,reflection:null,licht:null,...(extra.ebenen||{})}};}
   const raumId=Object.keys(ansichten).map(sid=>sceneList.find(sc=>sc.id===sid)?.raumId)[0]||l.raum||null;
   return {id,name:l.name||id,art:l.art,raumId,standard:l.standard!==false,dauer:Number(l.dauer)||ART_DAUER[l.art],gruppen:l.gruppen||[],ansichten};
 });
@@ -117,7 +117,7 @@ const tutorial=hotspotSource?.tutorial?{id:hotspotSource.tutorial.id,version:hot
   hinweise:hotspotSource.tutorial.hinweise.map(h=>({id:h.id,szene:h.szene,titel:h.titel,text:h.text,aktion:h.aktion}))}:null;
 const data={version:1,quelle:{repository:'neuroways/haus-der-wunder',commit,stand:rooms.stand||null},
   raeume:roomList,szenen:sceneList,geraete:deviceList,objekte:objectList,medien:out,
-  ...(tutorial?{tutorial}:{}),...(hotspotSource?.glocke?{glocke:hotspotSource.glocke}:{}),...(hotspotSource?.halle?{halle:hotspotSource.halle}:{}),...(hotspotSource?.kueche?{kueche:hotspotSource.kueche}:{}),lichter:lightList,lichtSzenen:lightScenes};
+  ...(tutorial?{tutorial}:{}),...(hotspotSource?.glocke?{glocke:hotspotSource.glocke}:{}),...(hotspotSource?.halle?{halle:hotspotSource.halle}:{}),...(hotspotSource?.kueche?{kueche:hotspotSource.kueche}:{}),lichter:lightList,lichtSzenen:lightScenes,...(app.teezimmer?{teezimmer:app.teezimmer}:{})};
 
 // Notfallbestand: nur, was die bisherigen Ansichten brauchen (Räume mit Adresse, Geräte mit Adresse, deren Bilder).
 const fbRooms=roomList.filter(room=>room.route);
@@ -127,7 +127,7 @@ for(const id of [...fbRooms.flatMap(room=>[room.bild,room.vorschau]),...fbDevice
 const fbScenes=sceneList.filter(scene=>fbRooms.some(room=>room.id===scene.raumId&&room.route&&room.route.startsWith('#raum/')));
 for(const scene of fbScenes)for(const id of [scene.medium,scene.platzhalter].filter(Boolean))if(out[id])fbMedia[id]=out[id];
 const fallback={version:1,quelle:{...data.quelle,notfall:true},raeume:fbRooms,szenen:fbScenes,geraete:fbDevices,objekte:[],medien:fbMedia,
-  ...(data.tutorial?{tutorial:data.tutorial}:{}),...(data.glocke?{glocke:data.glocke}:{}),...(data.halle?{halle:data.halle}:{}),...(data.kueche?{kueche:data.kueche}:{}),lichter:lightList.filter(l=>fbScenes.some(sc=>l.ansichten[sc.id])),lichtSzenen:lightScenes};
+  ...(data.tutorial?{tutorial:data.tutorial}:{}),...(data.glocke?{glocke:data.glocke}:{}),...(data.halle?{halle:data.halle}:{}),...(data.kueche?{kueche:data.kueche}:{}),lichter:lightList.filter(l=>fbScenes.some(sc=>l.ansichten[sc.id])),lichtSzenen:lightScenes,...(data.teezimmer?{teezimmer:data.teezimmer}:{})};
 
 const header='/* Erzeugt von tools/build-registry.mjs (EMFD-BOOK-01a) – nicht von Hand ändern.\n * Quelle: gemeinsame Register neuroways/haus-der-wunder manifests/ + home/data/registry-app.json. */\n';
 const dataFile=path.join(repo,'home','data','registry.js');

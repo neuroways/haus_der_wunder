@@ -1,6 +1,6 @@
 {
  "tool": "emfd-media-check/1.0",
- "generatedAt": "2026-11-20T15:56:41+00:00",
+ "generatedAt": "2026-11-20T21:04:53+00:00",
  "mediaRoot": "media",
  "files": [
   {
@@ -3610,6 +3610,609 @@
    "kind": "unknown-media"
   },
   {
+   "path": "rooms/P08/detail/P08-D01__1280x720.webp",
+   "folder": "rooms/P08/detail",
+   "bytes": 314346,
+   "sha256": "ee8edb9875b0a41be400d49a5314dc86ddf345bc60076bcacd8f15f47bc7ba25",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C01__Kartenstapel.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 19298,
+   "sha256": "119c4924a5231f854041a9dcff155e3ec1e1f3ae47e4e2b8f3ad5d78c71a6681",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C01__Laeufer-Vorschlag.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 102903,
+   "sha256": "3edf1b80aa6a5754d844f1c316f384236048d237e564ef91ef638ec5fdfe4fef",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C01__P08-L-DECKE__ein.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 99965,
+   "sha256": "f82a685364165987817dba528afe3bfaf31d5cdd9117818d252f5eba0a74abc5",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C01__P08-L-KARTENTISCH__ein.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 61016,
+   "sha256": "f9e28590c737e6b8de1d3cc68a8654d185d04d68faae3a3571738abd85492d99",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C01__P08-L-SPIELUHRTISCH__ein.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 49539,
+   "sha256": "3953e1ff85d4e8034dc53e734151c45eb014f5ea61348b80bfeabecb8d1276d0",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C01__P08-L-WAND-NORD__ein.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 58902,
+   "sha256": "2842ffd4fc5d318ef9ee2d0fbcae90093752ea0383b87ca195678a48ba71ed10",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C02__Kartenstapel.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 19099,
+   "sha256": "097beb2f8af0626f0085ccc8d53ef94dca7274dc59ce33783fe55a19db883bd4",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C02__Laeufer-Vorschlag.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 108562,
+   "sha256": "824a5d81e054aed36ab8408515dfe571ac6584464894068fa7a798cb35cfa619",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C02__O04.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 50819,
+   "sha256": "3a19e55a34c350da78deca1e33840412d32ddf5fbeb61df4f275eca183f0ae97",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C02__P08-L-BANK__ein.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 70194,
+   "sha256": "ec431216c3646117d44682734622642b0fc901b8b45b232a409f2074a472fabc",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C02__P08-L-DECKE__ein.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 82520,
+   "sha256": "25439f7e1ded056c498ab38d0587ebfc81b87c198d9a6728c7c0d5ae392504b1",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C02__P08-L-KARTENTISCH__ein.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 55651,
+   "sha256": "88bbf01809269265f58b254cbf5f9688f18b0572d3ee89f3ea8c0a6af892048a",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C02__P08-L-OFEN__ein.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 95559,
+   "sha256": "070c428dfe21856d057afd18ddfe61d4fd92a8ec1eef49c9e537791b46371d61",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C02__P08-L-SPIELUHRTISCH__ein.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 55765,
+   "sha256": "144e3e505839b412851939f63508c3818a4483085397d4b322685e17267c923c",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C02__P08-L-WAND-SUED-L__ein.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 49890,
+   "sha256": "3b1c29aab55e2536071b93b0a590d7b464b3cc3370d4a771b923a22c6ff69f02",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C02__P08-L-WAND-SUED-R__ein.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 49763,
+   "sha256": "181608493170bf4b4c8cfdf037323cb27ece558ab1f13e8228b86a9e64bdeca9",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-C02__Tartan-Vorschlag.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 42860,
+   "sha256": "8f0b121ba3e274924251a92c69646dd98b7badaff9dc2939b3ea23b7a80691bc",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-D01__Kartenstapel.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 55929,
+   "sha256": "c4b7be145e4a864f32b381d4fb19f1ceea060d0a6c80c109031250654a8cb022",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/layers/P08-D01__Laeufer-Vorschlag.png",
+   "folder": "rooms/P08/layers",
+   "bytes": 147680,
+   "sha256": "bed385c4d2c12e23a762acea2d9fba7f27e29739782331181ba258d4363e06cb",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/objects/O04__Originalfreistellung.png",
+   "folder": "rooms/P08/objects",
+   "bytes": 291613,
+   "sha256": "a17446d3f9a7fbb9911207934f12fbe1aaed0e54a9cb35f5aee0a47cfa1a3743",
+   "width": 547,
+   "height": 284,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-03f22545029c.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 315066,
+   "sha256": "03f22545029c4674f3a2b748744d76b34463e4f7f618c2d28024eceb7b918a2d",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-508356c3b9ae.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 315182,
+   "sha256": "508356c3b9ae28c8dee4c9d676be85966f6b78c4da8d878d12c34d8acb477714",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-5d26b5de287d.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 315182,
+   "sha256": "5d26b5de287d47cd9d09d2a507e1f307d1007194da405d249ed2529ef6c3a60c",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-b989bb4b2393.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 315182,
+   "sha256": "b989bb4b239313ac237117b440d56ef0d6c31c2eba9c31ca08b12a0451c95d45",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-d2280acc26a7.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 315182,
+   "sha256": "d2280acc26a770f57d703ca3107e5017ae6a33bb962ff67307f254dbd52c6314",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-001f6feed07a.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 312152,
+   "sha256": "001f6feed07a5d60c9997a22859db0f0ef7567cca67629dfcad5c4aeecbad2b9",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-19957301ba73.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 312242,
+   "sha256": "19957301ba73dea5a3f323203c42832157722671c3e37c2c0d2d50eecb47215e",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-39bc4e16d246.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 311398,
+   "sha256": "39bc4e16d2465fd1792d42ae95ae9f691939c8eba694c09d7190966fc0ed02c6",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-c1d5431ece8b.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 312242,
+   "sha256": "c1d5431ece8b6f4caa997aca8a0415bec946f7641d1e9892a9ed379677a91bf0",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-f32bd088e9da.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 312152,
+   "sha256": "f32bd088e9da19c866e181b2e8a37247a3bfe1c3eaf9be0e7b4fef32315e2ffc",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-17eb0ea17687.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 296404,
+   "sha256": "17eb0ea17687e30c28a21a07cf050debf04e9e7279c1e57ed228673e4ce54ce1",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-5a3d69d9ca35.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 296404,
+   "sha256": "5a3d69d9ca359a23ad80285fd44002ffcf9221ea7027d269e15fc7c0f0289f4e",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-681c3307723c.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 296404,
+   "sha256": "681c3307723c77ca70c13a1b504154ae18342df44e13520ca6ce9547ea2f205b",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-af3b483fb6fd.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 295202,
+   "sha256": "af3b483fb6fd1feac38644912f2299a028727f66054ab2c37b48484975c8ed51",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-d1a23d9e427a.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 296404,
+   "sha256": "d1a23d9e427af59351194e808c7fffc4d6f54f4d0909a20eb651493b575d09b2",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-579c4a317356.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 289838,
+   "sha256": "579c4a3173561c9ac0c496ca96e2c7ffc019b9d5efbe1e60c77f9306fb6faa08",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-838956be548a.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 289838,
+   "sha256": "838956be548a3318239e3cb57b11457c78f9a38aa4691d9a486ccd7f7d61251a",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-838a027de92f.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 288626,
+   "sha256": "838a027de92fbc14f74a4a935c0162db32db0cc3660836c4f9c41e22a941ef1c",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-a5b9781c205c.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 289840,
+   "sha256": "a5b9781c205c4f3a28a703345159cf9dd66e4cff3e07a4f25bea13144eefc511",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-bd85c484d69a.webp",
+   "folder": "rooms/P08/optimized",
+   "bytes": 289840,
+   "sha256": "bd85c484d69aadff29e96d99fcb4cfc9156db1f7f0bf67f3b8af742dcac7ad0e",
+   "width": 1280,
+   "height": 720,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/originals/P08-C01__ohne-Spieluhr.png",
+   "folder": "rooms/P08/originals",
+   "bytes": 2631314,
+   "sha256": "70f2075da72af59df1f9178bd88ab7d7e851a87913d513fe1a6795f72cb65365",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/originals/P08-C01__wide__aus.png",
+   "folder": "rooms/P08/originals",
+   "bytes": 2635287,
+   "sha256": "d8f2c4f86e8cd7858ddebd1e4ead8c1beb9c6ca3104997b984a07b7c4b5fb767",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/originals/P08-C01__wide__ein.png",
+   "folder": "rooms/P08/originals",
+   "bytes": 2649812,
+   "sha256": "9ddf6517111d478f3e95f738805c251369b0e726009cacbdac18b808a3c3241e",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/originals/P08-C02__ohne-Spieluhr.png",
+   "folder": "rooms/P08/originals",
+   "bytes": 2520800,
+   "sha256": "b1c37e2e7641b07afebeef97cfd3c6bffced1267d2190615a5adc02d10b5470a",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/originals/P08-C02__wide__aus.png",
+   "folder": "rooms/P08/originals",
+   "bytes": 2513217,
+   "sha256": "6edfc02d7576b0cf497c03bf5cc137fce792852b161f539c8e195fbdb0c2df76",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/originals/P08-C02__wide__ein.png",
+   "folder": "rooms/P08/originals",
+   "bytes": 2533246,
+   "sha256": "33b01a792ca90db9e3743ffa44f1676bd5ce7957e116593855150c3ec6d300c8",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/originals/P08-D01__Cleanplate.png",
+   "folder": "rooms/P08/originals",
+   "bytes": 2498337,
+   "sha256": "63cd0136a8003ba96d1158ed7e625eae4b2e55862878bf1b34b40cce8e0676be",
+   "width": 1664,
+   "height": 936,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/P08-C01__Walzenansicht-Quelle.png",
+   "folder": "rooms/P08/player",
+   "bytes": 116609,
+   "sha256": "f2690acd0c1129e5f27961de1c0da3551d28afcdbbbfe9a76450ad8559e26dfb",
+   "width": 193,
+   "height": 242,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/P08-Spieluhr__Cleanplate.png",
+   "folder": "rooms/P08/player",
+   "bytes": 2415936,
+   "sha256": "7dd70e6e57d2580ee45d54d36016bbc61b196dde06d0af4f9f8170d052ef1671",
+   "width": 1120,
+   "height": 1400,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/P08-Spieluhr__Cleanplate.webp",
+   "folder": "rooms/P08/player",
+   "bytes": 355646,
+   "sha256": "8c2f148c6abbcee4d5e0e0953136147a2e200ea349247c73f9266873b71428d2",
+   "width": 1120,
+   "height": 1400,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/P08-Spieluhr__Ruhe-offener-Deckel.png",
+   "folder": "rooms/P08/player",
+   "bytes": 2447975,
+   "sha256": "6bcbaf1762690558cdb45dbe85610ec5043cb5e350c1e932bb61110215819739",
+   "width": 1120,
+   "height": 1400,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/P08-Spieluhr__Ruhe-offener-Deckel.webp",
+   "folder": "rooms/P08/player",
+   "bytes": 361626,
+   "sha256": "9299d3a8ff7d17e882378f249670d4b21b287cc0e55ca65342eb37c9d287ce9c",
+   "width": 1120,
+   "height": 1400,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/archiv/00-Porzellandeckel.webp",
+   "folder": "rooms/P08/player/archiv",
+   "bytes": 103906,
+   "sha256": "560ac33ce3d176f4e8dc040da6c46983d4ce2d4ee157f7ffd9c68c1db0cb4fdd",
+   "width": 1160,
+   "height": 1360,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/archiv/01-Porzellandose.webp",
+   "folder": "rooms/P08/player/archiv",
+   "bytes": 131334,
+   "sha256": "620587b5c34b29432d741746e3d7043ad0b5a8a66e88d3e2e15cd21d4e46bed6",
+   "width": 1160,
+   "height": 1360,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/archiv/02-Drehteller.webp",
+   "folder": "rooms/P08/player/archiv",
+   "bytes": 20920,
+   "sha256": "eb03abc5e20f08f78f2f82d0fd8239d2880bb9b84e585b0f8932909c03265d34",
+   "width": 1160,
+   "height": 1360,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/archiv/03-Figur-links.webp",
+   "folder": "rooms/P08/player/archiv",
+   "bytes": 4070,
+   "sha256": "3d6e0962295bd84bc5d9db5f0faac6dad159cb690212c33b97abcd92452e3f7b",
+   "width": 1160,
+   "height": 1360,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/archiv/04-Figur-rechts.webp",
+   "folder": "rooms/P08/player/archiv",
+   "bytes": 6308,
+   "sha256": "2c25a4c32904bb756a7d9a57c592d503a17a51bcf61b009709e47e98f11c2f87",
+   "width": 1160,
+   "height": 1360,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/archiv/Raum.webp",
+   "folder": "rooms/P08/player/archiv",
+   "bytes": 103010,
+   "sha256": "c7a510741156a3c86b74c1f3ac8e555ac6a50798345d79457408008221c5a7e3",
+   "width": 380,
+   "height": 508,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/archiv/Raumansicht.webp",
+   "folder": "rooms/P08/player/archiv",
+   "bytes": 108352,
+   "sha256": "e8fce46f523a0d83ab1777219a8dd7159b747262f284340c097949baf9fbe421",
+   "width": 380,
+   "height": 508,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/registered/00-Porzellandeckel.png",
+   "folder": "rooms/P08/player/registered",
+   "bytes": 149696,
+   "sha256": "d86876db4cfe6877e501da62864522c89745bd6d3274e4a20453dda99f85d09a",
+   "width": 1120,
+   "height": 1400,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/registered/01-Porzellandose.png",
+   "folder": "rooms/P08/player/registered",
+   "bytes": 178446,
+   "sha256": "75d7b7322d34865c9779400e6fe8e9b038c3a332ab00f4b1e07dd88042911e26",
+   "width": 1120,
+   "height": 1400,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/registered/02-Drehteller.png",
+   "folder": "rooms/P08/player/registered",
+   "bytes": 32386,
+   "sha256": "40ce0fea677518d1034da5e6898cce19846c24f938158e1b98c779720102ed3f",
+   "width": 1120,
+   "height": 1400,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/registered/03-Figur-links.png",
+   "folder": "rooms/P08/player/registered",
+   "bytes": 10815,
+   "sha256": "e23850d366b9250ea84bac09e26825ce9c9b796b78f159aff8f5caaca897d912",
+   "width": 1120,
+   "height": 1400,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/registered/04-Figur-rechts.png",
+   "folder": "rooms/P08/player/registered",
+   "bytes": 13458,
+   "sha256": "03bf0b199b547303d9c790cbbd0f09af1e358fbdce6d6fb4495dd99bd77237e1",
+   "width": 1120,
+   "height": 1400,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/registered/P08-Spieluhr__Kontakt.png",
+   "folder": "rooms/P08/player/registered",
+   "bytes": 26322,
+   "sha256": "18b3567c6c9ebd15de8e8c1493680f05e7ada6a78615f3112abe1588bbaf7dae",
+   "width": 1120,
+   "height": 1400,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/P08/player/registered/P08-Spieluhr__Walzenansicht.png",
+   "folder": "rooms/P08/player/registered",
+   "bytes": 312372,
+   "sha256": "35f16ee563d1141a00f4b77be8418f8e54adffac1f3bd1601038d3788a34e187",
+   "width": 1120,
+   "height": 1400,
+   "kind": "unknown-media"
+  },
+  {
    "path": "rooms/P08-teezimmer.webp",
    "folder": "rooms",
    "bytes": 349734,
@@ -3704,6 +4307,15 @@
    "sha256": "c7a61a97dda5aa85aee491c5f7cde2be36b095a271752f4f2662713fa2438ddf",
    "width": 1536,
    "height": 864,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "rooms/szenen/H00-C01-h00-v2-0cd60aa4.png",
+   "folder": "rooms/szenen",
+   "bytes": 4100251,
+   "sha256": "0cd60aa446bf23184e16661987c30b5993b398123c93bd8f9cefddf27662fbae",
+   "width": 1672,
+   "height": 941,
    "kind": "unknown-media"
   },
   {
@@ -5587,6 +6199,341 @@
   },
   {
    "level": "Hinweis",
+   "path": "rooms/P08/detail/P08-D01__1280x720.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C01__Kartenstapel.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C01__Laeufer-Vorschlag.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C01__P08-L-DECKE__ein.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C01__P08-L-KARTENTISCH__ein.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C01__P08-L-SPIELUHRTISCH__ein.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C01__P08-L-WAND-NORD__ein.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C02__Kartenstapel.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C02__Laeufer-Vorschlag.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C02__O04.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C02__P08-L-BANK__ein.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C02__P08-L-DECKE__ein.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C02__P08-L-KARTENTISCH__ein.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C02__P08-L-OFEN__ein.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C02__P08-L-SPIELUHRTISCH__ein.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C02__P08-L-WAND-SUED-L__ein.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C02__P08-L-WAND-SUED-R__ein.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-C02__Tartan-Vorschlag.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-D01__Kartenstapel.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/layers/P08-D01__Laeufer-Vorschlag.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/objects/O04__Originalfreistellung.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-03f22545029c.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-508356c3b9ae.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-5d26b5de287d.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-b989bb4b2393.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-d2280acc26a7.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-001f6feed07a.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-19957301ba73.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-39bc4e16d246.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-c1d5431ece8b.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-f32bd088e9da.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-17eb0ea17687.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-5a3d69d9ca35.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-681c3307723c.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-af3b483fb6fd.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-d1a23d9e427a.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-579c4a317356.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-838956be548a.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-838a027de92f.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-a5b9781c205c.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-bd85c484d69a.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/originals/P08-C01__ohne-Spieluhr.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/originals/P08-C01__wide__aus.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/originals/P08-C01__wide__ein.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/originals/P08-C02__ohne-Spieluhr.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/originals/P08-C02__wide__aus.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/originals/P08-C02__wide__ein.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/originals/P08-D01__Cleanplate.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/P08-C01__Walzenansicht-Quelle.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/P08-Spieluhr__Cleanplate.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/P08-Spieluhr__Cleanplate.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/P08-Spieluhr__Ruhe-offener-Deckel.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/P08-Spieluhr__Ruhe-offener-Deckel.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/archiv/00-Porzellandeckel.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/archiv/01-Porzellandose.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/archiv/02-Drehteller.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/archiv/03-Figur-links.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/archiv/04-Figur-rechts.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/archiv/Raum.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/archiv/Raumansicht.webp",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/registered/00-Porzellandeckel.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/registered/01-Porzellandose.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/registered/02-Drehteller.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/registered/03-Figur-links.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/registered/04-Figur-rechts.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/registered/P08-Spieluhr__Kontakt.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/P08/player/registered/P08-Spieluhr__Walzenansicht.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
    "path": "rooms/P08-teezimmer.webp",
    "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
   },
@@ -5633,6 +6580,11 @@
   {
    "level": "Hinweis",
    "path": "rooms/szenen/H00-C01-h00-ref-c7a61a97.jpeg",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "rooms/szenen/H00-C01-h00-v2-0cd60aa4.png",
    "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
   },
   {
@@ -5897,47 +6849,76 @@
   }
  ],
  "changes": {
-  "base": "2026-11-19T06:48:38+00:00",
+  "base": "2026-11-20T15:56:41+00:00",
   "added": [
-   "audio/O01-M01.mp3",
-   "audio/O02-M01.mp3",
-   "audio/O03-M01.mp3",
-   "audio/O04-M01.mp3",
-   "audio/O08-M01.mp3",
-   "audio/O24-M01.mp3",
-   "audio/THEME-M01.mp3",
-   "maeppchen/gluehwuermchen/15-hand.png",
-   "maeppchen/gluehwuermchen/16-papierkoerper.png",
-   "maeppchen/gluehwuermchen/17-papierfluegel-links.png",
-   "maeppchen/gluehwuermchen/18-papierfluegel-rechts.png",
-   "maeppchen/gluehwuermchen/19-lebendiger-koerper.png",
-   "maeppchen/gluehwuermchen/20-flugfluegel-links.png",
-   "maeppchen/gluehwuermchen/21-flugfluegel-rechts.png",
-   "maeppchen/maeppchen/01-lederaussenseite.png",
-   "maeppchen/maeppchen/01a-lederriemen.png",
-   "maeppchen/maeppchen/01b-riemenschlaufe.png",
-   "maeppchen/maeppchen/02-innenseite-links.png",
-   "maeppchen/maeppchen/03-innenseite-rechts.png",
-   "maeppchen/maeppchen/03a-falz.png",
-   "maeppchen/maeppchen/04-kartenfach.png",
-   "maeppchen/maeppchen/05-impulsfach.png",
-   "maeppchen/maeppchen/06-fragefach.png",
-   "maeppchen/maeppchen/07-leinenband.png",
-   "maeppchen/maeppchen/08-papierlasche.png",
-   "maeppchen/papier/09-impulskaertchen.png",
-   "maeppchen/papier/10-fragekaertchen.png",
-   "maeppchen/papier/11-gedankenbuch-einband.png",
-   "maeppchen/papier/12-geschichtenheft-umschlag.png",
-   "maeppchen/papier/13-buch-aufgeschlagen.png",
-   "maeppchen/papier/14-papierblatt.png",
-   "maeppchen/szene/00-holztisch.png",
-   "maeppchen/szene/22-nachthimmel.png",
-   "rooms/szenen/EXT-C01-tut02-ref-4b2b6f9e.jpeg",
-   "rooms/szenen/EXT-C02-tut02-ref-13701a58.jpeg",
-   "rooms/szenen/H00-C01-h00-ref-c7a61a97.jpeg",
-   "rooms/szenen/H00-C02-h00-ref-c4451a14.jpeg",
-   "rooms/szenen/KUE-C01-kue-ref-385e7bde.jpg",
-   "rooms/szenen/KUE-C02-kue-ref-1e614f14.jpg"
+   "rooms/P08/detail/P08-D01__1280x720.webp",
+   "rooms/P08/layers/P08-C01__Kartenstapel.png",
+   "rooms/P08/layers/P08-C01__Laeufer-Vorschlag.png",
+   "rooms/P08/layers/P08-C01__P08-L-DECKE__ein.png",
+   "rooms/P08/layers/P08-C01__P08-L-KARTENTISCH__ein.png",
+   "rooms/P08/layers/P08-C01__P08-L-SPIELUHRTISCH__ein.png",
+   "rooms/P08/layers/P08-C01__P08-L-WAND-NORD__ein.png",
+   "rooms/P08/layers/P08-C02__Kartenstapel.png",
+   "rooms/P08/layers/P08-C02__Laeufer-Vorschlag.png",
+   "rooms/P08/layers/P08-C02__O04.png",
+   "rooms/P08/layers/P08-C02__P08-L-BANK__ein.png",
+   "rooms/P08/layers/P08-C02__P08-L-DECKE__ein.png",
+   "rooms/P08/layers/P08-C02__P08-L-KARTENTISCH__ein.png",
+   "rooms/P08/layers/P08-C02__P08-L-OFEN__ein.png",
+   "rooms/P08/layers/P08-C02__P08-L-SPIELUHRTISCH__ein.png",
+   "rooms/P08/layers/P08-C02__P08-L-WAND-SUED-L__ein.png",
+   "rooms/P08/layers/P08-C02__P08-L-WAND-SUED-R__ein.png",
+   "rooms/P08/layers/P08-C02__Tartan-Vorschlag.png",
+   "rooms/P08/layers/P08-D01__Kartenstapel.png",
+   "rooms/P08/layers/P08-D01__Laeufer-Vorschlag.png",
+   "rooms/P08/objects/O04__Originalfreistellung.png",
+   "rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-03f22545029c.webp",
+   "rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-508356c3b9ae.webp",
+   "rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-5d26b5de287d.webp",
+   "rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-b989bb4b2393.webp",
+   "rooms/P08/optimized/P08-C01-cozy-wide-scene-1280x720-v001-d2280acc26a7.webp",
+   "rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-001f6feed07a.webp",
+   "rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-19957301ba73.webp",
+   "rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-39bc4e16d246.webp",
+   "rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-c1d5431ece8b.webp",
+   "rooms/P08/optimized/P08-C01-dim-wide-scene-1280x720-v001-f32bd088e9da.webp",
+   "rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-17eb0ea17687.webp",
+   "rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-5a3d69d9ca35.webp",
+   "rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-681c3307723c.webp",
+   "rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-af3b483fb6fd.webp",
+   "rooms/P08/optimized/P08-C02-cozy-wide-scene-1280x720-v001-d1a23d9e427a.webp",
+   "rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-579c4a317356.webp",
+   "rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-838956be548a.webp",
+   "rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-838a027de92f.webp",
+   "rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-a5b9781c205c.webp",
+   "rooms/P08/optimized/P08-C02-dim-wide-scene-1280x720-v001-bd85c484d69a.webp",
+   "rooms/P08/originals/P08-C01__ohne-Spieluhr.png",
+   "rooms/P08/originals/P08-C01__wide__aus.png",
+   "rooms/P08/originals/P08-C01__wide__ein.png",
+   "rooms/P08/originals/P08-C02__ohne-Spieluhr.png",
+   "rooms/P08/originals/P08-C02__wide__aus.png",
+   "rooms/P08/originals/P08-C02__wide__ein.png",
+   "rooms/P08/originals/P08-D01__Cleanplate.png",
+   "rooms/P08/player/P08-C01__Walzenansicht-Quelle.png",
+   "rooms/P08/player/P08-Spieluhr__Cleanplate.png",
+   "rooms/P08/player/P08-Spieluhr__Cleanplate.webp",
+   "rooms/P08/player/P08-Spieluhr__Ruhe-offener-Deckel.png",
+   "rooms/P08/player/P08-Spieluhr__Ruhe-offener-Deckel.webp",
+   "rooms/P08/player/archiv/00-Porzellandeckel.webp",
+   "rooms/P08/player/archiv/01-Porzellandose.webp",
+   "rooms/P08/player/archiv/02-Drehteller.webp",
+   "rooms/P08/player/archiv/03-Figur-links.webp",
+   "rooms/P08/player/archiv/04-Figur-rechts.webp",
+   "rooms/P08/player/archiv/Raum.webp",
+   "rooms/P08/player/archiv/Raumansicht.webp",
+   "rooms/P08/player/registered/00-Porzellandeckel.png",
+   "rooms/P08/player/registered/01-Porzellandose.png",
+   "rooms/P08/player/registered/02-Drehteller.png",
+   "rooms/P08/player/registered/03-Figur-links.png",
+   "rooms/P08/player/registered/04-Figur-rechts.png",
+   "rooms/P08/player/registered/P08-Spieluhr__Kontakt.png",
+   "rooms/P08/player/registered/P08-Spieluhr__Walzenansicht.png",
+   "rooms/szenen/H00-C01-h00-v2-0cd60aa4.png"
   ],
   "changed": [],
   "removed": []

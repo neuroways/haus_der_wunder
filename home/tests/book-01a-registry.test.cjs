@@ -35,7 +35,7 @@ test('Alias-Matrix: jede bisherige Adresse führt zur selben Ansicht wie vor BOO
 
 test('neue Adressen #raum/<RAUM>/<ANSICHT> und #geraet/<GERÄT> zeigen die bisherige Ansicht',()=>{
  const cases={'#raum/P05/C01':'#ort/P05','#raum/P04/C02':'#atelier',
-  '#raum/P08/C01':'#teezimmer','#raum/M01/C01':'#musik','#geraet/MP-P04':'#atelier/geraet','#geraet/MP-P05':'#ort/P05/geraet'};
+  '#raum/M01/C01':'#musik','#geraet/MP-P04':'#atelier/geraet','#geraet/MP-P05':'#ort/P05/geraet'};
  for(const [hash,target] of Object.entries(cases)){
   assert.equal(registry.redirect(hash),target,hash);
   assert.equal(nav.route(hash),hash,`${hash} ist eine gültige Adresse`);
@@ -86,6 +86,8 @@ test('Räume, Geräte und Namen stammen aus den Registern; keine festen Listen i
  assert.equal(registry.device('MP-P08').name,'Porzellanspieluhr');
  assert.equal(devices.get('MP-P08').name,'Teespieluhr');assert.equal(devices.get('MP-P08').objectName,'Porzellanspieluhr');
  assert.deepEqual(registry.directory().map(room=>room.id),['P01','P02','P03','P04','P05','P06','P07','P08']);
+ // EMFD-P08-VIS-01: Das Teezimmer hat zusätzlich eine Szenenadresse; #teezimmer bleibt die bisherige Seite.
+ assert.equal(registry.redirect('#raum/P08/C01'),null);assert.equal(registry.isSceneRoute('#raum/P08/C01'),true);assert.equal(registry.isSceneRoute('#teezimmer'),false);
  assert.deepEqual(devices.list().map(device=>device.id),['MP-P01','MP-P02','MP-P03','MP-P04','MP-P05','MP-P06','MP-P07','MP-P08']);
  assert.equal(registry.rooms().length,14);assert.equal(registry.scenes().length,28);
 });
