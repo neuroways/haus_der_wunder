@@ -1,5 +1,5 @@
 # EMFD-Rückmeldung · EMFD-MAEPPCHEN-01 · Mäppchen der Begleiterkarte
-Datum: 20.11.2026 · Ergebnis: umgesetzt (Entwicklungsstand, nicht veröffentlicht) · Commit: siehe unten auf `claude/maeppchen-01` (App v0.6.79, Grundlage: `claude/kue-dev-01` v0.6.78)
+Datum: 20.11.2026 · Ergebnis: umgesetzt (Entwicklungsstand, nicht veröffentlicht) · Commit: 774eec9 auf `claude/maeppchen-01` (App v0.6.79, Grundlage: `claude/kue-dev-01` v0.6.78)
 
 ## Was sich für die Person ändert
 - **Mitnehmen:** Nach dem Aufdecken einer gezogenen Karte steht im Karten-Dock „Mitnehmen“. Danach öffnet sich das Mäppchen: Der Riemen gleitet aus der Schlaufe, die Klappe öffnet sich an der mittleren Falz, und die Inhalte gleiten hinter ihren Fachkanten hervor. Es gibt genau eine Begleitung, ohne Ablaufdatum.
