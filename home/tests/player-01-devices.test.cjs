@@ -21,7 +21,7 @@ test('P04: Register entspricht der bestätigten Zuordnung (26 Einträge, O15/O16
 });
 
 test('P01/P02: Stationsadressen sind gültig, gehören zum Raum und führen ohne Herkunft zum Raum zurück',()=>{
-  const expected={'#ort/P01/geraet':['P01','#ort/P01'],'#ort/P02/geraet':['P02','#ort/P02'],'#ort/P03/geraet':['P03','#ort/P03'],'#atelier/geraet':['P04','#atelier'],
+  const expected={'#ort/P01/geraet':['P01','#ort/P01'],'#ort/P02/geraet':['P02','#ort/P02'],'#ort/P03/geraet':['P03','#raum/P03/C01'],'#atelier/geraet':['P04','#atelier'],
     '#ort/P05/geraet':['P05','#ort/P05'],'#ort/P06/geraet':['P06','#ort/P06'],'#ort/P07/geraet':['P07','#ort/P07'],'#teezimmer/geraet':['P08','#teezimmer']};
   for(const [route,[room,back]] of Object.entries(expected)){
     assert.equal(nav.route(route),route);assert.equal(nav.place(route),room);assert.equal(nav.fallbackFor(route),back);
@@ -31,7 +31,7 @@ test('P01/P02: Stationsadressen sind gültig, gehören zum Raum und führen ohne
   assert.deepEqual(nav.describe('#teezimmer/geraet'),['Teespieluhr','Zurück zur Teespieluhr']);
   assert.deepEqual(nav.describe('#ort/P05/geraet'),['Windspiel','Zurück zum Windspiel']);
   const app=nav.createNavigation({getHash:()=> '#ort/P03/geraet',setHash(){}});
-  assert.equal(app.backLink().target,'#ort/P03','direct link and reload fall back to the room');
+  assert.equal(app.backLink().target,'#raum/P03/C01','direct link and reload fall back to the room (P03 als Szene, EMFD-P03-DEV-01)');
 });
 
 test('P03: Raum → Gerät → Rückweg folgt NAV-01',()=>{

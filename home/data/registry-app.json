@@ -42,8 +42,10 @@
     "P03": {
       "anzeigename": "Wintergarten",
       "zu": "zum",
-      "route": "#ort/P03",
-      "aliase": [],
+      "route": "#raum/P03/C01",
+      "aliase": [
+        "#ort/P03"
+      ],
       "verzeichnis": true,
       "orientierung": "Ein heller, bepflanzter Übergang zwischen Innen und Außen.",
       "alt": "Hohe Glasflächen und ein Glasdach umgeben zahlreiche Pflanzen. Ein heller Steinweg führt durch den Raum; links steht ein Arbeitstisch.",
@@ -72,7 +74,16 @@
       "orientierung": "Ein geschützter Außenraum unter offenem Himmel.",
       "alt": "Ein gepflasterter Innenhof liegt zwischen beleuchteten Hausfassaden. In der Mitte steht ein Gartentor; daneben sind eine Bank, Pflanzen und ein steinerner Brunnen zu sehen.",
       "bild": "app.room.P05",
-      "vorschau": "app.room.P05.thumb"
+      "vorschau": "app.room.P05.thumb",
+      "uebergaenge": [
+        {
+          "szene": "P03-C01",
+          "segment": "L",
+          "label": "In den Wintergarten",
+          "oeffnung": "D16",
+          "hinweis": "EMFD-P03-DEV-01: vorläufiger Einstieg aus dem Innenhof (Westseite) – C01 links mit der Hoföffnung im Blick; endgültig nach Abgleich der Türpositionen (D16/T05)"
+        }
+      ]
     },
     "P06": {
       "anzeigename": "Galerie",
@@ -975,6 +986,24 @@
       "produktion": "REVIEW",
       "freigabe": "test",
       "herkunft": "EMFD-P08-VIS-01 v0.7-r1 (p08.vis01.player.P08-Spieluhr__Ruhe-offener-Deckel.webp, sha256 9299d3a8…); Datei auf STRATO /wunderhaus/media/rooms/P08/player/P08-Spieluhr__Ruhe-offener-Deckel.webp – Spieluhr, statische Walzenansicht (Mechanik zur Freigabe offen)"
+    },
+    "scene.P03-C01.p03-dev01": {
+      "datei": "../media/rooms/szenen/P03-C01-p03-dev01-9d94bbc2.png",
+      "breite": 1672,
+      "hoehe": 941,
+      "art": "szenenbild",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P03-DEV-01 Raumillustration P03-C01 (unverändert, sha256 9d94bbc2…): Hauptansicht vom Teezimmer in den Wintergarten (Blüte O05 links, Wurzel O13 Mitte, Klangschale rechts); warmes Abendlicht. WebP-Ableitung durch die Produktion offen"
+    },
+    "scene.P03-C02.p03-dev01": {
+      "datei": "../media/rooms/szenen/P03-C02-p03-dev01-e68c0cde.png",
+      "breite": 1672,
+      "hoehe": 941,
+      "art": "szenenbild",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-P03-DEV-01 Raumillustration P03-C02 (unverändert, sha256 e68c0cde…): Gegenansicht mit Blick zum Teezimmer (Klangschale links, Durchgang Mitte, Hoföffnung rechts); warmes Abendlicht. WebP-Ableitung durch die Produktion offen"
     }
   },
   "szenen": {
@@ -1001,6 +1030,12 @@
     },
     "P08-C02": {
       "medium": "scene.P08-C02.wide-ein"
+    },
+    "P03-C01": {
+      "medium": "scene.P03-C01.p03-dev01"
+    },
+    "P03-C02": {
+      "medium": "scene.P03-C02.p03-dev01"
     }
   },
   "lichtHinweis": "EMFD-LIGHT-01: Jede schaltbare Lichtquelle des Hauses steht hier mit stabiler Licht-ID (gleiche physische Quelle = gleiche ID in allen Ansichten). Felder: art (deckenlampe|wandlampe|tischlampe|stehlampe|laterne|kerze|kamin|lichterkette|magisch|aussen|unterbau), standard (Anfangszustand), dauer (ms, sonst aus der Art), gruppen, ansichten.<Szene>.ebenen {source,spill,glow,reflection} = Medien-IDs (Vollbild-Ebenen, exakt auf den Szenenmaster registriert; fehlend = programmatischer Platzhalter). lichtSzenen.<Szene>: basis (Raum ohne schaltbares Kunstlicht), ambient (natürliches Licht), paar {an,aus,lichter} (vollständiges An/Aus-Bildpaar als Übergang).",
@@ -1201,6 +1236,36 @@
         "scene.P08-C02.kartenstapel"
       ],
       "hinweis": "Aus-Basis + additive Ein-Ebenen (sRGB, offRGB + RGB·α/255) laut Medienzuordnung lighting.blend"
+    },
+    "P03-C01": {
+      "stimmung": "abend",
+      "stimmungen": {
+        "tag": {
+          "medium": null
+        },
+        "abend": {
+          "medium": "scene.P03-C01.p03-dev01"
+        },
+        "nacht": {
+          "medium": null
+        }
+      },
+      "hinweis": "EMFD-P03-DEV-01: vorbereitete Lichtzustände Tag/Abend/Nacht. Aktiv ist nur „abend“ (die Illustration zeigt warmes Abendlicht); tag/nacht ohne Medium = nicht verfügbar. Keine Umschaltung, keine bewegten Effekte."
+    },
+    "P03-C02": {
+      "stimmung": "abend",
+      "stimmungen": {
+        "tag": {
+          "medium": null
+        },
+        "abend": {
+          "medium": "scene.P03-C02.p03-dev01"
+        },
+        "nacht": {
+          "medium": null
+        }
+      },
+      "hinweis": "EMFD-P03-DEV-01: vorbereitete Lichtzustände Tag/Abend/Nacht. Aktiv ist nur „abend“ (die Illustration zeigt warmes Abendlicht); tag/nacht ohne Medium = nicht verfügbar. Keine Umschaltung, keine bewegten Effekte."
     }
   },
   "teezimmer": {
@@ -1214,5 +1279,13 @@
       "titel": "Die Teespieluhr"
     },
     "quelle": "EMFD-P08-VIS-01 Medienzuordnung.json"
+  },
+  "wintergarten": {
+    "anzeigename": "Der Wintergarten",
+    "klangschale": {
+      "geraet": "MP-P03",
+      "hinweis": "Klangschale im Bild = grafischer Platzhalter; öffnet die gemeinsame Gerätestation"
+    },
+    "quelle": "EMFD-P03-DEV-01"
   }
 }

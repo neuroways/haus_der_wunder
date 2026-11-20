@@ -26,8 +26,11 @@
   /** Ausschnitt nach einer Drehung (Vorschlag TUT-02: L→R, R→L, M→M). */
   function turnTarget(segment){return OPPOSITE[segment]||'M';}
   /** Ausschnitt aus der Scrollposition: frei wischbar, die Punkte zeigen den nächstliegenden Anker. */
-  function segmentFor(scrollLeft,max){if(!(max>0))return 'M';const r=scrollLeft/max;return r<0.25?'L':r>0.75?'R':'M';}
-  function scrollFor(segment,max){return segment==='L'?0:segment==='R'?max:max/2;}
+  // mid = Scrollposition des Ausschnitts M (EMFD-P03-DEV-01: auf den Schwerpunkt zentriert, Register ausschnitte.M); ohne Angabe die Bildmitte.
+  // L und R bleiben an den Bildrändern, damit Umdrehen am Rand gleich funktioniert.
+  const clampMid=(mid,max)=>mid==null||!Number.isFinite(mid)?max/2:Math.max(0,Math.min(max,mid));
+  function segmentFor(scrollLeft,max,mid){if(!(max>0))return 'M';const m=clampMid(mid,max);return scrollLeft<m/2?'L':scrollLeft>(m+max)/2?'R':'M';}
+  function scrollFor(segment,max,mid){return segment==='L'?0:segment==='R'?max:clampMid(mid,max);}
   /** Weiterwischen am Bildende dreht um (rein): Die Geste muss im Randausschnitt beginnen (L bzw. R – dort, wo auch
    *  „Umdrehen“ erscheint) und deutlich waagerecht in Richtung Rand gehen. Im Breitbild ist jede waagerechte
    *  Wischgeste ein Weiterwischen. dx>0 = Finger nach rechts = weiter nach links schauen. Ergebnis: 'left'|'right'|null. */
@@ -48,7 +51,8 @@
   function lightPlan(sceneId){
     const reg=registry();const lightsDef=reg?.lightsForScene?.(sceneId)||[];const sceneDef=reg?.lightScene?.(sceneId)||{};
     const file=id=>{const m=id&&reg.resolveMedia(id);return m&&m.type==='file'?m:null;};
-    return {lights:lightsDef,base:file(sceneDef.basis),ambient:file(sceneDef.ambient),overlays:(sceneDef.auflagen||[]).map(file).filter(Boolean),pair:sceneDef.paar&&file(sceneDef.paar.aus)?{aus:file(sceneDef.paar.aus),lichter:sceneDef.paar.lichter||lightsDef.map(l=>l.id)}:null,file};
+    const mood=reg?.lightMood?.(sceneId)||null;
+    return {lights:lightsDef,base:file(sceneDef.basis),mood:mood?.medium?file(mood.medium):null,ambient:file(sceneDef.ambient),overlays:(sceneDef.auflagen||[]).map(file).filter(Boolean),pair:sceneDef.paar&&file(sceneDef.paar.aus)?{aus:file(sceneDef.paar.aus),lichter:sceneDef.paar.lichter||lightsDef.map(l=>l.id)}:null,file};
   }
   /** Markup des Lichtstapels einer Szene (auch für Nahansichten, die einen Ausschnitt derselben Bühne zeigen). */
   function lightLayers(sceneId,engine=root.EMFDLights){
@@ -84,10 +88,14 @@
     container.querySelectorAll('[data-light-dim]').forEach(o=>{const ids=o.dataset.lightDim.split(' ').filter(Boolean);const frac=ids.length?ids.filter(x=>engine?.get?.(x)===false).length/ids.length:0;o.style.opacity=(0.28*frac).toFixed(3);});
   }
 
+  /** Schwerpunkt (0–1) des Ausschnitts M aus dem Register (ausschnitte.M = {x,w}); null = Bildmitte. */
+  function midFocus(scene){const a=scene?.ausschnitte?.M;return a&&Number.isFinite(a.x)&&a.w>0?a.x+a.w/2:null;}
   function stageMarkup(scene,{lights}){
     const reg=registry(),ui=kit();
     const plan=lightPlan(scene.id);
-    const media=plan.base?Object.freeze({...reg.sceneMedia(scene.id),...plan.base,type:'file'}):reg.sceneMedia(scene.id);
+    // Basis: Aus-Bild der Lichtszene, sonst das Medium der aktiven Lichtstimmung (vorbereitet, EMFD-P03-DEV-01), sonst das Szenenmedium.
+    const baseFile=plan.base||plan.mood;
+    const media=baseFile?Object.freeze({...reg.sceneMedia(scene.id),...baseFile,type:'file'}):reg.sceneMedia(scene.id);
     const room=reg.room(scene.raumId);
     const alt=`${room?.anzeigename||scene.raumId}: ${scene.beschreibung}`;
     const art=media.type==='file'
@@ -100,7 +108,7 @@
     }).join('');
     const lightLayer=lightLayers(scene.id,lights);
     return {html:`<div class="emfd-scene-view__stage" style="aspect-ratio:${ratio}" data-media-status="${media.type}">${art}<div class="emfd-scene-view__lights">${lightLayer}</div>`+
-      `<span class="emfd-scene-view__anchor" data-anchor="L"></span><span class="emfd-scene-view__anchor" data-anchor="M"></span><span class="emfd-scene-view__anchor" data-anchor="R"></span>`+
+      `<span class="emfd-scene-view__anchor" data-anchor="L"></span><span class="emfd-scene-view__anchor" data-anchor="M"${midFocus(scene)!=null?` style="inset-inline-start:${(midFocus(scene)*100).toFixed(2)}%"`:''}></span><span class="emfd-scene-view__anchor" data-anchor="R"></span>`+
       `<div class="emfd-scene-view__hotspots">${hotspots}</div>${media.type==='file'?'':`<p class="emfd-scene-view__placeholder-note">Platzhalter · ${ui.escape(media.id)}</p>`}</div>`,alt,media};
   }
 
@@ -149,6 +157,7 @@
     }
     const viewport=()=>el.querySelector('[data-scene-viewport]');
     const maxScroll=()=>{const v=viewport();return v?Math.max(0,v.scrollWidth-v.clientWidth):0;};
+    const midScroll=()=>{const f=midFocus(scene),v=viewport();return f==null||!v?null:f*v.scrollWidth-v.clientWidth/2;};
     // Breit = ganze Szene sichtbar: ab WIDE_MIN oder wenn das Bild in voller Höhe ohnehin in die Breite passt.
     // Aus der Bildgeometrie berechnet (nicht aus der Scrollbreite: im Ganzbild-Zustand gibt es nie etwas zu scrollen,
     // sonst bliebe die Szene nach dem Verkleinern des Fensters im Ganzbild hängen).
@@ -163,7 +172,7 @@
       if(destroyed)return;
       const wide=isWide();
       el.classList.toggle('is-wide',wide);el.classList.toggle('is-panning',!wide);
-      if(!wide){const v=viewport();if(v){v.style.scrollSnapType='none';v.scrollLeft=scrollFor(segment,maxScroll());root.requestAnimationFrame?.(()=>{if(v.isConnected)v.style.scrollSnapType='';});}}
+      if(!wide){const v=viewport();if(v){v.style.scrollSnapType='none';v.scrollLeft=scrollFor(segment,maxScroll(),midScroll());root.requestAnimationFrame?.(()=>{if(v.isConnected)v.style.scrollSnapType='';});}}
       update();
     }
     function update(){
@@ -181,12 +190,12 @@
     function setSegment(next,{smooth=true}={}){
       if(!SEGMENTS.includes(next))return;
       const v=viewport();const prev=segment;segment=next;remember(scene.id,segment);
-      if(v&&!el.classList.contains('is-wide'))v.scrollTo?.({left:scrollFor(segment,maxScroll()),behavior:smooth&&!reduced()?'smooth':'auto'});
+      if(v&&!el.classList.contains('is-wide'))v.scrollTo?.({left:scrollFor(segment,maxScroll(),midScroll()),behavior:smooth&&!reduced()?'smooth':'auto'});
       update();if(prev!==segment)options.onSegment?.(segment,api);
     }
     function onScroll(){
       if(el.classList.contains('is-wide'))return;
-      const next=segmentFor(viewport().scrollLeft,maxScroll());
+      const next=segmentFor(viewport().scrollLeft,maxScroll(),midScroll());
       if(next!==segment){segment=next;remember(scene.id,segment);update();options.onSegment?.(segment,api);}
     }
     function turn(side){
@@ -222,7 +231,7 @@
       v?.addEventListener('scroll',()=>{root.clearTimeout(t);t=root.setTimeout(onScroll,80);},{passive:true});
       // Weiterwischen am Bildende → Umdrehen (nur Touch; Maus/Tastatur nutzen „Umdrehen“).
       let start=null;
-      v?.addEventListener('touchstart',event=>{if(event.touches.length!==1){start=null;return;}const p=event.touches[0];const wide=el.classList.contains('is-wide');start={x:p.clientX,y:p.clientY,wide,segment:wide?'M':segmentFor(v.scrollLeft,maxScroll())};},{passive:true});
+      v?.addEventListener('touchstart',event=>{if(event.touches.length!==1){start=null;return;}const p=event.touches[0];const wide=el.classList.contains('is-wide');start={x:p.clientX,y:p.clientY,wide,segment:wide?'M':segmentFor(v.scrollLeft,maxScroll(),midScroll())};},{passive:true});
       v?.addEventListener('touchend',event=>{if(!start)return;const p=event.changedTouches[0];const side=edgeSwipe({dx:p.clientX-start.x,dy:p.clientY-start.y,segment:start.segment,wide:start.wide});start=null;if(side)turn(side);},{passive:true});
       v?.addEventListener('touchcancel',()=>{start=null;},{passive:true});
       el.addEventListener('keydown',event=>{if(event.key==='Escape'&&listOpen){toggleList(false);listOpener?.focus?.();}});
@@ -264,7 +273,7 @@
     remember(scene.id,segment);
     return api;
   }
-  const exported=Object.freeze({version:1,mount,turnTarget,segmentFor,scrollFor,edgeSwipe,lightLayers,applyLight,lightPlan,LAYERS,SEGMENTS,WIDE_MIN});
+  const exported=Object.freeze({version:1,mount,turnTarget,segmentFor,scrollFor,midFocus,edgeSwipe,lightLayers,applyLight,lightPlan,LAYERS,SEGMENTS,WIDE_MIN});
   if(typeof module!=='undefined'&&module.exports)module.exports=exported;
   root.EMFDScene=exported;
 })(globalThis);

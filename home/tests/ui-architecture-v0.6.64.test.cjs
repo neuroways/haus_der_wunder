@@ -27,8 +27,8 @@ test('Teezimmer continues to have exactly two shared actions and no duplicated d
 test('shared card navigation remembers the source room',()=>{
  const {ctx,events}=registry();assert.equal(ctx.EMFDFeatures.activate('cards','P03'),true);
  assert.equal(ctx.location.hash,'karten');
- assert.equal(ctx.EMFDFeatures.getOrigin().route,'#ort/P03');
- assert.ok(events.some(x=>x.join('|')==='return|#ort/P03'));
+ assert.equal(ctx.EMFDFeatures.getOrigin().route,'#raum/P03/C01'); // P03 als Szene (EMFD-P03-DEV-01)
+ assert.ok(events.some(x=>x.join('|')==='return|#raum/P03/C01'));
 });
 test('one shared reader is exposed for card details and stories, five sizes are kept',()=>{
  const app=read('app.js'),reading=read('book-reading.js');

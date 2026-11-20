@@ -69,7 +69,8 @@ test('#flur und #raum/H00/C01 zeigen dieselbe Ansicht; die Umleitung ersetzt die
  assert.equal(after.html,before.html);
  assert.equal(after.hash,'#raum/H00/C01');
  assert.deepEqual(after.replaced,[]);assert.deepEqual(after.pushed,[]);
- const room=render('#raum/P03/C01');assert.match(room.html,/Wintergarten/);assert.equal(room.hash,'#ort/P03');
+ // Räume ohne Szene führen weiter auf ihre bisherige Seite (P03 ist seit EMFD-P03-DEV-01 eine Szene, siehe p03-wintergarten.test.cjs).
+ const room=render('#raum/P05/C01');assert.match(room.html,/Innenhof/);assert.equal(room.hash,'#ort/P05');
 });
 
 test('Räume, Geräte und Namen stammen aus den Registern; keine festen Listen im App-Code',()=>{

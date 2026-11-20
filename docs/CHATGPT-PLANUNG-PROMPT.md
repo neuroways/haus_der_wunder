@@ -41,9 +41,9 @@ Du bist ab jetzt Planungs- und Gestaltungspartner für **„Ein Moment für dich
 ### Entscheidungen, die gelten
 | Thema | Entscheidung |
 |---|---|
-| Entscheidungsprotokoll | `docs/ENTSCHEIDUNGEN.md` im Repository. Dort u. a. W1–W7 vom 19.11.2026: Musik läuft bei Raumwechsel weiter; bisheriges Teezimmer zwei Aktionen, Gedankenblatt im neuen Teezimmer über die Karte; globale Navigation als BOOK-01h; P08 „Teespieluhr“ (MP-P08); Raum-IDs EXT, H00 (= Flur), KUE, M01, P01–P08, SCH, BAD; Begleiterkarte als Karten-ID lokal; Medienstatus in MEDIA-CORE. |
+| Entscheidungsprotokoll | `docs/ENTSCHEIDUNGEN.md` im Repository. Dort u. a. W1–W7 vom 19.11.2026 (W1 zum Raumwechsel ersetzt durch D-16: Musik pausiert beim Raumwechsel); bisheriges Teezimmer zwei Aktionen, Gedankenblatt im neuen Teezimmer über die Karte; globale Navigation als BOOK-01h; P08 „Teespieluhr“ (MP-P08); Raum-IDs EXT, H00 (= Flur), KUE, M01, P01–P08, SCH, BAD; Begleiterkarte als Karten-ID lokal; Medienstatus in MEDIA-CORE. |
 | Gedankenblatt | Öffnet sich über die Frageseite einer Karte. Export als PNG/PDF mit QR-Rückkehrlink. Keine dauerhafte Speicherung. |
-| Musik | Nie Autoplay. Musik startet nur nach bewusster Auswahl. Lautstärke, Pause und Stopp bleiben erreichbar. Raumwechsel startet nichts und unterbricht nichts (W1). |
+| Musik | Nie Autoplay. Musik startet nur nach bewusster Auswahl. Lautstärke, Pause und Stopp bleiben erreichbar. Raumwechsel startet nichts; er pausiert laufende Musik, ohne dass sie danach von selbst fortsetzt (D-16 vom 20.11.2026, ersetzt W1). Umdrehen, Bildausschnitte, Gerätestation des Raums und Karten unterbrechen nichts. |
 | Freiwilligkeit | Keine Pflichtwege, Freischaltungen, Punkte, Serien oder Fortschrittsanzeigen. Alle Orte sind direkt zugänglich. Die App funktioniert ohne Ton und ohne Animation. |
 | Laterne | Leitmotiv, spricht nicht, muss nicht gepflegt werden, zeigt weder Stimmung noch Fortschritt. |
 | Erzählstimme | Zurückhaltendes Du, konkrete Beobachtungen, höchstens eine freiwillige Frage pro Ansicht, keine Bewertung, keine Wirkversprechen, keine Vorhersagen. Alltagstexte im Präsens, ohne „man“, „jemand“ und ohne „wenn du magst“ (Präzisierung vom 15.11.2026). |

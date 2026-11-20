@@ -39,7 +39,7 @@ test('runtime paints the landing page and O16 detail instead of leaving main bla
   }
 });
 test('new house routes render the Flur, room directory, room detail, and independent music page',()=>{
-  const cases=[['#flur','Die Halle'],['#raeume','Alle Räume'],['#ort/P03','Wintergarten'],['#musik','Musik']];
+  const cases=[['#flur','Die Halle'],['#raeume','Alle Räume'],['#ort/P05','Innenhof'],['#musik','Musik']];
   for(const [hash,expected] of cases){
     const main={innerHTML:'',focus(){},querySelector(sel){return sel==='#open-player-from-page'?{onclick:null}:null;},querySelectorAll(){return [];}};
     const settings={textContent:''},control={onclick:null},dialog={addEventListener(){},setAttribute(){},showModal(){},close(){},focus(){},querySelector(){return null;},className:'',innerHTML:'',open:false};

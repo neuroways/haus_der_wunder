@@ -93,3 +93,7 @@ body.scene-mode .card-motion-hint{display:none}
 /* v0.6.77 · Die Szene steht fest: keine alte Fußzeile darunter, kein senkrechtes Verschieben der Seite (Wischgesten). */
 body.scene-mode>footer{display:none}
 body.scene-mode{overscroll-behavior:none}
+/* EMFD-P03-DEV-01: Übergänge einer bisherigen Raumseite in eine Szene (z. B. Innenhof → Wintergarten). */
+.room-passages{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem}
+.room-passage{display:inline-flex;align-items:center;min-height:44px;padding:.5rem 1rem;border-radius:999px;border:1px solid currentColor;color:inherit;text-decoration:none}
+.room-passage:focus-visible{outline:3px solid #f3d27a;outline-offset:2px}

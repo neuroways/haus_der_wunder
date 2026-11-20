@@ -22,7 +22,7 @@ Entscheidungen (D-xx), Aufträge, Register, `TASKS.json`, `STATUS.json` und `CHA
 ## Feste Regeln
 - Kein Autoplay; Musik nur nach bewusster Auswahl. Keine dauerhafte Speicherung von Notizen – Ausnahme: Gedankenbuch-Entwurf im Mäppchen, lokal je Begleitung bis zum Zurücklegen (20.11.2026).
 - Keine Pflichtwege, Freischaltungen, Punkte, Fortschrittsanzeigen.
-- Entscheidungen stehen in `docs/ENTSCHEIDUNGEN.md` (neuere ersetzen ältere). Kurz: Musik läuft bei Raum- und Blickwechsel weiter (W1); bisheriges Teezimmer genau zwei Aktionen, Gedankenblatt erst im Bilderbuch-Teezimmer über die Karte (W2); Begleiterkarte nur als Karten-ID lokal speichern (W6).
+- Entscheidungen stehen in `docs/ENTSCHEIDUNGEN.md` (neuere ersetzen ältere). Kurz: Musik pausiert beim Raumwechsel und setzt nicht selbst fort, Umdrehen/Ausschnitte/Karten im selben Raum unterbrechen nichts (D-16, ersetzt W1, 20.11.2026); bisheriges Teezimmer genau zwei Aktionen, Gedankenblatt erst im Bilderbuch-Teezimmer über die Karte (W2); Begleiterkarte nur als Karten-ID lokal speichern (W6).
 - **Licht (EMFD-LIGHT-01, verbindlich):** Jede Lichtquelle jedes Raumes läuft über die zentrale LightEngine (`shared/lights.js`) und die Szenenebenen (`shared/scene.js`), Lichtregister in `registry-app.json` (`lichter`, `lichtSzenen`). Keine Raum-eigenen Lichtlösungen, keine Ganzbild-Helligkeitsfilter. Details, Produktionsvorlage, Checkliste, QA: `docs/LICHT-STANDARD.md`.
 - Medien nur nach `media/MEDIEN-KONVENTION.md`; keine Medien erfinden oder generieren, keine neuen Kopien in `home/`.
 - Texte aus Aufträgen wörtlich übernehmen.

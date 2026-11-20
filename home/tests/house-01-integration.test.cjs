@@ -32,7 +32,7 @@ test('HOUSE-01 / EMFD-H00: #flur zeigt die Hallen-Szene; Raumübersicht, Musik, 
 test('HOUSE-01 directory contains P01–P08, music and lightweight previews',()=>{
  const {html,window}=renderRoute('#raeume');
  for(let i=1;i<=8;i++)assert.match(html,new RegExp(`P${String(i).padStart(2,'0')}`));
- for(const link of ['#ort/P01','#ort/P02','#ort/P03','#atelier','#ort/P05','#ort/P06','#ort/P07','#teezimmer','#musik'])assert.ok(html.includes(`href="${link}"`),link);
+ for(const link of ['#ort/P01','#ort/P02','#raum/P03/C01','#atelier','#ort/P05','#ort/P06','#ort/P07','#teezimmer','#musik'])assert.ok(html.includes(`href="${link}"`),link);
  assert.equal((html.match(/class="room-tile(?: room-tile--music)?"/g)||[]).length,9);
  assert.equal((html.match(/-thumb\.webp/g)||[]).length,9);
  assert.equal(window.EMFDHouse.rooms.length,8);
@@ -40,7 +40,8 @@ test('HOUSE-01 directory contains P01–P08, music and lightweight previews',()=
  assert.equal(window.EMFDHouse.connections.length,0);
 });
 test('HOUSE-01 six basic rooms contain their original image, way back and accessible group entry',()=>{
- const names={P01:'Fensterzimmer',P02:'Bibliothek',P03:'Wintergarten',P05:'Innenhof',P06:'Galerie',P07:'Dachterrasse'};
+ // P03 ist seit EMFD-P03-DEV-01 eine Szene (#ort/P03 → #raum/P03/C01).
+ const names={P01:'Fensterzimmer',P02:'Bibliothek',P05:'Innenhof',P06:'Galerie',P07:'Dachterrasse'};
  for(const [id,name] of Object.entries(names)){
   const {html}=renderRoute(`#ort/${id}`);
   assert.match(html,new RegExp(`id="room-title">${name}`),id);

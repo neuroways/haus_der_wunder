@@ -42,3 +42,9 @@ Ein Rückweg pro Ansicht, tatsächliche Herkunft, Ersatzziele laut Matrix, App-R
 
 ## 20.11.2026 · EMFD-LIGHT-01 (verbindliche hausweite Lichtsteuerung)
 Alle Räume und Ansichten nutzen die zentrale LightEngine (`shared/lights.js`) und die Lichtebenen der Szenenkomponente. Der Zustand gehört zur physischen Lichtquelle (eine globale Licht-ID) und wird lokal dauerhaft gespeichert. Keine Raum-eigenen Lichtlösungen, kein Ganzbild-Helligkeitsfilter. Standard, Produktionsvorlage, Checkliste und QA: `docs/LICHT-STANDARD.md`.
+
+## 20.11.2026 · EMFD-P03-DEV-01 (Wintergarten) · ersetzt W1 beim Raumwechsel (D-16)
+
+Festgelegt von der Projektinhaberin am 20.11.2026 auf Rückfrage von Claude Code (der Auftrag verlangte „Beim Raumwechsel pausiert die Musik“, W1 sagte das Gegenteil):
+- **Musik pausiert beim Raumwechsel – überall im Haus** („Überall pausieren“). Danach setzt nichts von selbst fort, auch nicht bei der Rückkehr. Kein Raumwechsel sind: Umdrehen und Ausschnitte im selben Raum, die Gerätestation des Raums, Karten, Kartengalerie, Raumverzeichnis, Geschichten, Dialoge. Gemeinsames Register: D-16.
+- **`#ort/P03` und Raumverzeichnis führen in die Wintergarten-Szene** („Auf Szene umstellen“). Die bisherige Wintergartenseite entfällt; Klangschale (Gerätestation) und Karten O05/O13 sind in der Szene erreichbar.
