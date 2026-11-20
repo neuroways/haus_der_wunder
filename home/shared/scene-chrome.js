@@ -224,7 +224,10 @@
     const hs=actions.querySelector('[data-scene-help-hotspots]');hs.setAttribute('aria-pressed',String(Boolean(current?.scene?.el?.classList.contains('show-hotspots'))));
     // Raumspezifische Hilfeaktionen (z. B. Hinweise der Halle erneut zeigen)
     actions.querySelectorAll('[data-scene-help-extra]').forEach(b=>b.remove());
-    for(const extra of current?.options?.helpActions||[]){
+    // EMFD-LIGHT-01: Raumgruppe „alle Lichter“ (zentral für jeden Raum mit schaltbaren Lichtquellen, kein dauerhafter Schalter).
+    const roomId=root.EMFDRegistry?.scene?.(current?.scene?.sceneId)?.raumId;const roomLights=inScene&&roomId?(root.EMFDLights?.roomLights?.(roomId)||[]):[];
+    const lightExtras=roomLights.length?[{label:roomLights.some(id=>root.EMFDLights.get(id))?'Alle Lichter im Raum ausschalten':'Alle Lichter im Raum einschalten',run:()=>root.EMFDLights.toggleRoom(roomId)}]:[];
+    for(const extra of [...lightExtras,...(current?.options?.helpActions||[])]){
       const b=document.createElement('button');b.type='button';b.dataset.sceneHelpExtra='';b.textContent=extra.label;
       b.addEventListener('click',()=>{document.querySelector('#help-dialog')?.close();extra.run();});actions.append(b);
     }

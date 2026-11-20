@@ -84,7 +84,7 @@
   /* ---------- Aktionen ---------- */
   function act(h){
     const z=h.ziel||{};
-    if(h.typ==='LIGHT'&&z.licht){const on=root.EMFDLights?.toggle(z.licht);scene?.setLight(z.licht,on!==false);return;}
+    if((h.typ==='LIGHT'||h.typ==='LIGHT_SWITCH')&&(z.licht||z.lichter||z.gruppe||z.raum)){root.EMFDLights?.activate?.(h);return;}
     if(h.typ==='MUSIC_DEVICE'&&z.geraet===DEVICE){openRadio();return;}
     if(h.typ==='ORACLE_OBJECT'&&z.objekt){chrome()?.openObject(z.objekt,{focus:'karte'});return;}
     if(h.typ==='NAVIGATION'&&z.szene){
@@ -103,13 +103,15 @@
     // Ausschnitt: Radio mit etwas Umgebung (Kommode), Seitenverhältnis 4:3.
     const cx=r.x+r.w/2,cy=r.y+r.h/2,w=Math.min(1,r.w*2.6),hh=Math.min(1,w*(media.width/media.height)*3/4);
     const left=Math.max(0,Math.min(1-w,cx-w/2)),top=Math.max(0,Math.min(1-hh,cy-hh/2.2));
-    const bg=media.type==='file'?`background-image:url('${String(media.src).replace(/'/g,'%27')}');background-size:${(100/w).toFixed(2)}% ${(100/hh).toFixed(2)}%;background-position:${(left/(1-w)*100||0).toFixed(2)}% ${(top/(1-hh)*100||0).toFixed(2)}%`:'';
+    // Gleiche Bühne wie die Szene (Bild + Lichtstapel aus EMFDScene.lightLayers), vergrößert und verschoben: Lichtzustände und
+    // Lichtebenen nutzen dasselbe Koordinatensystem wie das Raumbild (EMFD-LIGHT-01).
+    const frame=media.type==='file'?`<div class="emfd-radio-stage__frame" data-radio-frame style="width:${(100/w).toFixed(3)}%;height:${(100/hh).toFixed(3)}%;left:${(-left/w*100).toFixed(3)}%;top:${(-top/hh*100).toFixed(3)}%"><img src="${esc(media.src)}" alt="" aria-hidden="true">${root.EMFDScene?.lightLayers?.('KUE-C02')||''}</div>`:'';
     // Rechter Drehknopf, relativ zum Ausschnitt (aus dem Radio-Hotspot abgeleitet; Ebene MP-KUE_KNOB_R folgt von Work).
     const kx=((r.x+r.w*0.74)-left)/w,ky=((r.y+r.h*0.62)-top)/hh;
     const first=!state.radioHintSeen;if(first){state.radioHintSeen=true;save();}
     chrome().openPanel(`<div data-radio-panel><h2>${esc(info().radio?.titel||'Das Röhrenradio')}</h2>`+
       (first?`<p class="emfd-panel__hint" data-radio-hint>${esc(info().radioHinweis?.text||'')} ${kit().textButton({label:'Hinweis schließen',data:{'data-radio-hint-close':''}})}</p>`:'')+
-      `<div class="emfd-radio-stage" data-radio-stage style="${bg}">${media.type==='file'?'':`<span class="emfd-radio-stage__ph">Platzhalter · device.MP-KUE.nahansicht</span>`}`+
+      `<div class="emfd-radio-stage" data-radio-stage>${frame}${media.type==='file'?'':`<span class="emfd-radio-stage__ph">Platzhalter · device.MP-KUE.nahansicht</span>`}`+
       `<button type="button" class="emfd-radio-knob" data-radio="knob" aria-pressed="false" style="left:${(kx*100).toFixed(1)}%;top:${(ky*100).toFixed(1)}%" aria-label="Rechter Drehknopf"></button>`+
       `<span class="emfd-radio-stage__note">Nahansicht: Ausschnitt aus KUE-C02 · Radioebenen folgen</span></div>`+
       `<div class="emfd-panel__actions">`+kit().button({label:'Radio einschalten',variant:'primary',data:{'data-radio':'toggle','data-panel-focus':''}})+
@@ -119,11 +121,11 @@
         d.querySelector('[data-radio="knob"]').addEventListener('click',toggle);
         d.querySelector('[data-radio-hint-close]')?.addEventListener('click',()=>d.querySelector('[data-radio-hint]')?.remove());
         syncRadio(radio()?.view());
+        const unsub=root.EMFDLights?.subscribe?.((id,on)=>root.EMFDScene?.applyLight?.(d.querySelector('[data-radio-frame]'),id,on));if(unsub)chrome()?.onPanelClose?.(unsub);
       });
   }
 
   root.addEventListener?.('hashchange',()=>{const room=root.EMFDRegistry?.roomForRoute?.(location.hash);if(!room||room.id!=='KUE'){chrome()?.closePanel?.();leave();}});
-  root.addEventListener?.('emfd:light-change',e=>scene?.setLight(e.detail.id,e.detail.on));
   const api=Object.freeze({version:1,key:KEY,render,leave,openRadio,radio:()=>radio(),state:()=>({...state}),scene:()=>scene,currentHint:()=>currentHint});
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
   root.EMFDKitchen=api;

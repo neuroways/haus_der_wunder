@@ -47,8 +47,18 @@ figure.emfd-scene-view__image svg{inline-size:100%;block-size:100%}
 .emfd-scene-view__anchor[data-anchor=R]{inset-inline-end:0;scroll-snap-align:end}
 .emfd-scene-view__hotspots,.emfd-scene-view__lights{position:absolute;inset:0}
 .emfd-scene-view__hotspots{pointer-events:none}
-.emfd-scene-light{position:absolute;pointer-events:none;opacity:0;background:radial-gradient(closest-side,rgba(2,6,12,.72),rgba(2,6,12,.45) 55%,transparent);transition:opacity .35s ease}
-.emfd-scene-light.is-off{opacity:1}
+/* EMFD-LIGHT-01 · Lichtstapel (gleiche Bühne wie das Raumbild). Echte Ebenen sind Vollbilder, exakt auf den Master registriert. */
+.emfd-light-layer{position:absolute;inset:0;inline-size:100%;block-size:100%;pointer-events:none;object-fit:fill;transition:opacity var(--light-ms,400ms) ease}
+.emfd-light-layer--ambient,.emfd-light-layer--spill,.emfd-light-layer--glow,.emfd-light-layer--reflection{mix-blend-mode:screen}
+.emfd-light-layer--source.is-off,.emfd-light-layer--spill.is-off,.emfd-light-layer--glow.is-off,.emfd-light-layer--reflection.is-off{opacity:0}
+.emfd-light-layer--pair{opacity:0}
+.emfd-light-layer--pair.is-off{opacity:1}
+/* Vorläufige programmatische Lichtmasken (keine Freigabe): Quelle erlischt, Lichtschein verschwindet, Raum wird dunkler. */
+.emfd-light-ph{position:absolute;pointer-events:none;opacity:0;border-radius:50%;mix-blend-mode:multiply;transition:opacity var(--light-ms,400ms) ease}
+.emfd-light-ph.is-off{opacity:1}
+.emfd-light-ph--source{background:radial-gradient(closest-side,rgba(22,24,34,.95),rgba(26,28,40,.82) 55%,rgba(30,32,44,0) 100%)}
+.emfd-light-ph--spill{background:radial-gradient(closest-side,rgba(48,54,72,.72),rgba(52,58,78,.4) 55%,rgba(60,66,86,0) 100%)}
+.emfd-light-dim{position:absolute;inset:0;pointer-events:none;background:#0a1422;transition:opacity .6s ease}
 .emfd-scene-view__placeholder-note{position:absolute;inset-block-end:8px;inset-inline-start:8px;margin:0;padding:2px 8px;border-radius:6px;background:rgba(0,0,0,.55);font:12px var(--emfd-font-ui,system-ui,sans-serif);color:#f7d18a}
 .emfd-scene-view .emfd-pan[hidden],.emfd-scene-view .emfd-turn[hidden],.emfd-scene-view .emfd-dots[hidden]{display:none}
 .emfd-scene-view.is-wide .emfd-turn{inset-block-start:auto;inset-block-end:max(14px,env(safe-area-inset-bottom));transform:none}
@@ -62,7 +72,7 @@ figure.emfd-scene-view__image svg{inline-size:100%;block-size:100%}
 @keyframes emfd-scene-in{from{opacity:0}to{opacity:1}}
 @keyframes emfd-scene-in-left{from{opacity:0;transform:translateX(-6%)}to{opacity:1;transform:none}}
 @keyframes emfd-scene-in-right{from{opacity:0;transform:translateX(6%)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.emfd-scene-view.is-turning .emfd-scene-view__stage{transition:none}.emfd-scene-view.is-turned-in .emfd-scene-view__stage{animation:emfd-scene-in .12s linear}.emfd-scene-light{transition:none}}
+@media (prefers-reduced-motion:reduce){.emfd-scene-view.is-turning .emfd-scene-view__stage{transition:none}.emfd-scene-view.is-turned-in .emfd-scene-view__stage{animation:emfd-scene-in .12s linear}.emfd-light-layer,.emfd-light-ph,.emfd-light-dim{transition:none}}
 /* Vollbild für Szenen: überschreibt die Inhaltsbreite der Shell (nur im Szenenmodus). */
 body.emfd-shell.scene-mode>main.emfd-shell__content{inline-size:100%!important;max-inline-size:none!important;margin:0!important;padding:0!important}
 /* Positionspunkte unten; Hinweise sitzen darüber, damit beide sichtbar bleiben. */

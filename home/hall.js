@@ -87,7 +87,7 @@
   /* ---------- Aktionen ---------- */
   function act(hotspot){
     const ziel=hotspot.ziel||{};
-    if(hotspot.typ==='LIGHT'&&ziel.licht){const on=root.EMFDLights?.toggle(ziel.licht);scene?.setLight(ziel.licht,on!==false);return;}
+    if((hotspot.typ==='LIGHT'||hotspot.typ==='LIGHT_SWITCH')&&(ziel.licht||ziel.lichter||ziel.gruppe||ziel.raum)){root.EMFDLights?.activate?.(hotspot);return;}
     if(hotspot.typ==='ORACLE_OBJECT'&&ziel.objekt==='O08'){openLantern(ziel);return;}
     if(hotspot.typ==='NAVIGATION'&&ziel.szene){
       if(ziel.szene==='EXT-C02'){if(!state.farewellSeen){state.farewellSeen=true;save();showHint('farewell');}else goOutside();return;}
@@ -113,7 +113,7 @@
       `<p class="emfd-music-control__state" role="status" data-lantern-state>${root.EMFDLights?.get(ziel.licht)!==false?'Die Laterne leuchtet.':'Die Laterne ist aus.'}</p>`+
       kit().button({label:'Die Laterne entdecken',variant:'primary',iconName:'cards',data:{'data-lantern':'discover'}})+`</div>`,d=>{
         d.querySelector('[data-lantern="light"]').addEventListener('click',event=>{
-          const on=root.EMFDLights?.toggle(ziel.licht)!==false;scene?.setLight(ziel.licht,on);
+          const on=root.EMFDLights?.toggle(ziel.licht)!==false;
           event.currentTarget.querySelector('.emfd-button__label').textContent=label();
           d.querySelector('[data-lantern-state]').textContent=on?'Die Laterne leuchtet.':'Die Laterne ist aus.';
         });
@@ -122,7 +122,6 @@
   }
 
   root.addEventListener?.('hashchange',()=>{if(!root.EMFDRegistry?.roomForRoute?.(location.hash)||root.EMFDRegistry.roomForRoute(location.hash).id!=='H00'){chrome()?.closePanel?.();leave();}});
-  root.addEventListener?.('emfd:light-change',event=>scene?.setLight(event.detail.id,event.detail.on));
   const api=Object.freeze({version:1,key:KEY,render,leave,resetHints,setEntryMode,nextHint,normalize,state:()=>JSON.parse(JSON.stringify(state)),currentHint:()=>currentHint,scene:()=>scene});
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
   root.EMFDHall=api;

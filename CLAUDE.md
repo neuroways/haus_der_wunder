@@ -23,6 +23,7 @@ Entscheidungen (D-xx), Aufträge, Register, `TASKS.json`, `STATUS.json` und `CHA
 - Kein Autoplay; Musik nur nach bewusster Auswahl. Keine dauerhafte Speicherung von Notizen.
 - Keine Pflichtwege, Freischaltungen, Punkte, Fortschrittsanzeigen.
 - Entscheidungen stehen in `docs/ENTSCHEIDUNGEN.md` (neuere ersetzen ältere). Kurz: Musik läuft bei Raum- und Blickwechsel weiter (W1); bisheriges Teezimmer genau zwei Aktionen, Gedankenblatt erst im Bilderbuch-Teezimmer über die Karte (W2); Begleiterkarte nur als Karten-ID lokal speichern (W6).
+- **Licht (EMFD-LIGHT-01, verbindlich):** Jede Lichtquelle jedes Raumes läuft über die zentrale LightEngine (`shared/lights.js`) und die Szenenebenen (`shared/scene.js`), Lichtregister in `registry-app.json` (`lichter`, `lichtSzenen`). Keine Raum-eigenen Lichtlösungen, keine Ganzbild-Helligkeitsfilter. Details, Produktionsvorlage, Checkliste, QA: `docs/LICHT-STANDARD.md`.
 - Medien nur nach `media/MEDIEN-KONVENTION.md`; keine Medien erfinden oder generieren, keine neuen Kopien in `home/`.
 - Texte aus Aufträgen wörtlich übernehmen.
 - Nichts auf dem Live-Server veröffentlichen ohne ausdrückliche Freigabe.

@@ -8,7 +8,9 @@
  *  - Umdrehen: L→R, R→L, M→M in die Gegenansicht, weiche Bewegung in Blickrichtung plus Überblendung;
  *    bei reduzierter Bewegung nur eine kurze Überblendung.
  *  - Aktionsliste: alle Dinge der Ansicht als echte Buttons (Tastatur, Screenreader, ohne Wischgeste).
- * Die Szene löst nichts selbst aus: Hotspots melden sich über onAction; Fachfunktionen bleiben in ihren Modulen. */
+ * Die Szene löst nichts selbst aus: Hotspots melden sich über onAction; Fachfunktionen bleiben in ihren Modulen.
+ * Licht (EMFD-LIGHT-01, verbindlich): Jede Szene zeichnet ihre Lichtquellen ausschließlich über lightLayers() aus dem zentralen
+ * Lichtregister und folgt der LightEngine (EMFDLights). Räume implementieren kein eigenes Licht. */
 (function(root){
   'use strict';
   const SEGMENTS=['L','M','R'];
@@ -37,9 +39,53 @@
     return null;
   }
 
+  /* ---------- EMFD-LIGHT-01: Lichtebenen (gleiche Bühne, gleiche Koordinaten und gleicher Zuschnitt wie das Raumbild) ----------
+   * Reihenfolge: Base (Raum ohne schaltbares Kunstlicht, ersetzt dann den Master) · Ambient (natürliches Licht, nie geschaltet) ·
+   * je Lichtquelle Source · Spill · Glow · Reflection (Vollbild-Ebenen, sichtbar wenn an) · An/Aus-Bildpaar (Übergang) ·
+   * programmatische Platzhalter (nur ohne finale Medien; gekennzeichnet, keine Freigabe). */
+  const LAYERS=Object.freeze(['source','spill','glow','reflection']);
+  const pctBox=(r,grow=1,growY=grow)=>{const cx=r.x+r.w/2,cy=r.y+r.h/2,w=r.w*grow,h=r.h*growY;return `left:${((cx-w/2)*100).toFixed(3)}%;top:${((cy-h/2)*100).toFixed(3)}%;width:${(w*100).toFixed(3)}%;height:${(h*100).toFixed(3)}%`;};
+  function lightPlan(sceneId){
+    const reg=registry();const lightsDef=reg?.lightsForScene?.(sceneId)||[];const sceneDef=reg?.lightScene?.(sceneId)||{};
+    const file=id=>{const m=id&&reg.resolveMedia(id);return m&&m.type==='file'?m:null;};
+    return {lights:lightsDef,base:file(sceneDef.basis),ambient:file(sceneDef.ambient),pair:sceneDef.paar&&file(sceneDef.paar.aus)?{aus:file(sceneDef.paar.aus),lichter:sceneDef.paar.lichter||lightsDef.map(l=>l.id)}:null,file};
+  }
+  /** Markup des Lichtstapels einer Szene (auch für Nahansichten, die einen Ausschnitt derselben Bühne zeigen). */
+  function lightLayers(sceneId,engine=root.EMFDLights){
+    const ui=kit();const plan=lightPlan(sceneId);const on=id=>engine?.get?.(id)!==false;
+    const ms=id=>`--light-ms:${engine?.duration?.(id)??400}ms`;
+    const img=(m,cls,extra='')=>`<img class="emfd-light-layer ${cls}" src="${ui.escape(m.src)}" alt="" aria-hidden="true" draggable="false" data-media-id="${ui.escape(m.id)}" ${extra}>`;
+    let out='';
+    if(plan.ambient)out+=img(plan.ambient,'emfd-light-layer--ambient','data-layer="ambient"');
+    let anyPlaceholder=false;
+    for(const l of plan.lights){
+      const v=l.ansichten[sceneId];const off=on(l.id)?'':' is-off';
+      const media=LAYERS.map(k=>[k,plan.file(v.ebenen?.[k])]).filter(([,m])=>m);
+      if(media.length){for(const [k,m] of media)out+=img(m,`emfd-light-layer--${k}${off}`,`data-light="${ui.escape(l.id)}" data-layer="${k}" style="${ms(l.id)}"`);continue;}
+      if(plan.base||plan.pair?.lichter.includes(l.id))continue;
+      anyPlaceholder=true;const r=v.rect;
+      // Platzhalter: Quelle erlischt (dunkler Kern über Leuchtmittel/Flamme), Lichtschein verschwindet (weiter Hof).
+      out+=`<span class="emfd-light-ph emfd-light-ph--spill${off}" data-light="${ui.escape(l.id)}" data-layer="spill" data-placeholder="lichtmaske" aria-hidden="true" style="${pctBox(r,4.2,2.6)};${ms(l.id)}"></span>`+
+        `<span class="emfd-light-ph emfd-light-ph--source${off}" data-light="${ui.escape(l.id)}" data-layer="source" data-placeholder="lichtmaske" aria-hidden="true" style="${pctBox(r,1.25,1.05)};${ms(l.id)}"></span>`;
+    }
+    if(plan.pair){const allOff=plan.pair.lichter.every(id=>!on(id));out+=img(plan.pair.aus,`emfd-light-layer--pair${allOff?' is-off':''}`,`data-light-pair="${ui.escape(plan.pair.lichter.join(' '))}" data-layer="pair" style="${ms(plan.pair.lichter[0])}"`);}
+    // Raum wird mit jeder ausgeschalteten Quelle dunkler (Platzhalter, nur ohne Base/Paar); natürliches Licht bleibt über ambient.
+    if(anyPlaceholder){const ids=plan.lights.map(l=>l.id);const frac=ids.length?ids.filter(id=>!on(id)).length/ids.length:0;
+      out+=`<span class="emfd-light-dim" data-light-dim="${ui.escape(ids.join(' '))}" data-placeholder="raumdunkel" aria-hidden="true" style="opacity:${(0.28*frac).toFixed(3)}"></span>`;}
+    return out;
+  }
+  /** Zustandswechsel auf einen gerenderten Lichtstapel anwenden (Szene und Nahansicht). */
+  function applyLight(container,id,on,engine=root.EMFDLights){
+    if(!container)return;
+    container.querySelectorAll(`[data-light="${CSS.escape(id)}"]`).forEach(o=>{o.style.setProperty('--light-ms',`${engine?.duration?.(id)??400}ms`);o.classList.toggle('is-off',!on);});
+    container.querySelectorAll('[data-light-pair]').forEach(o=>{const ids=o.dataset.lightPair.split(' ');if(ids.includes(id))o.classList.toggle('is-off',ids.every(x=>engine?.get?.(x)===false));});
+    container.querySelectorAll('[data-light-dim]').forEach(o=>{const ids=o.dataset.lightDim.split(' ').filter(Boolean);const frac=ids.length?ids.filter(x=>engine?.get?.(x)===false).length/ids.length:0;o.style.opacity=(0.28*frac).toFixed(3);});
+  }
+
   function stageMarkup(scene,{lights}){
     const reg=registry(),ui=kit();
-    const media=reg.sceneMedia(scene.id);
+    const plan=lightPlan(scene.id);
+    const media=plan.base?Object.freeze({...reg.sceneMedia(scene.id),...plan.base,type:'file'}):reg.sceneMedia(scene.id);
     const room=reg.room(scene.raumId);
     const alt=`${room?.anzeigename||scene.raumId}: ${scene.beschreibung}`;
     const art=media.type==='file'
@@ -50,10 +96,7 @@
       const light=h.typ==='LIGHT'&&h.ziel?.licht;
       return ui.hotspot({id:h.id,label:light?`${h.label} – ${lights?.get(light)!==false?'an':'aus'}`:h.label,rect:h.rect,pressed:light?lights?.get(light)!==false:undefined,data:{'data-hotspot-type':h.typ}});
     }).join('');
-    const lightLayer=(scene.hotspots||[]).filter(h=>h.typ==='LIGHT'&&h.ziel?.licht).map(h=>{
-      const r=h.rect;
-      return `<span class="emfd-scene-light${lights?.get(h.ziel.licht)===false?' is-off':''}" data-light="${ui.escape(h.ziel.licht)}" data-placeholder="lichtmaske" aria-hidden="true" style="left:${((r.x-r.w)*100).toFixed(3)}%;top:${((r.y-r.h*0.35)*100).toFixed(3)}%;width:${(r.w*3*100).toFixed(3)}%;height:${(r.h*1.7*100).toFixed(3)}%"></span>`;
-    }).join('');
+    const lightLayer=lightLayers(scene.id,lights);
     return {html:`<div class="emfd-scene-view__stage" style="aspect-ratio:${ratio}" data-media-status="${media.type}">${art}<div class="emfd-scene-view__lights">${lightLayer}</div>`+
       `<span class="emfd-scene-view__anchor" data-anchor="L"></span><span class="emfd-scene-view__anchor" data-anchor="M"></span><span class="emfd-scene-view__anchor" data-anchor="R"></span>`+
       `<div class="emfd-scene-view__hotspots">${hotspots}</div>${media.type==='file'?'':`<p class="emfd-scene-view__placeholder-note">Platzhalter · ${ui.escape(media.id)}</p>`}</div>`,alt,media};
@@ -185,7 +228,7 @@
     /** „Interaktive Gegenstände anzeigen“: alle Hotspots dezent umranden (bis zum erneuten Umschalten). */
     function showHotspots(on){el.classList.toggle('show-hotspots',Boolean(on));return el.classList.contains('show-hotspots');}
     function setLight(id,on){
-      el.querySelectorAll(`[data-light="${CSS.escape(id)}"]`).forEach(o=>o.classList.toggle('is-off',!on));
+      applyLight(el,id,on,lights);
       (scene.hotspots||[]).filter(h=>h.ziel?.licht===id).forEach(h=>{const b=el.querySelector(`[data-hotspot="${CSS.escape(h.id)}"]`);if(b){b.setAttribute('aria-pressed',String(on));b.setAttribute('aria-label',`${h.label} – ${on?'an':'aus'}`);b.querySelector('.emfd-hotspot__label').textContent=`${h.label} – ${on?'an':'aus'}`;}});
     }
     /** Sichtbarkeit eines Hotspots im aktuellen Ausschnitt (0–1 Anteil der Breite). */
@@ -199,16 +242,18 @@
     function mark(ids=[]){el.querySelectorAll('[data-hotspot]').forEach(b=>b.classList.toggle('is-hinted',ids.includes(b.dataset.hotspot)));}
     const resize=()=>layout();
     root.addEventListener('resize',resize);
+    // EMFD-LIGHT-01: Die Szene folgt der LightEngine (Umdrehen, Ausschnitt, Wide ändern den Zustand nicht).
+    const unsubscribeLights=lights?.subscribe?.((id,on)=>{if(!destroyed)setLight(id,on);})||null;
     const api={el,get sceneId(){return scene.id;},get scene(){return scene;},get segment(){return segment;},get wide(){return el.classList.contains('is-wide');},
       setSegment,turn,hotspot,visibility,mark,setLight,layout,toggleList,showHotspots,listOpen:()=>listOpen,
       hintHost:()=>el.querySelector('[data-scene-hint]'),barHost:()=>el.querySelector('[data-scene-bar-extra]'),
       leftHost:()=>el.querySelector('[data-scene-bar-left]'),labelHost:()=>el.querySelector('[data-scene-label]'),
-      destroy(){destroyed=true;root.removeEventListener('resize',resize);}};
+      destroy(){destroyed=true;root.removeEventListener('resize',resize);unsubscribeLights?.();}};
     render();
     remember(scene.id,segment);
     return api;
   }
-  const exported=Object.freeze({version:1,mount,turnTarget,segmentFor,scrollFor,edgeSwipe,SEGMENTS,WIDE_MIN});
+  const exported=Object.freeze({version:1,mount,turnTarget,segmentFor,scrollFor,edgeSwipe,lightLayers,applyLight,lightPlan,LAYERS,SEGMENTS,WIDE_MIN});
   if(typeof module!=='undefined'&&module.exports)module.exports=exported;
   root.EMFDScene=exported;
 })(globalThis);

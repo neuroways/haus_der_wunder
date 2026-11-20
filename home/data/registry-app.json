@@ -466,5 +466,79 @@
     "KUE-C02": {
       "medium": "scene.KUE-C02.kue-referenz"
     }
-  }
+  },
+  "lichtHinweis": "EMFD-LIGHT-01: Jede schaltbare Lichtquelle des Hauses steht hier mit stabiler Licht-ID (gleiche physische Quelle = gleiche ID in allen Ansichten). Felder: art (deckenlampe|wandlampe|tischlampe|stehlampe|laterne|kerze|kamin|lichterkette|magisch|aussen|unterbau), standard (Anfangszustand), dauer (ms, sonst aus der Art), gruppen, ansichten.<Szene>.ebenen {source,spill,glow,reflection} = Medien-IDs (Vollbild-Ebenen, exakt auf den Szenenmaster registriert; fehlend = programmatischer Platzhalter). lichtSzenen.<Szene>: basis (Raum ohne schaltbares Kunstlicht), ambient (natürliches Licht), paar {an,aus,lichter} (vollständiges An/Aus-Bildpaar als Übergang).",
+  "lichter": {
+    "LIGHT-EXT-WANDLATERNE": {
+      "art": "aussen",
+      "name": "Wandlaterne am Eingang",
+      "standard": true
+    },
+    "LIGHT-EXT-BODENLATERNE-L": {
+      "art": "aussen",
+      "name": "Linke Bodenlaterne",
+      "standard": true
+    },
+    "LIGHT-EXT-BODENLATERNE-R": {
+      "art": "aussen",
+      "name": "Rechte Bodenlaterne",
+      "standard": true
+    },
+    "LIGHT-H00-DECKENLATERNE": {
+      "art": "deckenlampe",
+      "name": "Deckenlaterne der Halle",
+      "standard": true
+    },
+    "LIGHT-H00-WANDLATERNE-C01": {
+      "art": "wandlampe",
+      "name": "Wandlaterne (Nordwand)",
+      "standard": true
+    },
+    "LIGHT-H00-WANDLATERNE-C02-L": {
+      "art": "wandlampe",
+      "name": "Linke Wandlaterne (Südwand)",
+      "standard": true
+    },
+    "LIGHT-H00-WANDLATERNE-C02-R": {
+      "art": "wandlampe",
+      "name": "Rechte Wandlaterne (Südwand)",
+      "standard": true
+    },
+    "LIGHT-H00-TISCHLAMPE": {
+      "art": "tischlampe",
+      "name": "Tischlampe",
+      "standard": true
+    },
+    "LIGHT-H00-BODENLATERNE-TREPPE": {
+      "art": "laterne",
+      "name": "Bodenlaterne an der Treppe",
+      "standard": true
+    },
+    "LIGHT-H00-O08": {
+      "art": "magisch",
+      "name": "Die Laterne (O08)",
+      "standard": true
+    },
+    "LIGHT-KUE-DECKENLEUCHTE": {
+      "art": "deckenlampe",
+      "name": "Deckenleuchte der Küche",
+      "standard": true
+    },
+    "LIGHT-KUE-FENSTERLATERNE": {
+      "art": "laterne",
+      "name": "Laterne am Hoffenster",
+      "standard": true
+    },
+    "LIGHT-KUE-KOMMODENLATERNE": {
+      "art": "laterne",
+      "name": "Laterne auf der Kommode",
+      "standard": true
+    },
+    "LIGHT-KUE-ARBEITSFLAECHE": {
+      "art": "unterbau",
+      "name": "Licht über der Arbeitsfläche",
+      "standard": true
+    }
+  },
+  "lichtSzenen": {}
 }

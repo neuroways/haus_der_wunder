@@ -35,3 +35,6 @@ Genau zwei Aktionen („Eine Karte aussuchen“, „Tageskarte ziehen“), kein 
 ## 19.11.2026 · EMFD-NAV-01
 
 Ein Rückweg pro Ansicht, tatsächliche Herkunft, Ersatzziele laut Matrix, App-Rückweg nutzt den Browserverlauf. Details: `auftraege/EMFD-NAV-01.md`, Rückmeldung `auftraege/EMFD-NAV-01-rueckmeldung.md`.
+
+## 20.11.2026 · EMFD-LIGHT-01 (verbindliche hausweite Lichtsteuerung)
+Alle Räume und Ansichten nutzen die zentrale LightEngine (`shared/lights.js`) und die Lichtebenen der Szenenkomponente. Der Zustand gehört zur physischen Lichtquelle (eine globale Licht-ID) und wird lokal dauerhaft gespeichert. Keine Raum-eigenen Lichtlösungen, kein Ganzbild-Helligkeitsfilter. Standard, Produktionsvorlage, Checkliste und QA: `docs/LICHT-STANDARD.md`.
