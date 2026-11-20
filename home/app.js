@@ -251,4 +251,4 @@ document.addEventListener('click',e=>{const link=e.target.closest?.('a[href="#fl
 document.querySelector('#quiet').onclick=e=>{quiet=!quiet;document.body.classList.toggle('quiet',quiet);e.currentTarget.setAttribute('aria-pressed',quiet);e.currentTarget.textContent=quiet?'Ruhige Ansicht an':'Ruhige Ansicht';motionState();};
 window.addEventListener('hashchange',render);render();
 function fitActiveCard(){const slot=main.querySelector('.card-slot'),card=slot?.querySelector('.held-card');if(!slot||!card)return;const c=CARDS.find(c=>location.hash.endsWith('/'+c.id));const ratio=(c?.imageWidth||630)/(c?.imageHeight||1080);const fit=()=>{const width=Math.max(1,Math.min(slot.clientWidth-12,Math.max(1,slot.clientHeight-40)*ratio));card.style.width=width+'px';card.style.height=(width/ratio)+'px';};fit();cardSizer=new ResizeObserver(fit);cardSizer.observe(slot);}
-const startGateScript=document.createElement('script');startGateScript.src='start-gate.js?v=0.6.73';document.head.append(startGateScript);
+const startGateScript=document.createElement('script');startGateScript.src='start-gate.js?v=0.6.74';document.head.append(startGateScript);

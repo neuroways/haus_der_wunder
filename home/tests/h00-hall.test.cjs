@@ -110,3 +110,10 @@ test('Ladereihenfolge und Offline-Liste enthalten Halle und Szenenoberfläche',(
  const P=require('../offline-policy.js');const list=P.registerImages(require('../data/registry.js'));
  assert.ok(list.house.some(f=>/H00-C01-h00-ref/.test(f))&&list.house.some(f=>/H00-C02-h00-ref/.test(f)));
 });
+
+test('Fix v0.6.74: „Platte verloren“-Hinweis erscheint in Szenen nicht dauerhaft und bleibt nach dem Schließen geschlossen',()=>{
+ const player=read('music-player.js'),css=read('emfd-scene.css');
+ assert.match(player,/contains\?\.\('scene-mode'\)\)\|\|feedbackDismissed===feedbackKey\(s\)/);
+ assert.match(player,/feedbackClose\.onclick=\(\)=>\{feedback\.hidden=true;feedbackDismissed=feedbackKey\(session\);\};/);
+ assert.doesNotMatch(css,/\.music-feedback\{[^}]*pointer-events:none/,'Knöpfe des Hinweises bleiben bedienbar');
+});

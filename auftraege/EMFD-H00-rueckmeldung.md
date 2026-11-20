@@ -57,3 +57,15 @@ Ausgangsversion: v0.6.72 (BOOK-01d, PR #2, noch nicht gemergt) · Zielversion: v
 3. K-22 Szenenmaster H00; Bildpaar-QA, O08-Bild und Lichtmasken liefert Work.
 4. Zielszenen für Hof (P05-C01), Teezimmer (P08-C01), Galerie (P06) und Küche (KUE-C02) sind eigene Aufträge.
 5. Reihenfolge der Merges: PR #1 (CACHE-01) → PR #2 (BOOK-01d) → dieser PR.
+
+## Nachtrag 20.11.2026 · v0.6.74 (Fehler aus der iPhone-Prüfung)
+- **Fehler:** Nach dem Antippen der Brücke (O15 fehlt auf STRATO) erschien „Leider ist die Platte verloren gegangen …“ immer wieder und ließ sich nicht schließen.
+- **Ursachen:**
+  - Der Player zeigte die Meldung bei jeder Zustandsänderung neu.
+  - In Szenen war die Meldung für Klicks durchlässig gesetzt (Fehler aus v0.6.72), deshalb reagierten ihre Knöpfe nicht.
+- **Behoben:**
+  - In Szenen erscheint die Meldung nicht mehr; das auslösende Paneel zeigt den Zustand selbst.
+  - Auf allen anderen Seiten lässt sie sich schließen und bleibt für dasselbe Stück geschlossen.
+  - Ein anderes fehlendes Stück meldet sie wieder.
+- **Im Browser geprüft:** Brücke mehrfach abspielen, Halle, Raumseite P05, Schließen, erneutes Abspielen.
+- **Tests:** `npm test` 374/0/1.
