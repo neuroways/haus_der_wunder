@@ -39,12 +39,12 @@ test('runtime paints the landing page and O16 detail instead of leaving main bla
   }
 });
 test('new house routes render the Flur, room directory, room detail, and independent music page',()=>{
-  const cases=[['#flur','Im Flur'],['#raeume','Alle Räume'],['#ort/P03','Wintergarten'],['#musik','Musik']];
+  const cases=[['#flur','Die Halle'],['#raeume','Alle Räume'],['#ort/P03','Wintergarten'],['#musik','Musik']];
   for(const [hash,expected] of cases){
     const main={innerHTML:'',focus(){},querySelector(sel){return sel==='#open-player-from-page'?{onclick:null}:null;},querySelectorAll(){return [];}};
     const settings={textContent:''},control={onclick:null},dialog={addEventListener(){},setAttribute(){},showModal(){},close(){},focus(){},querySelector(){return null;},className:'',innerHTML:'',open:false};
     const document={body:{classList:{toggle(){},add(){},remove(){},contains(){return false;}},appendChild(node){return node;}},head:{append(){}},title:'',querySelector(sel){return sel==='main'?main:sel==='#motion-settings'?settings:sel==='.skip'||sel==='#quiet'?control:null;},querySelectorAll(){return [];},createElement(){return Object.assign({},dialog);},addEventListener(){}};
-    const window={EMFDRegistry:require('../shared/registry.js'),matchMedia(){return {matches:false,addEventListener(){}};},addEventListener(){},scrollTo(){}};
+    const window={EMFDHall:{render:(m,o)=>{m.innerHTML=`<section class="emfd-scene-view" data-scene="${o.sceneId}"><h1>Die Halle</h1></section>`;},leave(){}},EMFDEntrance:{leave(){},isReturning(){return true;},render(){}},EMFDRegistry:require('../shared/registry.js'),matchMedia(){return {matches:false,addEventListener(){}};},addEventListener(){},scrollTo(){}};
     vm.runInNewContext(app,{document,window,location:{hash},CARDS:cards,console,ResizeObserver:undefined},{filename:'app.js'});
     assert.match(main.innerHTML,new RegExp(expected));
   }

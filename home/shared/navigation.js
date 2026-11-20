@@ -15,6 +15,8 @@
  const placeOf=item=>item?PLACE_ALIAS[item.id]||item.id:null;
  // New addresses (#raum/…, #geraet/…) behave like the view that shows them today.
  const canon=hash=>hash&&registry?.redirect?.(hash)||hash;
+ // Name of the hall for default back links (register: H00, historically „Flur“).
+ const hallLink=()=>{const hall=registry?.room?.('H00');const name=hall?.anzeigename||'Flur';return [name,`Zurück ${hall?.zu||'zum'} ${name}`];};
  function route(value){
    if(typeof value!=='string')return null;
    const hash=value.startsWith('#')?value:'#'+value;
@@ -85,7 +87,7 @@
  }
  // [visible name, accessible "Zurück …" phrase]
  function describe(value,cards=root.CARDS){
-   const hash=canon(route(value));if(!hash)return ['Flur','Zurück zum Flur'];
+   const hash=canon(route(value));if(!hash)return hallLink();
    if(device(hash)){const d=device(hash);return [d.name,`Zurück ${d.to} ${d.name}`];}
    const owner=roomOf(hash)||(hash.startsWith('#atelier/tisch/')?roomOf('#atelier'):null);
    if(owner){const name=owner.anzeigename;return [name,owner.zu?`Zurück ${owner.zu} ${name}`:`Zurück: ${name}`];}
@@ -96,7 +98,7 @@
    if(hash==='#karten')return ['Kartengalerie','Zurück zur Kartengalerie'];
    if(hash==='#karte/verdeckt')return ['Verdeckte Karte','Zurück zur verdeckten Karte'];
    if(hash.startsWith('#karte/')){const id=hash.split('/')[1],name=(cards||[]).find?.(card=>card.id===id)?.name;return name?[name,`Zurück zur Karte „${name}“`]:['Karte','Zurück zur Karte'];}
-   return ['Flur','Zurück zum Flur'];
+   return hallLink();
  }
  function createNavigation(env){
    let current=route(env.getHash())||'#ankommen',pending=null,sequence=0;

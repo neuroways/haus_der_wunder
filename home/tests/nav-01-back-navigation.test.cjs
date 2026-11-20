@@ -133,8 +133,8 @@ test('N12/N13: sichtbarer Zielname mit Pfeil, grammatisch passender zugängliche
   assert.deepEqual(describe('#musik/geschichten',cards),['Kompositionsgeschichten','Zurück zu den Kompositionsgeschichten']);
   const app=start('#flur');app.open('#ort/P03');
   const html=backLinkHTML(app.nav,'#raeume');
-  assert.match(html,/^<a class="back emfd-back" href="#flur" data-emfd-back data-emfd-back-fallback="#raeume" aria-label="Zurück zum Flur">/);
+  assert.match(html,/^<a class="back emfd-back" href="#flur" data-emfd-back data-emfd-back-fallback="#raeume" aria-label="Zurück zur Halle">/);
   assert.match(html,/arrow-left\.svg" alt="" aria-hidden="true"/);
-  assert.match(html,/<span class="emfd-back-name">Flur<\/span><\/a>$/);
+  assert.match(html,/<span class="emfd-back-name">Halle<\/span><\/a>$/);
   assert.doesNotMatch(html,/door-open/);
 });

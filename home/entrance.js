@@ -86,18 +86,15 @@
     else refreshHint();
     return scene;
   }
-  function leave(){scene?.destroy?.();scene=null;currentHint=null;clearHelpMark();document.body.classList.remove('scene-mode','entrance-mode');}
+  function leave(){if(!scene)return;scene.destroy?.();scene=null;currentHint=null;clearHelpMark();root.EMFDSceneChrome?.unmount?.();document.body.classList.remove('entrance-mode');if(!document.querySelector('.emfd-scene-view'))document.body.classList.remove('scene-mode');}
+  const LABELS=Object.freeze({'EXT-C01':'Der Eingang','EXT-C02':'Der Garten'});
+  /** Gemeinsame Kopfzeile (Musik · Raumlabel · Hilfe) und „Dein Moment“; während der Einführung zurückgenommen. */
   function renderBar(){
-    const bar=scene?.barHost();if(!bar)return;
-    // Hilfe und Orientierung oben rechts (immer erreichbar); „Einführung beenden“ nur während der Einführung.
-    bar.innerHTML=(state.tutorial.active?`<button type="button" class="emfd-chip" data-tutorial-end>Einführung beenden</button>`:'')+
-      kit().iconButton({label:'Hilfe und Orientierung',iconName:'help',data:{'data-scene-help':'','aria-haspopup':'dialog'}})+
-      kit().iconButton({label:'Einstellungen',iconName:'settings',quiet:true,data:{'data-scene-settings':'','aria-haspopup':'dialog'}});
-    bar.querySelector('[data-tutorial-end]')?.addEventListener('click',()=>endTutorial());
-    bar.querySelector('[data-scene-help]')?.addEventListener('click',()=>openHelp());
-    bar.querySelector('[data-scene-settings]')?.addEventListener('click',()=>document.querySelector('#settings-open')?.click());
+    if(!scene)return;
+    root.EMFDSceneChrome?.mount(scene,{label:LABELS[scene.sceneId]||'',quietMoment:state.tutorial.active,
+      endHTML:state.tutorial.active?`<button type="button" class="emfd-chip" data-tutorial-end>Einführung beenden</button>`:'',
+      bindEnd:end=>end?.querySelector('[data-tutorial-end]')?.addEventListener('click',()=>endTutorial())});
   }
-
   /* ---------- Hinweise ---------- */
   function hintContent(id){
     const t=texts()[id]||{};
@@ -221,7 +218,7 @@
   }
   function toggleLight(id){const on=root.EMFDLights?.toggle(id);scene?.setLight(id,on!==false);}
   function openLetter(){root.EMFDStart02?.openGift?.(false);}
-  function openHelp(){document.querySelector('#help-open')?.click();}
+  function openHelp(){if(root.EMFDSceneChrome)root.EMFDSceneChrome.openHelp();else document.querySelector('#help-open')?.click();}
   function openCard(id){location.hash=`karte/${id}`;}
   /** Haustür: führt ins Haus. Ziel aus der Szenenkonfiguration (H00-C01); bis die Halle integriert ist, der Flur. */
   function enterHouse(ziel={szene:'H00-C01'}){
@@ -233,54 +230,18 @@
     if(pref?.remembered)root.EMFDMusic?.setBackgroundPreference?.(pref.value,{start:false});
     const sceneRoute=ziel.szene?`#raum/${ziel.szene.replace('-','/')}`:'#flur';
     const target=reg()?.redirect?.(sceneRoute)||(reg()?.isSceneRoute?.(sceneRoute)?sceneRoute:'#flur');
+    // Eintritt in die Halle: Blick nach vorn (Mitte); Musik und Licht bleiben unverändert.
+    if(reg()?.isSceneRoute?.(target)){try{root.sessionStorage?.setItem('emfd.scene.view.v1',JSON.stringify({sceneId:ziel.szene,segment:'M'}));}catch{}}
     location.hash=target.slice(1);
   }
 
-  /* ---------- Paneele: Glocke (Ortsmusik) und Gegenstand (Karte · Musik · Geschichte) ---------- */
-  let panel=null,panelUnsub=null,panelOpener=null;
-  function ensurePanel(){
-    if(panel?.isConnected)return panel;
-    panel=document.createElement('dialog');panel.className='emfd-panel emfd-ui';panel.id='emfd-entrance-panel';
-    panel.addEventListener('close',()=>{panelUnsub?.();panelUnsub=null;if(panelOpener?.isConnected)panelOpener.focus({preventScroll:true});panelOpener=null;});
-    document.body.append(panel);return panel;
-  }
-  function openPanel(html,bindFn){
-    const d=ensurePanel();panelOpener=document.activeElement instanceof HTMLElement?document.activeElement:null;
-    d.innerHTML=`${kit().iconButton({label:'Schließen',iconName:'close',className:'emfd-panel__close',data:{'data-panel-close':''}})}${html}`;
-    d.querySelectorAll('[data-panel-close]').forEach(b=>b.addEventListener('click',()=>d.close()));
-    bindFn?.(d);if(!d.open)d.showModal();
-    (d.querySelector('[data-panel-focus]')||d.querySelector('button:not([data-panel-close])'))?.focus({preventScroll:true});
-    return d;
-  }
+  /* ---------- Paneele: Glocke (Ortsmusik) und Gegenstand (Karte · Musik · Geschichte) – gemeinsamer Dialog aus scene-chrome.js ---------- */
+  const chrome=()=>root.EMFDSceneChrome;
   const audio=()=>root.EMFDAudio;
-  function stateText(snapshot,id){
-    if(!snapshot||!snapshot.track)return 'Still.';
-    const mine=snapshot.track.assetId===id||snapshot.track.cardId===id||snapshot.entryId===id;
-    if(!mine)return snapshot.state==='playing'?`Gerade läuft: ${snapshot.track.title||'ein anderes Stück'}.`:'Still.';
-    if(snapshot.state==='playing'||snapshot.state==='starting')return `Spielt: ${snapshot.track.title||''}`.trim();
-    if(snapshot.state==='paused')return 'Pausiert.';
-    if(snapshot.state==='unavailable')return snapshot.message||'Dieses Stück ist gerade nicht verfügbar.';
-    return 'Still.';
-  }
-  function musicControl(id,label){
-    return `<div class="emfd-music-control" data-music-control="${esc(id)}">`+
-      kit().iconButton({label:`${label} abspielen`,iconName:'play',data:{'data-music':'play'}})+
-      kit().iconButton({label:`${label} pausieren`,iconName:'pause',data:{'data-music':'pause'}})+
-      kit().iconButton({label:`${label} stoppen`,iconName:'stop',data:{'data-music':'stop'}})+
-      `<p class="emfd-music-control__state" role="status" data-music-state>Still.</p></div>`;
-  }
-  function bindMusic(d,id){
-    const sync=snapshot=>{const s=d.querySelector('[data-music-state]');if(s)s.textContent=stateText(snapshot||audio()?.snapshot?.(),id);};
-    d.querySelector('[data-music="play"]')?.addEventListener('click',()=>{
-      const snap=audio()?.snapshot?.();
-      const mine=snap?.track&&(snap.track.assetId===id||snap.entryId===id);
-      if(mine&&snap.state==='paused')audio()?.command?.('play');else audio()?.select?.(id,{play:true,explicit:true});
-      root.setTimeout(()=>sync(),60);
-    });
-    d.querySelector('[data-music="pause"]')?.addEventListener('click',()=>{audio()?.command?.('pause');root.setTimeout(()=>sync(),60);});
-    d.querySelector('[data-music="stop"]')?.addEventListener('click',()=>{audio()?.command?.('stop');root.setTimeout(()=>sync(),60);});
-    panelUnsub=audio()?.subscribe?.(snapshot=>sync(snapshot))||null;sync();
-  }
+  const openPanel=(html,bind)=>chrome().openPanel(html,bind);
+  const musicControl=(id,label)=>chrome().musicControl(id,label);
+  const bindMusic=(d,id)=>chrome().bindMusic(d,id);
+  const stateText=(snapshot,id)=>chrome().stateText(snapshot,id);
   /** Glocke MP-EXT: Klangwelt des Ortes und die bisherige Musikentscheidung (EMFDMusicEntry), ohne Autoplay. */
   function openBell(){
     const bell=reg()?.bell?.()||{text:'Dieses Haus hat seine eigene Musik. Du kannst es mit Musik oder in Stille entdecken.'};
@@ -306,7 +267,7 @@
         };
         d.querySelector('[data-bell="on"]').addEventListener('click',()=>choose('on'));
         d.querySelector('[data-bell="off"]').addEventListener('click',()=>choose('off'));
-        panelUnsub=audio()?.subscribe?.(snapshot=>sync(snapshot))||null;sync();
+        chrome().onPanelClose(audio()?.subscribe?.(snapshot=>sync(snapshot))||null);sync();
       });
   }
   /** Gegenstand (Orakelobjekt): Karte ansehen, eigenes Musikstück, Geschichte – dieselben Wege wie im Haus. */
@@ -325,7 +286,7 @@
       });
   }
 
-  root.addEventListener?.('hashchange',()=>{if(panel?.open)panel.close();if(!/^#(?:raum\/EXT|ankommen)/.test(location.hash))leave();});
+  root.addEventListener?.('hashchange',()=>{chrome()?.closePanel?.();if(!/^#(?:raum\/EXT|ankommen)/.test(location.hash))leave();});
   root.addEventListener?.('emfd:light-change',event=>scene?.setLight(event.detail.id,event.detail.on));
   const api=Object.freeze({version:1,key:KEY,render,leave,startTutorial,restartTutorial,endTutorial,enterHouse,openBell,openObject,
     isReturning:()=>returning(),state:()=>JSON.parse(JSON.stringify(state)),currentHint:()=>currentHint,scene:()=>scene,
