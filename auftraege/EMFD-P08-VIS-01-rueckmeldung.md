@@ -1,5 +1,5 @@
 # EMFD-Rückmeldung · EMFD-P08-VIS-01 · Teezimmer (Bildkandidaten v0.7-r1)
-Datum: 20.11.2026 · Ergebnis: umgesetzt (Bildfreigaben offen, siehe unten) · Commit: siehe unten auf `claude/p08-01` · App v0.6.84 (Testversion, Grundlage `claude/integration-01` v0.6.83)
+Datum: 20.11.2026 · Ergebnis: umgesetzt (Bildfreigaben offen, siehe unten) · Commit: ec3eac9 auf `claude/p08-01` · App v0.6.84 (Testversion, Grundlage `claude/integration-01` v0.6.83)
 
 ## Was sich für die Person ändert
 - **Das Teezimmer ist ein begehbares Bild:** P08-C01 (Blick nach Norden zum Wintergarten) und P08-C02 (Süd, Sitzbank, Kachelofen), mit der gemeinsamen Kopfzeile und „Dein Moment“, das beim Eintreten geschlossen ist.
