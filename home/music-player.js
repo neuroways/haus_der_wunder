@@ -142,8 +142,14 @@ feedback.hidden=!['error','unavailable'].includes(s.state)||location.hash.starts
  function prepareRevealTrack(cardId){const track=matchingTrack(cardId)||tracks.find(item=>item.cardId===cardId)||null;if(!track)return null;family.value=track.family;variant.value=track.variant;variant.disabled=true;session.select(track);return track;}
  function revealCard(cardId){
    currentCard=cardId||null;
-   if(!cardId||quiet||globalSilence||entryMusicOff()||userPaused||session.volume===0){enabled=false;updateDock();status.textContent=quiet?'Ruhemodus: Die Karte bleibt still.':globalSilence||entryMusicOff()?'Deine Entscheidung für Stille bleibt wirksam.':userPaused?'Musik wurde zuvor bewusst gestoppt oder pausiert.':'Lautstärke 0 % – die Karte bleibt still.';return false;}
-   if(mode==='individual'&&session.track){enabled=true;session.play();return true;}const track=prepareRevealTrack(cardId);if(!track){pendingRevealCard=cardId;enabled=false;status.textContent='Die Kartenmusik wird noch vorbereitet. Du kannst sie anschließend im Player manuell starten.';updateDock();return false;}
+   if(!cardId){enabled=false;updateDock();return false;}
+   // Eine bewusst gezogene und aufgedeckte Karte bringt ihr eigenes Lied mit: Es ersetzt laufende Musik (z. B. Radio oder
+   // Raum-Playlist, deren Folge endet hier) – auch nach einem früheren Stopp. Still bleibt sie nur im Ruhemodus, bei bewusst
+   // gewählter Stille oder Lautstärke 0; dann ist die Karte als passende Musik vorgemerkt (kein Vorabladen), „Ton“ startet ihr Lied.
+   roomExplicitQueue=false;roomQueue=[];roomQueueFinished=false;if(roomMode==='playlist')roomMode='track';mode=setModeValue('matching');
+   if(quiet||globalSilence||entryMusicOff()||session.volume===0){enabled=false;updateDock();status.textContent=quiet?'Ruhemodus: Die Karte bleibt still.':globalSilence||entryMusicOff()?'Deine Entscheidung für Stille bleibt wirksam. „Ton“ spielt das Lied dieser Karte.':'Lautstärke 0 % – die Karte bleibt still.';return false;}
+   const track=prepareRevealTrack(cardId);
+   if(!track){pendingRevealCard=cardId;enabled=false;status.textContent='Die Kartenmusik wird noch vorbereitet. Du kannst sie anschließend im Player manuell starten.';updateDock();return false;}
    pendingRevealCard=null;enabled=true;userPaused=false;updateDock();session.play();return true;
  }
  function cardChanged(cardId){currentCard=cardId||null;if(mode==='matching'&&session.track?.kind!=='app-theme')playForCard(currentCard);}function setEnabled(value,source='direct'){if(quiet){enabled=false;updateDock();return;}enabled=Boolean(value);if(!enabled){userPaused=true;session.stop();status.textContent='Musik aus. Die Karte bleibt still.';updateDock();return;}userPaused=false;globalSilence=false;store(silenceKey,false);if(!session.track&&currentCard)mode=setModeValue('matching');updateDock();if(mode==='matching')playForCard(currentCard);else if(source==='direct'&&session.track)session.play();}

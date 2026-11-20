@@ -144,7 +144,7 @@ Weitere Modul-APIs: `EMFDAtelier` (atelier.js: `renderAtelier`, `renderTable`, `
 - Daten: `data.js` → `window.CARDS` (24 Einträge). Felder: `id, name, group, image, alt, imageWidth, imageHeight, imageSourceId, impulse, interpretation, depth, houseStory, question, anchor, textStatus …`. `image-profiles.js` ersetzt beim Laden `image`/`imageOverview`/`imageDetail` durch PERF-01-Varianten; `media-bridge.js` danach durch r2-Vorderseiten aus dem Manifest v2 (falls vorhanden).
 - Karte in der Hand: `app.js` `heldCard`, `bindMotion` (Antippen dreht nach 280 ms, Doppeltipp öffnet Buch, Wischen/Bewegen kippt). Nahansicht: `card-interaction.js`.
 - Kartenbuch: `app.js` `openCardText`/`showReadingPage`, Seiten `impulse`, `depth`, `question` (`readingKeys`). Frageseite enthält den Gedankenblatt-Einstieg (`data-thought-card`).
-- Zufall/Tageskarte: `EMFDFeatures.randomCard()` → `EMFDCardDraw.begin()` → `#karte/verdeckt` → Umdrehen → `EMFDMusic.revealCard`.
+- Zufall/Tageskarte: `EMFDFeatures.randomCard()` → `EMFDCardDraw.begin()` → `#karte/verdeckt` → Umdrehen → `EMFDMusic.revealCard`: Die aufgedeckte Karte spielt ihr eigenes Lied (ersetzt laufende Musik wie Radio/Raum-Playlist, auch nach früherem Stopp; still nur bei Ruhemodus, gewählter Stille oder Lautstärke 0 – dann startet „Ton“ ihr Lied).
 - Rückweg aus der Karte: `EMFDAtelier.returnTarget()` (sessionStorage `emfd.card.return`) bzw. `returnTarget` der verdeckten Ziehung.
 
 ### Räume
@@ -176,6 +176,8 @@ Weitere Modul-APIs: `EMFDAtelier` (atelier.js: `renderAtelier`, `renderTable`, `
 **localStorage:** `emfd.maeppchen.v1` (maeppchen.js: aktive Begleitung, Entwurf) · `emfd.kitchen.v1` (kitchen.js: `radioHintSeen`) · `emfd.hall.v1` (hall.js: `hints{welcome,music,moment}`, `farewellSeen`, `skipHints` – Direkteintritt ohne automatische Hallenhinweise) · `emfd.entrance.v1` (entrance.js: `welcomeDismissed`, `entered`, `tutorial:{active,seen,gardenVisited}` – nur Eingang/Einführung) · `emfd.lights.v1` (shared/lights.js: Ein/Aus je Licht-ID) · `emfd.house.light.v1` (app.js) · `emfd.reading.size.v1` (book-reading.js, reading-preferences.js) · `emfd.music.mode`, `emfd.music.startOnEntry`, `emfd.music.volume`, `emfd.music.globalSilence` (music-player.js) · `emfd.music.entryPreference` (music-entry.js) · `emfd.start02.gift-completed.v1`, `emfd.start02.tutorial-completed.v1`, `emfd.start02.install-dismissed.v1`, `emfd.start03.intro-completed.v1` (start-gate.js) · `emfd.card.motionHint.v1.*` (card-motion.js) · `emfd-media-bridge` (Notbremse, media-bridge.js).
 
 **sessionStorage:** `emfd.scene.view.v1` (Szene + Ausschnitt für die Rückkehr) · `emfd.nav.history.v1` (Verlaufsspiegel, nur Routen) · `emfd.cardDraw.concealed` · `emfd.card.return` · `emfd.atelier.current|direction|gridScroll|group` · `emfd.music.entryPreference.session`.
+
+**Unsichtbare Trefferflächen (v0.6.83, verbindlich):** Alle Bedienstellen im Bild (`.emfd-hotspot`, in Nahansichten `.emfd-hit`, z. B. Radioknopf) haben in keinem Zustand Fläche, Rahmen oder Schatten (`emfd-ui.css` v0.4.4); sichtbar nur bei Tastaturfokus, Hinweis oder Hilfe → „Interaktive Gegenstände anzeigen“.
 
 **Ereignisse (window):** `emfd:companion-change` · `emfd:maeppchen` · `emfd:moment` · `emfd:light-change` · `emfd:gift-closed` · `emfd:install-dismissed` · `emfd:navigation` · `emfd:music-ready` · `emfd:music-state` · `emfd:music-availability` · `emfd:card-concealed` · `emfd:card-revealed` · `emfd:hall-light-change` · `emfd:start-gate-rendered` · `emfd-media-updated` · `emfd-offline-progress`. Am Kartenelement: `cancel-card-tap`.
 

@@ -15,7 +15,7 @@
 (function (root) {
   'use strict';
 
-  var VERSION = 'cache01-v13';
+  var VERSION = 'cache01-v14';
   var CACHES = Object.freeze({
     shell: 'emfd-shell-' + VERSION,
     images: 'emfd-media-images-v1',

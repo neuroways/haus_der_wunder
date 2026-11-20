@@ -112,7 +112,7 @@
     chrome().openPanel(`<div data-radio-panel><h2>${esc(info().radio?.titel||'Das Röhrenradio')}</h2>`+
       (first?`<p class="emfd-panel__hint" data-radio-hint>${esc(info().radioHinweis?.text||'')} ${kit().textButton({label:'Hinweis schließen',data:{'data-radio-hint-close':''}})}</p>`:'')+
       `<div class="emfd-radio-stage" data-radio-stage>${frame}${media.type==='file'?'':`<span class="emfd-radio-stage__ph">Platzhalter · device.MP-KUE.nahansicht</span>`}`+
-      `<button type="button" class="emfd-radio-knob" data-radio="knob" aria-pressed="false" style="left:${(kx*100).toFixed(1)}%;top:${(ky*100).toFixed(1)}%" aria-label="Rechter Drehknopf"></button>`+
+      `<button type="button" class="emfd-radio-knob emfd-hit" data-radio="knob" aria-pressed="false" style="left:${(kx*100).toFixed(1)}%;top:${(ky*100).toFixed(1)}%" aria-label="Rechter Drehknopf"></button>`+
       `<span class="emfd-radio-stage__note">Nahansicht: Ausschnitt aus KUE-C02 · Radioebenen folgen</span></div>`+
       `<div class="emfd-panel__actions">`+kit().button({label:'Radio einschalten',variant:'primary',data:{'data-radio':'toggle','data-panel-focus':''}})+
       `<p class="emfd-music-control__state" role="status" data-radio-state></p>`+kit().button({label:'Schließen',variant:'secondary',data:{'data-panel-close':''}})+`</div></div>`,d=>{

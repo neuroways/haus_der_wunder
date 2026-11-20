@@ -152,8 +152,7 @@ dialog.emfd-panel{position:fixed;inset:0;margin:auto;block-size:fit-content;max-
 .emfd-radio-stage.is-on{box-shadow:inset 0 0 0 2px rgba(247,209,138,.6)}
 .emfd-radio-stage__note,.emfd-radio-stage__ph{position:absolute;inset-inline-start:8px;inset-block-end:6px;padding:2px 6px;border-radius:6px;background:rgba(0,0,0,.55);color:#f7d18a;font:11px var(--emfd-font-ui,system-ui,sans-serif)}
 .emfd-radio-stage__ph{inset-block-start:8px;inset-block-end:auto}
-.emfd-radio-knob{position:absolute;inline-size:48px;block-size:48px;transform:translate(-50%,-50%);border-radius:50%;border:2px dashed rgba(247,209,138,.6);background:transparent;cursor:pointer}
-.emfd-radio-knob[aria-pressed=true]{border-style:solid;border-color:var(--emfd-ui-gold-light)}
+.emfd-radio-knob{position:absolute;inline-size:48px;block-size:48px;transform:translate(-50%,-50%);border-radius:50%;cursor:pointer}
 .emfd-radio-knob.is-turning{animation:emfd-knob .35s ease-out}
 .emfd-radio-knob:focus-visible{outline:3px solid var(--emfd-ui-focus);outline-offset:3px}
 @keyframes emfd-knob{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(25deg)}}
@@ -167,3 +166,15 @@ dialog.emfd-panel{position:fixed;inset:0;margin:auto;block-size:fit-content;max-
 .emfd-scene-view .emfd-hotspot:focus-visible{box-shadow:inset 0 0 0 2px rgba(247,209,138,.75);outline:3px solid var(--emfd-ui-focus);outline-offset:3px}
 .emfd-scene-view .emfd-hotspot.is-hinted{box-shadow:inset 0 0 0 2px rgba(247,209,138,.8);outline:1px dashed rgba(247,209,138,.55);outline-offset:4px}
 .emfd-scene-view.show-hotspots .emfd-hotspot{box-shadow:inset 0 0 0 2px rgba(247,209,138,.7);outline:1px dashed rgba(247,209,138,.5);outline-offset:3px}
+
+/* v0.4.4 · Unsichtbare Trefferflächen im Bild (verbindlich): Geräte, Licht, Türen, Gegenstände (.emfd-hotspot) und Bedienstellen
+   in Nahansichten (.emfd-hit, z. B. Radioknopf) zeigen in keinem Zustand Fläche, Rahmen, Schatten, Text oder Tipp-Markierung –
+   unabhängig davon, welche ältere Stilregel sonst auf <button> wirkt. Sichtbar nur: Tastaturfokus, Hinweis-Markierung,
+   Hilfe → „Interaktive Gegenstände anzeigen“ (.show-hotspots) und echte Maus-Hover-Kontur. */
+.emfd-hit,.emfd-hit:hover,.emfd-hit:active,.emfd-hit:focus,.emfd-hit[aria-pressed],
+.emfd-hotspot,.emfd-hotspot:hover,.emfd-hotspot:active,.emfd-hotspot:focus,.emfd-hotspot[aria-pressed]{
+  background:transparent!important;background-image:none!important;border:0!important;box-shadow:none!important;outline:0;
+  color:transparent!important;text-shadow:none!important;filter:none!important;-webkit-appearance:none;appearance:none;-webkit-tap-highlight-color:transparent}
+.emfd-hit:focus-visible,.emfd-hotspot:focus-visible{outline:3px solid var(--emfd-ui-focus)!important;outline-offset:3px}
+@media (hover:hover) and (pointer:fine){.emfd-scene-view .emfd-hotspot:hover,.emfd-hit:hover{outline:2px solid rgba(247,209,138,.55)!important;outline-offset:-2px}}
+.emfd-scene-view .emfd-hotspot.is-hinted,.emfd-scene-view.show-hotspots .emfd-hotspot{outline:2px dashed rgba(247,209,138,.75)!important;outline-offset:2px}
