@@ -1,23 +1,37 @@
-/* EMFD-MAEPPCHEN-01 · Mäppchen der Begleiterkarte. Dieselben Grafiken und derselbe Zustand in zwei Layouts:
-   Smartphone (Hochformat): ganzes Mäppchen oben, Lesebereich darunter, Hand unten, Cover oben.
-   Wide (ab 900 px quer): Mäppchen links, Inhalt rechts, Buch als Doppelseite, Hand links unten, Cover rechts oben. */
+/* EMFD-MAEPPCHEN-02 · Mäppchen der Begleiterkarte v0.2. Eine Bühne mit Kopfzeile; schmal genau ein aktiver Bereich
+   (Mäppchen | Detail | Hörmoment), Wide (Container ≥ 960 × 560 px, Klasse .is-wide per JS) Mäppchen links ~40 %, Auswahl rechts ~60 %. */
 dialog.emfd-maeppchen{position:fixed;inset:0;inline-size:100vw;block-size:100dvh;max-inline-size:none;max-block-size:none;margin:0;padding:0;border:0;background:#0b1a26;color:#f1e9db;overflow:hidden}
 dialog.emfd-maeppchen::backdrop{background:#06121c}
-.mp-stage{position:relative;inline-size:100%;block-size:100%;overflow:hidden;--fw:min(94vw,calc((100dvh - 330px) * 1.48),560px);--fh:calc(var(--fw) * 0.6758);--ftop:calc(64px + env(safe-area-inset-top))}
-.mp-bg{position:absolute;inset:0;inline-size:100%;block-size:100%;object-fit:cover;pointer-events:none;transition:opacity .9s ease}
-.mp-bg--sky{opacity:0;object-position:50% 30%}
-.mp-stage[data-falter="flying"] .mp-bg--sky,.mp-stage[data-falter="landing"] .mp-bg--sky{opacity:1}
+.mp-stage{position:relative;inline-size:100%;block-size:100%;overflow:hidden;display:flex;flex-direction:column;--fw:320px;--bar:calc(60px + env(safe-area-inset-top))}
+.mp-bg{position:absolute;inset:0;inline-size:100%;block-size:100%;object-fit:cover;pointer-events:none;z-index:0}
 .mp-missing{display:block;border:1.5px dashed #d8b46a;background:repeating-linear-gradient(45deg,#2a3d4a 0 8px,#22333f 8px 16px)}
 
-/* Kopfzeile */
-.mp-bar{position:absolute;z-index:30;inset-block-start:max(10px,env(safe-area-inset-top));inset-inline:max(10px,env(safe-area-inset-left)) max(10px,env(safe-area-inset-right));display:flex;align-items:center;gap:10px}
-.mp-title{flex:1;max-inline-size:none;margin:0;font:1.05rem/1.2 Georgia,serif;color:#f4d993;text-shadow:0 1px 8px #000;min-inline-size:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.mp-title span{display:block;font:.72rem/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#d9c79a}
-.mp-bar__end{margin-inline-start:auto;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-@media (max-width:560px){.mp-bar__end .emfd-button__label{position:absolute;inline-size:1px;block-size:1px;overflow:hidden;clip-path:inset(50%)}.mp-bar__end .emfd-button{min-inline-size:44px;padding-inline:10px}}
+/* Kopfzeile: Schließen (Mäppchen) bzw. Zurück zum Mäppchen (Detail, Hörmoment), Kartentitel, Sichern, Zurücklegen */
+.mp-bar{position:relative;z-index:30;flex:none;display:flex;align-items:center;gap:8px;min-block-size:56px;padding:max(8px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) 8px max(10px,env(safe-area-inset-left));background:linear-gradient(180deg,#06121cf0,#06121cc8);border-bottom:1px solid #d8b46a33}
+.mp-bar [hidden]{display:none!important}
+.mp-title{flex:1;max-inline-size:none;margin:0;font:1.02rem/1.2 Georgia,serif;color:#f4d993;min-inline-size:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mp-title span{display:block;font:.7rem/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#d9c79a}
+.mp-title small{font:.82rem/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#d9c79a;margin-inline-start:.5em}
+.mp-title small:not(:empty)::before{content:"· "}
+.mp-bar__end{margin-inline-start:auto;display:flex;gap:6px;flex-wrap:nowrap;justify-content:flex-end}
+@media (max-width:620px){.mp-bar .emfd-button:not(.mp-bar__back) .emfd-button__label{position:absolute;inline-size:1px;block-size:1px;overflow:hidden;clip-path:inset(50%)}.mp-bar .emfd-button{min-inline-size:44px;padding-inline:10px}}
+@media (max-width:380px){.mp-bar__back .emfd-button__label{font-size:.85rem}}
+
+/* Bereiche */
+.mp-body{position:relative;z-index:5;flex:1;min-block-size:0;display:grid}
+.mp-pane{grid-area:1/1;position:relative;min-block-size:0;min-inline-size:0;overflow:hidden}
+.mp-pane[hidden]{display:none}
+.mp-pane--folder{display:grid;place-items:center;padding:12px}
+.mp-pane--detail{display:flex;flex-direction:column;animation:mp-rise .35s ease}
+.mp-scroll{flex:1;min-block-size:0;overflow:auto;overscroll-behavior:contain;padding:12px max(14px,env(safe-area-inset-left)) calc(20px + env(safe-area-inset-bottom));outline:none;-webkit-overflow-scrolling:touch}
+@keyframes mp-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.mp-stage.is-wide .mp-body{grid-template-columns:minmax(0,40fr) minmax(0,60fr)}
+.mp-stage.is-wide .mp-pane--folder{grid-column:1}
+.mp-stage.is-wide .mp-pane--detail,.mp-stage.is-wide .mp-pane--listen{grid-column:2;grid-row:1}
+.mp-stage.is-wide .mp-pane--detail{margin:14px 18px 14px 0;border:1px solid #d8b46a44;border-radius:16px;background:#06121cb8}
 
 /* Mäppchen */
-.mp-folder{position:absolute;z-index:5;inset-block-start:var(--ftop);inset-inline-start:calc(50% - var(--fw) / 2);inline-size:var(--fw);block-size:var(--fh);perspective:1800px;transition:transform .9s ease,opacity .6s ease}
+.mp-folder{position:relative;z-index:5;inline-size:var(--fw);block-size:calc(var(--fw) * 0.6758);perspective:1800px;transition:transform .9s ease,opacity .6s ease}
 .mp-folder.is-closed{transform:translateX(25%)}
 .mp-fold{position:absolute;z-index:0;inset-block:-1%;inset-inline-start:43.5%;inline-size:13%;block-size:102%;object-fit:fill;opacity:0;transition:opacity .4s ease .5s}
 .mp-folder.is-open .mp-fold{opacity:1}
@@ -49,11 +63,11 @@ dialog.emfd-maeppchen::backdrop{background:#06121c}
 .mp-folder.is-filled .mp-item--story{top:6%}
 .mp-folder.is-filled .mp-item--book{top:8%}
 .mp-band{inset-inline-start:2%;inline-size:96%;inset-block-start:30%;z-index:2}
-.mp-item--falter{inset-inline-start:35%;inline-size:30%;top:49%;z-index:3;display:grid;place-items:center}
-.mp-fal{position:relative;display:block;inline-size:78%;filter:saturate(.75) brightness(.92)}
-.mp-stage:not([data-falter="pocket"]) .mp-item--falter .mp-fal{opacity:0}
+.mp-item--falter{inset-inline-start:33%;inline-size:34%;top:47%;z-index:3;display:grid;place-items:center}
+.mp-fal{position:relative;display:block;inline-size:84%;block-size:auto;filter:saturate(.7) brightness(.9)}
 .mp-lasche{inset-inline-start:17%;inline-size:66%;inset-block-start:62%;z-index:4}
 .mp-item.is-out{opacity:.28}
+.mp-item.is-lifting{transform:translateY(-14%) scale(1.06);filter:drop-shadow(0 14px 18px #000a);transition:transform .26s ease,filter .26s ease;z-index:9}
 
 /* Klappe: Vorderseite 01 (gespiegelt, Falz rechts) und Rückseite 03 drehen um die mittlere Falz. */
 .mp-flap{position:absolute;z-index:3;inset-block:0;inset-inline-start:0;inline-size:50%;transform-origin:100% 50%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.45,.05,.3,1);pointer-events:none}
@@ -69,40 +83,49 @@ dialog.emfd-maeppchen::backdrop{background:#06121c}
 .mp-open-hit:focus-visible{outline:3px solid #f4d993;outline-offset:4px;border-radius:12px}
 .mp-open-hit[hidden]{display:none}
 
-/* Lesebereich */
-.mp-read{position:absolute;z-index:12;inset-inline:0;inset-block-end:0;inset-block-start:calc(var(--ftop) + var(--fh) + 10px);padding:14px max(14px,env(safe-area-inset-left)) calc(16px + env(safe-area-inset-bottom));overflow:auto;background:linear-gradient(180deg,#06121cd9,#06121cf2);border-top:1px solid #d8b46a55;animation:mp-rise .45s ease}
-.mp-read[hidden]{display:none}
-@keyframes mp-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-.mp-read h2{margin:.2em 0;font:1.4rem/1.2 Georgia,serif;color:#f4d993}
-.mp-read__card{display:grid;justify-items:center;gap:6px}
-.mp-read__card img{max-block-size:46dvh;inline-size:auto;max-inline-size:72vw;border-radius:10px;box-shadow:0 10px 30px #000a}
-.mp-read__group{margin:0;color:#d9c79a;font-size:.9rem}
-.mp-read__actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-block-start:14px}
-.mp-read__note{margin:.6em auto 0;max-inline-size:36em;text-align:center;font-size:.85rem;color:#c8bba0}
-.mp-slip{position:relative;margin:0 auto;inline-size:min(78vw,340px);aspect-ratio:268/368;color:#2b3439}
-.mp-slip--question{aspect-ratio:268/361}
-.mp-slip__paper{position:absolute;inset:0;inline-size:100%;block-size:100%}
-.mp-slip__text{position:absolute;inset:12% 12%;display:grid;align-content:center;gap:10px;text-align:center}
-.mp-slip__text span{font:.72rem/1 -apple-system,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6b5434}
-.mp-slip__text p{margin:0;font:1.08rem/1.5 Georgia,serif}
-.mp-slip--question .mp-slip__text p{font-style:italic;color:#20384a}
-.mp-write{display:grid;gap:10px;justify-items:center}
-.mp-read[data-kind="book"] .mp-slip--small{position:sticky;top:-14px;z-index:2;box-shadow:0 8px 18px #000a}
-.mp-slip--small{inline-size:min(86vw,520px);aspect-ratio:auto;min-block-size:0}
-.mp-slip--small .mp-slip__paper{object-fit:fill}
-.mp-slip--small .mp-slip__text{position:relative;inset:auto;padding:16px 22px}
-.mp-book{position:relative;inline-size:min(92vw,420px);aspect-ratio:392/562}
+/* Details: das Stück beginnt direkt unter der Kopfzeile */
+.mp-d{margin:0 auto;max-inline-size:640px}
+.mp-d__title{margin:.1em 0 .4em;font:1.35rem/1.25 Georgia,serif;color:#f4d993;outline:none}
+.mp-d__actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px auto 0}
+.mp-d__note{margin:.6em auto 0;max-inline-size:36em;text-align:center;font-size:.85rem;color:#c8bba0}
+.mp-d--card{display:grid;justify-items:center;gap:8px}
+.mp-d--card img{display:block;inline-size:auto;max-inline-size:min(86vw,420px);max-block-size:calc(100dvh - 210px);border-radius:12px;box-shadow:0 10px 30px #000a}
+.mp-d--card figcaption{font:1.15rem/1.3 Georgia,serif;color:#f4d993}
+.mp-d--slip{position:relative;inline-size:min(92vw,460px);aspect-ratio:268/368;color:#2b3439}
+.mp-slip--question.mp-d--slip{aspect-ratio:268/361}
+.mp-slip__paper{position:absolute;inset:0;inline-size:100%;block-size:100%;object-fit:fill}
+.mp-slip__text{position:absolute;inset:11% 11%;display:grid;align-content:center;gap:12px;text-align:center;overflow:auto}
+.mp-slip__kicker{font:.74rem/1 -apple-system,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6b5434;outline:none}
+.mp-slip__big{margin:0;font:clamp(1.15rem,4.6vw,1.6rem)/1.45 Georgia,serif}
+.mp-slip--question .mp-slip__big{font-style:italic;color:#20384a}
+/* Gedankenbuch: die Seite ist die Schreibfläche; die Frage als kleines, einklappbares Kärtchen */
+.mp-pane--detail[data-kind] {}
+.mp-d--book{display:flex;flex-direction:column;gap:10px;align-items:center;max-inline-size:720px}
+.mp-qchip{inline-size:min(100%,560px);border-radius:10px;background:#d9e1e6;color:#20384a;box-shadow:0 6px 14px #0008}
+.mp-stage .mp-qchip summary{list-style:none;cursor:pointer;padding:8px 14px;font:.74rem/1.2 -apple-system,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#3d4f5b;background:none;outline:none}
+.mp-qchip summary::-webkit-details-marker{display:none}
+.mp-qchip summary:focus-visible{outline:3px solid #f4d993;outline-offset:2px}
+.mp-qchip[open] .mp-qchip__closed,.mp-qchip:not([open]) .mp-qchip__open{display:none}
+.mp-stage .mp-qchip p{margin:0;padding:0 14px 12px;font:italic 1rem/1.45 Georgia,serif;color:#1d3445;opacity:1;max-inline-size:none}
+.mp-book{position:relative;inline-size:min(100%,460px);aspect-ratio:392/562;max-block-size:none}
 .mp-book__spread{display:none}
-.mp-book__page{position:absolute;inset:0;inline-size:100%;block-size:100%}
+.mp-book__page{position:absolute;inset:0;inline-size:100%;block-size:100%;object-fit:fill}
 .mp-book__left{display:none}
-.mp-book__right{position:absolute;inset:9% 9% 7% 10%;display:block}
-.mp-book textarea{inline-size:100%;block-size:100%;resize:none;border:0;background:transparent;color:#24323a;font:1.05rem/2.02 Georgia,serif;padding:0;outline:none}
+.mp-book__right{position:absolute;inset:8% 9% 7% 10%;display:block;cursor:text}
+.mp-book textarea{inline-size:100%;block-size:100%;resize:none;border:0;background:transparent;color:#24323a;font:1.05rem/2.02 Georgia,serif;padding:0;outline:none;scroll-padding-block:2.2em}
 .mp-book textarea:focus-visible{outline:2px dashed #b7985c88;outline-offset:4px}
-.mp-story{position:relative;margin:0 auto;inline-size:min(92vw,440px);aspect-ratio:392/562}
-.mp-story__text{position:absolute;inset:8% 9% 7% 10%;overflow:auto;color:#2b3439}
-.mp-story__text span{font:.72rem/1 -apple-system,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6b5434}
-.mp-story__text h2{color:#213d4a}
-.mp-story__text p{font:1rem/1.6 Georgia,serif;margin:.6em 0}
+/* Beim Schreiben (Tastatur offen): die Seite füllt die tatsächlich sichtbare Fläche, Frage eingeklappt, Musikzeile aus. */
+.mp-stage.is-typing:not(.is-wide) .mp-d--book{block-size:100%;min-block-size:0}
+.mp-stage.is-typing:not(.is-wide) .mp-scroll[data-kind="book"]{padding-block-end:8px}
+.mp-stage.is-typing:not(.is-wide) .mp-book{flex:1;min-block-size:160px;aspect-ratio:auto;inline-size:min(100%,560px)}
+.mp-stage.is-typing:not(.is-wide) .mp-scroll[data-kind="book"] .mp-d__note,.mp-stage.is-typing:not(.is-wide) .mp-scroll[data-kind="book"] .mp-d__actions{display:none}
+.mp-stage.is-typing:not(.is-wide) .mp-scroll[data-kind="book"] .mp-d--book{block-size:calc(100% - 2px)}
+/* Geschichtenheft: warme Papieroptik der Leseansicht, Text oben, skalierbar (Leseschriftgröße) und scrollbar */
+.mp-d--story{max-inline-size:720px}
+.mp-storypage{padding:22px clamp(18px,5vw,40px) 28px;border:4px double #b68b48;border-radius:16px;background:#f4e4c5;box-shadow:inset 0 0 0 1px #edce88,0 14px 32px #0007;color:#2b3439}
+.mp-storypage__kicker{font:.74rem/1 -apple-system,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6b5434}
+.mp-storypage .mp-d__title{color:#213d4a}
+.mp-storypage p{font:var(--book-font-size,1.05rem)/1.65 Georgia,serif;margin:.65em 0;max-inline-size:none}
 .mp-panel{max-inline-size:34em;margin:0 auto;text-align:center}
 .mp-panel p{margin-inline:auto}
 .mp-panel__list{display:grid;gap:8px;justify-items:stretch;max-inline-size:22em;margin:12px auto}
@@ -110,58 +133,81 @@ dialog.emfd-maeppchen::backdrop{background:#06121c}
 .mp-import{position:relative;overflow:hidden;cursor:pointer;justify-content:center}
 .mp-import input{position:absolute;inset:0;opacity:0;cursor:pointer}
 .mp-swap{max-inline-size:30em}
+.mp-read__actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-block-start:14px}
+/* Wide: Gedankenbuch als Doppelseite rechts, Frage auf der linken Seite */
+.mp-stage.is-wide .mp-d--book .mp-qchip{display:none}
+.mp-stage.is-wide .mp-book{inline-size:min(100%,820px);aspect-ratio:644/511}
+.mp-stage.is-wide .mp-book__spread{display:block;position:absolute;inset:0;inline-size:100%;block-size:100%;object-fit:fill}
+.mp-stage.is-wide .mp-book__page{display:none}
+.mp-stage.is-wide .mp-book__left{display:block;position:absolute;inset:10% 54% 10% 8%;color:#20384a;overflow:auto}
+.mp-book__q{font:italic 1.05rem/1.6 Georgia,serif;margin:0}
+.mp-book__meta{font:.9rem/1.3 Georgia,serif;color:#6b5434}
+.mp-stage.is-wide .mp-book__right{inset:10% 7% 10% 54%}
+.mp-stage.is-wide .mp-d--card img{max-block-size:calc(100dvh - 230px)}
 
-/* Hand, Cover, Falter */
-.mp-hand{position:absolute;z-index:14;inset-block-end:0;inset-inline-start:4%;inline-size:min(40vw,230px);block-size:auto;transform:translateY(105%);opacity:0;transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .5s ease;pointer-events:none}
-.mp-stage[data-falter="hand"] .mp-hand,.mp-stage[data-falter="lit"] .mp-hand,.mp-stage[data-falter="flying"] .mp-hand,.mp-stage[data-falter="landing"] .mp-hand{transform:none;opacity:1}
-.mp-cover{position:absolute;z-index:13;margin:0;inset-block-start:calc(var(--ftop) + 6px);inset-inline-start:50%;inline-size:min(46vw,250px);transform:translate(-50%,-10px) scale(.96);opacity:0;transition:opacity .9s ease,transform .9s ease;pointer-events:none;text-align:center}
-.mp-cover img{display:block;inline-size:100%;aspect-ratio:1;object-fit:cover;object-position:50% 35%;border-radius:10px;box-shadow:0 0 0 1px #f4d99366,0 12px 40px #000c,0 0 60px #f6d48a33}
-.mp-cover figcaption{margin-top:8px;font:1rem/1.2 Georgia,serif;color:#f4d993;text-shadow:0 1px 8px #000}
-.mp-stage.is-covered .mp-cover{opacity:1;transform:translate(-50%,0) scale(1)}
-.mp-stage[data-falter="flying"] .mp-folder,.mp-stage[data-falter="landing"] .mp-folder{opacity:.18}
-.mp-stage[data-falter="flying"] .mp-read,.mp-stage[data-falter="landing"] .mp-read{opacity:.15;pointer-events:none}
-.mp-falter{position:absolute;z-index:16;inset-block-start:0;inset-inline-start:0;appearance:none;border:0;margin:0;padding:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform 1.3s cubic-bezier(.3,.6,.2,1),width .9s ease,height .9s ease,opacity .4s ease}
-.mp-falter:hover,.mp-falter:active,.mp-falter:focus{background:transparent;box-shadow:none}
-.mp-falter:focus-visible{outline:3px solid #f4d993;outline-offset:4px;border-radius:50%}
-.mp-falter.is-pocket{opacity:0;pointer-events:none;transition:none}
-.mp-f{position:absolute;display:block;max-inline-size:none;pointer-events:none;transition:opacity .6s ease}
-.mp-f--ll,.mp-f--lr,.mp-f--lb{opacity:0}
-.mp-falter.is-hand,.mp-falter.is-lit{filter:saturate(.8) brightness(.95)}
-.mp-falter.is-alive .mp-f--pl,.mp-falter.is-alive .mp-f--pr,.mp-falter.is-alive .mp-f--pb{opacity:0}
-.mp-falter.is-alive .mp-f--lb{opacity:1}
-.mp-falter.is-alive .mp-f--ll,.mp-falter.is-alive .mp-f--lr{opacity:.75}
-.mp-falter__glow{position:absolute;inline-size:70%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#fff6c8 0,#f8dc7acc 22%,#f6c85a55 45%,transparent 70%);opacity:0;transition:opacity .7s ease;pointer-events:none;filter:blur(1px)}
-.mp-falter.is-lit .mp-falter__glow,.mp-falter.is-alive .mp-falter__glow{opacity:1}
-.mp-falter.is-flying.is-alive .mp-f--ll{animation:mp-wing-l .32s ease-in-out infinite alternate}
-.mp-falter.is-flying.is-alive .mp-f--lr{animation:mp-wing-r .32s ease-in-out infinite alternate}
-.mp-falter.is-flying .mp-falter__glow{animation:mp-glow 2.4s ease-in-out infinite}
-@keyframes mp-wing-l{from{transform:rotate(-14deg)}to{transform:rotate(10deg)}}
-@keyframes mp-wing-r{from{transform:rotate(14deg)}to{transform:rotate(-10deg)}}
-@keyframes mp-glow{0%,100%{opacity:.8}50%{opacity:1}}
-.mp-hint{position:absolute;z-index:20;inset-inline:16px;inset-block-start:calc(var(--ftop) + var(--fh) + 14px);margin:0 auto;max-inline-size:28em;padding:10px 14px;border-radius:12px;background:#06121ce6;border:1px solid #d8b46a66;text-align:center;font-size:.92rem;opacity:0;transform:translateY(8px);transition:opacity .3s ease,transform .3s ease;pointer-events:none}
+/* Etiketten als echter Text auf Einbänden und Karten */
+.mp-label{position:absolute;z-index:3;inset-inline:6%;inset-block-start:7%;display:block;padding:2px 3px;border-radius:4px;font:700 max(7px,calc(var(--fw) * 0.0235))/1.15 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.01em;text-align:center;white-space:nowrap;pointer-events:none}
+.mp-label--impulse{background:#fbf3df;color:#5b4423;box-shadow:0 0 0 1px #b39661}
+.mp-label--question{background:#e8eef2;color:#22394a;box-shadow:0 0 0 1px #7d93a3}
+.mp-label--book{inset-block-start:38%;inset-inline:1%;letter-spacing:0;font-size:max(7px,calc(var(--fw) * 0.0205));background:#f3e7c8;color:#173c43;box-shadow:0 0 0 1px #c8a356}
+.mp-label--story{inset-block-start:4%;inset-inline:6%;background:#fff8e6;color:#4b3b22;box-shadow:0 0 0 1px #c3a46c}
+.mp-story-thumb{position:absolute;inset-inline-start:30%;inset-block-start:26%;inline-size:40%;aspect-ratio:1;object-fit:cover;object-position:50% 30%;border-radius:50%;box-shadow:0 0 0 2px #e9d7a8,0 2px 6px #0006;pointer-events:none}
+
+/* Hörmoment: deckende Nachtfläche, oben das quadratische Cover, darunter die Begleiterkarte mit dem Glühwürmchen */
+.mp-pane--listen{background:#081520}
+.mp-listen__sky{position:absolute;inset:0;inline-size:100%;block-size:100%;object-fit:cover;object-position:50% 30%;pointer-events:none}
+.mp-listen__layout{position:absolute;inset:12px 14px 92px;display:grid;grid-template-rows:minmax(0,42fr) minmax(0,58fr);gap:14px}
+.mp-listen__cover{position:relative;margin:0;inline-size:100%;block-size:100%;min-block-size:0;opacity:0;transform:scale(.97);transition:opacity 1.2s ease,transform 1.2s ease}
+.mp-listen__cover img{position:absolute;inset:0;margin:auto;inline-size:auto;block-size:auto;max-inline-size:100%;max-block-size:100%;aspect-ratio:1;object-fit:contain;background:#0b1a26;border-radius:6px;filter:drop-shadow(0 12px 30px #000c)}
+.mp-pane--listen.is-covered .mp-listen__cover{opacity:1;transform:none}
+.mp-listen__card{position:relative;inline-size:100%;block-size:100%;min-block-size:0}
+.mp-listen__card img{position:absolute;inset:0;margin:auto;max-block-size:100%;max-inline-size:100%;inline-size:auto;block-size:auto;border-radius:10px;box-shadow:0 10px 30px #000c}
+.mp-stage.is-wide .mp-listen__layout{inset:16px 18px 96px;grid-template-rows:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.mp-listen__hand{position:absolute;z-index:6;inset-block-end:0;inset-inline-start:calc(50% - min(23vw,120px));inline-size:min(46vw,240px);block-size:auto;transform:translateY(105%);opacity:0;transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .5s ease;pointer-events:none}
+.mp-pane--listen.is-hand-in .mp-listen__hand{transform:none;opacity:1}
+.mp-ff{position:absolute;z-index:8;display:block}
+.mp-ff__img{display:block;inline-size:100%;block-size:100%;object-fit:contain;pointer-events:none}
+.mp-ff--paper{appearance:none;border:0;margin:0;padding:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent;filter:saturate(.75) brightness(.92);opacity:0;transform:translateY(40px);transition:opacity .6s ease .35s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.mp-ff--paper:hover,.mp-ff--paper:active,.mp-ff--paper:focus{background:transparent;box-shadow:none}
+.mp-ff--paper:focus-visible{outline:3px solid #f4d993;outline-offset:4px;border-radius:50%}
+.mp-ff--paper[hidden]{display:none}
+.mp-pane--listen.is-hand-in .mp-ff--paper{opacity:1;transform:none}
+.mp-ff__shine{position:absolute;inset:20% 20% 10%;border-radius:50%;background:radial-gradient(circle,#fff3c4cc 0,#f6d48a66 35%,transparent 70%);opacity:0;transition:opacity .4s ease;pointer-events:none}
+.mp-ff--paper.is-touched{filter:none}
+.mp-ff--paper.is-touched .mp-ff__shine{opacity:1}
+.mp-ff--fly{opacity:0;pointer-events:none}
+.mp-ff__body{position:absolute;inset:0;inline-size:100%;block-size:100%;z-index:2}
+.mp-ff__wing{position:absolute;z-index:1;opacity:.82;max-inline-size:none}
+.mp-pane--listen[data-ff="flying"] .mp-ff--fly{opacity:1}
+.mp-ff--perched{opacity:0;pointer-events:none;transition:opacity .35s ease}
+.mp-pane--listen[data-ff="perched"] .mp-ff--perched{opacity:1}
+/* Gleichmäßiges Licht während des Lieds; Pausieren dimmt den Schein einmal sanft. Keine Dauerschleife. */
+.mp-ff__glow{position:absolute;z-index:7;border-radius:50%;background:radial-gradient(circle,#fff6c8aa 0,#f8dc7a55 25%,#f6c85a22 48%,transparent 70%);opacity:0;transition:opacity 1.2s ease;pointer-events:none}
+.mp-pane--listen[data-ff="perched"] .mp-ff__glow{opacity:.9}
+.mp-pane--listen[data-ff="perched"].is-dimmed .mp-ff__glow{opacity:.3}
+.mp-listen__controls{position:absolute;z-index:10;inset-inline:12px;inset-block-end:calc(12px + env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center}
+.mp-listen__controls [hidden]{display:none!important}
+.mp-listen__state{flex-basis:100%;margin:0;text-align:center;font-size:.9rem;color:#e8dcbf;text-shadow:0 1px 6px #000}
+.mp-listen__state:empty{display:none}
+
+/* Musik während anderer Aktionen: kleine Bedienzeile am unteren Rand */
+.mp-audiobar{position:relative;z-index:25;flex:none;display:flex;align-items:center;gap:8px;padding:6px max(12px,env(safe-area-inset-right)) calc(6px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));background:#06121cf2;border-top:1px solid #d8b46a44}
+.mp-audiobar[hidden]{display:none}
+.mp-audiobar [hidden]{display:none!important}
+.mp-audiobar__title{flex:1;min-inline-size:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:.92rem/1.2 Georgia,serif;color:#f4d993}
+.mp-audiobar__title::before{content:"♪ ";color:#d9c79a}
+.mp-stage.is-wide .mp-audiobar{position:absolute;inset-inline-start:auto;inset-inline-end:18px;inset-block-end:14px;border:1px solid #d8b46a44;border-radius:999px;max-inline-size:420px}
+.mp-stage.is-wide[data-scene="detail"] .mp-pane--detail{margin-block-end:88px}
+
+/* Rückgabe: Bestätigung im Vordergrund (eigener modaler Dialog, Dahinterliegendes gesperrt) */
+dialog.mp-confirm{max-inline-size:min(30em,calc(100vw - 32px));z-index:100}
+dialog.mp-confirm::backdrop{background:#020a10cc}
+
+.mp-hint{position:absolute;z-index:20;inset-inline:16px;inset-block-end:calc(96px + env(safe-area-inset-bottom));margin:0 auto;max-inline-size:28em;padding:10px 14px;border-radius:12px;background:#06121ce6;border:1px solid #d8b46a66;text-align:center;font-size:.92rem;opacity:0;transform:translateY(8px);transition:opacity .3s ease,transform .3s ease;pointer-events:none}
 .mp-hint.is-shown{opacity:1;transform:none}
 .mp-hint:empty{display:none}
 
-/* Wide: Mäppchen links, Inhalt rechts, Buch als Doppelseite, Hand links unten, Cover rechts oben. */
-@media (min-width:900px) and (orientation:landscape){
-  .mp-stage{--fw:min(46vw,calc((100dvh - 120px) * 1.48));--ftop:calc(50% - var(--fh) / 2 + 20px)}
-  .mp-folder{inset-inline-start:3vw}
-  .mp-read{inset-block:72px 16px;inset-inline:calc(3vw + var(--fw) + 3vw) 2vw;border:1px solid #d8b46a44;border-radius:16px;display:grid;align-content:center}
-  .mp-read__card img{max-block-size:62dvh}
-  .mp-book{inline-size:min(100%,820px);aspect-ratio:644/511}
-  .mp-book__spread{display:block;position:absolute;inset:0;inline-size:100%;block-size:100%}
-  .mp-book__page{display:none}
-  .mp-book__left{display:block;position:absolute;inset:10% 54% 10% 8%;color:#20384a}
-  .mp-book__q{font:italic 1.05rem/1.6 Georgia,serif;margin:0}
-  .mp-book__meta{font:.9rem/1.3 Georgia,serif;color:#6b5434}
-  .mp-book__right{inset:10% 7% 10% 54%}
-  .mp-write .mp-slip--small{display:none}
-  .mp-hand{inset-inline-start:2vw;inline-size:min(15vw,240px)}
-  .mp-cover{inset-block-start:76px;inset-inline-start:auto;inset-inline-end:7vw;inline-size:min(20vw,300px);transform:translate(0,-10px) scale(.96)}
-  .mp-stage.is-covered .mp-cover{transform:none}
-  .mp-stage[data-falter="flying"] .mp-folder,.mp-stage[data-falter="landing"] .mp-folder{opacity:.45}
-}
-/* Reduzierte Bewegung: sanft überblenden statt drehen, gleiten und fliegen. */
+/* Reduzierte Bewegung: überblenden statt drehen, gleiten und fliegen */
 @media (prefers-reduced-motion:reduce){
   .mp-folder,.mp-folder.is-closed{transition:opacity .3s ease}
   .mp-folder.is-closed{transform:none}
@@ -171,11 +217,12 @@ dialog.emfd-maeppchen::backdrop{background:#06121c}
   .mp-flap__back{transform:none;opacity:0}
   .mp-folder.is-open .mp-flap__back{opacity:1}
   .mp-item,.mp-half--right>*{transition:opacity .3s ease}
-  .mp-falter{transition:opacity .4s ease}
-  .mp-falter.is-flying .mp-f--ll,.mp-falter.is-flying .mp-f--lr,.mp-falter.is-flying .mp-falter__glow{animation:none}
-  .mp-hand,.mp-cover,.mp-read{transition:opacity .3s ease;animation:none}
+  .mp-item.is-lifting{transform:none}
+  .mp-pane--detail{animation:none}
+  .mp-listen__hand,.mp-ff--paper{transition:opacity .3s ease;transform:none}
+  .mp-listen__cover{transition:opacity .4s ease;transform:none}
 }
-body.motion-off .mp-flap,body.motion-off .mp-falter{transition-duration:.01s}
+body.motion-off .mp-flap,body.motion-off .mp-ff--paper,body.motion-off .mp-listen__hand{transition-duration:.01s}
 /* Feste Navigation in Ansichten ohne Szene: runder „Begleiter“-Knopf unten rechts (in Szenen: „Dein Moment“). */
 .maeppchen-fab{position:fixed;z-index:40;inset-block-end:max(16px,calc(env(safe-area-inset-bottom) + 8px));inset-inline-end:max(14px,env(safe-area-inset-right));inline-size:48px;block-size:48px;min-block-size:48px;padding:0;display:grid;place-items:center;border-radius:50%;border:1px solid #c8a356;background:#0d2333e8;color:#f2c879;box-shadow:0 6px 18px #0008;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .maeppchen-fab:hover,.maeppchen-fab:active,.maeppchen-fab:focus{background:#0d2333e8}

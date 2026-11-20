@@ -1004,6 +1004,89 @@
       "produktion": "REVIEW",
       "freigabe": "test",
       "herkunft": "EMFD-P03-DEV-01 Raumillustration P03-C02 (unverändert, sha256 e68c0cde…): Gegenansicht mit Blick zum Teezimmer (Klangschale links, Durchgang Mitte, Hoföffnung rechts); warmes Abendlicht. WebP-Ableitung durch die Produktion offen"
+    },
+    "gluehwuermchen.papierfalter": {
+      "datei": "../media/maeppchen/gluehwuermchen-v0.2/papierfalter.png",
+      "breite": 1053,
+      "hoehe": 939,
+      "art": "maeppchen",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "anker": {
+        "palm": [
+          0.52,
+          0.91
+        ]
+      },
+      "herkunft": "EMFD-Gluehwuermchen-Serie v0.2 media/gluehwuermchen/papierfalter.png (unverändert, sha256 03ef03fb…); Anker aus asset-register.json"
+    },
+    "gluehwuermchen.flugkoerper": {
+      "datei": "../media/maeppchen/gluehwuermchen-v0.2/flugkoerper.png",
+      "breite": 382,
+      "hoehe": 644,
+      "art": "maeppchen",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "anker": {
+        "leftWing": [
+          0.33,
+          0.6
+        ],
+        "rightWing": [
+          0.69,
+          0.61
+        ]
+      },
+      "herkunft": "EMFD-Gluehwuermchen-Serie v0.2 media/gluehwuermchen/flugkoerper.png (unverändert, sha256 0ddb82f2…); Anker aus asset-register.json"
+    },
+    "gluehwuermchen.fluegel-links": {
+      "datei": "../media/maeppchen/gluehwuermchen-v0.2/flugfluegel-links.png",
+      "breite": 467,
+      "hoehe": 298,
+      "art": "maeppchen",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "anker": {
+        "pivot": [
+          0.97,
+          0.81
+        ]
+      },
+      "herkunft": "EMFD-Gluehwuermchen-Serie v0.2 media/gluehwuermchen/flugfluegel-links.png (unverändert, sha256 b5b9ec1f…); Anker aus asset-register.json"
+    },
+    "gluehwuermchen.fluegel-rechts": {
+      "datei": "../media/maeppchen/gluehwuermchen-v0.2/flugfluegel-rechts.png",
+      "breite": 475,
+      "hoehe": 298,
+      "art": "maeppchen",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "anker": {
+        "pivot": [
+          0.03,
+          0.81
+        ]
+      },
+      "herkunft": "EMFD-Gluehwuermchen-Serie v0.2 media/gluehwuermchen/flugfluegel-rechts.png (unverändert, sha256 eb78e376…); Anker aus asset-register.json"
+    },
+    "gluehwuermchen.sitzpose": {
+      "datei": "../media/maeppchen/gluehwuermchen-v0.2/sitzpose.png",
+      "breite": 667,
+      "hoehe": 1003,
+      "art": "maeppchen",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "anker": {
+        "cardEdge": [
+          0.49,
+          0.86
+        ],
+        "bellyLight": [
+          0.52,
+          0.75
+        ]
+      },
+      "herkunft": "EMFD-Gluehwuermchen-Serie v0.2 media/gluehwuermchen/sitzpose.png (unverändert, sha256 0a23ff51…); Anker aus asset-register.json"
     }
   },
   "szenen": {

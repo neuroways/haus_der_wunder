@@ -1,6 +1,6 @@
 {
  "tool": "emfd-media-check/1.0",
- "generatedAt": "2026-11-20T22:14:19+00:00",
+ "generatedAt": "2026-11-20T22:34:29+00:00",
  "mediaRoot": "media",
  "files": [
   {
@@ -652,6 +652,51 @@
    "sha256": "502fd3a74949b46df65412b68b3ca0f5ee1eab424dff16016ffcab1acc8b594d",
    "width": 475,
    "height": 194,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/gluehwuermchen-v0.2/flugfluegel-links.png",
+   "folder": "maeppchen/gluehwuermchen-v0.2",
+   "bytes": 182324,
+   "sha256": "b5b9ec1f05f59dc7ebac48004fe7af26c9913ce7d97231d6ac0d0f6678cc04e5",
+   "width": 467,
+   "height": 298,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/gluehwuermchen-v0.2/flugfluegel-rechts.png",
+   "folder": "maeppchen/gluehwuermchen-v0.2",
+   "bytes": 184152,
+   "sha256": "eb78e37622df320c8b28b3e5067d1ce298b00e280a91b4fd784fc982c39deb8b",
+   "width": 475,
+   "height": 298,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/gluehwuermchen-v0.2/flugkoerper.png",
+   "folder": "maeppchen/gluehwuermchen-v0.2",
+   "bytes": 253069,
+   "sha256": "0ddb82f282a7ed75bf027258879cca140176042d74d2f45675d41b9a9ad51709",
+   "width": 382,
+   "height": 644,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/gluehwuermchen-v0.2/papierfalter.png",
+   "folder": "maeppchen/gluehwuermchen-v0.2",
+   "bytes": 914493,
+   "sha256": "03ef03fb1e93c23441ebe57c1882d6fa1796bb3617b391946996d5db141e6145",
+   "width": 1053,
+   "height": 939,
+   "kind": "unknown-media"
+  },
+  {
+   "path": "maeppchen/gluehwuermchen-v0.2/sitzpose.png",
+   "folder": "maeppchen/gluehwuermchen-v0.2",
+   "bytes": 641315,
+   "sha256": "0a23ff515461fa4198816d639a0fd64259315745fa5697117db48e208cde4449",
+   "width": 667,
+   "height": 1003,
    "kind": "unknown-media"
   },
   {
@@ -5042,6 +5087,31 @@
   },
   {
    "level": "Hinweis",
+   "path": "maeppchen/gluehwuermchen-v0.2/flugfluegel-links.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/gluehwuermchen-v0.2/flugfluegel-rechts.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/gluehwuermchen-v0.2/flugkoerper.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/gluehwuermchen-v0.2/papierfalter.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
+   "path": "maeppchen/gluehwuermchen-v0.2/sitzpose.png",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
    "path": "maeppchen/maeppchen/01-lederaussenseite.png",
    "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
   },
@@ -6877,10 +6947,13 @@
   }
  ],
  "changes": {
-  "base": "2026-11-20T21:04:53+00:00",
+  "base": "2026-11-20T22:14:19+00:00",
   "added": [
-   "rooms/szenen/P03-C01-p03-dev01-9d94bbc2.png",
-   "rooms/szenen/P03-C02-p03-dev01-e68c0cde.png"
+   "maeppchen/gluehwuermchen-v0.2/flugfluegel-links.png",
+   "maeppchen/gluehwuermchen-v0.2/flugfluegel-rechts.png",
+   "maeppchen/gluehwuermchen-v0.2/flugkoerper.png",
+   "maeppchen/gluehwuermchen-v0.2/papierfalter.png",
+   "maeppchen/gluehwuermchen-v0.2/sitzpose.png"
   ],
   "changed": [],
   "removed": []

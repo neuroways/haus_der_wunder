@@ -34,30 +34,54 @@ test('Medien: alle 26 Mäppchen-Grafiken über Register-IDs, unverändert abgele
  for(const nr of M.ASSET_IDS){const m=reg.resolveMedia(`maeppchen.${nr}`);assert.equal(m.type,'file',nr);assert.ok(fs.existsSync(path.join(home,m.src)),m.src);}
  assert.deepEqual(reg.media('maeppchen.15').anker,{landepunkt:[0.5,0.58]});
  const list=require('../offline-policy.js').registerImages(require('../data/registry.js'));
- assert.equal(list.house.filter(f=>/maeppchen\//.test(f)).length,26);
+ assert.equal(list.house.filter(f=>/maeppchen\/(?!gluehwuermchen-v0\.2)/.test(f)).length,26);
+ for(const id of M.FF_IDS){const m=reg.resolveMedia(id);assert.equal(m.type,'file',id);assert.ok(fs.existsSync(path.join(home,m.src)),m.src);assert.ok(list.house.some(f=>f.endsWith(m.src.split('/').pop())),id+' offline');}
  const src=read('maeppchen.js');assert.doesNotMatch(src,/\.\.\/media\/|maeppchen\/[\w/-]+\.png/,'keine Mediendateipfade im Modul');
  assert.equal(M.missingFor('O08').filter(m=>/^maeppchen\./.test(m.id)).length,0);
 });
 
-test('Falter: Papier- und Käferteile über den gemeinsamen Flügelansatz ausgerichtet (Assetregister-Anker)',()=>{
- const g=M.falterGeometry();
- const at=(p,a)=>[p.left+a[0]*p.width,p.top+a[1]*p.height];
- const root=at(g.paperBody,[0.5,0.4]);
- for(const [p,a] of [[g.paperLeft,[0.94,0.48]],[g.paperRight,[0.06,0.48]],[g.liveBody,[0.5,0.43]],[g.liveLeft,[0.94,0.5]],[g.liveRight,[0.06,0.5]]]){
-  const q=at(p,a);assert.ok(Math.abs(q[0]-root[0])<0.01&&Math.abs(q[1]-root[1])<0.01,JSON.stringify(q));}
- assert.deepEqual(g.glow,[0.5,0.78]);
- assert.equal(g.liveLeft.ox,94,'Drehpunkt am körperseitigen Ende');assert.equal(g.liveRight.ox,6);
+test('Glühwürmchen v0.2: Flügel-Drehpunkt auf dem Ansatzpunkt des Körpers, Sitzpose auf der unteren Kartenkante, Papier auf der Handfläche',()=>{
+ const reg=globalThis.EMFDRegistry;const anchor=id=>reg.media(id).anker;
+ assert.deepEqual(anchor('gluehwuermchen.flugkoerper'),{leftWing:[0.33,0.60],rightWing:[0.69,0.61]});
+ const g=M.flyerGeometry();
+ for(const [w,key,pv] of [[g.left,'leftWing',[0.97,0.81]],[g.right,'rightWing',[0.03,0.81]]]){
+  const x=(w.left+pv[0]*w.width)/100,y=(w.top+pv[1]*w.height)/100;const a=anchor('gluehwuermchen.flugkoerper')[key];
+  assert.ok(Math.abs(x-a[0])<0.002&&Math.abs(y-a[1])<0.002,key);assert.equal(+w.ox.toFixed(1),pv[0]*100);}
+ const card={x:100,y:200,w:300,h:500};const p=M.perchGeometry(card);
+ assert.ok(Math.abs(p.x+0.49*p.w-(card.x+card.w*0.8))<1e-6&&Math.abs(p.y+0.86*p.h-(card.y+card.h))<1e-6,'cardEdge auf der Kante nahe der rechten Ecke');
+ assert.ok(Math.abs(p.glow.y-(p.y+0.75*p.h))<1e-6,'Leuchtbauch');
+ const hand={x:0,y:400,w:240,h:330};const q=M.paperGeometry(hand);
+ assert.ok(Math.abs(q.x+0.52*q.w-(hand.x+hand.w*0.5))<1e-6&&Math.abs(q.y+0.91*q.h-(hand.y+hand.h*0.58))<1e-6,'palm auf dem Landepunkt der Hand');
 });
 
-test('Ablauf: Falter erst matt auf der Hand, Licht erst beim weiteren Tipp, Lied beim Abheben über den bestehenden Player; Pause → Landung',()=>{
- const src=read('maeppchen.js');
- const f=src.slice(src.indexOf('async function onFalter'),src.indexOf('async function land'));
- assert.ok(f.indexOf("setFalter('hand')")<f.indexOf("setFalter('lit')"));
- assert.ok(f.indexOf("setFalter('flying')")<f.indexOf("audio()?.select?.(id,{play:true,explicit:true})"),'Lied erst beim Abheben');
- assert.ok(f.indexOf("audio()?.select")<f.indexOf("is-covered"),'Cover nach dem Liedstart');
- assert.match(f,/audio\(\)\?\.command\?\.\('pause'\);await land\(\)/);
- assert.match(src,/if\(s\.state==='paused'\|\|s\.state==='stopped'/,'auch globale Pause lässt landen');
+test('Hörmoment v0.2: Papier → kurzer Flug → Sitzpose, erst dann Lied über den Player und Cover; keine Dauerschleife; reduzierte Bewegung blendet über',()=>{
+ const src=read('maeppchen.js'),css=read('maeppchen.css');
+ const f=src.slice(src.indexOf('async function onPaper'),src.indexOf('let songTimer'));
+ assert.ok(f.indexOf("setFF('flying')")<f.indexOf("setFF('perched')",f.indexOf("setFF('flying')"))&&f.lastIndexOf("setFF('perched')")<f.indexOf('startSong()'),'Lied erst nach der Landung');
+ assert.match(f,/if\(reduced\(\)\|\|[\s\S]{0,120}?\{\s*\/\/[^\n]*\n\s*setFF\('perched'\)/,'reduzierte Bewegung: direkt zur Sitzpose');
+ assert.match(f,/iterations:beats/);assert.doesNotMatch(f,/Infinity|iterations:\s*Infinity/,'Flügel nur im kurzen Flug');
+ assert.doesNotMatch(css,/infinite/,'keine Dauerschleife im Mäppchen');
+ const song=src.slice(src.indexOf('function startSong'),src.indexOf('function songCommand'));
+ assert.match(song,/audio\(\)\?\.select\?\.\(id,\{play:true,explicit:true\}\)/,'bestehender Player');
+ assert.match(song,/view\.blocked=true/,'blockierter Start: Lied abspielen anbieten');
+ const cmd=src.slice(src.indexOf('function songCommand'),src.indexOf('function onAudio'));
+ assert.match(cmd,/kind==='resume'\)\{if\(mine\(s\)&&s\.state==='paused'\)audio\(\)\?\.command\?\.\('play'\)/,'Fortsetzen an derselben Stelle');
+ assert.match(css,/is-dimmed \.mp-ff__glow\{opacity:\.3\}/,'Pausieren dimmt einmal sanft');
+ assert.match(src,/pane\.classList\.toggle\('is-covered',view\.ff==='perched'&&\(playing\|\|paused\)\)/,'Cover erst mit dem Lied');
+ assert.match(src,/coverFor\?\.\(\{cardId:c\.id/,'Cover wie im Musikzimmer');
  assert.doesNotMatch(src,/new Audio\(|\.play\(\)/,'kein eigener Player');
+});
+
+test('Bühne v0.2: schmal genau ein aktiver Bereich (inert), Wide ab 960 × 560; Details fokussieren nie die Schreibfläche',()=>{
+ assert.deepEqual({...M.WIDE},{w:960,h:560});
+ const src=read('maeppchen.js');
+ assert.match(src,/pane\.hidden=!on;pane\.inert=!on;/);
+ const od=src.slice(src.indexOf('async function openDetail'),src.indexOf('function backToFolder'));
+ assert.doesNotMatch(od,/data-mp-draft/,'Tastatur erst bei Berührung der Seite');assert.match(od,/read\.scrollTop=0/,'Inhalt beginnt oben');
+ assert.match(src,/case 'question':[\s\S]*?Gedankenbuch öffnen/);assert.match(src,/data-mp-qchip/);
+ assert.match(src,/visualViewport\?\.addEventListener\?\.\('resize',onViewport\)/,'sichtbare Fläche bei Tastatur');
+ assert.match(src,/bar\.hidden=!active\|\|view\.scene==='listen'\|\|Boolean\(typing&&!isWide\(\)\)/,'Musikzeile weicht beim Schreiben (schmal)');
+ for(const t of ['Impuls','Frage','Gedankenbuch','Geschichten'])assert.match(src,new RegExp(`class="mp-label[^"]*"[^>]*>${t}<`),t);
 });
 
 test('Einstiege: „Mitnehmen“ im Karten-Dock, „Dein Moment“ → Begleiter, fester Begleiter-Knopf außerhalb der Szenen; Ziehen bleibt frei',()=>{
@@ -71,12 +95,16 @@ test('Einstiege: „Mitnehmen“ im Karten-Dock, „Dein Moment“ → Begleiter
  const html=read('index.html');assert.ok(html.indexOf('maeppchen.js')<html.indexOf('app.js?v'));
 });
 
-test('Zurücklegen: freiwilliger Export bei Text, erst Bestätigung löscht Begleitung und Entwurf; Schließen ändert die Adresse nicht',()=>{
+test('Zurücklegen v0.2: Bestätigung im Vordergrund nach Wechsel ins Mäppchen; „Noch behalten“ erhält alles; erst Bestätigung stoppt das Lied',()=>{
  const src=read('maeppchen.js');
- const gb=src.slice(src.indexOf("case 'giveback':"),src.indexOf("    }\n    return '';"));
- assert.match(gb,/has\?`<div class="mp-panel__list">.*data-mp-export.*thought.*backup/s);
- assert.match(src,/if\(t\.matches\('\[data-mp-giveback\]'\)\)\{[\s\S]*giveBackNow\(\)/);
- const close=src.slice(src.indexOf('  function close(){'),src.indexOf('/* ---------- Lesen'));
- assert.doesNotMatch(close,/location\.hash|EMFDNavigation/,'Rückkehr an dieselbe Stelle');
+ const ask=src.slice(src.indexOf('function askGiveBack'),src.indexOf('function keep()'));
+ assert.ok(ask.indexOf("if(view.scene!=='folder')backToFolder()")<ask.indexOf('showModal()'),'zuerst zum Mäppchen');
+ assert.match(ask,/has\?`<div class="mp-panel__list">.*data-mp-export.*thought.*backup/s);
+ const keep=src.slice(src.indexOf('function keep()'),src.indexOf('function confirmGiveBack'));
+ assert.doesNotMatch(keep,/command|giveBack|stop/,'Noch behalten ändert nichts');
+ const conf=src.slice(src.indexOf('function confirmGiveBack'),src.indexOf('/* ---------- Exporte'));
+ assert.ok(conf.indexOf("command?.('stop')")<conf.indexOf('giveBackNow()'));
+ const close=src.slice(src.indexOf('  function close(){'),src.indexOf('/** Sichtbarkeit'));
+ assert.doesNotMatch(close,/location\.hash|EMFDNavigation|command\?\.\(/,'Schließen: gleiche Stelle, Lied läuft weiter');
  assert.match(src,/folderSupported=\(\)=>typeof root\.showDirectoryPicker==='function'/);
 });

@@ -1,15 +1,14 @@
-/* EMFD-MAEPPCHEN-01 · Das Mäppchen der Begleiterkarte (zuerst durchgängig mit O08 „Die Laterne“, generisch über die Karten-ID).
+/* EMFD-MAEPPCHEN-01/-02 · Das Mäppchen der Begleiterkarte (generisch über die Karten-ID; Abnahme mit O21 und O08).
  *  - Begleitung: Nach dem Aufdecken bietet das Karten-Dock „Mitnehmen“. Genau eine aktive Begleitung, ohne Ablaufdatum.
- *    Ziehen bleibt frei (Entscheidung der Nutzerin 20.11.2026): Wer eine andere Karte mitnimmt, wird gefragt, ob die
- *    bisherige Begleitung zurückgelegt werden soll (mit freiwilligem Export, wenn Text vorhanden ist).
- *  - Erreichbar über „Dein Moment“ → Begleiter und die feste Leiste („Begleiter“). Das Mäppchen ist eine Ebene über der
- *    aktuellen Ansicht; Schließen kehrt an dieselbe Stelle zurück (keine Adressänderung).
- *  - Inhalt aus der aktiven Karten-ID: Karte, Impuls- und Fragekärtchen (Originaltexte), Gedankenbuch (Entwurf, lokal
- *    pro Begleitung), Geschichtenheft (Hausgeschichte der Karte), Papierfalter (Kartenlied über den bestehenden Player).
- *  - Exporte: Karte als PNG, Gedankenblatt und Geschichtenheft als PDF, Mäppchen-Sicherung (JSON, wieder importierbar),
- *    Ablageordner nur mit unterstütztem Ordnerzugriff; sonst Teilen/Download und Dateiauswahl.
+ *    Ziehen bleibt frei: Wer eine andere Karte mitnimmt, wird gefragt, ob die bisherige zurückgelegt werden soll.
+ *  - v0.2 (20.11.2026): eine Bühne mit Kopfzeile. Schmal ersetzt das gewählte Stück das Mäppchen (Detail beginnt unter der
+ *    Kopfzeile, ein Scrollbereich, „Zurück zum Mäppchen“); Wide (Container ≥ 960 × 560) Mäppchen links, Stück rechts.
+ *    Hörmoment als eigene Szene: Cover oben, Begleiterkarte darunter, Glühwürmchen v0.2 (Papier → kurzer Flug → Sitzpose
+ *    an der unteren Kartenecke → Lied über den bestehenden Player → Cover). Musikzeile bei laufender Musik in anderen Szenen.
+ *    Zurücklegen nur über die Bestätigung im Vordergrund; erst „Zurücklegen“ beendet Begleitung und Lied.
+ *  - Exporte: Karte als PNG, Gedankenblatt und Geschichtenheft als PDF, Mäppchen-Sicherung (JSON, wieder importierbar).
  * Speicher: emfd.maeppchen.v1 {active:{cardId,instanceId,takenAt,draft,updatedAt}} – nur auf diesem Gerät.
- * Medien nur über Register-IDs maeppchen.<Nr>; Kartenbild, Cover und Lied über die bestehenden Kataloge. */
+ * Medien nur über Register-IDs maeppchen.<Nr> und gluehwuermchen.*; Kartenbild, Cover und Lied über die bestehenden Kataloge. */
 (function(root){
   'use strict';
   const KEY='emfd.maeppchen.v1';
@@ -66,82 +65,114 @@
   function missingFor(id){
     const out=[];const c=contentFor(id);if(!c)return [{id,pfad:'data.js CARDS'}];
     if(!c.image)out.push({id:`card.${id}.front`,pfad:'EMFDImages.card / data.js image'});
-    if(!c.coverFromCatalog)out.push({id:`card.${id}.cover`,pfad:'media/manifest.json (Cover aus dem Katalog; ersatzweise Kartenvorderseite)'});
-    if(!c.impulse)out.push({id:`${id}.impulse`,pfad:'data.js impulse'});
+        if(!c.impulse)out.push({id:`${id}.impulse`,pfad:'data.js impulse'});
     if(!c.question)out.push({id:`${id}.question`,pfad:'data.js question'});
     if(!c.story)out.push({id:`${id}.houseStory`,pfad:'data.js houseStory'});
     const a=audio()?.availability?.(id);if(a==='missing'||a==='unavailable')out.push({id:`audio.${id}`,pfad:`media/audio/${id}-M01.mp3`});
     for(const nr of ASSET_IDS)if(!mediaSrc(nr))out.push({id:`maeppchen.${nr}`,pfad:'data/registry.js medien'});
+    for(const fid of FF_IDS){const m=reg()?.resolveMedia?.(fid);if(m?.type!=='file')out.push({id:fid,pfad:'media/maeppchen/gluehwuermchen-v0.2/'});}
+    const cv=root.EMFDDeviceStation?.coverFor?.({cardId:id,title:c.name});if(cv?.kind!=='cover')out.push({id:`cover.${id}`,pfad:cv?.kind==='other'?`Arbeitscover ${cv.src} (Player-Paket, Freigabe offen)`:'media/manifest.json Cover (Musikkatalog)'});
     return out;
   }
   const ASSET_IDS=Object.freeze(['00','01','01a','01b','02','03','03a','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22']);
 
-  /* ---------- Falter: Zusammensetzung aus den Ankern des Assetregisters ---------- */
-  // Bezugsbreite B = Papierkörper (16). Alle Teile über ihren Flügelansatz ausgerichtet; Werte in % der Faltergröße.
-  function falterGeometry(){
-    const A=id=>reg()?.media?.(`maeppchen.${id}`)||{};
-    const size=(id,fb)=>[Number(A(id).breite)||fb[0],Number(A(id).hoehe)||fb[1]];
-    const anchor=(id,key,fb)=>A(id).anker?.[key]||fb;
-    const [bw,bh]=size('16',[323,442]);const box={w:bw,h:bh};const base=anchor('16','fluegelansatz',[0.5,0.4]);
-    const root0={x:base[0]*bw,y:base[1]*bh};
-    const place=(id,key,fb,fbs)=>{const [w,h]=size(id,fbs);const a=anchor(id,key,fb);const scale=id==='19'||id==='16'?1:1;return {left:(root0.x-a[0]*w*scale)/box.w*100,top:(root0.y-a[1]*h*scale)/box.h*100,width:w*scale/box.w*100,height:h*scale/box.h*100,ox:a[0]*100,oy:a[1]*100};};
-    return {ratio:bw/bh,paperBody:place('16','fluegelansatz',[0.5,0.4],[323,442]),paperLeft:place('17','fluegelansatz',[0.94,0.48],[439,204]),paperRight:place('18','fluegelansatz',[0.06,0.48],[447,205]),
-      liveBody:place('19','fluegelansatz',[0.5,0.43],[300,441]),liveLeft:place('20','fluegelansatz',[0.94,0.5],[473,193]),liveRight:place('21','fluegelansatz',[0.06,0.5],[475,194]),
-      glow:anchor('19','leuchtpunkt',[0.5,0.78])};
+  /* ---------- Glühwürmchen v0.2 (Register gluehwuermchen.*; Anker aus dem Assetregister des Pakets) ---------- */
+  const FF=Object.freeze({paper:'gluehwuermchen.papierfalter',body:'gluehwuermchen.flugkoerper',left:'gluehwuermchen.fluegel-links',right:'gluehwuermchen.fluegel-rechts',perched:'gluehwuermchen.sitzpose'});
+  const FF_IDS=Object.freeze(Object.values(FF));
+  function ffMeta(key){const id=FF[key];const m=reg()?.media?.(id)||{};const r=reg()?.resolveMedia?.(id);return {id,src:r?.type==='file'?r.src:'',w:Number(m.breite)||1,h:Number(m.hoehe)||1,anker:m.anker||{}};}
+  function ffImg(key,cls){const m=ffMeta(key);return m.src?`<img class="${cls}" src="${esc(m.src)}" alt="" draggable="false" data-ff="${key}">`:`<span class="${cls} mp-missing" data-missing="${m.id}" aria-hidden="true"></span>`;}
+  /** Flugfigur: Körper vor den Flügeln; jeder Flügel mit seinem Drehpunkt auf dem Ansatzpunkt des Körpers (Prozent der Körperbox). */
+  function flyerGeometry(){
+    const b=ffMeta('body'),l=ffMeta('left'),r=ffMeta('right');
+    const part=(wing,key,fbPivot,fbBody)=>{const pv=wing.anker.pivot||fbPivot,ba=b.anker[key]||fbBody;
+      return {left:(ba[0]*b.w-pv[0]*wing.w)/b.w*100,top:(ba[1]*b.h-pv[1]*wing.h)/b.h*100,width:wing.w/b.w*100,height:wing.h/b.h*100,ox:pv[0]*100,oy:pv[1]*100};};
+    return {ratio:b.w/b.h,left:part(l,'leftWing',[0.97,0.81],[0.33,0.60]),right:part(r,'rightWing',[0.03,0.81],[0.69,0.61])};
   }
-  const pct=p=>`left:${p.left.toFixed(2)}%;top:${p.top.toFixed(2)}%;width:${p.width.toFixed(2)}%;height:${p.height.toFixed(2)}%;transform-origin:${p.ox}% ${p.oy}%`;
+  /** Sitzpose: Aufsetzpunkt (cardEdge) auf der unteren Kartenkante nahe der rechten Ecke; Höhe relativ zur Karte. */
+  function perchGeometry(card){
+    const p=ffMeta('perched');const edge=p.anker.cardEdge||[0.49,0.86],belly=p.anker.bellyLight||[0.52,0.75];
+    const h=Math.max(64,Math.min(170,card.h*0.3)),w=h*p.w/p.h;const px=card.x+card.w*0.8,py=card.y+card.h;
+    return {x:px-edge[0]*w,y:py-edge[1]*h,w,h,glow:{x:px-edge[0]*w+belly[0]*w,y:py-edge[1]*h+belly[1]*h}};
+  }
+  /** Papierfalter auf der Hand: Handflächen-Anker des Falters auf den Landepunkt der Hand (maeppchen.15). */
+  function paperGeometry(hand){
+    const p=ffMeta('paper');const palm=p.anker.palm||[0.52,0.91];const lp=reg()?.media?.('maeppchen.15')?.anker?.landepunkt||[0.5,0.58];
+    const w=Math.max(70,Math.min(150,hand.w*0.55)),h=w*p.h/p.w;
+    return {x:hand.x+hand.w*lp[0]-palm[0]*w,y:hand.y+hand.h*lp[1]-palm[1]*h,w,h};
+  }
+  const pct=p=>`left:${p.left.toFixed(2)}%;top:${p.top.toFixed(2)}%;width:${p.width.toFixed(2)}%;height:${p.height.toFixed(2)}%;transform-origin:${p.ox.toFixed(1)}% ${p.oy.toFixed(1)}%`;
   function img(nr,cls,alt=''){const src=mediaSrc(nr);return src?`<img class="${cls}" src="${esc(src)}" alt="${esc(alt)}" draggable="false" data-mp-asset="${nr}">`:`<span class="${cls} mp-missing" data-mp-asset="${nr}" data-missing="maeppchen.${nr}" aria-hidden="true"></span>`;}
+  /** Cover wie im Musikzimmer (Gerätestation): Katalogcover, sonst Arbeitscover aus dem Player-Paket, sonst Kartenvorderseite. */
+  function coverOf(c){const x=root.EMFDDeviceStation?.coverFor?.({cardId:c.id,title:c.name});return {src:x?.src||c.cover,kind:x?.kind||(c.coverFromCatalog?'cover':'card')};}
 
-  /* ---------- Ansicht ---------- */
-  let dialog=null,opener=null,view=null,saveTimer=0,unsub=null,folder=null;
-  // view: {open:null|'card'|'impulse'|'question'|'book'|'story'|'store'|'giveback'|'swap', falter:'pocket'|'hand'|'lit'|'flying'|'landing', opened:false}
-  function falterParts(g){
-    return `<span class="mp-falter__glow" style="left:${(g.liveBody.left+g.glow[0]*g.liveBody.width).toFixed(2)}%;top:${(g.liveBody.top+g.glow[1]*g.liveBody.height).toFixed(2)}%"></span>`+
-      [['17','pl',g.paperLeft],['18','pr',g.paperRight],['16','pb',g.paperBody],['20','ll',g.liveLeft],['21','lr',g.liveRight],['19','lb',g.liveBody]]
-        .map(([nr,k,p])=>img(nr,`mp-f mp-f--${k}`).replace('class=',`style="${pct(p)}" class=`)).join('');
-  }
+  /* ---------- Bühne ---------- */
+  const WIDE={w:960,h:560};
+  const LABELS=Object.freeze({card:'Motivkarte',impulse:'Impuls',question:'Frage',book:'Gedankenbuch',story:'Geschichten',store:'Sichern und Ablage',listen:'Hörmoment'});
+  let dialog=null,opener=null,view=null,saveTimer=0,unsub=null,folder=null,confirmBox=null;
+  // view: {scene:'folder'|'detail'|'listen', detail:null|'card'|'impulse'|'question'|'book'|'story'|'store', trigger, ff:'hand'|'flying'|'perched', songAsked, opened}
   function markup(c){
-    const g=falterGeometry();
-    return `<div class="mp-stage" data-mp-stage data-falter="pocket">
-      ${img('00','mp-bg mp-bg--table')}${img('22','mp-bg mp-bg--sky')}
-      <div class="mp-bar">
-        ${kit().iconButton({label:'Mäppchen schließen',iconName:'close',data:{'data-mp-close':''}})}
-        <p class="mp-title"><span>Deine Begleitung</span> ${esc(c.name)}</p>
+    const cover=coverOf(c);const fl=flyerGeometry();
+    return `<div class="mp-stage" data-mp-stage data-scene="folder">
+      ${img('00','mp-bg mp-bg--table')}
+      <div class="mp-bar" data-mp-bar>
+        ${kit().button({label:'Schließen',variant:'secondary',iconName:'close',className:'emfd-button--compact',data:{'data-mp-close':''}})}
+        ${kit().button({label:'Zurück zum Mäppchen',variant:'secondary',iconName:'chevron-left',className:'emfd-button--compact mp-bar__back',data:{'data-mp-back':''}})}
+        <p class="mp-title"><span>Deine Begleitung</span> ${esc(c.name)}<small data-mp-subtitle></small></p>
         <span class="mp-bar__end">
           ${kit().button({label:'Sichern',variant:'secondary',iconName:'download',className:'emfd-button--compact',data:{'data-mp-show':'store'}})}
-          ${kit().button({label:'In die Schachtel zurücklegen',variant:'secondary',iconName:'cards',className:'emfd-button--compact',data:{'data-mp-show':'giveback'}})}
+          ${kit().button({label:'In die Schachtel zurücklegen',variant:'secondary',iconName:'cards',className:'emfd-button--compact',data:{'data-mp-giveback-ask':''}})}
         </span>
       </div>
-      <div class="mp-folder is-closed" data-mp-folder style="--mp-ratio:${(400+399)}/${540}">
-        ${img('03a','mp-fold')}
-        <div class="mp-half mp-half--left" data-mp-half="left">
-          ${img('02','mp-inner')}
-          <button type="button" class="mp-item mp-item--card" data-mp-open="card" aria-label="Karte ${esc(c.name)} herausnehmen"><img src="${esc(c.image)}" alt="" draggable="false"></button>
-          ${img('04','mp-pocket mp-pocket--card')}
-          <button type="button" class="mp-item mp-item--impulse" data-mp-open="impulse" aria-label="Impulskärtchen herausnehmen">${img('09','mp-fill')}</button>
-          ${img('05','mp-pocket mp-pocket--impulse')}
-          <button type="button" class="mp-item mp-item--question" data-mp-open="question" aria-label="Fragekärtchen herausnehmen">${img('10','mp-fill')}</button>
-          ${img('06','mp-pocket mp-pocket--question')}
-        </div>
-        <div class="mp-half mp-half--right" data-mp-half="right">
-          <button type="button" class="mp-item mp-item--story" data-mp-open="story" aria-label="Geschichtenheft öffnen">${img('12','mp-fill')}</button>
-          <button type="button" class="mp-item mp-item--book" data-mp-open="book" aria-label="Gedankenbuch öffnen">${img('11','mp-fill')}</button>
-          ${img('07','mp-band')}
-          <button type="button" class="mp-item mp-item--falter" data-mp-falter data-mp-slot aria-label="Papierfalter aus der Lasche nehmen"><span class="mp-fal" style="aspect-ratio:${g.ratio.toFixed(4)}">${falterParts(g)}</span></button>
-          ${img('08','mp-lasche')}
-        </div>
-        <div class="mp-flap" data-mp-flap aria-hidden="true">
-          <div class="mp-flap__front"><div class="mp-mirror">${img('01','mp-fill')}${img('01a','mp-strap')}${img('01b','mp-loop')}</div></div>
-          <div class="mp-flap__back">${img('03','mp-fill')}</div>
-        </div>
-        <button type="button" class="mp-open-hit" data-mp-unfold>Mäppchen öffnen</button>
+      <div class="mp-body" data-mp-body>
+        <section class="mp-pane mp-pane--folder" data-mp-pane="folder" aria-label="Das Mäppchen">
+          <div class="mp-folder is-closed" data-mp-folder>
+            ${img('03a','mp-fold')}
+            <div class="mp-half mp-half--left" data-mp-half="left">
+              ${img('02','mp-inner')}
+              <button type="button" class="mp-item mp-item--card" data-mp-open="card" aria-label="Motivkarte ${esc(c.name)}"><img src="${esc(c.image)}" alt="" draggable="false"></button>
+              ${img('04','mp-pocket mp-pocket--card')}
+              <button type="button" class="mp-item mp-item--impulse" data-mp-open="impulse" aria-label="Impuls">${img('09','mp-fill')}<span class="mp-label mp-label--impulse" aria-hidden="true">Impuls</span></button>
+              ${img('05','mp-pocket mp-pocket--impulse')}
+              <button type="button" class="mp-item mp-item--question" data-mp-open="question" aria-label="Frage">${img('10','mp-fill')}<span class="mp-label mp-label--question" aria-hidden="true">Frage</span></button>
+              ${img('06','mp-pocket mp-pocket--question')}
+            </div>
+            <div class="mp-half mp-half--right" data-mp-half="right">
+              <button type="button" class="mp-item mp-item--story" data-mp-open="story" aria-label="Geschichten">${img('12','mp-fill')}<img class="mp-story-thumb" src="${esc(c.image)}" alt="" draggable="false"><span class="mp-label mp-label--story" aria-hidden="true">Geschichten</span></button>
+              <button type="button" class="mp-item mp-item--book" data-mp-open="book" aria-label="Gedankenbuch">${img('11','mp-fill')}<span class="mp-label mp-label--book" aria-hidden="true">Gedankenbuch</span></button>
+              ${img('07','mp-band')}
+              <button type="button" class="mp-item mp-item--falter" data-mp-listen aria-label="Papierfalter – Hörmoment öffnen">${ffImg('paper','mp-fal')}</button>
+              ${img('08','mp-lasche')}
+            </div>
+            <div class="mp-flap" data-mp-flap aria-hidden="true">
+              <div class="mp-flap__front"><div class="mp-mirror">${img('01','mp-fill')}${img('01a','mp-strap')}${img('01b','mp-loop')}</div></div>
+              <div class="mp-flap__back">${img('03','mp-fill')}</div>
+            </div>
+            <button type="button" class="mp-open-hit" data-mp-unfold>Mäppchen öffnen</button>
+          </div>
+        </section>
+        <section class="mp-pane mp-pane--detail" data-mp-pane="detail" hidden><div class="mp-scroll" data-mp-read tabindex="-1"></div></section>
+        <section class="mp-pane mp-pane--listen" data-mp-pane="listen" aria-label="Hörmoment" hidden>
+          ${img('22','mp-listen__sky')}
+          <div class="mp-listen__layout" data-mp-listen-layout>
+            <figure class="mp-listen__cover" data-mp-cover><img src="${esc(cover.src)}" alt="Cover: ${esc(c.name)}" draggable="false" data-cover-kind="${cover.kind}"></figure>
+            <div class="mp-listen__card" data-mp-lcard><img src="${esc(c.image)}" alt="${esc(c.alt)}" draggable="false"></div>
+          </div>
+          ${img('15','mp-listen__hand')}
+          <button type="button" class="mp-ff mp-ff--paper" data-mp-paper aria-label="Papierfalter berühren">${ffImg('paper','mp-ff__img')}<span class="mp-ff__shine" aria-hidden="true"></span></button>
+          <span class="mp-ff mp-ff--fly" data-mp-fly aria-hidden="true">${ffImg('left','mp-ff__wing mp-ff__wing--l').replace('class=',`style="${pct(fl.left)}" class=`)}${ffImg('right','mp-ff__wing mp-ff__wing--r').replace('class=',`style="${pct(fl.right)}" class=`)}${ffImg('body','mp-ff__body')}</span>
+          <span class="mp-ff__glow" data-mp-glow aria-hidden="true"></span>
+          <span class="mp-ff mp-ff--perched" data-mp-perched aria-hidden="true">${ffImg('perched','mp-ff__img')}</span>
+          <div class="mp-listen__controls">
+            ${kit().button({label:'Lied abspielen',variant:'primary',iconName:'play',data:{'data-mp-song':'play'}})}
+            ${kit().button({label:'Pausieren',variant:'secondary',iconName:'pause',data:{'data-mp-song':'pause'}})}
+            ${kit().button({label:'Weiterhören',variant:'primary',iconName:'play',data:{'data-mp-song':'resume'}})}
+            <p class="mp-listen__state" data-mp-listen-state></p>
+          </div>
+        </section>
       </div>
-      <div class="mp-read" data-mp-read hidden></div>
-      ${img('15','mp-hand')}
-      <figure class="mp-cover" data-mp-cover aria-hidden="true"><img src="${esc(c.cover)}" alt="" draggable="false"><figcaption>${esc(c.name)}</figcaption></figure>
-      <button type="button" class="mp-falter is-pocket" data-mp-falter data-mp-flyer aria-label="Papierfalter aus der Lasche nehmen" tabindex="-1">
-        ${falterParts(g)}
-      </button>
+      <div class="mp-audiobar" data-mp-audiobar hidden><span class="mp-audiobar__title" data-mp-audiobar-title></span>
+        ${kit().button({label:'Pausieren',variant:'secondary',iconName:'pause',className:'emfd-button--compact',data:{'data-mp-bar':'pause'}})}
+        ${kit().button({label:'Weiterhören',variant:'secondary',iconName:'play',className:'emfd-button--compact',data:{'data-mp-bar':'resume'}})}</div>
       <p class="mp-status sr-only" role="status" aria-live="polite" data-mp-status></p>
       <p class="mp-hint" data-mp-hint></p>
     </div>`;
@@ -150,28 +181,31 @@
     if(dialog)return dialog;
     dialog=doc().createElement('dialog');dialog.id='emfd-maeppchen';dialog.className='emfd-maeppchen';dialog.setAttribute('aria-label','Dein Mäppchen');
     doc().body.append(dialog);
-    dialog.addEventListener('cancel',event=>{event.preventDefault();if(view?.open)closeRead();else close();});
+    dialog.addEventListener('cancel',event=>{event.preventDefault();if(confirmBox?.open)return;if(view&&view.scene!=='folder')backToFolder();else close();});
     dialog.addEventListener('click',onClick);
     dialog.addEventListener('input',onInput);
     dialog.addEventListener('change',onChange);
+    dialog.addEventListener('focusin',onFocusIn);
+    dialog.addEventListener('focusout',onFocusOut);
     return dialog;
   }
-  function status(text){const s=dialog?.querySelector('[data-mp-status]');if(s)s.textContent=text;const h=dialog?.querySelector('[data-mp-hint]');if(h){h.textContent=text;h.classList.add('is-shown');root.clearTimeout(h._t);h._t=root.setTimeout(()=>h.classList.remove('is-shown'),3200);}}
+  const $=sel=>dialog?.querySelector(sel);
+  function status(text){const s=$('[data-mp-status]');if(s)s.textContent=text;const h=$('[data-mp-hint]');if(h){h.textContent=text;h.classList.add('is-shown');root.clearTimeout(h._t);h._t=root.setTimeout(()=>h.classList.remove('is-shown'),3200);}}
+  const isWide=()=>Boolean(dialog&&dialog.clientWidth>=WIDE.w&&dialog.clientHeight>=WIDE.h);
 
   /** Mäppchen öffnen (nur bei aktiver Begleitung). Schließen kehrt an dieselbe Stelle zurück. */
   async function open(source){
     if(!state.active)return false;
     const c=contentFor(state.active.cardId);if(!c)return false;
     ensureDialog();opener=source||doc().activeElement;
-    view={open:null,falter:'pocket',opened:false,cardId:c.id,instanceId:state.active.instanceId};
+    view={scene:'folder',detail:null,trigger:null,ff:'hand',songAsked:false,opened:false,cardId:c.id,instanceId:state.active.instanceId};
     dialog.innerHTML=markup(c);dialog.dataset.card=c.id;
     if(!dialog.open)dialog.showModal();
-    folder=dialog.querySelector('[data-mp-folder]');
-    placeFalter();
+    folder=$('[data-mp-folder]');confirmBox=null;
     unsub?.();unsub=audio()?.subscribe?.(onAudio)||null;
-    root.addEventListener('resize',onResize);
-    // Erst den Riemen, dann die Klappe, dann gleiten die Inhalte aus ihren Fächern.
-    dialog.querySelector('[data-mp-unfold]')?.focus({preventScroll:true});
+    root.addEventListener('resize',onResize);root.visualViewport?.addEventListener?.('resize',onViewport);root.visualViewport?.addEventListener?.('scroll',onViewport);
+    applyScene();layout();onAudio(audio()?.snapshot?.());
+    $('[data-mp-unfold]')?.focus({preventScroll:true});
     await unfold();
     return true;
   }
@@ -181,38 +215,104 @@
     folder.classList.add('is-strap-out');await wait(520);
     folder.classList.add('is-open');folder.classList.remove('is-closed');await wait(900);
     folder.classList.add('is-filled');await wait(650);
-    dialog?.querySelector('[data-mp-unfold]')?.setAttribute('hidden','');
-    placeFalter();
-    dialog?.querySelector('[data-mp-open="card"]')?.focus({preventScroll:true});
+    $('[data-mp-unfold]')?.setAttribute('hidden','');
+    if(view?.scene==='folder')$('[data-mp-open="card"]')?.focus({preventScroll:true});
   }
   function close(){
     if(!dialog?.open)return;
     flushDraft();
-    // Ein fliegender Falter landet nicht automatisch: die Musik läuft weiter (W1); beim nächsten Öffnen ruht er in der Lasche.
-    unsub?.();unsub=null;root.removeEventListener('resize',onResize);
-    dialog.close();dialog.innerHTML='';view=null;folder=null;
+    // Die Wiedergabe läuft beim Schließen weiter (Lesen/Schreiben/Raum); nur bestätigtes Zurücklegen stoppt das Lied.
+    unsub?.();unsub=null;root.removeEventListener('resize',onResize);root.visualViewport?.removeEventListener?.('resize',onViewport);root.visualViewport?.removeEventListener?.('scroll',onViewport);
+    confirmBox?.open&&confirmBox.close();
+    dialog.close();dialog.innerHTML='';dialog.style.removeProperty('height');dialog.style.removeProperty('top');view=null;folder=null;confirmBox=null;
     const old=opener;opener=null;if(old?.isConnected)old.focus?.({preventScroll:true});
     root.dispatchEvent?.(new CustomEvent('emfd:maeppchen',{detail:{open:false}}));
   }
 
-  /* ---------- Lesen und Schreiben ---------- */
-  function readMarkup(kind,c){
-    const back=kit().button({label:'Zurück ins Mäppchen',variant:'secondary',iconName:'chevron-left',className:'emfd-button--compact',data:{'data-mp-back':''}});
+  /** Sichtbarkeit und Bedienbarkeit der Bereiche: schmal genau ein aktiver Bereich, Wide Mäppchen links + Auswahl rechts. */
+  function applyScene(){
+    if(!dialog||!view)return;
+    const stage=$('[data-mp-stage]');const wide=isWide();
+    stage.classList.toggle('is-wide',wide);stage.dataset.scene=view.scene;
+    if(view.detail)stage.dataset.detail=view.detail;else delete stage.dataset.detail;
+    for(const pane of dialog.querySelectorAll('[data-mp-pane]')){
+      const name=pane.dataset.mpPane;const on=name===view.scene||(wide&&name==='folder');
+      pane.hidden=!on;pane.inert=!on;
+    }
+    $('[data-mp-close]').hidden=view.scene!=='folder'&&!wide;
+    $('[data-mp-back]').hidden=view.scene==='folder';
+    const sub=$('[data-mp-subtitle]');if(sub)sub.textContent=view.scene==='listen'?LABELS.listen:view.detail?LABELS[view.detail]:'';
+    updateAudioBar(audio()?.snapshot?.());
+  }
+  function layout(){
+    if(!dialog||!view)return;
+    const stage=$('[data-mp-stage]');const wide=isWide();
+    if(stage.classList.contains('is-wide')!==wide)applyScene();
+    // Mäppchen so groß wie der Bereich erlaubt (Seitenverhältnis 799:540 aus den Einzelteilen).
+    const pane=$('[data-mp-pane="folder"]');const W=pane.clientWidth,H=pane.clientHeight;
+    if(W&&H){const fw=Math.max(240,Math.min(W*0.94,(H*0.92)*1.4796,wide?760:600));stage.style.setProperty('--fw',`${fw.toFixed(1)}px`);}
+    placeFirefly();
+  }
+
+  /* ---------- Szenen: Mäppchen, Detail, Hörmoment ---------- */
+  async function openDetail(kind,trigger,{focusStart=true}={}){
+    if(!dialog||!state.active)return;
+    const c=contentFor(state.active.cardId);const read=$('[data-mp-read]');
+    // Das gewählte Stück löst sich aus seinem Fach und ersetzt (schmal) das Mäppchen.
+    const item=trigger?.closest?.('[data-mp-open]');
+    if(item&&!isWide()&&view.scene==='folder'&&!reduced()){item.classList.add('is-lifting');await wait(260);item.classList.remove('is-lifting');}
+    if(!view)return;
+    view.scene='detail';view.detail=kind;if(item)view.trigger=item.dataset.mpOpen;
+    read.innerHTML=detailMarkup(kind,c);read.dataset.kind=kind;
+    dialog.querySelectorAll('[data-mp-open]').forEach(b=>b.classList.toggle('is-out',b.dataset.mpOpen===kind));
+    applyScene();read.scrollTop=0;
+    // Fokus auf den Anfang des Inhalts, nie auf die Schreibfläche (die Tastatur erscheint erst beim Tippen auf die Seite).
+    if(focusStart)(read.querySelector('[data-mp-start]')||read).focus?.({preventScroll:true});
+    read.scrollTop=0;
+  }
+  function backToFolder(){
+    if(!dialog||!view)return;flushDraft();endTyping();
+    const was=view.scene==='listen'?'listen':view.trigger||view.detail;
+    view.scene='folder';view.detail=null;
+    const read=$('[data-mp-read]');read.innerHTML='';delete read.dataset.kind;
+    dialog.querySelectorAll('[data-mp-open].is-out').forEach(b=>b.classList.remove('is-out'));
+    applyScene();
+    (was==='listen'?$('[data-mp-listen]'):$(`[data-mp-open="${was}"]`)||$('[data-mp-open="card"]'))?.focus?.({preventScroll:true});
+  }
+  async function openListen(){
+    if(!dialog||!view)return;
+    view.scene='listen';view.detail=null;view.trigger='listen';
+    dialog.querySelectorAll('[data-mp-open].is-out').forEach(b=>b.classList.remove('is-out'));
+    $('[data-mp-read]').innerHTML='';
+    const s=audio()?.snapshot?.();
+    // Läuft oder pausiert das Lied dieser Karte schon: das Glühwürmchen sitzt bereits, das Cover ist da.
+    if(mine(s)&&['playing','starting','paused'].includes(s.state)){view.ff='perched';view.songAsked=true;}
+    else if(view.ff!=='perched'){view.ff='hand';}
+    applyScene();setFF(view.ff);
+    const pane=$('[data-mp-pane="listen"]');pane.classList.toggle('is-hand-in',view.ff==='hand');
+    onAudio(s);
+    ($('[data-mp-paper]:not([hidden])')||$('[data-mp-song]:not([hidden])')||$('[data-mp-back]'))?.focus?.({preventScroll:true});
+  }
+
+  function detailMarkup(kind,c){
+    const startH=(t,cls='')=>`<h2 class="mp-d__title ${cls}" data-mp-start tabindex="-1">${esc(t)}</h2>`;
     switch(kind){
-      case 'card':return `<div class="mp-read__card"><img src="${esc(c.image)}" alt="${esc(c.alt)}"><h2>${esc(c.name)}</h2><p class="mp-read__group">${esc(c.group)} · ${esc(c.id)}</p></div><div class="mp-read__actions">${back}</div>`;
-      case 'impulse':return `<div class="mp-slip mp-slip--impulse">${img('09','mp-slip__paper')}<div class="mp-slip__text"><span>Impuls</span><p>${esc(c.impulse)}</p></div></div><div class="mp-read__actions">${back}</div>`;
-      case 'question':return `<div class="mp-slip mp-slip--question">${img('10','mp-slip__paper')}<div class="mp-slip__text"><span>Frage</span><p>${esc(c.question)}</p></div></div><div class="mp-read__actions">${kit().button({label:'Ins Gedankenbuch schreiben',variant:'primary',iconName:'idea',className:'emfd-button--compact',data:{'data-mp-open':'book'}})}${back}</div>`;
-      case 'book':return `<div class="mp-write">
-          <div class="mp-slip mp-slip--question mp-slip--small">${img('10','mp-slip__paper')}<div class="mp-slip__text"><span>Frage</span><p>${esc(c.question)}</p></div></div>
+      case 'card':return `<figure class="mp-d mp-d--card">${startH(c.name,'sr-only')}<img src="${esc(c.image)}" alt="${esc(c.alt)}"><figcaption>${esc(c.name)}</figcaption></figure>
+        <div class="mp-d__actions">${kit().button({label:'Karte als Bild sichern',variant:'secondary',iconName:'download',data:{'data-mp-export':'card'}})}</div>`;
+      case 'impulse':return `<div class="mp-d mp-d--slip mp-slip--impulse">${img('09','mp-slip__paper')}<div class="mp-slip__text"><span class="mp-slip__kicker" data-mp-start tabindex="-1">Impuls</span><p class="mp-slip__big">${esc(c.impulse)}</p></div></div>`;
+      case 'question':return `<div class="mp-d mp-d--slip mp-slip--question">${img('10','mp-slip__paper')}<div class="mp-slip__text"><span class="mp-slip__kicker" data-mp-start tabindex="-1">Frage</span><p class="mp-slip__big">${esc(c.question)}</p></div></div>
+        <div class="mp-d__actions">${kit().button({label:'Gedankenbuch öffnen',variant:'primary',iconName:'idea',data:{'data-mp-open':'book'}})}</div>`;
+      case 'book':return `<div class="mp-d mp-d--book">
+          <details class="mp-qchip" data-mp-qchip open><summary data-mp-start tabindex="-1"><span class="mp-qchip__open">Frage</span><span class="mp-qchip__closed">Frage anzeigen</span></summary><p>${esc(c.question)}</p></details>
           <div class="mp-book">${img('13','mp-book__spread')}${img('14','mp-book__page')}
             <div class="mp-book__left"><p class="mp-book__q">${esc(c.question)}</p><p class="mp-book__meta">${esc(c.name)}</p></div>
-            <label class="mp-book__right"><span class="sr-only">Deine Gedanken zur Frage</span><textarea data-mp-draft spellcheck="true" placeholder="Hier ist Platz für deine Gedanken …">${esc(state.active?.draft||'')}</textarea></label>
-          </div></div>
-          <p class="mp-read__note">Dein Entwurf bleibt nur auf diesem Gerät, bis du die Karte zurücklegst.</p>
-          <div class="mp-read__actions">${kit().button({label:'Gedankenblatt als PDF',variant:'secondary',iconName:'download',className:'emfd-button--compact',data:{'data-mp-export':'thought'}})}${back}</div>`;
-      case 'story':return `<div class="mp-story">${img('14','mp-book__page')}<div class="mp-story__text" tabindex="0"><span>Geschichtenheft</span><h2>${esc(c.name)}</h2>${String(c.story||'').split(/\n+/).map(p=>`<p>${esc(p)}</p>`).join('')}</div></div>
-          <div class="mp-read__actions">${kit().button({label:'Geschichte der Melodie',variant:'secondary',iconName:'book',className:'emfd-button--compact',data:{'data-mp-composition':''}})}${kit().button({label:'Geschichtenheft als PDF',variant:'secondary',iconName:'download',className:'emfd-button--compact',data:{'data-mp-export':'story'}})}${back}</div>`;
-      case 'store':return `<div class="mp-panel"><h2>Sichern und Ablage</h2><p>Alles bleibt freiwillig. Die Dateien entstehen nur auf deinem Gerät.</p>
+            <label class="mp-book__right"><span class="sr-only">Deine Gedanken zur Frage</span><textarea data-mp-draft spellcheck="true" enterkeyhint="enter" placeholder="Tippe auf die Seite und schreib deine Gedanken …">${esc(state.active?.draft||'')}</textarea></label>
+          </div>
+          <p class="mp-d__note">Dein Entwurf bleibt nur auf diesem Gerät, bis du die Karte zurücklegst.</p>
+          <div class="mp-d__actions">${kit().button({label:'Gedankenblatt als PDF',variant:'secondary',iconName:'download',data:{'data-mp-export':'thought'}})}</div></div>`;
+      case 'story':return `<article class="mp-d mp-d--story"><div class="mp-storypage"><span class="mp-storypage__kicker">Geschichten</span>${startH(c.name)}${String(c.story||'').split(/\n+/).map(p=>`<p>${esc(p)}</p>`).join('')}</div>
+          <div class="mp-d__actions">${kit().button({label:'Geschichte der Melodie',variant:'secondary',iconName:'book',data:{'data-mp-composition':''}})}${kit().button({label:'Geschichtenheft als PDF',variant:'secondary',iconName:'download',data:{'data-mp-export':'story'}})}</div></article>`;
+      case 'store':return `<div class="mp-d mp-panel">${startH('Sichern und Ablage')}<p>Alles bleibt freiwillig. Die Dateien entstehen nur auf deinem Gerät.</p>
           <div class="mp-panel__list">
           ${kit().button({label:'Karte als Bild (PNG)',variant:'secondary',iconName:'download',data:{'data-mp-export':'card'}})}
           ${kit().button({label:'Gedankenblatt (PDF)',variant:'secondary',iconName:'download',data:{'data-mp-export':'thought'}})}
@@ -220,99 +320,145 @@
           ${kit().button({label:'Mäppchen sichern',variant:'secondary',iconName:'download',data:{'data-mp-export':'backup'}})}
           <label class="emfd-button emfd-button--secondary mp-import"><span class="emfd-button__label">Sicherung laden</span><input type="file" accept="application/json,.json" data-mp-import></label>
           ${folderSupported()?kit().button({label:folderHandle?'Ablageordner: verbunden':'Ablageordner verbinden',variant:'secondary',iconName:'house',data:{'data-mp-folder-connect':''}}):''}
-          </div><p class="mp-panel__hint">${folderSupported()?'Mit verbundenem Ablageordner landen die Dateien direkt dort.':'Auf iPhone und iPad kommen die Dateien über „Teilen“ in „Dateien“ oder eine andere App; eine Sicherung lädst du über die Dateiauswahl.'}</p>
-          <div class="mp-read__actions">${back}</div></div>`;
-      case 'giveback':{const has=Boolean(state.active?.draft?.trim());return `<div class="mp-panel"><h2>In die Schachtel zurücklegen?</h2>
-          <p>${esc(c.name)} geht zurück in die Kartenschachtel. ${has?'Dein Gedankenbuch-Entwurf wird dabei gelöscht. Wenn du magst, sicherst du ihn vorher.':'Danach ist das Mäppchen leer, bis du wieder eine Karte mitnimmst.'}</p>
-          ${has?`<div class="mp-panel__list">${kit().button({label:'Gedankenblatt (PDF)',variant:'secondary',iconName:'download',data:{'data-mp-export':'thought'}})}${kit().button({label:'Mäppchen sichern',variant:'secondary',iconName:'download',data:{'data-mp-export':'backup'}})}</div>`:''}
-          <div class="mp-read__actions">${kit().button({label:'Zurücklegen',variant:'primary',iconName:'cards',data:{'data-mp-giveback':''}})}${kit().button({label:'Noch behalten',variant:'secondary',data:{'data-mp-back':''}})}</div></div>`;}
+          </div><p class="mp-panel__hint">${folderSupported()?'Mit verbundenem Ablageordner landen die Dateien direkt dort.':'Auf iPhone und iPad kommen die Dateien über „Teilen“ in „Dateien“ oder eine andere App; eine Sicherung lädst du über die Dateiauswahl.'}</p></div>`;
     }
     return '';
   }
-  function openRead(kind){
-    if(!dialog||!state.active)return;
-    const c=contentFor(state.active.cardId);const read=dialog.querySelector('[data-mp-read]');
-    view.open=kind;read.innerHTML=readMarkup(kind,c);read.hidden=false;read.dataset.kind=kind;
-    dialog.querySelector('[data-mp-stage]').dataset.reading=kind;
-    dialog.querySelectorAll('[data-mp-open]').forEach(b=>b.classList.toggle('is-out',b.dataset.mpOpen===kind));
-    const focus=read.querySelector('[data-mp-draft]')||read.querySelector('h2,[tabindex="0"]')||read.querySelector('button');
-    focus?.focus?.({preventScroll:true});
-    if(kind==='book'){const t=read.querySelector('[data-mp-draft]');if(t){t.selectionStart=t.selectionEnd=t.value.length;}}
-    placeFalter();
-  }
-  function closeRead(){
-    if(!dialog)return;flushDraft();const read=dialog.querySelector('[data-mp-read]');const was=view?.open;
-    if(view)view.open=null;read.hidden=true;read.innerHTML='';delete dialog.querySelector('[data-mp-stage]').dataset.reading;
-    dialog.querySelectorAll('[data-mp-open].is-out').forEach(b=>b.classList.remove('is-out'));
-    (dialog.querySelector(`[data-mp-open="${was}"]`)||dialog.querySelector('[data-mp-close]'))?.focus?.({preventScroll:true});
-    placeFalter();
-  }
+
+  /* ---------- Schreiben: Tastatur erst auf Berührung, sichtbare Fläche folgt dem visualViewport ---------- */
   function onInput(event){
     if(!event.target.matches?.('[data-mp-draft]')||!state.active)return;
     state=withDraft(state,event.target.value);root.clearTimeout(saveTimer);saveTimer=root.setTimeout(save,250);
   }
   function flushDraft(){root.clearTimeout(saveTimer);const t=dialog?.querySelector('[data-mp-draft]');if(t&&state.active&&t.value!==state.active.draft)state=withDraft(state,t.value);save();}
-
-  /* ---------- Falter, Licht, Lied ---------- */
-  function rectIn(el,stage){const r=el.getBoundingClientRect(),s=stage.getBoundingClientRect();return {x:r.left-s.left,y:r.top-s.top,w:r.width,h:r.height};}
-  /** Position des Falters je Zustand und Layout aus den tatsächlichen Elementpositionen (Lasche, Hand, Cover). */
-  function placeFalter(){
-    const f=dialog?.querySelector('[data-mp-flyer]'),stage=dialog?.querySelector('[data-mp-stage]');if(!f||!stage||!view)return;
-    const g=falterGeometry();let w,x,y;
-    if(view.falter==='pocket'){
-      const slot=dialog.querySelector('[data-mp-slot] .mp-fal')||dialog.querySelector('[data-mp-slot]');const r=rectIn(slot,stage);
-      w=r.w;x=r.x+r.w/2;y=r.y+r.h/2;
-    }else if(view.falter==='flying'){
-      const cover=dialog.querySelector('[data-mp-cover]');const r=rectIn(cover,stage);
-      w=Math.min(110,Math.max(70,r.w*0.42));x=r.x+r.w*0.5;y=r.y+r.h+w*1.05;
-    }else{
-      // Endlage der Hand (ohne Einfahr-Transformation), damit der Falter dort landet, wo die Hand ankommt.
-      const hand=dialog.querySelector('.mp-hand');const r={x:hand.offsetLeft,y:hand.offsetTop,w:hand.offsetWidth,h:hand.offsetHeight};const lp=reg()?.media?.('maeppchen.15')?.anker?.landepunkt||[0.5,0.58];
-      w=Math.min(120,Math.max(64,r.w*0.36));x=r.x+r.w*lp[0];y=r.y+r.h*lp[1]-w*0.3;
-    }
-    const h=w/g.ratio;
-    f.style.width=`${w.toFixed(1)}px`;f.style.height=`${h.toFixed(1)}px`;
-    f.style.transform=`translate(${(x-w/2).toFixed(1)}px,${(y-h/2).toFixed(1)}px)`;
+  function onFocusIn(event){
+    if(!event.target.matches?.('[data-mp-draft]'))return;
+    $('[data-mp-stage]')?.classList.add('is-typing');const chip=$('[data-mp-qchip]');if(chip&&!isWide())chip.open=false;
+    updateAudioBar(audio()?.snapshot?.());onViewport();
   }
-  function setFalter(next){
-    const f=dialog?.querySelector('[data-mp-flyer]');if(!f||!view)return;
-    view.falter=next;f.className=`mp-falter is-${next}`;f.tabIndex=next==='pocket'?-1:0;if(next==='hand'&&!lastPointer)root.setTimeout(()=>f.focus?.({preventScroll:true}),30);
-    dialog.querySelector('[data-mp-stage]').dataset.falter=next;
-    f.setAttribute('aria-label',{pocket:'Papierfalter aus der Lasche nehmen',hand:'Papierfalter zum Leuchten bringen',lit:'Der Falter verwandelt sich',flying:'Lied pausieren – der Falter landet',landing:'Der Falter landet'}[next]||'Papierfalter');
-    placeFalter();
+  function onFocusOut(event){if(event.target.matches?.('[data-mp-draft]'))root.setTimeout(()=>{if(!dialog?.querySelector('[data-mp-draft]:focus'))endTyping();},60);}
+  function endTyping(){const st=$('[data-mp-stage]');if(!st)return;st.classList.remove('is-typing');updateAudioBar(audio()?.snapshot?.());onViewport();}
+  function onViewport(){
+    if(!dialog?.open)return;const vv=root.visualViewport;const typing=$('[data-mp-stage]')?.classList.contains('is-typing');
+    if(vv&&typing&&vv.height<root.innerHeight-40){dialog.style.top=`${vv.offsetTop}px`;dialog.style.height=`${vv.height}px`;}
+    else{dialog.style.removeProperty('top');dialog.style.removeProperty('height');}
+    const t=dialog.querySelector('[data-mp-draft]:focus');if(t)root.requestAnimationFrame?.(()=>t.scrollIntoView?.({block:'nearest'}));
+  }
+
+  /* ---------- Hörmoment: Papier → kurzer Flug → Landung → Lied ---------- */
+  const mine=s=>Boolean(view&&s?.track&&(s.track.cardId===view.cardId||s.track.assetId===view.cardId||s.entryId===view.cardId||s.track.roomEntryId===view.cardId));
+  function rectIn(el,box){const r=el.getBoundingClientRect(),s=box.getBoundingClientRect();return {x:r.left-s.left,y:r.top-s.top,w:r.width,h:r.height};}
+  const place=(el,g)=>{if(!el||!g)return;el.style.left=`${g.x.toFixed(1)}px`;el.style.top=`${g.y.toFixed(1)}px`;el.style.width=`${g.w.toFixed(1)}px`;el.style.height=`${g.h.toFixed(1)}px`;};
+  function ffBoxes(){
+    const pane=$('[data-mp-pane="listen"]');if(!pane||pane.hidden)return null;
+    const hand=$('.mp-listen__hand'),card=$('[data-mp-lcard] img')||$('[data-mp-lcard]');
+    const h={x:hand.offsetLeft,y:hand.offsetTop,w:hand.offsetWidth,h:hand.offsetHeight};
+    const c=rectIn(card,pane);if(!c.w||!h.w)return null;
+    const perch=perchGeometry(c);const paper=paperGeometry(h);
+    const fh=perch.h*0.92,fw=fh*flyerGeometry().ratio;
+    return {paper,perch,fly:{x:perch.x+perch.w/2-fw/2,y:perch.y+perch.h*0.42-fh/2,w:fw,h:fh}};
+  }
+  function placeFirefly(){
+    const g=ffBoxes();if(!g)return;
+    place($('[data-mp-paper]'),g.paper);place($('[data-mp-perched]'),g.perch);place($('[data-mp-fly]'),g.fly);
+    const glow=$('[data-mp-glow]');if(glow){const d=g.perch.w*1.1;place(glow,{x:g.perch.glow.x-d/2,y:g.perch.glow.y-d/2,w:d,h:d});}
+  }
+  function setFF(next){
+    if(!view)return;view.ff=next;const pane=$('[data-mp-pane="listen"]');if(!pane)return;pane.dataset.ff=next;
+    $('[data-mp-paper]').hidden=next!=='hand';$('[data-mp-paper]').tabIndex=next==='hand'?0:-1;placeFirefly();
   }
   let flightToken=0;
-  async function onFalter(){
-    if(!view)return;const id=view.cardId;
-    if(view.falter==='pocket'){setFalter('hand');status('Der Papierfalter liegt matt auf deiner Hand. Tippe ihn noch einmal an.');return;}
-    if(view.falter==='hand'){
-      const token=++flightToken;
-      setFalter('lit');status('Ein Licht erwacht.');await wait(700);if(token!==flightToken||!view)return;
-      dialog.querySelector('[data-mp-flyer]').classList.add('is-alive');await wait(650);if(token!==flightToken||!view)return;
-      setFalter('flying');dialog.querySelector('[data-mp-flyer]').classList.add('is-alive');
-      // Beim Abheben beginnt das Kartenlied über den bestehenden Player; danach erscheint das Cover.
-      const ok=audio()?.select?.(id,{play:true,explicit:true});
-      if(ok===false){status('Das Lied dieser Karte ist gerade nicht erreichbar. Der Falter fliegt trotzdem eine Runde.');}
-      await wait(900);if(token!==flightToken||!view)return;
-      dialog.querySelector('[data-mp-stage]').classList.add('is-covered');
-      return;
+  async function onPaper(){
+    if(!view||view.ff!=='hand')return;const token=++flightToken;const pane=$('[data-mp-pane="listen"]');
+    const g=ffBoxes();
+    $('[data-mp-paper]').classList.add('is-touched');status('Ein kleines Licht erwacht.');await wait(450);if(token!==flightToken||!view)return;
+    if(reduced()||!g||typeof $('[data-mp-fly]').animate!=='function'){
+      // Reduzierte Bewegung: direkt zur Sitzpose überblenden.
+      setFF('perched');pane.classList.remove('is-hand-in');
+    }else{
+      setFF('flying');
+      const fly=$('[data-mp-fly]');const dx=(g.paper.x+g.paper.w/2)-(g.fly.x+g.fly.w/2),dy=(g.paper.y+g.paper.h*0.45)-(g.fly.y+g.fly.h/2);const D=1500;
+      const wings=[...fly.querySelectorAll('.mp-ff__wing')];
+      const beats=Math.max(4,Math.round(D/170));
+      wings.forEach((w,i)=>w.animate([{transform:`rotate(${i?14:-14}deg)`},{transform:`rotate(${i?-12:12}deg)`}],{duration:D/beats,iterations:beats,direction:'alternate',easing:'ease-in-out'}));
+      const flight=fly.animate([{transform:`translate(${dx}px,${dy}px) scale(.7)`,opacity:.2},{transform:`translate(${dx*0.55}px,${dy*0.5-Math.min(90,Math.abs(dy)*0.4+30)}px) scale(.95)`,opacity:1,offset:.45},{transform:'translate(0,0) scale(1)',opacity:1}],{duration:D,easing:'cubic-bezier(.3,.6,.3,1)'});
+      pane.classList.remove('is-hand-in');
+      await flight.finished.catch(()=>{});if(token!==flightToken||!view)return;
+      setFF('perched');
     }
-    if(view.falter==='flying'){audio()?.command?.('pause');await land();}
+    status(`Das Glühwürmchen sitzt auf ${cardOf(view.cardId)?.name||'der Karte'}.`);
+    await wait(250);if(token!==flightToken||!view)return;
+    startSong();
   }
-  async function land(){
-    if(!view||view.falter!=='flying')return;const token=++flightToken;
-    dialog.querySelector('[data-mp-stage]').classList.remove('is-covered');
-    setFalter('landing');dialog.querySelector('[data-mp-flyer]').classList.add('is-alive');await wait(900);if(token!==flightToken||!view)return;
-    dialog.querySelector('[data-mp-flyer]').classList.remove('is-alive');await wait(500);if(token!==flightToken||!view)return;
-    setFalter('pocket');status('Der Falter ist wieder Papier und ruht in der Lasche.');
+  let songTimer=0;
+  function startSong(){
+    if(!view)return;const id=view.cardId;view.songAsked=true;
+    const ok=audio()?.select?.(id,{play:true,explicit:true});
+    if(ok===false){status('Das Lied dieser Karte ist gerade nicht erreichbar.');}
+    root.clearTimeout(songTimer);
+    // Blockiert der Browser den verzögerten Start: in der Sitzpose bleiben und „Lied abspielen“ anbieten.
+    songTimer=root.setTimeout(()=>{if(!view)return;const s=audio()?.snapshot?.();if(!(mine(s)&&['playing','starting','paused'].includes(s.state))){view.blocked=true;onAudio(s);status('Tippe auf „Lied abspielen“.');}},1800);
+    onAudio(audio()?.snapshot?.());
   }
+  function songCommand(kind){
+    const s=audio()?.snapshot?.();
+    if(kind==='pause'){if(mine(s))audio()?.command?.('pause');return;}
+    if(kind==='resume'){if(mine(s)&&s.state==='paused')audio()?.command?.('play');else startSong();return;}
+    if(kind==='play'){view.blocked=false;if(mine(s)&&s.state==='paused')audio()?.command?.('play');else startSong();}
+  }
+  /** Szenenauswahl und Wiedergabestatus unabhängig: der Player meldet, die Bühne zeigt. */
   function onAudio(s){
-    if(!view||view.falter!=='flying')return;
-    const mine=s?.track&&(s.track.cardId===view.cardId||s.track.assetId===view.cardId||s.entryId===view.cardId);
-    if(s.state==='paused'||s.state==='stopped'||s.state==='silent'||(s.track&&!mine&&s.state==='playing'))land();
+    if(!view||!dialog)return;
+    const pane=$('[data-mp-pane="listen"]');const m=mine(s);const state=s?.state;
+    const playing=m&&['playing','starting'].includes(state),paused=m&&state==='paused';
+    if(playing)view.blocked=false;
+    if(pane){
+      pane.classList.toggle('is-covered',view.ff==='perched'&&(playing||paused));
+      pane.classList.toggle('is-dimmed',view.ff==='perched'&&paused);
+      const show=(k,on)=>{const b=pane.querySelector(`[data-mp-song="${k}"]`);if(b)b.hidden=!on;};
+      show('pause',view.ff==='perched'&&playing);show('resume',view.ff==='perched'&&paused);
+      show('play',view.ff==='perched'&&!playing&&!paused&&(view.blocked||view.songAsked));
+      const st=pane.querySelector('[data-mp-listen-state]');
+      if(st)st.textContent=view.ff!=='perched'?'':playing?`Es spielt: ${s.track?.title||cardOf(view.cardId)?.name||''}`.trim():paused?'Pausiert – Weiterhören setzt an derselben Stelle fort.':state==='unavailable'||state==='error'?(s?.message||'Das Lied ist gerade nicht verfügbar.'):'';
+    }
+    updateAudioBar(s);
+  }
+  function updateAudioBar(s){
+    const bar=$('[data-mp-audiobar]');if(!bar||!view)return;
+    const active=s?.track&&['playing','starting','paused'].includes(s.state);
+    const typing=$('[data-mp-stage]')?.classList.contains('is-typing');
+    bar.hidden=!active||view.scene==='listen'||Boolean(typing&&!isWide());
+    if(bar.hidden)return;
+    bar.querySelector('[data-mp-audiobar-title]').textContent=s.track?.title||s.track?.cardId||'Musik';
+    bar.querySelector('[data-mp-bar="pause"]').hidden=s.state==='paused';
+    bar.querySelector('[data-mp-bar="resume"]').hidden=s.state!=='paused';
   }
   let resizeTimer=0;
-  function onResize(){root.clearTimeout(resizeTimer);resizeTimer=root.setTimeout(placeFalter,60);}
+  function onResize(){root.clearTimeout(resizeTimer);resizeTimer=root.setTimeout(()=>{layout();onViewport();},60);}
+
+  /* ---------- Zurücklegen: Bestätigung im Vordergrund ---------- */
+  function askGiveBack(){
+    if(!dialog||!view||!state.active)return;
+    if(view.scene!=='folder')backToFolder();
+    const c=contentFor(state.active.cardId);const has=Boolean(state.active.draft?.trim());
+    confirmBox=confirmBox||Object.assign(doc().createElement('dialog'),{className:'emfd-panel mp-confirm'});
+    if(!confirmBox.isConnected)dialog.append(confirmBox);
+    confirmBox.setAttribute('aria-labelledby','mp-confirm-title');
+    confirmBox.innerHTML=`<h2 id="mp-confirm-title">In die Schachtel zurücklegen?</h2>
+      <p>${esc(c.name)} geht zurück in die Kartenschachtel. ${has?'Dein Gedankenbuch-Entwurf wird dabei gelöscht. Wenn du magst, sicherst du ihn vorher.':'Danach ist das Mäppchen leer, bis du wieder eine Karte mitnimmst.'} Ihr Lied endet dann.</p>
+      ${has?`<div class="mp-panel__list">${kit().button({label:'Gedankenblatt (PDF)',variant:'secondary',iconName:'download',data:{'data-mp-export':'thought'}})}${kit().button({label:'Mäppchen sichern',variant:'secondary',iconName:'download',data:{'data-mp-export':'backup'}})}</div>`:''}
+      <div class="mp-d__actions">${kit().button({label:'Zurücklegen',variant:'primary',iconName:'cards',data:{'data-mp-giveback':''}})}${kit().button({label:'Noch behalten',variant:'secondary',data:{'data-mp-keep':''}})}</div>`;
+    confirmBox.oncancel=event=>{event.preventDefault();keep();};
+    confirmBox.showModal();confirmBox.querySelector('[data-mp-keep]')?.focus();
+  }
+  function keep(){if(confirmBox?.open)confirmBox.close();$('[data-mp-giveback-ask]')?.focus?.({preventScroll:true});}
+  function confirmGiveBack(){
+    const s=audio()?.snapshot?.();if(mine(s)&&['playing','starting','paused'].includes(s.state))audio()?.command?.('stop');
+    root.clearTimeout(songTimer);flightToken++;
+    if(confirmBox?.open)confirmBox.close();
+    const id=giveBackNow();close();
+    return id;
+  }
 
   /* ---------- Exporte ---------- */
   const tools=()=>root.EMFDThoughtPaperTools||{};
@@ -398,7 +544,7 @@
       const data=JSON.parse(await file.text());const next=fromBackup(data);
       if(state.active&&state.active.instanceId!==next.active.instanceId&&state.active.draft.trim()&&!root.confirm?.('Deine aktuelle Begleitung hat einen Entwurf. Durch die Sicherung ersetzen?'))return false;
       state=next;save();status(`Die Sicherung von ${cardOf(next.active.cardId)?.name||next.active.cardId} ist geladen.`);
-      if(dialog?.open){const src=opener;await open(src);openRead('book');}
+      if(dialog?.open){const src=opener;await open(src);openDetail('book',null);}
       root.dispatchEvent?.(new CustomEvent('emfd:companion-change',{detail:{cardId:next.active.cardId}}));
       return true;
     }catch(error){status(error.message||'Die Sicherung konnte nicht gelesen werden.');return false;}
@@ -443,25 +589,23 @@
   }
 
   /* ---------- Klicks ---------- */
-  let lastPointer=false;
   async function onClick(event){
-    const t=event.target.closest?.('button,[data-mp-close],label');if(!t||!dialog)return;
-    lastPointer=event.detail>0; // Maus/Touch: kein Fokussprung (kein Fokusring auf dem Falter); Tastatur: Fokus folgt dem Falter.
+    const t=event.target.closest?.('button,[data-mp-close],label,summary');if(!t||!dialog||!view)return;
     if(t.matches('[data-mp-close]')){close();return;}
     if(t.matches('[data-mp-unfold]')){unfold();return;}
-    if(t.matches('[data-mp-open]')){if(!view.opened)await unfold();openRead(t.dataset.mpOpen);return;}
-    if(t.matches('[data-mp-show]')){openRead(t.dataset.mpShow);return;}
-    if(t.matches('[data-mp-back]')){closeRead();return;}
-    if(t.matches('[data-mp-falter]')){if(!view.opened)await unfold();onFalter();return;}
+    if(t.matches('[data-mp-back]')){backToFolder();return;}
+    if(t.matches('[data-mp-open]')){if(!view.opened)await unfold();openDetail(t.dataset.mpOpen,t);return;}
+    if(t.matches('[data-mp-show]')){openDetail(t.dataset.mpShow,t);return;}
+    if(t.matches('[data-mp-listen]')){if(!view.opened)await unfold();openListen();return;}
+    if(t.matches('[data-mp-paper]')){onPaper();return;}
+    if(t.matches('[data-mp-song]')){songCommand(t.dataset.mpSong);return;}
+    if(t.matches('[data-mp-bar]')){const s=audio()?.snapshot?.();if(t.dataset.mpBar==='pause')audio()?.command?.('pause');else if(s?.state==='paused')audio()?.command?.('play');return;}
     if(t.matches('[data-mp-export]')){exportKind(t.dataset.mpExport);return;}
-    if(t.matches('[data-mp-folder-connect]')){if(await connectFolder()&&view?.open==='store')openRead('store');return;}
-    if(t.matches('[data-mp-composition]')){const id=view.cardId;root.EMFDReaders?.openComposition?.(id);return;}
-    if(t.matches('[data-mp-giveback]')){
-      if(view?.falter==='flying')await land();
-      const id=giveBackNow();close();
-      status(`${cardOf(id)?.name||id} liegt wieder in der Schachtel.`);
-      return;
-    }
+    if(t.matches('[data-mp-folder-connect]')){if(await connectFolder()&&view?.detail==='store')openDetail('store',null);return;}
+    if(t.matches('[data-mp-composition]')){root.EMFDReaders?.openComposition?.(view.cardId);return;}
+    if(t.matches('[data-mp-giveback-ask]')){askGiveBack();return;}
+    if(t.matches('[data-mp-keep]')){keep();return;}
+    if(t.matches('[data-mp-giveback]')){const id=confirmGiveBack();status(`${cardOf(id)?.name||id} liegt wieder in der Schachtel.`);return;}
   }
   function onChange(event){const input=event.target;if(input.matches?.('[data-mp-import]')&&input.files?.[0]){importFile(input.files[0]);input.value='';}}
 
@@ -504,8 +648,8 @@
     b.setAttribute('aria-label',c?`Mäppchen öffnen – ${c.name} begleitet dich`:'Begleiter – noch keine Karte mitgenommen');b.title=c?`Mäppchen · ${c.name}`:'Begleiter';b.dataset.state=c?'active':'empty';}
   root.addEventListener?.('emfd:companion-change',syncFab);
   if(doc()?.readyState==='loading')doc().addEventListener('DOMContentLoaded',mountFab,{once:true});else root.setTimeout?.(mountFab,0);
-  const api=Object.freeze({version:1,key:KEY,BACKUP_SCHEMA,ASSET_IDS,normalize,take,giveBack,withDraft,backupOf,fromBackup,falterGeometry,
-    active,open,close,openRead,closeRead,requestTake,giveBackNow,dockButton,openFromNavigation,emptyText,contentFor,missingFor,exportKind,importFile,
+  const api=Object.freeze({version:2,key:KEY,BACKUP_SCHEMA,ASSET_IDS,FF_IDS,WIDE,normalize,take,giveBack,withDraft,backupOf,fromBackup,flyerGeometry,perchGeometry,paperGeometry,
+    active,open,close,openDetail,backToFolder,openListen,askGiveBack,requestTake,giveBackNow,dockButton,openFromNavigation,emptyText,contentFor,missingFor,exportKind,importFile,
     cardPNG,thoughtPDF,storyPDF,backupFile,folderSupported,state:()=>JSON.parse(JSON.stringify(state)),view:()=>view?{...view}:null,isOpen:()=>Boolean(dialog?.open),
     reload(){state=load();syncDocks();syncFab();}});
   if(typeof module!=='undefined'&&module.exports)module.exports=api;

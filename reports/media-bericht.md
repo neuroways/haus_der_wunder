@@ -1,14 +1,14 @@
 # Medien-Check · media/
 
-Erstellt: 2026-11-20T22:14:19+00:00 · Werkzeug `tools/media_check.py` · 467 Dateien, 239.4 MB
+Erstellt: 2026-11-20T22:34:29+00:00 · Werkzeug `tools/media_check.py` · 472 Dateien, 241.5 MB
 
 ## Ergebnis
 
 - Vorderseiten: **18/24** Karten · Cover: **3/25** (O01–O24 + T03)
 - Ohne Vorderseite: O19, O20, O21, O22, O23, O24
 - Ohne Cover: O01, O02, O03, O05, O07, O08, O09, O10, O11, O12, O13, O14, O15, O16, O17, O18, O19, O20, O21, O22, O23, T03
-- Fehler: **32** · Warnungen: **0** · Hinweise: **377**
-- Seit 2026-11-20T21:04:53+00:00: 2 neu, 0 geändert, 0 entfernt
+- Fehler: **32** · Warnungen: **0** · Hinweise: **382**
+- Seit 2026-11-20T22:14:19+00:00: 5 neu, 0 geändert, 0 entfernt
 
 ## Apps · Zugriff auf media/
 
@@ -20,15 +20,16 @@ Erstellt: 2026-11-20T22:14:19+00:00 · Werkzeug `tools/media_check.py` · 467 Da
 ## Ordnerstruktur
 
 ```
-media/                                467 Dateien   239.4 MB
+media/                                472 Dateien   241.5 MB
   audio/                                7 Dateien    31.5 MB
   backgrounds/                          3 Dateien   835.7 KB
   cards/                               43 Dateien    87.1 MB
     fronts/                            18 Dateien    36.9 MB
   covers/                               3 Dateien     6.9 MB
   katalog/                              1 Dateien    15.5 KB
-  maeppchen/                           26 Dateien     9.6 MB
+  maeppchen/                           31 Dateien    11.7 MB
     gluehwuermchen/                     7 Dateien     1.3 MB
+    gluehwuermchen-v0.2/                5 Dateien     2.1 MB
     maeppchen/                         11 Dateien     2.4 MB
     papier/                             6 Dateien     1.6 MB
     szene/                              2 Dateien     4.3 MB
@@ -160,6 +161,11 @@ media/                                467 Dateien   239.4 MB
 | Hinweis | `cards/O23.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `cards/O24.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `cards/rueckseite.jpeg` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/gluehwuermchen-v0.2/flugfluegel-links.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/gluehwuermchen-v0.2/flugfluegel-rechts.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/gluehwuermchen-v0.2/flugkoerper.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/gluehwuermchen-v0.2/papierfalter.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `maeppchen/gluehwuermchen-v0.2/sitzpose.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `maeppchen/gluehwuermchen/15-hand.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `maeppchen/gluehwuermchen/16-papierkoerper.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `maeppchen/gluehwuermchen/17-papierfluegel-links.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
@@ -503,12 +509,15 @@ media/                                467 Dateien   239.4 MB
 | Hinweis | `start/EMFD-START-02-A05-briefpapier.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `start/EMFD-START-02-A06-geschenkkarte-vorderseite.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 
-## Änderungen seit 2026-11-20T21:04:53+00:00
+## Änderungen seit 2026-11-20T22:14:19+00:00
 
 **Neu**
 
-- `rooms/szenen/P03-C01-p03-dev01-9d94bbc2.png`
-- `rooms/szenen/P03-C02-p03-dev01-e68c0cde.png`
+- `maeppchen/gluehwuermchen-v0.2/flugfluegel-links.png`
+- `maeppchen/gluehwuermchen-v0.2/flugfluegel-rechts.png`
+- `maeppchen/gluehwuermchen-v0.2/flugkoerper.png`
+- `maeppchen/gluehwuermchen-v0.2/papierfalter.png`
+- `maeppchen/gluehwuermchen-v0.2/sitzpose.png`
 
 
 ## Dateien
@@ -580,6 +589,11 @@ media/                                467 Dateien   239.4 MB
 | `maeppchen/gluehwuermchen/19-lebendiger-koerper.png` | unknown-media |  | 300×441 | 150.9 KB | `00fdbc18166c` |
 | `maeppchen/gluehwuermchen/20-flugfluegel-links.png` | unknown-media |  | 473×193 | 159.2 KB | `10554a71ef10` |
 | `maeppchen/gluehwuermchen/21-flugfluegel-rechts.png` | unknown-media |  | 475×194 | 155.8 KB | `502fd3a74949` |
+| `maeppchen/gluehwuermchen-v0.2/flugfluegel-links.png` | unknown-media |  | 467×298 | 178.1 KB | `b5b9ec1f05f5` |
+| `maeppchen/gluehwuermchen-v0.2/flugfluegel-rechts.png` | unknown-media |  | 475×298 | 179.8 KB | `eb78e37622df` |
+| `maeppchen/gluehwuermchen-v0.2/flugkoerper.png` | unknown-media |  | 382×644 | 247.1 KB | `0ddb82f282a7` |
+| `maeppchen/gluehwuermchen-v0.2/papierfalter.png` | unknown-media |  | 1053×939 | 893.1 KB | `03ef03fb1e93` |
+| `maeppchen/gluehwuermchen-v0.2/sitzpose.png` | unknown-media |  | 667×1003 | 626.3 KB | `0a23ff515461` |
 | `maeppchen/maeppchen/01-lederaussenseite.png` | unknown-media |  | 393×539 | 456.2 KB | `039b4e20a69f` |
 | `maeppchen/maeppchen/01a-lederriemen.png` | unknown-media |  | 526×69 | 69.8 KB | `c298fe2bd8ca` |
 | `maeppchen/maeppchen/01b-riemenschlaufe.png` | unknown-media |  | 147×302 | 85.1 KB | `44095705d6f8` |
