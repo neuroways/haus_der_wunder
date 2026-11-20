@@ -1,5 +1,5 @@
 # EMFD-Rückmeldung · EMFD-H00-DIREKT-01 · H00 Direkteintritt und Bildwechsel
-Datum: 20.11.2026 · Ergebnis: umgesetzt (Bild: angehängte Fassung statt der beschriebenen JPEG, siehe unten) · Commit: siehe unten auf `claude/h00-direkt` (Grundlage `claude/kue-dev-01` b93ef4e, geprüft als HEAD) · App v0.6.80, Testversion
+Datum: 20.11.2026 · Ergebnis: umgesetzt (Bild: angehängte Fassung statt der beschriebenen JPEG, siehe unten) · Commit: 8e13b5a auf `claude/h00-direkt` (Grundlage `claude/kue-dev-01` b93ef4e, geprüft als HEAD) · App v0.6.80, Testversion
 
 ## Was sich für die Person ändert
 - **Direkt eintreten:** Wer beim ersten Besuch auf der Willkommenskarte „Haus betreten“ wählt, steht sofort in der Halle H00-C01, mobil im Ausschnitt M. Es erscheinen keine Begrüßung, kein Musik- und kein „Dein Moment“-Hinweis und keine Hervorhebungen. Türen, Hotspots, Musik, Hilfe und „Dein Moment“ sind sofort bedienbar. Das gilt auch beim Gang durch die Tür, wenn keine Einführung läuft.
