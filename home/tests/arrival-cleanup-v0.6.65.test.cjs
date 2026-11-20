@@ -6,13 +6,15 @@ const path=require('node:path');
 const root=path.resolve(__dirname,'..');
 const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 
-test('ARRIVAL-01 removes the gift button only from the arrival door',()=>{
-  const start=read('start-gate.js');
+test('ARRIVAL-01 / BOOK-01d: the arrival has no gift button; the gift opens from the letter in the scene, the hall and help',()=>{
+  const start=read('start-gate.js'),entrance=read('entrance.js');
   const app=read('app.js');
-  const door=start.slice(start.indexOf('function renderDoor'),start.indexOf('function giftMarkup'));
-  assert.match(door,/data-start02-enter/);
-  assert.doesNotMatch(door,/data-start-gift-open|Über dieses Geschenk/);
+  // Die frühere Haustür ist durch die Eingangsszene ersetzt (EMFD-UX-TUT-02 v0.3).
+  assert.doesNotMatch(start,/function renderDoor/);
+  assert.doesNotMatch(entrance,/data-start-gift-open|Über dieses Geschenk/);
+  assert.match(entrance,/openGift\?\.\(false\)/);
   assert.match(app,/data-start-gift-open>Über dieses Geschenk/);
+  assert.match(read('index.html'),/data-start-gift-open>Geschenkbrief und Geschenkkarte/);
 });
 
 test('The global navigation is absent on every route',()=>{

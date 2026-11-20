@@ -19,19 +19,19 @@ test('START-02: six reserved assets are mapped without generated replacements',(
 });
 
 test('START-02: first and returning visits use one gate with replay access',()=>{
-  assert.match(start,/firstVisit=\(\)=>!read\(KEYS\.gift\)/);
-  assert.match(start,/needsGift\?openGift\(false\):enterWithPreference\(\)/);
+  // BOOK-01d: Erst-/Folgebesuch entscheidet entrance.js (rückwärtskompatibel, siehe book-01d-entrance.test.cjs).
+  assert.match(read('entrance.js'),/function isReturning\(state,legacy\)/);
+  assert.match(app,/EMFDEntrance\?\.isReturning\(\)/);
   assert.match(app,/data-start-gift-open/);
-  const door=start.slice(start.indexOf('function renderDoor'),start.indexOf('function giftMarkup'));
-  assert.doesNotMatch(door,/data-start-gift-open|Über dieses Geschenk/);
   assert.match(start,/const gift=event\.target\.closest\?\.\('\[data-start-gift-open\]'\)/);
 });
 
 test('START-02: tutorial and install help remain voluntary and reusable',()=>{
   const tour=read('start-tour.js');
   for(const label of ['Laterne','Grammophon','Türen','Deine Geschenkkarte','Das Fragezeichen'])assert.ok(tour.includes(`['${label}'`),label);
-  assert.match(start,/EMFDStartTour\?\.start/);
-  assert.match(start,/data-start02-tutorial-skip/);
+  // BOOK-01d: Die frühere Starttour startet nicht mehr automatisch; „Einführung erneut starten“ führt zur neuen Einführung.
+  assert.doesNotMatch(start,/EMFDStartTour\?\.start\(/);
+  assert.match(start,/EMFDEntrance\?\.restartTutorial/);
   assert.match(start,/beforeinstallprompt/);
   assert.match(html,/data-start02-tutorial-replay/);
   assert.match(html,/data-start02-install-help/);
@@ -39,12 +39,14 @@ test('START-02: tutorial and install help remain voluntary and reusable',()=>{
 
 test('START-02: no autoplay or second audio architecture is introduced',()=>{
   assert.doesNotMatch(start,/new Audio|\.play\(|autoplay/i);
-  assert.match(start,/EMFDMusicEntry\?\.show\(true,\{onChoose:showArrivalLetter/);
+  // BOOK-01d: Die Musikentscheidung liegt an der Eingangsglocke (entrance.js → EMFDMusicEntry.apply).
+  assert.doesNotMatch(start,/EMFDMusicEntry\?\.show/);
+  assert.match(read('entrance.js'),/EMFDMusicEntry\?\.apply\?\.\(value,\{remember\}\)/);
   assert.doesNotMatch(start,/Animation überspringen|data-start02-skip-animation/);
   const musicEntry=read('music-entry.js');
   assert.doesNotMatch(musicEntry,/emfd:start-gate-rendered|setTimeout\(maybeShow/);
   assert.match(musicEntry,/setBackgroundPreference\(value,\{start:false\}\)/);
-  assert.match(html,/music-entry\.js\?v=0\.6\.61/);
+  assert.match(html,/music-entry\.js\?v=/);
 });
 
 test('START-02: light state persists and reduced motion is supported',()=>{
@@ -67,7 +69,7 @@ test('START-02: preloading is bounded and full-deck eager loading is removed',()
 test('START-02: version and resources are wired',()=>{
   const version=JSON.parse(read('package.json')).version;
   assert.ok(html.includes(`application-version" content="${version}`));
-  assert.match(html,/start-gate-v0\.6\.61\.css\?v=0\.6\.61/);
+  assert.match(html,/start-gate-v0\.6\.61\.css\?v=/);
   assert.ok(app.includes(`start-gate.js?v=${version}`));
   assert.equal(JSON.parse(read('manifest.webmanifest')).version,version);
   assert.equal(JSON.parse(read('deployment-layout.json')).appVersion,version);

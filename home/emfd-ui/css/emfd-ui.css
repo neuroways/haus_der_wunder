@@ -34,7 +34,7 @@
 /* ===== EMFD UI v0.4 · Gemeinsame Bedienelemente des Hauses (BOOK-01d / EMFD-UX-TUT-02) =====
  * Referenz: emfd-ui/referenz.html. Jede Ansicht nutzt nur diese Komponenten; keine eigenen Buttons.
  * Mindestfläche 48×48 CSS-Pixel (nie unter 44), sichtbarer Fokus, Zustände über ARIA-Attribute. */
-:root{--emfd-ui-gold:#d8a65d;--emfd-ui-gold-light:#f7d18a;--emfd-ui-ivory:#f5e9d7;--emfd-ui-night:#061725;--emfd-ui-midnight:#0d2333;--emfd-ui-teal:#2f8f8a;--emfd-ui-teal-light:#7fd1c7;--emfd-ui-focus:#fff0b8;--emfd-ui-touch:48px;--emfd-ui-radius:16px;--emfd-ui-panel:rgba(6,23,37,.88);--emfd-ui-line:rgba(216,166,93,.55);--emfd-ui-shadow:0 6px 22px rgba(0,0,0,.42)}
+.emfd-ui,.emfd-scene-view,.emfd-panel,.emfd-hint,.start02-gift-dialog{--emfd-ui-gold:#d8a65d;--emfd-ui-gold-light:#f7d18a;--emfd-ui-ivory:#f5e9d7;--emfd-ui-night:#061725;--emfd-ui-midnight:#0d2333;--emfd-ui-teal:#2f8f8a;--emfd-ui-teal-light:#7fd1c7;--emfd-ui-focus:#fff0b8;--emfd-ui-touch:48px;--emfd-ui-radius:16px;--emfd-ui-panel:rgba(6,23,37,.88);--emfd-ui-line:rgba(216,166,93,.55);--emfd-ui-shadow:0 6px 22px rgba(0,0,0,.42)}
 /* Textbuttons: primär (Hauptaktion) und sekundär (Alternative). Kompakte Größe für Hinweise und Paneele. */
 .emfd-button--compact{min-height:var(--emfd-ui-touch);padding:10px 16px;font-size:1rem;gap:10px;grid-template-columns:auto minmax(0,1fr);border-radius:var(--emfd-ui-radius)}
 .emfd-button--compact .emfd-button__arrow{display:none}
@@ -105,3 +105,11 @@
 .emfd-hotspot[aria-pressed]{cursor:pointer}
 @media (prefers-reduced-motion:reduce){.emfd-iconbutton,.emfd-hint,.emfd-turn{transition:none}}
 @media (forced-colors:active){.emfd-hotspot:focus-visible,.emfd-iconbutton,.emfd-turn,.emfd-hint{border:2px solid CanvasText;forced-color-adjust:auto}}
+.emfd-hint__close svg{inline-size:22px;block-size:22px}
+.emfd-hint__close:focus-visible{outline:3px solid var(--emfd-ui-focus);outline-offset:-2px}
+.emfd-hint--bottom-start{inset-block-end:max(14px,env(safe-area-inset-bottom));inset-inline-start:max(16px,env(safe-area-inset-left))}
+.emfd-hint--bottom-end{inset-block-end:max(14px,env(safe-area-inset-bottom));inset-inline-end:max(16px,env(safe-area-inset-right))}
+.emfd-scene-view.is-wide .emfd-hint--bottom-start{inset-inline-start:calc(16px + 9rem)}
+.emfd-scene-view.is-wide .emfd-hint--bottom-end{inset-inline-end:calc(16px + 9rem)}
+dialog.emfd-panel{position:fixed;inset:0;margin:auto;block-size:fit-content;max-block-size:calc(100dvh - 24px);overflow:auto}
+@media (max-height:500px){.emfd-hint{inline-size:min(21rem,46%);max-block-size:calc(100% - 24px);padding:10px 12px 8px}.emfd-hint__title{font-size:1rem;margin-block-end:2px}.emfd-hint__text{font-size:.9rem;margin-block-end:6px}.emfd-hint__actions .emfd-button--compact{min-block-size:44px;padding-block:6px}}

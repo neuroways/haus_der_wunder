@@ -203,8 +203,11 @@
   function enterHall(){if(location.hash!=='#flur')location.hash='flur';}
   /** Öffnet den Geschenkbereich über der aktuellen Ansicht. replay=true beginnt beim Brief, sonst beim Umschlag. */
   function openGift(replay=false){
-    giftOpener=document.activeElement instanceof HTMLElement?document.activeElement:null;
-    arrivalLetter=false;renderGift(replay?'letter-visible':'closed');
+    giftOpener=document.activeElement&&typeof document.activeElement.focus==='function'?document.activeElement:null;
+    arrivalLetter=false;
+    // Alle Geschenkbilder vorab anfragen, ohne den Brief aufzuhalten (fehlende Bilder: Hinweis + Text bleibt lesbar).
+    preload([ASSETS.A01,ASSETS.A02,ASSETS.A03,ASSETS.A04,ASSETS.A05,ASSETS.A06]).catch(()=>{});
+    renderGift(replay?'letter-visible':'closed');
   }
 
   function ensureDialogs(){

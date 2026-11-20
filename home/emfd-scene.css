@@ -63,3 +63,11 @@ figure.emfd-scene-view__image svg{inline-size:100%;block-size:100%}
 @keyframes emfd-scene-in-left{from{opacity:0;transform:translateX(-6%)}to{opacity:1;transform:none}}
 @keyframes emfd-scene-in-right{from{opacity:0;transform:translateX(6%)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.emfd-scene-view.is-turning .emfd-scene-view__stage{transition:none}.emfd-scene-view.is-turned-in .emfd-scene-view__stage{animation:emfd-scene-in .12s linear}.emfd-scene-light{transition:none}}
+/* Vollbild für Szenen: überschreibt die Inhaltsbreite der Shell (nur im Szenenmodus). */
+body.emfd-shell.scene-mode>main.emfd-shell__content{inline-size:100%!important;max-inline-size:none!important;margin:0!important;padding:0!important}
+/* Positionspunkte unten; Hinweise sitzen darüber, damit beide sichtbar bleiben. */
+.emfd-scene-view .emfd-hint--bottom{inset-block-end:calc(52px + env(safe-area-inset-bottom))}
+.emfd-scene-view.is-wide .emfd-hint--bottom{inset-block-end:max(14px,env(safe-area-inset-bottom))}
+.emfd-scene-view .emfd-scene-bar [data-scene-help].is-hinted{outline:2px dashed #f7d18a;outline-offset:4px}
+/* Musikmeldungen (z. B. „Platte verloren“) dürfen Hinweise und Bedienelemente der Szene nicht verdecken. */
+body.scene-mode .music-feedback{inset-block-end:auto;inset-block-start:calc(64px + env(safe-area-inset-top));pointer-events:none}

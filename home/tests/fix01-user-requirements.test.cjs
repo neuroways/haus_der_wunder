@@ -80,7 +80,9 @@ test('FIX01: five synchronized persistent reading sizes',()=>{
 });
 test('FIX01: start image requests cannot block doorway indefinitely',()=>{
  const gate=read('start-gate.js');
- assert.match(gate,/softDeadline=root\.setTimeout\(releaseDoor,2500\)/);
+ // BOOK-01d: Die Tür ist ein Hotspot der Eingangsszene und nie gesperrt; Geschenkbilder laden ohne zu blockieren.
+ assert.doesNotMatch(read('entrance.js'),/disabled|aria-busy/);
+ assert.match(gate,/preload\(\[ASSETS\.A01[^\]]*\]\)\.catch/);
  const timeout=Number(gate.match(/async function loadOne\(url,timeout=(\d+)\)/)?.[1]);
  assert.ok(timeout>0&&timeout<=15000,'each start image request has a bounded timeout');
 });
