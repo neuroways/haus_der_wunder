@@ -103,6 +103,8 @@ Nach jedem Render (Ende von `render()`): Raummusik einhängen (`EMFDRoomMusic.mo
 - **Szenenmedien der Halle**: `scene.H00-C0x.h00-referenz` (`media/rooms/szenen/H00-C0x-h00-ref-<sha8>.jpeg`, unveränderte Referenzen aus der H00-Übergabe, `freigabe:'test'`, K-22).
 
 
+**Gesten (v0.6.77):** Weiterwischen am Bildende dreht um (`EMFDScene.edgeSwipe`: Smartphone nur aus Ausschnitt L/R in Richtung Rand, Breitbild jede waagerechte Wischgeste, Touch-Ereignisse am Viewport). Wischen von unten nach oben öffnet „Dein Moment“, nach unten schließt es (`EMFDSceneChrome.momentSwipe`, Start in der unteren Hälfte). Im Szenenmodus ist die alte Fußzeile ausgeblendet, damit die Seite nicht senkrecht verrutscht.
+
 ## 4d. Küche und Radio (EMFD-KUE-DEV-01, v0.6.75)
 - **`EMFDKitchen`** (`kitchen.js`): Szenen KUE-C02 (Einstieg, Radio) / KUE-C01 (Hallentür T02). Keine Begrüßung; Raumimpuls und Radio-Hinweis nur freiwillig (Hilfe, erstes Öffnen des Radios), `emfd.kitchen.v1 {radioHintSeen}`. Radio-Nahansicht = Paneel mit Ausschnitt aus KUE-C02 (bis zur Radio-Ebene aus dem Bildpaket), rechter Drehknopf und „Radio einschalten/ausschalten/fortsetzen“. Anzeige `[data-radio-badge]` (Platzhalter für die Leuchtebene) nur bei an/pausiert.
 - **`EMFDRadio`** (`shared/radio.js`): Shuffle-Bag über O01–O24 (ohne Hauptthema; an der Zyklusgrenze nicht derselbe Titel), startet über `EMFDAudio.playlist(bag,{explicit:true,context:{source:'device',deviceId:'MP-KUE',roomId:'KUE',mode:'radio'}})`. Folgt dem gemeinsamen Player: andere Quelle oder globaler Stopp → aus; Pause → pausiert (Fortsetzen ohne Positionsverlust); Ende der Folge → neue Folge; fehlende Dateien werden ausgelassen, ohne verfügbare Musik Fehlerzustand statt Schleife. Keine eigene Audiowiedergabe.

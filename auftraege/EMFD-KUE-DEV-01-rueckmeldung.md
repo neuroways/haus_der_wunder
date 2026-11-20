@@ -84,3 +84,22 @@ Datum: 20.11.2026 · Ergebnis: teilweise (funktional umgesetzt; visuelle Freigab
   - Browser-Protokoll Küche: 69/69.
   - Halle: unverändert 53 PASS, H00-T23 erwartungsgemäß überholt.
 - **Offen (Planung/Work):** In den Referenzbildern stehen weitere Lichter, die bisher nicht schaltbar sind: die Kerze an der Spüle (C02) und das Windlicht an der Arbeitsplatte (C01). Sollen sie eigene Lichtquellen werden?
+
+## Nachtrag v0.6.77 · Wischgesten (Wunsch der Nutzerin)
+- **Umdrehen durch Weiterwischen:** Wer am Ende des Bildes weiterwischt, dreht sich um.
+  - Auf dem Smartphone gilt das im Randausschnitt (L oder R, dort wo auch „Umdrehen“ steht) mit einer deutlich waagerechten Wischgeste zum Rand hin, mindestens 56 px.
+  - Aus der Mitte heraus schaut man nur um, und zurück zur Mitte ist kein Umdrehen.
+  - Im Breitbild (Tablet und PC mit Touch) dreht jede waagerechte Wischgeste um.
+  - Das gilt in allen Szenen: Eingang, Halle und Küche.
+- **„Dein Moment“ per Wischen:**
+  - Wischen von unten nach oben öffnet es. Die Geste muss in der unteren Bildhälfte beginnen, damit sie nicht mit dem Umschauen kollidiert.
+  - Wischen nach unten schließt es.
+  - Der Knopf „Dein Moment“ bleibt unverändert.
+- **Dabei behoben:** Unter der Szene hing noch die alte Fußzeile der App. Deshalb ließ sich die Seite auf dem Smartphone um etwa 87 px nach oben verschieben, und die Szene „rutschte“. Im Szenenmodus ist die Fußzeile jetzt ausgeblendet, und die Szene steht fest.
+- **Tests:**
+  - `npm test`: 388 bestanden, 0 fehlgeschlagen, 1 übersprungen. Neu sind die Gestentests für `edgeSwipe` und `momentSwipe`.
+  - Browser mit echten Touch-Ereignissen (CDP), alle Fälle wie erwartet:
+    - Smartphone: M→R umschauen; R weiter → KUE-C01; zurück → KUE-C02.
+    - Wischen hoch von unten öffnet, Wischen runter schließt, Wischen hoch von oben öffnet nichts.
+    - Tablet quer: H00-C01 → H00-C02.
+  - Protokolle: Küche 69/69, Eingang 60/60, Halle 53 PASS (H00-T23 erwartungsgemäß überholt).

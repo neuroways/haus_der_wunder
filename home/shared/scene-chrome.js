@@ -176,6 +176,30 @@
     }
     return true;
   }
+  /** Wischgeste für „Dein Moment“ (rein): von unten nach oben öffnet (Start in der unteren Bildhälfte),
+   *  nach unten schließt (nur wenn offen). Deutlich senkrecht, mindestens 56 px. Ergebnis: 'open' | 'close' | null. */
+  function momentSwipe({dx=0,dy=0,startY=0,height=0,open=false}={}){
+    if(Math.abs(dy)<56||Math.abs(dy)<Math.abs(dx)*1.5)return null;
+    if(!open&&dy<0&&startY>=height*0.5)return 'open';
+    if(open&&dy>0)return 'close';
+    return null;
+  }
+  function bindMomentSwipe(el){
+    if(!el||el.dataset.momentSwipe)return;el.dataset.momentSwipe='1';
+    let start=null;
+    el.addEventListener('touchstart',event=>{
+      if(event.touches.length!==1||event.target.closest?.('.emfd-scene-bar,.emfd-actionlist,.emfd-moment__list,dialog')){start=null;return;}
+      const p=event.touches[0];start={x:p.clientX,y:p.clientY-el.getBoundingClientRect().top,height:el.clientHeight};
+    },{passive:true});
+    el.addEventListener('touchend',event=>{
+      if(!start||current?.scene?.el!==el)return;const p=event.changedTouches[0];
+      const menu=el.querySelector('#emfd-moment-menu');
+      const r=momentSwipe({dx:p.clientX-start.x,dy:p.clientY-(start.y+el.getBoundingClientRect().top),startY:start.y,height:start.height,open:Boolean(menu&&!menu.hidden)});
+      start=null;
+      if(r==='open')toggleMoment(true);else if(r==='close'){toggleMoment(false);el.querySelector('[data-chrome-moment]')?.focus({preventScroll:true});}
+    },{passive:true});
+    el.addEventListener('touchcancel',()=>{start=null;},{passive:true});
+  }
   function toggleMoment(force){
     const el=current?.scene?.el;if(!el)return;
     const button=el.querySelector('[data-chrome-moment]'),menu=el.querySelector('#emfd-moment-menu');
@@ -226,13 +250,14 @@
     wrap.querySelector('[data-moment-close]').addEventListener('click',()=>{toggleMoment(false);wrap.querySelector('[data-chrome-moment]').focus();});
     wrap.querySelector('[data-moment-help]').addEventListener('click',()=>{toggleMoment(false);openHelp();});
     wrap.querySelectorAll('[data-moment]').forEach(b=>b.addEventListener('click',()=>{if(momentAction(b.dataset.moment,b)!==false)toggleMoment(false);}));
+    bindMomentSwipe(scene.el);
     wrap.addEventListener('keydown',event=>{if(event.key==='Escape'&&!wrap.querySelector('#emfd-moment-menu').hidden){event.stopPropagation();toggleMoment(false);wrap.querySelector('[data-chrome-moment]').focus();}});
     unsubscribeBar?.();unsubscribeBar=audio()?.subscribe?.(syncMusicButton)||null;
     ensureHelpExtras();
     return api;
   }
   function unmount(){unsubscribeBar?.();unsubscribeBar=null;current=null;closePanel();ensureHelpExtras();}
-  const api=Object.freeze({version:1,playTheme,openObject,mount,unmount,openPanel,closePanel,onPanelClose,openMusic,musicControl,bindMusic,stateText,toggleMoment,momentAction,openHelp,ensureHelpExtras,MOMENT,
+  const api=Object.freeze({version:1,playTheme,openObject,mount,unmount,openPanel,closePanel,onPanelClose,openMusic,musicControl,bindMusic,stateText,toggleMoment,momentSwipe,momentAction,openHelp,ensureHelpExtras,MOMENT,
     musicButton:()=>current?.scene?.el?.querySelector('[data-chrome-music]')||null,
     momentButton:()=>current?.scene?.el?.querySelector('[data-chrome-moment]')||null,
     helpButton:()=>current?.scene?.el?.querySelector('[data-scene-help]')||null,

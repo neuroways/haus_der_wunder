@@ -4,6 +4,7 @@
  *  - Breite Fenster (ab 900 px): ganze 16:9-Illustration, dunkle Ränder statt Beschnitt, Umdrehen an beiden Seiten.
  *  - Schmale Fenster: drei überlappende Ausschnitte (L/M/R), frei wischbar mit sanftem Einrasten, Pfeile und
  *    Positionspunkte (nur Bildorientierung). Am linken/rechten Rand erscheint „Umdrehen“; es dreht nie von selbst.
+ *    Wer am Bildende (Ausschnitt L/R) bewusst weiterwischt, dreht sich um; im Breitbild jede waagerechte Wischgeste.
  *  - Umdrehen: L→R, R→L, M→M in die Gegenansicht, weiche Bewegung in Blickrichtung plus Überblendung;
  *    bei reduzierter Bewegung nur eine kurze Überblendung.
  *  - Aktionsliste: alle Dinge der Ansicht als echte Buttons (Tastatur, Screenreader, ohne Wischgeste).
@@ -25,6 +26,16 @@
   /** Ausschnitt aus der Scrollposition: frei wischbar, die Punkte zeigen den nächstliegenden Anker. */
   function segmentFor(scrollLeft,max){if(!(max>0))return 'M';const r=scrollLeft/max;return r<0.25?'L':r>0.75?'R':'M';}
   function scrollFor(segment,max){return segment==='L'?0:segment==='R'?max:max/2;}
+  /** Weiterwischen am Bildende dreht um (rein): Die Geste muss im Randausschnitt beginnen (L bzw. R – dort, wo auch
+   *  „Umdrehen“ erscheint) und deutlich waagerecht in Richtung Rand gehen. Im Breitbild ist jede waagerechte
+   *  Wischgeste ein Weiterwischen. dx>0 = Finger nach rechts = weiter nach links schauen. Ergebnis: 'left'|'right'|null. */
+  const SWIPE_MIN=56;
+  function edgeSwipe({dx=0,dy=0,segment='M',wide=false}={}){
+    if(Math.abs(dx)<SWIPE_MIN||Math.abs(dx)<Math.abs(dy)*1.5)return null;
+    if(dx>0&&(wide||segment==='L'))return 'left';
+    if(dx<0&&(wide||segment==='R'))return 'right';
+    return null;
+  }
 
   function stageMarkup(scene,{lights}){
     const reg=registry(),ui=kit();
@@ -155,6 +166,11 @@
       el.querySelectorAll('[data-scene-segment]').forEach(b=>b.addEventListener('click',()=>setSegment(SEGMENTS[Number(b.dataset.sceneSegment)])));
       const v=viewport();let t=null;
       v?.addEventListener('scroll',()=>{root.clearTimeout(t);t=root.setTimeout(onScroll,80);},{passive:true});
+      // Weiterwischen am Bildende → Umdrehen (nur Touch; Maus/Tastatur nutzen „Umdrehen“).
+      let start=null;
+      v?.addEventListener('touchstart',event=>{if(event.touches.length!==1){start=null;return;}const p=event.touches[0];const wide=el.classList.contains('is-wide');start={x:p.clientX,y:p.clientY,wide,segment:wide?'M':segmentFor(v.scrollLeft,maxScroll())};},{passive:true});
+      v?.addEventListener('touchend',event=>{if(!start)return;const p=event.changedTouches[0];const side=edgeSwipe({dx:p.clientX-start.x,dy:p.clientY-start.y,segment:start.segment,wide:start.wide});start=null;if(side)turn(side);},{passive:true});
+      v?.addEventListener('touchcancel',()=>{start=null;},{passive:true});
       el.addEventListener('keydown',event=>{if(event.key==='Escape'&&listOpen){toggleList(false);listOpener?.focus?.();}});
     }
     let listOpener=null;
@@ -192,7 +208,7 @@
     remember(scene.id,segment);
     return api;
   }
-  const exported=Object.freeze({version:1,mount,turnTarget,segmentFor,scrollFor,SEGMENTS,WIDE_MIN});
+  const exported=Object.freeze({version:1,mount,turnTarget,segmentFor,scrollFor,edgeSwipe,SEGMENTS,WIDE_MIN});
   if(typeof module!=='undefined'&&module.exports)module.exports=exported;
   root.EMFDScene=exported;
 })(globalThis);

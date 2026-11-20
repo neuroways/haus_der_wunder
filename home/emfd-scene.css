@@ -78,3 +78,6 @@ body.scene-mode .music-feedback{inset-block-end:auto;inset-block-start:calc(64px
 .emfd-scene-view .emfd-hint--top{inset-block-start:calc(68px + env(safe-area-inset-top))}
 /* Zeitgesteuerte Kartenhinweise aus der Kartenansicht gehören nicht in Szenen (nach Rückkehr aus #karte/…). */
 body.scene-mode .card-motion-hint{display:none}
+/* v0.6.77 · Die Szene steht fest: keine alte Fußzeile darunter, kein senkrechtes Verschieben der Seite (Wischgesten). */
+body.scene-mode>footer{display:none}
+body.scene-mode{overscroll-behavior:none}

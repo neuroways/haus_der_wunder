@@ -131,3 +131,25 @@ test('Hotspots bleiben unsichtbar, auch bei haftendem :hover nach Antippen (iOS)
  assert.match(after,/\.emfd-scene-view\.show-hotspots \.emfd-hotspot\{box-shadow/,'„Interaktive Gegenstände anzeigen“ wirkt weiter');
  assert.doesNotMatch(after.replace(/@media[^{]*\{[^}]*\}\}/g,''),/\.emfd-hotspot:hover\{[^}]*box-shadow:inset/,'kein Hover-Rahmen außerhalb der Maus-Abfrage');
 });
+
+test('Weiterwischen am Bildende dreht um (Smartphone: nur aus L/R in Richtung Rand; Breitbild: jede waagerechte Geste)',()=>{
+ const S=require('../shared/scene.js');
+ assert.equal(S.edgeSwipe({dx:-120,dy:8,segment:'R'}),'right');
+ assert.equal(S.edgeSwipe({dx:120,dy:8,segment:'L'}),'left');
+ assert.equal(S.edgeSwipe({dx:-120,dy:8,segment:'M'}),null,'aus der Mitte nur umschauen');
+ assert.equal(S.edgeSwipe({dx:120,dy:8,segment:'R'}),null,'zurück in die Mitte ist kein Umdrehen');
+ assert.equal(S.edgeSwipe({dx:-40,dy:0,segment:'R'}),null,'zu kurz');
+ assert.equal(S.edgeSwipe({dx:-90,dy:-120,segment:'R'}),null,'zu schräg');
+ assert.equal(S.edgeSwipe({dx:-120,dy:0,wide:true}),'right');assert.equal(S.edgeSwipe({dx:120,dy:0,wide:true}),'left');
+});
+
+test('„Dein Moment“ öffnet mit Wischen von unten nach oben und schließt mit Wischen nach unten',()=>{
+ const C=require('../shared/scene-chrome.js');
+ assert.equal(C.momentSwipe({dx:5,dy:-200,startY:500,height:664}),'open');
+ assert.equal(C.momentSwipe({dx:5,dy:-200,startY:250,height:664}),null,'Start oben: nichts');
+ assert.equal(C.momentSwipe({dx:5,dy:-30,startY:500,height:664}),null,'zu kurz');
+ assert.equal(C.momentSwipe({dx:200,dy:-120,startY:500,height:664}),null,'waagerecht = Umschauen');
+ assert.equal(C.momentSwipe({dx:0,dy:200,startY:200,height:664,open:true}),'close');
+ assert.equal(C.momentSwipe({dx:0,dy:-200,startY:500,height:664,open:true}),null);
+ assert.match(read('emfd-scene.css'),/body\.scene-mode>footer\{display:none\}/,'Szene steht fest (keine Fußzeile darunter)');
+});
