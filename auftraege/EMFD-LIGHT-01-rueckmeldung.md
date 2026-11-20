@@ -62,3 +62,11 @@ Siehe `docs/LICHT-STANDARD.md` §7. Es fehlen:
 1. Lichtebenen bei Work beauftragen (Produktionsvorlage in `docs/LICHT-STANDARD.md` §4), zuerst H00-C01 in der neuen Fassung.
 2. Gibt es physische Wandschalter in kommenden Bildern? Wenn ja, als `LIGHT_SWITCH`-Hotspot mit Gruppe.
 3. Soll die Raumschaltung „Alle Lichter“ zusätzlich eine sichtbare Gestaltung bekommen (BOOK-01h)?
+
+## Nachtrag · Regression (Browser-Protokolle, v0.6.81)
+- **Eingang/Einführung:** 60/60. Im Protokoll ist der Selektor an die neue Platzhalterklasse angepasst; inhaltlich ist alles gleich.
+- **Küche:** 69/0.
+- **Halle:** 52 bestanden. Drei Prüfungen schlagen fehl, alle drei aus früheren, gewollten Änderungen:
+  - H00-T23 (2×) erwartet „Küche noch ohne Ansicht“; die Küche ist seit v0.6.75 integriert.
+  - H00-T06 erwartet die Begrüßung nach „Haus betreten“; die entfällt seit EMFD-H00-DIREKT-01.
+  - Die Hinweisfolge H00-T03 prüft jetzt den geführten Eintritt aus der Einführung und besteht.
