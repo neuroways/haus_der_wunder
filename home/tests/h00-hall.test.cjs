@@ -88,7 +88,7 @@ test('Globale Musik: Kopfzeile Musik links, Hilfe rechts; Öffnen spielt nichts;
  const open=src.slice(src.indexOf('function openMusic'),src.indexOf('function syncMusicButton'));
  const beforeBind=open.slice(0,open.indexOf(',d=>{'));
  assert.doesNotMatch(beforeBind,/select|command/,'Öffnen startet keine Musik');
- assert.match(open,/else audio\(\)\?\.select\?\.\('T03',\{play:true,explicit:true\}\)/);
+ assert.match(open,/else playTheme\(\);/);
  assert.match(open,/command\?\.\('volume',0\)/,'Stumm ≠ Pause');
  assert.doesNotMatch(src,/new Audio\(|\.play\(\)/);
  const scene=read('shared/scene.js');

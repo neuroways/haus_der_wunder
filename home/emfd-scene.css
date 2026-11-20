@@ -76,3 +76,5 @@ body.emfd-shell.scene-mode>main.emfd-shell__content{inline-size:100%!important;m
 body.scene-mode .music-feedback{inset-block-end:auto;inset-block-start:calc(64px + env(safe-area-inset-top));pointer-events:none}
 /* Hinweise oben beginnen unter der Kopfzeile (Musik · Label · Hilfe), damit beide bedienbar bleiben. */
 .emfd-scene-view .emfd-hint--top{inset-block-start:calc(68px + env(safe-area-inset-top))}
+/* Zeitgesteuerte Kartenhinweise aus der Kartenansicht gehören nicht in Szenen (nach Rückkehr aus #karte/…). */
+body.scene-mode .card-motion-hint{display:none}

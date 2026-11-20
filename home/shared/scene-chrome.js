@@ -46,6 +46,13 @@
     return 'Still.';
   }
   const playing=snapshot=>Boolean(snapshot&&['playing','starting'].includes(snapshot.state));
+  /** Hauptthema bewusst starten (das Thema ist kein Raumtitel, daher über den Player, nicht über select('T03')).
+   *  Ändert nur die Wiedergabe, nicht die gespeicherte Musikentscheidung (EMFDMusicEntry). */
+  function playTheme(){
+    const snap=audio()?.snapshot?.();
+    if(snap?.track?.kind==='app-theme'&&playing(snap))return true;
+    return root.EMFDMusic?.setBackgroundPreference?.('on',{start:true,explicit:true})??false;
+  }
   function musicControl(id,label){
     return `<div class="emfd-music-control" data-music-control="${esc(id)}">`+
       kit().iconButton({label:`${label} abspielen`,iconName:'play',data:{'data-music':'play'}})+
@@ -89,7 +96,7 @@
           if(playing(snap))audio()?.command?.('pause');
           else if(snap?.state==='paused')audio()?.command?.('play');
           else if(snap?.track&&snap.entryId&&snap.entryId!=='theme')audio()?.select?.(snap.entryId,{play:true,explicit:true});
-          else audio()?.select?.('T03',{play:true,explicit:true});
+          else playTheme();
           root.setTimeout(()=>sync(),60);
         });
         d.querySelector('[data-global-music="stop"]').addEventListener('click',()=>{audio()?.command?.('stop');root.setTimeout(()=>sync(),60);});
@@ -166,7 +173,7 @@
     const actions=document.querySelector('#help-dialog .start02-help-actions');if(!actions)return;
     if(!actions.querySelector('[data-scene-help-list]')){
       actions.insertAdjacentHTML('afterbegin','<button type="button" data-scene-help-list hidden>Alles in dieser Ansicht</button><button type="button" data-scene-help-hotspots hidden aria-pressed="false">Interaktive Gegenstände anzeigen</button><button type="button" data-scene-help-settings hidden>Einstellungen</button>');
-      actions.querySelector('[data-scene-help-list]').addEventListener('click',()=>{document.querySelector('#help-dialog')?.close();current?.scene?.toggleList(true);});
+      actions.querySelector('[data-scene-help-list]').addEventListener('click',()=>{document.querySelector('#help-dialog')?.close();root.setTimeout(()=>current?.scene?.toggleList(true),0);}); // nach der Fokusrückgabe des Hilfedialogs
       actions.querySelector('[data-scene-help-hotspots]').addEventListener('click',event=>{const on=current?.scene?.showHotspots(!current.scene.el.classList.contains('show-hotspots'));event.currentTarget.setAttribute('aria-pressed',String(Boolean(on)));});
       actions.querySelector('[data-scene-help-settings]').addEventListener('click',()=>{document.querySelector('#help-dialog')?.close();document.querySelector('#settings-open')?.click();});
     }
@@ -207,7 +214,7 @@
     return api;
   }
   function unmount(){unsubscribeBar?.();unsubscribeBar=null;current=null;closePanel();ensureHelpExtras();}
-  const api=Object.freeze({version:1,mount,unmount,openPanel,closePanel,onPanelClose,openMusic,musicControl,bindMusic,stateText,toggleMoment,momentAction,openHelp,ensureHelpExtras,MOMENT,
+  const api=Object.freeze({version:1,playTheme,mount,unmount,openPanel,closePanel,onPanelClose,openMusic,musicControl,bindMusic,stateText,toggleMoment,momentAction,openHelp,ensureHelpExtras,MOMENT,
     musicButton:()=>current?.scene?.el?.querySelector('[data-chrome-music]')||null,
     momentButton:()=>current?.scene?.el?.querySelector('[data-chrome-moment]')||null,
     helpButton:()=>current?.scene?.el?.querySelector('[data-scene-help]')||null,

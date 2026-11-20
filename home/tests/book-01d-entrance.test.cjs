@@ -164,7 +164,7 @@ test('Alte Starttour läuft nicht mehr automatisch; Hilfe-Einstiege und Geschenk
 test('Musik: Glocke nutzt die bestehende Musikentscheidung; Eintritt startet nichts',()=>{
  const src=read('entrance.js');
  assert.match(src,/EMFDMusicEntry\?\.apply\?\.\(value,\{remember\}\)/);
- assert.match(src,/audio\(\)\?\.select\?\.\('T03',\{play:true,explicit:true\}\)/,'Hauptthema über die zentrale Engine');
+ assert.match(src,/chrome\(\)\.playTheme\(\)/,'Hauptthema über die zentrale Engine');assert.match(read('shared/scene-chrome.js'),/EMFDMusic\?\.setBackgroundPreference\?\.\('on',\{start:true,explicit:true\}\)/);
  const enter=src.slice(src.indexOf('function enterHouse'),src.indexOf('/* ---------- Paneele'));
  assert.match(enter,/setBackgroundPreference\?\.\(pref\.value,\{start:false\}\)/);
  assert.doesNotMatch(enter,/start:true|select\?\.\(/,'kein Autoplay beim Betreten');

@@ -257,8 +257,8 @@
       `<p class="emfd-panel__status" role="status" data-bell-status>${esc(prefText)}</p>`+
       kit().button({label:'Schließen',variant:'secondary',data:{'data-panel-close':''}})+
       `</div>`,d=>{
-        const sync=snapshot=>{const s=d.querySelector('[data-music-state]');if(s)s.textContent=stateText(snapshot||audio()?.snapshot?.(),'T03');};
-        d.querySelector('[data-bell="theme"]').addEventListener('click',()=>{audio()?.select?.('T03',{play:true,explicit:true});root.setTimeout(()=>sync(),60);});
+        const sync=snapshot=>{const s=d.querySelector('[data-music-state]');if(s)s.textContent=stateText(snapshot||audio()?.snapshot?.(),null);};
+        d.querySelector('[data-bell="theme"]').addEventListener('click',()=>{chrome().playTheme();root.setTimeout(()=>sync(),60);});
         const choose=value=>{
           const remember=d.querySelector('[data-bell-remember]').checked;
           root.EMFDMusicEntry?.apply?.(value,{remember});
