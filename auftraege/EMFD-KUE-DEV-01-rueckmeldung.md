@@ -66,3 +66,21 @@ Datum: 20.11.2026 · Ergebnis: teilweise (funktional umgesetzt; visuelle Freigab
 4. **Licht-IDs bestätigen:** Ist die Deckenleuchte in beiden Ansichten dieselbe Quelle? Ist das Arbeitslicht in C02 sichtbar?
 5. **O24:** Untertasse im Referenzbild (Work).
 6. **Hallenhinweis „Die Küche wird gerade eingerichtet“:** Er wird nicht mehr gezeigt und bleibt nur als Rückfall für Räume ohne Ansicht im Code. Er kann nach der Abnahme entfernt werden.
+
+## Nachtrag v0.6.76 · Beleuchtung: Schaltflächen waren auf dem iPhone sichtbar
+- **Befund:** Nach dem Antippen einer Lampe (z. B. der Laterne am Hoffenster in KUE-C01) blieb auf dem iPhone ein dunkelblaues Rechteck mit goldenem Rand stehen. **Ursache:** Safari lässt `:hover` nach dem Antippen haften. Die alte globale Regel `button:hover{background:var(--surface)}` (style.css) ist spezifischer als `.emfd-hotspot` und malte deshalb eine Fläche, dazu kam der Hover-Rahmen. Betroffen waren alle Szenen-Hotspots, auch in Halle und Eingang.
+- **Behebung** (gemeinsame Bibliothek `emfd-ui.css` v0.4.3):
+  - Hotspots haben in Szenen nie Fläche, Rand oder Schatten, auch nicht bei `:hover`, `:active` oder `:focus`.
+  - Einen dünnen Rahmen gibt es nur noch:
+    - bei echter Maus (`hover:hover` und `pointer:fine`)
+    - beim Tastaturfokus
+    - bei einem Hinweis
+    - über Hilfe → „Interaktive Gegenstände anzeigen“
+- **Licht geprüft** (Telefon):
+  - Die Lampen-Hotspots liegen auf den Lampen.
+  - Aus- und Einschalten dunkelt nur die jeweilige Lampe örtlich ab (Platzhalter für die Lichtebenen von Work). Die anderen bleiben unverändert, und es ist kein Rahmen zu sehen.
+- **Tests:**
+  - `npm test`: 386 bestanden, 0 fehlgeschlagen, 1 übersprungen, neu ist der Test „Hotspots bleiben unsichtbar“.
+  - Browser-Protokoll Küche: 69/69.
+  - Halle: unverändert 53 PASS, H00-T23 erwartungsgemäß überholt.
+- **Offen (Planung/Work):** In den Referenzbildern stehen weitere Lichter, die bisher nicht schaltbar sind: die Kerze an der Spüle (C02) und das Windlicht an der Arbeitsplatte (C01). Sollen sie eigene Lichtquellen werden?

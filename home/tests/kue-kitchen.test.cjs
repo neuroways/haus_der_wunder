@@ -118,3 +118,16 @@ test('Ladereihenfolge und Offline-Liste enthalten Radio und Küche',()=>{
  const P=require('../offline-policy.js');const list=P.registerImages(require('../data/registry.js'));
  assert.ok(list.house.some(f=>/KUE-C02-kue-ref/.test(f)));
 });
+
+test('Hotspots bleiben unsichtbar, auch bei haftendem :hover nach Antippen (iOS): keine Fläche, Rahmen nur bei Maus/Fokus/Anzeigen',()=>{
+ const css=read('emfd-ui/css/emfd-ui.css');
+ const guard=css.indexOf('.emfd-scene-view .emfd-hotspot,.emfd-scene-view .emfd-hotspot:hover,.emfd-scene-view .emfd-hotspot:active,.emfd-scene-view .emfd-hotspot:focus{background:transparent;border:0;box-shadow:none');
+ assert.ok(guard>0,'Schutzregel für Hotspots fehlt');
+ // Spezifität (0,3,0)/(0,2,1) schlägt die globale Regel style.css „button:hover{background:…}“ (0,1,1).
+ assert.match(read('style.css'),/button:hover\{background:var\(--surface\)\}/);
+ const after=css.slice(guard);
+ assert.match(after,/@media \(hover:hover\) and \(pointer:fine\)\{\.emfd-scene-view \.emfd-hotspot:hover\{box-shadow/,'Hover-Rahmen nur mit echter Maus');
+ assert.match(after,/\.emfd-scene-view \.emfd-hotspot:focus-visible\{/,'Tastaturfokus bleibt sichtbar');
+ assert.match(after,/\.emfd-scene-view\.show-hotspots \.emfd-hotspot\{box-shadow/,'„Interaktive Gegenstände anzeigen“ wirkt weiter');
+ assert.doesNotMatch(after.replace(/@media[^{]*\{[^}]*\}\}/g,''),/\.emfd-hotspot:hover\{[^}]*box-shadow:inset/,'kein Hover-Rahmen außerhalb der Maus-Abfrage');
+});

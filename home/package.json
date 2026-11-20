@@ -1,6 +1,6 @@
 {
   "name": "emfd-p0-u01",
-  "version": "0.6.75",
+  "version": "0.6.76",
   "private": true,
   "scripts": {
     "dev": "node server.mjs",
