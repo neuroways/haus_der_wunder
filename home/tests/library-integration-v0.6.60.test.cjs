@@ -38,7 +38,7 @@ test('BIB v0.6.60: story reader stays separate and coordinates dialogs',()=>{
 
 test('BIB v0.6.60: protected NOTE-03, TEA and card-book resources remain wired',()=>{
   const html=read('index.html');
-  assert.match(html,/thought-paper\.js\?v=0\.6\.59/);
+  assert.match(html,/thought-paper\.js\?v=0\.6\.(?:59|79|82)/); // v0.6.79/0.6.82: Werkzeuge für das Mäppchen ergänzt, Gedankenblatt unverändert
   assert.match(html,/teezimmer\.js\?v=[\w.-]+"/);
   assert.match(html,/book-v2\.css\?v=0\.6\.57/);
   assert.match(read('app.js'),/const readingKeys=\['impulse','depth','question'\]/);

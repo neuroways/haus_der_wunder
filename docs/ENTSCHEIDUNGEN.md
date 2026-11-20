@@ -36,5 +36,9 @@ Genau zwei Aktionen („Eine Karte aussuchen“, „Tageskarte ziehen“), kein 
 
 Ein Rückweg pro Ansicht, tatsächliche Herkunft, Ersatzziele laut Matrix, App-Rückweg nutzt den Browserverlauf. Details: `auftraege/EMFD-NAV-01.md`, Rückmeldung `auftraege/EMFD-NAV-01-rueckmeldung.md`.
 
+## 20.11.2026 · EMFD-MAEPPCHEN-01 (Mäppchen der Begleiterkarte) · ergänzt W6
+- **Entwürfe im Gedankenbuch werden lokal gespeichert** – je Begleitung, nur auf dem Gerät (`emfd.maeppchen.v1`), bis die Karte zurückgelegt wird; dieselbe Karte erneut mitgenommen = frischer Entwurf. Für das Mäppchen abgelöst: „Gedankenblatt bleibt flüchtig“ (W6) und die Regel „keine dauerhafte Speicherung von Notizen“. Das freie Gedankenblatt (`thought-paper.js`) bleibt flüchtig.
+- **Ziehen bleibt frei:** Es gibt genau eine aktive Begleitung; eine andere Karte mitzunehmen fragt, ob die bisherige zurückgelegt wird (mit freiwilligem Export). Keine Sperre des Ziehens bis zur Rückgabe (abweichend vom Auftragstext, Entscheidung der Nutzerin).
+
 ## 20.11.2026 · EMFD-LIGHT-01 (verbindliche hausweite Lichtsteuerung)
 Alle Räume und Ansichten nutzen die zentrale LightEngine (`shared/lights.js`) und die Lichtebenen der Szenenkomponente. Der Zustand gehört zur physischen Lichtquelle (eine globale Licht-ID) und wird lokal dauerhaft gespeichert. Keine Raum-eigenen Lichtlösungen, kein Ganzbild-Helligkeitsfilter. Standard, Produktionsvorlage, Checkliste und QA: `docs/LICHT-STANDARD.md`.

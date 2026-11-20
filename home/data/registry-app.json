@@ -445,6 +445,355 @@
       "produktion": "DRAFT",
       "freigabe": "test",
       "herkunft": "Übergabe „H00 Direkteintritt und Bildwechsel“ 20.11.2026: von Svenja angehängte Fassung (Nordblick, Küche links mit Radio, Innenhof mittig, Teezimmer rechts), unverändert; angekommen als PNG 1672×941, sha256 0cd60aa4… – nicht die beschriebene JPEG-Fassung D0009185… 1536×864, sha256 496233b6… (fehlt)"
+    },
+    "maeppchen.15": {
+      "datei": "../media/maeppchen/gluehwuermchen/15-hand.png",
+      "breite": 550,
+      "hoehe": 756,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "landepunkt": [
+          0.5,
+          0.58
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/gluehwuermchen/15-hand.png (unverändert, sha256 87cb0098…)"
+    },
+    "maeppchen.16": {
+      "datei": "../media/maeppchen/gluehwuermchen/16-papierkoerper.png",
+      "breite": 323,
+      "hoehe": 442,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "fluegelansatz": [
+          0.5,
+          0.4
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/gluehwuermchen/16-papierkoerper.png (unverändert, sha256 974743db…)"
+    },
+    "maeppchen.17": {
+      "datei": "../media/maeppchen/gluehwuermchen/17-papierfluegel-links.png",
+      "breite": 439,
+      "hoehe": 204,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "fluegelansatz": [
+          0.94,
+          0.48
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/gluehwuermchen/17-papierfluegel-links.png (unverändert, sha256 4f7eb817…)"
+    },
+    "maeppchen.18": {
+      "datei": "../media/maeppchen/gluehwuermchen/18-papierfluegel-rechts.png",
+      "breite": 447,
+      "hoehe": 205,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "fluegelansatz": [
+          0.06,
+          0.48
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/gluehwuermchen/18-papierfluegel-rechts.png (unverändert, sha256 25359dde…)"
+    },
+    "maeppchen.19": {
+      "datei": "../media/maeppchen/gluehwuermchen/19-lebendiger-koerper.png",
+      "breite": 300,
+      "hoehe": 441,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "fluegelansatz": [
+          0.5,
+          0.43
+        ],
+        "leuchtpunkt": [
+          0.5,
+          0.78
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/gluehwuermchen/19-lebendiger-koerper.png (unverändert, sha256 00fdbc18…)"
+    },
+    "maeppchen.20": {
+      "datei": "../media/maeppchen/gluehwuermchen/20-flugfluegel-links.png",
+      "breite": 473,
+      "hoehe": 193,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "fluegelansatz": [
+          0.94,
+          0.5
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/gluehwuermchen/20-flugfluegel-links.png (unverändert, sha256 10554a71…)"
+    },
+    "maeppchen.21": {
+      "datei": "../media/maeppchen/gluehwuermchen/21-flugfluegel-rechts.png",
+      "breite": 475,
+      "hoehe": 194,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "fluegelansatz": [
+          0.06,
+          0.5
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/gluehwuermchen/21-flugfluegel-rechts.png (unverändert, sha256 502fd3a7…)"
+    },
+    "maeppchen.01": {
+      "datei": "../media/maeppchen/maeppchen/01-lederaussenseite.png",
+      "breite": 393,
+      "hoehe": 539,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "falz": [
+          0.04,
+          0.5
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/maeppchen/01-lederaussenseite.png (unverändert, sha256 039b4e20…)"
+    },
+    "maeppchen.01a": {
+      "datei": "../media/maeppchen/maeppchen/01a-lederriemen.png",
+      "breite": 526,
+      "hoehe": 69,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "griff": [
+          0.94,
+          0.5
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/maeppchen/01a-lederriemen.png (unverändert, sha256 c298fe2b…)"
+    },
+    "maeppchen.01b": {
+      "datei": "../media/maeppchen/maeppchen/01b-riemenschlaufe.png",
+      "breite": 147,
+      "hoehe": 302,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "riemenachse": [
+          0.5,
+          0.5
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/maeppchen/01b-riemenschlaufe.png (unverändert, sha256 44095705…)"
+    },
+    "maeppchen.02": {
+      "datei": "../media/maeppchen/maeppchen/02-innenseite-links.png",
+      "breite": 400,
+      "hoehe": 538,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "falz": [
+          0.96,
+          0.5
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/maeppchen/02-innenseite-links.png (unverändert, sha256 550a090a…)"
+    },
+    "maeppchen.03": {
+      "datei": "../media/maeppchen/maeppchen/03-innenseite-rechts.png",
+      "breite": 399,
+      "hoehe": 542,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "falz": [
+          0.04,
+          0.5
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/maeppchen/03-innenseite-rechts.png (unverändert, sha256 afe6455d…)"
+    },
+    "maeppchen.03a": {
+      "datei": "../media/maeppchen/maeppchen/03a-falz.png",
+      "breite": 156,
+      "hoehe": 692,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "falz": [
+          0.5,
+          0.5
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/maeppchen/03a-falz.png (unverändert, sha256 1566c787…)"
+    },
+    "maeppchen.04": {
+      "datei": "../media/maeppchen/maeppchen/04-kartenfach.png",
+      "breite": 371,
+      "hoehe": 188,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {},
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/maeppchen/04-kartenfach.png (unverändert, sha256 cd3f7d16…)"
+    },
+    "maeppchen.05": {
+      "datei": "../media/maeppchen/maeppchen/05-impulsfach.png",
+      "breite": 364,
+      "hoehe": 166,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {},
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/maeppchen/05-impulsfach.png (unverändert, sha256 134074d0…)"
+    },
+    "maeppchen.06": {
+      "datei": "../media/maeppchen/maeppchen/06-fragefach.png",
+      "breite": 371,
+      "hoehe": 166,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {},
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/maeppchen/06-fragefach.png (unverändert, sha256 2f2dd948…)"
+    },
+    "maeppchen.07": {
+      "datei": "../media/maeppchen/maeppchen/07-leinenband.png",
+      "breite": 383,
+      "hoehe": 100,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {},
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/maeppchen/07-leinenband.png (unverändert, sha256 05b54597…)"
+    },
+    "maeppchen.08": {
+      "datei": "../media/maeppchen/maeppchen/08-papierlasche.png",
+      "breite": 262,
+      "hoehe": 193,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "ablagepunkt": [
+          0.5,
+          0.55
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/maeppchen/08-papierlasche.png (unverändert, sha256 3878f15e…)"
+    },
+    "maeppchen.09": {
+      "datei": "../media/maeppchen/papier/09-impulskaertchen.png",
+      "breite": 268,
+      "hoehe": 368,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {},
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/papier/09-impulskaertchen.png (unverändert, sha256 f1500a7b…)"
+    },
+    "maeppchen.10": {
+      "datei": "../media/maeppchen/papier/10-fragekaertchen.png",
+      "breite": 268,
+      "hoehe": 361,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {},
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/papier/10-fragekaertchen.png (unverändert, sha256 398563d3…)"
+    },
+    "maeppchen.11": {
+      "datei": "../media/maeppchen/papier/11-gedankenbuch-einband.png",
+      "breite": 271,
+      "hoehe": 358,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {},
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/papier/11-gedankenbuch-einband.png (unverändert, sha256 db39d00e…)"
+    },
+    "maeppchen.12": {
+      "datei": "../media/maeppchen/papier/12-geschichtenheft-umschlag.png",
+      "breite": 301,
+      "hoehe": 375,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {},
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/papier/12-geschichtenheft-umschlag.png (unverändert, sha256 1be37073…)"
+    },
+    "maeppchen.13": {
+      "datei": "../media/maeppchen/papier/13-buch-aufgeschlagen.png",
+      "breite": 644,
+      "hoehe": 511,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "seitenfalz": [
+          0.5,
+          0.5
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/papier/13-buch-aufgeschlagen.png (unverändert, sha256 293f1283…)"
+    },
+    "maeppchen.14": {
+      "datei": "../media/maeppchen/papier/14-papierblatt.png",
+      "breite": 392,
+      "hoehe": 562,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "seitenfalz": [
+          0.02,
+          0.5
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/papier/14-papierblatt.png (unverändert, sha256 d2039d05…)"
+    },
+    "maeppchen.00": {
+      "datei": "../media/maeppchen/szene/00-holztisch.png",
+      "breite": 1086,
+      "hoehe": 1448,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {},
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/szene/00-holztisch.png (unverändert, sha256 93b18981…)"
+    },
+    "maeppchen.22": {
+      "datei": "../media/maeppchen/szene/22-nachthimmel.png",
+      "breite": 1024,
+      "hoehe": 1536,
+      "art": "maeppchen",
+      "produktion": "DRAFT",
+      "freigabe": "test",
+      "anker": {
+        "cover-mitte": [
+          0.5,
+          0.32
+        ]
+      },
+      "herkunft": "EMFD-Maeppchen-Medien v0.1 media/szene/22-nachthimmel.png (unverändert, sha256 013247ce…)"
     }
   },
   "szenen": {
