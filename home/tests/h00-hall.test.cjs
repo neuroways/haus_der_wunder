@@ -34,7 +34,7 @@ test('Hallenhinweise: Begrüßung, Musik, Dein Moment – jeder genau einmal, Wo
  assert.match(src,/if\(!keep&&ORDER\.includes\(id\)\)\{state\.hints\[id\]=true;save\(\);\}/,'gezeigt = gesehen (kein erneutes Willkommen bei Wiederkehr)');
  const reset=src.slice(src.indexOf('function resetHints'),src.indexOf('/* ---------- Aktionen'));
  assert.doesNotMatch(reset,/farewell|localStorage\.removeItem|emfd\.(?!hall)/,'Reset nur der Hallenhinweise');
- assert.deepEqual(hall.normalize({hints:'x'}),{hints:{welcome:false,music:false,moment:false},farewellSeen:false});
+ assert.deepEqual(hall.normalize({hints:'x'}),{hints:{welcome:false,music:false,moment:false},farewellSeen:false,skipHints:false});
 });
 
 test('Türen: Ziele aus dem Register; Küche ohne Ansicht erklärt; Haustür mit einmaligem Abschied nach EXT-C02',()=>{
@@ -116,4 +116,22 @@ test('Fix v0.6.74: „Platte verloren“-Hinweis erscheint in Szenen nicht dauer
  assert.match(player,/contains\?\.\('scene-mode'\)\)\|\|feedbackDismissed===feedbackKey\(s\)/);
  assert.match(player,/feedbackClose\.onclick=\(\)=>\{feedback\.hidden=true;feedbackDismissed=feedbackKey\(session\);\};/);
  assert.doesNotMatch(css,/\.music-feedback\{[^}]*pointer-events:none/,'Knöpfe des Hinweises bleiben bedienbar');
+});
+
+test('H00 Direkteintritt: Eintrittsmodus aus Aktion und bisherigem Tutorialzustand; Hallenhinweise zentral unterdrückt, ausdrücklich über die Hilfe abrufbar',()=>{
+ const entrance=require('../entrance.js');
+ assert.equal(entrance.entryModeFor('hint',{hintId:'welcome',tutorialActive:false}),'direct','Willkommen → Haus betreten');
+ assert.equal(entrance.entryModeFor('door',{tutorialActive:false}),'direct','Tür ohne laufende Einführung');
+ assert.equal(entrance.entryModeFor('door',{tutorialActive:true}),'guided','Tür während der Einführung');
+ assert.equal(entrance.entryModeFor('hint',{hintId:'enter',tutorialActive:true}),'guided','Einführungs-Hinweis „Haus betreten“');
+ const src=read('entrance.js');
+ assert.match(src,/const mode=entryMode\('door'\);markSeen\('enter'\);enterHouse\(ziel,\{mode\}\)/,'Modus vor der Zustandsänderung');
+ assert.match(src,/if\(mode\)root\.EMFDHall\?\.setEntryMode\?\.\(mode\);\n    state\.entered=true/,'vor dem Routenwechsel weitergegeben');
+ assert.doesNotMatch(src.slice(src.indexOf('function entryModeFor'),src.indexOf('function enterHouse')),/preference|LEGACY|flag\(/,'weder Musikpräferenz noch alte Flags');
+ const hall=require('../hall.js');
+ assert.equal(hall.normalize({skipHints:true}).skipHints,true);
+ const hs=read('hall.js');
+ assert.match(hs,/function showNext\(\)\{\n    if\(state\.skipHints&&!explicitHints\)return;/,'zentrale Unterdrückung aller automatischen Aufrufe');
+ assert.match(hs,/function resetHints\(\)\{[^\n]*explicitHints=true/,'Hilfe öffnet die Hinweise ausdrücklich');
+ assert.equal((hs.match(/showNext\(\)/g)||[]).length>=4,true);
 });

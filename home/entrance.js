@@ -163,7 +163,7 @@
       case 'start':startTutorial();break;
       case 'resume':currentHint=null;refreshHint();break;
       case 'end':endTutorial();break;
-      case 'enter':enterHouse();break;
+      case 'enter':enterHouse(undefined,{mode:entryMode('hint',id)});break;
       case 'turn':currentHint=null;scene.turn(scene.wide?'right':scene.segment==='L'?'left':scene.segment==='R'?'right':'right');break;
       case 'bridge':openObject('O15',{focus:'music'});break;
       case 'gate':openCard('O09');break;
@@ -212,7 +212,7 @@
     if(hotspot.typ==='LIGHT'&&ziel.licht){toggleLight(ziel.licht);if(hotspot.id===HOTSPOT.light)markSeen('light');}
     else if(hotspot.typ==='LETTER'){markSeen('letter');openLetter();}
     else if(hotspot.typ==='MUSIC_DEVICE'){markSeen('music');openBell();}
-    else if(hotspot.typ==='NAVIGATION'){markSeen('enter');enterHouse(ziel);}
+    else if(hotspot.typ==='NAVIGATION'){const mode=entryMode('door');markSeen('enter');enterHouse(ziel,{mode});}
     else if(hotspot.typ==='ORACLE_OBJECT'&&ziel.objekt){markSeen(ziel.objekt==='O15'?'bridge':ziel.objekt==='O09'?'gate':'');openObject(ziel.objekt,{focus:ziel.angebot});}
     if(currentHint&&currentHint!=='welcome'&&currentHint!=='resume'){currentHint=null;refreshHint();}
   }
@@ -221,7 +221,17 @@
   function openHelp(){if(root.EMFDSceneChrome)root.EMFDSceneChrome.openHelp();else document.querySelector('#help-open')?.click();}
   function openCard(id){location.hash=`karte/${id}`;}
   /** Haustür: führt ins Haus. Ziel aus der Szenenkonfiguration (H00-C01); bis die Halle integriert ist, der Flur. */
-  function enterHouse(ziel={szene:'H00-C01'}){
+  /** Eintrittsmodus (rein, vor jeder Zustandsänderung bestimmt): „Haus betreten“ aus der Willkommenskarte oder die Tür
+   *  außerhalb einer laufenden Einführung = 'direct' (Halle ohne automatische Hinweise); innerhalb der Einführung = 'guided'.
+   *  Weder Musikpräferenz noch alte Tutorial-Flags entscheiden darüber. */
+  function entryModeFor(source,{tutorialActive=false,hintId=null}={}){
+    if(source==='hint')return hintId==='welcome'||!tutorialActive?'direct':'guided';
+    return tutorialActive?'guided':'direct';
+  }
+  function entryMode(source,hintId=null){return entryModeFor(source,{tutorialActive:state.tutorial.active,hintId});}
+  function enterHouse(ziel={szene:'H00-C01'},{mode=null}={}){
+    // Eintrittsmodus vor dem Routenwechsel an die Halle geben (dort gespeichert: emfd.hall.v1 skipHints).
+    if(mode)root.EMFDHall?.setEntryMode?.(mode);
     state.entered=true;state.welcomeDismissed=true;
     if(state.tutorial.active){state.tutorial.active=false;setFlag(LEGACY.tutorial);setFlag(LEGACY.intro);}
     save();
@@ -275,7 +285,7 @@
 
   root.addEventListener?.('hashchange',()=>{chrome()?.closePanel?.();if(!/^#(?:raum\/EXT|ankommen)/.test(location.hash))leave();});
   root.addEventListener?.('emfd:light-change',event=>scene?.setLight(event.detail.id,event.detail.on));
-  const api=Object.freeze({version:1,key:KEY,render,leave,startTutorial,restartTutorial,endTutorial,enterHouse,openBell,openObject,
+  const api=Object.freeze({version:1,key:KEY,render,leave,startTutorial,restartTutorial,endTutorial,enterHouse,entryModeFor,openBell,openObject,
     isReturning:()=>returning(),state:()=>JSON.parse(JSON.stringify(state)),currentHint:()=>currentHint,scene:()=>scene,
     nextHint,normalize,isReturningFor:isReturning,HOTSPOT});
   if(typeof module!=='undefined'&&module.exports)module.exports=api;

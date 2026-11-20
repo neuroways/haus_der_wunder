@@ -5,13 +5,16 @@
  *  - Türen und Durchgänge führen in die Zielräume (Register-Ziel; bisherige Ansicht, bis der Raum als Szene integriert ist).
  *    Küche ohne Ansicht: Erklärung statt Sackgasse. Haustür: beim ersten Mal der bestätigte Abschiedstext, dann direkt hinaus.
  *  - O08 „Die Laterne“: Licht ein/aus und „Die Laterne entdecken“ (vorhandene Karte). Andere Lampen: direkt schaltbar.
- * Speicher: emfd.hall.v1 {hints:{welcome,music,moment}, farewellSeen} – nur Hallenhinweise, nichts anderes. */
+ * Speicher: emfd.hall.v1 {hints:{welcome,music,moment}, farewellSeen, skipHints} – nur Hallenhinweise, nichts anderes.
+ *  - skipHints (H00-Direkteintritt): Nach „Haus betreten“ bzw. der Tür ohne laufende Einführung erscheinen die drei automatischen
+ *    Hallenhinweise nicht – auch nach Umdrehen, Raumwechsel, Rückkehr und Reload. Hilfe → „Hinweise der Halle erneut zeigen“
+ *    öffnet sie trotzdem (eigener, ausdrücklicher Aufrufpfad). Ein Eintritt aus der Einführung hebt das Überspringen auf. */
 (function(root){
   'use strict';
   const KEY='emfd.hall.v1';
   const ORDER=Object.freeze(['welcome','music','moment']);
   const storage=(()=>{try{return root.localStorage||null;}catch{return null;}})();
-  function normalize(v){const h=v&&typeof v==='object'&&v.hints&&typeof v.hints==='object'?v.hints:{};return {hints:{welcome:Boolean(h.welcome),music:Boolean(h.music),moment:Boolean(h.moment)},farewellSeen:Boolean(v&&v.farewellSeen)};}
+  function normalize(v){const h=v&&typeof v==='object'&&v.hints&&typeof v.hints==='object'?v.hints:{};return {hints:{welcome:Boolean(h.welcome),music:Boolean(h.music),moment:Boolean(h.moment)},farewellSeen:Boolean(v&&v.farewellSeen),skipHints:Boolean(v&&v.skipHints)};}
   function load(){try{return normalize(JSON.parse(storage?.getItem(KEY)||'null'));}catch{return normalize(null);}}
   let state=load();
   function save(){try{storage?.setItem(KEY,JSON.stringify(state));}catch{}}
@@ -21,7 +24,7 @@
   const kit=()=>root.EMFDUIKit,reg=()=>root.EMFDRegistry,chrome=()=>root.EMFDSceneChrome;
   const esc=value=>kit()?.escape(value)??String(value);
   const texts=()=>Object.fromEntries((reg()?.hall?.()?.hinweise||[]).map(h=>[h.id,h]));
-  let scene=null,currentHint=null;
+  let scene=null,currentHint=null,explicitHints=false;
 
   function render(main,{sceneId='H00-C01'}={}){
     scene?.destroy?.();
@@ -70,9 +73,16 @@
     }));
   }
   function closeHint(id){showHint(null);if(ORDER.includes(id)||id==='kitchen'||id==='farewell')showNext();}
-  function showNext(){const id=nextHint(state.hints);if(id)showHint(id);}
+  /** Automatischer Hinweisaufruf (Eintritt, nach dem Schließen eines Hinweises oder Dialogs). Zentral unterdrückt bei Direkteintritt,
+   *  außer der Mensch hat die Hinweise ausdrücklich über die Hilfe angefordert. */
+  function showNext(){
+    if(state.skipHints&&!explicitHints)return;
+    const id=nextHint(state.hints);if(id)showHint(id);else explicitHints=false;
+  }
+  /** Eintrittsmodus vom Eingang: 'direct' überspringt die Hallenhinweise dauerhaft, 'guided' (aus der Einführung) zeigt sie. */
+  function setEntryMode(mode){state.skipHints=mode==='direct';save();}
   /** Hilfe: nur die Hallenhinweise (nicht Abschied, Tutorial, Geschenk, Licht, Musik) zurücksetzen und erneut zeigen. */
-  function resetHints(){state.hints={welcome:false,music:false,moment:false};save();if(scene){showHint(null);showNext();}}
+  function resetHints(){state.hints={welcome:false,music:false,moment:false};save();explicitHints=true;if(scene){showHint(null);showNext();}}
 
   /* ---------- Aktionen ---------- */
   function act(hotspot){
@@ -113,7 +123,7 @@
 
   root.addEventListener?.('hashchange',()=>{if(!root.EMFDRegistry?.roomForRoute?.(location.hash)||root.EMFDRegistry.roomForRoute(location.hash).id!=='H00'){chrome()?.closePanel?.();leave();}});
   root.addEventListener?.('emfd:light-change',event=>scene?.setLight(event.detail.id,event.detail.on));
-  const api=Object.freeze({version:1,key:KEY,render,leave,resetHints,nextHint,normalize,state:()=>JSON.parse(JSON.stringify(state)),currentHint:()=>currentHint,scene:()=>scene});
+  const api=Object.freeze({version:1,key:KEY,render,leave,resetHints,setEntryMode,nextHint,normalize,state:()=>JSON.parse(JSON.stringify(state)),currentHint:()=>currentHint,scene:()=>scene});
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
   root.EMFDHall=api;
 })(globalThis);
