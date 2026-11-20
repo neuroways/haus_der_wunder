@@ -1,5 +1,5 @@
 # EMFD-Rückmeldung · EMFD-P03-DEV-01 · Wintergarten integrieren
-Datum: 20.11.2026 · Ergebnis: umgesetzt (Architekturabweichungen dokumentiert, siehe unten) · Commit: COMMIT auf `claude/p03-01` · App v0.6.85 (Testversion, Grundlage `claude/p08-01` v0.6.84)
+Datum: 20.11.2026 · Ergebnis: umgesetzt (Architekturabweichungen dokumentiert, siehe unten) · Commit: ca96cce auf `claude/p03-01` · App v0.6.85 (Testversion, Grundlage `claude/p08-01` v0.6.84)
 
 ## Was sich für die Person ändert
 - **Der Wintergarten ist ein begehbares Bild:**
