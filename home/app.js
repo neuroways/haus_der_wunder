@@ -182,7 +182,7 @@ function render(){
   const sceneRoute=window.EMFDRegistry?.isSceneRoute?.(location.hash);
   if(!sceneRoute&&(location.hash||'#ankommen')==='#ankommen'&&window.EMFDEntrance?.isReturning()){if(window.EMFDNavigation?.replace?.('#flur')&&location.hash==='#flur')render();else location.replace('#flur');return;}
   if(!sceneRoute&&/^#(?:raum|geraet)\//.test(location.hash)){location.replace('#flur');return;}
-  if(!sceneRoute&&location.hash!==''&&location.hash!=='#ankommen')window.EMFDEntrance?.leave?.();
+  if(!sceneRoute&&location.hash!==''&&location.hash!=='#ankommen'){window.EMFDEntrance?.leave?.();window.EMFDHall?.leave?.();}
   window.EMFDStations?.leaveAll();
   cardSizer?.disconnect();window.EMFDHandy?.stop();
   const settingsHost=document.querySelector('#motion-settings');
@@ -200,7 +200,12 @@ function render(){
   document.body.classList.toggle('immersive-room-view',!device&&(route==='atelier'||route==='teezimmer'||route==='musik'||route.startsWith('atelier/tisch/')||route.startsWith('ort/')));
   document.body.classList.toggle('device-view',Boolean(device));
   document.body.classList.toggle('catalog-view',route==='karten'||route==='raeume'||route==='musik/playlist'||route.startsWith('musik/geschichten'));
-  if(sceneRoute||(route==='ankommen'&&window.EMFDEntrance)){const r=window.EMFDRegistry?.resolveRoute?.('#'+route);window.EMFDEntrance.render(main,{sceneId:r?.sceneId||'EXT-C01',arrival:route==='ankommen'});document.title=`${route==='ankommen'?'Ankommen':'Eingang'} · Haus der kleinen Wunder`;window.EMFDNavigation?.ready?.();return;}
+  if(sceneRoute||(route==='ankommen'&&window.EMFDEntrance)){
+    // EMFD-BOOK-01d/01e: Bilderbuch-Szenen. Eingang (EXT) → entrance.js, Halle (H00, auch #flur/#haus) → hall.js.
+    const r=window.EMFDRegistry?.resolveRoute?.('#'+route);
+    if(r?.roomId==='H00'&&window.EMFDHall){window.EMFDEntrance?.leave?.();window.EMFDHall.render(main,{sceneId:r.sceneId||'H00-C01'});document.title='Die Halle · Haus der kleinen Wunder';}
+    else{window.EMFDHall?.leave?.();window.EMFDEntrance.render(main,{sceneId:r?.sceneId||'EXT-C01',arrival:route==='ankommen'});document.title=`${route==='ankommen'?'Ankommen':'Eingang'} · Haus der kleinen Wunder`;}
+    window.EMFDNavigation?.ready?.();return;}
   if(device)window.EMFDStations.render('device',main,{deviceId:device.id});
   else if(route==='karten'&&window.EMFDAtelier)window.EMFDAtelier.renderGrid(main);
   else if(route==='karten')room();
@@ -246,4 +251,4 @@ document.addEventListener('click',e=>{const link=e.target.closest?.('a[href="#fl
 document.querySelector('#quiet').onclick=e=>{quiet=!quiet;document.body.classList.toggle('quiet',quiet);e.currentTarget.setAttribute('aria-pressed',quiet);e.currentTarget.textContent=quiet?'Ruhige Ansicht an':'Ruhige Ansicht';motionState();};
 window.addEventListener('hashchange',render);render();
 function fitActiveCard(){const slot=main.querySelector('.card-slot'),card=slot?.querySelector('.held-card');if(!slot||!card)return;const c=CARDS.find(c=>location.hash.endsWith('/'+c.id));const ratio=(c?.imageWidth||630)/(c?.imageHeight||1080);const fit=()=>{const width=Math.max(1,Math.min(slot.clientWidth-12,Math.max(1,slot.clientHeight-40)*ratio));card.style.width=width+'px';card.style.height=(width/ratio)+'px';};fit();cardSizer=new ResizeObserver(fit);cardSizer.observe(slot);}
-const startGateScript=document.createElement('script');startGateScript.src='start-gate.js?v=0.6.72';document.head.append(startGateScript);
+const startGateScript=document.createElement('script');startGateScript.src='start-gate.js?v=0.6.74';document.head.append(startGateScript);

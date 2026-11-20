@@ -92,7 +92,8 @@ test('Szenen, Hotspots und Medien kommen aus dem Register; Platzhalter statt erf
  assert.equal(c01.hotspots.find(h=>h.typ==='MUSIC_DEVICE').ziel.geraet,'MP-EXT');
  // Die Tür führt über die Szenenkonfiguration zu H00-C01; bis die Halle integriert ist, in den Flur.
  assert.equal(c01.hotspots.find(h=>h.id==='EXT-C01-TUER').ziel.szene,'H00-C01');
- assert.equal(registry.redirect('#raum/H00/C01'),'#flur');
+ // Seit EMFD-H00 ist die Halle selbst eine Szene: die Tür führt direkt nach #raum/H00/C01 (Konfiguration, kein Code).
+ assert.equal(registry.isSceneRoute('#raum/H00/C01'),true);
  const media=registry.sceneMedia('EXT-C01');
  assert.equal(media.type,'file');assert.match(media.src,/^\.\.\/media\/rooms\/szenen\/EXT-C01-tut02-ref-[0-9a-f]{8}\.jpeg$/);
  assert.ok(fs.existsSync(path.resolve(home,media.src)));
@@ -107,7 +108,7 @@ test('Neue Adressen #raum/EXT/C01 und /C02 sind Szenenansichten; alte Routen ble
  assert.equal(nav.place('#raum/EXT/C02'),'EXT');assert.equal(nav.describe('#raum/EXT/C01')[1],'Zurück zum Eingang');
  assert.equal(nav.viewKey('#raum/EXT/C02'),nav.viewKey('#raum/EXT/C01'),'Umdrehen bleibt eine Ansicht (ein Rückweg)');
  for(const route of ['#flur','#haus','#raeume','#ort/P05','#atelier','#teezimmer','#musik','#karte/O09','#ankommen'])assert.equal(nav.route(route),route);
- assert.equal(registry.isSceneRoute('#flur'),false);
+ assert.equal(registry.isSceneRoute('#ort/P05'),false);
 });
 
 test('Szenenkomponente: Drehrichtung L→R, R→L, M→M; Ausschnitt aus der Scrollposition',()=>{
@@ -163,7 +164,7 @@ test('Alte Starttour läuft nicht mehr automatisch; Hilfe-Einstiege und Geschenk
 test('Musik: Glocke nutzt die bestehende Musikentscheidung; Eintritt startet nichts',()=>{
  const src=read('entrance.js');
  assert.match(src,/EMFDMusicEntry\?\.apply\?\.\(value,\{remember\}\)/);
- assert.match(src,/audio\(\)\?\.select\?\.\('T03',\{play:true,explicit:true\}\)/,'Hauptthema über die zentrale Engine');
+ assert.match(src,/chrome\(\)\.playTheme\(\)/,'Hauptthema über die zentrale Engine');assert.match(read('shared/scene-chrome.js'),/EMFDMusic\?\.setBackgroundPreference\?\.\('on',\{start:true,explicit:true\}\)/);
  const enter=src.slice(src.indexOf('function enterHouse'),src.indexOf('/* ---------- Paneele'));
  assert.match(enter,/setBackgroundPreference\?\.\(pref\.value,\{start:false\}\)/);
  assert.doesNotMatch(enter,/start:true|select\?\.\(/,'kein Autoplay beim Betreten');

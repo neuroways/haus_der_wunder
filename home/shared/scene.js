@@ -69,7 +69,8 @@
       el.dataset.scene=scene.id;
       el.innerHTML=`<h1 class="sr-only" data-scene-title>${ui.escape(title())}</h1>`+
         `<div class="emfd-scene-view__viewport" data-scene-viewport tabindex="0" role="group" aria-roledescription="Bild" aria-label="${ui.escape(stage.alt)}. Wische oder nutze die Pfeile, um dich umzusehen.">${stage.html}</div>`+
-        `<div class="emfd-scene-bar" data-scene-bar><span data-scene-bar-extra></span>${ui.iconButton({label:'Alles in dieser Ansicht',iconName:'list',data:{'data-scene-list':'','aria-expanded':'false','aria-controls':'emfd-scene-actions'}})}</div>`+
+        // Kopfzeile (H00 v0.3): Musik links, Raumlabel mittig, Hilfe rechts – gefüllt von shared/scene-chrome.js.
+        `<div class="emfd-scene-bar" data-scene-bar><span class="emfd-scene-bar__start" data-scene-bar-left></span><p class="emfd-scene-label" data-scene-label></p><span class="emfd-scene-bar__end" data-scene-bar-extra></span></div>`+
         `${ui.iconButton({label:'Nach links schauen',iconName:'chevron-left',className:'emfd-pan emfd-pan--left',data:{'data-scene-pan':'-1'}})}`+
         `${ui.iconButton({label:'Nach rechts schauen',iconName:'chevron-right',className:'emfd-pan emfd-pan--right',data:{'data-scene-pan':'1'}})}`+
         (opposite?ui.turnButton({side:'left',label:turnLabel})+ui.turnButton({side:'right',label:turnLabel}):'')+
@@ -152,17 +153,21 @@
       el.querySelectorAll('[data-scene-turn]').forEach(b=>b.addEventListener('click',()=>turn(b.dataset.sceneTurn)));
       el.querySelectorAll('[data-scene-pan]').forEach(b=>b.addEventListener('click',()=>{const i=SEGMENTS.indexOf(segment)+Number(b.dataset.scenePan);setSegment(SEGMENTS[Math.max(0,Math.min(2,i))]);}));
       el.querySelectorAll('[data-scene-segment]').forEach(b=>b.addEventListener('click',()=>setSegment(SEGMENTS[Number(b.dataset.sceneSegment)])));
-      el.querySelector('[data-scene-list]')?.addEventListener('click',()=>toggleList());
       const v=viewport();let t=null;
       v?.addEventListener('scroll',()=>{root.clearTimeout(t);t=root.setTimeout(onScroll,80);},{passive:true});
-      el.addEventListener('keydown',event=>{if(event.key==='Escape'&&listOpen){toggleList(false);el.querySelector('[data-scene-list]')?.focus();}});
+      el.addEventListener('keydown',event=>{if(event.key==='Escape'&&listOpen){toggleList(false);listOpener?.focus?.();}});
     }
+    let listOpener=null;
+    /** Aktionsliste „Alles in dieser Ansicht“ (aufgerufen aus der Hilfe; Escape schließt, Fokus zurück). */
     function toggleList(force){
       listOpen=typeof force==='boolean'?force:!listOpen;
-      const list=el.querySelector('[data-scene-actions]'),btn=el.querySelector('[data-scene-list]');
-      if(list)list.hidden=!listOpen;btn?.setAttribute('aria-expanded',String(listOpen));
+      const list=el.querySelector('[data-scene-actions]');
+      if(listOpen)listOpener=document.activeElement;
+      if(list)list.hidden=!listOpen;
       if(listOpen)list?.querySelector('button')?.focus();
     }
+    /** „Interaktive Gegenstände anzeigen“: alle Hotspots dezent umranden (bis zum erneuten Umschalten). */
+    function showHotspots(on){el.classList.toggle('show-hotspots',Boolean(on));return el.classList.contains('show-hotspots');}
     function setLight(id,on){
       el.querySelectorAll(`[data-light="${CSS.escape(id)}"]`).forEach(o=>o.classList.toggle('is-off',!on));
       (scene.hotspots||[]).filter(h=>h.ziel?.licht===id).forEach(h=>{const b=el.querySelector(`[data-hotspot="${CSS.escape(h.id)}"]`);if(b){b.setAttribute('aria-pressed',String(on));b.setAttribute('aria-label',`${h.label} – ${on?'an':'aus'}`);b.querySelector('.emfd-hotspot__label').textContent=`${h.label} – ${on?'an':'aus'}`;}});
@@ -179,8 +184,9 @@
     const resize=()=>layout();
     root.addEventListener('resize',resize);
     const api={el,get sceneId(){return scene.id;},get scene(){return scene;},get segment(){return segment;},get wide(){return el.classList.contains('is-wide');},
-      setSegment,turn,hotspot,visibility,mark,setLight,layout,toggleList,
+      setSegment,turn,hotspot,visibility,mark,setLight,layout,toggleList,showHotspots,listOpen:()=>listOpen,
       hintHost:()=>el.querySelector('[data-scene-hint]'),barHost:()=>el.querySelector('[data-scene-bar-extra]'),
+      leftHost:()=>el.querySelector('[data-scene-bar-left]'),labelHost:()=>el.querySelector('[data-scene-label]'),
       destroy(){destroyed=true;root.removeEventListener('resize',resize);}};
     render();
     remember(scene.id,segment);

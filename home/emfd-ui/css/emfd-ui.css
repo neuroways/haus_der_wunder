@@ -113,3 +113,32 @@
 .emfd-scene-view.is-wide .emfd-hint--bottom-end{inset-inline-end:calc(16px + 9rem)}
 dialog.emfd-panel{position:fixed;inset:0;margin:auto;block-size:fit-content;max-block-size:calc(100dvh - 24px);overflow:auto}
 @media (max-height:500px){.emfd-hint{inline-size:min(21rem,46%);max-block-size:calc(100% - 24px);padding:10px 12px 8px}.emfd-hint__title{font-size:1rem;margin-block-end:2px}.emfd-hint__text{font-size:.9rem;margin-block-end:6px}.emfd-hint__actions .emfd-button--compact{min-block-size:44px;padding-block:6px}}
+/* v0.4.1 (EMFD-H00): Kopfzeile Musik · Raumlabel · Hilfe, „Dein Moment“, Lautstärke. */
+.emfd-scene-bar{justify-content:space-between;align-items:center}
+.emfd-scene-bar__start,.emfd-scene-bar__end{display:flex;gap:8px;align-items:center;min-inline-size:48px}
+.emfd-scene-label{margin:0;padding:4px 14px;border-radius:999px;background:rgba(6,23,37,.62);color:var(--emfd-ui-gold-light);font:1rem/1.3 var(--emfd-font-story,Georgia,serif);letter-spacing:.02em;pointer-events:none;max-inline-size:40vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.emfd-scene-label:empty{visibility:hidden}
+.emfd-moment{position:absolute;z-index:6;inset-block-end:max(10px,env(safe-area-inset-bottom));inset-inline-start:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--emfd-font-ui,system-ui,sans-serif)}
+.emfd-moment__toggle{display:inline-flex;align-items:center;gap:6px;min-block-size:var(--emfd-ui-touch);padding:8px 18px;border:1.5px solid var(--emfd-ui-line);border-radius:999px;background:var(--emfd-ui-panel);color:var(--emfd-ui-ivory);font:600 1rem var(--emfd-font-ui,system-ui,sans-serif);cursor:pointer;box-shadow:var(--emfd-ui-shadow)}
+.emfd-moment__toggle svg{inline-size:18px;block-size:18px;transform:rotate(-90deg);transition:transform .2s}
+.emfd-moment__toggle[aria-expanded=true] svg{transform:rotate(90deg)}
+.emfd-moment__toggle:hover{border-color:var(--emfd-ui-gold)}
+.emfd-moment__toggle:focus-visible,.emfd-moment__item:focus-visible{outline:3px solid var(--emfd-ui-focus);outline-offset:3px}
+.emfd-moment--quiet .emfd-moment__toggle{opacity:.72;box-shadow:none;font-weight:500}
+.emfd-moment__menu{order:-1;inline-size:min(34rem,calc(100vw - 24px));padding:12px 12px 8px;border:1px solid var(--emfd-ui-line);border-radius:var(--emfd-ui-radius);background:var(--emfd-ui-panel);box-shadow:var(--emfd-ui-shadow);color:var(--emfd-ui-ivory)}
+.emfd-moment__menu[hidden]{display:none}
+.emfd-moment__head{display:flex;justify-content:space-between;align-items:center;margin-block-end:6px}
+.emfd-moment__head h2{margin:0;font:1.1rem var(--emfd-font-story,Georgia,serif);color:var(--emfd-ui-gold-light)}
+.emfd-moment__list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+@media (min-width:700px){.emfd-moment__list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.emfd-moment__item{inline-size:100%;display:flex;align-items:center;gap:10px;min-block-size:var(--emfd-ui-touch);padding:8px 12px;border:1px solid rgba(216,166,93,.35);border-radius:12px;background:rgba(16,43,64,.7);color:var(--emfd-ui-ivory);font:1rem var(--emfd-font-ui,system-ui,sans-serif);text-align:start;cursor:pointer}
+.emfd-moment__item svg{inline-size:22px;block-size:22px;color:var(--emfd-ui-gold-light);flex:none}
+.emfd-moment__item:hover{border-color:var(--emfd-ui-gold)}
+.emfd-moment__note{margin:8px 4px 0;font-size:.92rem;color:var(--emfd-ui-teal-light)}
+.emfd-moment__help{margin:4px 0 0;text-align:end}
+.emfd-range{display:flex;align-items:center;gap:10px;min-block-size:var(--emfd-ui-touch)}
+.emfd-range input{flex:1;accent-color:var(--emfd-ui-gold)}
+.emfd-scene-view.show-hotspots .emfd-hotspot{box-shadow:inset 0 0 0 2px rgba(247,209,138,.7);outline:1px dashed rgba(247,209,138,.5);outline-offset:3px}
+.emfd-scene-view .emfd-scene-bar [data-chrome-music].is-hinted,.emfd-moment__toggle.is-hinted{outline:2px dashed #f7d18a;outline-offset:4px}
+.emfd-moment__item span{hyphens:auto;overflow-wrap:break-word;min-inline-size:0}
+.emfd-scene-view.moment-open .emfd-dots,.emfd-scene-view.moment-open .emfd-pan,.emfd-scene-view.moment-open .emfd-turn{visibility:hidden}

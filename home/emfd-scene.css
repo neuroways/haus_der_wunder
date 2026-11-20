@@ -66,8 +66,15 @@ figure.emfd-scene-view__image svg{inline-size:100%;block-size:100%}
 /* Vollbild für Szenen: überschreibt die Inhaltsbreite der Shell (nur im Szenenmodus). */
 body.emfd-shell.scene-mode>main.emfd-shell__content{inline-size:100%!important;max-inline-size:none!important;margin:0!important;padding:0!important}
 /* Positionspunkte unten; Hinweise sitzen darüber, damit beide sichtbar bleiben. */
-.emfd-scene-view .emfd-hint--bottom{inset-block-end:calc(52px + env(safe-area-inset-bottom))}
-.emfd-scene-view.is-wide .emfd-hint--bottom{inset-block-end:max(14px,env(safe-area-inset-bottom))}
+/* Unten: „Dein Moment“ (mittig), darüber die Positionspunkte, darüber Hinweise – alles bleibt sichtbar. */
+.emfd-scene-view .emfd-dots{inset-block-end:calc(64px + env(safe-area-inset-bottom))}
+.emfd-scene-view .emfd-hint--bottom{inset-block-end:calc(114px + env(safe-area-inset-bottom))}
+.emfd-scene-view.is-wide .emfd-hint--bottom{inset-block-end:calc(72px + env(safe-area-inset-bottom))}
+.emfd-scene-view.moment-open .emfd-hint{display:none}
 .emfd-scene-view .emfd-scene-bar [data-scene-help].is-hinted{outline:2px dashed #f7d18a;outline-offset:4px}
 /* Musikmeldungen (z. B. „Platte verloren“) dürfen Hinweise und Bedienelemente der Szene nicht verdecken. */
-body.scene-mode .music-feedback{inset-block-end:auto;inset-block-start:calc(64px + env(safe-area-inset-top));pointer-events:none}
+body.scene-mode .music-feedback{inset-block-end:auto;inset-block-start:calc(64px + env(safe-area-inset-top))}
+/* Hinweise oben beginnen unter der Kopfzeile (Musik · Label · Hilfe), damit beide bedienbar bleiben. */
+.emfd-scene-view .emfd-hint--top{inset-block-start:calc(68px + env(safe-area-inset-top))}
+/* Zeitgesteuerte Kartenhinweise aus der Kartenansicht gehören nicht in Szenen (nach Rückkehr aus #karte/…). */
+body.scene-mode .card-motion-hint{display:none}

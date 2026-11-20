@@ -3,10 +3,11 @@
  "hinweis": "App-eigene Felder zu den gemeinsamen Registern (neuroways/haus-der-wunder, manifests/). Erzeugt wird daraus home/data/registry.js mit tools/build-registry.mjs. Hier stehen nur Dinge, die die Register nicht führen: Adressen und Aliase, Artikel und Präpositionen für Ansagen, der Anzeigename des Flurs, Texte der bisherigen Raumansichten und die auf dem Server ausgelieferten Mediendateien. Szenen-Overrides (`szenen`) setzen das Medium einer Szene, solange das Register noch einen anderen Kandidaten führt (K-21).",
  "raeume": {
   "H00": {
-   "anzeigename": "Flur",
-   "zu": "zum",
-   "route": "#flur",
+   "anzeigename": "Halle",
+   "zu": "zur",
+   "route": "#raum/H00/C01",
    "aliase": [
+    "#flur",
     "#haus"
    ]
   },
@@ -393,6 +394,24 @@
    "produktion": "DRAFT",
    "freigabe": "test",
    "herkunft": "EMFD-UX-TUT-02 v0.2 references/EXT-C02.jpeg (unverändert, sha256 13701a58…); Register-Kandidat scene.EXT-C02.kandidat ist eine andere Datei (K-21)"
+  },
+  "scene.H00-C01.h00-referenz": {
+   "datei": "../media/rooms/szenen/H00-C01-h00-ref-c7a61a97.jpeg",
+   "breite": 1536,
+   "hoehe": 864,
+   "art": "szenenbild",
+   "produktion": "DRAFT",
+   "freigabe": "test",
+   "herkunft": "EMFD-H00 v0.3 references/H00-C01_aktuelle-Illustration.jpeg (unverändert, sha256 c7a61a97…); Register-Kandidat scene.H00-C01.kandidat ist eine andere Datei (K-22)"
+  },
+  "scene.H00-C02.h00-referenz": {
+   "datei": "../media/rooms/szenen/H00-C02-h00-ref-c4451a14.jpeg",
+   "breite": 1536,
+   "hoehe": 864,
+   "art": "szenenbild",
+   "produktion": "DRAFT",
+   "freigabe": "test",
+   "herkunft": "EMFD-H00 v0.3 references/H00-C02_aktuelle-Illustration.jpeg (unverändert, sha256 c4451a14…); Register-Kandidat scene.H00-C02.kandidat ist eine andere Datei (K-22)"
   }
  },
  "szenen": {
@@ -401,6 +420,12 @@
   },
   "EXT-C02": {
    "medium": "scene.EXT-C02.tut02-referenz"
+  },
+  "H00-C01": {
+   "medium": "scene.H00-C01.h00-referenz"
+  },
+  "H00-C02": {
+   "medium": "scene.H00-C02.h00-referenz"
   }
  }
 }

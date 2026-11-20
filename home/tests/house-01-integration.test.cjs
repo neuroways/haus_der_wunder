@@ -14,16 +14,20 @@ function renderRoute(hash,atelier){
  const ctl={onclick:null};
  const document={body:{classList:{toggle(){},add(){},remove(){},contains(){return false;}},appendChild(node){return node;}},head:{append(){}},title:'',querySelector(sel){return sel==='main'?main:sel==='.skip'||sel==='#quiet'?ctl:null;},querySelectorAll(){return [];},createElement(){return Object.assign({},dialog);},addEventListener(){}};
  const navModule=require('../shared/navigation.js');let navHash=hash;const nav=navModule.createNavigation({getHash:()=>navHash,setHash:value=>{navHash=value;}});
- const window={EMFDRegistry:require('../shared/registry.js'),EMFDNavigation:{...nav,backLinkMarkup:(fallback,className)=>navModule.backLinkHTML(nav,fallback,className)},EMFDAtelier:atelier,matchMedia(){return {matches:false,addEventListener(){}};},addEventListener(){},scrollTo(){}};
+ const window={EMFDHall:{render:(m,o)=>{m.innerHTML=`<section class="emfd-scene-view" data-scene="${o.sceneId}"><h1>Die Halle</h1></section>`;},leave(){}},EMFDEntrance:{leave(){},isReturning(){return true;},render(){}},EMFDRegistry:require('../shared/registry.js'),EMFDNavigation:{...nav,backLinkMarkup:(fallback,className)=>navModule.backLinkHTML(nav,fallback,className)},EMFDAtelier:atelier,matchMedia(){return {matches:false,addEventListener(){}};},addEventListener(){},scrollTo(){}};
  const location={hash};
  vm.runInNewContext(app,{document,window,location,CARDS:cards,console,ResizeObserver:undefined},{filename:'app.js'});
  return {html:main.innerHTML,window};
 }
-test('HOUSE-01 Flur has room directory link and keeps existing accesses',()=>{
+test('HOUSE-01 / EMFD-H00: #flur zeigt die Hallen-Szene; Raumübersicht, Musik, Teezimmer, Licht und Geschenk bleiben erreichbar',()=>{
  const {html}=renderRoute('#flur');
- for(const target of ['#raeume','#atelier','#teezimmer','#musik'])assert.ok(html.includes(`href="${target}"`),target);
- assert.match(html,/hall-light-toggle/);
- assert.match(html,/data-start-gift-open/);
+ assert.match(html,/data-scene="H00-C01"/);
+ const registry=require('../shared/registry.js'),chrome=fs.readFileSync(path.join(home,'shared/scene-chrome.js'),'utf8');
+ // „Dein Moment“: Das Haus → #raeume, Musik hören → #musik; Türen der Halle → Teezimmer; Lampen; Geschenk über die Hilfe.
+ assert.match(chrome,/case 'house':go\('#raeume'\)/);assert.match(chrome,/case 'music':go\('#musik'\)/);
+ assert.ok(registry.scene('H00-C01').hotspots.some(h=>h.ziel.szene==='P08-C01'));
+ assert.ok(registry.scene('H00-C02').hotspots.some(h=>h.typ==='LIGHT'));
+ assert.match(fs.readFileSync(path.join(home,'index.html'),'utf8'),/data-start-gift-open>Geschenkbrief und Geschenkkarte/);
 });
 test('HOUSE-01 directory contains P01–P08, music and lightweight previews',()=>{
  const {html,window}=renderRoute('#raeume');

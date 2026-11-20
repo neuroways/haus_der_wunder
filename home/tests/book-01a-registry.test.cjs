@@ -9,7 +9,7 @@ const devices=require('../shared/devices.js');
 
 // Ansicht einer Adresse vor BOOK-01a (v0.6.69): [Ort, Station, Rückweg-Ziel ohne Herkunft, sichtbarer Name].
 const LEGACY=[
- ['#flur','flur','hall','#flur','Flur'],['#haus','flur','hall','#flur','Flur'],['#raeume','raeume','raeume','#flur','Alle Räume'],
+ ['#flur','flur','hall','#flur','Halle'],['#haus','flur','hall','#flur','Halle'],['#raeume','raeume','raeume','#flur','Alle Räume'],
  ['#musik','musik','gramophone','#flur','Musikzimmer'],['#atelier','P04','atelier','#raeume','Atelier'],['#ort/P04','P04','atelier','#raeume','Atelier'],
  ['#teezimmer','P08','teezimmer','#raeume','Teezimmer'],['#ort/P08','P08','teezimmer','#raeume','Teezimmer'],
  ['#ort/P01','P01','ort/P01','#raeume','Fensterzimmer'],['#ort/P02','P02','library','#raeume','Bibliothek'],['#ort/P03','P03','ort/P03','#raeume','Wintergarten'],
@@ -29,11 +29,12 @@ test('Alias-Matrix: jede bisherige Adresse führt zur selben Ansicht wie vor BOO
   assert.equal(nav.fallbackFor(hash),fallback,`${hash} Ersatzziel`);
   if(name)assert.equal(nav.describe(hash)[0],name,`${hash} Name`);
   assert.equal(registry.redirect(hash),null,`${hash} wird nicht umgeleitet`);
+  // EMFD-H00: Halle (#flur/#haus) und Eingang sind seit v0.6.73 Szenenansichten; Namen aus dem Register („Halle“).
  }
 });
 
 test('neue Adressen #raum/<RAUM>/<ANSICHT> und #geraet/<GERÄT> zeigen die bisherige Ansicht',()=>{
- const cases={'#raum/H00/C01':'#flur','#raum/H00':'#flur','#raum/H00/C02':'#flur','#raum/P05/C01':'#ort/P05','#raum/P04/C02':'#atelier',
+ const cases={'#raum/P05/C01':'#ort/P05','#raum/P04/C02':'#atelier',
   '#raum/P08/C01':'#teezimmer','#raum/M01/C01':'#musik','#geraet/MP-P04':'#atelier/geraet','#geraet/MP-P05':'#ort/P05/geraet'};
  for(const [hash,target] of Object.entries(cases)){
   assert.equal(registry.redirect(hash),target,hash);
@@ -41,6 +42,7 @@ test('neue Adressen #raum/<RAUM>/<ANSICHT> und #geraet/<GERÄT> zeigen die bishe
   assert.equal(nav.place(hash),nav.place(target),`${hash} Ort`);
  }
  assert.equal(registry.resolveRoute('#flur').canonical,'#raum/H00/C01');
+ for(const hash of ['#raum/H00/C01','#raum/H00','#raum/H00/C02','#flur','#haus'])assert.equal(registry.isSceneRoute(hash),true,`${hash} ist Hallen-Szene`);
  assert.equal(registry.resolveRoute('#ort/P04/geraet').canonical,'#geraet/MP-P04');
  // Räume ohne bisherige Ansicht (Küche, Außenbereich …) und unbekannte IDs werden nicht umgeleitet.
  for(const hash of ['#raum/KUE/C01','#raum/EXT','#raum/XYZ/C01','#raum/H00/C09','#geraet/MP-XXX','#geraet/MP-KUE'])assert.equal(registry.redirect(hash),null,hash);
@@ -56,16 +58,17 @@ test('#flur und #raum/H00/C01 zeigen dieselbe Ansicht; die Umleitung ersetzt die
    querySelector(sel){return sel==='main'?main:sel==='#motion-settings'?{textContent:''}:sel==='.skip'||sel==='#quiet'?{onclick:null}:null;},querySelectorAll(){return [];},createElement(){return Object.assign({},dialog);},addEventListener(){}};
   const location={hash},replaced=[],pushed=[];
   let navHash=hash;const navigation=nav.createNavigation({getHash:()=>navHash,setHash:value=>{pushed.push(value);navHash=value;},replaceHash:value=>{replaced.push(value);navHash=value;location.hash=value;}});
-  const window={EMFDRegistry:registry,EMFDNavigation:{...navigation,backLinkMarkup:(fallback,className)=>nav.backLinkHTML(navigation,fallback,className)},matchMedia(){return {matches:false,addEventListener(){}};},addEventListener(){},scrollTo(){}};
+  const window={EMFDHall:{render:(m,o)=>{m.innerHTML=`<section class="emfd-scene-view" data-scene="${o.sceneId}"><h1>Die Halle</h1></section>`;},leave(){}},EMFDEntrance:{leave(){},isReturning(){return true;},render(){}},EMFDRegistry:registry,EMFDNavigation:{...navigation,backLinkMarkup:(fallback,className)=>nav.backLinkHTML(navigation,fallback,className)},matchMedia(){return {matches:false,addEventListener(){}};},addEventListener(){},scrollTo(){}};
   location.replace=value=>{replaced.push(value);location.hash=value;};
   vm.runInNewContext(app,{document,window,location,CARDS:cards,console,ResizeObserver:undefined},{filename:'app.js'});
   return {html:main.innerHTML,hash:location.hash,replaced,pushed};
  };
+ // EMFD-H00: beide Adressen zeigen die Hallen-Szene H00-C01 (keine Umleitung nötig, kein Verlaufseintrag).
  const before=render('#flur'),after=render('#raum/H00/C01');
- assert.match(before.html,/Im Flur/);
+ assert.match(before.html,/data-scene="H00-C01"/);
  assert.equal(after.html,before.html);
- assert.equal(after.hash,'#flur');
- assert.deepEqual(after.replaced,['#flur']);assert.deepEqual(after.pushed,[]);
+ assert.equal(after.hash,'#raum/H00/C01');
+ assert.deepEqual(after.replaced,[]);assert.deepEqual(after.pushed,[]);
  const room=render('#raum/P03/C01');assert.match(room.html,/Wintergarten/);assert.equal(room.hash,'#ort/P03');
 });
 
@@ -88,11 +91,11 @@ test('Räume, Geräte und Namen stammen aus den Registern; keine festen Listen i
 });
 
 test('Medien-ID ohne Datei wird als Platzhalter mit ID und Seitenverhältnis gezeichnet',()=>{
- const media=registry.sceneMedia('H00-C01');
- assert.equal(media.type,'placeholder');assert.equal(media.id,'scene.H00-C01.kandidat');assert.equal(media.ratio,'16:9');
- const markup=registry.mediaMarkup('scene.H00-C01.kandidat',{alt:'Halle, Blick nach Norden'});
- assert.match(markup,/data-media-id="scene\.H00-C01\.kandidat"/);assert.match(markup,/aspect-ratio:1672\/941/);
- assert.match(markup,/role="img" aria-label="Halle, Blick nach Norden"/);assert.match(markup,/1672 × 941 · 16:9/);
+ const media=registry.sceneMedia('KUE-C01');
+ assert.equal(media.type,'placeholder');assert.equal(media.id,'scene.KUE-C01.kandidat');assert.equal(media.ratio,'16:9');
+ const markup=registry.mediaMarkup('scene.KUE-C01.kandidat',{alt:'Küche, Blick nach Süden'});
+ assert.match(markup,/data-media-id="scene\.KUE-C01\.kandidat"/);assert.match(markup,/aspect-ratio:1672\/941/);
+ assert.match(markup,/role="img" aria-label="Küche, Blick nach Süden"/);assert.match(markup,/1672 × 941 · 16:9/);
  assert.doesNotMatch(markup,/<img/,'kein Ersatzbild');
  const unknown=registry.resolveMedia('scene.GIBTS-NICHT');assert.equal(unknown.type,'placeholder');assert.equal(unknown.ratio,'16:9');
  // Szenen ohne Kandidat nutzen das Format des Platzhaltereintrags.
@@ -102,17 +105,17 @@ test('Medien-ID ohne Datei wird als Platzhalter mit ID und Seitenverhältnis gez
 
 test('Austausch Platzhalter → Bild nur durch einen Registereintrag (kein Code)',()=>{
  const changed=JSON.parse(JSON.stringify(data));
- changed.medien['scene.H00-C01.kandidat']={...changed.medien['scene.H00-C01.kandidat'],datei:'../media/rooms/H00-C01.webp',verfuegbarkeit:'vorhanden',integration:'original'};
+ changed.medien['scene.KUE-C01.kandidat']={...changed.medien['scene.KUE-C01.kandidat'],datei:'../media/rooms/KUE-C01.webp',verfuegbarkeit:'vorhanden',integration:'original'};
  const reg=registry.create(changed);
- const media=reg.sceneMedia('H00-C01');
- assert.equal(media.type,'file');assert.equal(media.src,'../media/rooms/H00-C01.webp');
- assert.match(reg.mediaMarkup(media.id,{alt:'Halle'}),/<img src="\.\.\/media\/rooms\/H00-C01\.webp" alt="Halle" width="1672" height="941"/);
+ const media=reg.sceneMedia('KUE-C01');
+ assert.equal(media.type,'file');assert.equal(media.src,'../media/rooms/KUE-C01.webp');
+ assert.match(reg.mediaMarkup(media.id,{alt:'Küche'}),/<img src="\.\.\/media\/rooms\/KUE-C01\.webp" alt="Küche" width="1672" height="941"/);
 });
 
 test('Registerfehler: fehlende Datei oder ungültige IDs führen zum Rückfall statt zu einer Fehlerseite',()=>{
  const missing=registry.create(undefined);
  assert.equal(missing.source,'notfall');
- assert.equal(missing.redirect('#raum/H00/C01'),'#flur');
+ assert.equal(missing.isSceneRoute('#raum/H00/C01'),true);assert.equal(missing.isSceneRoute('#flur'),true);
  assert.equal(missing.room('P04').route,'#atelier');assert.equal(missing.directory().length,8);
  assert.equal(missing.resolveMedia('app.room.P01').type,'file');
  const broken=registry.create({raeume:[{id:'kaputt'},{id:'P01',name:'Fensterzimmer',route:'#ort/P01',aliase:[]}],szenen:[{id:'X',raumId:'NIX',ansicht:'C01'}],

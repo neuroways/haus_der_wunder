@@ -1,4 +1,4 @@
-# Codekarte · 2D-PWA `home/` (v0.6.72)
+# Codekarte · 2D-PWA `home/` (v0.6.73)
 
 Arbeitskarte für Claude Code: **zuerst hier nachsehen, dann direkt an die genannte Stelle springen.** Stand 19.11.2026. Bei jedem Auftrag, der Struktur, Routen, Dienste, Speicher-Schlüssel oder Ereignisse ändert, diese Karte im selben Commit mitpflegen.
 
@@ -22,7 +22,7 @@ Ergänzende Quellen in `home/`:
 4. Räume: `atelier-hand.js`, `atelier.js`, `teezimmer.js`
 5. Gemeinsame Dienste: `data/registry.js` (Registerdaten, erzeugt) → `shared/registry.js` (Registerdienst) → `emfd-ui/js/emfd-ui-kit.js` (Bedienelemente, klassisch) → `shared/lights.js` → `shared/scene.js` (Szenenkomponente) → `shared/devices.js` (Geräteregister, vor der Navigation), `shared/navigation.js`, `shared/stations.js`, `shared/audio.js`, `shared/content.js`, `shared/readers.js`, `shared/help.js`
 6. Musik: `music-discovery.js`, `music-device.js`, `music-books.js`, `music-room.js`, `room-music.js`, `device-station.js` (Station `device`)
-7. `entrance.js` (Eingang + Einführung) → `feature-registry.js` → **`app.js`** (lädt `start-gate.js` dynamisch nach) → `settings.js` → `audio-session.js` → `music-player.js` → `start-tour.js` → `music-entry.js` → `card-interaction.js` → `origin-story.js`
+7. `shared/scene-chrome.js` (Kopfzeile, „Dein Moment“, globale Musik) → `entrance.js` (Eingang + Einführung) → `hall.js` (Halle) → `feature-registry.js` → **`app.js`** (lädt `start-gate.js` dynamisch nach) → `settings.js` → `audio-session.js` → `music-player.js` → `start-tour.js` → `music-entry.js` → `card-interaction.js` → `origin-story.js`
 8. Module: `library/library-entry.js`, `emfd-ui-runtime.js`
 9. `thought-qr.js`, `thought-paper.js`, `book-reading.js`, `music-help.js`, `shared/help-dialog.js`, `navigation-icons.js`
 
@@ -38,7 +38,7 @@ Router: `app.js` `render()` (ca. Zeile 181). Erlaubte Routen prüft zusätzlich 
 |---|---|---|
 | `#ankommen` (leer) | `app.js` → `EMFDEntrance.render(main,{sceneId:'EXT-C01',arrival:true})` | Seit BOOK-01d: Erstbesuch = Eingangsszene EXT-C01 (Mitte) mit Willkommenskarte; Folgebesuch (`EMFDEntrance.isReturning()`) → `#flur` ohne Verlaufseintrag. |
 | `#raum/EXT/C01`, `#raum/EXT/C02` | `EMFDEntrance.render` (Szenenansicht) | Eingang und Garten; Umdrehen ersetzt die Adresse (`EMFDNavigation.replace`), eine Ansicht = ein Rückweg. Szenenfähige Räume erkennt `EMFDRegistry.isSceneRoute()` (Raumadresse beginnt mit `#raum/`). |
-| `#flur`, `#haus` | `app.js` `renderHall()` | Hotspots: Atelier, Teezimmer, Musik, Alle Räume, Geschenk. Lichtschalter → `EMFDHallLight`. |
+| `#flur`, `#haus`, `#raum/H00/C01`, `#raum/H00/C02` | `hall.js` `EMFDHall.render` (Szene) | Seit EMFD-H00 (v0.6.73): Halle als Szene; `#flur`/`#haus` sind Aliase von H00 (C01). Türen: Küche (Erklärung, noch keine Ansicht), Hof → `#ort/P05`, Teezimmer → `#teezimmer`, Treppe → `#ort/P06`, Haustür (C02) → `#raum/EXT/C02` (einmal Abschiedstext). O08, Lampen. Die frühere Flur-Seite `renderHall()` in `app.js` ist nicht mehr erreichbar (nach Abnahme entfernen). |
 | `#raeume` | `app.js` `renderRoomDirectory()` | Kacheln P01–P08 + Musikzimmer. |
 | `#ort/P01…P07` | `app.js` `renderRoomDetail(id)` | Raumdaten in `ROOMS` (app.js, Zeile 21). P02 hängt das Bibliotheksregal ein. Danach `EMFDFeatures.mountRoom()` (Funktionsknöpfe). |
 | `#atelier`, `#ort/P04`, `#atelier/tisch/Oxx` | `atelier.js` `renderAtelier` / `renderTable` → `renderGallery` | Zyklischer Wandrundgang O01–O24, Gesten, Bildvergrößerung. |
@@ -95,6 +95,12 @@ Nach jedem Render (Ende von `render()`): Raummusik einhängen (`EMFDRoomMusic.mo
 - **Lichter** `EMFDLights` (`shared/lights.js`): `get/set/toggle(id)` je physischer Licht-ID (`LIGHT-…`), Standard an; Flurlicht bleibt `EMFDHallLight`. Sichtbarer Aus-Zustand ist bis zu den Lichtmasken von Work ein Platzhalter (`data-placeholder="lichtmaske"`).
 - **Szenenmedien des Eingangs**: `scene.EXT-C01.tut02-referenz` / `scene.EXT-C02.tut02-referenz` (`media/rooms/szenen/…-tut02-ref-<sha8>.jpeg`, unveränderte Referenzen aus TUT-02, `freigabe:'test'`), gesetzt über `registry-app.json` → `szenen` (Override, K-21). Hotspots sind an diesem Master gemessen (`hotspotMaster`).
 
+## 4c. Halle und gemeinsame Szenenoberfläche (EMFD-H00, v0.6.73)
+
+- **`EMFDSceneChrome`** (`shared/scene-chrome.js`) für jede Szene: Kopfzeile Musik links (globaler Musikbereich: Abspielen/Pause, Stopp, Stumm, Lautstärke, Musikbibliothek; ohne Auswahl startet „Abspielen“ das Hauptthema über `EMFDMusic.setBackgroundPreference('on',{start:true})`, Öffnen spielt nichts), Raumlabel mittig, Hilfe rechts. **„Dein Moment“** unten mittig (geschlossen; sechs Ziele: Karte ziehen → `EMFDCardDraw`, Musik hören → `#musik`, Geschichten → `EMFDFeatures.activate('stories')`, Begleiter → Erklärung (BOOK-01g fehlt), Gedankenblatt → `EMFDThoughtPaper.open({mode:'free'})`, Das Haus → `#raeume`). Hilfe-Ergänzungen in Szenen: „Alles in dieser Ansicht“, „Interaktive Gegenstände anzeigen“, „Einstellungen“, raumspezifische Aktionen. Gemeinsames Paneel `openPanel()` (Glocke, Gegenstände, Laterne).
+- **`EMFDHall`** (`hall.js`): Hinweise Begrüßung → Musik → „Dein Moment“ (je einmal, gezeigt = gesehen, `emfd.hall.v1`), Abschied beim ersten Hinausgehen, O08-Paneel (Licht / „Die Laterne entdecken“ → `#karte/O08`), Lampen über `EMFDLights` (Hallenlichter übernehmen ohne eigenen Wert `emfd.house.light.v1`). Texte aus dem Register (`manifests/quellen/szenen-hotspots.json` → `halle`).
+- **Szenenmedien der Halle**: `scene.H00-C0x.h00-referenz` (`media/rooms/szenen/H00-C0x-h00-ref-<sha8>.jpeg`, unveränderte Referenzen aus der H00-Übergabe, `freigabe:'test'`, K-22).
+
 ## 4a. Register (EMFD-BOOK-01a, v0.6.70)
 
 - **Quelle:** die gemeinsamen Register in `neuroways/haus-der-wunder` (`manifests/rooms.json`, `scenes.json`, `music-devices.json`, `objects.json`, `media.json`) plus die App-Felder in `home/data/registry-app.json` (Adressen und Aliase, Artikel/Präpositionen für Ansagen, Texte der bisherigen Raumansichten, Stücklisten, ausgelieferte Mediendateien unter `../media/`).
@@ -142,11 +148,11 @@ Weitere Modul-APIs: `EMFDAtelier` (atelier.js: `renderAtelier`, `renderTable`, `
 
 ## 6. Speicher-Schlüssel und Ereignisse
 
-**localStorage:** `emfd.entrance.v1` (entrance.js: `welcomeDismissed`, `entered`, `tutorial:{active,seen,gardenVisited}` – nur Eingang/Einführung) · `emfd.lights.v1` (shared/lights.js: Ein/Aus je Licht-ID) · `emfd.house.light.v1` (app.js) · `emfd.reading.size.v1` (book-reading.js, reading-preferences.js) · `emfd.music.mode`, `emfd.music.startOnEntry`, `emfd.music.volume`, `emfd.music.globalSilence` (music-player.js) · `emfd.music.entryPreference` (music-entry.js) · `emfd.start02.gift-completed.v1`, `emfd.start02.tutorial-completed.v1`, `emfd.start02.install-dismissed.v1`, `emfd.start03.intro-completed.v1` (start-gate.js) · `emfd.card.motionHint.v1.*` (card-motion.js) · `emfd-media-bridge` (Notbremse, media-bridge.js).
+**localStorage:** `emfd.hall.v1` (hall.js: `hints{welcome,music,moment}`, `farewellSeen`) · `emfd.entrance.v1` (entrance.js: `welcomeDismissed`, `entered`, `tutorial:{active,seen,gardenVisited}` – nur Eingang/Einführung) · `emfd.lights.v1` (shared/lights.js: Ein/Aus je Licht-ID) · `emfd.house.light.v1` (app.js) · `emfd.reading.size.v1` (book-reading.js, reading-preferences.js) · `emfd.music.mode`, `emfd.music.startOnEntry`, `emfd.music.volume`, `emfd.music.globalSilence` (music-player.js) · `emfd.music.entryPreference` (music-entry.js) · `emfd.start02.gift-completed.v1`, `emfd.start02.tutorial-completed.v1`, `emfd.start02.install-dismissed.v1`, `emfd.start03.intro-completed.v1` (start-gate.js) · `emfd.card.motionHint.v1.*` (card-motion.js) · `emfd-media-bridge` (Notbremse, media-bridge.js).
 
 **sessionStorage:** `emfd.scene.view.v1` (Szene + Ausschnitt für die Rückkehr) · `emfd.nav.history.v1` (Verlaufsspiegel, nur Routen) · `emfd.cardDraw.concealed` · `emfd.card.return` · `emfd.atelier.current|direction|gridScroll|group` · `emfd.music.entryPreference.session`.
 
-**Ereignisse (window):** `emfd:light-change` · `emfd:gift-closed` · `emfd:install-dismissed` · `emfd:navigation` · `emfd:music-ready` · `emfd:music-state` · `emfd:music-availability` · `emfd:card-concealed` · `emfd:card-revealed` · `emfd:hall-light-change` · `emfd:start-gate-rendered` · `emfd-media-updated` · `emfd-offline-progress`. Am Kartenelement: `cancel-card-tap`.
+**Ereignisse (window):** `emfd:moment` · `emfd:light-change` · `emfd:gift-closed` · `emfd:install-dismissed` · `emfd:navigation` · `emfd:music-ready` · `emfd:music-state` · `emfd:music-availability` · `emfd:card-concealed` · `emfd:card-revealed` · `emfd:hall-light-change` · `emfd:start-gate-rendered` · `emfd-media-updated` · `emfd-offline-progress`. Am Kartenelement: `cancel-card-tap`.
 
 ## 7. Medien
 
@@ -175,6 +181,7 @@ Reine Node-Tests (`node:test`), kein Browser. Viele lesen Quelltext per Regex, n
 - Karten: `card-*`, `card-texts-v1.3`, `fe05-needs-gallery`, `fe08-entry-preload`
 - Atelier: `atelier-*`; Teezimmer: `teezimmer-*`; Häuser/Räume: `house-01-integration`, `immersive-navigation`, `navigation-regression`
 - Musik: `music-*`, `audio-session`, `app-theme-t03`, `room-music-integration`, `composition-stories-v04`
+- Halle/Szenenoberfläche: `h00-hall`
 - Eingang/Einführung/Szene/Bedienelemente: `book-01d-entrance`, Geschenkbereich: `start-adventure`
 - Register/Routen: `book-01a-registry` (Alias-Matrix, neue Adressen, Platzhalter, Rückfall, Notfallbestand), `nav-01-back-navigation`, `player-01-devices`
 - Bücher/Bibliothek: `library-*`, `origin-storybook`, `reading-choice-icons`, `thought-book-v0.6.56`
