@@ -1,5 +1,5 @@
 # EMFD-KUE-DEV-01 · Testprotokoll (Abnahmekatalog KUE-T01–T42)
-Datum: 20.11.2026 · App v0.6.75 (Branch `claude/kue-dev-01`) · lokaler Testserver (`node server.mjs`), Chromium/Playwright
+Datum: 20.11.2026 · App v0.6.75 (Branch `claude/kue-dev-01`, Commit e77ca96) · lokaler Testserver (`node server.mjs`), Chromium/Playwright
 Geräte: iPhone 13 (390×844, Touch), PC 1440×900 sowie für T14/T15/T18 430×932, 360×640, 844×390 quer, Tablet 1024×768, PC 1920×1080 und 195×422 (entspricht 200 % Zoom).
 Musik: lokal O01–O04, O24 und THEME (nicht im Repository). Die übrigen Titel fehlen lokal, das prüft zugleich das Auslassen fehlender Dateien.
 

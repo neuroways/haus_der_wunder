@@ -1,5 +1,5 @@
 # EMFD-Rückmeldung · EMFD-KUE-DEV-01 · Küche für Bilderbuch v0.7
-Datum: 20.11.2026 · Ergebnis: teilweise (funktional umgesetzt; visuelle Freigabe blockiert, weil das Bildpaket EMFD-KUE-VIS-01 fehlt) · Commit: siehe unten auf `claude/kue-dev-01`
+Datum: 20.11.2026 · Ergebnis: teilweise (funktional umgesetzt; visuelle Freigabe blockiert, weil das Bildpaket EMFD-KUE-VIS-01 fehlt) · Commit: e77ca96 auf `claude/kue-dev-01`
 
 ## Was sich für die Person ändert
 - **Küche betreten:** Die Küchentür in der Halle (H00-C01) führt jetzt in die Küche. Man steht in KUE-C02 und blickt zum Röhrenradio auf der Kommode, auf dem Smartphone im mittleren Ausschnitt, am PC auf die ganze Szene. Es gibt keine Begrüßung, keine Tour und keine neue Musikfrage. Laufende Musik und Licht bleiben, wie sie sind.
