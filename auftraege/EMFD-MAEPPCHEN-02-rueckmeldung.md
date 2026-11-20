@@ -1,5 +1,5 @@
 # EMFD-Rückmeldung · EMFD-MAEPPCHEN-02 · Mäppchen der Begleiterkarte v0.2 (Ansichten, Hörmoment, Rückgabe)
-Datum: 20.11.2026 · Ergebnis: umgesetzt · Commit: COMMIT auf `claude/maeppchen-02` · App v0.6.86 (Testversion, Grundlage `claude/p03-01` v0.6.85 mit Wintergarten und D-16)
+Datum: 20.11.2026 · Ergebnis: umgesetzt · Commit: 64cacc9 auf `claude/maeppchen-02` · App v0.6.86 (Testversion, Grundlage `claude/p03-01` v0.6.85 mit Wintergarten und D-16)
 
 An Svenja.
 
