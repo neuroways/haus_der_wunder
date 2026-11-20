@@ -30,3 +30,78 @@
 .emfd-ui .emfd-button--frame-simple::after{content:"";position:absolute;pointer-events:none;inset:-2px;border:28px solid transparent;border-image-source:url('../assets/frames/simple-nine-slice.svg');border-image-slice:30;border-image-width:28px;border-image-repeat:stretch;z-index:2}
 .emfd-ui .emfd-button--ornate:hover::after{filter:drop-shadow(0 0 5px #f0b76385)}
 @media (forced-colors:active){.emfd-ui .emfd-button--ornate,.emfd-ui .emfd-button--frame-simple{border:2px solid ButtonText}.emfd-ui .emfd-button--ornate::after,.emfd-ui .emfd-button--frame-simple::after{display:none}}
+
+/* ===== EMFD UI v0.4 · Gemeinsame Bedienelemente des Hauses (BOOK-01d / EMFD-UX-TUT-02) =====
+ * Referenz: emfd-ui/referenz.html. Jede Ansicht nutzt nur diese Komponenten; keine eigenen Buttons.
+ * Mindestfläche 48×48 CSS-Pixel (nie unter 44), sichtbarer Fokus, Zustände über ARIA-Attribute. */
+:root{--emfd-ui-gold:#d8a65d;--emfd-ui-gold-light:#f7d18a;--emfd-ui-ivory:#f5e9d7;--emfd-ui-night:#061725;--emfd-ui-midnight:#0d2333;--emfd-ui-teal:#2f8f8a;--emfd-ui-teal-light:#7fd1c7;--emfd-ui-focus:#fff0b8;--emfd-ui-touch:48px;--emfd-ui-radius:16px;--emfd-ui-panel:rgba(6,23,37,.88);--emfd-ui-line:rgba(216,166,93,.55);--emfd-ui-shadow:0 6px 22px rgba(0,0,0,.42)}
+/* Textbuttons: primär (Hauptaktion) und sekundär (Alternative). Kompakte Größe für Hinweise und Paneele. */
+.emfd-button--compact{min-height:var(--emfd-ui-touch);padding:10px 16px;font-size:1rem;gap:10px;grid-template-columns:auto minmax(0,1fr);border-radius:var(--emfd-ui-radius)}
+.emfd-button--compact .emfd-button__arrow{display:none}
+.emfd-button--compact.emfd-button--secondary{background:rgba(6,23,37,.55);box-shadow:none;border-color:var(--emfd-ui-line)}
+.emfd-button--compact.emfd-button--primary{background:linear-gradient(160deg,#e9bd73,#c48a3e);color:#1a1206;border-color:#f7d18a}
+.emfd-button[disabled],.emfd-button[aria-disabled=true]{opacity:.5;cursor:not-allowed;filter:none;transform:none}
+.emfd-textbutton{appearance:none;background:none;border:0;min-height:var(--emfd-ui-touch);padding:8px 10px;color:var(--emfd-ui-gold-light);font:inherit;font-size:.95rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer;border-radius:10px}
+/* Iconbutton: rund, 48×48, Beschriftung über aria-label; aria-pressed für Schalter. */
+.emfd-iconbutton{appearance:none;display:inline-grid;place-items:center;inline-size:var(--emfd-ui-touch);block-size:var(--emfd-ui-touch);padding:0;border:1.5px solid var(--emfd-ui-line);border-radius:50%;background:var(--emfd-ui-panel);color:var(--emfd-ui-ivory);cursor:pointer;box-shadow:var(--emfd-ui-shadow);transition:background .16s,border-color .16s,transform .16s}
+.emfd-iconbutton svg{inline-size:24px;block-size:24px}
+.emfd-iconbutton:hover{border-color:var(--emfd-ui-gold);background:#102b40}
+.emfd-iconbutton:active{transform:scale(.96)}
+.emfd-iconbutton[aria-pressed=true]{border-color:var(--emfd-ui-gold-light);color:var(--emfd-ui-gold-light);background:#16354a}
+.emfd-iconbutton[disabled]{opacity:.45;cursor:not-allowed}
+.emfd-iconbutton--quiet{box-shadow:none;background:rgba(6,23,37,.55)}
+/* Gemeinsamer Fokus für alle Bedienelemente des Hauses. */
+.emfd-button:focus-visible,.emfd-iconbutton:focus-visible,.emfd-textbutton:focus-visible,.emfd-hotspot:focus-visible,.emfd-hint:focus-visible{outline:3px solid var(--emfd-ui-focus);outline-offset:3px}
+/* Bild-Hotspot: liegt auf dem Gegenstand (normalisierte Koordinaten), unsichtbar bis Fokus/Hover;
+ * Trefferfläche mindestens 48×48 auch bei kleinen Gegenständen. Kein Leuchten, keine Spotlights. */
+.emfd-hotspot{position:absolute;appearance:none;padding:0;margin:0;border:0;background:transparent;border-radius:12px;cursor:pointer;color:transparent;pointer-events:auto}
+.emfd-hotspot::before{content:'';position:absolute;left:50%;top:50%;inline-size:max(100%,48px);block-size:max(100%,48px);transform:translate(-50%,-50%);border-radius:inherit}
+.emfd-hotspot:hover,.emfd-hotspot:focus-visible{box-shadow:inset 0 0 0 2px rgba(247,209,138,.75)}
+.emfd-hotspot.is-hinted{box-shadow:inset 0 0 0 2px rgba(247,209,138,.8);outline:1px dashed rgba(247,209,138,.55);outline-offset:4px}
+.emfd-hotspot__label{position:absolute;inline-size:1px;block-size:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+/* Kontextbezogener Hinweis: klein, höchstens einer gleichzeitig, nie über dem Zielobjekt. */
+.emfd-hint{position:absolute;z-index:5;inline-size:min(24rem,calc(100% - 24px));max-block-size:min(46vh,22rem);overflow:auto;padding:14px 16px 12px;border:1px solid var(--emfd-ui-line);border-radius:var(--emfd-ui-radius);background:var(--emfd-ui-panel);color:var(--emfd-ui-ivory);box-shadow:var(--emfd-ui-shadow);font-family:var(--emfd-font-ui,system-ui,sans-serif);backdrop-filter:blur(6px)}
+.emfd-hint__title{margin:0 40px 4px 0;font-family:var(--emfd-font-story,Georgia,serif);font-size:1.15rem;color:var(--emfd-ui-gold-light)}
+.emfd-hint__text{margin:0 0 10px;font-size:1rem;line-height:1.45}
+.emfd-hint__actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.emfd-hint__close{position:absolute;inset-block-start:4px;inset-inline-end:4px;inline-size:44px;block-size:44px;border:0;background:none;color:var(--emfd-ui-ivory);font-size:1.4rem;cursor:pointer;border-radius:50%}
+.emfd-hint--bottom{inset-block-end:max(12px,env(safe-area-inset-bottom));inset-inline-start:50%;transform:translateX(-50%)}
+.emfd-hint--top{inset-block-start:12px;inset-inline-start:50%;transform:translateX(-50%)}
+/* Umschaupfeile, Positionsanzeige (nur L/M/R, kein Fortschritt) und Umdrehen am Bildrand. */
+.emfd-pan{position:absolute;inset-block-start:50%;transform:translateY(-50%);z-index:3}
+.emfd-pan--left{inset-inline-start:max(8px,env(safe-area-inset-left))}
+.emfd-pan--right{inset-inline-end:max(8px,env(safe-area-inset-right))}
+.emfd-dots{position:absolute;z-index:3;inset-block-end:max(10px,env(safe-area-inset-bottom));inset-inline-start:50%;transform:translateX(-50%);display:flex;gap:2px;padding:0 6px;border-radius:999px;background:rgba(6,23,37,.55)}
+.emfd-dots button{appearance:none;inline-size:28px;block-size:44px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
+.emfd-dots button::before{content:'';inline-size:9px;block-size:9px;border-radius:50%;border:1.5px solid var(--emfd-ui-gold);background:transparent}
+.emfd-dots button[aria-current=true]::before{background:var(--emfd-ui-gold)}
+.emfd-turn{position:absolute;z-index:4;inset-block-start:50%;transform:translateY(-50%);display:inline-flex;align-items:center;gap:8px;min-block-size:var(--emfd-ui-touch);padding:8px 14px;border:1.5px solid var(--emfd-ui-line);border-radius:999px;background:var(--emfd-ui-panel);color:var(--emfd-ui-ivory);font:600 .95rem var(--emfd-font-ui,system-ui,sans-serif);cursor:pointer;box-shadow:var(--emfd-ui-shadow)}
+.emfd-turn svg{inline-size:22px;block-size:22px}
+.emfd-turn--left{inset-inline-start:max(8px,env(safe-area-inset-left))}
+.emfd-turn--right{inset-inline-end:max(8px,env(safe-area-inset-right))}
+.emfd-turn:hover{border-color:var(--emfd-ui-gold)}
+.emfd-turn:focus-visible{outline:3px solid var(--emfd-ui-focus);outline-offset:3px}
+/* Kopfleiste einer Szene: Hilfe/Orientierung, „Einführung beenden“, Aktionsliste. */
+.emfd-scene-bar{position:absolute;z-index:6;inset-block-start:max(8px,env(safe-area-inset-top));inset-inline:max(8px,env(safe-area-inset-left)) max(8px,env(safe-area-inset-right));display:flex;justify-content:flex-end;gap:8px;pointer-events:none}
+.emfd-scene-bar>*{pointer-events:auto}
+.emfd-chip{display:inline-flex;align-items:center;gap:6px;min-block-size:44px;padding:6px 12px;border:1px solid var(--emfd-ui-line);border-radius:999px;background:var(--emfd-ui-panel);color:var(--emfd-ui-ivory);font:600 .9rem var(--emfd-font-ui,system-ui,sans-serif);cursor:pointer}
+/* Aktionsliste: alle Dinge einer Ansicht als echte Buttons (Tastatur, Screenreader, ohne Wischgeste). */
+.emfd-actionlist{position:absolute;z-index:7;inset-block-start:64px;inset-inline-end:max(8px,env(safe-area-inset-right));inline-size:min(20rem,calc(100% - 16px));max-block-size:70%;overflow:auto;margin:0;padding:8px;list-style:none;border:1px solid var(--emfd-ui-line);border-radius:var(--emfd-ui-radius);background:var(--emfd-ui-panel);box-shadow:var(--emfd-ui-shadow)}
+.emfd-actionlist button{inline-size:100%;min-block-size:var(--emfd-ui-touch);padding:8px 12px;border:0;border-radius:10px;background:none;color:var(--emfd-ui-ivory);font:1rem var(--emfd-font-ui,system-ui,sans-serif);text-align:start;cursor:pointer}
+.emfd-actionlist button:hover,.emfd-actionlist button:focus-visible{background:rgba(216,166,93,.16);outline:2px solid var(--emfd-ui-focus)}
+/* Paneel (Dialog) für Gerät, Musik, Hinweise: klein, schließbar, Fokus im Paneel. */
+.emfd-panel{max-inline-size:min(26rem,calc(100vw - 24px));padding:18px 18px 14px;border:1px solid var(--emfd-ui-line);border-radius:20px;background:linear-gradient(160deg,#102b40,#061725 85%);color:var(--emfd-ui-ivory);box-shadow:var(--emfd-ui-shadow);font-family:var(--emfd-font-ui,system-ui,sans-serif)}
+.emfd-panel::backdrop{background:rgba(2,8,14,.55)}
+.emfd-panel h2{margin:0 44px 6px 0;font-family:var(--emfd-font-story,Georgia,serif);font-size:1.3rem;color:var(--emfd-ui-gold-light)}
+.emfd-panel p{margin:0 0 12px;line-height:1.45}
+.emfd-panel__close{position:absolute;inset-block-start:8px;inset-inline-end:8px}
+.emfd-panel__actions{display:grid;gap:8px}
+.emfd-check{display:flex;align-items:center;gap:10px;min-block-size:var(--emfd-ui-touch)}
+.emfd-check input{inline-size:22px;block-size:22px;accent-color:var(--emfd-ui-gold)}
+/* Musiksteuerung: dieselben Iconbuttons, Zustand als Text (kein reiner Farb- oder Audiohinweis). */
+.emfd-music-control{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.emfd-music-control__state{flex:1 1 100%;margin:0;font-size:.95rem;color:var(--emfd-ui-teal-light)}
+/* Lichtschalter am Gegenstand: Hotspot mit aria-pressed; Zustand bleibt je Licht-ID erhalten. */
+.emfd-hotspot[aria-pressed]{cursor:pointer}
+@media (prefers-reduced-motion:reduce){.emfd-iconbutton,.emfd-hint,.emfd-turn{transition:none}}
+@media (forced-colors:active){.emfd-hotspot:focus-visible,.emfd-iconbutton,.emfd-turn,.emfd-hint{border:2px solid CanvasText;forced-color-adjust:auto}}

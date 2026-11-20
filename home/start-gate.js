@@ -1,4 +1,5 @@
-/* EMFD-START-02: Haustür, Geschenkbrief, Einführung und freiwillige Installationshilfe. */
+/* EMFD-START-02 (seit BOOK-01d / TUT-02): Geschenkbrief, Geschenkkarte und freiwillige Installationshilfe.
+ * Haustür, Musikfrage und Starttour sind durch die Eingangsszene (entrance.js) ersetzt; die Speicherschlüssel bleiben. */
 (function(root){
   const main=document.querySelector('main');
   if(!main)return;
@@ -16,16 +17,16 @@
     A03:'../media/start/EMFD-START-02-A03-umschlag-lasche.webp',
     A04:'assets/gift/seal.webp',
     A05:'../media/start/EMFD-START-02-A05-briefpapier.webp',
-    A06:'../media/start/EMFD-START-02-A06-geschenkkarte-vorderseite.webp'
+    A06:'../media/start/EMFD-START-02-A06-geschenkkarte-vorderseite.webp',
+    back:'assets/recovery/rueckseite.jpeg'
   });
   const STATES=Object.freeze(['closed','opening','letter-visible','gift-card-visible','world-opening','sound-choice','completed']);
   const reduced=root.matchMedia?.('(prefers-reduced-motion: reduce)')||{matches:false};
-  let phase='closed',pendingTutorial=false,pendingGiftStart=null,installPrompt=null,arrivalLetter=false;
+  let phase='closed',installPrompt=null,arrivalLetter=false,host=main;
 
   const read=key=>{try{return root.localStorage?.getItem(key)==='1';}catch{return false;}};
   const write=key=>{try{root.localStorage?.setItem(key,'1');}catch{}};
   const escape=value=>String(value).replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
-  const firstVisit=()=>!read(KEYS.gift)||!read(KEYS.intro);
 
   root.addEventListener('online',()=>{if(document.body.classList.contains('start02-active'))retryMissing();});
 
@@ -40,7 +41,7 @@
     const id=Object.keys(ASSETS).find(name=>ASSETS[name]===url);
     if(!id)return;
     resolvedAssets.set(id,resolved);
-    main.querySelectorAll(`[data-start02-asset="${id}"]`).forEach(image=>{
+    host.querySelectorAll(`[data-start02-asset="${id}"]`).forEach(image=>{
       if(!image.complete||!image.naturalWidth)image.src=resolved;
     });
   }
@@ -71,7 +72,7 @@
     }));
     return results;
   }
-  function retryMissing(scope=main){
+  function retryMissing(scope=host){
     root.EMFDMedia?.retry?.();
     scope.querySelectorAll('img[data-start02-asset]').forEach(image=>{
       if(image.complete&&image.naturalWidth)return;
@@ -82,7 +83,7 @@
       image.src=refresh.href;
     });
   }
-  function bindMediaFailures(scope=main){
+  function bindMediaFailures(scope=host){
     scope.querySelectorAll('img[data-start02-asset]').forEach(image=>{
       const container=image.closest('[data-start02-media]');
       const status=container?.querySelector('[data-start02-missing]');
@@ -109,47 +110,33 @@
   function setPhase(next){
     if(!STATES.includes(next))return;
     phase=next;
-    const scene=main.querySelector('[data-start02-scene]');
+    const scene=host.querySelector('[data-start02-scene]');
     if(scene)scene.dataset.state=phase;
   }
 
-  function renderDoor(){
-    setMode(true);setPhase('closed');
-    const needsGift=firstVisit();
-    main.innerHTML=`<section class="start02 start02-door" aria-labelledby="start-gate-title" data-start02-scene data-state="closed">
-      <figure class="start02-door-frame" data-start02-media>
-        <img class="start02-door-art" data-start02-asset="door" src="${assetURL('door')}" alt="Eine geschlossene petrolblaue Haustür mit goldenem Sternornament, umrahmt von Ranken und Laternen." width="864" height="1536" fetchpriority="high">
-        <p class="start02-media-status" data-start02-missing hidden role="status">Das Haustürbild ist gerade nicht verfügbar. Du kannst das Haus trotzdem betreten.</p>
-        <figcaption class="start02-door-copy"><span>Ein Moment für dich</span><h1 id="start-gate-title">Das Haus der kleinen Wunder</h1><p>Dieses Haus habe ich für dich gestaltet. Komm herein und sieh dich um.</p></figcaption>
-        <div class="start02-door-actions">
-          <button type="button" class="primary" data-start02-enter ${needsGift?'disabled aria-busy="true"':''}>${needsGift?'Die Tür öffnet sich gleich.':'Die Tür öffnen'}</button>
-        </div>
-      </figure>
-      <p class="start02-status" data-start02-status role="status">Du darfst ankommen, ohne dich verändern zu müssen.</p>
-    </section>`;
-    bindMediaFailures();
-    const enter=main.querySelector('[data-start02-enter]');
-    enter.addEventListener('click',()=>needsGift?openGift(false):enterWithPreference());
-    if(needsGift){
-      // Start loading in advance, but never block the doorway for slow or missing art.
-      const releaseDoor=()=>{if(!enter.isConnected)return;enter.disabled=false;enter.removeAttribute('aria-busy');enter.textContent='Die Tür öffnen';};
-      const softDeadline=root.setTimeout(releaseDoor,2500);
-      preload([ASSETS.A01,ASSETS.A02,ASSETS.A03,ASSETS.A04,ASSETS.A05,ASSETS.A06]).then(results=>{
-        root.clearTimeout(softDeadline);releaseDoor();
-        const status=main.querySelector('[data-start02-status]');
-        if(status&&results.some(result=>!result.ok))status.textContent='Einige Briefillustrationen sind noch nicht verfügbar. Der Geschenkbrief bleibt als Text zugänglich.';
-      }).catch(releaseDoor);
-    }
-    root.EMFDUI?.enhance(main);root.dispatchEvent(new CustomEvent('emfd:start-gate-rendered'));
+  /* EMFD-BOOK-01d / TUT-02 v0.3: Der Geschenkbereich (Umschlag, Brief, Geschenkkarte mit QR-Rückkehrlink) öffnet sich
+   * als Ebene über der aktuellen Ansicht – aus dem Brief-Hotspot der Eingangsszene, aus der Hilfe und aus alten
+   * Verknüpfungen. Animationen, Medien und Originaltexte bleiben erhalten. Nach dem Schließen ist man wieder genau dort,
+   * wo man war (Szene und Bildausschnitt bleiben unberührt). Die Musikfrage gehört jetzt zur Eingangsglocke. */
+  let giftDialog=null,giftOpener=null;
+  function ensureGiftDialog(){
+    if(giftDialog?.isConnected)return giftDialog;
+    giftDialog=document.createElement('dialog');giftDialog.id='start02-gift-dialog';giftDialog.className='start02-gift-dialog';
+    giftDialog.setAttribute('aria-label','Dein Geschenk');
+    giftDialog.addEventListener('cancel',event=>{event.preventDefault();closeGift();});
+    document.body.append(giftDialog);return giftDialog;
   }
-
+  function cardBackMarkup(){
+    let qr='';try{qr=root.EMFDStartTour?.qrSVG?.()||'';}catch{qr='';}
+    const url=root.EMFDStartTour?.giftURL||'https://flowisaurus.de/wunderhaus/home/#ankommen';
+    return `<span class="gift-reverse start02-card-back"><img src="${assetURL('back')}" alt="" loading="lazy"><span class="start02-card-qr">${qr||`<span>${escape(url)}</span>`}</span><span class="sr-only">Rückseite der Geschenkkarte mit QR-Code. Er führt zurück zu diesem Haus: ${escape(url)}</span></span>`;
+  }
   function giftMarkup(){
     const envelope=phase==='closed'||phase==='opening';
     const letter=phase==='letter-visible';
-    const world=phase==='world-opening'||phase==='sound-choice';
-    const card=phase==='gift-card-visible'||world;
-    return `<section class="start02 start02-gift" aria-labelledby="start02-gift-title" data-start02-scene data-state="${phase}"><h1 id="start02-gift-title" class="sr-only">${letter?'Dein Geschenkbrief':card?'Deine kleine Welt':'Dein Geschenk'}</h1>
-      <div class="start02-gift-toolbar"><button type="button" data-start02-door-back>Zur Haustür</button><button type="button" data-start02-skip ${world?'hidden':''}>Überspringen</button></div>
+    const card=phase==='gift-card-visible';
+    return `<section class="start02 start02-gift" aria-labelledby="start02-gift-title" data-start02-scene data-state="${phase}"><h1 id="start02-gift-title" class="sr-only">${letter?'Dein Geschenkbrief':card?'Deine Geschenkkarte':'Dein Geschenk'}</h1>
+      <div class="start02-gift-toolbar">${letter?'':`<span></span>`}${card?'<button type="button" class="emfd-button emfd-button--secondary emfd-button--compact emfd-button--no-arrow emfd-button--iconless" data-start02-back-letter><span class="emfd-button__label">Zum Brief</span></button>':''}<button type="button" class="emfd-iconbutton" data-start02-close aria-label="Geschenk schließen" title="Geschenk schließen">${root.EMFDUIKit?root.EMFDUIKit.icon('close'):'×'}</button></div>
       <div class="start02-table" data-start02-media>
         <img class="start02-table-art" data-start02-asset="A01" src="${assetURL('A01')}" alt="Magischer Holztisch als Hintergrund der Geschenkbrief-Szene.">
         <p data-start02-missing hidden class="start02-media-status" role="status">Die Tischillustration A01 wurde noch nicht bereitgestellt.</p>
@@ -166,78 +153,66 @@
           </div>
         </article>`:''}
         ${card?`<figure class="start02-gift-card" data-start02-media aria-label="Deine Geschenkkarte">
-          <button type="button" class="start02-card-portal" data-start02-card-portal aria-label="Geschenkkarte umdrehen" ${world?'disabled':''}>
+          <button type="button" class="start02-card-portal" data-start02-card-portal aria-pressed="false" aria-label="Geschenkkarte umdrehen – QR-Code ansehen">
             <img data-start02-asset="A06" src="${assetURL('A06')}" alt="Die Geschenkkarte: Das Haus der kleinen Wunder mit einer offenen, leuchtenden Tür.">
-            <img class="gift-reverse" src="assets/recovery/rueckseite.jpeg" alt="Rückseite der Geschenkkarte"><span data-start02-missing hidden class="start02-media-status">Deine Karte wartet auf dich. Öffne hier deine kleine Welt.</span>
+            ${cardBackMarkup()}<span data-start02-missing hidden class="start02-media-status">Deine Karte wartet auf dich. Öffne hier deine kleine Welt.</span>
           </button>
-          <figcaption>${world?'':'Berühre die Karte, um sie umzudrehen.'}</figcaption>
+          <figcaption>Berühre die Karte, um sie umzudrehen. Ihr QR-Code führt dich wieder zu diesem Haus.</figcaption>
         </figure>`:''}
-        ${world?`<div class="start02-world" aria-hidden="true"><img src="assets/recovery/flur-v2-864-v1-e7d3476528.webp" alt=""><span></span></div>`:''}
       </div>
       <div class="start02-gift-actions">
-        <button type="button" data-start02-retry hidden>Illustrationen erneut laden</button>
-        ${phase==='closed'?'<button type="button" class="primary" data-start02-open-envelope>Umschlag öffnen</button>':''}
+        <button type="button" data-start02-retry hidden class="emfd-textbutton">Illustrationen erneut laden</button>
+        ${phase==='closed'?'<button type="button" class="emfd-button emfd-button--primary emfd-button--compact emfd-button--no-arrow emfd-button--iconless" data-start02-open-envelope><span class="emfd-button__label">Umschlag öffnen</span></button>':''}
         ${phase==='opening'?'<p role="status">Der Umschlag öffnet sich.</p>':''}
-        ${letter?`<button type="button" class="primary" data-start02-show-card>${arrivalLetter?'Das Haus kennenlernen':'Zum Umschlag'}</button>`:''}
-        ${world?'<button type="button" class="primary" data-gift-continue>Weiter</button>':''}
+        ${letter?'<button type="button" class="emfd-button emfd-button--primary emfd-button--compact emfd-button--no-arrow emfd-button--iconless" data-start02-show-card><span class="emfd-button__label">Deine Geschenkkarte</span></button>':''}
+        ${card?'<button type="button" class="emfd-button emfd-button--secondary emfd-button--compact emfd-button--no-arrow emfd-button--iconless" data-start02-done><span class="emfd-button__label">Schließen</span></button>':''}
       </div>
     </section>`;
   }
   function renderGift(start='closed'){
-    setMode(true);setPhase(start);main.innerHTML=giftMarkup();bindMediaFailures();
-    main.querySelector('[data-start02-door-back]')?.addEventListener('click',renderDoor);
-    main.querySelector('[data-start02-skip]')?.addEventListener('click',()=>phase==='letter-visible'?(arrivalLetter?startTutorial(true):enterHall()):showSoundChoice());
-    main.querySelector('[data-gift-continue]')?.addEventListener('click',showSoundChoice);
-    main.querySelector('[data-start02-open-envelope]')?.addEventListener('click',beginOpening);
-    main.querySelector('[data-start02-show-card]')?.addEventListener('click',()=>arrivalLetter?startTutorial(true):renderGift('closed'));
-    main.querySelector('[data-start02-card-portal]')?.addEventListener('click',beginWorld);
-    root.EMFDUI?.enhance(main);
+    const dialog=ensureGiftDialog();host=dialog;
+    setPhase(start);dialog.innerHTML=giftMarkup();bindMediaFailures(dialog);
+    dialog.querySelector('[data-start02-close]')?.addEventListener('click',closeGift);
+    dialog.querySelector('[data-start02-done]')?.addEventListener('click',closeGift);
+    dialog.querySelector('[data-start02-back-letter]')?.addEventListener('click',()=>renderGift('letter-visible'));
+    dialog.querySelector('[data-start02-open-envelope]')?.addEventListener('click',beginOpening);
+    dialog.querySelector('[data-start02-show-card]')?.addEventListener('click',showCard);
+    dialog.querySelector('[data-start02-card-portal]')?.addEventListener('click',flipCard);
+    if(start==='letter-visible')write(KEYS.gift); // Brief gelesen; unabhängig vom Tutorialstatus.
+    if(!dialog.open)dialog.showModal();
+    (dialog.querySelector('.start02-letter-copy')||dialog.querySelector('[data-start02-card-portal]')||dialog.querySelector('[data-start02-open-envelope]')||dialog.querySelector('[data-start02-close]'))?.focus({preventScroll:true});
   }
   function beginOpening(){
-    setPhase('opening');renderGift('opening');preload([ASSETS.A05,ASSETS.A06]);
-    root.setTimeout(()=>{if(phase==='opening'&&location.hash==='#ankommen')showCard();},reduced.matches?40:950);
+    renderGift('opening');preload([ASSETS.A05,ASSETS.A06]);
+    root.setTimeout(()=>{if(phase==='opening'&&giftDialog?.open)renderGift('letter-visible');},reduced.matches?40:950);
   }
-  function showCard(){renderGift('gift-card-visible');main.querySelector('[data-start02-card-portal]')?.focus({preventScroll:true});}
-  function beginWorld(){
-    if(phase!=='gift-card-visible')return;
-    renderGift('world-opening');
-    main.querySelector('[data-gift-continue]')?.focus({preventScroll:true});
+  function showCard(){renderGift('gift-card-visible');}
+  function flipCard(){
+    const button=giftDialog?.querySelector('[data-start02-card-portal]');if(!button)return;
+    const flipped=button.getAttribute('aria-pressed')!=='true';
+    button.setAttribute('aria-pressed',String(flipped));button.classList.toggle('is-flipped',flipped);
+    button.setAttribute('aria-label',flipped?'Geschenkkarte umdrehen – Vorderseite ansehen':'Geschenkkarte umdrehen – QR-Code ansehen');
   }
-  function showSoundChoice(){
-    if(location.hash!=='#ankommen')return;
-    if(phase!=='world-opening')renderGift('world-opening');
-    setPhase('sound-choice');
-    root.EMFDMusicEntry?.show(true,{onChoose:showArrivalLetter,onCancel:showCard});
+  function closeGift(){
+    if(giftDialog?.open)giftDialog.close();
+    host=main;setPhase('closed');
+    if(giftOpener?.isConnected)giftOpener.focus({preventScroll:true});
+    giftOpener=null;
+    root.dispatchEvent(new CustomEvent('emfd:gift-closed'));
   }
-  function showArrivalLetter(){arrivalLetter=true;renderGift('letter-visible');root.scrollTo?.(0,0);main.querySelector('.start02-letter-copy')?.focus({preventScroll:true});}
-  function enterWithPreference(){
-    const current=root.EMFDMusicEntry?.preference();
-    if(!current){showSoundChoice();return;}
-    root.EMFDMusic?.setBackgroundPreference(current.value,{start:current.value==='on'});
-    enterHall();
-  }
-  function completeGift(){setPhase('completed');write(KEYS.gift);pendingTutorial=false;enterHall();}
-  function enterHall(){
-    if(location.hash==='#flur'){setMode(false);if(pendingTutorial)root.setTimeout(()=>startTutorial(true),100);return;}
-    location.hash='flur';
-  }
-  function openGift(replay=true){
-    arrivalLetter=false;
-    if(location.hash!=='#ankommen'){pendingGiftStart=replay?'letter-visible':'closed';location.hash='ankommen';}
-    else renderGift(replay?'letter-visible':'closed');
+  function enterHall(){if(location.hash!=='#flur')location.hash='flur';}
+  /** Öffnet den Geschenkbereich über der aktuellen Ansicht. replay=true beginnt beim Brief, sonst beim Umschlag. */
+  function openGift(replay=false){
+    giftOpener=document.activeElement instanceof HTMLElement?document.activeElement:null;
+    arrivalLetter=false;renderGift(replay?'letter-visible':'closed');
   }
 
   function ensureDialogs(){
     if(!document.querySelector('#start02-tutorial-dialog'))document.body.insertAdjacentHTML('beforeend',`<dialog id="start02-tutorial-dialog" class="start02-dialog" aria-labelledby="start02-tutorial-title"><button type="button" class="start02-dialog-close" aria-label="Einführung schließen">×</button><div data-start02-tutorial-content></div><div class="start02-dialog-actions"><button type="button" data-start02-tutorial-skip>Überspringen</button><button type="button" class="primary" data-start02-tutorial-next>Weiter</button></div></dialog>`);
     if(!document.querySelector('#start02-install-dialog'))document.body.insertAdjacentHTML('beforeend',`<dialog id="start02-install-dialog" class="start02-dialog" aria-labelledby="start02-install-title"><button type="button" class="start02-dialog-close" aria-label="Installationshilfe schließen">×</button><h2 id="start02-install-title">Das Haus griffbereit</h2><div data-start02-install-copy></div><div class="start02-dialog-actions"><button type="button" data-start02-install-later>Später</button><button type="button" class="primary" data-start02-install-do>Installieren</button></div></dialog>`);
   }
-  function startTutorial(firstRun=false){
-    ensureDialogs();
-    root.EMFDStartTour?.start({dialog:document.querySelector('#start02-tutorial-dialog'),onFinish:()=>{
-      write(KEYS.tutorial);write(KEYS.intro);pendingTutorial=false;
-      if(firstRun){arrivalLetter=false;completeGift();}else enterHall();
-    }});
-  }
+  /** Einführung erneut starten: nur der Tutorialzustand wird zurückgesetzt (entrance.js), nichts anderes. */
+  function startTutorial(){root.EMFDEntrance?.restartTutorial?.();}
   function showInstallHelp(automatic=false){
     if(automatic&&read(KEYS.install))return;
     ensureDialogs();const dialog=document.querySelector('#start02-install-dialog');const copy=dialog.querySelector('[data-start02-install-copy]');const install=dialog.querySelector('[data-start02-install-do]');
@@ -245,22 +220,20 @@
     if(installPrompt){copy.innerHTML='<p>Du kannst das Haus wie eine App auf deinem Gerät ablegen. Das ist freiwillig.</p>';install.hidden=false;install.textContent='Installieren';install.onclick=async()=>{installPrompt.prompt();await installPrompt.userChoice.catch(()=>null);installPrompt=null;write(KEYS.install);dialog.close();};}
     else if(ios){copy.innerHTML='<p>Tippe in Safari auf <strong>Teilen</strong> und danach auf <strong>Zum Home-Bildschirm</strong>.</p>';install.hidden=true;}
     else{copy.innerHTML='<p>Falls dein Browser die Installation unterstützt, findest du <strong>App installieren</strong> im Browsermenü. Du kannst das Haus auch ohne Installation vollständig nutzen.</p>';install.hidden=true;}
-    const close=()=>{write(KEYS.install);dialog.close();};dialog.querySelector('[data-start02-install-later]').onclick=close;dialog.querySelector('.start02-dialog-close').onclick=close;dialog.oncancel=event=>{event.preventDefault();close();};
+    const close=()=>{write(KEYS.install);dialog.close();root.dispatchEvent(new CustomEvent('emfd:install-dismissed'));};dialog.querySelector('[data-start02-install-later]').onclick=close;dialog.querySelector('.start02-dialog-close').onclick=close;dialog.oncancel=event=>{event.preventDefault();close();};
     if(!dialog.open)dialog.showModal();dialog.querySelector('[data-start02-install-later]').focus();
   }
 
   document.addEventListener('click',event=>{
-    const gift=event.target.closest?.('[data-start-gift-open]');if(gift){event.preventDefault();openGift(true);return;}
-    if(event.target.closest?.('[data-start02-tutorial-replay]')){event.preventDefault();document.querySelector('#help-dialog')?.close();startTutorial(false);}
+    const gift=event.target.closest?.('[data-start-gift-open]');if(gift){event.preventDefault();document.querySelector('#help-dialog')?.close();openGift(false);return;}
+    if(event.target.closest?.('[data-start02-tutorial-replay]')){event.preventDefault();document.querySelector('#help-dialog')?.close();startTutorial();}
     if(event.target.closest?.('[data-start02-install-help]')){event.preventDefault();document.querySelector('#help-dialog')?.close();showInstallHelp(false);}
   });
   function renderRoute(){
-    const route=location.hash.slice(1)||'ankommen';
-    if(route==='ankommen'&&pendingGiftStart){const start=pendingGiftStart;pendingGiftStart=null;renderGift(start);}
-    else if(route==='ankommen')renderDoor();else setMode(false);
-    if(route==='flur'&&pendingTutorial)root.setTimeout(()=>startTutorial(true),140);
+    // Der frühere Start (Haustür im Hochformat) ist durch die Eingangsszene ersetzt; hier bleibt nur der Modus zurückgesetzt.
+    setMode(false);
   }
-  root.addEventListener('hashchange',()=>root.setTimeout(renderRoute,0));
-  root.EMFDStart02=Object.freeze({openGift,startTutorial,showInstallHelp,assets:ASSETS,states:STATES,state:()=>phase,storageKeys:KEYS});
+  root.addEventListener('hashchange',()=>{if(giftDialog?.open&&!location.hash.startsWith('#raum/'))closeGift();root.setTimeout(renderRoute,0);});
+  root.EMFDStart02=Object.freeze({openGift,closeGift,startTutorial,showInstallHelp,enterHall,installAvailable:()=>Boolean(installPrompt),assets:ASSETS,states:STATES,state:()=>phase,storageKeys:KEYS,isOpen:()=>Boolean(giftDialog?.open)});
   root.setTimeout(renderRoute,0);
 })(globalThis);
