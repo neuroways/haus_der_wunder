@@ -118,6 +118,24 @@
     b.setAttribute('aria-label',label);b.title=label;
   }
 
+  /* ---------- Gegenstand (Orakelobjekt): Karte ansehen, eigenes Musikstück, Geschichte ---------- */
+  /** Gleiches Paneel in allen Räumen; kein Autoplay, Rückkehr in dieselbe Ansicht (Paneel über der Szene). */
+  function openObject(id,{focus}={}){
+    const reg=root.EMFDRegistry;
+    const object=(reg?.objects?.()||[]).find(o=>o.id===id);
+    const card=(root.CARDS||[]).find(c=>c.id===id);
+    const name=card?.name||object?.titel||id;
+    openPanel(`<h2>${esc(name)}</h2><p>${focus==='musik'?'Dieser Gegenstand hat sein eigenes Musikstück.':'Zu diesem Gegenstand gehört eine Karte mit einem Gedanken für dich.'}</p>`+
+      `<div class="emfd-panel__actions">${musicControl(id,'Musikstück')}`+
+      kit().button({label:'Karte ansehen',variant:focus==='karte'?'primary':'secondary',iconName:'cards',data:{'data-object':'card'}})+
+      kit().button({label:'Geschichte lesen',variant:'secondary',iconName:'book',data:{'data-object':'story'}})+`</div>`,d=>{
+        bindMusic(d,id);
+        if(focus==='musik')d.querySelector('[data-music="play"]')?.setAttribute('data-panel-focus','');
+        d.querySelector('[data-object="card"]').addEventListener('click',()=>{d.close();go(`#karte/${id}`);});
+        d.querySelector('[data-object="story"]').addEventListener('click',()=>{d.close();root.EMFDReaders?.openComposition?.(id);});
+      });
+  }
+
   /* ---------- Dein Moment ---------- */
   const MOMENT=Object.freeze([
     {id:'card',label:'Karte ziehen',icon:'cards'},
@@ -214,7 +232,7 @@
     return api;
   }
   function unmount(){unsubscribeBar?.();unsubscribeBar=null;current=null;closePanel();ensureHelpExtras();}
-  const api=Object.freeze({version:1,playTheme,mount,unmount,openPanel,closePanel,onPanelClose,openMusic,musicControl,bindMusic,stateText,toggleMoment,momentAction,openHelp,ensureHelpExtras,MOMENT,
+  const api=Object.freeze({version:1,playTheme,openObject,mount,unmount,openPanel,closePanel,onPanelClose,openMusic,musicControl,bindMusic,stateText,toggleMoment,momentAction,openHelp,ensureHelpExtras,MOMENT,
     musicButton:()=>current?.scene?.el?.querySelector('[data-chrome-music]')||null,
     momentButton:()=>current?.scene?.el?.querySelector('[data-chrome-moment]')||null,
     helpButton:()=>current?.scene?.el?.querySelector('[data-scene-help]')||null,

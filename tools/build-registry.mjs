@@ -97,7 +97,7 @@ const tutorial=hotspotSource?.tutorial?{id:hotspotSource.tutorial.id,version:hot
   hinweise:hotspotSource.tutorial.hinweise.map(h=>({id:h.id,szene:h.szene,titel:h.titel,text:h.text,aktion:h.aktion}))}:null;
 const data={version:1,quelle:{repository:'neuroways/haus-der-wunder',commit,stand:rooms.stand||null},
   raeume:roomList,szenen:sceneList,geraete:deviceList,objekte:objectList,medien:out,
-  ...(tutorial?{tutorial}:{}),...(hotspotSource?.glocke?{glocke:hotspotSource.glocke}:{}),...(hotspotSource?.halle?{halle:hotspotSource.halle}:{})};
+  ...(tutorial?{tutorial}:{}),...(hotspotSource?.glocke?{glocke:hotspotSource.glocke}:{}),...(hotspotSource?.halle?{halle:hotspotSource.halle}:{}),...(hotspotSource?.kueche?{kueche:hotspotSource.kueche}:{})};
 
 // Notfallbestand: nur, was die bisherigen Ansichten brauchen (Räume mit Adresse, Geräte mit Adresse, deren Bilder).
 const fbRooms=roomList.filter(room=>room.route);
@@ -107,7 +107,7 @@ for(const id of [...fbRooms.flatMap(room=>[room.bild,room.vorschau]),...fbDevice
 const fbScenes=sceneList.filter(scene=>fbRooms.some(room=>room.id===scene.raumId&&room.route&&room.route.startsWith('#raum/')));
 for(const scene of fbScenes)for(const id of [scene.medium,scene.platzhalter].filter(Boolean))if(out[id])fbMedia[id]=out[id];
 const fallback={version:1,quelle:{...data.quelle,notfall:true},raeume:fbRooms,szenen:fbScenes,geraete:fbDevices,objekte:[],medien:fbMedia,
-  ...(data.tutorial?{tutorial:data.tutorial}:{}),...(data.glocke?{glocke:data.glocke}:{}),...(data.halle?{halle:data.halle}:{})};
+  ...(data.tutorial?{tutorial:data.tutorial}:{}),...(data.glocke?{glocke:data.glocke}:{}),...(data.halle?{halle:data.halle}:{}),...(data.kueche?{kueche:data.kueche}:{})};
 
 const header='/* Erzeugt von tools/build-registry.mjs (EMFD-BOOK-01a) – nicht von Hand ändern.\n * Quelle: gemeinsame Register neuroways/haus-der-wunder manifests/ + home/data/registry-app.json. */\n';
 const dataFile=path.join(repo,'home','data','registry.js');

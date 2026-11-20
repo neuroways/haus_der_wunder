@@ -71,8 +71,8 @@
 .emfd-pan{position:absolute;inset-block-start:50%;transform:translateY(-50%);z-index:3}
 .emfd-pan--left{inset-inline-start:max(8px,env(safe-area-inset-left))}
 .emfd-pan--right{inset-inline-end:max(8px,env(safe-area-inset-right))}
-.emfd-dots{position:absolute;z-index:3;inset-block-end:max(10px,env(safe-area-inset-bottom));inset-inline-start:50%;transform:translateX(-50%);display:flex;gap:2px;padding:0 6px;border-radius:999px;background:rgba(6,23,37,.55)}
-.emfd-dots button{appearance:none;inline-size:28px;block-size:44px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
+.emfd-dots{position:absolute;z-index:3;inset-block-end:max(10px,env(safe-area-inset-bottom));inset-inline-start:50%;transform:translateX(-50%);display:flex;gap:0;padding:0 2px;border-radius:999px;background:rgba(6,23,37,.55)}
+.emfd-dots button{appearance:none;inline-size:44px;block-size:44px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
 .emfd-dots button::before{content:'';inline-size:9px;block-size:9px;border-radius:50%;border:1.5px solid var(--emfd-ui-gold);background:transparent}
 .emfd-dots button[aria-current=true]::before{background:var(--emfd-ui-gold)}
 .emfd-turn{position:absolute;z-index:4;inset-block-start:50%;transform:translateY(-50%);display:inline-flex;align-items:center;gap:8px;min-block-size:var(--emfd-ui-touch);padding:8px 14px;border:1.5px solid var(--emfd-ui-line);border-radius:999px;background:var(--emfd-ui-panel);color:var(--emfd-ui-ivory);font:600 .95rem var(--emfd-font-ui,system-ui,sans-serif);cursor:pointer;box-shadow:var(--emfd-ui-shadow)}
@@ -142,3 +142,18 @@ dialog.emfd-panel{position:fixed;inset:0;margin:auto;block-size:fit-content;max-
 .emfd-scene-view .emfd-scene-bar [data-chrome-music].is-hinted,.emfd-moment__toggle.is-hinted{outline:2px dashed #f7d18a;outline-offset:4px}
 .emfd-moment__item span{hyphens:auto;overflow-wrap:break-word;min-inline-size:0}
 .emfd-scene-view.moment-open .emfd-dots,.emfd-scene-view.moment-open .emfd-pan,.emfd-scene-view.moment-open .emfd-turn{visibility:hidden}
+/* v0.4.2 (EMFD-KUE): Gerätezustand in der Szene, Radio-Nahansicht, Hinweis im Paneel. */
+.emfd-device-badge{position:absolute;z-index:2;display:block;padding:2px 6px;border-radius:999px;background:rgba(6,23,37,.72);color:var(--emfd-ui-ivory);font:600 .72rem var(--emfd-font-ui,system-ui,sans-serif);text-align:center;white-space:nowrap;pointer-events:none;border:1px solid rgba(216,166,93,.45)}
+.emfd-device-badge.is-on{color:#1a1206;background:var(--emfd-ui-gold-light)}
+.emfd-panel__hint{padding:10px 12px;border-radius:12px;background:rgba(247,209,138,.1);border:1px solid rgba(247,209,138,.35)}
+.emfd-radio-stage{position:relative;aspect-ratio:4/3;margin:0 0 12px;border-radius:14px;background-color:#0b1e2b;background-repeat:no-repeat;border:1px solid var(--emfd-ui-line);overflow:hidden}
+.emfd-radio-stage.is-on{box-shadow:inset 0 0 0 2px rgba(247,209,138,.6)}
+.emfd-radio-stage__note,.emfd-radio-stage__ph{position:absolute;inset-inline-start:8px;inset-block-end:6px;padding:2px 6px;border-radius:6px;background:rgba(0,0,0,.55);color:#f7d18a;font:11px var(--emfd-font-ui,system-ui,sans-serif)}
+.emfd-radio-stage__ph{inset-block-start:8px;inset-block-end:auto}
+.emfd-radio-knob{position:absolute;inline-size:48px;block-size:48px;transform:translate(-50%,-50%);border-radius:50%;border:2px dashed rgba(247,209,138,.6);background:transparent;cursor:pointer}
+.emfd-radio-knob[aria-pressed=true]{border-style:solid;border-color:var(--emfd-ui-gold-light)}
+.emfd-radio-knob.is-turning{animation:emfd-knob .35s ease-out}
+.emfd-radio-knob:focus-visible{outline:3px solid var(--emfd-ui-focus);outline-offset:3px}
+@keyframes emfd-knob{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(25deg)}}
+@media (prefers-reduced-motion:reduce){.emfd-radio-knob.is-turning{animation:none}}
+.emfd-device-badge[hidden]{display:none}

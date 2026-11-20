@@ -114,6 +114,12 @@
    "zu": "zum",
    "route": "#raum/EXT/C01",
    "aliase": []
+  },
+  "KUE": {
+   "anzeigename": "Küche",
+   "zu": "zur",
+   "route": "#raum/KUE/C02",
+   "aliase": []
   }
  },
  "geraete": {
@@ -412,6 +418,24 @@
    "produktion": "DRAFT",
    "freigabe": "test",
    "herkunft": "EMFD-H00 v0.3 references/H00-C02_aktuelle-Illustration.jpeg (unverändert, sha256 c4451a14…); Register-Kandidat scene.H00-C02.kandidat ist eine andere Datei (K-22)"
+  },
+  "scene.KUE-C01.kue-referenz": {
+   "datei": "../media/rooms/szenen/KUE-C01-kue-ref-385e7bde.jpg",
+   "breite": 1536,
+   "hoehe": 864,
+   "art": "szenenbild",
+   "produktion": "DRAFT",
+   "freigabe": "test",
+   "herkunft": "EMFD-KUE-DEV-01 references/KUE-C01.jpg (unverändert, sha256 385e7bde…); Register-Kandidat scene.KUE-C01.kandidat ist eine andere Datei; Bildpaket KUE-VIS-01 rc1 ausstehend (K-24)"
+  },
+  "scene.KUE-C02.kue-referenz": {
+   "datei": "../media/rooms/szenen/KUE-C02-kue-ref-1e614f14.jpg",
+   "breite": 1536,
+   "hoehe": 864,
+   "art": "szenenbild",
+   "produktion": "DRAFT",
+   "freigabe": "test",
+   "herkunft": "EMFD-KUE-DEV-01 references/KUE-C02.jpg (unverändert, sha256 1e614f14…); Register-Kandidat scene.KUE-C02.kandidat ist eine andere Datei; Bildpaket KUE-VIS-01 rc1 ausstehend (K-24)"
   }
  },
  "szenen": {
@@ -426,6 +450,12 @@
   },
   "H00-C02": {
    "medium": "scene.H00-C02.h00-referenz"
+  },
+  "KUE-C01": {
+   "medium": "scene.KUE-C01.kue-referenz"
+  },
+  "KUE-C02": {
+   "medium": "scene.KUE-C02.kue-referenz"
   }
  }
 }
