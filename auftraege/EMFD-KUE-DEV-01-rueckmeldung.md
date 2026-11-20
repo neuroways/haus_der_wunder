@@ -103,3 +103,11 @@ Datum: 20.11.2026 · Ergebnis: teilweise (funktional umgesetzt; visuelle Freigab
     - Wischen hoch von unten öffnet, Wischen runter schließt, Wischen hoch von oben öffnet nichts.
     - Tablet quer: H00-C01 → H00-C02.
   - Protokolle: Küche 69/69, Eingang 60/60, Halle 53 PASS (H00-T23 erwartungsgemäß überholt).
+
+## Nachtrag v0.6.78 · Geschenk: Umschlag öffnet beim Antippen
+- Der Umschlag selbst öffnet sich jetzt beim Antippen oder Klicken, genau wie mit dem Knopf „Umschlag öffnen“. Der Knopf bleibt für Tastatur und Screenreader.
+- Das gilt nur im geschlossenen Zustand. Der Umschlag bekommt dabei keinen sichtbaren Rahmen und keine Fläche.
+- Tests:
+  - `npm test` 389/0/1, neuer Test in `book-01d-entrance.test.cjs`.
+  - Im Browser (Telefon antippen, PC klicken): `closed` → `opening` → `letter-visible`.
+  - Protokoll Eingang: 60/60.

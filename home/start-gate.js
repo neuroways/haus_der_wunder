@@ -176,6 +176,8 @@
     dialog.querySelector('[data-start02-done]')?.addEventListener('click',closeGift);
     dialog.querySelector('[data-start02-back-letter]')?.addEventListener('click',()=>renderGift('letter-visible'));
     dialog.querySelector('[data-start02-open-envelope]')?.addEventListener('click',beginOpening);
+    // Der Umschlag selbst öffnet ebenfalls (Antippen/Klicken); der Knopf bleibt für Tastatur und Screenreader.
+    if(phase==='closed'){const env=dialog.querySelector('.start02-envelope');if(env){env.classList.add('is-tappable');env.addEventListener('click',beginOpening);}}
     dialog.querySelector('[data-start02-show-card]')?.addEventListener('click',showCard);
     dialog.querySelector('[data-start02-card-portal]')?.addEventListener('click',flipCard);
     if(start==='letter-visible')write(KEYS.gift); // Brief gelesen; unabhängig vom Tutorialstatus.

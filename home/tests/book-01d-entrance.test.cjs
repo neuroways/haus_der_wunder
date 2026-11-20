@@ -185,3 +185,9 @@ test('Offline: Eingangsbilder gehören zur ersten Stufe; Liste und Register sind
  assert.ok(list.start.some(f=>/EXT-C01-tut02-ref/.test(f))&&list.start.some(f=>/EXT-C02-tut02-ref/.test(f)));
  const pre=read('offline-precache.js');for(const f of ['entrance.js','shared/scene.js','shared/lights.js','emfd-ui/js/emfd-ui-kit.js'])assert.ok(pre.includes(`"${f}`),f);
 });
+
+test('Geschenk: Antippen des Umschlags öffnet ihn wie der Knopf „Umschlag öffnen“ (nur im geschlossenen Zustand)',()=>{
+ const src=require('node:fs').readFileSync(require('node:path').join(__dirname,'..','start-gate.js'),'utf8');
+ assert.match(src,/if\(phase==='closed'\)\{const env=dialog\.querySelector\('\.start02-envelope'\);if\(env\)\{env\.classList\.add\('is-tappable'\);env\.addEventListener\('click',beginOpening\);\}\}/);
+ assert.match(src,/data-start02-open-envelope><span class="emfd-button__label">Umschlag öffnen/,'Knopf bleibt (Tastatur, Screenreader)');
+});

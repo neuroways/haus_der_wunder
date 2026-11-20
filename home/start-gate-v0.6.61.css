@@ -123,3 +123,4 @@ body.start02-active main.emfd-shell__content{width:min(100%,720px);max-width:720
 @media (prefers-reduced-motion:reduce){.start02-card-portal>img,.start02-card-back{transition:none}}
 /* Hilfe-Hinweis der Einführung markiert das Fragezeichen dezent (kein Leuchten). */
 #help-open.is-hinted{outline:2px dashed #f7d18a;outline-offset:4px}
+.start02-envelope.is-tappable{cursor:pointer;-webkit-tap-highlight-color:transparent}
