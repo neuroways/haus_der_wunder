@@ -1,5 +1,5 @@
 # EMFD-Rückmeldung · EMFD-CARD-MUSIC-01 · Karten-Cover-Verwandlung mit Glühwürmchen
-Datum: 21.11.2026 · Ergebnis: umgesetzt (Cover außer O20 offen, siehe unten) · Commit: COMMIT auf `claude/card-music-01` · App v0.6.87 (Testversion, Grundlage `claude/maeppchen-02` v0.6.86)
+Datum: 21.11.2026 · Ergebnis: umgesetzt (Cover außer O20 offen, siehe unten) · Commit: db2ae8b auf `claude/card-music-01` · App v0.6.87 (Testversion, Grundlage `claude/maeppchen-02` v0.6.86)
 
 ## 1. Geprüfter Bestand (Code, Medien, Zustände)
 - **Kartenansicht und Begleitung:** `home/app.js` (Karten-Dock mit „Mitnehmen“).
