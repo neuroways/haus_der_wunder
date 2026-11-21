@@ -88,10 +88,10 @@
       return {left:(ba[0]*b.w-pv[0]*wing.w)/b.w*100,top:(ba[1]*b.h-pv[1]*wing.h)/b.h*100,width:wing.w/b.w*100,height:wing.h/b.h*100,ox:pv[0]*100,oy:pv[1]*100};};
     return {ratio:b.w/b.h,left:part(l,'leftWing',[0.97,0.81],[0.33,0.60]),right:part(r,'rightWing',[0.03,0.81],[0.69,0.61])};
   }
-  /** Sitzpose: Aufsetzpunkt (cardEdge) auf der unteren Kartenkante nahe der rechten Ecke; Höhe relativ zur Karte. */
-  function perchGeometry(card){
+  /** Sitzpose (EMFD-CARD-MUSIC-01): Aufsetzpunkt (cardEdge) auf der oberen Rahmenkante des Covers nahe der rechten Ecke. */
+  function perchGeometry(cover){
     const p=ffMeta('perched');const edge=p.anker.cardEdge||[0.49,0.86],belly=p.anker.bellyLight||[0.52,0.75];
-    const h=Math.max(64,Math.min(170,card.h*0.3)),w=h*p.w/p.h;const px=card.x+card.w*0.8,py=card.y+card.h;
+    const h=Math.max(58,Math.min(150,cover.h*0.2)),w=h*p.w/p.h;const px=cover.x+cover.w*0.82,py=cover.y+cover.h*0.012;
     return {x:px-edge[0]*w,y:py-edge[1]*h,w,h,glow:{x:px-edge[0]*w+belly[0]*w,y:py-edge[1]*h+belly[1]*h}};
   }
   /** Papierfalter auf der Hand: Handflächen-Anker des Falters auf den Landepunkt der Hand (maeppchen.15). */
@@ -102,14 +102,19 @@
   }
   const pct=p=>`left:${p.left.toFixed(2)}%;top:${p.top.toFixed(2)}%;width:${p.width.toFixed(2)}%;height:${p.height.toFixed(2)}%;transform-origin:${p.ox.toFixed(1)}% ${p.oy.toFixed(1)}%`;
   function img(nr,cls,alt=''){const src=mediaSrc(nr);return src?`<img class="${cls}" src="${esc(src)}" alt="${esc(alt)}" draggable="false" data-mp-asset="${nr}">`:`<span class="${cls} mp-missing" data-mp-asset="${nr}" data-missing="maeppchen.${nr}" aria-hidden="true"></span>`;}
-  /** Cover wie im Musikzimmer (Gerätestation): Katalogcover, sonst Arbeitscover aus dem Player-Paket, sonst Kartenvorderseite. */
-  function coverOf(c){const x=root.EMFDDeviceStation?.coverFor?.({cardId:c.id,title:c.name});return {src:x?.src||c.cover,kind:x?.kind||(c.coverFromCatalog?'cover':'card')};}
+  /** Originalcover über die Karten-ID (EMFD-CARD-MUSIC-01): Musikkatalog (aktuell), sonst registriertes Originalcover
+   *  (Register cover.<ID>), sonst wie im Musikzimmer (Arbeitscover, Kartenvorderseite). Keine feste Karten-ID im Code. */
+  function coverOf(c){
+    const cat=root.EMFDImages?.cover?.(c.id);if(cat)return {src:cat,kind:'cover'};
+    const r=reg()?.resolveMedia?.(`cover.${c.id}`);if(r?.type==='file')return {src:r.src,kind:'cover'};
+    const x=root.EMFDDeviceStation?.coverFor?.({cardId:c.id,title:c.name});return {src:x?.src||c.cover,kind:x?.kind||'card'};
+  }
 
   /* ---------- Bühne ---------- */
   const WIDE={w:960,h:560};
   const LABELS=Object.freeze({card:'Motivkarte',impulse:'Impuls',question:'Frage',book:'Gedankenbuch',story:'Geschichten',store:'Sichern und Ablage',listen:'Hörmoment'});
   let dialog=null,opener=null,view=null,saveTimer=0,unsub=null,folder=null,confirmBox=null;
-  // view: {scene:'folder'|'detail'|'listen', detail:null|'card'|'impulse'|'question'|'book'|'story'|'store', trigger, ff:'hand'|'flying'|'perched', songAsked, opened}
+  // view: {scene:'folder'|'detail'|'listen', detail:null|'card'|'impulse'|'question'|'book'|'story'|'store', trigger, ff:'hand'|'flying'|'perched', covered, returning, opened}
   function markup(c){
     const cover=coverOf(c);const fl=flyerGeometry();
     return `<div class="mp-stage" data-mp-stage data-scene="folder">
@@ -154,20 +159,24 @@
         <section class="mp-pane mp-pane--listen" data-mp-pane="listen" aria-label="Hörmoment" hidden>
           ${img('22','mp-listen__sky')}
           <div class="mp-listen__layout" data-mp-listen-layout>
-            <figure class="mp-listen__cover" data-mp-cover><img src="${esc(cover.src)}" alt="Cover: ${esc(c.name)}" draggable="false" data-cover-kind="${cover.kind}"></figure>
-            <div class="mp-listen__card" data-mp-lcard><img src="${esc(c.image)}" alt="${esc(c.alt)}" draggable="false"></div>
+            <div class="mp-listen__box" data-mp-lbox>
+              <div class="mp-listen__card" data-mp-lcard><img src="${esc(c.image)}" alt="${esc(c.alt)}" draggable="false"></div>
+              <figure class="mp-listen__cover" data-mp-cover data-cover-kind="${cover.kind}"><img src="${esc(cover.src)}" alt="Cover: ${esc(c.name)}" draggable="false"></figure>
+            </div>
+            <div class="mp-listen__controls">
+              ${kit().button({label:'Lied abspielen',variant:'primary',iconName:'play',data:{'data-mp-song':'play'}})}
+              ${kit().button({label:'Pausieren',variant:'secondary',iconName:'pause',data:{'data-mp-song':'pause'}})}
+              ${kit().button({label:'Weiterhören',variant:'primary',iconName:'play',data:{'data-mp-song':'resume'}})}
+              <p class="mp-listen__state" data-mp-listen-state></p>
+            </div>
+            <button type="button" class="mp-return" data-mp-return>${img('01','mp-return__icon')}<span>Zurück ins Mäppchen</span></button>
           </div>
           ${img('15','mp-listen__hand')}
           <button type="button" class="mp-ff mp-ff--paper" data-mp-paper aria-label="Papierfalter berühren">${ffImg('paper','mp-ff__img')}<span class="mp-ff__shine" aria-hidden="true"></span></button>
+          <span class="mp-ff__trail" data-mp-trail aria-hidden="true"></span>
           <span class="mp-ff mp-ff--fly" data-mp-fly aria-hidden="true">${ffImg('left','mp-ff__wing mp-ff__wing--l').replace('class=',`style="${pct(fl.left)}" class=`)}${ffImg('right','mp-ff__wing mp-ff__wing--r').replace('class=',`style="${pct(fl.right)}" class=`)}${ffImg('body','mp-ff__body')}</span>
           <span class="mp-ff__glow" data-mp-glow aria-hidden="true"></span>
           <span class="mp-ff mp-ff--perched" data-mp-perched aria-hidden="true">${ffImg('perched','mp-ff__img')}</span>
-          <div class="mp-listen__controls">
-            ${kit().button({label:'Lied abspielen',variant:'primary',iconName:'play',data:{'data-mp-song':'play'}})}
-            ${kit().button({label:'Pausieren',variant:'secondary',iconName:'pause',data:{'data-mp-song':'pause'}})}
-            ${kit().button({label:'Weiterhören',variant:'primary',iconName:'play',data:{'data-mp-song':'resume'}})}
-            <p class="mp-listen__state" data-mp-listen-state></p>
-          </div>
         </section>
       </div>
       <div class="mp-audiobar" data-mp-audiobar hidden><span class="mp-audiobar__title" data-mp-audiobar-title></span>
@@ -181,7 +190,7 @@
     if(dialog)return dialog;
     dialog=doc().createElement('dialog');dialog.id='emfd-maeppchen';dialog.className='emfd-maeppchen';dialog.setAttribute('aria-label','Dein Mäppchen');
     doc().body.append(dialog);
-    dialog.addEventListener('cancel',event=>{event.preventDefault();if(confirmBox?.open)return;if(view&&view.scene!=='folder')backToFolder();else close();});
+    dialog.addEventListener('cancel',event=>{event.preventDefault();if(confirmBox?.open)return;if(view?.scene==='listen')returnToFolder();else if(view&&view.scene!=='folder')backToFolder();else close();});
     dialog.addEventListener('click',onClick);
     dialog.addEventListener('input',onInput);
     dialog.addEventListener('change',onChange);
@@ -198,7 +207,7 @@
     if(!state.active)return false;
     const c=contentFor(state.active.cardId);if(!c)return false;
     ensureDialog();opener=source||doc().activeElement;
-    view={scene:'folder',detail:null,trigger:null,ff:'hand',songAsked:false,opened:false,cardId:c.id,instanceId:state.active.instanceId};
+    view={scene:'folder',detail:null,trigger:null,ff:'hand',covered:false,returning:false,opened:false,cardId:c.id,instanceId:state.active.instanceId};
     dialog.innerHTML=markup(c);dialog.dataset.card=c.id;
     if(!dialog.open)dialog.showModal();
     folder=$('[data-mp-folder]');confirmBox=null;
@@ -221,7 +230,8 @@
   function close(){
     if(!dialog?.open)return;
     flushDraft();
-    // Die Wiedergabe läuft beim Schließen weiter (Lesen/Schreiben/Raum); nur bestätigtes Zurücklegen stoppt das Lied.
+    // Ein offener Hörmoment wird beim Schließen zentral beendet (Lied aus, EMFD-CARD-MUSIC-01); sonst läuft Musik weiter.
+    if(view?.scene==='listen')endListen();
     unsub?.();unsub=null;root.removeEventListener('resize',onResize);root.visualViewport?.removeEventListener?.('resize',onViewport);root.visualViewport?.removeEventListener?.('scroll',onViewport);
     confirmBox?.open&&confirmBox.close();
     dialog.close();dialog.innerHTML='';dialog.style.removeProperty('height');dialog.style.removeProperty('top');view=null;folder=null;confirmBox=null;
@@ -239,8 +249,8 @@
       const name=pane.dataset.mpPane;const on=name===view.scene||(wide&&name==='folder');
       pane.hidden=!on;pane.inert=!on;
     }
-    $('[data-mp-close]').hidden=view.scene!=='folder'&&!wide;
-    $('[data-mp-back]').hidden=view.scene==='folder';
+    $('[data-mp-close]').hidden=(view.scene!=='folder'&&!wide)||view.scene==='listen';
+    $('[data-mp-back]').hidden=view.scene==='folder'||view.scene==='listen';
     const sub=$('[data-mp-subtitle]');if(sub)sub.textContent=view.scene==='listen'?LABELS.listen:view.detail?LABELS[view.detail]:'';
     updateAudioBar(audio()?.snapshot?.());
   }
@@ -251,6 +261,15 @@
     // Mäppchen so groß wie der Bereich erlaubt (Seitenverhältnis 799:540 aus den Einzelteilen).
     const pane=$('[data-mp-pane="folder"]');const W=pane.clientWidth,H=pane.clientHeight;
     if(W&&H){const fw=Math.max(240,Math.min(W*0.94,(H*0.92)*1.4796,wide?760:600));stage.style.setProperty('--fw',`${fw.toFixed(1)}px`);}
+    // Hörmoment: Cover quadratisch und so groß wie möglich; darunter Steuerung und „Zurück ins Mäppchen“.
+    const lp=$('[data-mp-pane="listen"]');
+    if(lp&&!lp.hidden&&lp.clientWidth){
+      // Querformat ohne Wide (z. B. iPhone quer): Steuerung und Knopf neben das Cover, damit es groß bleibt.
+      const row=!wide&&lp.clientWidth>lp.clientHeight*1.25;stage.classList.toggle('is-listen-row',row);
+      // Über dem Cover bleibt Platz für das ruhende Glühwürmchen (≈ 17 % der Coverseite ragen über die Kante).
+      const H=lp.clientHeight,W=lp.clientWidth;
+      const side=Math.max(140,row?Math.min((H-24)/1.17,W*0.58):Math.min(W-(wide?48:20),(H-(wide?190:178))/1.17,wide?680:820));
+      stage.style.setProperty('--mp-cover',`${side.toFixed(1)}px`);stage.style.setProperty('--mp-over',`${(Math.max(58,Math.min(150,side*0.2))*0.86).toFixed(1)}px`);}
     placeFirefly();
   }
 
@@ -281,17 +300,15 @@
   }
   async function openListen(){
     if(!dialog||!view)return;
-    view.scene='listen';view.detail=null;view.trigger='listen';
+    view.scene='listen';view.detail=null;view.trigger='listen';view.returning=false;view.covered=false;flightToken++;
     dialog.querySelectorAll('[data-mp-open].is-out').forEach(b=>b.classList.remove('is-out'));
     $('[data-mp-read]').innerHTML='';
-    const s=audio()?.snapshot?.();
-    // Läuft oder pausiert das Lied dieser Karte schon: das Glühwürmchen sitzt bereits, das Cover ist da.
-    if(mine(s)&&['playing','starting','paused'].includes(s.state)){view.ff='perched';view.songAsked=true;}
-    else if(view.ff!=='perched'){view.ff='hand';}
-    applyScene();setFF(view.ff);
-    const pane=$('[data-mp-pane="listen"]');pane.classList.toggle('is-hand-in',view.ff==='hand');
-    onAudio(s);
-    ($('[data-mp-paper]:not([hidden])')||$('[data-mp-song]:not([hidden])')||$('[data-mp-back]'))?.focus?.({preventScroll:true});
+    // Jede Wahl beginnt im Ausgangszustand: Karte, Hand mit Papierfalter, kein Cover, kein Leuchten.
+    const pane=$('[data-mp-pane="listen"]');pane.classList.remove('is-covered','is-playing','is-dimmed','is-returning');
+    $('[data-mp-return]').disabled=false;
+    applyScene();layout();setFF('hand');pane.classList.add('is-hand-in');
+    onAudio(audio()?.snapshot?.());
+    ($('[data-mp-paper]')||$('[data-mp-return]'))?.focus?.({preventScroll:true});
   }
 
   function detailMarkup(kind,c){
@@ -351,75 +368,118 @@
   const place=(el,g)=>{if(!el||!g)return;el.style.left=`${g.x.toFixed(1)}px`;el.style.top=`${g.y.toFixed(1)}px`;el.style.width=`${g.w.toFixed(1)}px`;el.style.height=`${g.h.toFixed(1)}px`;};
   function ffBoxes(){
     const pane=$('[data-mp-pane="listen"]');if(!pane||pane.hidden)return null;
-    const hand=$('.mp-listen__hand'),card=$('[data-mp-lcard] img')||$('[data-mp-lcard]');
+    const hand=$('.mp-listen__hand'),box=$('[data-mp-lbox]');
     const h={x:hand.offsetLeft,y:hand.offsetTop,w:hand.offsetWidth,h:hand.offsetHeight};
-    const c=rectIn(card,pane);if(!c.w||!h.w)return null;
+    const c=rectIn(box,pane);if(!c.w||!h.w)return null;
     const perch=perchGeometry(c);const paper=paperGeometry(h);
     const fh=perch.h*0.92,fw=fh*flyerGeometry().ratio;
-    return {paper,perch,fly:{x:perch.x+perch.w/2-fw/2,y:perch.y+perch.h*0.42-fh/2,w:fw,h:fh}};
+    return {paper,perch,cover:c,fly:{x:perch.x+perch.w/2-fw/2,y:perch.y+perch.h*0.42-fh/2,w:fw,h:fh}};
   }
   function placeFirefly(){
     const g=ffBoxes();if(!g)return;
     place($('[data-mp-paper]'),g.paper);place($('[data-mp-perched]'),g.perch);place($('[data-mp-fly]'),g.fly);
     const glow=$('[data-mp-glow]');if(glow){const d=g.perch.w*1.1;place(glow,{x:g.perch.glow.x-d/2,y:g.perch.glow.y-d/2,w:d,h:d});}
+    const trail=$('[data-mp-trail]');if(trail){const d=g.fly.w*0.45;place(trail,{x:g.fly.x+g.fly.w/2-d/2,y:g.fly.y+g.fly.h*0.7-d/2,w:d,h:d});}
   }
   function setFF(next){
     if(!view)return;view.ff=next;const pane=$('[data-mp-pane="listen"]');if(!pane)return;pane.dataset.ff=next;
     $('[data-mp-paper]').hidden=next!=='hand';$('[data-mp-paper]').tabIndex=next==='hand'?0:-1;placeFirefly();
   }
+  /** Flug der einen Figur relativ zu ihrer Ruheposition (Flügel schlagen nur während des Flugs, endliche Schlagzahl). */
+  function flyFrom(dx,dy,{back=false,D=1500}={}){
+    const fly=$('[data-mp-fly]');const wings=[...fly.querySelectorAll('.mp-ff__wing')];const beats=Math.max(4,Math.round(D/170));
+    wings.forEach((w,i)=>w.animate([{transform:`rotate(${i?14:-14}deg)`},{transform:`rotate(${i?-12:12}deg)`}],{duration:D/beats,iterations:beats,direction:'alternate',easing:'ease-in-out'}));
+    const lift=Math.min(90,Math.abs(dy)*0.4+30);
+    const frames=back
+      ?[{transform:'translate(0,0) scale(1)',opacity:1},{transform:`translate(${dx*0.45}px,${dy*0.5-lift}px) scale(.9)`,opacity:1,offset:.5},{transform:`translate(${dx}px,${dy}px) scale(.45)`,opacity:0}]
+      :[{transform:`translate(${dx}px,${dy}px) scale(.7)`,opacity:.2},{transform:`translate(${dx*0.55}px,${dy*0.5-lift}px) scale(.95)`,opacity:1,offset:.45},{transform:'translate(0,0) scale(1)',opacity:1}];
+    if(back){const trail=$('[data-mp-trail]');trail?.animate(frames.map((f,i)=>({...f,opacity:i===0?0:i===1?.55:0})),{duration:D,delay:110,easing:'cubic-bezier(.4,.1,.6,1)'});}
+    return fly.animate(frames,{duration:D,easing:back?'cubic-bezier(.4,.1,.6,1)':'cubic-bezier(.3,.6,.3,1)'}).finished.catch(()=>{});
+  }
+  /** Kartenbild → zugeordnetes Originalcover (sanfte Drehung; reduzierte Bewegung: Überblendung). */
+  function showCover(on){if(!view)return;view.covered=on;$('[data-mp-pane="listen"]')?.classList.toggle('is-covered',on);onAudio(audio()?.snapshot?.());}
   let flightToken=0;
   async function onPaper(){
-    if(!view||view.ff!=='hand')return;const token=++flightToken;const pane=$('[data-mp-pane="listen"]');
+    if(!view||view.ff!=='hand'||view.returning)return;const token=++flightToken;const pane=$('[data-mp-pane="listen"]');
     const g=ffBoxes();
     $('[data-mp-paper]').classList.add('is-touched');status('Ein kleines Licht erwacht.');await wait(450);if(token!==flightToken||!view)return;
     if(reduced()||!g||typeof $('[data-mp-fly]').animate!=='function'){
-      // Reduzierte Bewegung: direkt zur Sitzpose überblenden.
-      setFF('perched');pane.classList.remove('is-hand-in');
+      // Reduzierte Bewegung: ohne Flug direkt in den Zielzustand (Cover, ruhendes Glühwürmchen).
+      showCover(true);setFF('perched');pane.classList.remove('is-hand-in');
     }else{
-      setFF('flying');
-      const fly=$('[data-mp-fly]');const dx=(g.paper.x+g.paper.w/2)-(g.fly.x+g.fly.w/2),dy=(g.paper.y+g.paper.h*0.45)-(g.fly.y+g.fly.h/2);const D=1500;
-      const wings=[...fly.querySelectorAll('.mp-ff__wing')];
-      const beats=Math.max(4,Math.round(D/170));
-      wings.forEach((w,i)=>w.animate([{transform:`rotate(${i?14:-14}deg)`},{transform:`rotate(${i?-12:12}deg)`}],{duration:D/beats,iterations:beats,direction:'alternate',easing:'ease-in-out'}));
-      const flight=fly.animate([{transform:`translate(${dx}px,${dy}px) scale(.7)`,opacity:.2},{transform:`translate(${dx*0.55}px,${dy*0.5-Math.min(90,Math.abs(dy)*0.4+30)}px) scale(.95)`,opacity:1,offset:.45},{transform:'translate(0,0) scale(1)',opacity:1}],{duration:D,easing:'cubic-bezier(.3,.6,.3,1)'});
-      pane.classList.remove('is-hand-in');
-      await flight.finished.catch(()=>{});if(token!==flightToken||!view)return;
+      setFF('flying');pane.classList.remove('is-hand-in');
+      const landing=flyFrom((g.paper.x+g.paper.w/2)-(g.fly.x+g.fly.w/2),(g.paper.y+g.paper.h*0.45)-(g.fly.y+g.fly.h/2));
+      // Während des Anflugs verwandelt sich die Karte in ihr Cover; bei der Landung steht der Coverrahmen.
+      await wait(650);if(token!==flightToken||!view)return;showCover(true);
+      await landing;if(token!==flightToken||!view)return;
       setFF('perched');
     }
-    status(`Das Glühwürmchen sitzt auf ${cardOf(view.cardId)?.name||'der Karte'}.`);
-    await wait(250);if(token!==flightToken||!view)return;
-    startSong();
+    // Landung und Bildwechsel starten keine Musik: erst „Lied abspielen“.
+    status('Das Glühwürmchen ruht auf dem Cover. Mit „Lied abspielen“ beginnt die Musik.');
+    onAudio(audio()?.snapshot?.());
+    $('[data-mp-song="play"]:not([hidden])')?.focus?.({preventScroll:true});
   }
   let songTimer=0;
   function startSong(){
-    if(!view)return;const id=view.cardId;view.songAsked=true;
+    if(!view||view.returning)return;const id=view.cardId;
     const ok=audio()?.select?.(id,{play:true,explicit:true});
-    if(ok===false){status('Das Lied dieser Karte ist gerade nicht erreichbar.');}
-    root.clearTimeout(songTimer);
-    // Blockiert der Browser den verzögerten Start: in der Sitzpose bleiben und „Lied abspielen“ anbieten.
-    songTimer=root.setTimeout(()=>{if(!view)return;const s=audio()?.snapshot?.();if(!(mine(s)&&['playing','starting','paused'].includes(s.state))){view.blocked=true;onAudio(s);status('Tippe auf „Lied abspielen“.');}},1800);
+    root.clearTimeout(songTimer);view.failed=ok===false;
+    songTimer=root.setTimeout(()=>{if(!view)return;const s=audio()?.snapshot?.();view.failed=!(mine(s)&&['playing','starting','paused'].includes(s.state));onAudio(s);},2500);
     onAudio(audio()?.snapshot?.());
   }
   function songCommand(kind){
-    const s=audio()?.snapshot?.();
+    if(!view||view.returning)return;const s=audio()?.snapshot?.();
     if(kind==='pause'){if(mine(s))audio()?.command?.('pause');return;}
-    if(kind==='resume'){if(mine(s)&&s.state==='paused')audio()?.command?.('play');else startSong();return;}
-    if(kind==='play'){view.blocked=false;if(mine(s)&&s.state==='paused')audio()?.command?.('play');else startSong();}
+    if((kind==='resume'||kind==='play')&&mine(s)&&s.state==='paused'){audio()?.command?.('play');return;}
+    startSong();
+  }
+  /** Zentraler Stopp des Kartenlieds (auch während Laden/Pause); idempotent. */
+  function stopMine(){
+    root.clearTimeout(songTimer);const s=audio()?.snapshot?.();
+    if(mine(s)&&!['stopped','silent','ended'].includes(s.state))audio()?.command?.('stop');
+  }
+  /** Hörmoment ohne Animation beenden (Schließen, Zurücklegen, Browser-Zurück, Raumwechsel). */
+  function endListen(){
+    if(!view)return;flightToken++;stopMine();view.covered=false;view.returning=false;
+    const pane=$('[data-mp-pane="listen"]');pane?.classList.remove('is-covered','is-playing','is-dimmed','is-returning','is-hand-in');setFF('hand');
+  }
+  /** „Zurück ins Mäppchen“: 1. Lied sofort aus, 2. dasselbe Glühwürmchen fliegt zum Mäppchen, 3. Cover wird wieder Karte
+   *  und wird abgelegt, 4. Mäppchen erscheint. Doppelte Eingaben werden ignoriert. */
+  async function returnToFolder(){
+    if(!view||view.scene!=='listen'||view.returning)return false;
+    view.returning=true;const token=++flightToken;
+    stopMine();
+    const pane=$('[data-mp-pane="listen"]');$('[data-mp-return]').disabled=true;pane.classList.add('is-returning');pane.classList.remove('is-playing','is-dimmed');
+    status('Das Lied ist aus. Das Glühwürmchen fliegt zurück ins Mäppchen.');
+    const g=ffBoxes();const fly=$('[data-mp-fly]');
+    if(view.ff==='perched'&&g&&!reduced()&&typeof fly?.animate==='function'){
+      // Ziel: Lasche im sichtbaren Mäppchen (Wide), sonst das Mäppchen-Symbol am Knopf.
+      const target=(isWide()&&$('[data-mp-listen]'))||$('.mp-return__icon')||$('[data-mp-return]');
+      const t=rectIn(target,pane);setFF('flying');
+      const flight=flyFrom((t.x+t.w/2)-(g.fly.x+g.fly.w/2),(t.y+t.h/2)-(g.fly.y+g.fly.h/2),{back:true,D:1300});
+      await wait(350);if(token!==flightToken||!view)return false;
+      showCover(false);await flight;if(token!==flightToken||!view)return false;
+    }else{showCover(false);}
+    await wait(reduced()?60:380);if(token!==flightToken||!view)return false;
+    pane.classList.remove('is-returning');setFF('hand');view.returning=false;
+    backToFolder();status('Die Karte liegt wieder im Mäppchen.');
+    return true;
   }
   /** Szenenauswahl und Wiedergabestatus unabhängig: der Player meldet, die Bühne zeigt. */
   function onAudio(s){
     if(!view||!dialog)return;
     const pane=$('[data-mp-pane="listen"]');const m=mine(s);const state=s?.state;
     const playing=m&&['playing','starting'].includes(state),paused=m&&state==='paused';
-    if(playing)view.blocked=false;
+    if(playing)view.failed=false;
     if(pane){
-      pane.classList.toggle('is-covered',view.ff==='perched'&&(playing||paused));
-      pane.classList.toggle('is-dimmed',view.ff==='perched'&&paused);
+      const ready=view.covered&&view.ff==='perched'&&!view.returning;
+      pane.classList.toggle('is-playing',ready&&playing);
+      pane.classList.toggle('is-dimmed',ready&&paused);
       const show=(k,on)=>{const b=pane.querySelector(`[data-mp-song="${k}"]`);if(b)b.hidden=!on;};
-      show('pause',view.ff==='perched'&&playing);show('resume',view.ff==='perched'&&paused);
-      show('play',view.ff==='perched'&&!playing&&!paused&&(view.blocked||view.songAsked));
+      show('pause',ready&&playing);show('resume',ready&&paused);show('play',ready&&!playing&&!paused);
       const st=pane.querySelector('[data-mp-listen-state]');
-      if(st)st.textContent=view.ff!=='perched'?'':playing?`Es spielt: ${s.track?.title||cardOf(view.cardId)?.name||''}`.trim():paused?'Pausiert – Weiterhören setzt an derselben Stelle fort.':state==='unavailable'||state==='error'?(s?.message||'Das Lied ist gerade nicht verfügbar.'):'';
+      // Eigene, neutrale Fehlermeldung; keine Platzhaltertexte des Players unter dem Cover.
+      if(st)st.textContent=!ready?'':playing?`Es spielt: ${s.track?.title||cardOf(view.cardId)?.name||''}`.trim():paused?'Pausiert – Weiterhören setzt an derselben Stelle fort.':(view.failed||(m&&(state==='unavailable'||state==='error')))?'Das Lied ist gerade nicht erreichbar. Das Cover bleibt hier.':'';
     }
     updateAudioBar(s);
   }
@@ -439,6 +499,7 @@
   /* ---------- Zurücklegen: Bestätigung im Vordergrund ---------- */
   function askGiveBack(){
     if(!dialog||!view||!state.active)return;
+    if(view.scene==='listen')endListen();
     if(view.scene!=='folder')backToFolder();
     const c=contentFor(state.active.cardId);const has=Boolean(state.active.draft?.trim());
     confirmBox=confirmBox||Object.assign(doc().createElement('dialog'),{className:'emfd-panel mp-confirm'});
@@ -453,8 +514,7 @@
   }
   function keep(){if(confirmBox?.open)confirmBox.close();$('[data-mp-giveback-ask]')?.focus?.({preventScroll:true});}
   function confirmGiveBack(){
-    const s=audio()?.snapshot?.();if(mine(s)&&['playing','starting','paused'].includes(s.state))audio()?.command?.('stop');
-    root.clearTimeout(songTimer);flightToken++;
+    stopMine();flightToken++;
     if(confirmBox?.open)confirmBox.close();
     const id=giveBackNow();close();
     return id;
@@ -599,6 +659,7 @@
     if(t.matches('[data-mp-listen]')){if(!view.opened)await unfold();openListen();return;}
     if(t.matches('[data-mp-paper]')){onPaper();return;}
     if(t.matches('[data-mp-song]')){songCommand(t.dataset.mpSong);return;}
+    if(t.matches('[data-mp-return]')){returnToFolder();return;}
     if(t.matches('[data-mp-bar]')){const s=audio()?.snapshot?.();if(t.dataset.mpBar==='pause')audio()?.command?.('pause');else if(s?.state==='paused')audio()?.command?.('play');return;}
     if(t.matches('[data-mp-export]')){exportKind(t.dataset.mpExport);return;}
     if(t.matches('[data-mp-folder-connect]')){if(await connectFolder()&&view?.detail==='store')openDetail('store',null);return;}
@@ -647,9 +708,11 @@
   function syncFab(){const b=doc()?.querySelector?.('#maeppchen-open');if(!b)return;const c=state.active&&cardOf(state.active.cardId);
     b.setAttribute('aria-label',c?`Mäppchen öffnen – ${c.name} begleitet dich`:'Begleiter – noch keine Karte mitgenommen');b.title=c?`Mäppchen · ${c.name}`:'Begleiter';b.dataset.state=c?'active':'empty';}
   root.addEventListener?.('emfd:companion-change',syncFab);
+  // Andere Navigation (Browser-Zurück, Raumwechsel) beendet einen offenen Hörmoment zentral, ohne hängendes Audio.
+  root.addEventListener?.('hashchange',()=>{if(dialog?.open&&view?.scene==='listen'){endListen();backToFolder();}});
   if(doc()?.readyState==='loading')doc().addEventListener('DOMContentLoaded',mountFab,{once:true});else root.setTimeout?.(mountFab,0);
   const api=Object.freeze({version:2,key:KEY,BACKUP_SCHEMA,ASSET_IDS,FF_IDS,WIDE,normalize,take,giveBack,withDraft,backupOf,fromBackup,flyerGeometry,perchGeometry,paperGeometry,
-    active,open,close,openDetail,backToFolder,openListen,askGiveBack,requestTake,giveBackNow,dockButton,openFromNavigation,emptyText,contentFor,missingFor,exportKind,importFile,
+    active,open,close,openDetail,backToFolder,openListen,returnToFolder,askGiveBack,coverOf,requestTake,giveBackNow,dockButton,openFromNavigation,emptyText,contentFor,missingFor,exportKind,importFile,
     cardPNG,thoughtPDF,storyPDF,backupFile,folderSupported,state:()=>JSON.parse(JSON.stringify(state)),view:()=>view?{...view}:null,isOpen:()=>Boolean(dialog?.open),
     reload(){state=load();syncDocks();syncFab();}});
   if(typeof module!=='undefined'&&module.exports)module.exports=api;

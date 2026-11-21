@@ -1087,6 +1087,15 @@
         ]
       },
       "herkunft": "EMFD-Gluehwuermchen-Serie v0.2 media/gluehwuermchen/sitzpose.png (unverändert, sha256 0a23ff51…); Anker aus asset-register.json"
+    },
+    "cover.O20": {
+      "datei": "../media/covers/O20-cover-original-bf9d76ee.jpeg",
+      "breite": 1254,
+      "hoehe": 1254,
+      "art": "cover",
+      "produktion": "REVIEW",
+      "freigabe": "test",
+      "herkunft": "EMFD-CARD-MUSIC-01 referenzen/02_Originalcover_O20_Das_Windspiel.jpeg (unverändert, sha256 bf9d76ee…) – authoritatives Originalcover O20 „Das Windspiel“; weitere Cover über cover.<ID> oder den Musikkatalog"
     }
   },
   "szenen": {

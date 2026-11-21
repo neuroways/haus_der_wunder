@@ -23,6 +23,9 @@
  function coverFor(item){
    const explicit=item.cardId&&root.EMFDImages?.cover?.(item.cardId);
    if(explicit)return {src:explicit,kind:'cover'};
+   // EMFD-CARD-MUSIC-01: registriertes Originalcover (cover.<ID>), wenn der Katalog keines liefert – gleiches Cover wie im Mäppchen.
+   const registered=item.cardId&&root.EMFDRegistry?.resolveMedia?.(`cover.${item.cardId}`);
+   if(registered?.type==='file')return {src:registered.src,kind:'cover'};
    const front=item.cardId&&root.EMFDImages?.card?.(item.cardId,'card-view');
    if(front)return {src:front,kind:'card'};
    const fallback=item.music?.coverPath||item.media?.imagePath||'';

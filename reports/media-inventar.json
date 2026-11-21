@@ -1,6 +1,6 @@
 {
  "tool": "emfd-media-check/1.0",
- "generatedAt": "2026-11-20T22:34:29+00:00",
+ "generatedAt": "2026-11-20T23:51:48+00:00",
  "mediaRoot": "media",
  "files": [
   {
@@ -570,6 +570,15 @@
    "rev": 1,
    "variant": null,
    "nameHash": "8e23a947"
+  },
+  {
+   "path": "covers/O20-cover-original-bf9d76ee.jpeg",
+   "folder": "covers",
+   "bytes": 605180,
+   "sha256": "bf9d76ee959e90efd73e45dac6b2ce51579a006d7a8265f85829a9520939e532",
+   "width": 1254,
+   "height": 1254,
+   "kind": "unknown-media"
   },
   {
    "path": "covers/O24-cover-r1-054b4da2.png",
@@ -5052,6 +5061,11 @@
   },
   {
    "level": "Hinweis",
+   "path": "covers/O20-cover-original-bf9d76ee.jpeg",
+   "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
+  },
+  {
+   "level": "Hinweis",
    "path": "maeppchen/gluehwuermchen/15-hand.png",
    "text": "Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?)."
   },
@@ -6947,13 +6961,9 @@
   }
  ],
  "changes": {
-  "base": "2026-11-20T22:14:19+00:00",
+  "base": "2026-11-20T22:34:29+00:00",
   "added": [
-   "maeppchen/gluehwuermchen-v0.2/flugfluegel-links.png",
-   "maeppchen/gluehwuermchen-v0.2/flugfluegel-rechts.png",
-   "maeppchen/gluehwuermchen-v0.2/flugkoerper.png",
-   "maeppchen/gluehwuermchen-v0.2/papierfalter.png",
-   "maeppchen/gluehwuermchen-v0.2/sitzpose.png"
+   "covers/O20-cover-original-bf9d76ee.jpeg"
   ],
   "changed": [],
   "removed": []

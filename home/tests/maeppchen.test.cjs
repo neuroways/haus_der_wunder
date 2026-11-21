@@ -40,36 +40,71 @@ test('Medien: alle 26 Mäppchen-Grafiken über Register-IDs, unverändert abgele
  assert.equal(M.missingFor('O08').filter(m=>/^maeppchen\./.test(m.id)).length,0);
 });
 
-test('Glühwürmchen v0.2: Flügel-Drehpunkt auf dem Ansatzpunkt des Körpers, Sitzpose auf der unteren Kartenkante, Papier auf der Handfläche',()=>{
+test('Glühwürmchen v0.2: Flügel-Drehpunkt auf dem Ansatzpunkt des Körpers, Sitzpose auf der oberen Coverkante (CARD-MUSIC-01), Papier auf der Handfläche',()=>{
  const reg=globalThis.EMFDRegistry;const anchor=id=>reg.media(id).anker;
  assert.deepEqual(anchor('gluehwuermchen.flugkoerper'),{leftWing:[0.33,0.60],rightWing:[0.69,0.61]});
  const g=M.flyerGeometry();
  for(const [w,key,pv] of [[g.left,'leftWing',[0.97,0.81]],[g.right,'rightWing',[0.03,0.81]]]){
   const x=(w.left+pv[0]*w.width)/100,y=(w.top+pv[1]*w.height)/100;const a=anchor('gluehwuermchen.flugkoerper')[key];
   assert.ok(Math.abs(x-a[0])<0.002&&Math.abs(y-a[1])<0.002,key);assert.equal(+w.ox.toFixed(1),pv[0]*100);}
- const card={x:100,y:200,w:300,h:500};const p=M.perchGeometry(card);
- assert.ok(Math.abs(p.x+0.49*p.w-(card.x+card.w*0.8))<1e-6&&Math.abs(p.y+0.86*p.h-(card.y+card.h))<1e-6,'cardEdge auf der Kante nahe der rechten Ecke');
+ const cover={x:20,y:100,w:360,h:360};const p=M.perchGeometry(cover);
+ assert.ok(Math.abs(p.x+0.49*p.w-(cover.x+cover.w*0.82))<1e-6&&Math.abs(p.y+0.86*p.h-(cover.y+cover.h*0.012))<1e-6,'cardEdge auf der oberen Rahmenkante nahe der rechten Ecke');
  assert.ok(Math.abs(p.glow.y-(p.y+0.75*p.h))<1e-6,'Leuchtbauch');
  const hand={x:0,y:400,w:240,h:330};const q=M.paperGeometry(hand);
  assert.ok(Math.abs(q.x+0.52*q.w-(hand.x+hand.w*0.5))<1e-6&&Math.abs(q.y+0.91*q.h-(hand.y+hand.h*0.58))<1e-6,'palm auf dem Landepunkt der Hand');
 });
 
-test('Hörmoment v0.2: Papier → kurzer Flug → Sitzpose, erst dann Lied über den Player und Cover; keine Dauerschleife; reduzierte Bewegung blendet über',()=>{
+test('Hörmoment (CARD-MUSIC-01): Papier → Flug → Landung auf dem Coverrand, Karte wird Originalcover; Musik nur nach bewusstem Tippen',()=>{
  const src=read('maeppchen.js'),css=read('maeppchen.css');
  const f=src.slice(src.indexOf('async function onPaper'),src.indexOf('let songTimer'));
- assert.ok(f.indexOf("setFF('flying')")<f.indexOf("setFF('perched')",f.indexOf("setFF('flying')"))&&f.lastIndexOf("setFF('perched')")<f.indexOf('startSong()'),'Lied erst nach der Landung');
- assert.match(f,/if\(reduced\(\)\|\|[\s\S]{0,120}?\{\s*\/\/[^\n]*\n\s*setFF\('perched'\)/,'reduzierte Bewegung: direkt zur Sitzpose');
- assert.match(f,/iterations:beats/);assert.doesNotMatch(f,/Infinity|iterations:\s*Infinity/,'Flügel nur im kurzen Flug');
- assert.doesNotMatch(css,/infinite/,'keine Dauerschleife im Mäppchen');
+ assert.doesNotMatch(f,/startSong|select\?\.\(|command\?\.\('play'\)/,'Landung und Bildwechsel sind kein Play-Trigger');
+ assert.ok(f.indexOf('showCover(true)')<f.indexOf('await landing'),'Cover steht bei der Landung');
+ assert.match(f,/if\(reduced\(\)\|\|[\s\S]{0,120}?\{\s*\/\/[^\n]*\n\s*showCover\(true\);setFF\('perched'\)/,'reduzierte Bewegung: direkt in den Zielzustand');
+ assert.match(src,/function flyFrom[\s\S]*?iterations:beats/);assert.doesNotMatch(src,/iterations:\s*Infinity/,'Flügel nur im kurzen Flug');
+ // Einzige Endlosanimation: ruhiger Gold-Schein des Covers nur während der Wiedergabe, bei reduzierter Bewegung aus.
+ assert.deepEqual(css.match(/[^\n]*infinite[^\n]*/g),['.mp-pane--listen.is-playing .mp-listen__cover{animation:mp-cover-glow 7s ease-in-out infinite}']);
+ assert.match(css,/@keyframes mp-cover-glow\{0%,100%\{box-shadow:[^}]*\}50%\{box-shadow:[^}]*\}\}/,'nur Licht, keine Skalierung');
+ assert.match(css,/\.mp-pane--listen\.is-playing \.mp-listen__cover\{animation:none\}/);
+ assert.match(css,/\.mp-listen__cover img\{[^}]*aspect-ratio:1;object-fit:contain/,'quadratisch, nicht verzerrt, nicht beschnitten');
  const song=src.slice(src.indexOf('function startSong'),src.indexOf('function songCommand'));
  assert.match(song,/audio\(\)\?\.select\?\.\(id,\{play:true,explicit:true\}\)/,'bestehender Player');
- assert.match(song,/view\.blocked=true/,'blockierter Start: Lied abspielen anbieten');
- const cmd=src.slice(src.indexOf('function songCommand'),src.indexOf('function onAudio'));
- assert.match(cmd,/kind==='resume'\)\{if\(mine\(s\)&&s\.state==='paused'\)audio\(\)\?\.command\?\.\('play'\)/,'Fortsetzen an derselben Stelle');
- assert.match(css,/is-dimmed \.mp-ff__glow\{opacity:\.3\}/,'Pausieren dimmt einmal sanft');
- assert.match(src,/pane\.classList\.toggle\('is-covered',view\.ff==='perched'&&\(playing\|\|paused\)\)/,'Cover erst mit dem Lied');
- assert.match(src,/coverFor\?\.\(\{cardId:c\.id/,'Cover wie im Musikzimmer');
+ const cmd=src.slice(src.indexOf('function songCommand'),src.indexOf('function stopMine'));
+ assert.match(cmd,/mine\(s\)&&s\.state==='paused'\)\{audio\(\)\?\.command\?\.\('play'\)/,'Fortsetzen an derselben Stelle');
+ assert.match(css,/is-dimmed \.mp-ff__glow\{opacity:\.35\}/,'Pause dimmt einmal sanft');
  assert.doesNotMatch(src,/new Audio\(|\.play\(\)/,'kein eigener Player');
+ assert.doesNotMatch(src,/missingRecordMessage|Platte/,'keine Platzhaltermeldung unter dem Cover');
+});
+
+test('Zurück ins Mäppchen (CARD-MUSIC-01): Audio sofort aus, eine Figur fliegt zurück, idempotent; zentraler Stopp bei Schließen, Zurücklegen, Browser-Zurück',()=>{
+ const src=read('maeppchen.js');
+ const r=src.slice(src.indexOf('async function returnToFolder'),src.indexOf('/** Szenenauswahl'));
+ assert.match(r,/if\(!view\|\|view\.scene!=='listen'\|\|view\.returning\)return false;\s*view\.returning=true;/,'Doppel-Taps ignoriert');
+ assert.ok(r.indexOf('stopMine()')<r.indexOf('flyFrom('),'erst Audio stoppen, dann Rückflug');
+ assert.ok(r.indexOf('flyFrom(')<r.indexOf('backToFolder()'),'Mäppchen erscheint nach dem Rückflug');
+ assert.match(r,/showCover\(false\)/,'Cover wird wieder Karte');
+ const stop=src.slice(src.indexOf('function stopMine'),src.indexOf('/** Hörmoment ohne Animation'));
+ assert.match(stop,/!\['stopped','silent','ended'\]\.includes\(s\.state\)\)audio\(\)\?\.command\?\.\('stop'\)/,'auch beim Laden und in der Pause');
+ assert.match(src,/if\(view\?\.scene==='listen'\)endListen\(\);\n/,'Schließen');
+ assert.match(src,/if\(view\.scene==='listen'\)endListen\(\);\s*if\(view\.scene!=='folder'\)backToFolder\(\);/,'Zurücklegen');
+ assert.match(src,/addEventListener\?\.\('hashchange',\(\)=>\{if\(dialog\?\.open&&view\?\.scene==='listen'\)\{endListen\(\);backToFolder\(\);\}\}\)/,'Browser-Zurück/Raumwechsel');
+ assert.match(src,/if\(view\?\.scene==='listen'\)returnToFolder\(\)/,'Escape');
+ assert.match(src,/\$\('\[data-mp-back\]'\)\.hidden=view\.scene==='folder'\|\|view\.scene==='listen'/,'keine doppelte Zurück-Navigation');
+ const ol=src.slice(src.indexOf('async function openListen'),src.indexOf('function detailMarkup'));
+ assert.match(ol,/classList\.remove\('is-covered','is-playing','is-dimmed','is-returning'\)/,'jede Wahl im Ausgangszustand');
+ // genau eine Figur: je ein Element für Papier, Flug, Sitzen – kein Glühwürmchen am Knopf
+ assert.equal((src.match(/data-mp-perched/g)||[]).length,2);assert.match(src,/class="mp-return" data-mp-return>\$\{img\('01','mp-return__icon'\)\}<span>Zurück ins Mäppchen<\/span>/);
+});
+
+test('Originalcover über die Karten-ID (Katalog → Register cover.<ID> → Musikzimmer-Kette), auch in der Gerätestation',()=>{
+ const reg=globalThis.EMFDRegistry;const m=reg.resolveMedia('cover.O20');
+ assert.equal(m.type,'file');assert.equal(m.width,1254);assert.equal(m.height,1254);
+ const file=path.join(home,m.src);assert.ok(fs.existsSync(file));
+ assert.equal(require('node:crypto').createHash('sha256').update(fs.readFileSync(file)).digest('hex'),'bf9d76ee959e90efd73e45dac6b2ce51579a006d7a8265f85829a9520939e532','unverändertes Original');
+ assert.equal(M.coverOf({id:'O20',name:'Das Windspiel',cover:''}).src,m.src);assert.equal(M.coverOf({id:'O20',name:'x'}).kind,'cover');
+ assert.equal(M.coverOf({id:'O13',name:'Die Wurzel',cover:'card.webp'}).kind,'card','ohne Cover: Kartenvorderseite, keine O20-Hardcodierung');
+ assert.doesNotMatch(read('maeppchen.js'),/O20/);
+ assert.match(read('device-station.js'),/resolveMedia\?\.\(`cover\.\$\{item\.cardId\}`\)/);
+ const list=require('../offline-policy.js').registerImages(require('../data/registry.js'));assert.ok(list.house.some(f=>f.endsWith('O20-cover-original-bf9d76ee.jpeg')),'offline');
 });
 
 test('Bühne v0.2: schmal genau ein aktiver Bereich (inert), Wide ab 960 × 560; Details fokussieren nie die Schreibfläche',()=>{

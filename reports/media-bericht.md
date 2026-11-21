@@ -1,14 +1,14 @@
 # Medien-Check · media/
 
-Erstellt: 2026-11-20T22:34:29+00:00 · Werkzeug `tools/media_check.py` · 472 Dateien, 241.5 MB
+Erstellt: 2026-11-20T23:51:48+00:00 · Werkzeug `tools/media_check.py` · 473 Dateien, 242.0 MB
 
 ## Ergebnis
 
 - Vorderseiten: **18/24** Karten · Cover: **3/25** (O01–O24 + T03)
 - Ohne Vorderseite: O19, O20, O21, O22, O23, O24
 - Ohne Cover: O01, O02, O03, O05, O07, O08, O09, O10, O11, O12, O13, O14, O15, O16, O17, O18, O19, O20, O21, O22, O23, T03
-- Fehler: **32** · Warnungen: **0** · Hinweise: **382**
-- Seit 2026-11-20T22:14:19+00:00: 5 neu, 0 geändert, 0 entfernt
+- Fehler: **32** · Warnungen: **0** · Hinweise: **383**
+- Seit 2026-11-20T22:34:29+00:00: 1 neu, 0 geändert, 0 entfernt
 
 ## Apps · Zugriff auf media/
 
@@ -20,12 +20,12 @@ Erstellt: 2026-11-20T22:34:29+00:00 · Werkzeug `tools/media_check.py` · 472 Da
 ## Ordnerstruktur
 
 ```
-media/                                472 Dateien   241.5 MB
+media/                                473 Dateien   242.0 MB
   audio/                                7 Dateien    31.5 MB
   backgrounds/                          3 Dateien   835.7 KB
   cards/                               43 Dateien    87.1 MB
     fronts/                            18 Dateien    36.9 MB
-  covers/                               3 Dateien     6.9 MB
+  covers/                               4 Dateien     7.4 MB
   katalog/                              1 Dateien    15.5 KB
   maeppchen/                           31 Dateien    11.7 MB
     gluehwuermchen/                     7 Dateien     1.3 MB
@@ -161,6 +161,7 @@ media/                                472 Dateien   241.5 MB
 | Hinweis | `cards/O23.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `cards/O24.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `cards/rueckseite.jpeg` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
+| Hinweis | `covers/O20-cover-original-bf9d76ee.jpeg` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `maeppchen/gluehwuermchen-v0.2/flugfluegel-links.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `maeppchen/gluehwuermchen-v0.2/flugfluegel-rechts.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `maeppchen/gluehwuermchen-v0.2/flugkoerper.png` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
@@ -509,15 +510,11 @@ media/                                472 Dateien   241.5 MB
 | Hinweis | `start/EMFD-START-02-A05-briefpapier.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 | Hinweis | `start/EMFD-START-02-A06-geschenkkarte-vorderseite.webp` | Mediendatei folgt keiner bekannten Namenskonvention (Altbestand oder neuer Typ?). |
 
-## Änderungen seit 2026-11-20T22:14:19+00:00
+## Änderungen seit 2026-11-20T22:34:29+00:00
 
 **Neu**
 
-- `maeppchen/gluehwuermchen-v0.2/flugfluegel-links.png`
-- `maeppchen/gluehwuermchen-v0.2/flugfluegel-rechts.png`
-- `maeppchen/gluehwuermchen-v0.2/flugkoerper.png`
-- `maeppchen/gluehwuermchen-v0.2/papierfalter.png`
-- `maeppchen/gluehwuermchen-v0.2/sitzpose.png`
+- `covers/O20-cover-original-bf9d76ee.jpeg`
 
 
 ## Dateien
@@ -580,6 +577,7 @@ media/                                472 Dateien   241.5 MB
 | `cards/rueckseite.jpeg` | unknown-media |  | 958×1642 | 803.5 KB | `d1edf154afa2` |
 | `covers/O04-cover-r1-d7ace5fa.png` | cover | r1 | 1254×1254 | 2.3 MB | `d7ace5facce9` |
 | `covers/O06-cover-r1-8e23a947.png` | cover | r1 | 1254×1254 | 2.0 MB | `8e23a9470099` |
+| `covers/O20-cover-original-bf9d76ee.jpeg` | unknown-media |  | 1254×1254 | 591.0 KB | `bf9d76ee959e` |
 | `covers/O24-cover-r1-054b4da2.png` | cover | r1 | 1254×1254 | 2.5 MB | `054b4da28f09` |
 | `katalog/index.html` | support |  |  | 15.5 KB | `661a44edf28b` |
 | `maeppchen/gluehwuermchen/15-hand.png` | unknown-media |  | 550×756 | 439.4 KB | `87cb00981b48` |
